@@ -129,7 +129,8 @@ def approved_surfaces(entries: list[dict]) -> set[str]:
 
 
 def load_profiles(root: Path) -> dict[str, dict]:
-    for path in (root / "profiles" / "profiles.yaml", root / "references" / "profiles.yaml"):
+    candidates = [root / "profiles" / "profiles.yaml", root / "references" / "profiles.yaml"]
+    for path in candidates:
         if path.exists():
             return (load_yaml(path).get("profiles") or {})
     return {}
