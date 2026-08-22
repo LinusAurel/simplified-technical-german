@@ -3,8 +3,8 @@ release: 0.1.0
 status: experimental
 files:
 - path: .github/workflows/ci.yml
-  size_bytes: 419
-  sha256: f7968a63d97f82f22dfc78a223ae4448b933f7c6585aac8ab2c8279f3646b704
+  size_bytes: 435
+  sha256: c14e61b585c02d299fdfebcf42b9a0ba1fa3c5072b6f734c30e19da34e65695b
 - path: .gitignore
   size_bytes: 79
   sha256: 0b01e01f21756b0e41680729b969275fb4e7da17ec6ab23778110305ed57b169
