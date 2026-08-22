@@ -3,23 +3,16 @@ policy:
   raw_text_committed: false
   holdout_used_for_lexicon_development: false
 sources:
-  - id: MED-DRAEGER-EVITA-FULL
-    domain: medizintechnik
-    partition: development
-    type: pdf
-    url: https://www.draeger.com/Content/Documents/Products/evita-v300-ifu-9052994-de.pdf
-    title: Evita V300 – Gebrauchsanweisung
-    version: SW 2.n
   - id: MED-HAMILTON-C1-FULL
     domain: medizintechnik
-    partition: holdout
+    partition: development
     type: pdf
     url: https://www.hamilton-medical.com/dam/jcr:e66ea4f2-39d8-4bb1-9ed9-83196b9d4c5b/HAMILTON-C1-ops-manual-SW3.0.x-de-10101872.00.pdf
     title: HAMILTON-C1 – Bedienungshandbuch
     version: SW 3.0.x
   - id: PLANT-WILO-STRATOS-FULL
     domain: anlagenbau
-    partition: validation
+    partition: holdout
     type: pdf
     url: https://cms.media.wilo.com/dcidocpfinder/wilo713698/9534323/wilo713698.pdf
     title: Wilo-Stratos MAXO – Bedienungsanleitung
@@ -38,13 +31,6 @@ sources:
     url: https://www.bmw.de/content/dam/bmw/marketDE/bmw_de/digital-hub/gpsr/01405B56E22_2411_de-de_BA_2411_BMW_SB_de-de.pdf.coredownload.inline.pdf
     title: BMW Sicherheitsbroschüre
     version: 2411
-  - id: AUTO-AUDI-CONNECT-FULL
-    domain: automotive
-    partition: development
-    type: pdf
-    url: https://www.audi.de/dam/nemo/customer-area/relaunch-connect/Set-up-connect/Audi_QSG_MIB2_DE.pdf
-    title: Audi connect Quick Start Guide
-    version: MIB2 DE
   - id: SW-NEXTCLOUD-WEB-FULL
     domain: software_it
     partition: development
@@ -61,14 +47,14 @@ sources:
     version: 15 SP5
   - id: SW-SYNOLOGY-VOLUME-FULL
     domain: software_it
-    partition: holdout
+    partition: validation
     type: html
     url: https://kb.synology.com/de-de/DSM/help/DSM/StorageManager/volume_create_volume
     title: DSM – Ein Volume erstellen
     version: DSM Knowledge Center
   - id: TEL-TELEKOM-SPEEDPORT
     domain: telecom
-    partition: development
+    partition: validation
     type: html
     url: https://www.telekom.de/hilfe/geraete/router/speedport/konfigurationsmenue-oeffnen
     title: Speedport Konfigurationsmenü öffnen
@@ -94,3 +80,17 @@ sources:
     url: https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld
     title: Arbeitsuchend melden und Arbeitslosengeld erhalten
     version: accessed public service page
+  - id: ENERGY-VZ-TARIFFINDER
+    domain: energy_consumer
+    partition: validation
+    type: html
+    url: https://www.verbraucherzentrale.de/wissen/energie/preise-tarife-anbieterwechsel/so-finden-sie-den-passenden-strom-oder-gastarif-6436
+    title: So finden Sie den passenden Strom- oder Gastarif
+    version: Stand 29. Juli 2026
+  - id: ENERGY-VZ-WECHSEL
+    domain: energy_consumer
+    partition: holdout
+    type: html
+    url: https://www.verbraucherzentrale.de/wissen/energie/preise-tarife-anbieterwechsel/so-laeuft-der-anbieterwechsel-bei-strom-und-gas-ab-10645
+    title: So läuft der Anbieterwechsel bei Strom und Gas ab
+    version: Stand 28. Mai 2025
