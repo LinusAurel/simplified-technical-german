@@ -1,0 +1,6 @@
+extends: existence
+message: "STG-DE-4.3: Verwenden Sie `man` nicht als technischen Akteur."
+level: error
+ignorecase: false
+tokens:
+  - '\b[Mm]an\b'
