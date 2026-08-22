@@ -3,8 +3,8 @@ release: 0.1.0
 status: experimental
 files:
 - path: .github/workflows/ci.yml
-  size_bytes: 419
-  sha256: f7968a63d97f82f22dfc78a223ae4448b933f7c6585aac8ab2c8279f3646b704
+  size_bytes: 435
+  sha256: c14e61b585c02d299fdfebcf42b9a0ba1fa3c5072b6f734c30e19da34e65695b
 - path: .gitignore
   size_bytes: 79
   sha256: 0b01e01f21756b0e41680729b969275fb4e7da17ec6ab23778110305ed57b169
@@ -24,8 +24,8 @@ files:
   size_bytes: 1068
   sha256: 5bc3ca5411c3ae3780a75f26d08db7b27728238827dd67648102a5314e72a4fc
 - path: README.md
-  size_bytes: 6292
-  sha256: b097dc3be189c2694c08ca1ca472e7acc02d9fc4e9375f3beca3c7e376e3a00b
+  size_bytes: 6952
+  sha256: 4ce8e164590e110cec54b8d401970fe61e80071c34686fa50b3f5b451e28571a
 - path: STG-DE.md
   size_bytes: 236578
   sha256: bcc0e6c5b9aa4b3cf68b00d788b44787175cd03b0a8f76f8d1bf6a89b19e0803
@@ -150,8 +150,8 @@ files:
   size_bytes: 6434
   sha256: c9d5ab0fb3d3dfad81db827c9c4fddac745a34ebc4a2f8c7fb94a28cb000c69d
 - path: skills/simplified-technical-german/scripts/stg_lint.py
-  size_bytes: 9922
-  sha256: 3fcd10142408557508c756d81bb3984a0f5608f1b77922da74c389191e7e5275
+  size_bytes: 9890
+  sha256: 5da922f66a3682c89e98057a235ba4782f8cbcbb0bf622c249a27d7d613886f7
 - path: sources.md
   size_bytes: 998
   sha256: ca55c0e27ec3af18e6d34ae8d50f533cfe1c9c06669191600ab76225bcbe020a
@@ -159,8 +159,8 @@ files:
   size_bytes: 8096
   sha256: a0fac0989df35bd6feeed2f0065e8098e72ac60fea41de18624f2e29f0b4adad
 - path: tests/test_stg_lint.py
-  size_bytes: 1508
-  sha256: 7a91d201803994f89e5f665ad9cebc018c039565d65b33805670138668f6aa0e
+  size_bytes: 3611
+  sha256: c6b86ac3cdb8783168791c7b20c1da2a3dcca6683dd657100f229ab195ba08eb
 - path: tools/build_manifest.py
   size_bytes: 744
   sha256: 911f1af07aad9f598dc82685e7c7d4dfea183819ecff8aca7faa2f290592314e
@@ -171,14 +171,14 @@ files:
   size_bytes: 10798
   sha256: c4409a1b1fbc87a825ae6b654627019f187fec2f43417604555cd893fd09976f
 - path: tools/stg_lint.py
-  size_bytes: 9922
-  sha256: 3fcd10142408557508c756d81bb3984a0f5608f1b77922da74c389191e7e5275
+  size_bytes: 9890
+  sha256: 5da922f66a3682c89e98057a235ba4782f8cbcbb0bf622c249a27d7d613886f7
 - path: tools/sync_skill.py
   size_bytes: 2613
   sha256: 86edc549f60fb90f3a187a0d467de1a0c6978cd0bf8ddd0da3838bced509c120
 - path: tools/validate_release.py
-  size_bytes: 2793
-  sha256: 3e7caf5f99905eee7d27b7f628fda52c01bed4c1ad11fcffac344a9fc487141b
+  size_bytes: 3995
+  sha256: f955f08fda54a839f75c472162b27be80892841e94e116c9e27bce90a1984115
 - path: validator-contract.md
   size_bytes: 6434
   sha256: c9d5ab0fb3d3dfad81db827c9c4fddac745a34ebc4a2f8c7fb94a28cb000c69d
