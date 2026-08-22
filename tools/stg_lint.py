@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Deterministic STG-DE lint checks.
 
-This linter intentionally checks only conditions that can be detected with acceptable
-reliability without a full German parser. It complements, but does not replace, semantic
-review against the STG-DE rules.
+The linter checks conditions that can be detected with acceptable reliability without
+claiming that deterministic checks prove full STG-DE conformance.
 """
 from __future__ import annotations
 
@@ -55,8 +54,7 @@ def split_sentences(text: str) -> list[str]:
     text = re.sub(r"\s+", " ", text.strip())
     if not text:
         return []
-    parts = SENTENCE_SPLIT_RE.split(text)
-    return [p.strip() for p in parts if p.strip()]
+    return [p.strip() for p in SENTENCE_SPLIT_RE.split(text) if p.strip()]
 
 
 def split_paragraphs(text: str) -> list[str]:
@@ -69,7 +67,6 @@ def split_paragraphs(text: str) -> list[str]:
                 paragraphs.append(" ".join(current))
                 current = []
             continue
-        # Treat Markdown headings and list items as structural boundaries, not prose paragraphs.
         if stripped.startswith("#") or re.match(r"^(?:[-*+] |\d+[.)] )", stripped):
             if current:
                 paragraphs.append(" ".join(current))
@@ -123,17 +120,38 @@ def approved_surfaces(entries: list[dict]) -> set[str]:
         for s in e.get("surface_forms", []) or []:
             if s:
                 out.add(str(s).casefold())
-    # Explicit noun plurals are controlled forms unless they collide with a canonical lemma.
     for e in entries:
         if e.get("part_of_speech") == "noun" and e.get("plural"):
-            p = str(e["plural"]).casefold()
-            if p not in canonical:
-                out.add(p)
+            plural = str(e["plural"]).casefold()
+            if plural not in canonical:
+                out.add(plural)
     return out
 
 
+def load_profiles(root: Path) -> dict[str, dict]:
+    candidates = [root / "profiles" / "profiles.yaml", root / "references" / "profiles.yaml"]
+    for path in candidates:
+        if path.exists():
+            return (load_yaml(path).get("profiles") or {})
+    return {}
+
+
+def resolve_profile(root: Path, profile: str | None, text_type: str) -> tuple[str, int, dict | None]:
+    if not profile:
+        effective_type = "procedure" if text_type == "procedure" else "description"
+        return effective_type, 20 if effective_type == "procedure" else 25, None
+    profiles = load_profiles(root)
+    if profile not in profiles:
+        available = ", ".join(sorted(profiles)) or "none"
+        raise ValueError(f"Unknown STG-DE profile `{profile}`. Available profiles: {available}")
+    config = profiles[profile]
+    effective_type = text_type if text_type != "auto" else str(config["base_text_type"])
+    limit = int(config.get("sentence_word_limit", 20 if effective_type == "procedure" else 25))
+    return effective_type, limit, config
+
+
 def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | None = None,
-               lexicon_report: bool = False) -> dict:
+               lexicon_report: bool = False, profile: str | None = None) -> dict:
     project = project or {}
     if (root / "dictionary" / "approved-words.yaml").exists():
         approved_path = root / "dictionary" / "approved-words.yaml"
@@ -141,51 +159,34 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     else:
         approved_path = root / "references" / "approved-words.yaml"
         prohibited_path = root / "references" / "prohibited-words.yaml"
-    approved_data = load_yaml(approved_path)
-    prohibited_data = load_yaml(prohibited_path)
-    approved = approved_data.get("entries", [])
-    prohibited = prohibited_data.get("entries", [])
+    approved = load_yaml(approved_path).get("entries", [])
+    prohibited = load_yaml(prohibited_path).get("entries", [])
     allowed_project, avoid_project = project_terms(project)
     allowed_core = approved_surfaces(approved)
+    effective_type, sentence_limit, profile_config = resolve_profile(root, profile, text_type)
 
     findings: list[Finding] = []
     masked = mask_protected(text)
 
-    # STG-8.1: semicolons must not join statements.
     for line in text.splitlines():
         if ";" in line and not line.lstrip().startswith("#"):
-            findings.append(Finding(
-                "error", "STG-8.1", "Semikolon verwenden Sie nicht. Teilen Sie den Satz.",
-                line.strip(), "Schreiben Sie zwei getrennte Sätze."
-            ))
+            findings.append(Finding("error", "STG-8.1", "Semikolon verwenden Sie nicht. Teilen Sie den Satz.", line.strip(), "Schreiben Sie zwei getrennte Sätze."))
 
-    # STG-DE-4.3: do not use indefinite "man" as the technical actor.
     for sentence in split_sentences(masked):
         if MAN_RE.search(sentence):
-            findings.append(Finding(
-                "error", "STG-DE-4.3", "`man` bezeichnet den Akteur nicht eindeutig.",
-                sentence, "Nennen Sie den Akteur oder verwenden Sie eine direkte Anweisung.", "man"
-            ))
+            findings.append(Finding("error", "STG-DE-4.3", "`man` bezeichnet den Akteur nicht eindeutig.", sentence, "Nennen Sie den Akteur oder verwenden Sie eine direkte Anweisung.", "man"))
 
-    # STG-DE-8.1: known ambiguous slash combinations in running prose.
     for line in masked.splitlines():
         if line.lstrip().startswith("#"):
             continue
         for pattern in AMBIGUOUS_SLASH_PATTERNS:
             match = pattern.search(line)
             if match:
-                findings.append(Finding(
-                    "warning", "STG-DE-8.1", "Die Schrägstrichkombination kann mehrdeutig sein.",
-                    match.group(0), "Verwenden Sie `und`, `oder`, eine Liste oder getrennte Sätze.", match.group(0)
-                ))
+                findings.append(Finding("warning", "STG-DE-8.1", "Die Schrägstrichkombination kann mehrdeutig sein.", match.group(0), "Verwenden Sie `und`, `oder`, eine Liste oder getrennte Sätze.", match.group(0)))
 
-    # STG-1.1: controlled/prohibited vocabulary.
     for entry in prohibited:
         term = str(entry.get("term", "")).strip()
-        if not term:
-            continue
-        rx = phrase_regex(term)
-        if not rx.search(masked):
+        if not term or not phrase_regex(term).search(masked):
             continue
         status = entry.get("status", "review_required")
         severity = "error" if status == "prohibited" else "review"
@@ -193,75 +194,62 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
         suggestion = entry.get("rewrite")
         if alternatives:
             suggestion = (suggestion + " " if suggestion else "") + "Bevorzugt: " + ", ".join(map(str, alternatives)) + "."
-        findings.append(Finding(
-            severity, "STG-1.1", str(entry.get("reason") or f"{term} erfordert Prüfung."),
-            term, suggestion, term
-        ))
+        findings.append(Finding(severity, "STG-1.1", str(entry.get("reason") or f"{term} erfordert Prüfung."), term, suggestion, term))
 
-    # STG-9.4: project preferred terminology.
     lowered = masked.casefold()
     for avoided, preferred in avoid_project.items():
         if phrase_regex(avoided).search(lowered):
-            findings.append(Finding(
-                "error", "STG-9.4", "Projektterminologie ist nicht konsistent.",
-                avoided, f"Verwenden Sie `{preferred}`.", avoided
-            ))
+            findings.append(Finding("error", "STG-9.4", "Projektterminologie ist nicht konsistent.", avoided, f"Verwenden Sie `{preferred}`.", avoided))
 
-    # STG-5.1 / STG-6.3: sentence length.
-    cap = 20 if text_type == "procedure" else 25
     for sentence in split_sentences(text):
         n = count_words(sentence)
-        if n > cap:
-            rule = "STG-5.1" if text_type == "procedure" else "STG-6.3"
-            findings.append(Finding(
-                "error", rule, f"Der Satz hat {n} Wörter. Zulässig sind höchstens {cap} Wörter in diesem Prüfmodus.",
-                sentence, "Teilen Sie den Satz, ohne Bedingungen oder technische Bedeutung zu entfernen."
-            ))
+        if n > sentence_limit:
+            rule = "STG-5.1" if effective_type == "procedure" else "STG-6.3"
+            findings.append(Finding("error", rule, f"Der Satz hat {n} Wörter. Das Profil erlaubt höchstens {sentence_limit} Wörter.", sentence, "Teilen Sie den Satz, ohne Bedingungen oder technische Bedeutung zu entfernen."))
 
-    # STG-6.6: descriptive paragraphs have at most six sentences.
-    if text_type in {"auto", "description"}:
+    if effective_type == "description":
         for paragraph in split_paragraphs(text):
             sentences = split_sentences(paragraph)
             if len(sentences) > 6:
-                findings.append(Finding(
-                    "error", "STG-6.6", f"Der Absatz hat {len(sentences)} Sätze. Zulässig sind höchstens 6 Sätze.",
-                    paragraph, "Teilen Sie den Absatz nach Thema oder logischem Zusammenhang."
-                ))
+                findings.append(Finding("error", "STG-6.6", f"Der Absatz hat {len(sentences)} Sätze. Zulässig sind höchstens 6 Sätze.", paragraph, "Teilen Sie den Absatz nach Thema oder logischem Zusammenhang."))
 
-    # Optional lexical routing report. Unknown words are review items, never automatic violations.
     unknown_counts: dict[str, int] = {}
     if lexicon_report:
-        tokens = [t for t in WORD_RE.findall(masked) if not t.isdigit()]
-        for tok in tokens:
-            low = tok.casefold().strip(".-")
-            if not low or low in {"protected_url", "protected_code"}:
+        for token in WORD_RE.findall(masked):
+            if token.isdigit():
                 continue
-            if low in allowed_core or low in allowed_project:
+            low = token.casefold().strip(".-")
+            if not low or low in {"protected_url", "protected_code"} or low in allowed_core or low in allowed_project:
                 continue
             unknown_counts[low] = unknown_counts.get(low, 0) + 1
 
     counts = {"error": 0, "warning": 0, "review": 0}
-    for f in findings:
-        counts[f.severity] = counts.get(f.severity, 0) + 1
-    result = "FAIL" if counts.get("error", 0) else ("PASS WITH REVIEW" if counts.get("review", 0) or counts.get("warning", 0) else "PASS")
+    for finding in findings:
+        counts[finding.severity] = counts.get(finding.severity, 0) + 1
+    result = "FAIL" if counts["error"] else ("PASS WITH REVIEW" if counts["review"] or counts["warning"] else "PASS")
     return {
         "tool": "stg_lint.py",
         "standard": "STG-DE 0.4.0",
-        "text_type": text_type,
+        "profile": profile,
+        "profile_priorities": (profile_config or {}).get("priorities", []),
+        "text_type": effective_type,
+        "sentence_word_limit": sentence_limit,
         "result": result,
         "counts": counts,
         "findings": [asdict(f) for f in findings],
         "unknown_lexicon": sorted(unknown_counts.items(), key=lambda x: (-x[1], x[0])) if lexicon_report else [],
         "limitations": [
             "Deterministic checks do not prove full STG-DE conformance.",
+            "Application profiles change applicability/priorities, not controlled word meanings.",
             "Unknown words are review candidates, not automatic errors.",
-            "Semantic ambiguity, passive voice, pronoun reference, and instruction structure still require contextual review."
+            "Semantic ambiguity, passive voice, pronoun reference, modality, and instruction structure still require contextual review."
         ],
     }
 
 
 def render_text(result: dict) -> str:
-    lines = [f"STG-DE audit: {result['result']}", ""]
+    label = f"STG-DE audit ({result['profile']})" if result.get("profile") else "STG-DE audit"
+    lines = [f"{label}: {result['result']}", ""]
     if not result["findings"]:
         lines.append("Keine deterministischen Befunde.")
     else:
@@ -282,23 +270,21 @@ def main() -> int:
     ap.add_argument("input", help="UTF-8 text/Markdown file or - for stdin")
     ap.add_argument("--root", default=str(Path(__file__).resolve().parents[1]), help="STG-DE repository/skill reference root")
     ap.add_argument("--project", help="Optional .stg-de.yaml project terminology")
-    ap.add_argument("--text-type", choices=["auto", "procedure", "description"], default="auto")
+    ap.add_argument("--profile", help="Application profile: procedure, safety, description, requirement, support, consumer, agent")
+    ap.add_argument("--text-type", choices=["auto", "procedure", "description"], default="auto", help="Legacy structural override; profile base type is used when auto")
     ap.add_argument("--format", choices=["text", "json"], default="text")
     ap.add_argument("--lexicon-report", action="store_true")
     ap.add_argument("--fail-on-error", action="store_true", help="Exit 1 when deterministic errors exist")
     args = ap.parse_args()
 
     root = Path(args.root)
-    if args.input == "-":
-        text = sys.stdin.read()
-    else:
-        text = Path(args.input).read_text(encoding="utf-8")
+    text = sys.stdin.read() if args.input == "-" else Path(args.input).read_text(encoding="utf-8")
     project = load_yaml(Path(args.project)) if args.project else {}
-    result = audit_text(text, root, args.text_type, project, args.lexicon_report)
-    if args.format == "json":
-        print(json.dumps(result, ensure_ascii=False, indent=2))
-    else:
-        print(render_text(result))
+    try:
+        result = audit_text(text, root, args.text_type, project, args.lexicon_report, args.profile)
+    except ValueError as exc:
+        ap.error(str(exc))
+    print(json.dumps(result, ensure_ascii=False, indent=2) if args.format == "json" else render_text(result))
     return 1 if args.fail_on_error and result["counts"].get("error", 0) else 0
 
 
