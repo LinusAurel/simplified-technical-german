@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: "STG-DE — Simplified Technical German"
+message: "If you use STG-DE in research or published work, cite this repository and the exact release version."
+type: software
+authors:
+  - alias: LinusAurel
+repository-code: "https://github.com/LinusAurel/simplified-technical-german"
+license: MIT
+version: 0.4.0
+date-released: 2026-08-22
+keywords:
+  - controlled language
+  - German
+  - technical writing
+  - terminology
+  - natural language processing
