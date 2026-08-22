@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate standalone Agent Skill references from canonical STG-DE sources."""
 from __future__ import annotations
-import argparse, shutil, sys
+import argparse, shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,6 +22,7 @@ def generated() -> dict[Path, str]:
         REF / "validator-contract.md": (ROOT / "validator-contract.md").read_text(encoding="utf-8"),
         REF / "approved-words.yaml": (ROOT / "dictionary" / "approved-words.yaml").read_text(encoding="utf-8"),
         REF / "prohibited-words.yaml": (ROOT / "dictionary" / "prohibited-words.yaml").read_text(encoding="utf-8"),
+        REF / "profiles.yaml": (ROOT / "profiles" / "profiles.yaml").read_text(encoding="utf-8"),
     }
 
 
@@ -48,10 +49,12 @@ def main() -> int:
         shutil.copy2(source, script_target)
     if mismatches:
         print("Skill references are out of sync:")
-        for m in mismatches: print("-", m)
+        for mismatch in mismatches:
+            print("-", mismatch)
         return 1
     print("Skill references are in sync." if args.check else "Skill references updated.")
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
