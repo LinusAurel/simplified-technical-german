@@ -1,0 +1,7 @@
+- id: stg-de-lint
+  name: STG-DE lint
+  description: Run deterministic STG-DE checks on German text files.
+  entry: stg lint --fail-on-error
+  language: python
+  types_or: [markdown, text]
+  require_serial: true
