@@ -14,95 +14,81 @@ A rule can be part of the STG-DE standard even when the current validator cannot
 | `semantic` | Correct application depends primarily on meaning or discourse context. |
 | `human-review` | The rule currently has no reliable automated implementation. |
 
-## Implemented deterministic coverage in v0.4/v0.5-foundation
+## Implemented coverage
 
-| Rule | Current automated check | Coverage |
-|---|---|---|
-| `STG-1.1` | Matches entries in `dictionary/prohibited-words.yaml` and returns the configured severity. | partial |
-| `STG-5.1` | Counts words in procedure mode and flags sentences above 20 words. | deterministic |
-| `STG-6.3` | Counts words in description/default mode and flags sentences above 25 words. | deterministic |
-| `STG-8.1` | Flags semicolons used in prose lines. | partial |
-| `STG-9.4` | Enforces `preferred_terms` from `.stg-de.yaml`. | partial |
+| Rule | Current automated check | Coverage | Severity |
+|---|---|---|---|
+| `STG-1.1` | Matches entries in `dictionary/prohibited-words.yaml` and returns the configured status. | partial | error/review |
+| `STG-DE-4.3` | Detects standalone `man` as an indefinite technical actor. | deterministic | error |
+| `STG-5.1` | Counts words in procedure mode and flags sentences above 20 words. | deterministic | error |
+| `STG-6.3` | Counts words in description/default mode and flags sentences above 25 words. | deterministic | error |
+| `STG-6.6` | Counts sentences in descriptive prose paragraphs and flags more than six. | deterministic | error |
+| `STG-8.1` | Flags semicolons in prose lines. | partial | error |
+| `STG-DE-8.1` | Detects a conservative set of known ambiguous slash forms such as `und/oder`; protected URLs/code are excluded. | partial | warning |
+| `STG-9.4` | Enforces `preferred_terms` from `.stg-de.yaml`. | partial | error |
 
 The validator also reports unknown central-lexicon surface forms when `--lexicon-report` is enabled. Unknown words are review candidates, not automatic violations.
 
-## Rules not yet mechanically proven
+## Test policy
 
-The following groups need either more deterministic implementation, NLP assistance, or semantic review.
+Every implemented validator path must have regression coverage. The suite must include, where applicable:
+
+1. a violating example;
+2. a non-violating example;
+3. the expected published rule ID;
+4. the expected severity/result;
+5. a false-positive guard;
+6. a global assertion that every emitted rule ID exists in `rules/rule-index.yaml`.
+
+The current suite includes explicit false-positive guards for `man` vs `Mann`, URLs vs slash forms, paragraph boundaries, and compliant sentence lengths.
+
+## Rules not yet mechanically proven
 
 ### Vocabulary and terminology
 
-- `STG-1.2` through `STG-1.14`
-- `STG-2.1`, `STG-2.2`
-- `STG-DE-2.1` through `STG-DE-2.3`
-
-Likely future support: morphology, part-of-speech tagging, compound analysis, abbreviation tracking, terminology consistency across a document.
+Most of `STG-1.2` through `STG-1.14`, `STG-2.1`, `STG-2.2`, and `STG-DE-2.1` through `STG-DE-2.3` still need morphology, part-of-speech analysis, compound analysis, abbreviation tracking, or document-level terminology state.
 
 ### Verbs and modality
 
-- `STG-3.1` through `STG-3.7`
-- `STG-DE-3.1` through `STG-DE-3.3`
-
-Likely future support: verb-form analysis, passive detection, separable-verb distance, modal classification, nominal-style detection.
+`STG-3.1` through `STG-3.7` and `STG-DE-3.1` through `STG-DE-3.3` require verb-form analysis, passive detection, separable-verb distance, modal classification, or nominal-style detection. These should not be promoted to deterministic errors until measured precision is acceptable.
 
 ### Sentence structure
 
-- `STG-4.1` through `STG-4.5`
-- `STG-DE-4.1` through `STG-DE-4.5`
-
-Likely future support: dependency parsing, subordinate-clause depth, pronoun-reference review, negation scope, pronominal-adverb review.
+Most of Section 4 remains semantic or parser-assisted. `STG-DE-4.3` is the deterministic exception. Future work includes subordinate-clause depth, pronoun-reference review, negation scope, and pronominal-adverb review.
 
 ### Procedures
 
-- `STG-5.2` through `STG-5.5`
-
-`STG-5.1` is currently deterministic. The remaining procedure rules require instruction-structure and modality analysis.
+`STG-5.1` is deterministic. `STG-5.2` through `STG-5.5` require instruction-structure, condition, and modality analysis.
 
 ### Descriptions
 
-- `STG-6.1`, `STG-6.2`, `STG-6.4`, `STG-6.5`, `STG-6.6`
-
-`STG-6.3` is currently deterministic. Paragraph sentence count (`STG-6.6`) is a candidate for the next deterministic implementation.
+`STG-6.3` and `STG-6.6` are deterministic. `STG-6.1`, `STG-6.2`, `STG-6.4`, and `STG-6.5` are discourse-level rules.
 
 ### Safety
 
-- `STG-7.1` through `STG-7.3`
-
-These require a safety-text model or explicit structured markup before strict automation is reliable.
+`STG-7.1` through `STG-7.3` require explicit safety structure or high-confidence semantic analysis before strict automation is reliable.
 
 ### Punctuation and counting
 
-- `STG-8.2` through `STG-8.7`
-- `STG-DE-8.1`
-
-`STG-8.1` currently has partial deterministic support for semicolons. Slash combinations and parenthesis/list rules are candidates for deterministic checks.
+`STG-8.1` has partial semicolon support. `STG-DE-8.1` has conservative slash-pattern support. The remaining Section 8 rules need structured list/parenthesis handling and more exact protected-token counting.
 
 ### Writing practices and recommendations
 
-- `STG-9.1`, `STG-9.2`, `STG-9.3`
-- `STG-GR-1` through `STG-GR-8`
-- `STG-DE-9.1`, `STG-DE-9.2`
-
-`STG-9.4` currently has partial deterministic support through project preferred terminology. Many prohibited fillers and vague expressions are also caught indirectly through `STG-1.1` dictionary routing.
+`STG-9.4` has partial project-terminology support. Many fillers and vague expressions are caught indirectly through `STG-1.1`. The remaining rules and recommendations should stay review-oriented until their semantics can be measured.
 
 ## Quality rule
 
 A validator feature must not emit a rule ID unless that ID exists in `rules/rule-index.yaml`.
 
-Regression tests enforce this for currently implemented checks. Future rule implementations must add:
+No validator feature should be labeled `deterministic` merely because it uses a regular expression. The classification means the implemented subset has a clear, mechanically testable condition with intentionally bounded scope.
 
-1. at least one positive case;
-2. at least one negative case;
-3. the expected published rule ID;
-4. the expected severity;
-5. a case that guards against a known false positive when applicable.
+## v0.5 acceptance target
 
-## Target for v0.5
+v0.5 does not require automatic enforcement of all 75 rules/recommendations. It requires:
 
-The v0.5 target is not automatic enforcement of all 75 entries. The target is:
-
-- full inventory of automation status;
-- comprehensive tests for every implemented deterministic check;
+- a complete automation inventory;
+- regression tests for every implemented check;
 - no invalid rule IDs;
-- explicit distinction between deterministic, heuristic, semantic, and human-review findings;
-- prioritized implementation of additional low-risk deterministic rules.
+- clear separation of error, warning, review, and unresolved semantic cases;
+- additional low-risk deterministic checks only when false-positive risk is bounded;
+- measured evaluation against a held-out corpus before parser/LLM-assisted checks are promoted.
