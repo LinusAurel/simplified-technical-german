@@ -1,0 +1,2664 @@
+schema_version: '0.4'
+release: 0.4.0
+concept_count: 442
+concepts:
+- concept_id: abort
+  preferred_lemma: abbrechen
+  entry_id: DE-VER-abbrechen
+  part_of_speech: verb
+  status: approved
+  definition: einen laufenden Vorgang vor seinem regulären Ende beenden
+- concept_id: activate
+  preferred_lemma: aktivieren
+  entry_id: DE-VER-aktivieren
+  part_of_speech: verb
+  status: approved
+  definition: eine Funktion oder ein System in den freigegebenen aktiven Zustand bringen
+- concept_id: adapt.adjust
+  preferred_lemma: anpassen
+  entry_id: DE-VER-anpassen
+  part_of_speech: verb
+  status: restricted
+  definition: einen Parameter, eine Verbindung oder ein Objekt an eine ausdrücklich genannte Anforderung oder Referenz angleichen
+- concept_id: add.math
+  preferred_lemma: addieren
+  entry_id: DE-VER-addieren
+  part_of_speech: verb
+  status: approved
+  definition: zwei oder mehr numerische Werte mathematisch zusammenzählen
+- concept_id: addition.additional
+  preferred_lemma: zusätzlich
+  entry_id: DE-ADV-zusaetzlich
+  part_of_speech: adverb
+  status: restricted
+  definition: kennzeichnet ein weiteres, ausdrücklich identifiziertes Element neben bereits genannten Elementen
+- concept_id: adj.active
+  preferred_lemma: aktiv
+  entry_id: DE-ADJ-aktiv
+  part_of_speech: adjective
+  status: approved
+  definition: in einem freigegebenen eingeschalteten oder wirksamen Zustand
+- concept_id: adj.attached
+  preferred_lemma: befestigt
+  entry_id: DE-ADJ-befestigt
+  part_of_speech: adjective
+  status: approved
+  definition: in der vorgesehenen Position mechanisch gehalten
+- concept_id: adj.available
+  preferred_lemma: verfügbar
+  entry_id: DE-ADJ-verf-gbar
+  part_of_speech: adjective
+  status: restricted
+  definition: für die vorgesehene Verwendung oder Auswahl vorhanden und zugänglich
+- concept_id: adj.clean
+  preferred_lemma: sauber
+  entry_id: DE-ADJ-sauber
+  part_of_speech: adjective
+  status: restricted
+  definition: frei von dem im Verfahren nicht zulässigen Schmutz oder Fremdmaterial
+- concept_id: adj.closed
+  preferred_lemma: geschlossen
+  entry_id: DE-ADJ-geschlossen
+  part_of_speech: adjective
+  status: approved
+  definition: in einem definierten geschlossenen Zustand
+- concept_id: adj.complete
+  preferred_lemma: vollständig
+  entry_id: DE-ADJ-vollst-ndig
+  part_of_speech: adjective
+  status: approved
+  definition: enthält alle für den definierten Umfang erforderlichen Teile oder Daten
+- concept_id: adj.connected
+  preferred_lemma: verbunden
+  entry_id: DE-ADJ-verbunden
+  part_of_speech: adjective
+  status: restricted
+  definition: mit dem ausdrücklich genannten Objekt mechanisch, elektrisch oder logisch gekoppelt
+- concept_id: adj.correct
+  preferred_lemma: korrekt
+  entry_id: DE-ADJ-korrekt
+  part_of_speech: adjective
+  status: restricted
+  definition: entspricht der ausdrücklich geltenden Anforderung, Referenz oder Sollvorgabe
+- concept_id: adj.damaged
+  preferred_lemma: beschädigt
+  entry_id: DE-ADJ-besch-digt
+  part_of_speech: adjective
+  status: restricted
+  definition: weist einen Schaden auf, der im anwendbaren Prüf- oder Reparaturkriterium als Schaden gilt
+- concept_id: adj.different
+  preferred_lemma: unterschiedlich
+  entry_id: DE-ADJ-unterschiedlich
+  part_of_speech: adjective
+  status: restricted
+  definition: hat im ausdrücklich verglichenen Merkmal nicht denselben Wert oder Zustand
+- concept_id: adj.direct
+  preferred_lemma: direkt
+  entry_id: DE-ADJ-direkt
+  part_of_speech: adjective
+  status: restricted
+  definition: ohne Zwischenstufe, Umlenkung oder vermittelndes Element
+- concept_id: adj.disconnected
+  preferred_lemma: getrennt
+  entry_id: DE-ADJ-getrennt
+  part_of_speech: adjective
+  status: approved
+  definition: nicht mit dem ausdrücklich genannten Objekt verbunden
+- concept_id: adj.dry
+  preferred_lemma: trocken
+  entry_id: DE-ADJ-trocken
+  part_of_speech: adjective
+  status: restricted
+  definition: weist keine für die Aufgabe relevante freie Feuchtigkeit oder Flüssigkeit auf
+- concept_id: adj.empty
+  preferred_lemma: leer
+  entry_id: DE-ADJ-leer
+  part_of_speech: adjective
+  status: restricted
+  definition: enthält keine relevante Menge des ausdrücklich genannten Inhalts
+- concept_id: adj.equal
+  preferred_lemma: gleich
+  entry_id: DE-ADJ-gleich
+  part_of_speech: adjective
+  status: restricted
+  definition: hat denselben ausdrücklich verglichenen Wert, Zustand oder dieselbe Identität
+- concept_id: adj.external
+  preferred_lemma: extern
+  entry_id: DE-ADJ-extern
+  part_of_speech: adjective
+  status: restricted
+  definition: außerhalb des ausdrücklich genannten Systems, Geräts oder organisatorischen Bereichs
+- concept_id: adj.far
+  preferred_lemma: fern
+  entry_id: DE-ADJ-fern
+  part_of_speech: adjective
+  status: restricted
+  definition: hat einen großen Abstand zur ausdrücklich genannten Referenz
+- concept_id: adj.faulty
+  preferred_lemma: fehlerhaft
+  entry_id: DE-ADJ-fehlerhaft
+  part_of_speech: adjective
+  status: restricted
+  definition: erfüllt eine definierte funktionale oder Datenanforderung nicht
+- concept_id: adj.folgend
+  preferred_lemma: folgend
+  entry_id: DE-ADJ-folgend
+  part_of_speech: adjective
+  status: restricted
+  definition: im Dokument oder in einer festgelegten Reihenfolge unmittelbar danach kommend
+- concept_id: adj.forbidden
+  preferred_lemma: verboten
+  entry_id: DE-ADJ-verboten
+  part_of_speech: adjective
+  status: approved
+  definition: durch eine Regel oder Sicherheitsanforderung ausdrücklich nicht erlaubt
+- concept_id: adj.full
+  preferred_lemma: voll
+  entry_id: DE-ADJ-voll
+  part_of_speech: adjective
+  status: restricted
+  definition: enthält die definierte maximale oder vorgesehene Füllmenge
+- concept_id: adj.high
+  preferred_lemma: hoch
+  entry_id: DE-ADJ-hoch
+  part_of_speech: adjective
+  status: restricted
+  definition: hat im definierten Bezugssystem eine große räumliche Position oder einen als hoch bezeichneten Zustand
+- concept_id: adj.impossible
+  preferred_lemma: unmöglich
+  entry_id: DE-ADJ-unm-glich
+  part_of_speech: adjective
+  status: restricted
+  definition: unter den genannten technischen Bedingungen nicht realisierbar oder nicht eintretbar
+- concept_id: adj.incomplete
+  preferred_lemma: unvollständig
+  entry_id: DE-ADJ-unvollst-ndig
+  part_of_speech: adjective
+  status: approved
+  definition: enthält nicht alle für den definierten Umfang erforderlichen Teile oder Daten
+- concept_id: adj.incorrect
+  preferred_lemma: falsch
+  entry_id: DE-ADJ-falsch
+  part_of_speech: adjective
+  status: restricted
+  definition: entspricht einer eindeutig festgelegten Tatsache, Auswahl oder Anforderung nicht
+- concept_id: adj.installed
+  preferred_lemma: eingebaut
+  entry_id: DE-ADJ-eingebaut
+  part_of_speech: adjective
+  status: approved
+  definition: in der vorgesehenen Einbauposition vorhanden
+- concept_id: adj.internal
+  preferred_lemma: intern
+  entry_id: DE-ADJ-intern
+  part_of_speech: adjective
+  status: restricted
+  definition: innerhalb des ausdrücklich genannten Systems, Geräts oder organisatorischen Bereichs
+- concept_id: adj.large
+  preferred_lemma: groß
+  entry_id: DE-ADJ-gro
+  part_of_speech: adjective
+  status: restricted
+  definition: hat eine größere physische Abmessung als die ausdrücklich genannte Referenz
+- concept_id: adj.local
+  preferred_lemma: lokal
+  entry_id: DE-ADJ-lokal
+  part_of_speech: adjective
+  status: restricted
+  definition: am ausdrücklich genannten Gerät, Ort oder System selbst statt über eine entfernte Verbindung
+- concept_id: adj.locked
+  preferred_lemma: verriegelt
+  entry_id: DE-ADJ-verriegelt
+  part_of_speech: adjective
+  status: approved
+  definition: in einem definierten Verriegelungszustand
+- concept_id: adj.long
+  preferred_lemma: lang
+  entry_id: DE-ADJ-lang
+  part_of_speech: adjective
+  status: restricted
+  definition: hat eine große Ausdehnung in Längsrichtung oder Dauer relativ zur ausdrücklich genannten Referenz
+- concept_id: adj.loose
+  preferred_lemma: lose
+  entry_id: DE-ADJ-lose
+  part_of_speech: adjective
+  status: restricted
+  definition: nicht ausreichend befestigt oder nicht in der vorgesehenen festen Verbindung
+- concept_id: adj.low
+  preferred_lemma: niedrig
+  entry_id: DE-ADJ-niedrig
+  part_of_speech: adjective
+  status: restricted
+  definition: hat im definierten Bezugssystem eine geringe räumliche Position oder einen als niedrig bezeichneten Zustand
+- concept_id: adj.missing
+  preferred_lemma: fehlend
+  entry_id: DE-ADJ-fehlend
+  part_of_speech: adjective
+  status: approved
+  definition: an der erwarteten Stelle nicht vorhanden
+- concept_id: adj.narrow
+  preferred_lemma: eng
+  entry_id: DE-ADJ-eng
+  part_of_speech: adjective
+  status: restricted
+  definition: hat eine geringe lichte Weite oder einen kleinen Abstand relativ zur ausdrücklich genannten Referenz
+- concept_id: adj.near
+  preferred_lemma: nah
+  entry_id: DE-ADJ-nah
+  part_of_speech: adjective
+  status: restricted
+  definition: hat einen kleinen Abstand zur ausdrücklich genannten Referenz
+- concept_id: adj.necessary
+  preferred_lemma: erforderlich
+  entry_id: DE-ADJ-erforderlich
+  part_of_speech: adjective
+  status: restricted
+  definition: für die Erfüllung einer ausdrücklich genannten Anforderung notwendig
+- concept_id: adj.new
+  preferred_lemma: neu
+  entry_id: DE-ADJ-neu
+  part_of_speech: adjective
+  status: restricted
+  definition: noch nicht verwendet oder ausdrücklich als neues Ersatzteil vorgesehen
+- concept_id: adj.not_permitted
+  preferred_lemma: unzulässig
+  entry_id: DE-ADJ-unzul-ssig
+  part_of_speech: adjective
+  status: restricted
+  definition: durch eine ausdrücklich geltende Anforderung, Grenze oder Freigabe nicht erlaubt
+- concept_id: adj.off
+  preferred_lemma: ausgeschaltet
+  entry_id: DE-ADJ-ausgeschaltet
+  part_of_speech: adjective
+  status: approved
+  definition: nicht im aktiven Energie- oder Betriebszustand
+- concept_id: adj.on
+  preferred_lemma: eingeschaltet
+  entry_id: DE-ADJ-eingeschaltet
+  part_of_speech: adjective
+  status: approved
+  definition: im aktiven Energie- oder Betriebszustand
+- concept_id: adj.open
+  preferred_lemma: offen
+  entry_id: DE-ADJ-offen
+  part_of_speech: adjective
+  status: approved
+  definition: in einem definierten geöffneten Zustand
+- concept_id: adj.permitted
+  preferred_lemma: zulässig
+  entry_id: DE-ADJ-zul-ssig
+  part_of_speech: adjective
+  status: restricted
+  definition: durch eine ausdrücklich geltende Anforderung, Grenze oder Freigabe erlaubt
+- concept_id: adj.possible
+  preferred_lemma: möglich
+  entry_id: DE-ADJ-m-glich
+  part_of_speech: adjective
+  status: restricted
+  definition: unter den genannten technischen Bedingungen realisierbar oder eintretbar
+- concept_id: adj.present
+  preferred_lemma: vorhanden
+  entry_id: DE-ADJ-vorhanden
+  part_of_speech: adjective
+  status: approved
+  definition: an der ausdrücklich genannten Stelle oder im System existent
+- concept_id: adj.primary
+  preferred_lemma: primär
+  entry_id: DE-ADJ-prim-r
+  part_of_speech: adjective
+  status: restricted
+  definition: als erste, wichtigste oder vorgesehene Hauptfunktion in der anwendbaren Terminologie definiert
+- concept_id: adj.readable
+  preferred_lemma: lesbar
+  entry_id: DE-ADJ-lesbar
+  part_of_speech: adjective
+  status: restricted
+  definition: mit dem vorgesehenen Medium ohne zusätzliche Rekonstruktion erkennbar und interpretierbar
+- concept_id: adj.removed
+  preferred_lemma: entfernt
+  entry_id: DE-ADJ-entfernt
+  part_of_speech: adjective
+  status: approved
+  definition: nicht mehr an der zuvor bezeichneten Position vorhanden
+- concept_id: adj.secondary
+  preferred_lemma: sekundär
+  entry_id: DE-ADJ-sekund-r
+  part_of_speech: adjective
+  status: restricted
+  definition: als zweite oder unterstützende Funktion in der anwendbaren Terminologie definiert
+- concept_id: adj.short
+  preferred_lemma: kurz
+  entry_id: DE-ADJ-kurz
+  part_of_speech: adjective
+  status: restricted
+  definition: hat eine geringe Ausdehnung in Längsrichtung oder Dauer relativ zur ausdrücklich genannten Referenz
+- concept_id: adj.sicher
+  preferred_lemma: sicher
+  entry_id: DE-ADJ-sicher
+  part_of_speech: adjective
+  status: restricted
+  definition: ohne eine nach dem anwendbaren Risikokriterium unzulässige Gefahr
+- concept_id: adj.small
+  preferred_lemma: klein
+  entry_id: DE-ADJ-klein
+  part_of_speech: adjective
+  status: restricted
+  definition: hat eine kleinere physische Abmessung als die ausdrücklich genannte Referenz
+- concept_id: adj.stable
+  preferred_lemma: stabil
+  entry_id: DE-ADJ-stabil
+  part_of_speech: adjective
+  status: restricted
+  definition: ändert den relevanten Zustand oder Wert innerhalb des definierten Beobachtungszeitraums nicht außerhalb der
+    zulässigen Grenze
+- concept_id: adj.technisch
+  preferred_lemma: technisch
+  entry_id: DE-ADJ-technisch
+  part_of_speech: adjective
+  status: restricted
+  definition: auf Technik, ein technisches Produkt oder einen technischen Prozess bezogen
+- concept_id: adj.tight
+  preferred_lemma: fest
+  entry_id: DE-ADJ-fest
+  part_of_speech: adjective
+  status: restricted
+  definition: mechanisch so gehalten oder angezogen, dass die definierte Bewegung oder Lockerung nicht auftritt
+- concept_id: adj.unlocked
+  preferred_lemma: entriegelt
+  entry_id: DE-ADJ-entriegelt
+  part_of_speech: adjective
+  status: approved
+  definition: nicht verriegelt und für die vorgesehene Bewegung freigegeben
+- concept_id: adj.used
+  preferred_lemma: gebraucht
+  entry_id: DE-ADJ-gebraucht
+  part_of_speech: adjective
+  status: restricted
+  definition: bereits verwendet und nicht als neu klassifiziert
+- concept_id: adj.visible
+  preferred_lemma: sichtbar
+  entry_id: DE-ADJ-sichtbar
+  part_of_speech: adjective
+  status: restricted
+  definition: mit dem vorgesehenen visuellen Verfahren erkennbar
+- concept_id: adj.wet
+  preferred_lemma: nass
+  entry_id: DE-ADJ-nass
+  part_of_speech: adjective
+  status: restricted
+  definition: weist sichtbare oder relevante Flüssigkeit auf
+- concept_id: adj.wichtig
+  preferred_lemma: wichtig
+  entry_id: DE-ADJ-wichtig
+  part_of_speech: adjective
+  status: restricted
+  definition: für Sicherheit, korrekte Funktion oder das Ergebnis wesentlich
+- concept_id: adj.wide
+  preferred_lemma: breit
+  entry_id: DE-ADJ-breit
+  part_of_speech: adjective
+  status: restricted
+  definition: hat eine große Ausdehnung in Breitenrichtung relativ zur ausdrücklich genannten Referenz
+- concept_id: adv.afterwards
+  preferred_lemma: danach
+  entry_id: DE-ADV-danach
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet eine Handlung oder einen Zustand nach dem unmittelbar vorher genannten Ereignis
+- concept_id: adv.again
+  preferred_lemma: erneut
+  entry_id: DE-ADV-erneut
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet die Wiederholung derselben Handlung oder Prüfung
+- concept_id: adv.also
+  preferred_lemma: auch
+  entry_id: DE-ADV-auch
+  part_of_speech: adverb
+  status: restricted
+  definition: fügt ein weiteres ausdrücklich genanntes Element mit derselben Aussage hinzu
+- concept_id: adv.always
+  preferred_lemma: immer
+  entry_id: DE-ADV-immer
+  part_of_speech: adverb
+  status: restricted
+  definition: kennzeichnet, dass eine Aussage ohne Ausnahme in allen Fällen des definierten Geltungsbereichs gilt
+- concept_id: adv.approximately
+  preferred_lemma: ungefähr
+  entry_id: DE-ADV-ungef-hr
+  part_of_speech: adverb
+  status: restricted
+  definition: kennzeichnet einen Näherungswert, für den keine exakte Grenze gemeint ist
+- concept_id: adv.beforehand
+  preferred_lemma: davor
+  entry_id: DE-ADV-davor
+  part_of_speech: adverb
+  status: restricted
+  definition: kennzeichnet eine Handlung oder einen Zustand vor dem unmittelbar danach genannten oder zuvor referenzierten
+    Ereignis
+- concept_id: adv.completely
+  preferred_lemma: vollständig
+  entry_id: DE-ADV-vollst-ndig
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet, dass kein Teil oder Rest der beschriebenen Menge oder Handlung fehlt
+- concept_id: adv.currently
+  preferred_lemma: derzeit
+  entry_id: DE-ADV-derzeit
+  part_of_speech: adverb
+  status: restricted
+  definition: kennzeichnet den zum Dokumentzeitpunkt geltenden Zustand
+- concept_id: adv.directly
+  preferred_lemma: direkt
+  entry_id: DE-ADV-direkt
+  part_of_speech: adverb
+  status: restricted
+  definition: kennzeichnet eine unmittelbare Verbindung, Lage oder Folge ohne Zwischenstufe
+- concept_id: adv.down
+  preferred_lemma: unten
+  entry_id: DE-ADV-unten
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet eine tiefere Position im festgelegten Bezugssystem
+- concept_id: adv.first
+  preferred_lemma: zuerst
+  entry_id: DE-ADV-zuerst
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet den ersten Schritt einer ausdrücklich geordneten Folge
+- concept_id: adv.here
+  preferred_lemma: hier
+  entry_id: DE-ADV-hier
+  part_of_speech: adverb
+  status: restricted
+  definition: verweist auf den unmittelbar aktuellen Dokument- oder Ortskontext
+- concept_id: adv.immediately
+  preferred_lemma: sofort
+  entry_id: DE-ADV-sofort
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet, dass keine absichtliche Verzögerung zulässig ist
+- concept_id: adv.inside
+  preferred_lemma: innen
+  entry_id: DE-ADV-innen
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet die Innenseite oder den Innenraum eines definierten Objekts
+- concept_id: adv.left
+  preferred_lemma: links
+  entry_id: DE-ADV-links
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet die linke Seite relativ zum festgelegten Bezugssystem
+- concept_id: adv.maximum
+  preferred_lemma: höchstens
+  entry_id: DE-ADV-h-chstens
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet einen eingeschlossenen oberen Grenzwert
+- concept_id: adv.minimum
+  preferred_lemma: mindestens
+  entry_id: DE-ADV-mindestens
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet einen eingeschlossenen unteren Grenzwert
+- concept_id: adv.never
+  preferred_lemma: nie
+  entry_id: DE-ADV-nie
+  part_of_speech: adverb
+  status: restricted
+  definition: kennzeichnet, dass eine Handlung oder ein Zustand im definierten Geltungsbereich in keinem Fall zulässig oder
+    möglich ist
+- concept_id: adv.not
+  preferred_lemma: nicht
+  entry_id: DE-ADV-nicht
+  part_of_speech: adverb
+  status: approved
+  definition: verneint genau das unmittelbar zugeordnete Prädikat, Merkmal oder Element
+- concept_id: adv.only
+  preferred_lemma: nur
+  entry_id: DE-ADV-nur
+  part_of_speech: adverb
+  status: approved
+  definition: beschränkt eine Aussage auf das ausdrücklich genannte Element oder die ausdrücklich genannte Bedingung
+- concept_id: adv.outside
+  preferred_lemma: außen
+  entry_id: DE-ADV-au-en
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet die Außenseite oder den Außenraum eines definierten Objekts
+- concept_id: adv.partly
+  preferred_lemma: teilweise
+  entry_id: DE-ADV-teilweise
+  part_of_speech: adverb
+  status: restricted
+  definition: kennzeichnet, dass nur ein ausdrücklich bestimmter Teil betroffen ist
+- concept_id: adv.quickly
+  preferred_lemma: schnell
+  entry_id: DE-ADV-schnell
+  part_of_speech: adverb
+  status: restricted
+  definition: kennzeichnet eine hohe Geschwindigkeit
+- concept_id: adv.right
+  preferred_lemma: rechts
+  entry_id: DE-ADV-rechts
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet die rechte Seite relativ zum festgelegten Bezugssystem
+- concept_id: adv.sequentially
+  preferred_lemma: nacheinander
+  entry_id: DE-ADV-nacheinander
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet Handlungen oder Elemente in einer ausdrücklich geordneten Folge
+- concept_id: adv.simultaneously
+  preferred_lemma: gleichzeitig
+  entry_id: DE-ADV-gleichzeitig
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet Handlungen oder Zustände, die im selben Zeitraum stattfinden
+- concept_id: adv.slowly
+  preferred_lemma: langsam
+  entry_id: DE-ADV-langsam
+  part_of_speech: adverb
+  status: restricted
+  definition: kennzeichnet eine geringe Geschwindigkeit
+- concept_id: adv.there
+  preferred_lemma: dort
+  entry_id: DE-ADV-dort
+  part_of_speech: adverb
+  status: restricted
+  definition: verweist auf einen zuvor eindeutig identifizierten Ort
+- concept_id: adv.up
+  preferred_lemma: oben
+  entry_id: DE-ADV-oben
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet eine höhere Position im festgelegten Bezugssystem
+- concept_id: align
+  preferred_lemma: ausrichten
+  entry_id: DE-VER-ausrichten
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt in eine festgelegte geometrische Lage oder Richtung bringen
+- concept_id: allow.process
+  preferred_lemma: lassen
+  entry_id: DE-VER-lassen
+  part_of_speech: verb
+  status: restricted
+  definition: einen ausdrücklich genannten physikalischen Prozess ohne weitere aktive Handlung fortlaufen lassen
+- concept_id: alternative.exclusive_or_open
+  preferred_lemma: entweder ... oder
+  entry_id: DE-PHR-entweder-oder
+  part_of_speech: phrase
+  status: approved
+  definition: kennzeichnet zwei ausdrücklich genannte Alternativen
+- concept_id: analyze
+  preferred_lemma: analysieren
+  entry_id: DE-VER-analysieren
+  part_of_speech: verb
+  status: restricted
+  definition: Daten, Material oder einen Fehler systematisch in Bestandteile oder Ursachen untersuchen
+- concept_id: apply.material
+  preferred_lemma: auftragen
+  entry_id: DE-VER-auftragen
+  part_of_speech: verb
+  status: approved
+  definition: Material kontrolliert auf eine Oberfläche bringen
+- concept_id: apply.method
+  preferred_lemma: anwenden
+  entry_id: DE-VER-anwenden
+  part_of_speech: verb
+  status: approved
+  definition: ein Verfahren, eine Regel oder ein Mittel für den vorgesehenen Zweck verwenden
+- concept_id: article.definite
+  preferred_lemma: der
+  entry_id: DE-ART-der
+  part_of_speech: article
+  status: approved
+  definition: bestimmter Artikel für ein bereits bestimmtes oder eindeutig identifiziertes Substantiv
+- concept_id: article.indefinite
+  preferred_lemma: ein
+  entry_id: DE-ART-ein
+  part_of_speech: article
+  status: approved
+  definition: unbestimmter Artikel für ein neu eingeführtes einzelnes zählbares Substantiv
+- concept_id: assemble
+  preferred_lemma: zusammenbauen
+  entry_id: DE-VER-zusammenbauen
+  part_of_speech: verb
+  status: approved
+  definition: mehrere Teile nach einer festgelegten Struktur zu einer Baugruppe verbinden
+- concept_id: attach
+  preferred_lemma: befestigen
+  entry_id: DE-VER-befestigen
+  part_of_speech: verb
+  status: approved
+  definition: ein Teil so verbinden, dass es in der vorgesehenen Position gehalten wird
+- concept_id: be.state
+  preferred_lemma: sein
+  entry_id: DE-VER-sein
+  part_of_speech: verb
+  status: approved
+  definition: einen Zustand, eine Eigenschaft, Identität oder Existenz ausdrücken
+- concept_id: become.future
+  preferred_lemma: werden
+  entry_id: DE-VER-werden
+  part_of_speech: verb
+  status: restricted
+  definition: den Übergang in einen neuen Zustand oder eine ausdrücklich notwendige Zukunft ausdrücken
+- concept_id: bend
+  preferred_lemma: biegen
+  entry_id: DE-VER-biegen
+  part_of_speech: verb
+  status: approved
+  definition: die Form eines Werkstücks durch Biegung verändern
+- concept_id: bleed.vent
+  preferred_lemma: entlüften
+  entry_id: DE-VER-entl-ften
+  part_of_speech: verb
+  status: approved
+  definition: Luft oder Gas kontrolliert aus einem System oder einer Leitung entfernen
+- concept_id: calculate
+  preferred_lemma: berechnen
+  entry_id: DE-VER-berechnen
+  part_of_speech: verb
+  status: approved
+  definition: einen Wert mit einer festgelegten mathematischen Beziehung bestimmen
+- concept_id: calibrate
+  preferred_lemma: kalibrieren
+  entry_id: DE-VER-kalibrieren
+  part_of_speech: verb
+  status: restricted
+  definition: ein Messsystem mit einer festgelegten Referenz vergleichen und nach dem freigegebenen Verfahren justieren
+- concept_id: can.capability
+  preferred_lemma: können
+  entry_id: DE-VER-k-nnen
+  part_of_speech: verb
+  status: restricted
+  definition: technische oder physische Fähigkeit ausdrücken
+- concept_id: can.possibility
+  preferred_lemma: können
+  entry_id: DE-VER-k-nnen
+  part_of_speech: verb
+  status: restricted
+  definition: faktische Möglichkeit ausdrücken
+- concept_id: cause
+  preferred_lemma: verursachen
+  entry_id: DE-VER-verursachen
+  part_of_speech: verb
+  status: approved
+  definition: eine ausdrücklich genannte Wirkung als Ursache hervorrufen
+- concept_id: change
+  preferred_lemma: ändern
+  entry_id: DE-VER-ndern
+  part_of_speech: verb
+  status: restricted
+  definition: einen ausdrücklich bezeichneten Wert, Zustand oder Inhalt in einen anderen Wert, Zustand oder Inhalt überführen
+- concept_id: charge.battery
+  preferred_lemma: aufladen
+  entry_id: DE-VER-aufladen
+  part_of_speech: verb
+  status: approved
+  definition: einen elektrischen Energiespeicher mit Energie laden
+- concept_id: check
+  preferred_lemma: prüfen
+  entry_id: DE-VER-pr-fen
+  part_of_speech: verb
+  status: approved
+  definition: feststellen, ob ein definierter Zustand, ein Merkmal oder eine Anforderung erfüllt ist
+- concept_id: clean
+  preferred_lemma: reinigen
+  entry_id: DE-VER-reinigen
+  part_of_speech: verb
+  status: approved
+  definition: unerwünschtes Material von einem Objekt oder einer Oberfläche entfernen
+- concept_id: click
+  preferred_lemma: klicken
+  entry_id: DE-VER-klicken
+  part_of_speech: verb
+  status: restricted
+  definition: eine Zeigeraktion mit einer Maustaste ausführen
+- concept_id: close
+  preferred_lemma: schließen
+  entry_id: DE-VER-schlie-en
+  part_of_speech: verb
+  status: restricted
+  definition: ein Teil, eine Öffnung, Datei oder Funktion aus dem offenen Zustand in den geschlossenen Zustand bringen
+- concept_id: close.seal_opening
+  preferred_lemma: verschließen
+  entry_id: DE-VER-verschliessen
+  part_of_speech: verb
+  status: approved
+  definition: eine Öffnung mit dem vorgesehenen Verschlusselement schließen
+- concept_id: collect.flow
+  preferred_lemma: auffangen
+  entry_id: DE-VER-auffangen
+  part_of_speech: verb
+  status: restricted
+  definition: austretende Flüssigkeit, Partikel oder Material in einem geeigneten Behälter oder Hilfsmittel sammeln
+- concept_id: compare
+  preferred_lemma: vergleichen
+  entry_id: DE-VER-vergleichen
+  part_of_speech: verb
+  status: approved
+  definition: zwei oder mehr Werte, Zustände oder Merkmale gegenüberstellen
+- concept_id: comparison.like
+  preferred_lemma: wie
+  entry_id: DE-CON-wie
+  part_of_speech: conjunction
+  status: restricted
+  definition: kennzeichnet einen ausdrücklich benannten Vergleich oder eine ausdrücklich benannte Referenz
+- concept_id: complete.finish
+  preferred_lemma: abschließen
+  entry_id: DE-VER-abschlie-en
+  part_of_speech: verb
+  status: approved
+  definition: einen Vorgang regulär beenden und als beendet kennzeichnen
+- concept_id: comply.limit
+  preferred_lemma: einhalten
+  entry_id: DE-VER-einhalten
+  part_of_speech: verb
+  status: restricted
+  definition: einen ausdrücklich genannten Grenzwert, Abstand, Zeitraum oder eine Anforderung nicht überschreiten oder unterschreiten
+- concept_id: compress
+  preferred_lemma: komprimieren
+  entry_id: DE-VER-komprimieren
+  part_of_speech: verb
+  status: restricted
+  definition: Volumen oder digitale Daten nach einem definierten Verfahren verkleinern
+- concept_id: configure
+  preferred_lemma: konfigurieren
+  entry_id: DE-VER-konfigurieren
+  part_of_speech: verb
+  status: restricted
+  definition: freigegebene Parameter eines Systems auf eine definierte Konfiguration einstellen
+- concept_id: confirm
+  preferred_lemma: bestätigen
+  entry_id: DE-VER-best-tigen
+  part_of_speech: verb
+  status: restricted
+  definition: eine Information oder Auswahl ausdrücklich als erhalten, korrekt oder akzeptiert kennzeichnen
+- concept_id: conform.reference
+  preferred_lemma: entsprechen
+  entry_id: DE-VER-entsprechen
+  part_of_speech: verb
+  status: restricted
+  definition: mit einer ausdrücklich genannten Anforderung, Spezifikation oder Referenz übereinstimmen
+- concept_id: conj.after
+  preferred_lemma: nachdem
+  entry_id: DE-CON-nachdem
+  part_of_speech: conjunction
+  status: approved
+  definition: ordnet eine Handlung oder einen Zustand zeitlich nach einer abgeschlossenen Handlung an
+- concept_id: conj.and
+  preferred_lemma: und
+  entry_id: DE-CON-und
+  part_of_speech: conjunction
+  status: approved
+  definition: verbindet gleichrangige Elemente, Aussagen oder gleichzeitig geltende Bedingungen
+- concept_id: conj.as_soon_as
+  preferred_lemma: sobald
+  entry_id: DE-CON-sobald
+  part_of_speech: conjunction
+  status: restricted
+  definition: kennzeichnet den ersten Zeitpunkt, an dem eine eindeutig definierte Bedingung erfüllt ist
+- concept_id: conj.because
+  preferred_lemma: weil
+  entry_id: DE-CON-weil
+  part_of_speech: conjunction
+  status: approved
+  definition: leitet eine ausdrücklich genannte Ursache oder Begründung ein
+- concept_id: conj.before
+  preferred_lemma: bevor
+  entry_id: DE-CON-bevor
+  part_of_speech: conjunction
+  status: approved
+  definition: ordnet eine Handlung oder einen Zustand zeitlich vor einer anderen Handlung an
+- concept_id: conj.but
+  preferred_lemma: aber
+  entry_id: DE-CON-aber
+  part_of_speech: conjunction
+  status: approved
+  definition: kennzeichnet einen direkten Gegensatz oder eine Einschränkung zur vorherigen Aussage
+- concept_id: conj.but_rather
+  preferred_lemma: sondern
+  entry_id: DE-CON-sondern
+  part_of_speech: conjunction
+  status: approved
+  definition: ersetzt nach einer Verneinung ein ausgeschlossenes Element durch das korrekte Element
+- concept_id: conj.comparison
+  preferred_lemma: als
+  entry_id: DE-CON-als
+  part_of_speech: conjunction
+  status: restricted
+  definition: kennzeichnet den Vergleich nach einer ausdrücklich genannten Vergleichsgröße
+- concept_id: conj.if
+  preferred_lemma: wenn
+  entry_id: DE-CON-wenn
+  part_of_speech: conjunction
+  status: approved
+  definition: leitet eine ausdrücklich genannte Bedingung ein
+- concept_id: conj.or
+  preferred_lemma: oder
+  entry_id: DE-CON-oder
+  part_of_speech: conjunction
+  status: approved
+  definition: verbindet echte Alternativen
+- concept_id: conj.role
+  preferred_lemma: als
+  entry_id: DE-CON-als
+  part_of_speech: conjunction
+  status: restricted
+  definition: kennzeichnet die ausdrücklich benannte Funktion oder Rolle eines Objekts
+- concept_id: conj.so_that
+  preferred_lemma: damit
+  entry_id: DE-CON-damit
+  part_of_speech: conjunction
+  status: restricted
+  definition: leitet den ausdrücklich genannten Zweck einer Handlung ein
+- concept_id: conj.that
+  preferred_lemma: dass
+  entry_id: DE-CON-dass
+  part_of_speech: conjunction
+  status: approved
+  definition: leitet einen Inhaltssatz ein, der den Inhalt einer Aussage, Prüfung oder Feststellung angibt
+- concept_id: conj.until
+  preferred_lemma: bis
+  entry_id: DE-CON-bis
+  part_of_speech: conjunction
+  status: approved
+  definition: kennzeichnet den Endzustand oder Endzeitpunkt einer fortgesetzten Handlung
+- concept_id: conj.while
+  preferred_lemma: während
+  entry_id: DE-CON-w-hrend
+  part_of_speech: conjunction
+  status: approved
+  definition: kennzeichnet zwei Zustände oder Handlungen, die im selben Zeitraum gelten
+- concept_id: connect
+  preferred_lemma: verbinden
+  entry_id: DE-VER-verbinden
+  part_of_speech: verb
+  status: approved
+  definition: zwei oder mehr Teile, Leitungen, Systeme oder Datenpfade funktional miteinander koppeln
+- concept_id: connect.interface
+  preferred_lemma: anschließen
+  entry_id: DE-VER-anschliessen
+  part_of_speech: verb
+  status: approved
+  definition: ein Kabel, einen Steckverbinder oder ein Gerät mit einer ausdrücklich genannten Schnittstelle elektrisch oder
+    funktional verbinden
+- concept_id: consist.of
+  preferred_lemma: aus ... bestehen
+  entry_id: DE-PHR-aus-bestehen
+  part_of_speech: phrase
+  status: approved
+  definition: gibt die vollständig oder teilweise genannten Bestandteile eines Objekts an
+- concept_id: contain
+  preferred_lemma: enthalten
+  entry_id: DE-VER-enthalten
+  part_of_speech: verb
+  status: approved
+  definition: ausdrücken, dass ein Objekt, Dokument oder Datensatz ausdrücklich genannte Bestandteile oder Informationen umfasst
+- concept_id: continue
+  preferred_lemma: fortsetzen
+  entry_id: DE-VER-fortsetzen
+  part_of_speech: verb
+  status: approved
+  definition: einen unterbrochenen Vorgang ab seinem Unterbrechungspunkt weiterführen
+- concept_id: control
+  preferred_lemma: steuern
+  entry_id: DE-VER-steuern
+  part_of_speech: verb
+  status: approved
+  definition: den Zustand oder Ablauf eines Systems durch Signale oder Befehle beeinflussen
+- concept_id: cool.down
+  preferred_lemma: abkühlen
+  entry_id: DE-VER-abkuehlen
+  part_of_speech: verb
+  status: approved
+  definition: die Temperatur eines Objekts oder Mediums verringern oder sinken lassen
+- concept_id: copy
+  preferred_lemma: kopieren
+  entry_id: DE-VER-kopieren
+  part_of_speech: verb
+  status: approved
+  definition: eine identische digitale oder dokumentarische Kopie erstellen
+- concept_id: correct
+  preferred_lemma: korrigieren
+  entry_id: DE-VER-korrigieren
+  part_of_speech: verb
+  status: approved
+  definition: einen nachweislich falschen Wert, Text oder Zustand in den festgelegten korrekten Zustand bringen
+- concept_id: correct.fault
+  preferred_lemma: beheben
+  entry_id: DE-VER-beheben
+  part_of_speech: verb
+  status: restricted
+  definition: einen ausdrücklich identifizierten Fehler oder eine ausdrücklich identifizierte Störung korrigieren
+- concept_id: count
+  preferred_lemma: zählen
+  entry_id: DE-VER-z-hlen
+  part_of_speech: verb
+  status: approved
+  definition: die Anzahl diskreter Elemente bestimmen
+- concept_id: cut.material
+  preferred_lemma: schneiden
+  entry_id: DE-VER-schneiden
+  part_of_speech: verb
+  status: approved
+  definition: Material mit einem dafür vorgesehenen Schneidwerkzeug trennen
+- concept_id: cut.ui
+  preferred_lemma: ausschneiden
+  entry_id: DE-VER-ausschneiden
+  part_of_speech: verb
+  status: approved
+  definition: ein markiertes digitales Element entfernen und für späteres Einfügen zwischenspeichern
+- concept_id: deactivate
+  preferred_lemma: deaktivieren
+  entry_id: DE-VER-deaktivieren
+  part_of_speech: verb
+  status: approved
+  definition: eine Funktion oder ein System in den freigegebenen inaktiven Zustand bringen
+- concept_id: decrease.intransitive
+  preferred_lemma: sinken
+  entry_id: DE-VER-sinken
+  part_of_speech: verb
+  status: approved
+  definition: von selbst oder durch einen Prozess einen niedrigeren numerischen Wert annehmen
+- concept_id: decrease.transitive
+  preferred_lemma: verringern
+  entry_id: DE-VER-verringern
+  part_of_speech: verb
+  status: approved
+  definition: einen numerischen Wert kleiner machen
+- concept_id: define
+  preferred_lemma: definieren
+  entry_id: DE-VER-definieren
+  part_of_speech: verb
+  status: restricted
+  definition: Bedeutung, Grenze, Parameter oder Eigenschaft eines ausdrücklich genannten Elements verbindlich festlegen
+- concept_id: delete.data
+  preferred_lemma: löschen
+  entry_id: DE-VER-l-schen
+  part_of_speech: verb
+  status: restricted
+  definition: Daten oder einen digitalen Eintrag entfernen
+- concept_id: describe
+  preferred_lemma: beschreiben
+  entry_id: DE-VER-beschreiben
+  part_of_speech: verb
+  status: approved
+  definition: Eigenschaften, Aufbau, Funktion oder Ablauf eines ausdrücklich genannten Gegenstands sachlich darstellen
+- concept_id: detect
+  preferred_lemma: erkennen
+  entry_id: DE-VER-erkennen
+  part_of_speech: verb
+  status: restricted
+  definition: durch Sensorik, Messung oder eindeutige Merkmale das Vorhandensein eines Zustands feststellen
+- concept_id: determiner.all
+  preferred_lemma: alle
+  entry_id: DE-DET-alle
+  part_of_speech: determiner
+  status: approved
+  definition: bezeichnet die Gesamtheit einer klar bestimmten Menge
+- concept_id: determiner.both
+  preferred_lemma: beide
+  entry_id: DE-DET-beide
+  part_of_speech: determiner
+  status: approved
+  definition: bezeichnet genau zwei zuvor bestimmte Elemente
+- concept_id: determiner.de_det_ihr
+  preferred_lemma: Ihr
+  entry_id: DE-DET-Ihr
+  part_of_speech: determiner
+  status: restricted
+  definition: bezeichnet den Besitz oder Bezug zur formal angesprochenen lesenden Person
+- concept_id: determiner.each
+  preferred_lemma: jeder
+  entry_id: DE-DET-jeder
+  part_of_speech: determiner
+  status: approved
+  definition: bezeichnet jedes einzelne Element einer klar bestimmten Menge
+- concept_id: determiner.none
+  preferred_lemma: kein
+  entry_id: DE-DET-kein
+  part_of_speech: determiner
+  status: approved
+  definition: verneint das Vorhandensein oder die Zugehörigkeit eines Substantivs
+- concept_id: determiner.this
+  preferred_lemma: dieser
+  entry_id: DE-DET-dieser
+  part_of_speech: determiner
+  status: restricted
+  definition: verweist auf ein eindeutig bestimmtes, bereits genanntes Substantiv
+- concept_id: disassemble
+  preferred_lemma: zerlegen
+  entry_id: DE-VER-zerlegen
+  part_of_speech: verb
+  status: approved
+  definition: eine Baugruppe nach einem vorgesehenen Verfahren in ihre Teile trennen
+- concept_id: discharge.electrical
+  preferred_lemma: entladen
+  entry_id: DE-VER-entladen
+  part_of_speech: verb
+  status: restricted
+  definition: elektrische Ladung oder gespeicherte elektrische Energie kontrolliert verringern oder entfernen
+- concept_id: disconnect
+  preferred_lemma: trennen
+  entry_id: DE-VER-trennen
+  part_of_speech: verb
+  status: approved
+  definition: eine bestehende mechanische, elektrische oder logische Verbindung aufheben
+- concept_id: display
+  preferred_lemma: anzeigen
+  entry_id: DE-VER-anzeigen
+  part_of_speech: verb
+  status: approved
+  definition: Information auf einem Display, Instrument oder einer Benutzeroberfläche sichtbar ausgeben
+- concept_id: divide.math
+  preferred_lemma: dividieren
+  entry_id: DE-VER-dividieren
+  part_of_speech: verb
+  status: approved
+  definition: einen numerischen Wert mathematisch durch einen anderen teilen
+- concept_id: document
+  preferred_lemma: dokumentieren
+  entry_id: DE-VER-dokumentieren
+  part_of_speech: verb
+  status: approved
+  definition: eine technische Tatsache, Entscheidung oder ein Ergebnis in einem vorgesehenen Dokumentationssystem festhalten
+- concept_id: download
+  preferred_lemma: herunterladen
+  entry_id: DE-VER-herunterladen
+  part_of_speech: verb
+  status: approved
+  definition: Daten von einem entfernten System auf das lokale System übertragen
+- concept_id: drain.release
+  preferred_lemma: ablassen
+  entry_id: DE-VER-ablassen
+  part_of_speech: verb
+  status: restricted
+  definition: Flüssigkeit, Gas oder Druck kontrolliert aus einem System ausströmen lassen
+- concept_id: dry
+  preferred_lemma: trocknen
+  entry_id: DE-VER-trocknen
+  part_of_speech: verb
+  status: approved
+  definition: Feuchtigkeit oder Flüssigkeit von einem Objekt oder aus einem Bereich entfernen
+- concept_id: empty
+  preferred_lemma: entleeren
+  entry_id: DE-VER-entleeren
+  part_of_speech: verb
+  status: approved
+  definition: Material, Flüssigkeit oder Gas vollständig aus einem Behälter oder Raum entfernen
+- concept_id: ensure
+  preferred_lemma: sicherstellen
+  entry_id: DE-VER-sicherstellen
+  part_of_speech: verb
+  status: approved
+  definition: durch eine Prüfung oder eindeutige Feststellung bestätigen, dass eine genannte Bedingung erfüllt ist
+- concept_id: enter.data
+  preferred_lemma: eingeben
+  entry_id: DE-VER-eingeben
+  part_of_speech: verb
+  status: approved
+  definition: Daten in ein System übertragen oder erfassen
+- concept_id: examine
+  preferred_lemma: untersuchen
+  entry_id: DE-VER-untersuchen
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt oder einen Bereich systematisch auf Schäden, Fehler oder andere festgelegte Merkmale ansehen oder
+    prüfen
+- concept_id: example.nonexhaustive
+  preferred_lemma: zum Beispiel
+  entry_id: DE-PHR-zum-beispiel
+  part_of_speech: phrase
+  status: restricted
+  definition: leitet ausdrücklich eine nicht vollständige Menge von Beispielen ein
+- concept_id: execute.software
+  preferred_lemma: ausführen
+  entry_id: DE-VER-ausf-hren
+  part_of_speech: verb
+  status: restricted
+  definition: einen Softwarebefehl, ein Programm oder ein Skript starten und abarbeiten lassen
+- concept_id: exist.there_is
+  preferred_lemma: es gibt
+  entry_id: DE-PHR-es-gibt
+  part_of_speech: phrase
+  status: restricted
+  definition: drückt aus, dass ein ausdrücklich genanntes Objekt oder ein Zustand vorhanden ist
+- concept_id: expand
+  preferred_lemma: erweitern
+  entry_id: DE-VER-erweitern
+  part_of_speech: verb
+  status: restricted
+  definition: Größe, Umfang oder Funktionsumfang in eine ausdrücklich genannte Richtung vergrößern
+- concept_id: fill
+  preferred_lemma: füllen
+  entry_id: DE-VER-f-llen
+  part_of_speech: verb
+  status: approved
+  definition: Material, Flüssigkeit oder Gas in einen Behälter oder Raum einbringen
+- concept_id: find
+  preferred_lemma: finden
+  entry_id: DE-VER-finden
+  part_of_speech: verb
+  status: approved
+  definition: das Vorhandensein eines gesuchten oder unerwarteten Elements oder Zustands feststellen
+- concept_id: flush
+  preferred_lemma: spülen
+  entry_id: DE-VER-sp-len
+  part_of_speech: verb
+  status: restricted
+  definition: ein System oder eine Oberfläche mit einem Flüssigkeits- oder Gasstrom reinigen oder auswaschen
+- concept_id: fold
+  preferred_lemma: falten
+  entry_id: DE-VER-falten
+  part_of_speech: verb
+  status: approved
+  definition: Material oder ein flexibles Teil entlang einer Linie umlegen
+- concept_id: form.constitute
+  preferred_lemma: bilden
+  entry_id: DE-VER-bilden
+  part_of_speech: verb
+  status: restricted
+  definition: ausdrücken, dass ausdrücklich genannte Teile zusammen eine klar bezeichnete Einheit oder Struktur ergeben
+- concept_id: format
+  preferred_lemma: formatieren
+  entry_id: DE-VER-formatieren
+  part_of_speech: verb
+  status: restricted
+  definition: ein digitales Speichermedium oder Datenobjekt nach einer festgelegten Struktur vorbereiten
+- concept_id: generate.output
+  preferred_lemma: erzeugen
+  entry_id: DE-VER-erzeugen
+  part_of_speech: verb
+  status: restricted
+  definition: ein ausdrücklich genanntes physisches, elektrisches oder informationstechnisches Ergebnis hervorbringen
+- concept_id: ground
+  preferred_lemma: erden
+  entry_id: DE-VER-erden
+  part_of_speech: verb
+  status: restricted
+  definition: eine elektrische Verbindung zur festgelegten Erde oder Masse herstellen
+- concept_id: have.possess
+  preferred_lemma: haben
+  entry_id: DE-VER-haben
+  part_of_speech: verb
+  status: approved
+  definition: etwas besitzen, enthalten oder als Teil aufweisen
+- concept_id: heed
+  preferred_lemma: beachten
+  entry_id: DE-VER-beachten
+  part_of_speech: verb
+  status: restricted
+  definition: einen ausdrücklich genannten Hinweis, Grenzwert oder Umstand bei einer Handlung berücksichtigen
+- concept_id: hold
+  preferred_lemma: halten
+  entry_id: DE-VER-halten
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt oder einen Zustand an einer Position oder einem Wert beibehalten
+- concept_id: increase.intransitive
+  preferred_lemma: steigen
+  entry_id: DE-VER-steigen
+  part_of_speech: verb
+  status: approved
+  definition: von selbst oder durch einen Prozess einen höheren numerischen Wert annehmen
+- concept_id: increase.transitive
+  preferred_lemma: erhöhen
+  entry_id: DE-VER-erh-hen
+  part_of_speech: verb
+  status: approved
+  definition: einen numerischen Wert größer machen
+- concept_id: install.mechanical
+  preferred_lemma: einbauen
+  entry_id: DE-VER-einbauen
+  part_of_speech: verb
+  status: approved
+  definition: ein mechanisches oder elektrisches Bauteil in seine vorgesehene Einbauposition bringen
+- concept_id: install.software
+  preferred_lemma: installieren
+  entry_id: DE-VER-installieren
+  part_of_speech: verb
+  status: restricted
+  definition: Software oder ein digitales Paket in einem System einrichten
+- concept_id: install.system
+  preferred_lemma: installieren
+  entry_id: DE-VER-installieren
+  part_of_speech: verb
+  status: restricted
+  definition: ein System nach offizieller Terminologie in Betrieb setzen
+- concept_id: isolate
+  preferred_lemma: isolieren
+  entry_id: DE-VER-isolieren
+  part_of_speech: verb
+  status: restricted
+  definition: ein Objekt elektrisch, thermisch, stofflich oder logisch von seiner Umgebung trennen
+- concept_id: label.mark
+  preferred_lemma: kennzeichnen
+  entry_id: DE-VER-kennzeichnen
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt, einen Zustand oder einen Bereich mit einer eindeutigen Kennzeichnung versehen
+- concept_id: latch
+  preferred_lemma: einrasten
+  entry_id: DE-VER-einrasten
+  part_of_speech: verb
+  status: restricted
+  definition: in eine definierte Rast- oder Verriegelungsposition gelangen oder gebracht werden
+- concept_id: lie.position
+  preferred_lemma: liegen
+  entry_id: DE-VER-liegen
+  part_of_speech: verb
+  status: restricted
+  definition: sich an einer ausdrücklich bestimmten räumlichen Position befinden
+- concept_id: lift
+  preferred_lemma: heben
+  entry_id: DE-VER-heben
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt in eine höhere Position bewegen
+- concept_id: list
+  preferred_lemma: auflisten
+  entry_id: DE-VER-auflisten
+  part_of_speech: verb
+  status: approved
+  definition: mehrere Elemente in einer ausdrücklich strukturierten Liste nennen
+- concept_id: load.cargo
+  preferred_lemma: beladen
+  entry_id: DE-VER-beladen
+  part_of_speech: verb
+  status: approved
+  definition: Material oder Gegenstände in oder auf ein Transport- oder Aufnahmeobjekt bringen
+- concept_id: lock
+  preferred_lemma: verriegeln
+  entry_id: DE-VER-verriegeln
+  part_of_speech: verb
+  status: approved
+  definition: eine mechanische oder logische Verriegelung in den gesicherten Zustand bringen
+- concept_id: lower.position
+  preferred_lemma: senken
+  entry_id: DE-VER-senken
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt in eine tiefere Position bewegen
+- concept_id: lubricate
+  preferred_lemma: schmieren
+  entry_id: DE-VER-schmieren
+  part_of_speech: verb
+  status: restricted
+  definition: ein freigegebenes Schmiermittel auf eine Reib- oder Kontaktstelle aufbringen
+- concept_id: mark.select
+  preferred_lemma: markieren
+  entry_id: DE-VER-markieren
+  part_of_speech: verb
+  status: restricted
+  definition: ein Element sichtbar oder logisch als ausgewählt oder gekennzeichnet festlegen
+- concept_id: may.permission
+  preferred_lemma: dürfen
+  entry_id: DE-VER-d-rfen
+  part_of_speech: verb
+  status: restricted
+  definition: Erlaubnis ausdrücken
+- concept_id: may.prohibition
+  preferred_lemma: dürfen
+  entry_id: DE-VER-d-rfen
+  part_of_speech: verb
+  status: restricted
+  definition: mit nicht ein Verbot ausdrücken
+- concept_id: measure
+  preferred_lemma: messen
+  entry_id: DE-VER-messen
+  part_of_speech: verb
+  status: approved
+  definition: den quantitativen Wert einer physikalischen oder technischen Größe bestimmen
+- concept_id: mix
+  preferred_lemma: mischen
+  entry_id: DE-VER-mischen
+  part_of_speech: verb
+  status: approved
+  definition: zwei oder mehr Stoffe zu einer Mischung zusammenbringen
+- concept_id: monitor
+  preferred_lemma: überwachen
+  entry_id: DE-VER-berwachen
+  part_of_speech: verb
+  status: approved
+  definition: einen Zustand oder Wert fortlaufend beobachten oder erfassen
+- concept_id: move
+  preferred_lemma: bewegen
+  entry_id: DE-VER-bewegen
+  part_of_speech: verb
+  status: restricted
+  definition: die Position eines Objekts ändern
+- concept_id: move.relocate
+  preferred_lemma: verschieben
+  entry_id: DE-VER-verschieben
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt oder Datenelement von einer Position an eine andere Position bewegen
+- concept_id: multiply.math
+  preferred_lemma: multiplizieren
+  entry_id: DE-VER-multiplizieren
+  part_of_speech: verb
+  status: approved
+  definition: numerische Werte mathematisch miteinander multiplizieren
+- concept_id: must.requirement
+  preferred_lemma: müssen
+  entry_id: DE-VER-m-ssen
+  part_of_speech: verb
+  status: restricted
+  definition: eine verbindliche Anforderung oder zwingende Bedingung ausdrücken
+- concept_id: notify
+  preferred_lemma: benachrichtigen
+  entry_id: DE-VER-benachrichtigen
+  part_of_speech: verb
+  status: approved
+  definition: einer bestimmten Person oder Stelle eine Information gezielt übermitteln
+- concept_id: noun.access
+  preferred_lemma: Zugriff
+  entry_id: DE-NOU-zugriff
+  part_of_speech: noun
+  status: restricted
+  definition: technische Möglichkeit, auf ein Objekt, einen Bereich oder Daten zuzugreifen
+- concept_id: noun.aenderung
+  preferred_lemma: Änderung
+  entry_id: DE-NOU-aenderung
+  part_of_speech: noun
+  status: restricted
+  definition: feststellbare Abweichung eines Zustands, Werts, Produkts oder Dokuments gegenüber einem vorherigen Stand
+- concept_id: noun.angabe
+  preferred_lemma: Angabe
+  entry_id: DE-NOU-angabe
+  part_of_speech: noun
+  status: restricted
+  definition: ausdrücklich genannter technischer Wert oder dokumentierte Information
+- concept_id: noun.anleitung
+  preferred_lemma: Anleitung
+  entry_id: DE-NOU-anleitung
+  part_of_speech: noun
+  status: restricted
+  definition: Dokument oder abgegrenzter Dokumentteil mit Informationen oder Anweisungen zur Verwendung eines Produkts
+- concept_id: noun.area
+  preferred_lemma: Bereich
+  entry_id: DE-NOU-bereich
+  part_of_speech: noun
+  status: restricted
+  definition: räumlich, funktional oder dokumentarisch abgegrenzter Teil
+- concept_id: noun.assembly
+  preferred_lemma: Baugruppe
+  entry_id: DE-NOU-baugruppe
+  part_of_speech: noun
+  status: restricted
+  definition: aus mehreren Teilen bestehende technische Einheit
+- concept_id: noun.bedienung
+  preferred_lemma: Bedienung
+  entry_id: DE-NOU-bedienung
+  part_of_speech: noun
+  status: restricted
+  definition: Interaktion einer Person mit Bedienelementen oder einer Benutzeroberfläche
+- concept_id: noun.beispiel
+  preferred_lemma: Beispiel
+  entry_id: DE-NOU-beispiel
+  part_of_speech: noun
+  status: approved
+  definition: konkreter Fall, der eine Regel, Funktion oder Verwendung erläutert
+- concept_id: noun.betriebsanleitung
+  preferred_lemma: Betriebsanleitung
+  entry_id: DE-NOU-betriebsanleitung
+  part_of_speech: noun
+  status: approved
+  definition: offizielle Anleitung für sicheren Betrieb, Bedienung oder Instandhaltung eines Produkts
+- concept_id: noun.cause
+  preferred_lemma: Ursache
+  entry_id: DE-NOU-ursache
+  part_of_speech: noun
+  status: approved
+  definition: Ereignis oder Zustand, der eine ausdrücklich genannte Wirkung hervorruft
+- concept_id: noun.check
+  preferred_lemma: Prüfung
+  entry_id: DE-NOU-pr-fung
+  part_of_speech: noun
+  status: approved
+  definition: festgelegte Handlung zur Feststellung, ob ein Zustand oder Kriterium erfüllt ist
+- concept_id: noun.component
+  preferred_lemma: Bauteil
+  entry_id: DE-NOU-bauteil
+  part_of_speech: noun
+  status: restricted
+  definition: einzelnes technisch abgegrenztes Teil eines Systems oder einer Baugruppe
+- concept_id: noun.condition
+  preferred_lemma: Bedingung
+  entry_id: DE-NOU-bedingung
+  part_of_speech: noun
+  status: approved
+  definition: ausdrücklich definierter Zustand, der für eine Aussage oder Handlung erfüllt sein muss
+- concept_id: noun.connection
+  preferred_lemma: Verbindung
+  entry_id: DE-NOU-verbindung
+  part_of_speech: noun
+  status: restricted
+  definition: mechanische, elektrische, stoffliche oder logische Kopplung zwischen ausdrücklich genannten Elementen
+- concept_id: noun.consequence
+  preferred_lemma: Folge
+  entry_id: DE-NOU-folge
+  part_of_speech: noun
+  status: approved
+  definition: Wirkung oder Ergebnis, das aus einer ausdrücklich genannten Ursache entsteht
+- concept_id: noun.content
+  preferred_lemma: Inhalt
+  entry_id: DE-NOU-inhalt
+  part_of_speech: noun
+  status: restricted
+  definition: Information oder Material innerhalb eines ausdrücklich genannten Behälters, Dokuments oder Datenobjekts
+- concept_id: noun.count
+  preferred_lemma: Anzahl
+  entry_id: DE-NOU-anzahl
+  part_of_speech: noun
+  status: approved
+  definition: gezählte Menge diskreter Elemente
+- concept_id: noun.damage
+  preferred_lemma: Schaden
+  entry_id: DE-NOU-schaden
+  part_of_speech: noun
+  status: restricted
+  definition: physische, funktionale oder materielle Beeinträchtigung eines Objekts oder einer Person
+- concept_id: noun.date
+  preferred_lemma: Datum
+  entry_id: DE-NOU-datum
+  part_of_speech: noun
+  status: approved
+  definition: Kalenderangabe eines bestimmten Tages
+- concept_id: noun.daten
+  preferred_lemma: Daten
+  entry_id: DE-NOU-daten
+  part_of_speech: noun
+  status: restricted
+  definition: digital oder analog dargestellte technische Informationen, Messwerte oder gespeicherte Inhalte
+- concept_id: noun.description
+  preferred_lemma: Beschreibung
+  entry_id: DE-NOU-beschreibung
+  part_of_speech: noun
+  status: approved
+  definition: Text, der technische Information gibt und keine direkte Arbeitsanweisung ist
+- concept_id: noun.designation
+  preferred_lemma: Benennung
+  entry_id: DE-NOU-benennung
+  part_of_speech: noun
+  status: approved
+  definition: freigegebener sprachlicher Ausdruck für einen technischen Begriff
+- concept_id: noun.device
+  preferred_lemma: Gerät
+  entry_id: DE-NOU-ger-t
+  part_of_speech: noun
+  status: restricted
+  definition: technische Einheit, die eine oder mehrere vorgesehene Funktionen ausführt
+- concept_id: noun.direction
+  preferred_lemma: Richtung
+  entry_id: DE-NOU-richtung
+  part_of_speech: noun
+  status: approved
+  definition: orientierte räumliche oder logische Bewegungsrichtung
+- concept_id: noun.distance
+  preferred_lemma: Abstand
+  entry_id: DE-NOU-abstand
+  part_of_speech: noun
+  status: approved
+  definition: räumliche Entfernung zwischen zwei ausdrücklich bestimmten Punkten, Flächen oder Objekten
+- concept_id: noun.document
+  preferred_lemma: Dokument
+  entry_id: DE-NOU-dokument
+  part_of_speech: noun
+  status: approved
+  definition: abgegrenzte Informationsquelle mit eigener Identifikation oder Funktion
+- concept_id: noun.dokumentation
+  preferred_lemma: Dokumentation
+  entry_id: DE-NOU-dokumentation
+  part_of_speech: noun
+  status: restricted
+  definition: geordnete Menge technischer Dokumente oder aufgezeichneter technischer Informationen
+- concept_id: noun.duration
+  preferred_lemma: Dauer
+  entry_id: DE-NOU-dauer
+  part_of_speech: noun
+  status: approved
+  definition: Zeitspanne zwischen Beginn und Ende eines Ereignisses
+- concept_id: noun.einstellung
+  preferred_lemma: Einstellung
+  entry_id: DE-NOU-einstellung
+  part_of_speech: noun
+  status: restricted
+  definition: festgelegter oder auswählbarer Wert oder Zustand eines Systems oder Parameters
+- concept_id: noun.end
+  preferred_lemma: Ende
+  entry_id: DE-NOU-ende
+  part_of_speech: noun
+  status: approved
+  definition: letzter Punkt oder Abschluss eines ausdrücklich bestimmten Ablaufs oder Bereichs
+- concept_id: noun.error_fault
+  preferred_lemma: Fehler
+  entry_id: DE-NOU-fehler
+  part_of_speech: noun
+  status: restricted
+  definition: Abweichung von einer definierten Funktion, Anforderung oder korrekten Information
+- concept_id: noun.fachpersonal
+  preferred_lemma: Fachpersonal
+  entry_id: DE-NOU-fachpersonal
+  part_of_speech: noun
+  status: restricted
+  definition: Personen mit der für eine ausdrücklich genannte technische Tätigkeit erforderlichen Qualifikation
+- concept_id: noun.form
+  preferred_lemma: Form
+  entry_id: DE-NOU-form
+  part_of_speech: noun
+  status: restricted
+  definition: geometrische Gestalt oder festgelegte sprachliche/strukturelle Ausprägung
+- concept_id: noun.function
+  preferred_lemma: Funktion
+  entry_id: DE-NOU-funktion
+  part_of_speech: noun
+  status: approved
+  definition: vorgesehene technische Aufgabe oder Wirkung eines Systems, Bauteils oder Prozesses
+- concept_id: noun.hazard
+  preferred_lemma: Gefahr
+  entry_id: DE-NOU-gefahr
+  part_of_speech: noun
+  status: restricted
+  definition: Quelle oder Situation mit möglichem Schaden für Personen, Objekte oder Umwelt
+- concept_id: noun.height
+  preferred_lemma: Höhe
+  entry_id: DE-NOU-h-he
+  part_of_speech: noun
+  status: approved
+  definition: lineare Abmessung oder Position in vertikaler Richtung
+- concept_id: noun.information
+  preferred_lemma: Information
+  entry_id: DE-NOU-information
+  part_of_speech: noun
+  status: approved
+  definition: technischer Inhalt, der einen Sachverhalt, Zustand, Wert oder Zusammenhang beschreibt
+- concept_id: noun.installation
+  preferred_lemma: Installation
+  entry_id: DE-NOU-installation
+  part_of_speech: noun
+  status: restricted
+  definition: Vorgang oder Ergebnis des Einbauens, Anschließens oder Einrichtens eines technischen Systems
+- concept_id: noun.kenntnis
+  preferred_lemma: Kenntnis
+  entry_id: DE-NOU-kenntnis
+  part_of_speech: noun
+  status: restricted
+  definition: fachliches Wissen, das für eine ausdrücklich genannte Tätigkeit vorausgesetzt wird
+- concept_id: noun.kennzeichnung
+  preferred_lemma: Kennzeichnung
+  entry_id: DE-NOU-kennzeichnung
+  part_of_speech: noun
+  status: approved
+  definition: sichtbare oder maschinenlesbare Markierung zur Identifikation oder Klassifikation
+- concept_id: noun.length
+  preferred_lemma: Länge
+  entry_id: DE-NOU-l-nge
+  part_of_speech: noun
+  status: approved
+  definition: lineare Abmessung in der festgelegten Längsrichtung
+- concept_id: noun.limit
+  preferred_lemma: Grenze
+  entry_id: DE-NOU-grenze
+  part_of_speech: noun
+  status: approved
+  definition: Wert oder Position, die einen zulässigen oder definierten Bereich begrenzt
+- concept_id: noun.location
+  preferred_lemma: Stelle
+  entry_id: DE-NOU-stelle
+  part_of_speech: noun
+  status: restricted
+  definition: genau bezeichneter räumlicher Punkt, Dokumentort oder organisatorischer Empfänger
+- concept_id: noun.manufacturer
+  preferred_lemma: Hersteller
+  entry_id: DE-NOU-hersteller
+  part_of_speech: noun
+  status: approved
+  definition: Organisation, die ein Produkt herstellt und als Hersteller verantwortlich zeichnet
+- concept_id: noun.method
+  preferred_lemma: Methode
+  entry_id: DE-NOU-methode
+  part_of_speech: noun
+  status: approved
+  definition: festgelegte Art, eine Aufgabe oder Analyse auszuführen
+- concept_id: noun.middle
+  preferred_lemma: Mitte
+  entry_id: DE-NOU-mitte
+  part_of_speech: noun
+  status: approved
+  definition: geometrischer oder funktionaler Zentralbereich zwischen festgelegten Grenzen
+- concept_id: noun.name
+  preferred_lemma: Name
+  entry_id: DE-NOU-name
+  part_of_speech: noun
+  status: approved
+  definition: offizielle oder eindeutig festgelegte sprachliche Identifikation eines Objekts, Dokuments oder Elements
+- concept_id: noun.note
+  preferred_lemma: Hinweis
+  entry_id: DE-NOU-hinweis
+  part_of_speech: noun
+  status: approved
+  definition: zusätzliche Information, die keine Anweisung, Grenze oder Sicherheitsmaßnahme enthält
+- concept_id: noun.number
+  preferred_lemma: Nummer
+  entry_id: DE-NOU-nummer
+  part_of_speech: noun
+  status: approved
+  definition: numerische oder alphanumerische Identifikation
+- concept_id: noun.operation
+  preferred_lemma: Betrieb
+  entry_id: DE-NOU-betrieb
+  part_of_speech: noun
+  status: restricted
+  definition: Zustand oder Tätigkeit, in der ein System seine vorgesehene Funktion ausführt
+- concept_id: noun.operator
+  preferred_lemma: Betreiber
+  entry_id: DE-NOU-betreiber
+  part_of_speech: noun
+  status: restricted
+  definition: Organisation oder Rolle, die ein System verantwortlich betreibt
+- concept_id: noun.option
+  preferred_lemma: Option
+  entry_id: DE-NOU-option
+  part_of_speech: noun
+  status: restricted
+  definition: ausdrücklich angebotene auswählbare Alternative
+- concept_id: noun.part
+  preferred_lemma: Teil
+  entry_id: DE-NOU-teil
+  part_of_speech: noun
+  status: restricted
+  definition: abgegrenztes Element eines größeren Ganzen
+- concept_id: noun.person
+  preferred_lemma: Person
+  entry_id: DE-NOU-person
+  part_of_speech: noun
+  status: approved
+  definition: ein einzelner Mensch ohne geschlechtsspezifische Benennung
+- concept_id: noun.position
+  preferred_lemma: Position
+  entry_id: DE-NOU-position
+  part_of_speech: noun
+  status: restricted
+  definition: definierte räumliche Lage oder definierter Zustand eines Bedienelements
+- concept_id: noun.problem
+  preferred_lemma: Problem
+  entry_id: DE-NOU-problem
+  part_of_speech: noun
+  status: restricted
+  definition: Zustand, der die vorgesehene Funktion oder Ausführung einer Aufgabe verhindert oder beeinträchtigt
+- concept_id: noun.procedure
+  preferred_lemma: Verfahren
+  entry_id: DE-NOU-verfahren
+  part_of_speech: noun
+  status: approved
+  definition: festgelegte Folge von Handlungen zur Erreichung eines technischen Ziels
+- concept_id: noun.process
+  preferred_lemma: Prozess
+  entry_id: DE-NOU-prozess
+  part_of_speech: noun
+  status: approved
+  definition: geordnete Folge von Zuständen oder Vorgängen mit definiertem Zweck
+- concept_id: noun.produkt
+  preferred_lemma: Produkt
+  entry_id: DE-NOU-produkt
+  part_of_speech: noun
+  status: restricted
+  definition: technische Einheit oder Ware, auf die sich die Dokumentation bezieht
+- concept_id: noun.quantity
+  preferred_lemma: Menge
+  entry_id: DE-NOU-menge
+  part_of_speech: noun
+  status: approved
+  definition: bestimmte oder messbare Quantität eines Stoffes oder einer nicht diskreten Größe
+- concept_id: noun.reader
+  preferred_lemma: Leser
+  entry_id: DE-NOU-leser
+  part_of_speech: noun
+  status: restricted
+  definition: Person, für die der technische Text bestimmt ist
+- concept_id: noun.reason
+  preferred_lemma: Grund
+  entry_id: DE-NOU-grund
+  part_of_speech: noun
+  status: restricted
+  definition: ausdrücklich genannte Ursache oder Begründung für eine Aussage oder Handlung
+- concept_id: noun.result
+  preferred_lemma: Ergebnis
+  entry_id: DE-NOU-ergebnis
+  part_of_speech: noun
+  status: approved
+  definition: festgestellter Wert oder Zustand, der aus einer Handlung, Prüfung oder Berechnung folgt
+- concept_id: noun.risk
+  preferred_lemma: Risiko
+  entry_id: DE-NOU-risiko
+  part_of_speech: noun
+  status: restricted
+  definition: Kombination aus Möglichkeit eines schädlichen Ereignisses und dessen Auswirkung nach anwendbarem Sicherheitsmodell
+- concept_id: noun.section
+  preferred_lemma: Abschnitt
+  entry_id: DE-NOU-abschnitt
+  part_of_speech: noun
+  status: approved
+  definition: klar abgegrenzter Teil eines Dokuments oder einer Struktur
+- concept_id: noun.side_page
+  preferred_lemma: Seite
+  entry_id: DE-NOU-seite
+  part_of_speech: noun
+  status: restricted
+  definition: räumliche Seite eines Objekts oder Seite eines Dokuments
+- concept_id: noun.signal
+  preferred_lemma: Signal
+  entry_id: DE-NOU-signal
+  part_of_speech: noun
+  status: approved
+  definition: physikalische oder digitale Größe, die Information überträgt
+- concept_id: noun.start
+  preferred_lemma: Anfang
+  entry_id: DE-NOU-anfang
+  part_of_speech: noun
+  status: approved
+  definition: erster Punkt oder erste Phase eines ausdrücklich bestimmten Ablaufs oder Bereichs
+- concept_id: noun.state
+  preferred_lemma: Zustand
+  entry_id: DE-NOU-zustand
+  part_of_speech: noun
+  status: approved
+  definition: feststellbare Ausprägung eines Systems, Objekts oder Parameters zu einem Zeitpunkt
+- concept_id: noun.step
+  preferred_lemma: Schritt
+  entry_id: DE-NOU-schritt
+  part_of_speech: noun
+  status: approved
+  definition: einzelne abgegrenzte Handlung oder Anweisung innerhalb eines Verfahrens
+- concept_id: noun.surface
+  preferred_lemma: Oberfläche
+  entry_id: DE-NOU-oberfl-che
+  part_of_speech: noun
+  status: approved
+  definition: äußere oder definierte Grenzfläche eines Materials oder Objekts
+- concept_id: noun.symbol
+  preferred_lemma: Symbol
+  entry_id: DE-NOU-symbol
+  part_of_speech: noun
+  status: approved
+  definition: grafisches Zeichen mit festgelegter technischer oder sicherheitsbezogener Bedeutung
+- concept_id: noun.system
+  preferred_lemma: System
+  entry_id: DE-NOU-system
+  part_of_speech: noun
+  status: approved
+  definition: funktional zusammengehörige Menge von Elementen mit einer definierten Aufgabe
+- concept_id: noun.table
+  preferred_lemma: Tabelle
+  entry_id: DE-NOU-tabelle
+  part_of_speech: noun
+  status: approved
+  definition: strukturierte Darstellung von Daten in Zeilen und Spalten
+- concept_id: noun.taetigkeit
+  preferred_lemma: Tätigkeit
+  entry_id: DE-NOU-taetigkeit
+  part_of_speech: noun
+  status: restricted
+  definition: abgegrenzte menschliche technische Handlung oder Arbeitsaufgabe
+- concept_id: noun.target
+  preferred_lemma: Ziel
+  entry_id: DE-NOU-ziel
+  part_of_speech: noun
+  status: approved
+  definition: ausdrücklich festgelegter gewünschter Endzustand oder Zweck
+- concept_id: noun.task
+  preferred_lemma: Aufgabe
+  entry_id: DE-NOU-aufgabe
+  part_of_speech: noun
+  status: approved
+  definition: abgegrenzte technische Tätigkeit mit einem definierten Ziel
+- concept_id: noun.text
+  preferred_lemma: Text
+  entry_id: DE-NOU-text
+  part_of_speech: noun
+  status: approved
+  definition: geschriebene sprachliche Information
+- concept_id: noun.time
+  preferred_lemma: Zeit
+  entry_id: DE-NOU-zeit
+  part_of_speech: noun
+  status: restricted
+  definition: Zeitpunkt oder Zeitgröße im ausdrücklich genannten Kontext
+- concept_id: noun.type
+  preferred_lemma: Art
+  entry_id: DE-NOU-art
+  part_of_speech: noun
+  status: approved
+  definition: klar definierte Kategorie oder Klasse von Elementen
+- concept_id: noun.type_class
+  preferred_lemma: Typ
+  entry_id: DE-NOU-typ
+  part_of_speech: noun
+  status: approved
+  definition: definierte technische oder dokumentarische Klasse
+- concept_id: noun.unit
+  preferred_lemma: Einheit
+  entry_id: DE-NOU-einheit
+  part_of_speech: noun
+  status: restricted
+  definition: definierte funktionale oder physische Einheit oder Maßeinheit
+- concept_id: noun.user
+  preferred_lemma: Benutzer
+  entry_id: DE-NOU-benutzer
+  part_of_speech: noun
+  status: restricted
+  definition: Person oder Systemrolle, die eine Benutzeroberfläche oder Funktion verwendet
+- concept_id: noun.value
+  preferred_lemma: Wert
+  entry_id: DE-NOU-wert
+  part_of_speech: noun
+  status: approved
+  definition: quantitative oder eindeutig codierte Ausprägung einer Größe oder eines Parameters
+- concept_id: noun.verfuegbarkeit
+  preferred_lemma: Verfügbarkeit
+  entry_id: DE-NOU-verfuegbarkeit
+  part_of_speech: noun
+  status: restricted
+  definition: Zustand, in dem eine ausdrücklich genannte Funktion, Ressource oder Komponente zur vorgesehenen Nutzung bereitsteht
+- concept_id: noun.verletzung
+  preferred_lemma: Verletzung
+  entry_id: DE-NOU-verletzung
+  part_of_speech: noun
+  status: approved
+  definition: körperliche Schädigung einer Person
+- concept_id: noun.version
+  preferred_lemma: Version
+  entry_id: DE-NOU-version
+  part_of_speech: noun
+  status: approved
+  definition: eindeutig identifizierter Entwicklungs- oder Ausgabestand eines Produkts, Dokuments oder Softwareelements
+- concept_id: noun.verwendung
+  preferred_lemma: Verwendung
+  entry_id: DE-NOU-verwendung
+  part_of_speech: noun
+  status: restricted
+  definition: Einsatz eines Produkts, Werkzeugs, Stoffes oder Verfahrens für einen ausdrücklich genannten Zweck
+- concept_id: noun.vorschrift
+  preferred_lemma: Vorschrift
+  entry_id: DE-NOU-vorschrift
+  part_of_speech: noun
+  status: restricted
+  definition: verbindliche dokumentierte Regel oder Anforderung aus einer ausdrücklich identifizierten Quelle
+- concept_id: noun.warnung
+  preferred_lemma: Warnung
+  entry_id: DE-NOU-warnung
+  part_of_speech: noun
+  status: restricted
+  definition: Sicherheitsinformation, die auf eine Gefahr für Personen hinweist
+- concept_id: noun.width
+  preferred_lemma: Breite
+  entry_id: DE-NOU-breite
+  part_of_speech: noun
+  status: approved
+  definition: lineare Abmessung in der festgelegten Breitenrichtung
+- concept_id: obey
+  preferred_lemma: befolgen
+  entry_id: DE-VER-befolgen
+  part_of_speech: verb
+  status: approved
+  definition: die Anweisungen oder Regeln eines ausdrücklich genannten Dokuments ausführen
+- concept_id: occur
+  preferred_lemma: auftreten
+  entry_id: DE-VER-auftreten
+  part_of_speech: verb
+  status: restricted
+  definition: als Ereignis, Fehler oder Zustand entstehen oder vorhanden werden
+- concept_id: open
+  preferred_lemma: öffnen
+  entry_id: DE-VER-ffnen
+  part_of_speech: verb
+  status: restricted
+  definition: ein Teil, eine Öffnung, Datei oder Funktion aus dem geschlossenen Zustand zugänglich machen
+- concept_id: operate.correctly
+  preferred_lemma: funktionieren
+  entry_id: DE-VER-funktionieren
+  part_of_speech: verb
+  status: restricted
+  definition: die vorgesehene Funktion ohne den beschriebenen Fehler erfüllen
+- concept_id: operate.transitive
+  preferred_lemma: betreiben
+  entry_id: DE-VER-betreiben
+  part_of_speech: verb
+  status: approved
+  definition: ein Gerät oder System aktiv bedienen oder in seinem vorgesehenen Betriebszustand halten
+- concept_id: paste.insert
+  preferred_lemma: einfügen
+  entry_id: DE-VER-einf-gen
+  part_of_speech: verb
+  status: approved
+  definition: digitale Daten oder ein Element an einer bestimmten Position ergänzen
+- concept_id: per.each
+  preferred_lemma: je
+  entry_id: DE-QUA-je
+  part_of_speech: quantifier
+  status: approved
+  definition: kennzeichnet eine Menge oder einen Wert pro ausdrücklich genannter Einheit
+- concept_id: phrase.equal_amount
+  preferred_lemma: so viel wie
+  entry_id: DE-PHR-so-viel-wie
+  part_of_speech: phrase
+  status: restricted
+  definition: kennzeichnet Gleichheit einer Menge oder eines Werts
+- concept_id: phrase.less_than
+  preferred_lemma: weniger als
+  entry_id: DE-PHR-weniger-als
+  part_of_speech: phrase
+  status: approved
+  definition: kennzeichnet einen Wert oder eine Menge unterhalb einer nicht eingeschlossenen Grenze
+- concept_id: phrase.more_than
+  preferred_lemma: mehr als
+  entry_id: DE-PHR-mehr-als
+  part_of_speech: phrase
+  status: approved
+  definition: kennzeichnet einen Wert oder eine Menge oberhalb einer nicht eingeschlossenen Grenze
+- concept_id: position
+  preferred_lemma: positionieren
+  entry_id: DE-VER-positionieren
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt in eine ausdrücklich definierte Position bringen
+- concept_id: prep.above_over
+  preferred_lemma: über
+  entry_id: DE-PRE-ber
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet eine räumlich höhere Position oder eine Bewegung über ein Objekt
+- concept_id: prep.after_toward
+  preferred_lemma: nach
+  entry_id: DE-PRE-nach
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet eine zeitlich spätere Position oder eine eindeutig bezeichnete Richtung
+- concept_id: prep.against
+  preferred_lemma: gegen
+  entry_id: DE-PRE-gegen
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet physischen Kontakt, entgegengesetzte Richtung oder eine definierte Gegenkraft
+- concept_id: prep.around
+  preferred_lemma: um
+  entry_id: DE-PRE-um
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet eine Bewegung oder Position um eine ausdrücklich genannte Achse oder ein Objekt
+- concept_id: prep.at
+  preferred_lemma: bei
+  entry_id: DE-PRE-bei
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet eine definierte Position, einen Betriebszustand oder einen Messwert
+- concept_id: prep.at_on
+  preferred_lemma: an
+  entry_id: DE-PRE-an
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet Kontakt, unmittelbare Nähe oder eine definierte Position an einem Objekt
+- concept_id: prep.because_of
+  preferred_lemma: wegen
+  entry_id: DE-PRE-wegen
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet eine ausdrücklich benannte Ursache
+- concept_id: prep.before_in_front
+  preferred_lemma: vor
+  entry_id: DE-PRE-vor
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet eine räumlich vordere Position oder einen früheren Zeitpunkt
+- concept_id: prep.behind
+  preferred_lemma: hinter
+  entry_id: DE-PRE-hinter
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet eine Position auf der Rückseite oder weiter hinten als ein Referenzobjekt
+- concept_id: prep.below_under
+  preferred_lemma: unter
+  entry_id: DE-PRE-unter
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet eine räumlich tiefere Position oder eine Lage unter einem Objekt
+- concept_id: prep.between
+  preferred_lemma: zwischen
+  entry_id: DE-PRE-zwischen
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet eine Position oder Beziehung zwischen zwei klar identifizierten Grenzen oder Objekten
+- concept_id: prep.delta
+  preferred_lemma: um
+  entry_id: DE-PRE-um
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet eine ausdrücklich genannte Änderung um einen numerischen Betrag
+- concept_id: prep.during
+  preferred_lemma: während
+  entry_id: DE-PRE-w-hrend
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet einen Zeitraum, in dem ein Zustand oder eine Handlung gilt
+- concept_id: prep.for
+  preferred_lemma: für
+  entry_id: DE-PRE-f-r
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet Zweck, Zielgruppe oder Zuordnung
+- concept_id: prep.from_of
+  preferred_lemma: von
+  entry_id: DE-PRE-von
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet Ausgangspunkt, Urheber oder eindeutige Zuordnung
+- concept_id: prep.from_out_of
+  preferred_lemma: aus
+  entry_id: DE-PRE-aus
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet Herkunft aus einem Inneren oder Materialzusammensetzung
+- concept_id: prep.from_starting_point
+  preferred_lemma: ab
+  entry_id: DE-PRE-ab
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet einen ausdrücklich genannten zeitlichen, räumlichen oder numerischen Ausgangspunkt
+- concept_id: prep.in_into
+  preferred_lemma: in
+  entry_id: DE-PRE-in
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet eine Position innerhalb eines Bereichs oder eine Bewegung in einen Bereich
+- concept_id: prep.next_to
+  preferred_lemma: neben
+  entry_id: DE-PRE-neben
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet eine Position unmittelbar seitlich eines Referenzobjekts
+- concept_id: prep.on_to
+  preferred_lemma: auf
+  entry_id: DE-PRE-auf
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet eine Position auf einer Oberfläche oder ein festgelegtes Ziel einer Einstellung
+- concept_id: prep.since
+  preferred_lemma: seit
+  entry_id: DE-PRE-seit
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet den Beginn eines Zeitraums, der bis zum Bezugszeitpunkt andauert
+- concept_id: prep.through
+  preferred_lemma: durch
+  entry_id: DE-PRE-durch
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet einen Weg durch einen Raum, eine Öffnung oder ein Material
+- concept_id: prep.time
+  preferred_lemma: um
+  entry_id: DE-PRE-um
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet einen ausdrücklich genannten Zeitpunkt
+- concept_id: prep.to
+  preferred_lemma: zu
+  entry_id: DE-PRE-zu
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet eine Richtung zu einem Ziel oder eine feste Beziehung in einer freigegebenen Wortgruppe
+- concept_id: prep.up_to
+  preferred_lemma: bis
+  entry_id: DE-PRE-bis
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet eine obere räumliche, zeitliche oder numerische Grenze
+- concept_id: prep.with
+  preferred_lemma: mit
+  entry_id: DE-PRE-mit
+  part_of_speech: preposition
+  status: restricted
+  definition: kennzeichnet ein Werkzeug, Mittel, Material oder eine eindeutige gemeinsame Beteiligung
+- concept_id: prep.without
+  preferred_lemma: ohne
+  entry_id: DE-PRE-ohne
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet das Fehlen eines ausdrücklich genannten Elements oder Zustands
+- concept_id: prevent
+  preferred_lemma: verhindern
+  entry_id: DE-VER-verhindern
+  part_of_speech: verb
+  status: approved
+  definition: eine ausdrücklich genannte unerwünschte Wirkung oder Handlung unmöglich machen
+- concept_id: pron.reflexive
+  preferred_lemma: sich
+  entry_id: DE-PRO-sich
+  part_of_speech: pronoun
+  status: restricted
+  definition: reflexives Pronomen, das eindeutig auf das grammatische Subjekt derselben Klausel verweist
+- concept_id: pronoun.it
+  preferred_lemma: es
+  entry_id: DE-PRO-es
+  part_of_speech: pronoun
+  status: restricted
+  definition: ersetzt ein eindeutig identifiziertes neutrales Substantiv oder dient in unpersönlichen Konstruktionen
+- concept_id: pronoun.organization
+  preferred_lemma: wir
+  entry_id: DE-PRO-wir
+  part_of_speech: pronoun
+  status: restricted
+  definition: bezeichnet die herausgebende Organisation oder den Hersteller
+- concept_id: pronoun.reader_formal
+  preferred_lemma: Sie
+  entry_id: DE-PRO-SIE-READER
+  part_of_speech: pronoun
+  status: approved
+  definition: bezeichnet die lesende oder handelnde Person in formalen Anweisungen
+- concept_id: pronoun.she_they
+  preferred_lemma: sie
+  entry_id: DE-PRO-sie
+  part_of_speech: pronoun
+  status: restricted
+  definition: ersetzt ein eindeutig identifiziertes feminines Singular- oder Pluralreferenzobjekt
+- concept_id: pronoun.this
+  preferred_lemma: dies
+  entry_id: DE-PRO-dies
+  part_of_speech: pronoun
+  status: restricted
+  definition: verweist auf einen eindeutig bestimmten vorherigen Sachverhalt
+- concept_id: protect
+  preferred_lemma: schützen
+  entry_id: DE-VER-sch-tzen
+  part_of_speech: verb
+  status: restricted
+  definition: ein Objekt oder eine Person durch eine ausdrücklich genannte Maßnahme vor einer definierten Gefahr oder Einwirkung
+    bewahren
+- concept_id: provide.available
+  preferred_lemma: bereitstellen
+  entry_id: DE-VER-bereitstellen
+  part_of_speech: verb
+  status: approved
+  definition: ein ausdrücklich genanntes Objekt, Signal, eine Ressource oder Funktion für die Verwendung verfügbar machen
+- concept_id: pull
+  preferred_lemma: ziehen
+  entry_id: DE-VER-ziehen
+  part_of_speech: verb
+  status: approved
+  definition: eine Kraft in Richtung zum Kraftausübenden oder entlang einer definierten Richtung ausüben
+- concept_id: pull.remove
+  preferred_lemma: abziehen
+  entry_id: DE-VER-abziehen
+  part_of_speech: verb
+  status: restricted
+  definition: einen Steckverbinder, eine Abdeckung oder ein vergleichbares Teil durch Ziehen von seiner Verbindung entfernen
+- concept_id: push.press
+  preferred_lemma: drücken
+  entry_id: DE-VER-dr-cken
+  part_of_speech: verb
+  status: approved
+  definition: eine Kraft auf eine Fläche oder in Richtung weg vom Kraftausübenden ausüben
+- concept_id: push.slide
+  preferred_lemma: schieben
+  entry_id: DE-VER-schieben
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt durch eine geradlinige Druckbewegung zu einer ausdrücklich genannten Position bewegen
+- concept_id: quantifier.eight
+  preferred_lemma: acht
+  entry_id: DE-QUA-acht
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 8 in ausgeschriebener Form
+- concept_id: quantifier.five
+  preferred_lemma: fünf
+  entry_id: DE-QUA-fuenf
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 5 in ausgeschriebener Form
+- concept_id: quantifier.four
+  preferred_lemma: vier
+  entry_id: DE-QUA-vier
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 4 in ausgeschriebener Form
+- concept_id: quantifier.nine
+  preferred_lemma: neun
+  entry_id: DE-QUA-neun
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 9 in ausgeschriebener Form
+- concept_id: quantifier.one
+  preferred_lemma: eins
+  entry_id: DE-QUA-eins
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 1 in ausgeschriebener Form
+- concept_id: quantifier.seven
+  preferred_lemma: sieben
+  entry_id: DE-QUA-sieben
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 7 in ausgeschriebener Form
+- concept_id: quantifier.several
+  preferred_lemma: mehrere
+  entry_id: DE-QUA-mehrere
+  part_of_speech: quantifier
+  status: restricted
+  definition: bezeichnet mehr als zwei Elemente ohne genaue Anzahl
+- concept_id: quantifier.six
+  preferred_lemma: sechs
+  entry_id: DE-QUA-sechs
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 6 in ausgeschriebener Form
+- concept_id: quantifier.some
+  preferred_lemma: einige
+  entry_id: DE-QUA-einige
+  part_of_speech: quantifier
+  status: restricted
+  definition: bezeichnet eine nicht genau bestimmte Teilmenge
+- concept_id: quantifier.ten
+  preferred_lemma: zehn
+  entry_id: DE-QUA-zehn
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 10 in ausgeschriebener Form
+- concept_id: quantifier.three
+  preferred_lemma: drei
+  entry_id: DE-QUA-drei
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 3 in ausgeschriebener Form
+- concept_id: quantifier.two
+  preferred_lemma: zwei
+  entry_id: DE-QUA-zwei
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 2 in ausgeschriebener Form
+- concept_id: quantifier.zero
+  preferred_lemma: 'null'
+  entry_id: DE-QUA-null
+  part_of_speech: quantifier
+  status: approved
+  definition: bezeichnet die Zahl 0 in ausgeschriebener Form
+- concept_id: reach.threshold_position
+  preferred_lemma: erreichen
+  entry_id: DE-VER-erreichen
+  part_of_speech: verb
+  status: restricted
+  definition: einen ausdrücklich genannten Wert, Grenzwert, Zustand oder eine Position erreichen
+- concept_id: receive
+  preferred_lemma: empfangen
+  entry_id: DE-VER-empfangen
+  part_of_speech: verb
+  status: approved
+  definition: übertragene Daten, ein Signal oder eine Nachricht aufnehmen
+- concept_id: recommend
+  preferred_lemma: empfehlen
+  entry_id: DE-VER-empfehlen
+  part_of_speech: verb
+  status: restricted
+  definition: eine nicht verbindliche bevorzugte Handlung ausdrücklich als Empfehlung kennzeichnen
+- concept_id: record
+  preferred_lemma: aufzeichnen
+  entry_id: DE-VER-aufzeichnen
+  part_of_speech: verb
+  status: approved
+  definition: Messwerte, Ereignisse oder Signale fortlaufend als Daten speichern
+- concept_id: reduce
+  preferred_lemma: reduzieren
+  entry_id: DE-VER-reduzieren
+  part_of_speech: verb
+  status: restricted
+  definition: einen Umfang, eine Menge oder eine Größe kleiner machen
+- concept_id: refer
+  preferred_lemma: verweisen
+  entry_id: DE-VER-verweisen
+  part_of_speech: verb
+  status: approved
+  definition: den Leser auf eine eindeutig bezeichnete Stelle, Quelle oder Referenz lenken
+- concept_id: reference
+  preferred_lemma: referenzieren
+  entry_id: DE-VER-referenzieren
+  part_of_speech: verb
+  status: restricted
+  definition: eine eindeutig bezeichnete Quelle oder ein Objekt als Referenz angeben
+- concept_id: regulate
+  preferred_lemma: regeln
+  entry_id: DE-VER-regeln
+  part_of_speech: verb
+  status: restricted
+  definition: eine Größe automatisch oder manuell auf einen Sollwert oder innerhalb eines Bereichs halten
+- concept_id: release.approve
+  preferred_lemma: freigeben
+  entry_id: DE-VER-freigeben
+  part_of_speech: verb
+  status: restricted
+  definition: ein zuvor gesperrtes Objekt, Signal, Verfahren oder einen Zustand ausdrücklich zur Verwendung zulassen
+- concept_id: release.hand
+  preferred_lemma: loslassen
+  entry_id: DE-VER-loslassen
+  part_of_speech: verb
+  status: approved
+  definition: ein zuvor gehaltenes Objekt freigeben
+- concept_id: release.mechanical
+  preferred_lemma: lösen
+  entry_id: DE-VER-l-sen
+  part_of_speech: verb
+  status: restricted
+  definition: eine mechanische Befestigung, Verriegelung oder Verbindung lockern oder freigeben
+- concept_id: remain.state
+  preferred_lemma: bleiben
+  entry_id: DE-VER-bleiben
+  part_of_speech: verb
+  status: approved
+  definition: in einem Zustand oder an einer Position fortbestehen
+- concept_id: remove
+  preferred_lemma: entfernen
+  entry_id: DE-VER-entfernen
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt von einer Position, Oberfläche oder Verbindung wegnehmen
+- concept_id: remove.installed
+  preferred_lemma: ausbauen
+  entry_id: DE-VER-ausbauen
+  part_of_speech: verb
+  status: approved
+  definition: ein eingebautes Bauteil aus seiner Einbauposition entfernen
+- concept_id: repair
+  preferred_lemma: reparieren
+  entry_id: DE-VER-reparieren
+  part_of_speech: verb
+  status: approved
+  definition: einen beschädigten oder fehlerhaften Gegenstand nach einem freigegebenen Verfahren wieder in den zulässigen
+    Zustand bringen
+- concept_id: repeat
+  preferred_lemma: wiederholen
+  entry_id: DE-VER-wiederholen
+  part_of_speech: verb
+  status: approved
+  definition: dieselbe ausdrücklich bestimmte Handlung oder Prüfung erneut ausführen
+- concept_id: replace
+  preferred_lemma: ersetzen
+  entry_id: DE-VER-ersetzen
+  part_of_speech: verb
+  status: approved
+  definition: ein vorhandenes Objekt durch ein anderes Objekt mit derselben vorgesehenen Funktion austauschen
+- concept_id: report
+  preferred_lemma: melden
+  entry_id: DE-VER-melden
+  part_of_speech: verb
+  status: approved
+  definition: einen Zustand, Fehler oder ein Ergebnis an eine vorgesehene Stelle übermitteln
+- concept_id: represent.show
+  preferred_lemma: darstellen
+  entry_id: DE-VER-darstellen
+  part_of_speech: verb
+  status: restricted
+  definition: Information in einer Abbildung, Tabelle, Anzeige oder strukturierten Darstellung sichtbar wiedergeben
+- concept_id: result.therefore
+  preferred_lemma: deshalb
+  entry_id: DE-ADV-deshalb
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet einen direkten Folgezusammenhang zur vorherigen Aussage
+- concept_id: save.data
+  preferred_lemma: speichern
+  entry_id: DE-VER-speichern
+  part_of_speech: verb
+  status: approved
+  definition: Daten dauerhaft oder für spätere Verwendung ablegen
+- concept_id: scroll.ui
+  preferred_lemma: scrollen
+  entry_id: DE-VER-scrollen
+  part_of_speech: verb
+  status: approved
+  definition: den sichtbaren Ausschnitt einer digitalen Ansicht verschieben
+- concept_id: seal
+  preferred_lemma: abdichten
+  entry_id: DE-VER-abdichten
+  part_of_speech: verb
+  status: restricted
+  definition: eine Verbindung oder Oberfläche so herstellen, dass das festgelegte Medium innerhalb der spezifizierten Leckagegrenze
+    nicht austritt
+- concept_id: select
+  preferred_lemma: auswählen
+  entry_id: DE-VER-ausw-hlen
+  part_of_speech: verb
+  status: approved
+  definition: eine Option aus mehreren Optionen bestimmen
+- concept_id: send
+  preferred_lemma: senden
+  entry_id: DE-VER-senden
+  part_of_speech: verb
+  status: approved
+  definition: Daten, ein Signal oder eine Nachricht zu einem Empfänger übertragen
+- concept_id: sequence.then
+  preferred_lemma: dann
+  entry_id: DE-ADV-dann
+  part_of_speech: adverb
+  status: approved
+  definition: kennzeichnet den ausdrücklich nächsten Schritt oder Zustand in einer zeitlichen Reihenfolge
+- concept_id: serve.function
+  preferred_lemma: dienen
+  entry_id: DE-VER-dienen
+  part_of_speech: verb
+  status: restricted
+  definition: die ausdrücklich festgelegte technische Funktion oder den Zweck eines Objekts angeben
+- concept_id: set.adjust
+  preferred_lemma: einstellen
+  entry_id: DE-VER-einstellen
+  part_of_speech: verb
+  status: approved
+  definition: einen Parameter oder ein Bedienelement auf einen festgelegten Wert oder Zustand bringen
+- concept_id: show
+  preferred_lemma: zeigen
+  entry_id: DE-VER-zeigen
+  part_of_speech: verb
+  status: restricted
+  definition: Information oder einen sichtbaren Zustand für den Leser erkennbar machen
+- concept_id: sort
+  preferred_lemma: sortieren
+  entry_id: DE-VER-sortieren
+  part_of_speech: verb
+  status: approved
+  definition: Elemente nach einem ausdrücklich genannten Kriterium in eine Reihenfolge bringen
+- concept_id: specify.set
+  preferred_lemma: festlegen
+  entry_id: DE-VER-festlegen
+  part_of_speech: verb
+  status: restricted
+  definition: einen Wert, Zustand, Ablauf oder eine Anforderung ausdrücklich und verbindlich bestimmen
+- concept_id: start
+  preferred_lemma: starten
+  entry_id: DE-VER-starten
+  part_of_speech: verb
+  status: approved
+  definition: einen Prozess, Test, Motor oder Ablauf beginnen lassen
+- concept_id: state.in_operation
+  preferred_lemma: in Betrieb sein
+  entry_id: DE-PHR-in-betrieb-sein
+  part_of_speech: phrase
+  status: restricted
+  definition: kennzeichnet, dass ein System in seinem vorgesehenen Betriebszustand ist
+- concept_id: state.out_of_operation
+  preferred_lemma: außer Betrieb sein
+  entry_id: DE-PHR-au-er-betrieb-sein
+  part_of_speech: phrase
+  status: restricted
+  definition: kennzeichnet, dass ein System nicht für den vorgesehenen Betrieb verfügbar ist
+- concept_id: stop
+  preferred_lemma: stoppen
+  entry_id: DE-VER-stoppen
+  part_of_speech: verb
+  status: approved
+  definition: einen laufenden Prozess oder eine Bewegung gezielt anhalten
+- concept_id: store.physical
+  preferred_lemma: aufbewahren
+  entry_id: DE-VER-aufbewahren
+  part_of_speech: verb
+  status: restricted
+  definition: einen Gegenstand oder ein Dokument an einem ausdrücklich festgelegten Ort für spätere Verwendung lagern
+- concept_id: subtract.math
+  preferred_lemma: subtrahieren
+  entry_id: DE-VER-subtrahieren
+  part_of_speech: verb
+  status: approved
+  definition: einen numerischen Wert mathematisch von einem anderen abziehen
+- concept_id: switch.off
+  preferred_lemma: ausschalten
+  entry_id: DE-VER-ausschalten
+  part_of_speech: verb
+  status: approved
+  definition: ein Gerät, System oder eine Funktion aus dem aktiven Energie- oder Betriebszustand bringen
+- concept_id: switch.on
+  preferred_lemma: einschalten
+  entry_id: DE-VER-einschalten
+  part_of_speech: verb
+  status: approved
+  definition: ein Gerät, System oder eine Funktion in den aktiven Energie- oder Betriebszustand bringen
+- concept_id: tap.ui
+  preferred_lemma: tippen
+  entry_id: DE-VER-tippen
+  part_of_speech: verb
+  status: restricted
+  definition: eine Touch-Oberfläche kurz berühren, um eine Bedienhandlung auszuführen
+- concept_id: test
+  preferred_lemma: testen
+  entry_id: DE-VER-testen
+  part_of_speech: verb
+  status: restricted
+  definition: mit einem definierten Test feststellen, ob eine Funktion oder ein System festgelegte Kriterien erfüllt
+- concept_id: tighten
+  preferred_lemma: festziehen
+  entry_id: DE-VER-festziehen
+  part_of_speech: verb
+  status: approved
+  definition: eine Schraub- oder Klemmverbindung bis zum festgelegten Zustand oder Drehmoment anziehen
+- concept_id: touch
+  preferred_lemma: berühren
+  entry_id: DE-VER-ber-hren
+  part_of_speech: verb
+  status: approved
+  definition: physischen Kontakt mit einem Objekt oder einer Oberfläche herstellen
+- concept_id: transmit
+  preferred_lemma: übertragen
+  entry_id: DE-VER-bertragen
+  part_of_speech: verb
+  status: restricted
+  definition: Daten, Energie, Kraft oder ein Signal von einer Quelle zu einem Ziel weitergeben
+- concept_id: turn.rotate
+  preferred_lemma: drehen
+  entry_id: DE-VER-drehen
+  part_of_speech: verb
+  status: approved
+  definition: ein Objekt um eine Achse oder einen Punkt bewegen
+- concept_id: unfold
+  preferred_lemma: entfalten
+  entry_id: DE-VER-entfalten
+  part_of_speech: verb
+  status: approved
+  definition: ein gefaltetes Teil in seine vorgesehene offene Form bringen
+- concept_id: uninstall.software
+  preferred_lemma: deinstallieren
+  entry_id: DE-VER-deinstallieren
+  part_of_speech: verb
+  status: approved
+  definition: installierte Software kontrolliert aus einem System entfernen
+- concept_id: unload.cargo
+  preferred_lemma: ausladen
+  entry_id: DE-VER-ausladen
+  part_of_speech: verb
+  status: approved
+  definition: Material oder Gegenstände aus einem Transport- oder Aufnahmeobjekt entfernen
+- concept_id: unlock
+  preferred_lemma: entriegeln
+  entry_id: DE-VER-entriegeln
+  part_of_speech: verb
+  status: approved
+  definition: eine mechanische oder logische Verriegelung aus dem gesicherten Zustand freigeben
+- concept_id: update
+  preferred_lemma: aktualisieren
+  entry_id: DE-VER-aktualisieren
+  part_of_speech: verb
+  status: restricted
+  definition: Daten oder Software auf einen ausdrücklich bezeichneten neueren Stand bringen
+- concept_id: upload
+  preferred_lemma: hochladen
+  entry_id: DE-VER-hochladen
+  part_of_speech: verb
+  status: approved
+  definition: Daten vom lokalen System an ein entferntes System übertragen
+- concept_id: use
+  preferred_lemma: verwenden
+  entry_id: DE-VER-verwenden
+  part_of_speech: verb
+  status: approved
+  definition: ein Werkzeug, Material, Bauteil oder Hilfsmittel für einen ausdrücklich genannten Zweck einsetzen
+- concept_id: value.in_range
+  preferred_lemma: liegen
+  entry_id: DE-VER-liegen
+  part_of_speech: verb
+  status: restricted
+  definition: einen Messwert oder Parameter innerhalb eines ausdrücklich genannten Bereichs haben
+- concept_id: ventilate
+  preferred_lemma: belüften
+  entry_id: DE-VER-belueften
+  part_of_speech: verb
+  status: restricted
+  definition: einem Bereich kontrolliert Luft zuführen oder Luft austauschen
+- concept_id: verb.bedienen
+  preferred_lemma: bedienen
+  entry_id: DE-VER-bedienen
+  part_of_speech: verb
+  status: restricted
+  definition: ein technisches Produkt mit den vorgesehenen Bedienelementen steuern
+- concept_id: verb.benoetigen
+  preferred_lemma: benötigen
+  entry_id: DE-VER-benoetigen
+  part_of_speech: verb
+  status: restricted
+  definition: eine ausdrücklich genannte Voraussetzung, Ressource oder Komponente für eine Handlung erfordern
+- concept_id: verb.consist_with_aus
+  preferred_lemma: bestehen
+  entry_id: DE-VER-bestehen
+  part_of_speech: verb
+  status: restricted
+  definition: zusammen mit der Präposition aus die Bestandteile eines ausdrücklich genannten Objekts angeben
+- concept_id: verb.lesen
+  preferred_lemma: lesen
+  entry_id: DE-VER-lesen
+  part_of_speech: verb
+  status: approved
+  definition: geschriebenen oder angezeigten Text aufnehmen und inhaltlich erfassen
+- concept_id: verb.waehlen
+  preferred_lemma: wählen
+  entry_id: DE-VER-waehlen
+  part_of_speech: verb
+  status: restricted
+  definition: eine Option aus einer ausdrücklich vorhandenen Menge auswählen
+- concept_id: wait
+  preferred_lemma: warten
+  entry_id: DE-VER-warten
+  part_of_speech: verb
+  status: restricted
+  definition: eine Handlung bis zum Eintritt eines ausdrücklich genannten Zeitpunkts oder Zustands nicht fortsetzen
+- concept_id: whether.check
+  preferred_lemma: ob
+  entry_id: DE-CON-ob
+  part_of_speech: conjunction
+  status: restricted
+  definition: leitet eine Ja/Nein-Bedingung ein, deren Ergebnis ausdrücklich geprüft oder bestimmt wird
+- concept_id: within.bound
+  preferred_lemma: innerhalb
+  entry_id: DE-PRE-innerhalb
+  part_of_speech: preposition
+  status: approved
+  definition: kennzeichnet eine ausdrücklich genannte räumliche, zeitliche oder numerische Grenze

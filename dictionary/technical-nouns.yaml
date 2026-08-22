@@ -1,0 +1,146 @@
+schema_version: '0.4'
+categories:
+- id: TN-01
+  name: Offizielle Teile und Konstruktionsobjekte
+  examples:
+  - Schraube
+  - Dichtung
+  - Kabelsatz
+  - Sensormodul
+- id: TN-02
+  name: Fahrzeuge, Maschinen und deren Bereiche
+  examples:
+  - Fahrzeug
+  - Kabine
+  - Maschinenraum
+  - Tragfläche
+- id: TN-03
+  name: Werkzeuge, Prüf- und Hilfsmittel
+  examples:
+  - Drehmomentschlüssel
+  - Prüfadapter
+  - Hebevorrichtung
+- id: TN-04
+  name: Werkstoffe, Betriebsstoffe und Verunreinigungen
+  examples:
+  - Klebstoff
+  - Schmierfett
+  - Staub
+  - Kühlmittel
+- id: TN-05
+  name: Anlagen, Infrastruktur und Logistik
+  examples:
+  - Werkstatt
+  - Lagerbereich
+  - Versandprozess
+- id: TN-06
+  name: Systeme, Komponenten, Schaltungen, Funktionen und Konfigurationen
+  examples:
+  - Kühlsystem
+  - Steuergerät
+  - Standby-Modus
+- id: TN-07
+  name: Mathematik, Naturwissenschaft und Engineering
+  examples:
+  - Drehmoment
+  - Druck
+  - Widerstand
+  - Toleranz
+- id: TN-08
+  name: Navigation, Geografie und räumliche Orientierung
+  examples:
+  - Höhe
+  - Koordinate
+  - Nordrichtung
+- id: TN-09
+  name: Zahlen, Einheiten und Zeitangaben
+  examples:
+  - Ampere
+  - Kilogramm
+  - Sekunde
+- id: TN-10
+  name: Unveränderlicher zitierter oder angezeigter Text
+  examples:
+  - Taste START
+  - Anzeige FEHLER
+  - Menü Systemstatus
+- id: TN-11
+  name: Rollen, Personen, Gruppen, Organisationen und geopolitische Einheiten
+  examples:
+  - Bedienperson
+  - Hersteller
+  - Prüfstelle
+- id: TN-12
+  name: Körperteile
+  examples:
+  - Hand
+  - Auge
+  - Haut
+- id: TN-13
+  name: Persönliche Gegenstände, Lebensmittel und Getränke
+  examples:
+  - Schutzkleidung
+  - Trinkwasser
+- id: TN-14
+  name: Medizinische Begriffe
+  examples:
+  - Hautreizung
+  - Übelkeit
+  - Atemwege
+- id: TN-15
+  name: Dokumente, Dokumentteile, Normen und Richtlinien
+  examples:
+  - Prüfbericht
+  - Abschnitt
+  - Warnhinweis
+  - Arbeitsanweisung
+- id: TN-16
+  name: Umwelt- und Betriebsbedingungen
+  examples:
+  - Feuchtigkeit
+  - Regen
+  - Umgebungstemperatur
+- id: TN-17
+  name: Farben
+  examples:
+  - rot
+  - grün
+  - schwarz
+- id: TN-18
+  name: Schaden, Defekte und Degradation
+  examples:
+  - Riss
+  - Korrosion
+  - Verformung
+- id: TN-19
+  name: Informatik, Informationstechnik und Kommunikation
+  examples:
+  - Datenbank
+  - Firewall
+  - Token
+  - Betriebssystem
+- id: TN-20
+  name: Zivile und militärische Betriebsprozesse
+  examples:
+  - Einsatz
+  - Evakuierung
+  - Kundendienst
+- id: TN-21
+  name: Recht und Regulierung
+  examples:
+  - Vertrag
+  - Haftung
+  - Genehmigung
+  - Vorschrift
+- id: TN-22
+  name: Tiere, Pflanzen und andere Lebensformen
+  examples:
+  - Bakterium
+  - Insekt
+  - Pflanze
+approval_requirements:
+- Konzept ist definiert.
+- Benennung ist im Scope eindeutig.
+- Quelle der Freigabe ist dokumentiert.
+- Gender und Plural sind für deutsche Substantive hinterlegt.
+release: 0.4.0

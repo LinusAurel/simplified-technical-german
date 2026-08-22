@@ -1,0 +1,59 @@
+schema_version: '0.4'
+categories:
+- id: TV-01
+  name: Fertigungs- und Bearbeitungsprozesse
+  subcategories:
+  - Material entfernen
+  - Material hinzufügen
+  - Material verbinden
+  - Werkstoffeigenschaften ändern
+  - Oberfläche ändern
+  - Form ändern
+  examples:
+  - bohren
+  - fräsen
+  - löten
+  - schweißen
+  - härten
+  - polieren
+- id: TV-02
+  name: Computer-, UI- und Systemprozesse
+  subcategories:
+  - Eingabe/Ausgabe
+  - Benutzeroberfläche
+  - Systembetrieb
+  examples:
+  - klicken
+  - scrollen
+  - hochladen
+  - debuggen
+  - formatieren
+- id: TV-03
+  name: Fachspezifische Prozesse
+  subcategories:
+  - Engineering/Naturwissenschaft
+  - Medizin
+  - zivile/militärische Operation
+  - Navigation
+  - Automotive/Bahn
+  - Energie/Öl/Gas
+  examples:
+  - modulieren
+  - sterilisieren
+  - navigieren
+  - bremsen
+  - destillieren
+- id: TV-04
+  name: Recht und Regulierung
+  subcategories:
+  - rechtlich definierte Handlungen und Verpflichtungen
+  examples:
+  - unterzeichnen
+  - widerrufen
+  - genehmigen
+approval_requirements:
+- Fachspezifische Bedeutung ist definiert.
+- Ein zentrales einfaches Verb drückt die Aktion nicht gleich präzise aus.
+- Verbformen und Trennbarkeit sind hinterlegt.
+- Beispielsatz aus realem Fachkontext ist geprüft.
+release: 0.4.0

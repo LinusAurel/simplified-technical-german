@@ -1,0 +1,50 @@
+schema_version: '0.4'
+release: 0.4.0
+status: normative_normalization_table
+purpose: Expand standard German preposition+article contractions before STG-C-core lexical lookup; expansion does
+  not change source text.
+entries:
+- surface: am
+  expands_to:
+  - an
+  - dem
+- surface: ans
+  expands_to:
+  - an
+  - das
+- surface: aufs
+  expands_to:
+  - auf
+  - das
+- surface: beim
+  expands_to:
+  - bei
+  - dem
+- surface: fürs
+  expands_to:
+  - für
+  - das
+- surface: im
+  expands_to:
+  - in
+  - dem
+- surface: ins
+  expands_to:
+  - in
+  - das
+- surface: übers
+  expands_to:
+  - über
+  - das
+- surface: vom
+  expands_to:
+  - von
+  - dem
+- surface: zum
+  expands_to:
+  - zu
+  - dem
+- surface: zur
+  expands_to:
+  - zu
+  - der

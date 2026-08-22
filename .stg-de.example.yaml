@@ -1,0 +1,14 @@
+version: 1
+technical_nouns:
+  - term: "Beispielsystem"
+    definition: "Produkt- oder Systembezeichnung im Projekt"
+technical_verbs:
+  - term: "flashen"
+    definition: "Firmware in den Speicher eines Zielsystems schreiben"
+preferred_terms:
+  - preferred: "Fehler"
+    avoid:
+      - "Problemfall"
+protected_terms:
+  - "API"
+  - "DUT"
