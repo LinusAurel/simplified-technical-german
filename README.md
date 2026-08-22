@@ -13,7 +13,7 @@ German technical writing has recurring ambiguity sources that cannot be solved b
 ## What is included
 
 - **75 rules and recommendations** for German controlled writing.
-- A traceable mapping of all **53 ASD-STE100 Issue 9 writing rules**.
+- A stable rule index for all **75** STG-DE rules and recommendations.
 - **435** central lexical entries with **442** controlled meanings.
 - **160** prohibited or review-required words and phrases with rewrite guidance.
 - German morphology and contraction handling.
@@ -29,7 +29,6 @@ German technical writing has recurring ambiguity sources that cannot be solved b
 ├── specification.md              # normative overview
 ├── rules/                        # normative writing rules
 ├── dictionary/                   # controlled lexicon and terminology model
-├── mapping/                      # ASD-STE100 -> STG-DE traceability
 ├── schemas/                      # machine-readable schemas
 ├── examples/                     # conformance examples
 ├── corpus/                       # public validation metadata and metrics
@@ -58,13 +57,7 @@ Default rewrite output contains only the rewritten text. Rule analysis is return
 
 The skill runs the deterministic linter automatically when code execution is available. It still works without tools by applying the bundled rules and dictionary directly.
 
-### Package the skill
-
-```bash
-python /path/to/skill-creator/scripts/package_skill.py skills/simplified-technical-german
-```
-
-For environments that support Agent Skills, install the `skills/simplified-technical-german/` directory or the packaged `skill.zip` according to that environment's instructions.
+For environments that support Agent Skills, install the `skills/simplified-technical-german/` directory according to that environment's instructions.
 
 ## CLI linter
 
