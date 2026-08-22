@@ -13,7 +13,6 @@ import re
 import sys
 from dataclasses import dataclass, asdict
 from pathlib import Path
-from typing import Iterable
 
 import yaml
 
@@ -122,15 +121,15 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     findings: list[Finding] = []
     masked = mask_protected(text)
 
-    # Punctuation rule.
+    # STG-8.1: semicolons must not join statements.
     for line in text.splitlines():
         if ";" in line and not line.lstrip().startswith("#"):
             findings.append(Finding(
-                "error", "STG-DE-8.1", "Semikolon verwenden Sie nicht. Teilen Sie den Satz.",
+                "error", "STG-8.1", "Semikolon verwenden Sie nicht. Teilen Sie den Satz.",
                 line.strip(), "Schreiben Sie zwei getrennte Sätze."
             ))
 
-    # Controlled/prohibited vocabulary.
+    # STG-1.1: controlled/prohibited vocabulary.
     for entry in prohibited:
         term = str(entry.get("term", "")).strip()
         if not term:
@@ -145,25 +144,25 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
         if alternatives:
             suggestion = (suggestion + " " if suggestion else "") + "Bevorzugt: " + ", ".join(map(str, alternatives)) + "."
         findings.append(Finding(
-            severity, "STG-DE-1.1", str(entry.get("reason") or f"{term} erfordert Prüfung."),
+            severity, "STG-1.1", str(entry.get("reason") or f"{term} erfordert Prüfung."),
             term, suggestion, term
         ))
 
-    # Project preferred terminology.
+    # STG-9.4: project preferred terminology.
     lowered = masked.casefold()
     for avoided, preferred in avoid_project.items():
         if phrase_regex(avoided).search(lowered):
             findings.append(Finding(
-                "error", "STG-DE-9.4", "Projektterminologie ist nicht konsistent.",
+                "error", "STG-9.4", "Projektterminologie ist nicht konsistent.",
                 avoided, f"Verwenden Sie `{preferred}`.", avoided
             ))
 
-    # Sentence length. Auto uses the descriptive cap; procedure is stricter.
+    # STG-5.1 / STG-6.3: sentence length.
     cap = 20 if text_type == "procedure" else 25
     for sentence in split_sentences(text):
         n = count_words(sentence)
         if n > cap:
-            rule = "STG-DE-5.1" if text_type == "procedure" else "STG-DE-6.3"
+            rule = "STG-5.1" if text_type == "procedure" else "STG-6.3"
             findings.append(Finding(
                 "error", rule, f"Der Satz hat {n} Wörter. Zulässig sind höchstens {cap} Wörter in diesem Prüfmodus.",
                 sentence, "Teilen Sie den Satz, ohne Bedingungen oder technische Bedeutung zu entfernen."
