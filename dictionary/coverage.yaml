@@ -1,0 +1,33 @@
+schema_version: '0.4'
+release: 0.4.0
+central_entries: 435
+controlled_meanings: 442
+central_verbs: 172
+central_nouns: 91
+prohibited_or_review_entries: 160
+by_part_of_speech:
+  adjective: 61
+  adverb: 32
+  article: 2
+  conjunction: 16
+  determiner: 6
+  noun: 91
+  phrase: 9
+  preposition: 26
+  pronoun: 6
+  quantifier: 14
+  verb: 172
+central_by_status:
+  approved: 241
+  restricted: 194
+prohibited_list_by_status:
+  prohibited: 101
+  review_required: 60
+corpus:
+  public_sources: 18
+  industries: 6
+  public_excerpt_tokens: 2066
+  v0_4_final_controlled_surface_coverage: 0.580833
+rule_or_recommendation_count: 75
+mandatory_or_normative_rule_count: 67
+general_recommendation_count: 8
