@@ -13,7 +13,7 @@ German technical writing has recurring ambiguity sources that cannot be solved b
 ## What is included
 
 - **75 rules and recommendations** for German controlled writing.
-- A stable rule index for all **75** STG-DE rules and recommendations.
+- A traceable mapping of all **53 ASD-STE100 Issue 9 writing rules**.
 - **435** central lexical entries with **442** controlled meanings.
 - **160** prohibited or review-required words and phrases with rewrite guidance.
 - German morphology and contraction handling.
@@ -29,6 +29,7 @@ German technical writing has recurring ambiguity sources that cannot be solved b
 ├── specification.md              # normative overview
 ├── rules/                        # normative writing rules
 ├── dictionary/                   # controlled lexicon and terminology model
+├── mapping/                      # ASD-STE100 -> STG-DE traceability
 ├── schemas/                      # machine-readable schemas
 ├── examples/                     # conformance examples
 ├── corpus/                       # public validation metadata and metrics
@@ -57,7 +58,13 @@ Default rewrite output contains only the rewritten text. Rule analysis is return
 
 The skill runs the deterministic linter automatically when code execution is available. It still works without tools by applying the bundled rules and dictionary directly.
 
-For environments that support Agent Skills, install the `skills/simplified-technical-german/` directory according to that environment's instructions.
+### Package the skill
+
+```bash
+python /path/to/skill-creator/scripts/package_skill.py skills/simplified-technical-german
+```
+
+For environments that support Agent Skills, install the `skills/simplified-technical-german/` directory or the packaged `skill.zip` according to that environment's instructions.
 
 ## CLI linter
 
@@ -132,7 +139,18 @@ python tools/sync_skill.py --check
 
 ## Status and roadmap
 
-Before a stable 1.0 release, the project needs a substantially larger public/licensed corpus, stronger German lemmatization and compound analysis, human terminology review, comprehension testing, and a formal governance/change process.
+The development plan from v0.5 through v1.0 is tracked in [`ROADMAP.md`](ROADMAP.md).
+
+The current priority is **v0.5 — Evidence and reliability**:
+
+- strengthen validator/rule-ID consistency and regression coverage;
+- publish automation coverage for all rule groups;
+- expand the deterministic conformance test suite;
+- separate development, validation, and holdout corpus data;
+- grow the public/licensed corpus across substantially more domains;
+- add evidence-based dictionary governance.
+
+See [`quality/RULE-COVERAGE.md`](quality/RULE-COVERAGE.md) for current automation coverage and [`corpus/PROTOCOL.md`](corpus/PROTOCOL.md) for the v0.5 corpus methodology.
 
 Contributions from technical writers, linguists, engineers, support teams, translators, terminology specialists, and agent developers are welcome.
 
