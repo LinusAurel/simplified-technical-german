@@ -75,10 +75,6 @@ def words(sentence: str) -> list[str]:
     return TOKEN_RE.findall(sentence)
 
 
-def lower_words(sentence: str) -> list[str]:
-    return [token.casefold() for token in words(sentence)]
-
-
 def likely_participle(token: str) -> bool:
     low = token.casefold()
     if len(low) < 6:
@@ -97,7 +93,6 @@ def analyze_sentence(sentence: str) -> list[Evidence]:
     lower = [t.casefold() for t in tokens]
     evidence: list[Evidence] = []
 
-    # STG-DE-4.1: subordinate-clause complexity evidence.
     sub_positions = [i for i, token in enumerate(lower) if token in SUBORDINATORS]
     if len(sub_positions) >= 2:
         evidence.append(Evidence(
@@ -113,7 +108,6 @@ def analyze_sentence(sentence: str) -> list[Evidence]:
             lower[sub_positions[0]], "Kürzen oder teilen Sie den Satz, wenn der Bezug nicht sofort eindeutig ist."
         ))
 
-    # STG-3.6 / STG-DE-3.3: passive/werden candidates.
     for i, token in enumerate(lower):
         if token not in AUX_PASSIVE:
             continue
@@ -132,7 +126,6 @@ def analyze_sentence(sentence: str) -> list[Evidence]:
                 tokens[i], None
             ))
 
-    # STG-DE-3.2: modality classification and ambiguous normative forms.
     for i, token in enumerate(lower):
         if token not in MODALS:
             continue
@@ -150,7 +143,6 @@ def analyze_sentence(sentence: str) -> list[Evidence]:
                 sentence, tokens[i], None
             ))
 
-    # STG-DE-4.5: ambiguous pronominal-adverb review.
     for token in lower:
         if token in PRONOMINAL_ADVERBS:
             evidence.append(Evidence(
@@ -159,19 +151,23 @@ def analyze_sentence(sentence: str) -> list[Evidence]:
                 "Nennen Sie das Bezugsobjekt ausdrücklich, wenn mehr als ein Bezug möglich ist."
             ))
 
-    # STG-DE-4.2 / GR-3: third-person pronoun review when several noun-like candidates precede it.
-    capitalized = [t for t in tokens if t[:1].isupper() and t.casefold() not in {w.casefold() for w in PRONOUNS}]
+    # Formal `Sie` is intentionally case-sensitive and must not be treated as third-person `sie`.
+    capitalized = [
+        token for token in tokens
+        if token[:1].isupper() and token != "Sie" and token.casefold() not in {word.casefold() for word in PRONOUNS}
+    ]
     if len(capitalized) >= 2:
-        for token in lower:
-            if token in PRONOUNS:
+        for original, normalized in zip(tokens, lower):
+            if original == "Sie":
+                continue
+            if normalized in PRONOUNS:
                 evidence.append(Evidence(
                     "STG-DE-4.2", "pronoun_reference", "low",
                     "Ein Pronomen steht in einem Satz mit mehreren möglichen nominalen Bezugsobjekten.", sentence,
-                    token, "Wiederholen Sie das Substantiv, wenn der Bezug nicht eindeutig ist."
+                    original, "Wiederholen Sie das Substantiv, wenn der Bezug nicht eindeutig ist."
                 ))
                 break
 
-    # STG-3.5: nominal style candidates. Keep as low-confidence review.
     nominal_candidates = []
     for token in tokens:
         low = token.casefold()
@@ -184,7 +180,6 @@ def analyze_sentence(sentence: str) -> list[Evidence]:
             ", ".join(nominal_candidates[:4]), "Verwenden Sie ein direktes Verb, wenn dadurch Akteur und Handlung klarer werden."
         ))
 
-    # STG-DE-3.1: approximate long separable-verb bracket evidence.
     if len(tokens) >= 14 and lower:
         final = lower[-1]
         if final in SEPARABLE_PARTICLES:
@@ -194,7 +189,6 @@ def analyze_sentence(sentence: str) -> list[Evidence]:
                 "Formulieren Sie den Satz so um, dass Verb und Verbteil näher zusammenstehen."
             ))
 
-    # STG-DE-4.4: negation/scope review when multiple scope-sensitive markers occur.
     scope_tokens = [token for token in lower if token in NEGATORS]
     if len(scope_tokens) >= 2:
         evidence.append(Evidence(
@@ -203,7 +197,6 @@ def analyze_sentence(sentence: str) -> list[Evidence]:
             ", ".join(scope_tokens), "Formulieren Sie den Geltungsbereich von Negation oder Einschränkung ausdrücklich."
         ))
 
-    # STG-DE-2.1: long German compound candidates, review only.
     compounds = [t for t in tokens if t[:1].isupper() and len(t) >= 24 and "-" not in t]
     if compounds:
         evidence.append(Evidence(
