@@ -20,7 +20,7 @@ German technical writing has recurring ambiguity sources that cannot be solved b
 - Project terminology support through `.stg-de.yaml`.
 - A deterministic command-line linter.
 - An Agent Skill with `WRITE`, `REWRITE`, and `AUDIT` workflows.
-- Public corpus evidence from **18 sources across six industries**.
+- Public corpus evidence from **18 sources across six industries** in v0.4, plus the reproducible v0.5 corpus work tracked in the roadmap.
 
 ## Repository structure
 
@@ -29,10 +29,11 @@ German technical writing has recurring ambiguity sources that cannot be solved b
 ├── specification.md              # normative overview
 ├── rules/                        # normative writing rules
 ├── dictionary/                   # controlled lexicon and terminology model
-├── mapping/                      # ASD-STE100 -> STG-DE traceability
+├── mapping/                      # source-rule traceability
 ├── schemas/                      # machine-readable schemas
-├── examples/                     # conformance examples
+├── examples/                     # conformance and golden examples
 ├── corpus/                       # public validation metadata and metrics
+├── quality/                      # rule automation inventory
 ├── tools/                        # linter, validators, build tools
 └── skills/
     └── simplified-technical-german/
@@ -54,24 +55,16 @@ It supports three workflows:
 - **REWRITE** — rewrite existing German text while preserving meaning, modality, facts, numbers, constraints, and domain terms.
 - **AUDIT** — report violations with STG-DE rule IDs and suggested corrections.
 
-Default rewrite output contains only the rewritten text. Rule analysis is returned only when the user asks for an audit, diff, or explanation.
+Default WRITE/REWRITE output contains only the finished text. Rule analysis is returned only for AUDIT or when explicitly requested.
 
-The skill runs the deterministic linter automatically when code execution is available. It still works without tools by applying the bundled rules and dictionary directly.
-
-### Package the skill
-
-```bash
-python /path/to/skill-creator/scripts/package_skill.py skills/simplified-technical-german
-```
-
-For environments that support Agent Skills, install the `skills/simplified-technical-german/` directory or the packaged `skill.zip` according to that environment's instructions.
+When code execution is available, the skill runs the deterministic linter. It still works without tools by applying the bundled rules and dictionary directly.
 
 ## CLI linter
 
-Install the development dependency:
+Install development dependencies:
 
 ```bash
-python -m pip install PyYAML
+python -m pip install -r requirements-dev.txt
 ```
 
 Audit a file:
@@ -92,27 +85,11 @@ Use project terminology:
 python tools/stg_lint.py manual.md --project .stg-de.yaml
 ```
 
-The linter deliberately distinguishes deterministic violations from review candidates. An unknown word is **not automatically an error** and an uppercase German noun is **not automatically a technical term**.
+The linter distinguishes deterministic violations from review candidates. An unknown word is **not automatically an error** and an uppercase German noun is **not automatically a technical term**.
 
 ## Project terminology
 
-Do not put every product or industry term into the central dictionary. Add domain terminology in a project file:
-
-```yaml
-version: 1
-technical_nouns:
-  - term: "Drehmomentwandler"
-    definition: "hydrodynamische Baugruppe zur Drehmomentübertragung"
-technical_verbs:
-  - term: "flashen"
-    definition: "Firmware in einen Zielspeicher schreiben"
-preferred_terms:
-  - preferred: "Fehler"
-    avoid: ["Problemfall"]
-protected_terms: ["API", "DUT"]
-```
-
-This keeps the core language stable while allowing precise terminology in medicine, software, energy, automotive, consumer products, manufacturing, finance, support, and other domains.
+Do not put every product or industry term into the central dictionary. Add precise domain terminology in `.stg-de.yaml`. See [`dictionary/GOVERNANCE.md`](dictionary/GOVERNANCE.md) for central-core admission rules.
 
 ## Conformance profiles
 
@@ -125,32 +102,30 @@ This keeps the core language stable while allowing precise terminology in medici
 
 ## Public validation corpus
 
-v0.4 uses 18 publicly accessible German technical sources, with three sources from each of six strata: Maschinenbau, Automotive, Elektrotechnik, Software/IT, Medizintechnik, and Anlagenbau. The repository contains only source metadata, hashes, and derived metrics.
+v0.4 uses 18 publicly accessible German technical sources, with three sources from each of six strata. The repository contains only source metadata, hashes, and derived metrics.
 
-On the 2,066-token stratified excerpt set, controlled central surface coverage reaches **58.1%**. This figure is not a quality target: product names, domain terms, identifiers, and intentionally disallowed wording should remain outside the general core. See [`corpus/validation-report.md`](corpus/validation-report.md).
+On the 2,066-token stratified excerpt set, controlled central surface coverage reaches **58.1%**. This is not a quality target: product names, domain terms, identifiers, and intentionally disallowed wording should remain outside the general core. See [`corpus/validation-report.md`](corpus/validation-report.md).
+
+The v0.5 corpus work uses fixed development, validation, and holdout partitions and transient full-text extraction. See [`corpus/PROTOCOL.md`](corpus/PROTOCOL.md).
 
 ## Development
 
 ```bash
-python tools/validate_release.py
 python -m unittest discover -s tests -v
 python tools/sync_skill.py --check
+python tools/validate_release.py --skip-manifest
 ```
 
-## Status and roadmap
+For a release, rebuild the manifest and run the full integrity check as documented in [`RELEASE-CHECKLIST.md`](RELEASE-CHECKLIST.md).
 
-The development plan from v0.5 through v1.0 is tracked in [`ROADMAP.md`](ROADMAP.md).
+## Roadmap and governance
 
-The current priority is **v0.5 — Evidence and reliability**:
-
-- strengthen validator/rule-ID consistency and regression coverage;
-- publish automation coverage for all rule groups;
-- expand the deterministic conformance test suite;
-- separate development, validation, and holdout corpus data;
-- grow the public/licensed corpus across substantially more domains;
-- add evidence-based dictionary governance.
-
-See [`quality/RULE-COVERAGE.md`](quality/RULE-COVERAGE.md) for current automation coverage and [`corpus/PROTOCOL.md`](corpus/PROTOCOL.md) for the v0.5 corpus methodology.
+- [`ROADMAP.md`](ROADMAP.md) — development plan through 1.0.
+- [`GOVERNANCE.md`](GOVERNANCE.md) — decision and review process.
+- [`VERSIONING.md`](VERSIONING.md) — compatibility and semantic versioning.
+- [`dictionary/GOVERNANCE.md`](dictionary/GOVERNANCE.md) — evidence-based core lexicon changes.
+- [`quality/RULE-COVERAGE.md`](quality/RULE-COVERAGE.md) and [`quality/rule-coverage.yaml`](quality/rule-coverage.yaml) — automation status.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution workflow.
 
 Contributions from technical writers, linguists, engineers, support teams, translators, terminology specialists, and agent developers are welcome.
 
