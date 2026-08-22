@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stg-de.example/schemas/lexicon-proposal.schema.json",
+  "title": "STG-DE Lexicon Proposal",
+  "type": "object",
+  "required": [
+    "proposal_id",
+    "status",
+    "action",
+    "term",
+    "part_of_speech",
+    "controlled_meaning",
+    "rationale",
+    "ambiguity_risk",
+    "alternatives_considered",
+    "evidence",
+    "examples",
+    "validator_impact",
+    "decision"
+  ],
+  "properties": {
+    "proposal_id": {
+      "type": "string",
+      "pattern": "^LEX-[0-9]{4}-[0-9]{3,}$"
+    },
+    "status": {
+      "enum": ["draft", "evidence_ready", "review", "accepted", "rejected", "deferred"]
+    },
+    "action": {
+      "enum": ["add", "restrict", "expand", "deprecate", "prohibit", "replace", "clarify"]
+    },
+    "term": {
+      "type": "string",
+      "minLength": 1
+    },
+    "part_of_speech": {
+      "type": ["string", "null"]
+    },
+    "controlled_meaning": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ambiguity_risk": {
+      "enum": ["low", "medium", "high"]
+    },
+    "alternatives_considered": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["term", "reason_not_preferred"],
+        "properties": {
+          "term": {"type": "string"},
+          "reason_not_preferred": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["class", "description"],
+        "properties": {
+          "class": {
+            "enum": ["development_corpus", "validation_corpus", "external_public", "linguistic_rationale", "user_report"]
+          },
+          "description": {"type": "string"},
+          "domain": {"type": ["string", "null"]},
+          "source_id": {"type": ["string", "null"]},
+          "count": {"type": ["integer", "null"], "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "examples": {
+      "type": "object",
+      "required": ["approved", "non_approved"],
+      "properties": {
+        "approved": {"type": "array", "items": {"type": "string"}},
+        "non_approved": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "existing_entry_impact": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "validator_impact": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "object",
+      "required": ["outcome", "rationale"],
+      "properties": {
+        "outcome": {"enum": ["pending", "accepted", "rejected", "deferred"]},
+        "rationale": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
