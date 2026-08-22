@@ -17,45 +17,63 @@ Determine the requested operation before changing text:
 
 If the user only says "apply STG-DE" to existing text, use REWRITE. If the user asks whether text complies, requests rule IDs, asks for a diff, or asks what is wrong, use AUDIT.
 
+## Select an application profile
+
+Use a profile when the text purpose is clear. Read `references/profiles.yaml` for the normative profile configuration.
+
+- `procedure` — operational steps and instructions.
+- `safety` — warnings, cautions, hazards, and protective actions.
+- `description` — technical or factual explanatory prose.
+- `requirement` — specifications, acceptance criteria, and normative requirements.
+- `support` — customer/internal support instructions and explanations.
+- `consumer` — B2C product and service communication.
+- `agent` — prompts, tool descriptions, inter-agent instructions, and machine-consumed prose.
+
+If the user names a profile, use it. Otherwise infer the profile only when the purpose is clear. When no profile fits confidently, apply the base STG-DE rules without inventing one.
+
+Profiles do **not** define a different vocabulary or a different language. They define applicability, sentence limits, and review priorities for the same STG-DE rules.
+
 ## Load references progressively
 
 Read only the material needed for the current task:
 
-- Read `references/rules.md` for all writing rules and examples.
+- Read `references/profiles.yaml` when profile selection or profile-specific behavior matters.
+- Read `references/rules.md` for writing rules and examples.
 - Read `references/dictionary-guide.md` for morphology, terminology, and lexicon behavior.
 - Search `references/approved-words.yaml` when lexical approval or meaning matters.
 - Search `references/prohibited-words.yaml` for prohibited/review-required terms and rewrite guidance.
 - Read `references/project-terminology.md` when a project glossary exists or domain terms are unresolved.
-- Read `references/validator-contract.md` when interpreting deterministic validator output or conformance profiles.
+- Read `references/validator-contract.md` when interpreting validator output or conformance profiles.
 
 Do not load the complete dictionary when a focused lookup is sufficient.
 
 ## Use tools when available
 
-When code execution is available, run `scripts/stg_lint.py` on the input before the final rewrite or audit. Pass a project terminology file when one is available.
+When code execution is available, run `scripts/stg_lint.py` on the input before the final rewrite or audit. Pass the selected application profile and a project terminology file when available.
 
 Examples:
 
 ```bash
-python scripts/stg_lint.py input.txt --format json
-python scripts/stg_lint.py input.md --project .stg-de.yaml --format json
+python scripts/stg_lint.py input.txt --profile procedure --format json
+python scripts/stg_lint.py input.md --profile support --project .stg-de.yaml --format json
 ```
 
 Treat deterministic `error` findings as violations. Treat `warning` and `review` findings as evidence that requires context. Never rewrite a sentence only because a heuristic says it is wrong.
 
-If code execution is unavailable, continue without it. Apply the bundled rules and dictionary directly.
+If code execution is unavailable, continue without it. Apply the bundled rules, selected profile, and dictionary directly.
 
 ## Apply the core process
 
 1. Read the complete input once for meaning.
 2. Identify protected content: numbers, units, identifiers, quoted UI text, legal names, product names, code, URLs, and domain terminology.
-3. Preserve modality. Do not convert possibility into certainty, permission into obligation, or recommendation into requirement.
-4. Resolve terminology. Use the project term when a project dictionary specifies one. Otherwise preserve necessary domain terms and flag unresolved terms only in AUDIT mode.
-5. Apply structural rules before lexical optimization.
-6. Apply lexical rules with the controlled meaning and part of speech.
-7. Re-read the result against the source. Verify that no fact, condition, exception, actor, limit, or relationship changed.
-8. Check sentence length, instruction count, pronoun references, negation scope, passive voice, nominal style, compounds, separable verbs, and ambiguous linking words.
-9. Run the linter again when tools are available. Fix deterministic findings that do not alter meaning.
+3. Select the application profile when appropriate.
+4. Preserve modality. Do not convert possibility into certainty, permission into obligation, or recommendation into requirement.
+5. Resolve terminology. Use the project term when a project dictionary specifies one. Otherwise preserve necessary domain terms and flag unresolved terms only in AUDIT mode.
+6. Apply structural rules before lexical optimization.
+7. Apply lexical rules with the controlled meaning and part of speech.
+8. Re-read the result against the source. Verify that no fact, condition, exception, actor, limit, or relationship changed.
+9. Check sentence length, instruction count, pronoun references, negation scope, passive voice, nominal style, compounds, separable verbs, and ambiguous linking words.
+10. Run the linter again when tools are available. Fix deterministic findings that do not alter meaning.
 
 ## Writing priorities
 
@@ -66,7 +84,8 @@ Use these priorities in order:
 3. **Unambiguous structure** — prefer explicit actors, objects, conditions, and references.
 4. **Terminology consistency** — use one term for one concept within the applicable scope.
 5. **Controlled vocabulary** — prefer approved central words where they express the correct meaning.
-6. **Brevity** — shorten only after the first five priorities are satisfied.
+6. **Profile priorities** — apply the selected profile's additional priorities.
+7. **Brevity** — shorten only after the first six priorities are satisfied.
 
 ## Arbitrary German text
 
@@ -98,7 +117,7 @@ Use the actual rule definitions in `references/rules.md` for normative decisions
 
 ### WRITE and REWRITE
 
-Return **only the finished STG-DE text by default**. Do not add a preamble, rule table, violation count, or closing explanation unless the user asks for one.
+Return **only the finished STG-DE text by default**. Do not add a preamble, profile announcement, rule table, violation count, or closing explanation unless the user asks for one.
 
 If strict compliance cannot be achieved without changing meaning, keep the necessary wording. Add one short `Hinweis:` line only when the unresolved issue is material to the requested output.
 
@@ -109,7 +128,7 @@ Return a concise table:
 ```markdown
 | Regel | Befund | Original | Vorschlag |
 |---|---|---|---|
-| STG-DE-5.2 | Mehrere unabhängige Anweisungen | ... | ... |
+| STG-5.2 | Mehrere unabhängige Anweisungen | ... | ... |
 ```
 
 After the table, give:
@@ -118,7 +137,7 @@ After the table, give:
 Ergebnis: PASS | PASS WITH REVIEW | FAIL
 ```
 
-Use `PASS WITH REVIEW` when no deterministic violation remains but terminology, context, or a heuristic needs human review.
+When a profile was selected, name it in one short line after the result. Use `PASS WITH REVIEW` when no deterministic violation remains but terminology, context, or a heuristic needs human review.
 
 ## Project terminology
 
@@ -139,3 +158,4 @@ When no project dictionary exists:
 - Do not classify an unknown capitalized German noun as a technical term solely because it is capitalized.
 - Do not treat a linter heuristic as stronger evidence than the actual sentence meaning.
 - Do not require specialized vocabulary to be part of the central dictionary when a project term is appropriate.
+- Do not let an application profile override the meaning of a core rule or controlled word.
