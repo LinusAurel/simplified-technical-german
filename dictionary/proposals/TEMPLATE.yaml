@@ -1,0 +1,27 @@
+proposal_id: LEX-2026-001
+status: draft
+action: add
+term: "Beispielwort"
+part_of_speech: noun
+controlled_meaning: "Eine eindeutige Beschreibung der vorgeschlagenen STG-DE-Bedeutung."
+rationale: "Warum STG-DE diesen zentralen Eintrag benötigt."
+ambiguity_risk: low
+alternatives_considered:
+  - term: "Alternative"
+    reason_not_preferred: "Warum diese Alternative die kontrollierte Bedeutung nicht ausreichend ausdrückt."
+evidence:
+  - class: linguistic_rationale
+    description: "Allgemeine sprachliche oder funktionale Begründung."
+    domain: null
+    source_id: null
+    count: null
+examples:
+  approved:
+    - "Verwenden Sie das Beispielwort in der kontrollierten Bedeutung."
+  non_approved:
+    - "Beispiel für eine andere oder mehrdeutige Bedeutung."
+existing_entry_impact: []
+validator_impact: "Keine Änderung oder kurze Beschreibung der erforderlichen Validatoränderung."
+decision:
+  outcome: pending
+  rationale: "Wird im Review ergänzt."
