@@ -19,7 +19,7 @@ If the user only says "apply STG-DE" to existing text, use REWRITE. If the user 
 
 ## Select an application profile
 
-Use a profile when the text purpose is clear. Read `references/profiles.yaml` for the normative profile configuration.
+Use a profile when the text purpose is clear. Read `references/profiles.yaml` for the profile configuration.
 
 - `procedure` — operational steps and instructions.
 - `safety` — warnings, cautions, hazards, and protective actions.
@@ -31,13 +31,13 @@ Use a profile when the text purpose is clear. Read `references/profiles.yaml` fo
 
 If the user names a profile, use it. Otherwise infer the profile only when the purpose is clear. When no profile fits confidently, apply the base STG-DE rules without inventing one.
 
-Profiles do **not** define a different vocabulary or a different language. They define applicability, sentence limits, and review priorities for the same STG-DE rules.
+Profiles do not define a different vocabulary or language. They define applicability, sentence limits, and review priorities for the same STG-DE rules.
 
 ## Load references progressively
 
 Read only the material needed for the current task:
 
-- Read `references/profiles.yaml` when profile selection or profile-specific behavior matters.
+- Read `references/profiles.yaml` when profile selection matters.
 - Read `references/rules.md` for writing rules and examples.
 - Read `references/dictionary-guide.md` for morphology, terminology, and lexicon behavior.
 - Search `references/approved-words.yaml` when lexical approval or meaning matters.
@@ -49,16 +49,22 @@ Do not load the complete dictionary when a focused lookup is sufficient.
 
 ## Use tools when available
 
-When code execution is available, run `scripts/stg_lint.py` on the input before the final rewrite or audit. Pass the selected application profile and a project terminology file when available.
+When code execution is available, use both layers where they add value:
+
+1. Run `scripts/stg_lint.py` for deterministic/controlled checks.
+2. For AUDIT, or for a difficult REWRITE, also run `scripts/stg_analyze.py` for German-language review evidence.
 
 Examples:
 
 ```bash
 python scripts/stg_lint.py input.txt --profile procedure --format json
 python scripts/stg_lint.py input.md --profile support --project .stg-de.yaml --format json
+python scripts/stg_analyze.py input.md --format json
 ```
 
-Treat deterministic `error` findings as violations. Treat `warning` and `review` findings as evidence that requires context. Never rewrite a sentence only because a heuristic says it is wrong.
+Treat deterministic linter `error` findings as violations. Treat linter `warning`/`review` findings and **all** `stg_analyze.py` evidence as context that requires interpretation. The analyzer is review-only even when its confidence is `high`.
+
+Never rewrite a sentence only because a heuristic says it is wrong. Confirm the actual rule and preserve the source meaning.
 
 If code execution is unavailable, continue without it. Apply the bundled rules, selected profile, and dictionary directly.
 
@@ -71,9 +77,9 @@ If code execution is unavailable, continue without it. Apply the bundled rules, 
 5. Resolve terminology. Use the project term when a project dictionary specifies one. Otherwise preserve necessary domain terms and flag unresolved terms only in AUDIT mode.
 6. Apply structural rules before lexical optimization.
 7. Apply lexical rules with the controlled meaning and part of speech.
-8. Re-read the result against the source. Verify that no fact, condition, exception, actor, limit, or relationship changed.
-9. Check sentence length, instruction count, pronoun references, negation scope, passive voice, nominal style, compounds, separable verbs, and ambiguous linking words.
-10. Run the linter again when tools are available. Fix deterministic findings that do not alter meaning.
+8. Use review evidence for passive voice, modal ambiguity, clause complexity, pronoun reference, negation scope, nominal style, compounds, and separable verbs when relevant.
+9. Re-read the result against the source. Verify that no fact, condition, exception, actor, limit, or relationship changed.
+10. Run the deterministic linter again when tools are available. Fix deterministic findings that do not alter meaning.
 
 ## Writing priorities
 
@@ -137,7 +143,9 @@ After the table, give:
 Ergebnis: PASS | PASS WITH REVIEW | FAIL
 ```
 
-When a profile was selected, name it in one short line after the result. Use `PASS WITH REVIEW` when no deterministic violation remains but terminology, context, or a heuristic needs human review.
+A deterministic linter error makes the result `FAIL`. When there is no deterministic error but relevant heuristic or unresolved review evidence remains, use `PASS WITH REVIEW`. Do not turn analyzer evidence into `FAIL` by itself.
+
+When a profile was selected, name it in one short line after the result.
 
 ## Project terminology
 
@@ -156,6 +164,6 @@ When no project dictionary exists:
 - Do not silently delete qualifications or exceptions to meet word limits.
 - Do not claim full lexical conformance when unresolved words remain.
 - Do not classify an unknown capitalized German noun as a technical term solely because it is capitalized.
-- Do not treat a linter heuristic as stronger evidence than the actual sentence meaning.
+- Do not treat heuristic analysis as stronger evidence than the actual sentence meaning.
 - Do not require specialized vocabulary to be part of the central dictionary when a project term is appropriate.
 - Do not let an application profile override the meaning of a core rule or controlled word.
