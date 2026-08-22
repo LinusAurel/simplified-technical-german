@@ -174,8 +174,8 @@ files:
   size_bytes: 13059
   sha256: 048b58f6dccbb8f5f95ac859014db48611e47f97d585523b50221fe65467c7ad
 - path: tools/sync_skill.py
-  size_bytes: 2733
-  sha256: 326a2f4073ba422d03a3d00c0413bd2f090045ceaa4adc6105d7c25dc24f8274
+  size_bytes: 2855
+  sha256: e424a41195cdf40e834403fc18313dfd8924070a4d6597e58e6e35bf8a5a183d
 - path: tools/validate_release.py
   size_bytes: 3995
   sha256: f955f08fda54a839f75c472162b27be80892841e94e116c9e27bce90a1984115
