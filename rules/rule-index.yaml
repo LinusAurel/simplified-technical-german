@@ -1,0 +1,306 @@
+schema_version: '0.4'
+release: 0.4.0
+rule_or_recommendation_count: 75
+mandatory_or_normative_rule_count: 67
+general_recommendation_count: 8
+rules:
+- id: STG-1.1
+  title: Zulässiger Wortschatz
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.2
+  title: Wortart
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.3
+  title: Kontrollierte Bedeutung
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.4
+  title: Zulässige Flexionsformen
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.5
+  title: Technische Substantive
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.6
+  title: Nicht-zentrale Wörter als technische Terme
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.7
+  title: Technisches Substantiv ist nicht automatisch Verb
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.8
+  title: Offizielle technische Benennungen
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.9
+  title: Neue technische Benennungen kurz halten
+  file: rules/01-words.md
+  level: SHOULD
+- id: STG-1.10
+  title: Keine regionale Sprache, Umgangssprache oder Jargon
+  file: rules/01-words.md
+  level: MUST_NOT
+- id: STG-1.11
+  title: Ein Konzept, eine Benennung
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.12
+  title: Technische Verben
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.13
+  title: Technisches Verb ist nicht automatisch Substantiv
+  file: rules/01-words.md
+  level: MUST
+- id: STG-1.14
+  title: Deutsche Standardschreibung
+  file: rules/01-words.md
+  level: MUST
+- id: STG-2.1
+  title: Begrenze die semantische Dichte technischer Benennungen
+  file: rules/02-compounds-and-terms.md
+  level: MUST
+- id: STG-2.2
+  title: Lange offizielle Benennung zuerst vollständig
+  file: rules/02-compounds-and-terms.md
+  level: MUST
+- id: STG-DE-2.1
+  title: Deutsche Komposita als Terminologieobjekte
+  file: rules/02-compounds-and-terms.md
+  level: MUST
+- id: STG-DE-2.2
+  title: Bindestriche nicht als Komplexitäts-Trick verwenden
+  file: rules/02-compounds-and-terms.md
+  level: MUST_NOT
+- id: STG-DE-2.3
+  title: Abkürzungen sparsam und stabil verwenden
+  file: rules/02-compounds-and-terms.md
+  level: MUST
+- id: STG-3.1
+  title: Nur freigegebene Verbformen
+  file: rules/03-verbs.md
+  level: MUST
+- id: STG-3.2
+  title: Kontrollierte Tempora und Modi
+  file: rules/03-verbs.md
+  level: MUST
+- id: STG-3.3
+  title: Partizip II für Zustand oder Attribut
+  file: rules/03-verbs.md
+  level: MUST
+- id: STG-3.4
+  title: Keine unnötigen Hilfsverbketten
+  file: rules/03-verbs.md
+  level: MUST_NOT
+- id: STG-3.5
+  title: Keine englische `-ing`-Sonderregel; kontrolliere deutsche Nominalisierung
+  file: rules/03-verbs.md
+  level: MUST
+- id: STG-3.6
+  title: Aktiv bevorzugen
+  file: rules/03-verbs.md
+  level: MUST
+- id: STG-3.7
+  title: Handlungen mit direkten Verben ausdrücken
+  file: rules/03-verbs.md
+  level: MUST
+- id: STG-DE-3.1
+  title: Trennbare Verben kontrollieren
+  file: rules/03-verbs.md
+  level: SHOULD
+- id: STG-DE-3.2
+  title: Modalität eindeutig kodieren
+  file: rules/03-verbs.md
+  level: MUST
+- id: STG-DE-3.3
+  title: '`werden` restriktiv verwenden'
+  file: rules/03-verbs.md
+  level: SHOULD_NOT
+- id: STG-4.1
+  title: Kurze, eindeutige Sätze
+  file: rules/04-sentences.md
+  level: MUST
+- id: STG-4.2
+  title: Keine bedeutungstragenden Auslassungen
+  file: rules/04-sentences.md
+  level: MUST_NOT
+- id: STG-4.3
+  title: Vertikale Listen für komplexe Aufzählungen
+  file: rules/04-sentences.md
+  level: MUST
+- id: STG-4.4
+  title: Logische Verknüpfungen explizit machen
+  file: rules/04-sentences.md
+  level: MUST
+- id: STG-4.5
+  title: Artikel und Demonstrativa eindeutig verwenden
+  file: rules/04-sentences.md
+  level: MUST
+- id: STG-DE-4.1
+  title: Nebensatzverschachtelung begrenzen
+  file: rules/04-sentences.md
+  level: MUST
+- id: STG-DE-4.2
+  title: Pronomen nur mit eindeutigem Bezug
+  file: rules/04-sentences.md
+  level: MUST
+- id: STG-DE-4.3
+  title: '`man` nicht als technischer Akteur verwenden'
+  file: rules/04-sentences.md
+  level: MUST_NOT
+- id: STG-DE-4.4
+  title: Negationsbereich eindeutig machen
+  file: rules/04-sentences.md
+  level: MUST
+- id: STG-DE-4.5
+  title: Pronominaladverbien nur mit eindeutigem Bezug
+  file: rules/04-sentences.md
+  level: MUST
+- id: STG-5.1
+  title: Maximal 20 Wörter pro prozeduralem Satz
+  file: rules/05-procedures.md
+  level: MUST
+- id: STG-5.2
+  title: Eine Anweisung pro Satz
+  file: rules/05-procedures.md
+  level: MUST
+- id: STG-5.3
+  title: Anweisungen im formalen Imperativ
+  file: rules/05-procedures.md
+  level: MUST
+- id: STG-5.4
+  title: Bedingung vor Anweisung
+  file: rules/05-procedures.md
+  level: MUST
+- id: STG-5.5
+  title: Hinweise enthalten keine Anweisungen
+  file: rules/05-procedures.md
+  level: MUST
+- id: STG-6.1
+  title: Informationen schrittweise geben
+  file: rules/06-descriptions.md
+  level: MUST
+- id: STG-6.2
+  title: Schlüsselwörter und feste Verknüpfungen wiederverwenden
+  file: rules/06-descriptions.md
+  level: MUST
+- id: STG-6.3
+  title: Maximal 25 Wörter pro beschreibendem Satz
+  file: rules/06-descriptions.md
+  level: MUST
+- id: STG-6.4
+  title: Verwandte Informationen in Absätzen gruppieren
+  file: rules/06-descriptions.md
+  level: MUST
+- id: STG-6.5
+  title: Ein Thema pro Absatz
+  file: rules/06-descriptions.md
+  level: MUST
+- id: STG-6.6
+  title: Maximal sechs Sätze pro Absatz
+  file: rules/06-descriptions.md
+  level: MUST
+- id: STG-7.1
+  title: Risikostufe eindeutig kennzeichnen
+  file: rules/07-safety.md
+  level: MUST
+- id: STG-7.2
+  title: Mit Schutzhandlung oder Bedingung beginnen
+  file: rules/07-safety.md
+  level: MUST
+- id: STG-7.3
+  title: Gefahr oder Folge nennen
+  file: rules/07-safety.md
+  level: MUST
+- id: STG-8.1
+  title: Standardsatzzeichen; kein Semikolon zum Verbinden von Aussagen
+  file: rules/08-punctuation-and-counting.md
+  level: MUST_NOT
+- id: STG-8.2
+  title: Bindestriche nur für echte Wortstruktur
+  file: rules/08-punctuation-and-counting.md
+  level: MUST
+- id: STG-8.3
+  title: Klammern restriktiv verwenden
+  file: rules/08-punctuation-and-counting.md
+  level: MUST
+- id: STG-8.4
+  title: Doppelpunkt beendet die Einleitung einer vertikalen Liste
+  file: rules/08-punctuation-and-counting.md
+  level: MUST
+- id: STG-8.5
+  title: Klammertext separat prüfen
+  file: rules/08-punctuation-and-counting.md
+  level: MUST
+- id: STG-8.6
+  title: Geschützte Einheiten zählen als ein Wort
+  file: rules/08-punctuation-and-counting.md
+  level: MUST
+- id: STG-8.7
+  title: Bindestrichkomposita zählen orthografisch als ein Wort
+  file: rules/08-punctuation-and-counting.md
+  level: MUST
+- id: STG-DE-8.1
+  title: Schrägstrichkombinationen vermeiden
+  file: rules/08-punctuation-and-counting.md
+  level: SHOULD_NOT
+- id: STG-9.1
+  title: Satz neu bauen, wenn Wortersatz nicht reicht
+  file: rules/09-writing-practices.md
+  level: MUST
+- id: STG-9.2
+  title: Freigegebene Wörter korrekt verwenden
+  file: rules/09-writing-practices.md
+  level: MUST
+- id: STG-9.3
+  title: Keine idiomatischen Verbgefüge als Ersatz für direkte Verben
+  file: rules/09-writing-practices.md
+  level: MUST_NOT
+- id: STG-9.4
+  title: Terminologie und Formulierungen konsistent halten
+  file: rules/09-writing-practices.md
+  level: MUST
+- id: STG-GR-1
+  title: Nebensatzmarker explizit und korrekt
+  file: rules/09-writing-practices.md
+  level: RECOMMENDATION
+- id: STG-GR-2
+  title: '`mit` auf Mehrdeutigkeit prüfen'
+  file: rules/09-writing-practices.md
+  level: RECOMMENDATION
+- id: STG-GR-3
+  title: Pronomen sparsam verwenden
+  file: rules/09-writing-practices.md
+  level: RECOMMENDATION
+- id: STG-GR-4
+  title: Demonstrativa mit Nomen verwenden
+  file: rules/09-writing-practices.md
+  level: RECOMMENDATION
+- id: STG-GR-5
+  title: Lehnübersetzungen und falsche Freunde prüfen
+  file: rules/09-writing-practices.md
+  level: RECOMMENDATION
+- id: STG-GR-6
+  title: Abkürzungen in Fließtext reduzieren
+  file: rules/09-writing-practices.md
+  level: RECOMMENDATION
+- id: STG-GR-7
+  title: Neutrale Personenbezeichnungen bevorzugen
+  file: rules/09-writing-practices.md
+  level: RECOMMENDATION
+- id: STG-GR-8
+  title: Genitivketten vermeiden
+  file: rules/09-writing-practices.md
+  level: RECOMMENDATION
+- id: STG-DE-9.1
+  title: Modalpartikeln und rhetorische Füllwörter vermeiden
+  file: rules/09-writing-practices.md
+  level: MUST_NOT
+- id: STG-DE-9.2
+  title: Vage Qualitäts- und Zeitangaben ersetzen
+  file: rules/09-writing-practices.md
+  level: MUST
