@@ -1,4 +1,4 @@
-schema_version: '0.5'
+schema_version: '0.6'
 rules:
 - {id: STG-1.1, class: partial, implemented: true}
 - {id: STG-1.2, class: semantic, implemented: false}
@@ -16,29 +16,29 @@ rules:
 - {id: STG-1.14, class: partial, implemented: false}
 - {id: STG-2.1, class: heuristic, implemented: false}
 - {id: STG-2.2, class: semantic, implemented: false}
-- {id: STG-DE-2.1, class: semantic, implemented: false}
+- {id: STG-DE-2.1, class: heuristic, implemented: true}
 - {id: STG-DE-2.2, class: heuristic, implemented: false}
 - {id: STG-DE-2.3, class: partial, implemented: false}
 - {id: STG-3.1, class: semantic, implemented: false}
 - {id: STG-3.2, class: semantic, implemented: false}
 - {id: STG-3.3, class: semantic, implemented: false}
 - {id: STG-3.4, class: heuristic, implemented: false}
-- {id: STG-3.5, class: heuristic, implemented: false}
-- {id: STG-3.6, class: heuristic, implemented: false}
+- {id: STG-3.5, class: heuristic, implemented: true}
+- {id: STG-3.6, class: heuristic, implemented: true}
 - {id: STG-3.7, class: semantic, implemented: false}
-- {id: STG-DE-3.1, class: heuristic, implemented: false}
-- {id: STG-DE-3.2, class: semantic, implemented: false}
-- {id: STG-DE-3.3, class: heuristic, implemented: false}
+- {id: STG-DE-3.1, class: heuristic, implemented: true}
+- {id: STG-DE-3.2, class: partial, implemented: true}
+- {id: STG-DE-3.3, class: heuristic, implemented: true}
 - {id: STG-4.1, class: semantic, implemented: false}
 - {id: STG-4.2, class: semantic, implemented: false}
 - {id: STG-4.3, class: semantic, implemented: false}
 - {id: STG-4.4, class: semantic, implemented: false}
 - {id: STG-4.5, class: semantic, implemented: false}
-- {id: STG-DE-4.1, class: heuristic, implemented: false}
-- {id: STG-DE-4.2, class: semantic, implemented: false}
+- {id: STG-DE-4.1, class: heuristic, implemented: true}
+- {id: STG-DE-4.2, class: partial, implemented: true}
 - {id: STG-DE-4.3, class: deterministic, implemented: true}
-- {id: STG-DE-4.4, class: semantic, implemented: false}
-- {id: STG-DE-4.5, class: semantic, implemented: false}
+- {id: STG-DE-4.4, class: partial, implemented: true}
+- {id: STG-DE-4.5, class: partial, implemented: true}
 - {id: STG-5.1, class: deterministic, implemented: true}
 - {id: STG-5.2, class: semantic, implemented: false}
 - {id: STG-5.3, class: heuristic, implemented: false}
