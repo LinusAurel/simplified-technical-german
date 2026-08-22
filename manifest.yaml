@@ -18,8 +18,8 @@ files:
   size_bytes: 1372
   sha256: 3cd487fa61ab168a7d1f7be51c4c209606932152410412727aeeb416dc94436a
 - path: CONTRIBUTING.md
-  size_bytes: 1075
-  sha256: ba9c2c1300d3ad1d54ef79eaf68ed25e9e108a40ec829fee1c3ae9bb0e3ba66f
+  size_bytes: 2537
+  sha256: c10f9b79969c71c5b28c43267a8d521d845582e8e4a8748f7225653a7926e9e7
 - path: LICENSE
   size_bytes: 1068
   sha256: 5bc3ca5411c3ae3780a75f26d08db7b27728238827dd67648102a5314e72a4fc
