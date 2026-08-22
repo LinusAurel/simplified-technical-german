@@ -87,8 +87,8 @@ files:
   size_bytes: 564
   sha256: 381cb7cb6d93909f8f5d02ab839b699e52614b515389d3728822f9483d7431d9
 - path: requirements-dev.txt
-  size_bytes: 29
-  sha256: c663fc6066a492394b9f18d28eee27e20a40aaab08c63e729690d79de4f6a6c7
+  size_bytes: 76
+  sha256: f8fddbf1d6fe8e6af9cbe53bd24f91d372348241147c80c0eafe19ac00faaa33
 - path: rules/01-words.md
   size_bytes: 6182
   sha256: 21d218af4e9581b65574e47e2828ccc36e201079f2e23f2fa2b5e288feffab03
