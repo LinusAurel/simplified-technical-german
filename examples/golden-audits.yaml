@@ -9,17 +9,17 @@ cases:
     text_type: procedure
     text: "Prüfen Sie jetzt bitte alle vorhandenen elektrischen Verbindungen an diesem Gerät sehr sorgfältig auf sichtbare Schäden und lose Kontakte vor dem Start."
     expected_result: FAIL
-    expected_rules: [STG-5.1]
+    expected_rules: [STG-1.1, STG-5.1]
   - id: description-length
     text_type: description
     text: "Das System verarbeitet die eingehenden Daten und speichert die Ergebnisse nach der vollständigen Prüfung automatisch in einem lokalen Verzeichnis, damit andere Anwendungen die Informationen später ohne zusätzlichen Verarbeitungsschritt verwenden können."
     expected_result: FAIL
-    expected_rules: [STG-6.3]
+    expected_rules: [STG-1.1, STG-6.3]
   - id: indefinite-man
     text_type: procedure
     text: "Man prüft danach den Stecker."
     expected_result: FAIL
-    expected_rules: [STG-DE-4.3]
+    expected_rules: [STG-1.1, STG-DE-4.3]
   - id: ambiguous-slash
     text_type: description
     text: "Wählen Sie die Option A und/oder B."
