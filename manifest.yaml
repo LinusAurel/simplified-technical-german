@@ -24,8 +24,8 @@ files:
   size_bytes: 1068
   sha256: 5bc3ca5411c3ae3780a75f26d08db7b27728238827dd67648102a5314e72a4fc
 - path: README.md
-  size_bytes: 6292
-  sha256: b097dc3be189c2694c08ca1ca472e7acc02d9fc4e9375f3beca3c7e376e3a00b
+  size_bytes: 6952
+  sha256: 4ce8e164590e110cec54b8d401970fe61e80071c34686fa50b3f5b451e28571a
 - path: STG-DE.md
   size_bytes: 236578
   sha256: bcc0e6c5b9aa4b3cf68b00d788b44787175cd03b0a8f76f8d1bf6a89b19e0803
