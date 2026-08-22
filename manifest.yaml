@@ -150,8 +150,8 @@ files:
   size_bytes: 6434
   sha256: c9d5ab0fb3d3dfad81db827c9c4fddac745a34ebc4a2f8c7fb94a28cb000c69d
 - path: skills/simplified-technical-german/scripts/stg_lint.py
-  size_bytes: 9922
-  sha256: 3fcd10142408557508c756d81bb3984a0f5608f1b77922da74c389191e7e5275
+  size_bytes: 9890
+  sha256: 5da922f66a3682c89e98057a235ba4782f8cbcbb0bf622c249a27d7d613886f7
 - path: sources.md
   size_bytes: 998
   sha256: ca55c0e27ec3af18e6d34ae8d50f533cfe1c9c06669191600ab76225bcbe020a
