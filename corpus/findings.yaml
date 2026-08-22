@@ -1,0 +1,562 @@
+schema_version: '0.4'
+release: 0.4.0
+public_stratified_corpus:
+  sources: 18
+  industries: 6
+  tokens: 2066
+  design: 3 independently sourced public technical documents/pages per industry; short German excerpts; equal document count,
+    not equal token count
+  raw_source_text_in_release: false
+coverage:
+  v0.3_baseline_legacy_tool: 0.514037
+  v0.4_normalization_only: 0.526621
+  v0.4_final: 0.580833
+  change_baseline_to_final_percentage_points: 6.68
+  unknown_tokens_baseline: 272
+  unknown_tokens_final: 232
+  final_routed_rate: 0.887706
+validator_changes:
+- id: V04-VAL-01
+  change: Declared noun plurals are controlled inflections instead of unknown/capitalized-term candidates.
+  observed_public_tokens: 26
+- id: V04-VAL-02
+  change: Unknown capitalized German words are routed to LEXICAL_NOUN_CANDIDATE, not presumed technical terms.
+- id: V04-VAL-03
+  change: A canonical lemma takes precedence over another lemma’s plural alias; this resolves the Datum/Daten collision.
+semantic_corrections:
+- id: V04-LEX-DATEN
+  problem: v0.3 stored Datum with plural Daten; naive plural lookup can misread technical Daten (data) as dates.
+  resolution: Added independent restricted lemma Daten for technical information/data. Collision-safe indexing prevents Datum
+    plural alias from overriding it.
+  observed_public_occurrences: 3
+  industries:
+  - elektrotechnik
+  - maschinenbau
+  - software_it
+new_core_entries_with_observed_impact:
+- lemma: sicher
+  entry_id: DE-ADJ-sicher
+  gain: 5
+  byind:
+    automotive: 1
+    medizintechnik: 2
+    anlagenbau: 1
+    maschinenbau: 1
+  industry_count: 4
+  source_count: 4
+  matched:
+  - sicher
+  - sichere
+  - sicheren
+- lemma: Ihr
+  entry_id: DE-DET-Ihr
+  gain: 13
+  byind:
+    software_it: 5
+    automotive: 7
+    elektrotechnik: 1
+  industry_count: 3
+  source_count: 6
+  matched:
+  - Ihr
+  - Ihre
+  - Ihrem
+  - Ihrer
+- lemma: Produkt
+  entry_id: DE-NOU-produkt
+  gain: 13
+  byind:
+    anlagenbau: 2
+    maschinenbau: 8
+    elektrotechnik: 3
+  industry_count: 3
+  source_count: 5
+  matched:
+  - Produkt
+  - Produkte
+- lemma: Angabe
+  entry_id: DE-NOU-angabe
+  gain: 3
+  byind:
+    anlagenbau: 1
+    elektrotechnik: 1
+    maschinenbau: 1
+  industry_count: 3
+  source_count: 3
+  matched:
+  - Angabe
+  - Angaben
+- lemma: Einstellung
+  entry_id: DE-NOU-einstellung
+  gain: 3
+  byind:
+    anlagenbau: 1
+    medizintechnik: 1
+    elektrotechnik: 1
+  industry_count: 3
+  source_count: 3
+  matched:
+  - Einstellung
+  - Einstellungen
+- lemma: folgend
+  entry_id: DE-ADJ-folgend
+  gain: 3
+  byind:
+    software_it: 1
+    anlagenbau: 1
+    automotive: 1
+  industry_count: 3
+  source_count: 3
+  matched:
+  - Folgenden
+  - folgenden
+- lemma: Verletzung
+  entry_id: DE-NOU-verletzung
+  gain: 3
+  byind:
+    automotive: 1
+    maschinenbau: 1
+    anlagenbau: 1
+  industry_count: 3
+  source_count: 3
+  matched:
+  - Verletzungen
+- lemma: Verwendung
+  entry_id: DE-NOU-verwendung
+  gain: 3
+  byind:
+    anlagenbau: 1
+    automotive: 1
+    maschinenbau: 1
+  industry_count: 3
+  source_count: 3
+  matched:
+  - Verwendung
+- lemma: Betriebsanleitung
+  entry_id: DE-NOU-betriebsanleitung
+  gain: 11
+  byind:
+    automotive: 5
+    anlagenbau: 6
+  industry_count: 2
+  source_count: 4
+  matched:
+  - Betriebsanleitung
+  - Betriebsanleitungen
+- lemma: Kenntnis
+  entry_id: DE-NOU-kenntnis
+  gain: 5
+  byind:
+    elektrotechnik: 1
+    maschinenbau: 4
+  industry_count: 2
+  source_count: 3
+  matched:
+  - Kenntnisse
+- lemma: Symbol
+  entry_id: DE-NOU-symbol
+  gain: 4
+  byind:
+    automotive: 1
+    anlagenbau: 3
+  industry_count: 2
+  source_count: 3
+  matched:
+  - Symbol
+  - Symbole
+- lemma: wählen
+  entry_id: DE-VER-waehlen
+  gain: 4
+  byind:
+    software_it: 3
+    medizintechnik: 1
+  industry_count: 2
+  source_count: 3
+  matched:
+  - Wählen
+  - wählen
+- lemma: Fachpersonal
+  entry_id: DE-NOU-fachpersonal
+  gain: 4
+  byind:
+    maschinenbau: 2
+    elektrotechnik: 2
+  industry_count: 2
+  source_count: 2
+  matched:
+  - Fachpersonal
+- lemma: Tätigkeit
+  entry_id: DE-NOU-taetigkeit
+  gain: 4
+  byind:
+    anlagenbau: 2
+    maschinenbau: 2
+  industry_count: 2
+  source_count: 2
+  matched:
+  - Tätigkeiten
+- lemma: Beispiel
+  entry_id: DE-NOU-beispiel
+  gain: 3
+  byind:
+    automotive: 2
+    maschinenbau: 1
+  industry_count: 2
+  source_count: 3
+  matched:
+  - Beispiel
+- lemma: Installation
+  entry_id: DE-NOU-installation
+  gain: 3
+  byind:
+    software_it: 1
+    elektrotechnik: 2
+  industry_count: 2
+  source_count: 2
+  matched:
+  - Installation
+- lemma: lesen
+  entry_id: DE-VER-lesen
+  gain: 3
+  byind:
+    anlagenbau: 2
+    automotive: 1
+  industry_count: 2
+  source_count: 2
+  matched:
+  - Lesen
+  - lesen
+- lemma: technisch
+  entry_id: DE-ADJ-technisch
+  gain: 3
+  byind:
+    elektrotechnik: 1
+    maschinenbau: 2
+  industry_count: 2
+  source_count: 2
+  matched:
+  - technisch
+  - technischen
+- lemma: bedienen
+  entry_id: DE-VER-bedienen
+  gain: 2
+  byind:
+    medizintechnik: 1
+    elektrotechnik: 1
+  industry_count: 2
+  source_count: 2
+  matched:
+  - bedient
+- lemma: Bedienung
+  entry_id: DE-NOU-bedienung
+  gain: 2
+  byind:
+    anlagenbau: 1
+    automotive: 1
+  industry_count: 2
+  source_count: 2
+  matched:
+  - Bedienung
+- lemma: benötigen
+  entry_id: DE-VER-benoetigen
+  gain: 2
+  byind:
+    automotive: 1
+    elektrotechnik: 1
+  industry_count: 2
+  source_count: 2
+  matched:
+  - benötigen
+- lemma: Kennzeichnung
+  entry_id: DE-NOU-kennzeichnung
+  gain: 2
+  byind:
+    anlagenbau: 1
+    maschinenbau: 1
+  industry_count: 2
+  source_count: 2
+  matched:
+  - Kennzeichnungen
+- lemma: Verfügbarkeit
+  entry_id: DE-NOU-verfuegbarkeit
+  gain: 2
+  byind:
+    automotive: 1
+    elektrotechnik: 1
+  industry_count: 2
+  source_count: 2
+  matched:
+  - Verfügbarkeit
+- lemma: Version
+  entry_id: DE-NOU-version
+  gain: 2
+  byind:
+    medizintechnik: 1
+    software_it: 1
+  industry_count: 2
+  source_count: 2
+  matched:
+  - Version
+- lemma: wichtig
+  entry_id: DE-ADJ-wichtig
+  gain: 2
+  byind:
+    automotive: 1
+    elektrotechnik: 1
+  industry_count: 2
+  source_count: 2
+  matched:
+  - wichtige
+- lemma: Änderung
+  entry_id: DE-NOU-aenderung
+  gain: 2
+  byind:
+    software_it: 1
+    medizintechnik: 1
+  industry_count: 2
+  source_count: 2
+  matched:
+  - Änderungen
+- lemma: Vorschrift
+  entry_id: DE-NOU-vorschrift
+  gain: 2
+  byind:
+    maschinenbau: 2
+  industry_count: 1
+  source_count: 2
+  matched:
+  - Vorschriften
+- lemma: Anleitung
+  entry_id: DE-NOU-anleitung
+  gain: 2
+  byind:
+    anlagenbau: 2
+  industry_count: 1
+  source_count: 1
+  matched:
+  - Anleitung
+- lemma: Dokumentation
+  entry_id: DE-NOU-dokumentation
+  gain: 1
+  byind:
+    maschinenbau: 1
+  industry_count: 1
+  source_count: 1
+  matched:
+  - Dokumentation
+- lemma: Warnung
+  entry_id: DE-NOU-warnung
+  gain: 1
+  byind:
+    anlagenbau: 1
+  industry_count: 1
+  source_count: 1
+  matched:
+  - Warnung
+cross_industry_review_patterns:
+- token: sowie
+  count: 6
+  industries:
+  - anlagenbau
+  - elektrotechnik
+  - maschinenbau
+  - medizintechnik
+  - software_it
+  source_count: 6
+  classes:
+    PROHIBITED: 6
+- token: führen
+  count: 7
+  industries:
+  - anlagenbau
+  - automotive
+  - medizintechnik
+  - software_it
+  source_count: 6
+  classes:
+    REVIEW_REQUIRED: 7
+- token: bietet
+  count: 3
+  industries:
+  - elektrotechnik
+  - medizintechnik
+  - software_it
+  source_count: 3
+  classes:
+    REVIEW_REQUIRED: 3
+- token: entsprechend
+  count: 3
+  industries:
+  - elektrotechnik
+  - maschinenbau
+  - medizintechnik
+  source_count: 3
+  classes:
+    REVIEW_REQUIRED: 3
+- token: arbeiten
+  count: 4
+  industries:
+  - elektrotechnik
+  - maschinenbau
+  source_count: 2
+  classes:
+    REVIEW_REQUIRED: 4
+- token: berücksichtigen
+  count: 4
+  industries:
+  - maschinenbau
+  - medizintechnik
+  source_count: 3
+  classes:
+    REVIEW_REQUIRED: 4
+- token: nutzen
+  count: 4
+  industries:
+  - automotive
+  - software_it
+  source_count: 3
+  classes:
+    PROHIBITED: 4
+- token: beginnen
+  count: 3
+  industries:
+  - anlagenbau
+  - medizintechnik
+  source_count: 2
+  classes:
+    PROHIBITED: 3
+- token: geeignet
+  count: 3
+  industries:
+  - anlagenbau
+  - elektrotechnik
+  source_count: 2
+  classes:
+    REVIEW_REQUIRED: 3
+- token: verschiedene
+  count: 3
+  industries:
+  - elektrotechnik
+  - software_it
+  source_count: 3
+  classes:
+    REVIEW_REQUIRED: 3
+- token: zugehörigen
+  count: 3
+  industries:
+  - elektrotechnik
+  - maschinenbau
+  source_count: 2
+  classes:
+    REVIEW_REQUIRED: 3
+- token: ausschliesslich
+  count: 2
+  industries:
+  - maschinenbau
+  - medizintechnik
+  source_count: 2
+  classes:
+    REVIEW_REQUIRED: 2
+- token: detaillierte
+  count: 2
+  industries:
+  - automotive
+  - elektrotechnik
+  source_count: 2
+  classes:
+    REVIEW_REQUIRED: 2
+- token: durchgeführt
+  count: 2
+  industries:
+  - elektrotechnik
+  - maschinenbau
+  source_count: 2
+  classes:
+    NEEDS_LEXICON_REVIEW: 2
+- token: durchzuführen
+  count: 2
+  industries:
+  - elektrotechnik
+  - software_it
+  source_count: 2
+  classes:
+    NEEDS_LEXICON_REVIEW: 2
+- token: erfolgt
+  count: 2
+  industries:
+  - elektrotechnik
+  - maschinenbau
+  source_count: 2
+  classes:
+    PROHIBITED: 2
+- token: ermöglicht
+  count: 2
+  industries:
+  - anlagenbau
+  - software_it
+  source_count: 2
+  classes:
+    NEEDS_LEXICON_REVIEW: 2
+- token: gegebenenfalls
+  count: 2
+  industries:
+  - anlagenbau
+  - medizintechnik
+  source_count: 2
+  classes:
+    PROHIBITED: 2
+- token: geltenden
+  count: 2
+  industries:
+  - automotive
+  - maschinenbau
+  source_count: 2
+  classes:
+    NEEDS_LEXICON_REVIEW: 2
+- token: gewartet
+  count: 2
+  industries:
+  - elektrotechnik
+  - medizintechnik
+  source_count: 2
+  classes:
+    NEEDS_LEXICON_REVIEW: 2
+- token: gewährleisten
+  count: 2
+  industries:
+  - anlagenbau
+  - maschinenbau
+  source_count: 2
+  classes:
+    REVIEW_REQUIRED: 2
+- token: jederzeit
+  count: 2
+  industries:
+  - anlagenbau
+  - medizintechnik
+  source_count: 2
+  classes:
+    REVIEW_REQUIRED: 2
+- token: schweren
+  count: 2
+  industries:
+  - anlagenbau
+  - automotive
+  source_count: 2
+  classes:
+    NEEDS_LEXICON_REVIEW: 2
+- token: weitere
+  count: 2
+  industries:
+  - automotive
+  - software_it
+  source_count: 2
+  classes:
+    NEEDS_LEXICON_REVIEW: 2
+limitations:
+- The public corpus is stratified by document count but consists of short excerpts, not full copyrighted manuals.
+- The source sample is evidence for lexical curation, not a statistically representative model of all German technical writing.
+- No human technical-writing/terminology panel has yet approved the dictionary.
+- Snowball morphology remains a development hint only; normative conformance requires deterministic German lemmatization and
+  syntax.
+- Domain nouns and verbs must remain project terminology rather than being absorbed solely to increase coverage.

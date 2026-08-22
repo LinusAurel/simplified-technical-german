@@ -1,0 +1,7 @@
+industry,sources,tokens,v0.3_baseline_coverage,v0.4_normalization_coverage,v0.4_final_coverage,final_unknown,final_routed_rate,final_review_required,final_prohibited,final_lexical_noun_candidates
+anlagenbau,3,311,0.491961,0.501608,0.585209,32,0.897106,6,4,81
+automotive,3,359,0.495822,0.520891,0.587744,39,0.891365,7,5,85
+elektrotechnik,3,342,0.488304,0.502924,0.549708,44,0.871345,10,4,80
+maschinenbau,3,356,0.502809,0.508427,0.584270,41,0.884831,11,5,79
+medizintechnik,3,334,0.520958,0.532934,0.553892,42,0.874251,9,6,83
+software_it,3,364,0.579670,0.587912,0.620879,34,0.906593,6,5,81
