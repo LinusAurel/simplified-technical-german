@@ -1,0 +1,211 @@
+schema_version: '0.4'
+release: 0.4.0
+access_date: '2026-08-21'
+source_count: 18
+industries:
+  anlagenbau: 3
+  automotive: 3
+  elektrotechnik: 3
+  maschinenbau: 3
+  medizintechnik: 3
+  software_it: 3
+redistribution: metadata, hashes, token frequencies, and aggregate metrics only; source excerpts are excluded
+sources:
+- id: MACH-FESTO-DGCI
+  industry: maschinenbau
+  manufacturer: Festo
+  title: DGCI Linearantrieb – Betriebsanleitung
+  url: https://media.festo.com/
+  evidence: Festo DGCI 2024-03d
+  sample_sha256: f82c8fec1c8f688cd44c328105fd2497039a40c7b09c60e22ec8ea4c56517315
+  accessed_on: '2026-08-21'
+  sample_token_count: 104
+  sample_hash_sha256: f82c8fec1c8f688cd44c328105fd2497039a40c7b09c60e22ec8ea4c56517315
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: MACH-REXROTH-MITEL2
+  industry: maschinenbau
+  manufacturer: Bosch Rexroth
+  title: 'MIT: EL 2 – Sicherheitshinweise'
+  url: https://induflow.boschrexroth.com/
+  evidence: 3 842 558 371/2021-10
+  sample_sha256: 2ce84ed49d33832fd919f98b8e87f70c0a3cc9d7390e505203db8541dc795aaa
+  accessed_on: '2026-08-21'
+  sample_token_count: 128
+  sample_hash_sha256: 2ce84ed49d33832fd919f98b8e87f70c0a3cc9d7390e505203db8541dc795aaa
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: MACH-SEW-BREMSE
+  industry: maschinenbau
+  manufacturer: SEW-EURODRIVE
+  title: Drehstrommotoren – Bremse anschließen
+  url: https://download.sew-eurodrive.com/
+  evidence: 26858142/DE – 03/2021
+  sample_sha256: 28441c105c27b3437473e480bfc98e22c01da01e7f9a811bad20d9723af3f923
+  accessed_on: '2026-08-21'
+  sample_token_count: 124
+  sample_hash_sha256: 28441c105c27b3437473e480bfc98e22c01da01e7f9a811bad20d9723af3f923
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: AUTO-BMW-SAFETY
+  industry: automotive
+  manufacturer: BMW
+  title: BMW Sicherheitsbroschüre
+  url: https://www.bmw.de/
+  evidence: Sach-Nr. 01405B64A85 – II/25
+  sample_sha256: 5c400d7d645aaf786f1144a602033949563b7095ff8106d3a45bc90c668c6ec4
+  accessed_on: '2026-08-21'
+  sample_token_count: 124
+  sample_hash_sha256: 5c400d7d645aaf786f1144a602033949563b7095ff8106d3a45bc90c668c6ec4
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: AUTO-AUDI-CONNECT
+  industry: automotive
+  manufacturer: Audi
+  title: Audi connect Quick Start Guide
+  url: https://www.audi.de/
+  evidence: Audi_QSG_MIB2_DE
+  sample_sha256: c37025ea3e4072c3532e564e608e447b41a748f639694052ed14b3a2bac42f4c
+  accessed_on: '2026-08-21'
+  sample_token_count: 118
+  sample_hash_sha256: c37025ea3e4072c3532e564e608e447b41a748f639694052ed14b3a2bac42f4c
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: AUTO-VW-DISTANCE
+  industry: automotive
+  manufacturer: Volkswagen
+  title: Warn- oder Kontrollleuchte – Abstandswarnung
+  url: https://www.volkswagen.de/
+  evidence: 24. März 2025
+  sample_sha256: 1baf75e910070798b1de8908542518ea6a1a7097e994122becb85c82f80b144c
+  accessed_on: '2026-08-21'
+  sample_token_count: 117
+  sample_hash_sha256: 1baf75e910070798b1de8908542518ea6a1a7097e994122becb85c82f80b144c
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: ELEC-SIEMENS-S71200
+  industry: elektrotechnik
+  manufacturer: Siemens
+  title: S7-1200 Automatisierungssystem – Systemhandbuch
+  url: https://support.industry.siemens.com/
+  evidence: V4.5 05/2021, A5E02486681-AO
+  sample_sha256: 9d1c6e9e4dc17e2b736d88548dca342f0ccb694590ecc7ea3cd8849a794d808e
+  accessed_on: '2026-08-21'
+  sample_token_count: 111
+  sample_hash_sha256: 9d1c6e9e4dc17e2b736d88548dca342f0ccb694590ecc7ea3cd8849a794d808e
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: ELEC-SCHNEIDER-ATV600
+  industry: elektrotechnik
+  manufacturer: Schneider Electric
+  title: Altivar Process ATV600 – Erste Schritte
+  url: https://www.se.com/de/de/download/document/EAV63255/
+  evidence: EAV63255
+  sample_sha256: 6c56fff1212de52075e3698600e62cd1d5a96eccf0b5cd8554f276f5327e4f3e
+  accessed_on: '2026-08-21'
+  sample_token_count: 127
+  sample_hash_sha256: 6c56fff1212de52075e3698600e62cd1d5a96eccf0b5cd8554f276f5327e4f3e
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: ELEC-PHOENIX-QUINT
+  industry: elektrotechnik
+  manufacturer: Phoenix Contact
+  title: QUINT POWER Stromversorgung
+  url: https://www.phoenixcontact.com/de-de/produkte/stromversorgung-quint-ps2ac1dc24dc20-2320830
+  evidence: Produkt 2320830
+  sample_sha256: 69e2ee91676fc2fdef78e9c54614e21427093582155bc2fd777cad91e44e0411
+  accessed_on: '2026-08-21'
+  sample_token_count: 104
+  sample_hash_sha256: 69e2ee91676fc2fdef78e9c54614e21427093582155bc2fd777cad91e44e0411
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: SW-NEXTCLOUD-WEB
+  industry: software_it
+  manufacturer: Nextcloud
+  title: Nextcloud Benutzerhandbuch – Weboberfläche
+  url: https://docs.nextcloud.com/server/latest/user_manual/de/webinterface.html
+  evidence: latest User Manual
+  sample_sha256: ac14fd36125d9f80e8a13eaeefb5afa844a881ec2b75fff3b1c9bbb6bc1bafed
+  accessed_on: '2026-08-21'
+  sample_token_count: 127
+  sample_hash_sha256: ac14fd36125d9f80e8a13eaeefb5afa844a881ec2b75fff3b1c9bbb6bc1bafed
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: SW-SUSE-YAST
+  industry: software_it
+  manufacturer: SUSE
+  title: SLES 15 SP5 Verwaltungshandbuch – YaST Software
+  url: https://documentation.suse.com/de-de/sles/15-SP5/html/SLES-all/cha-yast-software.html
+  evidence: SLES 15 SP5
+  sample_sha256: ee6c13c28c380c28019b7e1177df66e5519a32b521221cd3bee869a13d891c0d
+  accessed_on: '2026-08-21'
+  sample_token_count: 116
+  sample_hash_sha256: ee6c13c28c380c28019b7e1177df66e5519a32b521221cd3bee869a13d891c0d
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: SW-SYNOLOGY-VOLUME
+  industry: software_it
+  manufacturer: Synology
+  title: DSM – Ein Volume erstellen
+  url: https://kb.synology.com/de-de/DSM/help/DSM/StorageManager/volume_create_volume
+  evidence: DSM Knowledge Center
+  sample_sha256: 4d064e4906cfe9d406d26dfe815904f2faeaf3089a3a8556035002fd13b2732a
+  accessed_on: '2026-08-21'
+  sample_token_count: 121
+  sample_hash_sha256: 4d064e4906cfe9d406d26dfe815904f2faeaf3089a3a8556035002fd13b2732a
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: MED-BBRAUN-INFUSOMAT
+  industry: medizintechnik
+  manufacturer: B. Braun
+  title: Infusomat Space – Kurz-Gebrauchsanweisung
+  url: https://www.bbraun.de/
+  evidence: Infusomat Space Kurz-Gebrauchsanweisung
+  sample_sha256: 6ca63f85b90d62d2c0ae3bf61a41248182fc2bbaf415239f85b45602bb65f53f
+  accessed_on: '2026-08-21'
+  sample_token_count: 120
+  sample_hash_sha256: 6ca63f85b90d62d2c0ae3bf61a41248182fc2bbaf415239f85b45602bb65f53f
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: MED-DRAEGER-EVITA
+  industry: medizintechnik
+  manufacturer: Dräger
+  title: Evita V300 – Gebrauchsanweisung
+  url: https://www.draeger.com/Content/Documents/Products/evita-v300-ifu-9052994-de.pdf
+  evidence: Evita V300 SW 2.n
+  sample_sha256: 69cd1400975dcc243d8855a70ab608ae7f26fed32fbc96c8d155062ee6ce9df2
+  accessed_on: '2026-08-21'
+  sample_token_count: 104
+  sample_hash_sha256: 69cd1400975dcc243d8855a70ab608ae7f26fed32fbc96c8d155062ee6ce9df2
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: MED-HAMILTON-C1
+  industry: medizintechnik
+  manufacturer: Hamilton Medical
+  title: HAMILTON-C1 – Bedienungshandbuch
+  url: https://www.hamilton-medical.com/
+  evidence: Deutsch 10101872/01
+  sample_sha256: c68999cca2632d4f1018c4234c20db83fbb11a95f0c1a031e3d3f65f5096116c
+  accessed_on: '2026-08-21'
+  sample_token_count: 110
+  sample_hash_sha256: c68999cca2632d4f1018c4234c20db83fbb11a95f0c1a031e3d3f65f5096116c
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: PLANT-WILO-STRATOS
+  industry: anlagenbau
+  manufacturer: Wilo
+  title: Wilo-Stratos MAXO – Bedienungsanleitung
+  url: https://cms.media.wilo.com/
+  evidence: Ed.01/2024-08
+  sample_sha256: 63a2f342298f82fba9db40ad418dddf58241ae0aa9305212f7ebee45d26b95fd
+  accessed_on: '2026-08-21'
+  sample_token_count: 108
+  sample_hash_sha256: 63a2f342298f82fba9db40ad418dddf58241ae0aa9305212f7ebee45d26b95fd
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: PLANT-GRUNDFOS-CRATEX
+  industry: anlagenbau
+  manufacturer: Grundfos
+  title: CR-Pumpen mit ATEX-Zulassung – Montage- und Betriebsanleitung
+  url: https://api.grundfos.com/literature/Grundfosliterature-3407.pdf
+  evidence: Grundfos Anleitung
+  sample_sha256: a308cc216540d6dbd3ce2e45705e887e2c4ea76a643f1f7a947955652353364c
+  accessed_on: '2026-08-21'
+  sample_token_count: 103
+  sample_hash_sha256: a308cc216540d6dbd3ce2e45705e887e2c4ea76a643f1f7a947955652353364c
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
+- id: PLANT-KSB-ETANORM
+  industry: anlagenbau
+  manufacturer: KSB
+  title: Etanorm – Produkt- und technische Dokumentation
+  url: https://www.ksb.com/de-de/lc/produkte/pumpe/trocken-aufgestellte-pumpe/etanorm-etanorm-myflow-etanorm-pro/E04B
+  evidence: KSB product documentation
+  sample_sha256: 1108226038619941d7114946800fe11d5a3174376a9b1bd29a8e204045e5103e
+  accessed_on: '2026-08-21'
+  sample_token_count: 100
+  sample_hash_sha256: 1108226038619941d7114946800fe11d5a3174376a9b1bd29a8e204045e5103e
+  sampling_method: short exact German excerpt selected from publicly accessible technical documentation; raw excerpt not distributed
