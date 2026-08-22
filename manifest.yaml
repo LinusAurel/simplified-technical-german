@@ -150,8 +150,8 @@ files:
   size_bytes: 6434
   sha256: c9d5ab0fb3d3dfad81db827c9c4fddac745a34ebc4a2f8c7fb94a28cb000c69d
 - path: skills/simplified-technical-german/scripts/stg_lint.py
-  size_bytes: 9890
-  sha256: 5da922f66a3682c89e98057a235ba4782f8cbcbb0bf622c249a27d7d613886f7
+  size_bytes: 12586
+  sha256: e86527fdb449756d86e7c9441957705d08b90bc5964c9ecce5cb006ad2a458e7
 - path: sources.md
   size_bytes: 998
   sha256: ca55c0e27ec3af18e6d34ae8d50f533cfe1c9c06669191600ab76225bcbe020a
@@ -159,8 +159,8 @@ files:
   size_bytes: 8096
   sha256: a0fac0989df35bd6feeed2f0065e8098e72ac60fea41de18624f2e29f0b4adad
 - path: tests/test_stg_lint.py
-  size_bytes: 3611
-  sha256: c6b86ac3cdb8783168791c7b20c1da2a3dcca6683dd657100f229ab195ba08eb
+  size_bytes: 5616
+  sha256: 4c9f291451d504b18afb2e8fa4c5731e75743b7e9a634fbe4c7bbed0d7c96f95
 - path: tools/build_manifest.py
   size_bytes: 744
   sha256: 911f1af07aad9f598dc82685e7c7d4dfea183819ecff8aca7faa2f290592314e
@@ -171,8 +171,8 @@ files:
   size_bytes: 10798
   sha256: c4409a1b1fbc87a825ae6b654627019f187fec2f43417604555cd893fd09976f
 - path: tools/stg_lint.py
-  size_bytes: 9890
-  sha256: 5da922f66a3682c89e98057a235ba4782f8cbcbb0bf622c249a27d7d613886f7
+  size_bytes: 12586
+  sha256: e86527fdb449756d86e7c9441957705d08b90bc5964c9ecce5cb006ad2a458e7
 - path: tools/sync_skill.py
   size_bytes: 2613
   sha256: 86edc549f60fb90f3a187a0d467de1a0c6978cd0bf8ddd0da3838bced509c120

@@ -20,6 +20,14 @@ WORD_RE = re.compile(r"[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß0-9_:+/.-]*|\d
 URL_RE = re.compile(r"https?://\S+|www\.\S+", re.I)
 CODE_RE = re.compile(r"`[^`]*`")
 SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])(?:[\"'»”)]*)\s+(?=[A-ZÄÖÜ0-9„\"'([])")
+MAN_RE = re.compile(r"(?<![\wÄÖÜäöüß])man(?![\wÄÖÜäöüß])", re.I)
+AMBIGUOUS_SLASH_PATTERNS = (
+    re.compile(r"(?<![\w])und\s*/\s*oder(?![\w])", re.I),
+    re.compile(r"(?<![\w])oder\s*/\s*und(?![\w])", re.I),
+    re.compile(r"(?<![\w])(der|die|das)\s*/\s*(der|die|das)(?![\w])", re.I),
+    re.compile(r"(?<![\w])(ein|eine|einen|einem|einer)\s*/\s*(eine?|einen|einem|einer)(?![\w])", re.I),
+    re.compile(r"(?<![\w])ein-\s*/\s*ausschalten(?![\w])", re.I),
+)
 
 
 @dataclass
@@ -49,6 +57,28 @@ def split_sentences(text: str) -> list[str]:
         return []
     parts = SENTENCE_SPLIT_RE.split(text)
     return [p.strip() for p in parts if p.strip()]
+
+
+def split_paragraphs(text: str) -> list[str]:
+    paragraphs: list[str] = []
+    current: list[str] = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not stripped:
+            if current:
+                paragraphs.append(" ".join(current))
+                current = []
+            continue
+        # Treat Markdown headings and list items as structural boundaries, not prose paragraphs.
+        if stripped.startswith("#") or re.match(r"^(?:[-*+] |\d+[.)] )", stripped):
+            if current:
+                paragraphs.append(" ".join(current))
+                current = []
+            continue
+        current.append(stripped)
+    if current:
+        paragraphs.append(" ".join(current))
+    return paragraphs
 
 
 def count_words(sentence: str) -> int:
@@ -129,6 +159,26 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
                 line.strip(), "Schreiben Sie zwei getrennte Sätze."
             ))
 
+    # STG-DE-4.3: do not use indefinite "man" as the technical actor.
+    for sentence in split_sentences(masked):
+        if MAN_RE.search(sentence):
+            findings.append(Finding(
+                "error", "STG-DE-4.3", "`man` bezeichnet den Akteur nicht eindeutig.",
+                sentence, "Nennen Sie den Akteur oder verwenden Sie eine direkte Anweisung.", "man"
+            ))
+
+    # STG-DE-8.1: known ambiguous slash combinations in running prose.
+    for line in masked.splitlines():
+        if line.lstrip().startswith("#"):
+            continue
+        for pattern in AMBIGUOUS_SLASH_PATTERNS:
+            match = pattern.search(line)
+            if match:
+                findings.append(Finding(
+                    "warning", "STG-DE-8.1", "Die Schrägstrichkombination kann mehrdeutig sein.",
+                    match.group(0), "Verwenden Sie `und`, `oder`, eine Liste oder getrennte Sätze.", match.group(0)
+                ))
+
     # STG-1.1: controlled/prohibited vocabulary.
     for entry in prohibited:
         term = str(entry.get("term", "")).strip()
@@ -167,6 +217,16 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
                 "error", rule, f"Der Satz hat {n} Wörter. Zulässig sind höchstens {cap} Wörter in diesem Prüfmodus.",
                 sentence, "Teilen Sie den Satz, ohne Bedingungen oder technische Bedeutung zu entfernen."
             ))
+
+    # STG-6.6: descriptive paragraphs have at most six sentences.
+    if text_type in {"auto", "description"}:
+        for paragraph in split_paragraphs(text):
+            sentences = split_sentences(paragraph)
+            if len(sentences) > 6:
+                findings.append(Finding(
+                    "error", "STG-6.6", f"Der Absatz hat {len(sentences)} Sätze. Zulässig sind höchstens 6 Sätze.",
+                    paragraph, "Teilen Sie den Absatz nach Thema oder logischem Zusammenhang."
+                ))
 
     # Optional lexical routing report. Unknown words are review items, never automatic violations.
     unknown_counts: dict[str, int] = {}
