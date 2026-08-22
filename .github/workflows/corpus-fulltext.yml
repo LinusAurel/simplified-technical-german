@@ -11,6 +11,13 @@ on:
       - dictionary/**
       - requirements-dev.txt
       - .github/workflows/corpus-fulltext.yml
+  pull_request:
+    paths:
+      - corpus/v0.5-sources.yaml
+      - tools/build_corpus_v05.py
+      - dictionary/**
+      - requirements-dev.txt
+      - .github/workflows/corpus-fulltext.yml
 
 jobs:
   corpus:
