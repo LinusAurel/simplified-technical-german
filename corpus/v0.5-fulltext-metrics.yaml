@@ -1,0 +1,43 @@
+schema_version: '0.5'
+method: transient public-source full-text extraction; raw text not persisted
+lexicon_release: 0.4.0
+workflow_run: 32597222836
+generated_on: '2026-08-22'
+aggregate:
+  sources: 13
+  tokens: 139646
+  controlled_tokens: 58524
+  controlled_surface_coverage: 0.419088
+  failures: 0
+partitions:
+  development: {sources: 4, tokens: 89757, controlled_tokens: 36415, controlled_surface_coverage: 0.405707}
+  validation: {sources: 5, tokens: 16686, controlled_tokens: 8187, controlled_surface_coverage: 0.490651}
+  holdout: {sources: 4, tokens: 33203, controlled_tokens: 13922, controlled_surface_coverage: 0.419299}
+domains:
+  anlagenbau: {sources: 2, tokens: 34705, controlled_surface_coverage: 0.382769}
+  automotive: {sources: 1, tokens: 9361, controlled_surface_coverage: 0.479650}
+  energy_consumer: {sources: 2, tokens: 5289, controlled_surface_coverage: 0.451503}
+  logistics: {sources: 1, tokens: 737, controlled_surface_coverage: 0.466757}
+  medizintechnik: {sources: 1, tokens: 82803, controlled_surface_coverage: 0.419188}
+  public_sector: {sources: 2, tokens: 1483, controlled_surface_coverage: 0.494943}
+  software_it: {sources: 3, tokens: 5061, controlled_surface_coverage: 0.485675}
+  telecom: {sources: 1, tokens: 207, controlled_surface_coverage: 0.560386}
+sources:
+  - {id: MED-HAMILTON-C1-FULL, partition: development, sha256: 303cabdc9fc652cc66f03362eb5992258f4f71204c3885d14545adeb66a97b3f, bytes: 8760618, tokens: 82803, coverage: 0.419188}
+  - {id: PLANT-WILO-STRATOS-FULL, partition: holdout, sha256: 31983755d227141e204c14c165c8d968885c7e11ad5976b74cede7a6a1b4c02e, bytes: 6199417, tokens: 28721, coverage: 0.411406}
+  - {id: PLANT-GRUNDFOS-CRATEX-FULL, partition: development, sha256: 2e108efd59a9ce06d5286c54e1710df9acb4ba7b3bcbba3e98e6afa462fa97fa, bytes: 2444424, tokens: 5984, coverage: 0.245321}
+  - {id: AUTO-BMW-SAFETY-FULL, partition: validation, sha256: 0d4a54a14bb14040fa74439e714bfe7b6d1dba5f0f62ace2b30ebbe202576144, bytes: 292940, tokens: 9361, coverage: 0.479650}
+  - {id: SW-NEXTCLOUD-WEB-FULL, partition: development, sha256: c7657240e2cfb80e43806bc62b97206a90f6116146fbb49f0b3f6654e88d5e4e, bytes: 22007, tokens: 515, coverage: 0.052427}
+  - {id: SW-SUSE-YAST-FULL, partition: validation, sha256: f532fccc7a58db85783d96efd6622ac53839588d9bc989e3c114b51329915094, bytes: 86932, tokens: 4530, coverage: 0.536424}
+  - {id: SW-SYNOLOGY-VOLUME-FULL, partition: validation, sha256: 573191d1e0cad04528c9dcbda68f25e2b3d0faea1c1eb8a09c2acbe38f7597b7, bytes: 152322, tokens: 16, coverage: 0.062500}
+  - {id: TEL-TELEKOM-SPEEDPORT, partition: validation, sha256: afd4f2ef9a533860918163ee1d4013ad8f0dc30194c0158d2cc6101ad3cc1379, bytes: 176218, tokens: 207, coverage: 0.560386}
+  - {id: LOG-DHL-ONLINE-FRANKIERUNG, partition: holdout, sha256: 880756e7e4f01d3399294474bde3278c1229b66faa28d3866fab8dff9b7b9c40, bytes: 172565, tokens: 737, coverage: 0.466757}
+  - {id: PUBLIC-AUSWEISAPP, partition: holdout, sha256: 7c56b9a9f1f7880f6b5621c3508fc54e80529711040b912128995797aa44f81e, bytes: 66386, tokens: 1028, coverage: 0.509728}
+  - {id: PUBLIC-BA-ALG, partition: development, sha256: 2d8d259b689ef17dd00323475d06e37a2dd02b2e6cc1f8c52a75e5e188d1e668, bytes: 126608, tokens: 455, coverage: 0.461538}
+  - {id: ENERGY-VZ-TARIFFINDER, partition: validation, sha256: 4299fd78db9764b8078b00351e350016064df26d1aaaeeccb361484d9482227a, bytes: 725458, tokens: 2572, coverage: 0.447123}
+  - {id: ENERGY-VZ-WECHSEL, partition: holdout, sha256: 8f0c43ad40d7d3dbcfca05b09232728bab46adcd08444b2cd52f25dc48826a49, bytes: 835247, tokens: 2717, coverage: 0.455650}
+limitations:
+  - The corpus exceeds 100k tokens but is not token-balanced; the medical manual dominates the development partition.
+  - HTML extraction quality varies by site; the Synology page yielded only 16 tokens and should be replaced or improved in a later source revision.
+  - Controlled surface coverage is a lexical routing metric, not a document quality or STG-DE compliance score.
+  - Holdout data has not been used to select new central vocabulary in this release cycle.
