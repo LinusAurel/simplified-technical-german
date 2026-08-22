@@ -1,0 +1,42 @@
+schema_version: '0.5'
+cases:
+  - id: semicolon-procedure
+    text_type: procedure
+    text: "Öffnen Sie die Abdeckung; prüfen Sie den Stecker."
+    expected_result: FAIL
+    expected_rules: [STG-8.1]
+  - id: procedure-length
+    text_type: procedure
+    text: "Prüfen Sie jetzt bitte alle vorhandenen elektrischen Verbindungen an diesem Gerät sehr sorgfältig auf sichtbare Schäden und lose Kontakte vor dem Start."
+    expected_result: FAIL
+    expected_rules: [STG-5.1]
+  - id: description-length
+    text_type: description
+    text: "Das System verarbeitet die eingehenden Daten und speichert die Ergebnisse nach der vollständigen Prüfung automatisch in einem lokalen Verzeichnis, damit andere Anwendungen die Informationen später ohne zusätzlichen Verarbeitungsschritt verwenden können."
+    expected_result: FAIL
+    expected_rules: [STG-6.3]
+  - id: indefinite-man
+    text_type: procedure
+    text: "Man prüft danach den Stecker."
+    expected_result: FAIL
+    expected_rules: [STG-DE-4.3]
+  - id: ambiguous-slash
+    text_type: description
+    text: "Wählen Sie die Option A und/oder B."
+    expected_result: PASS WITH REVIEW
+    expected_rules: [STG-DE-8.1]
+  - id: long-paragraph
+    text_type: description
+    text: "Satz eins. Satz zwei. Satz drei. Satz vier. Satz fünf. Satz sechs. Satz sieben."
+    expected_result: FAIL
+    expected_rules: [STG-6.6]
+  - id: compliant-short-procedure
+    text_type: procedure
+    text: "Prüfen Sie den Stecker."
+    expected_result: PASS
+    expected_rules: []
+  - id: url-is-protected
+    text_type: description
+    text: "Öffnen Sie https://example.com/a/b."
+    expected_result: PASS
+    expected_rules: []
