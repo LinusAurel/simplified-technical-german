@@ -1,0 +1,51 @@
+schema_version: '0.4'
+release: 0.4.0
+tests:
+- id: PROC-ONE-INSTRUCTION
+  text_type: procedure
+  input: Öffnen Sie die Abdeckung und entfernen Sie danach die Sicherung.
+  expected: fail
+  rules:
+  - STG-5.2
+  preferred: Öffnen Sie die Abdeckung. Entfernen Sie danach die Sicherung.
+- id: PROC-CONDITION-FIRST
+  text_type: procedure
+  input: Schalten Sie das Gerät aus, wenn die rote Anzeige leuchtet.
+  expected: fail
+  rules:
+  - STG-5.4
+  preferred: Wenn die rote Anzeige leuchtet, schalten Sie das Gerät aus.
+- id: PASSIVE-PROCEDURE
+  text_type: procedure
+  input: Die Abdeckung wird entfernt.
+  expected: fail
+  rules:
+  - STG-3.6
+  preferred: Entfernen Sie die Abdeckung.
+- id: PROHIBITED-SOWIE
+  text_type: description
+  input: Das System misst Strom sowie Spannung.
+  expected: fail
+  rules:
+  - STG-1.1
+  - STG-9.4
+  preferred: Das System misst Strom und Spannung.
+- id: AMBIGUOUS-DABEI
+  text_type: description
+  input: Das Modul prüft den Sensor und den Regler. Dabei kann ein Fehler auftreten.
+  expected: needs_input
+  rules:
+  - STG-DE-4.5
+- id: NOUN-PLURAL
+  text_type: description
+  input: Die Informationen sind im Dokument enthalten.
+  expected: lexically_resolvable
+  rules:
+  - STG-1.4
+- id: DATA-DATE-COLLISION
+  text_type: description
+  input: Speichern Sie die Daten.
+  expected: lexeme:Daten
+  rules:
+  - STG-1.3
+  - STG-1.4

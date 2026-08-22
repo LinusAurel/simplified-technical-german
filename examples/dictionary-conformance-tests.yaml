@@ -1,0 +1,25 @@
+schema_version: '0.4'
+release: 0.4.0
+tests:
+- id: LEX-DATEN
+  surface: Daten
+  expected_entry: DE-NOU-daten
+  expected_status: restricted
+- id: LEX-DATUM
+  surface: Datum
+  expected_entry: DE-NOU-datum
+  expected_status: approved
+- id: LEX-INFORMATIONEN
+  surface: Informationen
+  expected_entry: DE-NOU-information
+  resolution: declared_noun_plural
+- id: LEX-IHREM-FORMAL
+  surface: Ihrem
+  expected_entry: DE-DET-Ihr
+  case_sensitive: true
+- id: LEX-SOWIE
+  surface: sowie
+  expected: prohibited
+- id: LEX-FUEHREN
+  surface: führen
+  expected: review_required
