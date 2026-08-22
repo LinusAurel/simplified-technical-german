@@ -1,0 +1,796 @@
+schema_version: '0.4'
+release: 0.4.0
+status: corpus_validated_authoring_core
+entries:
+- term: abklemmen
+  status: prohibited
+  reason: fach-/umgangssprachlich für unterschiedliche Trennvorgänge
+  rewrite: trennen und Objekt/Verbindung nennen oder als technischen Term freigeben.
+  approved_alternatives:
+  - trennen
+- term: aktuell
+  status: prohibited
+  reason: mehrdeutig zwischen derzeit gültig und neueste Version
+  rewrite: derzeit, gültig oder konkrete Version/Datum nennen.
+  approved_alternatives:
+  - derzeit
+- term: anfangen
+  status: prohibited
+  reason: Synonymvariation zu starten
+  rewrite: starten verwenden.
+  approved_alternatives:
+  - starten
+- term: angemessen
+  status: prohibited
+  reason: Bewertungskriterium bleibt ungenannt
+  rewrite: Messbares oder referenziertes Kriterium nennen.
+- term: anhand
+  status: review_required
+  reason: die Datenbasis oder das Mittel kann implizit bleiben
+  rewrite: Datenbasis ausdrücklich nennen; wenn möglich mit oder aus verwenden.
+- term: anmachen
+  status: prohibited
+  reason: umgangssprachlich und mehrdeutig
+  rewrite: einschalten verwenden.
+  approved_alternatives:
+  - einschalten
+- term: anschließend
+  status: prohibited
+  reason: stilistische Sequenzvariante zu danach
+  rewrite: danach verwenden.
+  approved_alternatives:
+  - danach
+- term: arbeiten
+  status: review_required
+  reason: kann menschliche Tätigkeit oder Maschinenfunktion bedeuten
+  rewrite: Konkrete Tätigkeit oder funktionieren/betreiben verwenden.
+- term: aufspüren
+  status: prohibited
+  reason: stilistische oder bildhafte Variante für finden/prüfen
+  rewrite: finden oder prüfen entsprechend der beabsichtigten Handlung verwenden.
+  approved_alternatives:
+  - finden
+  - prüfen
+- term: ausmachen
+  status: prohibited
+  reason: umgangssprachlich und mehrdeutig
+  rewrite: ausschalten verwenden.
+  approved_alternatives:
+  - ausschalten
+- term: ausreichend
+  status: review_required
+  reason: Kriterium für ausreichend bleibt häufig ungenannt
+  rewrite: Grenzwert oder Referenz nennen.
+- term: ausschließlich
+  status: review_required
+  reason: starke Exklusivitätsaussage; der ausgeschlossene Bereich muss klar sein
+  rewrite: Nur verwenden, wenn die Exklusivität technisch oder normativ belegt ist; sonst konkrete Einschränkung
+    nennen.
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - ausschliesslich
+- term: austauschen
+  status: prohibited
+  reason: kann ersetzen oder gegenseitig vertauschen bedeuten
+  rewrite: ersetzen verwenden, wenn ein Ersatzteil eingesetzt wird.
+  approved_alternatives:
+  - ersetzen
+- term: automatisch
+  status: review_required
+  reason: kann Systemfunktion oder bloße Erwartung bedeuten
+  rewrite: Nur als freigegebene technische Funktion verwenden; sonst Akteur/Trigger nennen.
+- term: bald
+  status: prohibited
+  reason: Zeitgrenze ist nicht messbar
+  rewrite: Frist oder Zeitpunkt nennen.
+- term: baldmöglichst
+  status: prohibited
+  reason: Zeitgrenze ist nicht messbar
+  rewrite: Frist oder Zeitpunkt nennen.
+- term: bearbeiten
+  status: review_required
+  reason: mehrdeutig zwischen mechanisch bearbeiten, Daten bearbeiten und administrativ bearbeiten
+  rewrite: Konkrete technische Handlung oder als Domainterm freigeben.
+- term: beginnen
+  status: prohibited
+  reason: Synonymvariation zu starten
+  rewrite: starten verwenden.
+  approved_alternatives:
+  - starten
+- term: behandeln
+  status: review_required
+  reason: mehrdeutig zwischen verarbeiten, medizinisch behandeln, chemisch behandeln und thematisieren
+  rewrite: Konkretes technisches Verb verwenden.
+- term: behutsam
+  status: prohibited
+  reason: Handlung oder Grenzwert bleibt unbestimmt
+  rewrite: Konkrete Geschwindigkeit, Kraft oder Abstand nennen.
+- term: bei Bedarf
+  status: prohibited
+  reason: Bedingung für den Bedarf ist nicht definiert
+  rewrite: Bedingung mit wenn ausdrücklich nennen.
+- term: benutzen
+  status: prohibited
+  reason: Synonymvariation zu verwenden
+  rewrite: verwenden verwenden.
+  approved_alternatives:
+  - verwenden
+- term: bereits
+  status: review_required
+  reason: unspezifischer Zeitbezug; häufig entbehrlich
+  rewrite: weglassen oder einen konkreten Zeitpunkt/Zustand nennen.
+- term: berücksichtigen
+  status: review_required
+  reason: kann eine relevante Bedingung nennen, ohne zu sagen, welche konkrete Handlung daraus folgt
+  rewrite: Bedingung ausdrücklich formulieren und die daraus erforderliche Handlung nennen.
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - berücksichtigt
+  - berücksichtigte
+  - berücksichtigten
+- term: beseitigen
+  status: review_required
+  reason: kann physisches Entfernen oder Fehlerbehebung bedeuten
+  rewrite: entfernen für Material/Teil oder beheben für einen identifizierten Fehler verwenden.
+  approved_alternatives:
+  - entfernen
+  - beheben
+- term: bestmöglich
+  status: prohibited
+  reason: nennt kein überprüfbares Zielkriterium
+  rewrite: Messbares oder referenziertes Kriterium nennen.
+- term: beziehungsweise
+  status: prohibited
+  reason: kann oder, und, genauer gesagt oder eine Zuordnung bedeuten
+  rewrite: Exakte Relation mit und, oder oder getrennten Sätzen ausdrücken.
+  approved_alternatives:
+  - und
+  - oder
+- term: bieten
+  status: review_required
+  reason: abstraktes Besitz- oder Leistungsverb; technische Beziehung bleibt häufig unpräzise
+  rewrite: Je nach Bedeutung haben, geben, bereitstellen oder enthalten verwenden.
+  review_status: multi_industry_candidate_v0.4
+  approved_alternatives:
+  - haben
+  - geben
+  - bereitstellen
+  - enthalten
+  surface_forms:
+  - bietet
+  - bot
+  - boten
+  - geboten
+- term: bringen
+  status: review_required
+  reason: kann physische Bewegung oder Zustandsänderung bedeuten
+  rewrite: bewegen, positionieren oder Zustandsverb verwenden.
+- term: bzw.
+  status: prohibited
+  reason: mehrdeutige Kurzform von beziehungsweise
+  rewrite: Exakte Relation ausschreiben.
+  approved_alternatives:
+  - und
+  - oder
+- term: ca.
+  status: review_required
+  reason: Abkürzung und unklare Genauigkeit
+  rewrite: ungefähr nur für echte Näherungswerte verwenden; sonst exakten Wert nennen.
+  approved_alternatives:
+  - ungefähr
+- term: checken
+  status: prohibited
+  reason: Umgangssprache/Anglizismus für mehrere mögliche Prüfhandlungen
+  rewrite: prüfen verwenden.
+  approved_alternatives:
+  - prüfen
+- term: circa
+  status: review_required
+  reason: Näherungsangabe kann bei Grenzwerten unzulässig sein
+  rewrite: ungefähr nur für echte Näherungswerte verwenden; sonst exakten Wert nennen.
+  approved_alternatives:
+  - ungefähr
+- term: da
+  status: review_required
+  reason: kann Ort, Ursache oder Verweis bedeuten
+  rewrite: dort für einen eindeutigen Ort, weil für eine Ursache oder das konkrete Bezugsnomen verwenden.
+- term: dabei
+  status: review_required
+  reason: Pronominaladverb mit möglichem mehrdeutigem Bezug
+  rewrite: Bezugsnomen, Handlung oder Bedingung wiederholen; siehe STG-DE-4.5.
+- term: dafür
+  status: review_required
+  reason: Pronominaladverb mit möglichem mehrdeutigem Bezug
+  rewrite: Bezugsnomen, Zweck oder Handlung ausdrücklich nennen; siehe STG-DE-4.5.
+- term: daher
+  status: prohibited
+  reason: stilistische Ergebnisvariante zu deshalb
+  rewrite: deshalb verwenden.
+  approved_alternatives:
+  - deshalb
+- term: daraus
+  status: review_required
+  reason: Pronominaladverb mit möglichem mehrdeutigem Bezug
+  rewrite: Quelle, Ursache oder Bestandteil ausdrücklich nennen; siehe STG-DE-4.5.
+- term: darüber
+  status: review_required
+  reason: Pronominaladverb mit möglichem mehrdeutigem Bezug
+  rewrite: Bezugsobjekt oder Thema ausdrücklich nennen; siehe STG-DE-4.5.
+- term: davon
+  status: review_required
+  reason: Pronominaladverb mit möglichem mehrdeutigem Bezug
+  rewrite: Bezugsobjekt ausdrücklich nennen; siehe STG-DE-4.5.
+- term: dazu
+  status: review_required
+  reason: Pronominaladverb mit möglichem mehrdeutigem Bezug
+  rewrite: Bezugsobjekt, Zweck oder Handlung ausdrücklich nennen; siehe STG-DE-4.5.
+- term: detailliert
+  status: review_required
+  reason: unspezifische Aussage über Informationsumfang
+  rewrite: Konkrete Information geben oder den relevanten Abschnitt nennen.
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - detaillierte
+  - detaillierten
+  - detaillierter
+  - detailliertes
+  - detailliertem
+- term: doch
+  status: prohibited
+  reason: Modalpartikel oder unspezifischer Kontrast
+  rewrite: aber oder explizite Gegenaussage verwenden.
+- term: durchführen
+  status: review_required
+  reason: Funktionsverb kann eine spezifische Handlung verdecken
+  rewrite: Direktes Verb verwenden; nur bei offiziell benanntem Verfahren/Test ohne präziseres Verb zulassen.
+- term: eben
+  status: prohibited
+  reason: Modalpartikel oder mehrdeutige Bedeutung
+  rewrite: Entfernen; nur als technischer Begriff für geometrisch eben zulassen, wenn als Terminologie freigegeben.
+- term: einfach
+  status: review_required
+  reason: kann Füllwort oder unprüfbare Bewertung bedeuten
+  rewrite: Entfernen oder als definierte Eigenschaft ausdrücklich qualifizieren.
+- term: einsetzen
+  status: review_required
+  reason: mehrdeutig zwischen verwenden, einbauen, einfügen und Personal zuweisen
+  rewrite: verwenden, einbauen oder einfügen gemäß der konkreten Handlung verwenden.
+  approved_alternatives:
+  - verwenden
+  - einbauen
+  - einfügen
+- term: entsprechend
+  status: review_required
+  reason: Bezug oder Zuordnung kann fehlen
+  rewrite: Bezugsobjekt oder Regel ausdrücklich nennen.
+- term: entsprechend den Vorschriften
+  status: prohibited
+  reason: Vorschriften sind nicht identifiziert
+  rewrite: Dokument, Abschnitt oder konkrete Anforderung nennen.
+- term: erfassen
+  status: prohibited
+  reason: mehrdeutig zwischen eingeben, messen, erkennen und dokumentieren
+  rewrite: eingeben, messen, erkennen oder dokumentieren entsprechend der Bedeutung verwenden.
+- term: erfolgen
+  status: prohibited
+  reason: unpersönliche/passivische Form verschleiert den Akteur
+  rewrite: Akteur und direktes Verb nennen.
+  surface_forms:
+  - erfolgt
+  - erfolgte
+  - erfolgten
+  - erfolgend
+- term: ermöglichen
+  status: review_required
+  reason: abstrakte Fähigkeitskonstruktion kann den eigentlichen Akteur und die Handlung verdecken
+  rewrite: Akteur + direktes Verb oder können + direktes Verb verwenden.
+- term: erst
+  status: prohibited
+  reason: mehrdeutig zwischen zuerst, erst ab und nur
+  rewrite: zuerst, frühestens oder nur entsprechend der Bedeutung verwenden.
+- term: etc.
+  status: prohibited
+  reason: offene Aufzählung lässt relevante Elemente ungenannt
+  rewrite: Vollständige Liste geben oder mit andere + definierter Kategorie abschließen.
+- term: etwa
+  status: review_required
+  reason: mehrdeutig zwischen ungefähr und beispielsweise
+  rewrite: ungefähr oder Beispielkonstruktion entsprechend der Bedeutung verwenden.
+- term: eventuell
+  status: prohibited
+  reason: unspezifische Möglichkeit
+  rewrite: kann mit klarer Bedingung oder Ursache verwenden.
+- term: extrem
+  status: review_required
+  reason: unspezifische Verstärkung ohne Grenze
+  rewrite: Messwert oder definierte Sicherheitskategorie nennen.
+- term: fachgerecht
+  status: prohibited
+  reason: verweist auf ungenannte Fachregeln
+  rewrite: Anwendbare Spezifikation oder konkrete Handlung nennen.
+- term: fahren
+  status: review_required
+  reason: kann Fahrzeugbewegung, Maschinenhub oder Softwarezustand bedeuten
+  rewrite: Konkrete Bewegungs- oder Systemaktion verwenden.
+- term: falls erforderlich
+  status: prohibited
+  reason: Bedingung für erforderlich ist nicht definiert
+  rewrite: Bedingung mit wenn und messbarem Kriterium nennen.
+- term: falls möglich
+  status: prohibited
+  reason: Bedingung für möglich ist nicht definiert
+  rewrite: Technische Bedingung ausdrücklich nennen.
+- term: falls nötig
+  status: prohibited
+  reason: Bedingung für nötig ist nicht definiert
+  rewrite: Bedingung mit wenn nennen.
+- term: festmachen
+  status: prohibited
+  reason: umgangssprachliche Alternative zu befestigen
+  rewrite: befestigen verwenden.
+  approved_alternatives:
+  - befestigen
+- term: fixieren
+  status: prohibited
+  reason: kann befestigen, chemisch fixieren oder gedanklich festlegen bedeuten
+  rewrite: befestigen oder technische Spezialbedeutung als Terminologie freigeben.
+  approved_alternatives:
+  - befestigen
+- term: führen
+  status: review_required
+  reason: hochgradig mehrdeutig zwischen physischer Bewegung, Leitung, Ergebnisbeziehung und Bedienhandlung
+  rewrite: Konkretes Verb oder eine explizite Ursache-Folge-Konstruktion verwenden.
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - führt
+  - führte
+  - führten
+  - geführt
+- term: gebrauchen
+  status: prohibited
+  reason: Synonymvariation zu verwenden und teilweise veraltet
+  rewrite: verwenden verwenden.
+  approved_alternatives:
+  - verwenden
+- term: geeignet
+  status: review_required
+  reason: Eignungskriterium bleibt häufig ungenannt
+  rewrite: Eignungskriterium oder freigegebene Spezifikation nennen.
+- term: gegebenen Bedingungen
+  status: prohibited
+  reason: Bedingungen sind nicht identifiziert
+  rewrite: Konkrete Bedingungen nennen.
+- term: gegebenenfalls
+  status: prohibited
+  reason: versteckt eine nicht genannte Bedingung
+  rewrite: Bedingung mit wenn ausdrücklich nennen.
+  approved_alternatives:
+  - wenn
+- term: genügend
+  status: review_required
+  reason: Kriterium für genügend bleibt häufig ungenannt
+  rewrite: Grenzwert oder Referenz nennen.
+- term: gerade
+  status: prohibited
+  reason: mehrdeutig zwischen aktuell, genau jetzt, geometrisch gerade und Verstärkung
+  rewrite: Exakte Bedeutung ausdrücken oder als freigegebenen technischen Term führen.
+- term: gewährleisten
+  status: review_required
+  reason: abstrakte Ergebniszusage ohne sichtbare Prüfhandlung oder messbares Kriterium
+  rewrite: Prüfbare Bedingung und konkrete Maßnahme nennen; falls passend sicherstellen mit prüfbarer Bedingung
+    verwenden.
+  review_status: multi_industry_candidate_v0.4
+  approved_alternatives:
+  - sicherstellen
+  surface_forms:
+  - gewährleistet
+  - gewährleistete
+  - gewährleisteten
+- term: ggf.
+  status: prohibited
+  reason: Abkürzung von gegebenenfalls; die Bedingung bleibt implizit
+  rewrite: Bedingung mit wenn ausdrücklich nennen.
+  approved_alternatives:
+  - wenn
+- term: grundsätzlich
+  status: prohibited
+  reason: Geltungsbereich und Ausnahmen können unklar sein
+  rewrite: Geltungsbereich und Ausnahmen ausdrücklich nennen.
+- term: halt
+  status: prohibited
+  reason: Modalpartikel ohne technische Information
+  rewrite: Entfernen.
+- term: handhaben
+  status: review_required
+  reason: vage oder jargonartige Sammelbezeichnung
+  rewrite: Konkrete Handlungen nennen.
+- term: hierfür
+  status: review_required
+  reason: Pronominaladverb mit möglichem mehrdeutigem Bezug
+  rewrite: Bezugsobjekt oder Zweck ausdrücklich nennen; siehe STG-DE-4.5.
+- term: hochfahren
+  status: prohibited
+  reason: kann Booten, Starten oder Erhöhen bedeuten
+  rewrite: starten oder Wert erhöhen entsprechend der Bedeutung verwenden.
+- term: hochgradig
+  status: prohibited
+  reason: unspezifischer Grad
+  rewrite: Messwert oder definierte Kategorie nennen.
+- term: im Allgemeinen
+  status: prohibited
+  reason: Geltungsbereich und Ausnahmen können unklar sein
+  rewrite: Konkreten Geltungsbereich nennen.
+- term: in Betrieb nehmen
+  status: review_required
+  reason: kann mehrere technische Einzelschritte zusammenfassen
+  rewrite: Konkrete Start-/Aktivierungsanweisung oder freigegebenes Inbetriebnahmeverfahren nennen.
+- term: in der Regel
+  status: prohibited
+  reason: Ausnahmen bleiben ungenannt
+  rewrite: Regel und Ausnahmen ausdrücklich nennen.
+- term: insbesondere
+  status: review_required
+  reason: kann einen offenen, nicht vollständigen Umfang erzeugen
+  rewrite: vollständige Menge nennen oder ausdrücklich als Beispiel kennzeichnen.
+- term: irgendwann
+  status: prohibited
+  reason: Zeitpunkt ist unbestimmt
+  rewrite: Konkreten Zeitpunkt oder Bedingung nennen.
+- term: irgendwelche
+  status: prohibited
+  reason: Menge und Auswahl sind unbestimmt
+  rewrite: Konkrete Elemente oder Kategorie nennen.
+- term: irgendwie
+  status: prohibited
+  reason: Methode ist unbestimmt
+  rewrite: Konkrete Methode nennen.
+- term: irgendwo
+  status: prohibited
+  reason: Ort ist unbestimmt
+  rewrite: Konkreten Ort nennen.
+- term: jederzeit
+  status: review_required
+  reason: unbegrenzte zeitliche Aussage kann technisch oder vertraglich zu stark sein
+  rewrite: Gültigen Zeitraum oder Systemzustand nennen, wenn die Verfügbarkeit nicht wirklich uneingeschränkt ist.
+  review_status: multi_industry_candidate_v0.4
+- term: jedoch
+  status: prohibited
+  reason: stilistische Kontrastvariante zu aber
+  rewrite: aber verwenden.
+  approved_alternatives:
+  - aber
+- term: jeweils
+  status: review_required
+  reason: Zuordnung kann unklar sein, wenn mehrere Mengen oder Objekte vorkommen
+  rewrite: Zuordnung pro Objekt oder Einheit ausdrücklich angeben; je verwenden, wenn eine Rate gemeint ist.
+  approved_alternatives:
+  - je
+- term: kontrollieren
+  status: prohibited
+  reason: kann prüfen oder steuern bedeuten
+  rewrite: prüfen für Inspektion; steuern/regeln für Systemkontrolle verwenden.
+  approved_alternatives:
+  - prüfen
+  - steuern
+  - regeln
+- term: koppeln
+  status: prohibited
+  reason: kann mechanische, elektrische oder logische Spezialbedeutung haben
+  rewrite: verbinden verwenden oder als technischen Term freigeben.
+  approved_alternatives:
+  - verbinden
+- term: könnte
+  status: prohibited
+  reason: unspezifische hypothetische Möglichkeit
+  rewrite: kann mit klarer Bedingung oder explizite Wahrscheinlichkeit verwenden.
+  approved_alternatives:
+  - können
+- term: könnten
+  status: prohibited
+  reason: unspezifische hypothetische Möglichkeit
+  rewrite: können mit klarer Bedingung verwenden.
+  approved_alternatives:
+  - können
+- term: laufen
+  status: prohibited
+  reason: kann funktionieren, sich bewegen oder Software ausführen bedeuten
+  rewrite: funktionieren, bewegen oder ausführen entsprechend der Bedeutung verwenden.
+- term: lediglich
+  status: prohibited
+  reason: stilistische Variante zu nur
+  rewrite: nur verwenden.
+  approved_alternatives:
+  - nur
+- term: leicht
+  status: review_required
+  reason: mehrdeutig zwischen geringem Gewicht, geringer Kraft und einfach
+  rewrite: Messwert oder eindeutiges Adjektiv verwenden.
+- term: letzte
+  status: review_required
+  reason: mehrdeutig zwischen vorherige und endgültige
+  rewrite: vorherige oder endgültige entsprechend der Bedeutung verwenden.
+- term: machen
+  status: prohibited
+  reason: zu allgemeines Verb für technische Handlungen
+  rewrite: Präzises direktes Verb verwenden.
+- term: mal
+  status: prohibited
+  reason: umgangssprachliche Modalpartikel
+  rewrite: Entfernen; mathematische Multiplikation separat als Symbol oder multiplizieren ausdrücken.
+- term: man
+  status: prohibited
+  reason: Akteur bleibt unbestimmt
+  rewrite: Formalen Imperativ oder konkreten Akteur verwenden.
+- term: meistens
+  status: prohibited
+  reason: Häufigkeit ist unbestimmt
+  rewrite: Häufigkeit quantifizieren oder Bedingungen nennen.
+- term: möglicherweise
+  status: prohibited
+  reason: unspezifische Möglichkeit
+  rewrite: kann mit klarer Bedingung oder Ursache verwenden.
+- term: möglichst
+  status: prohibited
+  reason: nennt kein überprüfbares Ziel oder Grenzkriterium
+  rewrite: Messbaren Zielwert, Grenzwert oder konkrete Handlung nennen.
+- term: müsste
+  status: prohibited
+  reason: verbindliche Anforderung und Unsicherheit werden vermischt
+  rewrite: muss oder klare Möglichkeitsaussage verwenden.
+  approved_alternatives:
+  - müssen
+- term: müssten
+  status: prohibited
+  reason: verbindliche Anforderung und Unsicherheit werden vermischt
+  rewrite: müssen oder klare Möglichkeitsaussage verwenden.
+  approved_alternatives:
+  - müssen
+- term: nach Bedarf
+  status: prohibited
+  reason: Bedingung für den Bedarf ist nicht definiert
+  rewrite: Bedingung und Handlung ausdrücklich nennen.
+- term: neueste
+  status: review_required
+  reason: relative Version ohne Referenzzeitpunkt
+  rewrite: Konkrete Version oder Datum nennen.
+- term: noch
+  status: review_required
+  reason: mehrdeutiger Zeit-, Mengen- oder Fortsetzungsbezug
+  rewrite: konkreten Zeitpunkt, Restwert oder Zustand nennen.
+- term: normalerweise
+  status: prohibited
+  reason: Ausnahmen bleiben ungenannt
+  rewrite: Normalzustand definieren oder konkrete Bedingung nennen.
+- term: nutzen
+  status: prohibited
+  reason: kann verwenden oder einen Vorteil ziehen bedeuten
+  rewrite: verwenden für Gebrauch; Vorteil explizit beschreiben.
+  approved_alternatives:
+  - verwenden
+- term: nächste
+  status: review_required
+  reason: kann räumlich oder zeitlich gemeint sein
+  rewrite: Richtung, Schritt oder Zeitpunkt ausdrücklich nennen.
+- term: optimal
+  status: prohibited
+  reason: behauptet ein Optimum ohne definiertes Optimierungskriterium
+  rewrite: Konkretes Ziel oder Grenzkriterium nennen.
+- term: ordnungsgemäß
+  status: prohibited
+  reason: verweist auf eine nicht genannte Norm oder korrekte Ausführung
+  rewrite: Konkrete Anforderung oder Referenz nennen.
+- term: pro
+  status: prohibited
+  reason: Synonymvariation zu je bei Mengen pro Einheit
+  rewrite: je verwenden.
+  approved_alternatives:
+  - je
+- term: problemlos
+  status: prohibited
+  reason: behauptet das Fehlen von Problemen ohne Kriterium
+  rewrite: Konkrete Bedingung oder erwartetes Ergebnis nennen.
+- term: realisieren
+  status: prohibited
+  reason: mehrdeutig zwischen umsetzen und erkennen
+  rewrite: konkretes Verb verwenden.
+- term: relativ
+  status: review_required
+  reason: Vergleichsmaßstab fehlt häufig
+  rewrite: Vergleichsmaßstab oder Messwert ausdrücklich nennen.
+- term: rund
+  status: review_required
+  reason: kann geometrisch oder ungefähr bedeuten
+  rewrite: ungefähr oder konkrete Geometrie ausdrücken.
+- term: runterfahren
+  status: prohibited
+  reason: kann Stoppen, Herunterfahren oder Verringern bedeuten
+  rewrite: System stoppen/beenden oder Wert verringern ausdrücklich formulieren.
+- term: sachgemäß
+  status: prohibited
+  reason: verweist auf eine nicht genannte korrekte Methode
+  rewrite: Konkrete Handlung oder Referenz nennen.
+- term: schon
+  status: prohibited
+  reason: mehrdeutig zwischen bereits, Betonung und Einschränkung
+  rewrite: bereits nur verwenden, wenn der Zeitbezug relevant ist; sonst entfernen.
+- term: schwach
+  status: review_required
+  reason: unspezifischer Grad oder Kraft
+  rewrite: Messwert oder definierte Kategorie nennen.
+- term: sehr
+  status: review_required
+  reason: unspezifische Verstärkung
+  rewrite: Messwert oder definierte Kategorie nennen.
+- term: setzen
+  status: review_required
+  reason: sehr viele Bedeutungen
+  rewrite: einstellen, positionieren, aktivieren oder anderes präzises Verb verwenden.
+- term: sichern
+  status: prohibited
+  reason: mehrdeutig zwischen befestigen, speichern, verriegeln und absichern
+  rewrite: befestigen, speichern, verriegeln oder schützen entsprechend der Bedeutung verwenden.
+- term: so
+  status: review_required
+  reason: kann Art und Weise, Grad, Folge oder anaphorischen Verweis ausdrücken
+  rewrite: konkrete Art, Wert, Bedingung oder Folge nennen.
+- term: so schnell wie möglich
+  status: prohibited
+  reason: Geschwindigkeit oder Frist ist nicht definiert
+  rewrite: Konkrete Frist, Geschwindigkeit oder unverzügliche Handlung mit sofort angeben.
+- term: sodass
+  status: review_required
+  reason: kausale/resultative Nebensatzkette kann Handlung und Folge verdichten
+  rewrite: bei komplexen Sätzen Folge als neuen Satz mit deshalb formulieren.
+  approved_alternatives:
+  - deshalb
+- term: sollte
+  status: prohibited
+  reason: Modalität zwischen Empfehlung und Anforderung ist unklar
+  rewrite: Beabsichtigte Modalität als Imperativ, muss, darf, kann oder ausdrücklich als Empfehlung formulieren.
+- term: sollten
+  status: prohibited
+  reason: Modalität zwischen Empfehlung und Anforderung ist unklar
+  rewrite: Beabsichtigte Modalität ausdrücklich formulieren.
+- term: sowie
+  status: prohibited
+  reason: stilistische und teilweise mehrdeutige Aufzählungsvariante zu und
+  rewrite: und verwenden oder die Aufzählung in getrennte Punkte aufteilen.
+  approved_alternatives:
+  - und
+- term: sowohl ... als auch
+  status: prohibited
+  reason: unnötig komplexe koordinierende Konstruktion
+  rewrite: und verwenden oder zwei parallele Sätze schreiben.
+  approved_alternatives:
+  - und
+- term: stark
+  status: review_required
+  reason: unspezifischer Grad oder Kraft
+  rewrite: Messwert oder definierte Kategorie nennen.
+- term: stattfinden
+  status: review_required
+  reason: nennt nur das Eintreten, nicht die technische Handlung
+  rewrite: Konkrete Handlung oder Prozessverb nennen.
+- term: stellen
+  status: review_required
+  reason: sehr viele räumliche und funktionale Bedeutungen
+  rewrite: positionieren, einstellen oder präzises Verb verwenden.
+- term: tun
+  status: prohibited
+  reason: zu allgemeines Verb für technische Handlungen
+  rewrite: Präzises direktes Verb verwenden.
+- term: typischerweise
+  status: prohibited
+  reason: Kriterium für typisch ist nicht definiert
+  rewrite: Konkrete Bedingung, Verteilung oder Häufigkeit nennen.
+- term: u. a.
+  status: prohibited
+  reason: macht unklar, welche weiteren Elemente gelten
+  rewrite: Vollständige relevante Elemente nennen.
+- term: usw.
+  status: prohibited
+  reason: offene Aufzählung lässt relevante Elemente ungenannt
+  rewrite: Vollständige Liste geben.
+- term: vernünftig
+  status: prohibited
+  reason: subjektive Bewertung
+  rewrite: Technisches Kriterium nennen.
+- term: verschieden
+  status: review_required
+  reason: kann Unterschiede behaupten, ohne das unterscheidende Merkmal zu nennen
+  rewrite: Unterschied oder konkrete Varianten nennen.
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - verschiedene
+  - verschiedenen
+  - verschiedener
+  - verschiedenes
+  - verschiedenem
+- term: vgl.
+  status: prohibited
+  reason: Abkürzung in Fließtext und unklare Handlungsart
+  rewrite: einen expliziten Dokumentverweis formulieren oder vergleichen als direktes Verb verwenden.
+- term: vornehmen
+  status: prohibited
+  reason: Funktionsverb ohne konkrete Handlung
+  rewrite: Direktes Verb verwenden.
+- term: vorsichtig
+  status: prohibited
+  reason: Handlung oder Grenzwert bleibt unbestimmt
+  rewrite: Konkrete Geschwindigkeit, Kraft, Abstand oder verbotene Handlung nennen.
+- term: wahrscheinlich
+  status: review_required
+  reason: Wahrscheinlichkeit ist nicht quantifiziert oder begründet
+  rewrite: Wenn relevant, definierte Wahrscheinlichkeit oder beobachtbare Bedingung nennen.
+- term: warten (Instandhaltung)
+  status: prohibited
+  reason: Homonym zu zeitlichem warten und dadurch lexikalisch mehrdeutig
+  rewrite: Instand halten oder projektseitige technische Benennung verwenden.
+  exceptions_or_contexts:
+  - Zeitliches warten ist als eingeschränkter zentraler Eintrag zugelassen.
+- term: wechseln
+  status: prohibited
+  reason: kann ersetzen, ändern oder zwischen Zuständen umschalten bedeuten
+  rewrite: ersetzen, ändern oder auswählen entsprechend der Bedeutung verwenden.
+- term: weiter
+  status: prohibited
+  reason: mehrdeutig zwischen räumlich weiter, zusätzlich und fortsetzen
+  rewrite: Beabsichtigte Bedeutung explizit formulieren.
+- term: wohl
+  status: prohibited
+  reason: unspezifische Wahrscheinlichkeit
+  rewrite: Klare Möglichkeits- oder Wahrscheinlichkeitsaussage verwenden.
+- term: würde
+  status: prohibited
+  reason: Konjunktiv II verschleiert Zeit, Bedingung oder Modalität
+  rewrite: Präsens, klare wenn-Bedingung oder ausdrücklich notwendige Zukunft verwenden.
+- term: würden
+  status: prohibited
+  reason: Konjunktiv II verschleiert Zeit, Bedingung oder Modalität
+  rewrite: Präsens, klare wenn-Bedingung oder ausdrücklich notwendige Zukunft verwenden.
+- term: z. B.
+  status: review_required
+  reason: Abkürzung und Beispielcharakter können Anforderungen verwischen
+  rewrite: In normativen Anweisungen vollständige relevante Liste geben.
+- term: zeitnah
+  status: prohibited
+  reason: Zeitgrenze ist nicht messbar
+  rewrite: Frist oder Zeitpunkt nennen.
+- term: ziemlich
+  status: prohibited
+  reason: unspezifischer Grad
+  rewrite: Messwert oder definierte qualitative Kategorie nennen.
+- term: zugehörig
+  status: review_required
+  reason: Bezug kann unklar sein, wenn mehrere Systeme oder Dokumentteile möglich sind
+  rewrite: Zugehöriges System, Objekt oder Dokument ausdrücklich nennen.
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - zugehörige
+  - zugehörigen
+  - zugehöriger
+  - zugehöriges
+  - zugehörigem
+- term: zur Anwendung kommen
+  status: prohibited
+  reason: Funktionsverbkonstruktion
+  rewrite: anwenden oder verwenden verwenden.
+  approved_alternatives:
+  - anwenden
+  - verwenden
+- term: zuvor
+  status: prohibited
+  reason: stilistische Sequenzvariante; Bezugspunkt kann unklar sein
+  rewrite: bevor + konkrete Handlung oder davor + eindeutigen Bezug verwenden.
+  approved_alternatives:
+  - bevor
+- term: überprüfen
+  status: prohibited
+  reason: Synonymvariation zu prüfen ohne zusätzlichen Bedeutungsgewinn
+  rewrite: prüfen verwenden.
+  approved_alternatives:
+  - prüfen
+- term: üblicherweise
+  status: prohibited
+  reason: Ausnahmen bleiben ungenannt
+  rewrite: Konkrete Bedingung oder definierte Häufigkeit nennen.

@@ -1,0 +1,4491 @@
+schema_version: '0.4'
+release: 0.4.0
+status: multi_industry_corpus_validated_authoring_core
+language: de-DE
+normative_for_profile: STG-C-core
+design_basis:
+  source: independent German lexical design
+  human_linguistic_review: not_yet_completed
+  corpus_validation: v0.4_stratified_multi_industry_public_excerpt_corpus
+entries:
+- entry_id: DE-PRE-ab
+  lemma: ab
+  part_of_speech: preposition
+  status: restricted
+  meanings:
+  - id: prep.from_starting_point
+    definition: kennzeichnet einen ausdrücklich genannten zeitlichen, räumlichen oder numerischen Ausgangspunkt
+  review_status: corpus_candidate_v0.3
+  restrictions:
+  - Ausgangspunkt ausdrücklich nennen.
+- entry_id: DE-VER-abbrechen
+  lemma: abbrechen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: abort
+    definition: einen laufenden Vorgang vor seinem regulären Ende beenden
+  review_status: provisional_v0.2
+  separable: true
+  prefix: ab
+  approved_examples:
+  - Brechen Sie den Test ab, wenn die Temperatur 80 °C überschreitet.
+- entry_id: DE-VER-abdichten
+  lemma: abdichten
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: seal
+    definition: eine Verbindung oder Oberfläche so herstellen, dass das festgelegte Medium innerhalb der spezifizierten
+      Leckagegrenze nicht austritt
+  review_status: provisional_v0.2
+  separable: true
+  prefix: ab
+  restrictions:
+  - Dichtheitskriterium muss aus Verfahren oder Spezifikation hervorgehen.
+- entry_id: DE-CON-aber
+  lemma: aber
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.but
+    definition: kennzeichnet einen direkten Gegensatz oder eine Einschränkung zur vorherigen Aussage
+  review_status: provisional_v0.2
+- entry_id: DE-VER-abkuehlen
+  lemma: abkühlen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: cool.down
+    definition: die Temperatur eines Objekts oder Mediums verringern oder sinken lassen
+  review_status: corpus_candidate_v0.3
+  separable: true
+  prefix: ab
+  surface_forms:
+  - abgekühlt
+  approved_examples:
+  - Lassen Sie das Gerät auf 40 °C abkühlen.
+- entry_id: DE-VER-ablassen
+  lemma: ablassen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: drain.release
+    definition: Flüssigkeit, Gas oder Druck kontrolliert aus einem System ausströmen lassen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: ab
+  restrictions:
+  - 'Objekt nennen: Flüssigkeit, Gas oder Druck.'
+- entry_id: DE-VER-abschlie-en
+  lemma: abschließen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: complete.finish
+    definition: einen Vorgang regulär beenden und als beendet kennzeichnen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: ab
+  restrictions:
+  - Nicht mit verriegeln oder verschließen verwechseln.
+- entry_id: DE-NOU-abschnitt
+  lemma: Abschnitt
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.section
+    definition: klar abgegrenzter Teil eines Dokuments oder einer Struktur
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Abschnitte
+- entry_id: DE-NOU-abstand
+  lemma: Abstand
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.distance
+    definition: räumliche Entfernung zwischen zwei ausdrücklich bestimmten Punkten, Flächen oder Objekten
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Abstände
+- entry_id: DE-VER-abziehen
+  lemma: abziehen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: pull.remove
+    definition: einen Steckverbinder, eine Abdeckung oder ein vergleichbares Teil durch Ziehen von seiner Verbindung
+      entfernen
+  review_status: corpus_candidate_v0.3
+  separable: true
+  prefix: ab
+  surface_forms:
+  - abgezogen
+  restrictions:
+  - Objekt und Verbindung müssen eindeutig sein. Für mathematische Subtraktion subtrahieren verwenden.
+- entry_id: DE-QUA-acht
+  lemma: acht
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.eight
+    definition: bezeichnet die Zahl 8 in ausgeschriebener Form
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-VER-addieren
+  lemma: addieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: add.math
+    definition: zwei oder mehr numerische Werte mathematisch zusammenzählen
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-aktiv
+  lemma: aktiv
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.active
+    definition: in einem freigegebenen eingeschalteten oder wirksamen Zustand
+  review_status: provisional_v0.2
+- entry_id: DE-VER-aktivieren
+  lemma: aktivieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: activate
+    definition: eine Funktion oder ein System in den freigegebenen aktiven Zustand bringen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-aktualisieren
+  lemma: aktualisieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: update
+    definition: Daten oder Software auf einen ausdrücklich bezeichneten neueren Stand bringen
+  review_status: provisional_v0.2
+  restrictions:
+  - Zielversion oder Quelle nennen, wenn für die Aufgabe relevant.
+- entry_id: DE-DET-alle
+  lemma: alle
+  part_of_speech: determiner
+  status: approved
+  meanings:
+  - id: determiner.all
+    definition: bezeichnet die Gesamtheit einer klar bestimmten Menge
+  review_status: provisional_v0.2
+  surface_forms:
+  - alle
+  - aller
+  - allen
+  approved_examples:
+  - Entfernen Sie alle Schrauben.
+- entry_id: DE-CON-als
+  lemma: als
+  part_of_speech: conjunction
+  status: restricted
+  meanings:
+  - id: conj.comparison
+    definition: kennzeichnet den Vergleich nach einer ausdrücklich genannten Vergleichsgröße
+  - id: conj.role
+    definition: kennzeichnet die ausdrücklich benannte Funktion oder Rolle eines Objekts
+  review_status: corpus_candidate_v0.3
+  restrictions:
+  - Nicht als unspezifischen zeitlichen Erzähler verwenden. Vergleichsgröße oder Rolle muss eindeutig sein.
+  approved_examples:
+  - Der Druck muss größer als 5 bar sein.
+  - Verwenden Sie Anschluss X1 als Referenz.
+- entry_id: DE-PRE-an
+  lemma: an
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.at_on
+    definition: kennzeichnet Kontakt, unmittelbare Nähe oder eine definierte Position an einem Objekt
+  review_status: provisional_v0.2
+- entry_id: DE-VER-analysieren
+  lemma: analysieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: analyze
+    definition: Daten, Material oder einen Fehler systematisch in Bestandteile oder Ursachen untersuchen
+  review_status: provisional_v0.2
+  restrictions:
+  - Analyseziel und Datenbasis angeben, wenn sie nicht aus dem Kontext eindeutig sind.
+- entry_id: DE-NOU-anfang
+  lemma: Anfang
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.start
+    definition: erster Punkt oder erste Phase eines ausdrücklich bestimmten Ablaufs oder Bereichs
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Anfänge
+- entry_id: DE-NOU-angabe
+  lemma: Angabe
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.angabe
+    definition: ausdrücklich genannter technischer Wert oder dokumentierte Information
+  review_status: multi_industry_candidate_v0.4
+  plural: Angaben
+  restrictions:
+  - Wenn möglich den konkreten Informationstyp nennen, zum Beispiel Wert, Maß oder Datum.
+- entry_id: DE-NOU-anleitung
+  lemma: Anleitung
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.anleitung
+    definition: Dokument oder abgegrenzter Dokumentteil mit Informationen oder Anweisungen zur Verwendung eines
+      Produkts
+  review_status: multi_industry_candidate_v0.4
+  plural: Anleitungen
+  restrictions:
+  - Wenn ein offizieller Dokumenttitel vorhanden ist, diesen Titel verwenden.
+- entry_id: DE-VER-anpassen
+  lemma: anpassen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: adapt.adjust
+    definition: einen Parameter, eine Verbindung oder ein Objekt an eine ausdrücklich genannte Anforderung oder
+      Referenz angleichen
+  review_status: provisional_v0.2
+  restrictions:
+  - Referenz oder Zielzustand nennen.
+  surface_forms:
+  - angepasst
+- entry_id: DE-VER-anschliessen
+  lemma: anschließen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: connect.interface
+    definition: ein Kabel, einen Steckverbinder oder ein Gerät mit einer ausdrücklich genannten Schnittstelle elektrisch
+      oder funktional verbinden
+  review_status: corpus_candidate_v0.3
+  separable: true
+  prefix: an
+  surface_forms:
+  - angeschlossen
+  approved_examples:
+  - Schließen Sie das Kabel an Anschluss X1 an.
+- entry_id: DE-VER-anwenden
+  lemma: anwenden
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: apply.method
+    definition: ein Verfahren, eine Regel oder ein Mittel für den vorgesehenen Zweck verwenden
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-anzahl
+  lemma: Anzahl
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.count
+    definition: gezählte Menge diskreter Elemente
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Anzahlen
+- entry_id: DE-VER-anzeigen
+  lemma: anzeigen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: display
+    definition: Information auf einem Display, Instrument oder einer Benutzeroberfläche sichtbar ausgeben
+  review_status: provisional_v0.2
+  separable: true
+  prefix: an
+- entry_id: DE-NOU-art
+  lemma: Art
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.type
+    definition: klar definierte Kategorie oder Klasse von Elementen
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Arten
+- entry_id: DE-ADV-auch
+  lemma: auch
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.also
+    definition: fügt ein weiteres ausdrücklich genanntes Element mit derselben Aussage hinzu
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht verwenden, wenn unklar ist, auf welchen Satzteil sich auch bezieht.
+- entry_id: DE-PRE-auf
+  lemma: auf
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.on_to
+    definition: kennzeichnet eine Position auf einer Oberfläche oder ein festgelegtes Ziel einer Einstellung
+  review_status: provisional_v0.2
+- entry_id: DE-VER-aufbewahren
+  lemma: aufbewahren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: store.physical
+    definition: einen Gegenstand oder ein Dokument an einem ausdrücklich festgelegten Ort für spätere Verwendung
+      lagern
+  review_status: corpus_candidate_v0.3
+  separable: true
+  prefix: auf
+  surface_forms:
+  - aufbewahrt
+  restrictions:
+  - Ort oder Aufbewahrungsanforderung nennen, wenn sie für die Sicherheit oder Funktion relevant ist.
+- entry_id: DE-VER-auffangen
+  lemma: auffangen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: collect.flow
+    definition: austretende Flüssigkeit, Partikel oder Material in einem geeigneten Behälter oder Hilfsmittel sammeln
+  review_status: corpus_candidate_v0.3
+  separable: true
+  prefix: auf
+  surface_forms:
+  - aufgefangen
+  restrictions:
+  - Medium und Auffangmittel nennen, wenn sie nicht aus dem Arbeitsschritt eindeutig sind.
+- entry_id: DE-NOU-aufgabe
+  lemma: Aufgabe
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.task
+    definition: abgegrenzte technische Tätigkeit mit einem definierten Ziel
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Aufgaben
+- entry_id: DE-VER-aufladen
+  lemma: aufladen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: charge.battery
+    definition: einen elektrischen Energiespeicher mit Energie laden
+  review_status: provisional_v0.2
+  separable: true
+  prefix: auf
+- entry_id: DE-VER-auflisten
+  lemma: auflisten
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: list
+    definition: mehrere Elemente in einer ausdrücklich strukturierten Liste nennen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: auf
+- entry_id: DE-VER-auftragen
+  lemma: auftragen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: apply.material
+    definition: Material kontrolliert auf eine Oberfläche bringen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: auf
+- entry_id: DE-VER-auftreten
+  lemma: auftreten
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: occur
+    definition: als Ereignis, Fehler oder Zustand entstehen oder vorhanden werden
+  review_status: provisional_v0.2
+  separable: true
+  prefix: auf
+  restrictions:
+  - Nicht für räumliches Auftreten einer Person verwenden.
+- entry_id: DE-VER-aufzeichnen
+  lemma: aufzeichnen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: record
+    definition: Messwerte, Ereignisse oder Signale fortlaufend als Daten speichern
+  review_status: provisional_v0.2
+  separable: true
+  prefix: auf
+- entry_id: DE-PRE-aus
+  lemma: aus
+  part_of_speech: preposition
+  status: restricted
+  meanings:
+  - id: prep.from_out_of
+    definition: kennzeichnet Herkunft aus einem Inneren oder Materialzusammensetzung
+  review_status: provisional_v0.2
+  restrictions:
+  - Nur verwenden, wenn Herkunft oder Materialbezug eindeutig ist.
+- entry_id: DE-PHR-aus-bestehen
+  lemma: aus ... bestehen
+  part_of_speech: phrase
+  status: approved
+  meanings:
+  - id: consist.of
+    definition: gibt die vollständig oder teilweise genannten Bestandteile eines Objekts an
+  review_status: provisional_v0.2
+- entry_id: DE-VER-ausbauen
+  lemma: ausbauen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: remove.installed
+    definition: ein eingebautes Bauteil aus seiner Einbauposition entfernen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: aus
+- entry_id: DE-VER-ausf-hren
+  lemma: ausführen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: execute.software
+    definition: einen Softwarebefehl, ein Programm oder ein Skript starten und abarbeiten lassen
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht als allgemeines Füllverb für Tätigkeiten verwenden.
+  surface_forms:
+  - ausgeführt
+- entry_id: DE-ADJ-ausgeschaltet
+  lemma: ausgeschaltet
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.off
+    definition: nicht im aktiven Energie- oder Betriebszustand
+  review_status: provisional_v0.2
+- entry_id: DE-VER-ausladen
+  lemma: ausladen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: unload.cargo
+    definition: Material oder Gegenstände aus einem Transport- oder Aufnahmeobjekt entfernen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: aus
+- entry_id: DE-VER-ausrichten
+  lemma: ausrichten
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: align
+    definition: ein Objekt in eine festgelegte geometrische Lage oder Richtung bringen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: aus
+- entry_id: DE-VER-ausschalten
+  lemma: ausschalten
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: switch.off
+    definition: ein Gerät, System oder eine Funktion aus dem aktiven Energie- oder Betriebszustand bringen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: aus
+  prohibited_synonyms:
+  - ausmachen
+- entry_id: DE-VER-ausschneiden
+  lemma: ausschneiden
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: cut.ui
+    definition: ein markiertes digitales Element entfernen und für späteres Einfügen zwischenspeichern
+  review_status: provisional_v0.2
+  separable: true
+  prefix: aus
+- entry_id: DE-ADV-au-en
+  lemma: außen
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.outside
+    definition: kennzeichnet die Außenseite oder den Außenraum eines definierten Objekts
+  review_status: provisional_v0.2
+- entry_id: DE-PHR-au-er-betrieb-sein
+  lemma: außer Betrieb sein
+  part_of_speech: phrase
+  status: restricted
+  meanings:
+  - id: state.out_of_operation
+    definition: kennzeichnet, dass ein System nicht für den vorgesehenen Betrieb verfügbar ist
+  review_status: provisional_v0.2
+- entry_id: DE-VER-ausw-hlen
+  lemma: auswählen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: select
+    definition: eine Option aus mehreren Optionen bestimmen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: aus
+- entry_id: DE-NOU-baugruppe
+  lemma: Baugruppe
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.assembly
+    definition: aus mehreren Teilen bestehende technische Einheit
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Baugruppen
+  restrictions:
+  - Offizielle Produktbenennung hat Vorrang.
+- entry_id: DE-NOU-bauteil
+  lemma: Bauteil
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.component
+    definition: einzelnes technisch abgegrenztes Teil eines Systems oder einer Baugruppe
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Bauteile
+  restrictions:
+  - Offizielle Produktbenennung hat Vorrang.
+- entry_id: DE-VER-beachten
+  lemma: beachten
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: heed
+    definition: einen ausdrücklich genannten Hinweis, Grenzwert oder Umstand bei einer Handlung berücksichtigen
+  review_status: provisional_v0.2
+  restrictions:
+  - In Arbeitsanweisungen nach Möglichkeit direkte Handlung formulieren statt beachten.
+- entry_id: DE-VER-bedienen
+  lemma: bedienen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: verb.bedienen
+    definition: ein technisches Produkt mit den vorgesehenen Bedienelementen steuern
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - bediene
+  - bedienst
+  - bedient
+  - bedienen
+  - bediente
+  - bedienten
+  restrictions:
+  - Nicht als allgemeines Synonym für verwenden einsetzen.
+- entry_id: DE-NOU-bedienung
+  lemma: Bedienung
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.bedienung
+    definition: Interaktion einer Person mit Bedienelementen oder einer Benutzeroberfläche
+  review_status: multi_industry_candidate_v0.4
+  restrictions:
+  - In Verfahren das direkte Bedienverb verwenden.
+- entry_id: DE-NOU-bedingung
+  lemma: Bedingung
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.condition
+    definition: ausdrücklich definierter Zustand, der für eine Aussage oder Handlung erfüllt sein muss
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Bedingungen
+- entry_id: DE-VER-befestigen
+  lemma: befestigen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: attach
+    definition: ein Teil so verbinden, dass es in der vorgesehenen Position gehalten wird
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-befestigt
+  lemma: befestigt
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.attached
+    definition: in der vorgesehenen Position mechanisch gehalten
+  review_status: provisional_v0.2
+- entry_id: DE-VER-befolgen
+  lemma: befolgen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: obey
+    definition: die Anweisungen oder Regeln eines ausdrücklich genannten Dokuments ausführen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-beheben
+  lemma: beheben
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: correct.fault
+    definition: einen ausdrücklich identifizierten Fehler oder eine ausdrücklich identifizierte Störung korrigieren
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - behebe
+  - behebst
+  - behebt
+  - beheben
+  - behob
+  - behoben
+  restrictions:
+  - Fehler oder Störung nennen. Nicht für physisches Entfernen von Material verwenden.
+- entry_id: DE-PRE-bei
+  lemma: bei
+  part_of_speech: preposition
+  status: restricted
+  meanings:
+  - id: prep.at
+    definition: kennzeichnet eine definierte Position, einen Betriebszustand oder einen Messwert
+  review_status: provisional_v0.2
+  restrictions:
+  - Für Bedingungen mit Handlung nach Möglichkeit einen wenn-Satz verwenden.
+- entry_id: DE-DET-beide
+  lemma: beide
+  part_of_speech: determiner
+  status: approved
+  meanings:
+  - id: determiner.both
+    definition: bezeichnet genau zwei zuvor bestimmte Elemente
+  review_status: provisional_v0.2
+  surface_forms:
+  - beide
+  - beider
+  - beiden
+  restrictions:
+  - Nur verwenden, wenn die Menge nachweislich genau zwei Elemente enthält.
+- entry_id: DE-NOU-beispiel
+  lemma: Beispiel
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.beispiel
+    definition: konkreter Fall, der eine Regel, Funktion oder Verwendung erläutert
+  review_status: multi_industry_candidate_v0.4
+  plural: Beispiele
+- entry_id: DE-VER-beladen
+  lemma: beladen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: load.cargo
+    definition: Material oder Gegenstände in oder auf ein Transport- oder Aufnahmeobjekt bringen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-belueften
+  lemma: belüften
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: ventilate
+    definition: einem Bereich kontrolliert Luft zuführen oder Luft austauschen
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - belüftet
+  restrictions:
+  - Erforderlichen Luftstrom oder das maßgebliche Kriterium nennen, wenn relevant.
+- entry_id: DE-VER-benachrichtigen
+  lemma: benachrichtigen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: notify
+    definition: einer bestimmten Person oder Stelle eine Information gezielt übermitteln
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-benennung
+  lemma: Benennung
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.designation
+    definition: freigegebener sprachlicher Ausdruck für einen technischen Begriff
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Benennungen
+- entry_id: DE-NOU-benutzer
+  lemma: Benutzer
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.user
+    definition: Person oder Systemrolle, die eine Benutzeroberfläche oder Funktion verwendet
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Benutzer
+  restrictions:
+  - Wenn Geschlechtsneutralität oder Rollenbezeichnung projektseitig anders geregelt ist, offizielle Rollenbezeichnung
+    verwenden.
+- entry_id: DE-VER-benoetigen
+  lemma: benötigen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: verb.benoetigen
+    definition: eine ausdrücklich genannte Voraussetzung, Ressource oder Komponente für eine Handlung erfordern
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - benötige
+  - benötigst
+  - benötigt
+  - benötigen
+  - benötigte
+  - benötigten
+  restrictions:
+  - In Verfahren Voraussetzungen möglichst vor den Arbeitsschritten auflisten.
+- entry_id: DE-VER-berechnen
+  lemma: berechnen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: calculate
+    definition: einen Wert mit einer festgelegten mathematischen Beziehung bestimmen
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-bereich
+  lemma: Bereich
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.area
+    definition: räumlich, funktional oder dokumentarisch abgegrenzter Teil
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Bereiche
+  restrictions:
+  - Art des Bereichs nennen, wenn nicht eindeutig.
+- entry_id: DE-VER-bereitstellen
+  lemma: bereitstellen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: provide.available
+    definition: ein ausdrücklich genanntes Objekt, Signal, eine Ressource oder Funktion für die Verwendung verfügbar
+      machen
+  review_status: corpus_candidate_v0.3
+  separable: true
+  prefix: bereit
+  surface_forms:
+  - bereitgestellt
+- entry_id: DE-VER-ber-hren
+  lemma: berühren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: touch
+    definition: physischen Kontakt mit einem Objekt oder einer Oberfläche herstellen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-beschreiben
+  lemma: beschreiben
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: describe
+    definition: Eigenschaften, Aufbau, Funktion oder Ablauf eines ausdrücklich genannten Gegenstands sachlich darstellen
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - beschreibe
+  - beschreibst
+  - beschreibt
+  - beschreiben
+  - beschrieb
+  - beschrieben
+- entry_id: DE-NOU-beschreibung
+  lemma: Beschreibung
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.description
+    definition: Text, der technische Information gibt und keine direkte Arbeitsanweisung ist
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Beschreibungen
+- entry_id: DE-ADJ-besch-digt
+  lemma: beschädigt
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.damaged
+    definition: weist einen Schaden auf, der im anwendbaren Prüf- oder Reparaturkriterium als Schaden gilt
+  review_status: provisional_v0.2
+  restrictions:
+  - Bei Akzeptanzentscheidungen Schadenskriterium oder Referenz angeben.
+- entry_id: DE-VER-bestehen
+  lemma: bestehen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: verb.consist_with_aus
+    definition: zusammen mit der Präposition aus die Bestandteile eines ausdrücklich genannten Objekts angeben
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - bestehe
+  - bestehst
+  - besteht
+  - bestehen
+  - bestand
+  - bestanden
+  restrictions:
+  - Nur im Muster „X besteht aus Y“ für Zusammensetzung verwenden. Andere Bedeutungen sind nicht zentral freigegeben.
+- entry_id: DE-VER-best-tigen
+  lemma: bestätigen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: confirm
+    definition: eine Information oder Auswahl ausdrücklich als erhalten, korrekt oder akzeptiert kennzeichnen
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht verwenden, wenn eigentlich prüfen oder genehmigen gemeint ist.
+- entry_id: DE-VER-betreiben
+  lemma: betreiben
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: operate.transitive
+    definition: ein Gerät oder System aktiv bedienen oder in seinem vorgesehenen Betriebszustand halten
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-betreiber
+  lemma: Betreiber
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.operator
+    definition: Organisation oder Rolle, die ein System verantwortlich betreibt
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Betreiber
+  restrictions:
+  - Offizielle Rollenbezeichnung hat Vorrang.
+- entry_id: DE-NOU-betrieb
+  lemma: Betrieb
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.operation
+    definition: Zustand oder Tätigkeit, in der ein System seine vorgesehene Funktion ausführt
+  review_status: provisional_v0.2
+  gender: masc
+- entry_id: DE-NOU-betriebsanleitung
+  lemma: Betriebsanleitung
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.betriebsanleitung
+    definition: offizielle Anleitung für sicheren Betrieb, Bedienung oder Instandhaltung eines Produkts
+  review_status: multi_industry_candidate_v0.4
+  plural: Betriebsanleitungen
+- entry_id: DE-CON-bevor
+  lemma: bevor
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.before
+    definition: ordnet eine Handlung oder einen Zustand zeitlich vor einer anderen Handlung an
+  review_status: provisional_v0.2
+- entry_id: DE-VER-bewegen
+  lemma: bewegen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: move
+    definition: die Position eines Objekts ändern
+  review_status: provisional_v0.2
+  restrictions:
+  - Richtung oder Ziel nennen, wenn relevant.
+- entry_id: DE-VER-biegen
+  lemma: biegen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: bend
+    definition: die Form eines Werkstücks durch Biegung verändern
+  review_status: provisional_v0.2
+- entry_id: DE-VER-bilden
+  lemma: bilden
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: form.constitute
+    definition: ausdrücken, dass ausdrücklich genannte Teile zusammen eine klar bezeichnete Einheit oder Struktur
+      ergeben
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - bilde
+  - bildest
+  - bildet
+  - bilden
+  - bildete
+  - gebildet
+  restrictions:
+  - Nur für eine konkrete Zusammensetzung oder Struktur verwenden. Für „darstellen“ oder „erzeugen“ das präzisere
+    Verb verwenden.
+- entry_id: DE-CON-bis
+  lemma: bis
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.until
+    definition: kennzeichnet den Endzustand oder Endzeitpunkt einer fortgesetzten Handlung
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-bis
+  lemma: bis
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.up_to
+    definition: kennzeichnet eine obere räumliche, zeitliche oder numerische Grenze
+  review_status: provisional_v0.2
+- entry_id: DE-VER-bleiben
+  lemma: bleiben
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: remain.state
+    definition: in einem Zustand oder an einer Position fortbestehen
+  review_status: provisional_v0.2
+  surface_forms:
+  - bleibe
+  - bleibst
+  - bleibt
+  - bleiben
+  - blieb
+  - blieben
+  - geblieben
+  morphology_note: Surface forms support lexical resolution; tense/mode remains constrained by STG-3.2.
+- entry_id: DE-ADJ-breit
+  lemma: breit
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.wide
+    definition: hat eine große Ausdehnung in Breitenrichtung relativ zur ausdrücklich genannten Referenz
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-breite
+  lemma: Breite
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.width
+    definition: lineare Abmessung in der festgelegten Breitenrichtung
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Breiten
+- entry_id: DE-CON-damit
+  lemma: damit
+  part_of_speech: conjunction
+  status: restricted
+  meanings:
+  - id: conj.so_that
+    definition: leitet den ausdrücklich genannten Zweck einer Handlung ein
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht als Pronomen verwenden. Bei langen Sätzen den Zweck in einen eigenen Satz aufteilen.
+- entry_id: DE-ADV-danach
+  lemma: danach
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.afterwards
+    definition: kennzeichnet eine Handlung oder einen Zustand nach dem unmittelbar vorher genannten Ereignis
+  review_status: provisional_v0.2
+- entry_id: DE-ADV-dann
+  lemma: dann
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: sequence.then
+    definition: kennzeichnet den ausdrücklich nächsten Schritt oder Zustand in einer zeitlichen Reihenfolge
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-VER-darstellen
+  lemma: darstellen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: represent.show
+    definition: Information in einer Abbildung, Tabelle, Anzeige oder strukturierten Darstellung sichtbar wiedergeben
+  review_status: corpus_candidate_v0.3
+  separable: true
+  prefix: dar
+  surface_forms:
+  - dargestellt
+  restrictions:
+  - Darstellung oder Informationsquelle nennen. Nicht als stilistisches Synonym für sein, bilden oder beschreiben
+    verwenden.
+- entry_id: DE-CON-dass
+  lemma: dass
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.that
+    definition: leitet einen Inhaltssatz ein, der den Inhalt einer Aussage, Prüfung oder Feststellung angibt
+  review_status: provisional_v0.2
+  approved_examples:
+  - Stellen Sie sicher, dass das Ventil geschlossen ist.
+- entry_id: DE-NOU-daten
+  lemma: Daten
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.daten
+    definition: digital oder analog dargestellte technische Informationen, Messwerte oder gespeicherte Inhalte
+  review_status: multi_industry_candidate_v0.4
+  plural: Daten
+  restrictions:
+  - Nicht als Plural von Datum interpretieren. Kontext muss technische Informationen oder Werte bezeichnen.
+  approved_examples:
+  - Speichern Sie die Daten.
+- entry_id: DE-NOU-datum
+  lemma: Datum
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.date
+    definition: Kalenderangabe eines bestimmten Tages
+  review_status: corrected_v0.4_lexical_collision
+  gender: neut
+  plural: Daten
+  restrictions:
+  - Im technischen Informationskontext bezeichnet Daten das eigene Lemma Daten und nicht den Plural von Datum.
+- entry_id: DE-NOU-dauer
+  lemma: Dauer
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.duration
+    definition: Zeitspanne zwischen Beginn und Ende eines Ereignisses
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Dauern
+- entry_id: DE-ADV-davor
+  lemma: davor
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.beforehand
+    definition: kennzeichnet eine Handlung oder einen Zustand vor dem unmittelbar danach genannten oder zuvor referenzierten
+      Ereignis
+  review_status: provisional_v0.2
+  restrictions:
+  - Nur verwenden, wenn der Bezug eindeutig ist.
+- entry_id: DE-VER-deaktivieren
+  lemma: deaktivieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: deactivate
+    definition: eine Funktion oder ein System in den freigegebenen inaktiven Zustand bringen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-definieren
+  lemma: definieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: define
+    definition: Bedeutung, Grenze, Parameter oder Eigenschaft eines ausdrücklich genannten Elements verbindlich
+      festlegen
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - definiere
+  - definierst
+  - definiert
+  - definieren
+  - definierte
+- entry_id: DE-VER-deinstallieren
+  lemma: deinstallieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: uninstall.software
+    definition: installierte Software kontrolliert aus einem System entfernen
+  review_status: provisional_v0.2
+- entry_id: DE-ART-der
+  lemma: der
+  part_of_speech: article
+  status: approved
+  meanings:
+  - id: article.definite
+    definition: bestimmter Artikel für ein bereits bestimmtes oder eindeutig identifiziertes Substantiv
+  review_status: provisional_v0.2
+  surface_forms:
+  - der
+  - die
+  - das
+  - den
+  - dem
+  - des
+- entry_id: DE-ADV-derzeit
+  lemma: derzeit
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.currently
+    definition: kennzeichnet den zum Dokumentzeitpunkt geltenden Zustand
+  review_status: provisional_v0.2
+  restrictions:
+  - Bei versionskritischen Informationen zusätzlich Version oder Datum nennen.
+- entry_id: DE-ADV-deshalb
+  lemma: deshalb
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: result.therefore
+    definition: kennzeichnet einen direkten Folgezusammenhang zur vorherigen Aussage
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-VER-dienen
+  lemma: dienen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: serve.function
+    definition: die ausdrücklich festgelegte technische Funktion oder den Zweck eines Objekts angeben
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - diene
+  - dienst
+  - dient
+  - dienen
+  - diente
+  - gedient
+  restrictions:
+  - Funktion oder Zweck konkret nennen; nicht für allgemeine Nutzenbehauptungen verwenden.
+- entry_id: DE-PRO-dies
+  lemma: dies
+  part_of_speech: pronoun
+  status: restricted
+  meanings:
+  - id: pronoun.this
+    definition: verweist auf einen eindeutig bestimmten vorherigen Sachverhalt
+  review_status: provisional_v0.2
+  surface_forms:
+  - dies
+  restrictions:
+  - Wenn der Bezug nicht eindeutig ein Satz oder Sachverhalt ist, das Substantiv wiederholen.
+- entry_id: DE-DET-dieser
+  lemma: dieser
+  part_of_speech: determiner
+  status: restricted
+  meanings:
+  - id: determiner.this
+    definition: verweist auf ein eindeutig bestimmtes, bereits genanntes Substantiv
+  review_status: provisional_v0.2
+  surface_forms:
+  - dieser
+  - diese
+  - dieses
+  - diesen
+  - diesem
+  restrictions:
+  - Nur verwenden, wenn genau ein möglicher Bezug besteht. Das Substantiv nach dem Determinierer nennen.
+- entry_id: DE-ADJ-direkt
+  lemma: direkt
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.direct
+    definition: ohne Zwischenstufe, Umlenkung oder vermittelndes Element
+  review_status: provisional_v0.2
+- entry_id: DE-ADV-direkt
+  lemma: direkt
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.directly
+    definition: kennzeichnet eine unmittelbare Verbindung, Lage oder Folge ohne Zwischenstufe
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht als bloße Verstärkung verwenden.
+- entry_id: DE-VER-dividieren
+  lemma: dividieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: divide.math
+    definition: einen numerischen Wert mathematisch durch einen anderen teilen
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-dokument
+  lemma: Dokument
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.document
+    definition: abgegrenzte Informationsquelle mit eigener Identifikation oder Funktion
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Dokumente
+- entry_id: DE-NOU-dokumentation
+  lemma: Dokumentation
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.dokumentation
+    definition: geordnete Menge technischer Dokumente oder aufgezeichneter technischer Informationen
+  review_status: multi_industry_candidate_v0.4
+  plural: Dokumentationen
+  restrictions:
+  - Für ein einzelnes Dokument den konkreten Dokumenttyp verwenden.
+- entry_id: DE-VER-dokumentieren
+  lemma: dokumentieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: document
+    definition: eine technische Tatsache, Entscheidung oder ein Ergebnis in einem vorgesehenen Dokumentationssystem
+      festhalten
+  review_status: provisional_v0.2
+- entry_id: DE-ADV-dort
+  lemma: dort
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.there
+    definition: verweist auf einen zuvor eindeutig identifizierten Ort
+  review_status: provisional_v0.2
+  restrictions:
+  - Ort wiederholen, wenn mehr als ein möglicher Bezug besteht.
+- entry_id: DE-VER-drehen
+  lemma: drehen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: turn.rotate
+    definition: ein Objekt um eine Achse oder einen Punkt bewegen
+  review_status: provisional_v0.2
+- entry_id: DE-QUA-drei
+  lemma: drei
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.three
+    definition: bezeichnet die Zahl 3 in ausgeschriebener Form
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-VER-dr-cken
+  lemma: drücken
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: push.press
+    definition: eine Kraft auf eine Fläche oder in Richtung weg vom Kraftausübenden ausüben
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-durch
+  lemma: durch
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.through
+    definition: kennzeichnet einen Weg durch einen Raum, eine Öffnung oder ein Material
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht als unklaren Ersatz für eine Ursache oder ein Werkzeug verwenden.
+- entry_id: DE-VER-d-rfen
+  lemma: dürfen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: may.permission
+    definition: Erlaubnis ausdrücken
+  - id: may.prohibition
+    definition: mit nicht ein Verbot ausdrücken
+  review_status: provisional_v0.2
+  surface_forms:
+  - darf
+  - darfst
+  - dürfen
+  - dürft
+  - durfte
+  - durften
+  morphology_note: Surface forms support lexical resolution; tense/mode remains constrained by STG-3.2.
+- entry_id: DE-ART-ein
+  lemma: ein
+  part_of_speech: article
+  status: approved
+  meanings:
+  - id: article.indefinite
+    definition: unbestimmter Artikel für ein neu eingeführtes einzelnes zählbares Substantiv
+  review_status: provisional_v0.2
+  surface_forms:
+  - ein
+  - eine
+  - einen
+  - einem
+  - einer
+  - eines
+- entry_id: DE-VER-einbauen
+  lemma: einbauen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: install.mechanical
+    definition: ein mechanisches oder elektrisches Bauteil in seine vorgesehene Einbauposition bringen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: ein
+  surface_forms:
+  - eingebaut
+- entry_id: DE-VER-einf-gen
+  lemma: einfügen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: paste.insert
+    definition: digitale Daten oder ein Element an einer bestimmten Position ergänzen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: ein
+- entry_id: DE-ADJ-eingebaut
+  lemma: eingebaut
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.installed
+    definition: in der vorgesehenen Einbauposition vorhanden
+  review_status: provisional_v0.2
+- entry_id: DE-VER-eingeben
+  lemma: eingeben
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: enter.data
+    definition: Daten in ein System übertragen oder erfassen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: ein
+- entry_id: DE-ADJ-eingeschaltet
+  lemma: eingeschaltet
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.on
+    definition: im aktiven Energie- oder Betriebszustand
+  review_status: provisional_v0.2
+- entry_id: DE-VER-einhalten
+  lemma: einhalten
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: comply.limit
+    definition: einen ausdrücklich genannten Grenzwert, Abstand, Zeitraum oder eine Anforderung nicht überschreiten
+      oder unterschreiten
+  review_status: corpus_candidate_v0.3
+  separable: true
+  prefix: ein
+  surface_forms:
+  - eingehalten
+  restrictions:
+  - Grenzwert oder referenzierte Anforderung muss eindeutig identifiziert sein.
+- entry_id: DE-NOU-einheit
+  lemma: Einheit
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.unit
+    definition: definierte funktionale oder physische Einheit oder Maßeinheit
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Einheiten
+  restrictions:
+  - Bedeutung muss aus Kontext eindeutig sein.
+- entry_id: DE-QUA-einige
+  lemma: einige
+  part_of_speech: quantifier
+  status: restricted
+  meanings:
+  - id: quantifier.some
+    definition: bezeichnet eine nicht genau bestimmte Teilmenge
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht in Anweisungen verwenden, wenn die genaue Menge bekannt oder sicherheitsrelevant ist.
+- entry_id: DE-VER-einrasten
+  lemma: einrasten
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: latch
+    definition: in eine definierte Rast- oder Verriegelungsposition gelangen oder gebracht werden
+  review_status: provisional_v0.2
+  separable: true
+  prefix: ein
+- entry_id: DE-QUA-eins
+  lemma: eins
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.one
+    definition: bezeichnet die Zahl 1 in ausgeschriebener Form
+  review_status: provisional_v0.2
+- entry_id: DE-VER-einschalten
+  lemma: einschalten
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: switch.on
+    definition: ein Gerät, System oder eine Funktion in den aktiven Energie- oder Betriebszustand bringen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: ein
+  prohibited_synonyms:
+  - anmachen
+- entry_id: DE-VER-einstellen
+  lemma: einstellen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: set.adjust
+    definition: einen Parameter oder ein Bedienelement auf einen festgelegten Wert oder Zustand bringen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: ein
+  surface_forms:
+  - eingestellt
+- entry_id: DE-NOU-einstellung
+  lemma: Einstellung
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.einstellung
+    definition: festgelegter oder auswählbarer Wert oder Zustand eines Systems oder Parameters
+  review_status: multi_industry_candidate_v0.4
+  plural: Einstellungen
+  restrictions:
+  - Nicht für die allgemeine Haltung oder Meinung einer Person verwenden.
+- entry_id: DE-VER-empfangen
+  lemma: empfangen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: receive
+    definition: übertragene Daten, ein Signal oder eine Nachricht aufnehmen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-empfehlen
+  lemma: empfehlen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: recommend
+    definition: eine nicht verbindliche bevorzugte Handlung ausdrücklich als Empfehlung kennzeichnen
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht verwenden, wenn eine Pflicht oder Sicherheitsanforderung gemeint ist.
+- entry_id: DE-NOU-ende
+  lemma: Ende
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.end
+    definition: letzter Punkt oder Abschluss eines ausdrücklich bestimmten Ablaufs oder Bereichs
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Enden
+- entry_id: DE-ADJ-eng
+  lemma: eng
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.narrow
+    definition: hat eine geringe lichte Weite oder einen kleinen Abstand relativ zur ausdrücklich genannten Referenz
+  review_status: provisional_v0.2
+- entry_id: DE-VER-entfalten
+  lemma: entfalten
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: unfold
+    definition: ein gefaltetes Teil in seine vorgesehene offene Form bringen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-entfernen
+  lemma: entfernen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: remove
+    definition: ein Objekt von einer Position, Oberfläche oder Verbindung wegnehmen
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-entfernt
+  lemma: entfernt
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.removed
+    definition: nicht mehr an der zuvor bezeichneten Position vorhanden
+  review_status: provisional_v0.2
+- entry_id: DE-VER-enthalten
+  lemma: enthalten
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: contain
+    definition: ausdrücken, dass ein Objekt, Dokument oder Datensatz ausdrücklich genannte Bestandteile oder Informationen
+      umfasst
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - enthalte
+  - enthältst
+  - enthält
+  - enthalten
+  - enthielt
+- entry_id: DE-VER-entladen
+  lemma: entladen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: discharge.electrical
+    definition: elektrische Ladung oder gespeicherte elektrische Energie kontrolliert verringern oder entfernen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-entleeren
+  lemma: entleeren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: empty
+    definition: Material, Flüssigkeit oder Gas vollständig aus einem Behälter oder Raum entfernen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-entl-ften
+  lemma: entlüften
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: bleed.vent
+    definition: Luft oder Gas kontrolliert aus einem System oder einer Leitung entfernen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-entriegeln
+  lemma: entriegeln
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: unlock
+    definition: eine mechanische oder logische Verriegelung aus dem gesicherten Zustand freigeben
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-entriegelt
+  lemma: entriegelt
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.unlocked
+    definition: nicht verriegelt und für die vorgesehene Bewegung freigegeben
+  review_status: provisional_v0.2
+- entry_id: DE-VER-entsprechen
+  lemma: entsprechen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: conform.reference
+    definition: mit einer ausdrücklich genannten Anforderung, Spezifikation oder Referenz übereinstimmen
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - entspreche
+  - entsprichst
+  - entspricht
+  - entsprechen
+  - entsprach
+  - entsprochen
+  restrictions:
+  - Referenz oder Anforderung ausdrücklich nennen.
+- entry_id: DE-PHR-entweder-oder
+  lemma: entweder ... oder
+  part_of_speech: phrase
+  status: approved
+  meanings:
+  - id: alternative.exclusive_or_open
+    definition: kennzeichnet zwei ausdrücklich genannte Alternativen
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - entweder ... oder
+  restrictions:
+  - Wenn beide Alternativen gleichzeitig möglich sind, diese Möglichkeit ausdrücklich nennen.
+- entry_id: DE-VER-erden
+  lemma: erden
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: ground
+    definition: eine elektrische Verbindung zur festgelegten Erde oder Masse herstellen
+  review_status: provisional_v0.2
+  restrictions:
+  - Nur im elektrischen Sinn verwenden.
+- entry_id: DE-ADJ-erforderlich
+  lemma: erforderlich
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.necessary
+    definition: für die Erfüllung einer ausdrücklich genannten Anforderung notwendig
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht als versteckte Anweisung verwenden; in Verfahren direkte Anweisung geben.
+- entry_id: DE-NOU-ergebnis
+  lemma: Ergebnis
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.result
+    definition: festgestellter Wert oder Zustand, der aus einer Handlung, Prüfung oder Berechnung folgt
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Ergebnisse
+- entry_id: DE-VER-erh-hen
+  lemma: erhöhen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: increase.transitive
+    definition: einen numerischen Wert größer machen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-erkennen
+  lemma: erkennen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: detect
+    definition: durch Sensorik, Messung oder eindeutige Merkmale das Vorhandensein eines Zustands feststellen
+  review_status: provisional_v0.2
+  restrictions:
+  - Bei formaler Sensor- oder Erkennungsfunktion als technisches Verb im Projektterminologiebestand führen.
+- entry_id: DE-ADV-erneut
+  lemma: erneut
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.again
+    definition: kennzeichnet die Wiederholung derselben Handlung oder Prüfung
+  review_status: provisional_v0.2
+- entry_id: DE-VER-erreichen
+  lemma: erreichen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: reach.threshold_position
+    definition: einen ausdrücklich genannten Wert, Grenzwert, Zustand oder eine Position erreichen
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - erreiche
+  - erreichst
+  - erreicht
+  - erreichen
+  - erreichte
+  restrictions:
+  - Zielwert, Zustand oder Position nennen.
+- entry_id: DE-VER-ersetzen
+  lemma: ersetzen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: replace
+    definition: ein vorhandenes Objekt durch ein anderes Objekt mit derselben vorgesehenen Funktion austauschen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-erweitern
+  lemma: erweitern
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: expand
+    definition: Größe, Umfang oder Funktionsumfang in eine ausdrücklich genannte Richtung vergrößern
+  review_status: provisional_v0.2
+  restrictions:
+  - Art und Ziel der Erweiterung nennen.
+- entry_id: DE-VER-erzeugen
+  lemma: erzeugen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: generate.output
+    definition: ein ausdrücklich genanntes physisches, elektrisches oder informationstechnisches Ergebnis hervorbringen
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - erzeuge
+  - erzeugst
+  - erzeugt
+  - erzeugen
+  - erzeugte
+  restrictions:
+  - Ergebnis oder Ausgangsgröße nennen.
+- entry_id: DE-PRO-es
+  lemma: es
+  part_of_speech: pronoun
+  status: restricted
+  meanings:
+  - id: pronoun.it
+    definition: ersetzt ein eindeutig identifiziertes neutrales Substantiv oder dient in unpersönlichen Konstruktionen
+  review_status: provisional_v0.2
+  surface_forms:
+  - es
+  restrictions:
+  - Nicht verwenden, wenn mehr als ein plausibler Bezug besteht.
+- entry_id: DE-PHR-es-gibt
+  lemma: es gibt
+  part_of_speech: phrase
+  status: restricted
+  meanings:
+  - id: exist.there_is
+    definition: drückt aus, dass ein ausdrücklich genanntes Objekt oder ein Zustand vorhanden ist
+  review_status: provisional_v0.2
+  restrictions:
+  - Nur verwenden, wenn der Existenzbezug klarer ist als vorhanden sein.
+- entry_id: DE-ADJ-extern
+  lemma: extern
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.external
+    definition: außerhalb des ausdrücklich genannten Systems, Geräts oder organisatorischen Bereichs
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-fachpersonal
+  lemma: Fachpersonal
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.fachpersonal
+    definition: Personen mit der für eine ausdrücklich genannte technische Tätigkeit erforderlichen Qualifikation
+  review_status: multi_industry_candidate_v0.4
+  plural: Fachpersonal
+  restrictions:
+  - Erforderliche Qualifikation oder Rollenbezeichnung angeben, wenn sie sicherheitsrelevant ist.
+- entry_id: DE-ADJ-falsch
+  lemma: falsch
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.incorrect
+    definition: entspricht einer eindeutig festgelegten Tatsache, Auswahl oder Anforderung nicht
+  review_status: provisional_v0.2
+- entry_id: DE-VER-falten
+  lemma: falten
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: fold
+    definition: Material oder ein flexibles Teil entlang einer Linie umlegen
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-fehlend
+  lemma: fehlend
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.missing
+    definition: an der erwarteten Stelle nicht vorhanden
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-fehler
+  lemma: Fehler
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.error_fault
+    definition: Abweichung von einer definierten Funktion, Anforderung oder korrekten Information
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Fehler
+  restrictions:
+  - Fehlertyp nennen, wenn mehrere Bedeutungen möglich sind.
+- entry_id: DE-ADJ-fehlerhaft
+  lemma: fehlerhaft
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.faulty
+    definition: erfüllt eine definierte funktionale oder Datenanforderung nicht
+  review_status: provisional_v0.2
+  restrictions:
+  - Konkrete Abweichung nennen, wenn möglich.
+- entry_id: DE-ADJ-fern
+  lemma: fern
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.far
+    definition: hat einen großen Abstand zur ausdrücklich genannten Referenz
+  review_status: provisional_v0.2
+  restrictions:
+  - Wenn der Abstand relevant ist, Grenzwert nennen.
+- entry_id: DE-ADJ-fest
+  lemma: fest
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.tight
+    definition: mechanisch so gehalten oder angezogen, dass die definierte Bewegung oder Lockerung nicht auftritt
+  review_status: provisional_v0.2
+  restrictions:
+  - Bei Schraubverbindungen bevorzugt Drehmoment oder Prüfkriterium angeben.
+- entry_id: DE-VER-festlegen
+  lemma: festlegen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: specify.set
+    definition: einen Wert, Zustand, Ablauf oder eine Anforderung ausdrücklich und verbindlich bestimmen
+  review_status: corpus_candidate_v0.3
+  separable: true
+  prefix: fest
+  surface_forms:
+  - festgelegt
+  restrictions:
+  - Festgelegtes Element und Wert/Regel nennen.
+- entry_id: DE-VER-festziehen
+  lemma: festziehen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: tighten
+    definition: eine Schraub- oder Klemmverbindung bis zum festgelegten Zustand oder Drehmoment anziehen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: fest
+- entry_id: DE-VER-finden
+  lemma: finden
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: find
+    definition: das Vorhandensein eines gesuchten oder unerwarteten Elements oder Zustands feststellen
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-folge
+  lemma: Folge
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.consequence
+    definition: Wirkung oder Ergebnis, das aus einer ausdrücklich genannten Ursache entsteht
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Folgen
+- entry_id: DE-ADJ-folgend
+  lemma: folgend
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.folgend
+    definition: im Dokument oder in einer festgelegten Reihenfolge unmittelbar danach kommend
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - folgende
+  - folgenden
+  - folgender
+  - folgendes
+  - folgendem
+  restrictions:
+  - Nur verwenden, wenn die Reihenfolge eindeutig ist.
+- entry_id: DE-NOU-form
+  lemma: Form
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.form
+    definition: geometrische Gestalt oder festgelegte sprachliche/strukturelle Ausprägung
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Formen
+- entry_id: DE-VER-formatieren
+  lemma: formatieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: format
+    definition: ein digitales Speichermedium oder Datenobjekt nach einer festgelegten Struktur vorbereiten
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht im Sinn von Textgestaltung verwenden, sofern dies nicht ausdrücklich gemeint ist.
+- entry_id: DE-VER-fortsetzen
+  lemma: fortsetzen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: continue
+    definition: einen unterbrochenen Vorgang ab seinem Unterbrechungspunkt weiterführen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-freigeben
+  lemma: freigeben
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: release.approve
+    definition: ein zuvor gesperrtes Objekt, Signal, Verfahren oder einen Zustand ausdrücklich zur Verwendung zulassen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: frei
+  restrictions:
+  - Nicht mit mechanischem loslassen verwechseln. Freigabeart muss aus dem Kontext eindeutig sein.
+- entry_id: DE-NOU-funktion
+  lemma: Funktion
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.function
+    definition: vorgesehene technische Aufgabe oder Wirkung eines Systems, Bauteils oder Prozesses
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Funktionen
+- entry_id: DE-VER-funktionieren
+  lemma: funktionieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: operate.correctly
+    definition: die vorgesehene Funktion ohne den beschriebenen Fehler erfüllen
+  review_status: provisional_v0.2
+  restrictions:
+  - Wenn ein konkretes Leistungskriterium existiert, dieses Kriterium angeben.
+- entry_id: DE-VER-f-llen
+  lemma: füllen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: fill
+    definition: Material, Flüssigkeit oder Gas in einen Behälter oder Raum einbringen
+  review_status: provisional_v0.2
+- entry_id: DE-QUA-fuenf
+  lemma: fünf
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.five
+    definition: bezeichnet die Zahl 5 in ausgeschriebener Form
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-PRE-f-r
+  lemma: für
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.for
+    definition: kennzeichnet Zweck, Zielgruppe oder Zuordnung
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-gebraucht
+  lemma: gebraucht
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.used
+    definition: bereits verwendet und nicht als neu klassifiziert
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-gefahr
+  lemma: Gefahr
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.hazard
+    definition: Quelle oder Situation mit möglichem Schaden für Personen, Objekte oder Umwelt
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Gefahren
+  restrictions:
+  - Risikoklassifikation richtet sich nach anwendbarem Sicherheitsstandard.
+- entry_id: DE-PRE-gegen
+  lemma: gegen
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.against
+    definition: kennzeichnet physischen Kontakt, entgegengesetzte Richtung oder eine definierte Gegenkraft
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-ger-t
+  lemma: Gerät
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.device
+    definition: technische Einheit, die eine oder mehrere vorgesehene Funktionen ausführt
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Geräte
+  restrictions:
+  - Offizielle Produktbenennung hat Vorrang.
+- entry_id: DE-ADJ-geschlossen
+  lemma: geschlossen
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.closed
+    definition: in einem definierten geschlossenen Zustand
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-getrennt
+  lemma: getrennt
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.disconnected
+    definition: nicht mit dem ausdrücklich genannten Objekt verbunden
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-gleich
+  lemma: gleich
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.equal
+    definition: hat denselben ausdrücklich verglichenen Wert, Zustand oder dieselbe Identität
+  review_status: provisional_v0.2
+  restrictions:
+  - Vergleichsmerkmal muss eindeutig sein.
+- entry_id: DE-ADV-gleichzeitig
+  lemma: gleichzeitig
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.simultaneously
+    definition: kennzeichnet Handlungen oder Zustände, die im selben Zeitraum stattfinden
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-grenze
+  lemma: Grenze
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.limit
+    definition: Wert oder Position, die einen zulässigen oder definierten Bereich begrenzt
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Grenzen
+- entry_id: DE-ADJ-gro
+  lemma: groß
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.large
+    definition: hat eine größere physische Abmessung als die ausdrücklich genannte Referenz
+  review_status: provisional_v0.2
+  restrictions:
+  - Wenn möglich konkrete Abmessung nennen.
+- entry_id: DE-NOU-grund
+  lemma: Grund
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.reason
+    definition: ausdrücklich genannte Ursache oder Begründung für eine Aussage oder Handlung
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Gründe
+  restrictions:
+  - Für technische Kausalität bevorzugt Ursache verwenden.
+- entry_id: DE-VER-haben
+  lemma: haben
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: have.possess
+    definition: etwas besitzen, enthalten oder als Teil aufweisen
+  review_status: provisional_v0.2
+  surface_forms:
+  - habe
+  - hast
+  - hat
+  - haben
+  - habt
+  - hatte
+  - hatten
+  morphology_note: Surface forms support lexical resolution; tense/mode remains constrained by STG-3.2.
+- entry_id: DE-VER-halten
+  lemma: halten
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: hold
+    definition: ein Objekt oder einen Zustand an einer Position oder einem Wert beibehalten
+  review_status: provisional_v0.2
+- entry_id: DE-VER-heben
+  lemma: heben
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: lift
+    definition: ein Objekt in eine höhere Position bewegen
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-hersteller
+  lemma: Hersteller
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.manufacturer
+    definition: Organisation, die ein Produkt herstellt und als Hersteller verantwortlich zeichnet
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Hersteller
+- entry_id: DE-VER-herunterladen
+  lemma: herunterladen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: download
+    definition: Daten von einem entfernten System auf das lokale System übertragen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: herunter
+- entry_id: DE-ADV-hier
+  lemma: hier
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.here
+    definition: verweist auf den unmittelbar aktuellen Dokument- oder Ortskontext
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht verwenden, wenn der Referenzort nicht eindeutig ist.
+- entry_id: DE-PRE-hinter
+  lemma: hinter
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.behind
+    definition: kennzeichnet eine Position auf der Rückseite oder weiter hinten als ein Referenzobjekt
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-hinweis
+  lemma: Hinweis
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.note
+    definition: zusätzliche Information, die keine Anweisung, Grenze oder Sicherheitsmaßnahme enthält
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Hinweise
+- entry_id: DE-ADJ-hoch
+  lemma: hoch
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.high
+    definition: hat im definierten Bezugssystem eine große räumliche Position oder einen als hoch bezeichneten Zustand
+  review_status: provisional_v0.2
+  restrictions:
+  - Für numerische Werte bevorzugt konkreten Wert oder mehr als verwenden.
+- entry_id: DE-VER-hochladen
+  lemma: hochladen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: upload
+    definition: Daten vom lokalen System an ein entferntes System übertragen
+  review_status: provisional_v0.2
+  separable: true
+  prefix: hoch
+- entry_id: DE-ADV-h-chstens
+  lemma: höchstens
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.maximum
+    definition: kennzeichnet einen eingeschlossenen oberen Grenzwert
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-h-he
+  lemma: Höhe
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.height
+    definition: lineare Abmessung oder Position in vertikaler Richtung
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Höhen
+- entry_id: DE-DET-Ihr
+  lemma: Ihr
+  part_of_speech: determiner
+  status: restricted
+  meanings:
+  - id: determiner.de_det_ihr
+    definition: bezeichnet den Besitz oder Bezug zur formal angesprochenen lesenden Person
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - Ihr
+  - Ihre
+  - Ihren
+  - Ihrem
+  - Ihrer
+  - Ihres
+  case_sensitive: true
+  restrictions:
+  - Bezugsobjekt nach dem Determinierer nennen.
+- entry_id: DE-ADV-immer
+  lemma: immer
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.always
+    definition: kennzeichnet, dass eine Aussage ohne Ausnahme in allen Fällen des definierten Geltungsbereichs gilt
+  review_status: provisional_v0.2
+  restrictions:
+  - Nur verwenden, wenn tatsächlich keine Ausnahme existiert.
+- entry_id: DE-PRE-in
+  lemma: in
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.in_into
+    definition: kennzeichnet eine Position innerhalb eines Bereichs oder eine Bewegung in einen Bereich
+  review_status: provisional_v0.2
+- entry_id: DE-PHR-in-betrieb-sein
+  lemma: in Betrieb sein
+  part_of_speech: phrase
+  status: restricted
+  meanings:
+  - id: state.in_operation
+    definition: kennzeichnet, dass ein System in seinem vorgesehenen Betriebszustand ist
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-information
+  lemma: Information
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.information
+    definition: technischer Inhalt, der einen Sachverhalt, Zustand, Wert oder Zusammenhang beschreibt
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Informationen
+- entry_id: DE-NOU-inhalt
+  lemma: Inhalt
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.content
+    definition: Information oder Material innerhalb eines ausdrücklich genannten Behälters, Dokuments oder Datenobjekts
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Inhalte
+- entry_id: DE-ADV-innen
+  lemma: innen
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.inside
+    definition: kennzeichnet die Innenseite oder den Innenraum eines definierten Objekts
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-innerhalb
+  lemma: innerhalb
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: within.bound
+    definition: kennzeichnet eine ausdrücklich genannte räumliche, zeitliche oder numerische Grenze
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-NOU-installation
+  lemma: Installation
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.installation
+    definition: Vorgang oder Ergebnis des Einbauens, Anschließens oder Einrichtens eines technischen Systems
+  review_status: multi_industry_candidate_v0.4
+  plural: Installationen
+  restrictions:
+  - In Verfahren bevorzugt installieren, einbauen, anschließen oder einrichten entsprechend der konkreten Handlung
+    verwenden.
+- entry_id: DE-VER-installieren
+  lemma: installieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: install.software
+    definition: Software oder ein digitales Paket in einem System einrichten
+  - id: install.system
+    definition: ein System nach offizieller Terminologie in Betrieb setzen
+  review_status: provisional_v0.2
+  restrictions:
+  - Für mechanische Bauteile bevorzugt einbauen verwenden.
+  surface_forms:
+  - installiert
+- entry_id: DE-ADJ-intern
+  lemma: intern
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.internal
+    definition: innerhalb des ausdrücklich genannten Systems, Geräts oder organisatorischen Bereichs
+  review_status: provisional_v0.2
+- entry_id: DE-VER-isolieren
+  lemma: isolieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: isolate
+    definition: ein Objekt elektrisch, thermisch, stofflich oder logisch von seiner Umgebung trennen
+  review_status: provisional_v0.2
+  restrictions:
+  - Art der Isolation nennen, wenn nicht eindeutig.
+- entry_id: DE-QUA-je
+  lemma: je
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: per.each
+    definition: kennzeichnet eine Menge oder einen Wert pro ausdrücklich genannter Einheit
+  review_status: corpus_candidate_v0.3
+  approved_examples:
+  - Der maximale Strom beträgt 500 mA je Kanal.
+- entry_id: DE-DET-jeder
+  lemma: jeder
+  part_of_speech: determiner
+  status: approved
+  meanings:
+  - id: determiner.each
+    definition: bezeichnet jedes einzelne Element einer klar bestimmten Menge
+  review_status: provisional_v0.2
+  surface_forms:
+  - jeder
+  - jede
+  - jedes
+  - jeden
+  - jedem
+  approved_examples:
+  - Prüfen Sie jede Verbindung.
+- entry_id: DE-VER-kalibrieren
+  lemma: kalibrieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: calibrate
+    definition: ein Messsystem mit einer festgelegten Referenz vergleichen und nach dem freigegebenen Verfahren
+      justieren
+  review_status: provisional_v0.2
+  restrictions:
+  - Nur verwenden, wenn ein formales Kalibrierverfahren gemeint ist.
+- entry_id: DE-DET-kein
+  lemma: kein
+  part_of_speech: determiner
+  status: approved
+  meanings:
+  - id: determiner.none
+    definition: verneint das Vorhandensein oder die Zugehörigkeit eines Substantivs
+  review_status: provisional_v0.2
+  surface_forms:
+  - kein
+  - keine
+  - keinen
+  - keinem
+  - keiner
+  - keines
+  approved_examples:
+  - Stellen Sie sicher, dass keine Leckage vorhanden ist.
+- entry_id: DE-NOU-kenntnis
+  lemma: Kenntnis
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.kenntnis
+    definition: fachliches Wissen, das für eine ausdrücklich genannte Tätigkeit vorausgesetzt wird
+  review_status: multi_industry_candidate_v0.4
+  plural: Kenntnisse
+  restrictions:
+  - Bei sicherheitsrelevanten Voraussetzungen erforderliche Qualifikation konkret nennen.
+- entry_id: DE-VER-kennzeichnen
+  lemma: kennzeichnen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: label.mark
+    definition: ein Objekt, einen Zustand oder einen Bereich mit einer eindeutigen Kennzeichnung versehen
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-kennzeichnung
+  lemma: Kennzeichnung
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.kennzeichnung
+    definition: sichtbare oder maschinenlesbare Markierung zur Identifikation oder Klassifikation
+  review_status: multi_industry_candidate_v0.4
+  plural: Kennzeichnungen
+- entry_id: DE-ADJ-klein
+  lemma: klein
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.small
+    definition: hat eine kleinere physische Abmessung als die ausdrücklich genannte Referenz
+  review_status: provisional_v0.2
+  restrictions:
+  - Wenn möglich konkrete Abmessung nennen.
+- entry_id: DE-VER-klicken
+  lemma: klicken
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: click
+    definition: eine Zeigeraktion mit einer Maustaste ausführen
+  review_status: provisional_v0.2
+  restrictions:
+  - Nur für Benutzeroberflächen verwenden, bei denen ein Klick tatsächlich die Bedienhandlung ist.
+- entry_id: DE-VER-komprimieren
+  lemma: komprimieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: compress
+    definition: Volumen oder digitale Daten nach einem definierten Verfahren verkleinern
+  review_status: provisional_v0.2
+  restrictions:
+  - Physische und digitale Bedeutung müssen aus dem Objekt eindeutig sein.
+- entry_id: DE-VER-konfigurieren
+  lemma: konfigurieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: configure
+    definition: freigegebene Parameter eines Systems auf eine definierte Konfiguration einstellen
+  review_status: provisional_v0.2
+  restrictions:
+  - Konfiguration oder Referenz nennen, wenn sie nicht eindeutig vorgegeben ist.
+- entry_id: DE-VER-kopieren
+  lemma: kopieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: copy
+    definition: eine identische digitale oder dokumentarische Kopie erstellen
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-korrekt
+  lemma: korrekt
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.correct
+    definition: entspricht der ausdrücklich geltenden Anforderung, Referenz oder Sollvorgabe
+  review_status: provisional_v0.2
+  restrictions:
+  - Referenz muss aus Kontext oder Dokument eindeutig sein.
+- entry_id: DE-VER-korrigieren
+  lemma: korrigieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: correct
+    definition: einen nachweislich falschen Wert, Text oder Zustand in den festgelegten korrekten Zustand bringen
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-kurz
+  lemma: kurz
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.short
+    definition: hat eine geringe Ausdehnung in Längsrichtung oder Dauer relativ zur ausdrücklich genannten Referenz
+  review_status: provisional_v0.2
+  restrictions:
+  - Wenn möglich konkreten Wert nennen.
+- entry_id: DE-VER-k-nnen
+  lemma: können
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: can.capability
+    definition: technische oder physische Fähigkeit ausdrücken
+  - id: can.possibility
+    definition: faktische Möglichkeit ausdrücken
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht als Ersatz für Erlaubnis verwenden; dafür dürfen verwenden.
+  surface_forms:
+  - kann
+  - kannst
+  - können
+  - könnt
+  - konnte
+  - konnten
+  morphology_note: Surface forms support lexical resolution; tense/mode remains constrained by STG-3.2.
+- entry_id: DE-ADJ-lang
+  lemma: lang
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.long
+    definition: hat eine große Ausdehnung in Längsrichtung oder Dauer relativ zur ausdrücklich genannten Referenz
+  review_status: provisional_v0.2
+  restrictions:
+  - Wenn möglich konkreten Wert nennen.
+- entry_id: DE-ADV-langsam
+  lemma: langsam
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.slowly
+    definition: kennzeichnet eine geringe Geschwindigkeit
+  review_status: provisional_v0.2
+  restrictions:
+  - Wenn die Geschwindigkeit sicherheits- oder qualitätskritisch ist, einen messbaren Grenzwert angeben.
+- entry_id: DE-VER-lassen
+  lemma: lassen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: allow.process
+    definition: einen ausdrücklich genannten physikalischen Prozess ohne weitere aktive Handlung fortlaufen lassen
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - lasse
+  - lässt
+  - lassen
+  - ließ
+  - ließen
+  - gelassen
+  restrictions:
+  - Nur verwenden, wenn der Leser einen natürlichen oder automatischen Prozess abwartet, zum Beispiel Abkühlen.
+    Nicht verwenden, um den verantwortlichen Akteur zu verschleiern.
+- entry_id: DE-ADJ-leer
+  lemma: leer
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.empty
+    definition: enthält keine relevante Menge des ausdrücklich genannten Inhalts
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-lesbar
+  lemma: lesbar
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.readable
+    definition: mit dem vorgesehenen Medium ohne zusätzliche Rekonstruktion erkennbar und interpretierbar
+  review_status: provisional_v0.2
+- entry_id: DE-VER-lesen
+  lemma: lesen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: verb.lesen
+    definition: geschriebenen oder angezeigten Text aufnehmen und inhaltlich erfassen
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - lese
+  - liest
+  - lesen
+  - las
+  - lasen
+  - gelesen
+  approved_examples:
+  - Lesen Sie die Betriebsanleitung.
+- entry_id: DE-NOU-leser
+  lemma: Leser
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.reader
+    definition: Person, für die der technische Text bestimmt ist
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Leser
+  restrictions:
+  - In inklusiven Unternehmensrichtlinien kann eine andere neutrale Rollenbezeichnung vorgeschrieben sein.
+- entry_id: DE-VER-liegen
+  lemma: liegen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: lie.position
+    definition: sich an einer ausdrücklich bestimmten räumlichen Position befinden
+  - id: value.in_range
+    definition: einen Messwert oder Parameter innerhalb eines ausdrücklich genannten Bereichs haben
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - liege
+  - liegst
+  - liegt
+  - liegen
+  - lag
+  - lagen
+  - gelegen
+  restrictions:
+  - Nicht in abstrakten Wendungen wie „die Ursache liegt in“ verwenden; Ursache direkt nennen.
+- entry_id: DE-ADV-links
+  lemma: links
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.left
+    definition: kennzeichnet die linke Seite relativ zum festgelegten Bezugssystem
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-lokal
+  lemma: lokal
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.local
+    definition: am ausdrücklich genannten Gerät, Ort oder System selbst statt über eine entfernte Verbindung
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-lose
+  lemma: lose
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.loose
+    definition: nicht ausreichend befestigt oder nicht in der vorgesehenen festen Verbindung
+  review_status: provisional_v0.2
+- entry_id: DE-VER-loslassen
+  lemma: loslassen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: release.hand
+    definition: ein zuvor gehaltenes Objekt freigeben
+  review_status: provisional_v0.2
+  separable: true
+  prefix: los
+- entry_id: DE-NOU-l-nge
+  lemma: Länge
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.length
+    definition: lineare Abmessung in der festgelegten Längsrichtung
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Längen
+- entry_id: DE-VER-l-schen
+  lemma: löschen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: delete.data
+    definition: Daten oder einen digitalen Eintrag entfernen
+  review_status: provisional_v0.2
+  restrictions:
+  - Für Feuer löschen nur verwenden, wenn der Kontext eindeutig Brandbekämpfung ist; sonst Feuer löschen als feste
+    Wortgruppe verwenden.
+- entry_id: DE-VER-l-sen
+  lemma: lösen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: release.mechanical
+    definition: eine mechanische Befestigung, Verriegelung oder Verbindung lockern oder freigeben
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht für das abstrakte Lösen eines Problems verwenden.
+- entry_id: DE-VER-markieren
+  lemma: markieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: mark.select
+    definition: ein Element sichtbar oder logisch als ausgewählt oder gekennzeichnet festlegen
+  review_status: provisional_v0.2
+- entry_id: DE-PHR-mehr-als
+  lemma: mehr als
+  part_of_speech: phrase
+  status: approved
+  meanings:
+  - id: phrase.more_than
+    definition: kennzeichnet einen Wert oder eine Menge oberhalb einer nicht eingeschlossenen Grenze
+  review_status: provisional_v0.2
+- entry_id: DE-QUA-mehrere
+  lemma: mehrere
+  part_of_speech: quantifier
+  status: restricted
+  meanings:
+  - id: quantifier.several
+    definition: bezeichnet mehr als zwei Elemente ohne genaue Anzahl
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht verwenden, wenn die genaue Anzahl bekannt oder für die Aufgabe relevant ist.
+- entry_id: DE-VER-melden
+  lemma: melden
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: report
+    definition: einen Zustand, Fehler oder ein Ergebnis an eine vorgesehene Stelle übermitteln
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-menge
+  lemma: Menge
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.quantity
+    definition: bestimmte oder messbare Quantität eines Stoffes oder einer nicht diskreten Größe
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Mengen
+- entry_id: DE-VER-messen
+  lemma: messen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: measure
+    definition: den quantitativen Wert einer physikalischen oder technischen Größe bestimmen
+  review_status: provisional_v0.2
+  surface_forms:
+  - gemessen
+- entry_id: DE-NOU-methode
+  lemma: Methode
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.method
+    definition: festgelegte Art, eine Aufgabe oder Analyse auszuführen
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Methoden
+- entry_id: DE-ADV-mindestens
+  lemma: mindestens
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.minimum
+    definition: kennzeichnet einen eingeschlossenen unteren Grenzwert
+  review_status: provisional_v0.2
+- entry_id: DE-VER-mischen
+  lemma: mischen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: mix
+    definition: zwei oder mehr Stoffe zu einer Mischung zusammenbringen
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-mit
+  lemma: mit
+  part_of_speech: preposition
+  status: restricted
+  meanings:
+  - id: prep.with
+    definition: kennzeichnet ein Werkzeug, Mittel, Material oder eine eindeutige gemeinsame Beteiligung
+  review_status: provisional_v0.2
+  restrictions:
+  - Satz neu formulieren, wenn mit mehr als eine plausible Beziehung ausdrücken kann.
+- entry_id: DE-NOU-mitte
+  lemma: Mitte
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.middle
+    definition: geometrischer oder funktionaler Zentralbereich zwischen festgelegten Grenzen
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Mitten
+- entry_id: DE-VER-multiplizieren
+  lemma: multiplizieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: multiply.math
+    definition: numerische Werte mathematisch miteinander multiplizieren
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-m-glich
+  lemma: möglich
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.possible
+    definition: unter den genannten technischen Bedingungen realisierbar oder eintretbar
+  review_status: provisional_v0.2
+  restrictions:
+  - Wenn die Wahrscheinlichkeit oder Bedingung relevant ist, diese explizit nennen.
+- entry_id: DE-VER-m-ssen
+  lemma: müssen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: must.requirement
+    definition: eine verbindliche Anforderung oder zwingende Bedingung ausdrücken
+  review_status: provisional_v0.2
+  restrictions:
+  - In direkten Arbeitsanweisungen nach Möglichkeit Imperativ verwenden.
+  surface_forms:
+  - muss
+  - musst
+  - müssen
+  - müsst
+  - musste
+  - mussten
+  morphology_note: Surface forms support lexical resolution; tense/mode remains constrained by STG-3.2.
+- entry_id: DE-PRE-nach
+  lemma: nach
+  part_of_speech: preposition
+  status: restricted
+  meanings:
+  - id: prep.after_toward
+    definition: kennzeichnet eine zeitlich spätere Position oder eine eindeutig bezeichnete Richtung
+  review_status: provisional_v0.2
+  restrictions:
+  - Zeit- und Richtungsbedeutung dürfen im selben Satz nicht konkurrieren.
+- entry_id: DE-CON-nachdem
+  lemma: nachdem
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.after
+    definition: ordnet eine Handlung oder einen Zustand zeitlich nach einer abgeschlossenen Handlung an
+  review_status: provisional_v0.2
+- entry_id: DE-ADV-nacheinander
+  lemma: nacheinander
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.sequentially
+    definition: kennzeichnet Handlungen oder Elemente in einer ausdrücklich geordneten Folge
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-nah
+  lemma: nah
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.near
+    definition: hat einen kleinen Abstand zur ausdrücklich genannten Referenz
+  review_status: provisional_v0.2
+  restrictions:
+  - Wenn der Abstand sicherheits- oder funktionsrelevant ist, Grenzwert nennen.
+- entry_id: DE-NOU-name
+  lemma: Name
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.name
+    definition: offizielle oder eindeutig festgelegte sprachliche Identifikation eines Objekts, Dokuments oder Elements
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Namen
+- entry_id: DE-ADJ-nass
+  lemma: nass
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.wet
+    definition: weist sichtbare oder relevante Flüssigkeit auf
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-neben
+  lemma: neben
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.next_to
+    definition: kennzeichnet eine Position unmittelbar seitlich eines Referenzobjekts
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-neu
+  lemma: neu
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.new
+    definition: noch nicht verwendet oder ausdrücklich als neues Ersatzteil vorgesehen
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht als Synonym für neueste Version verwenden.
+- entry_id: DE-QUA-neun
+  lemma: neun
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.nine
+    definition: bezeichnet die Zahl 9 in ausgeschriebener Form
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-ADV-nicht
+  lemma: nicht
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.not
+    definition: verneint genau das unmittelbar zugeordnete Prädikat, Merkmal oder Element
+  review_status: provisional_v0.2
+  restrictions:
+  - Negationsbereich muss eindeutig sein.
+- entry_id: DE-ADV-nie
+  lemma: nie
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.never
+    definition: kennzeichnet, dass eine Handlung oder ein Zustand im definierten Geltungsbereich in keinem Fall
+      zulässig oder möglich ist
+  review_status: provisional_v0.2
+  restrictions:
+  - Für direkte Verbote in Verfahren bevorzugt nicht + Imperativ verwenden.
+- entry_id: DE-ADJ-niedrig
+  lemma: niedrig
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.low
+    definition: hat im definierten Bezugssystem eine geringe räumliche Position oder einen als niedrig bezeichneten
+      Zustand
+  review_status: provisional_v0.2
+  restrictions:
+  - Für numerische Werte bevorzugt konkreten Wert oder weniger als verwenden.
+- entry_id: DE-QUA-null
+  lemma: 'null'
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.zero
+    definition: bezeichnet die Zahl 0 in ausgeschriebener Form
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-NOU-nummer
+  lemma: Nummer
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.number
+    definition: numerische oder alphanumerische Identifikation
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Nummern
+- entry_id: DE-ADV-nur
+  lemma: nur
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.only
+    definition: beschränkt eine Aussage auf das ausdrücklich genannte Element oder die ausdrücklich genannte Bedingung
+  review_status: provisional_v0.2
+- entry_id: DE-CON-ob
+  lemma: ob
+  part_of_speech: conjunction
+  status: restricted
+  meanings:
+  - id: whether.check
+    definition: leitet eine Ja/Nein-Bedingung ein, deren Ergebnis ausdrücklich geprüft oder bestimmt wird
+  review_status: corpus_candidate_v0.3
+  restrictions:
+  - Nur verwenden, wenn genau zwei klar unterscheidbare Zustände oder ein klares Ja/Nein-Kriterium vorliegen.
+- entry_id: DE-ADV-oben
+  lemma: oben
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.up
+    definition: kennzeichnet eine höhere Position im festgelegten Bezugssystem
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-oberfl-che
+  lemma: Oberfläche
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.surface
+    definition: äußere oder definierte Grenzfläche eines Materials oder Objekts
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Oberflächen
+- entry_id: DE-CON-oder
+  lemma: oder
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.or
+    definition: verbindet echte Alternativen
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht verwenden, wenn inklusive und exklusive Alternative unterschieden werden muss; dann die Auswahl explizit
+    beschreiben.
+- entry_id: DE-ADJ-offen
+  lemma: offen
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.open
+    definition: in einem definierten geöffneten Zustand
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-ohne
+  lemma: ohne
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.without
+    definition: kennzeichnet das Fehlen eines ausdrücklich genannten Elements oder Zustands
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-option
+  lemma: Option
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.option
+    definition: ausdrücklich angebotene auswählbare Alternative
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Optionen
+  restrictions:
+  - Alternativen vollständig nennen, wenn sie für die Entscheidung relevant sind.
+- entry_id: DE-NOU-person
+  lemma: Person
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.person
+    definition: ein einzelner Mensch ohne geschlechtsspezifische Benennung
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Personen
+- entry_id: DE-NOU-position
+  lemma: Position
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.position
+    definition: definierte räumliche Lage oder definierter Zustand eines Bedienelements
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Positionen
+  restrictions:
+  - Räumliche und Schalterzustandsbedeutung müssen aus Kontext eindeutig sein.
+- entry_id: DE-VER-positionieren
+  lemma: positionieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: position
+    definition: ein Objekt in eine ausdrücklich definierte Position bringen
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-prim-r
+  lemma: primär
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.primary
+    definition: als erste, wichtigste oder vorgesehene Hauptfunktion in der anwendbaren Terminologie definiert
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht als bloßes Synonym für wichtig verwenden.
+- entry_id: DE-NOU-problem
+  lemma: Problem
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.problem
+    definition: Zustand, der die vorgesehene Funktion oder Ausführung einer Aufgabe verhindert oder beeinträchtigt
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Probleme
+  restrictions:
+  - Wenn möglich konkreten Fehler oder Zustand nennen.
+- entry_id: DE-NOU-produkt
+  lemma: Produkt
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.produkt
+    definition: technische Einheit oder Ware, auf die sich die Dokumentation bezieht
+  review_status: multi_industry_candidate_v0.4
+  plural: Produkte
+  restrictions:
+  - Offizielle Produkt- oder Komponentenbezeichnung hat Vorrang.
+- entry_id: DE-NOU-prozess
+  lemma: Prozess
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.process
+    definition: geordnete Folge von Zuständen oder Vorgängen mit definiertem Zweck
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Prozesse
+- entry_id: DE-VER-pr-fen
+  lemma: prüfen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: check
+    definition: feststellen, ob ein definierter Zustand, ein Merkmal oder eine Anforderung erfüllt ist
+  review_status: provisional_v0.2
+  approved_examples:
+  - Prüfen Sie den Druck.
+  prohibited_synonyms:
+  - überprüfen
+  - kontrollieren
+  - checken
+  surface_forms:
+  - geprüft
+- entry_id: DE-NOU-pr-fung
+  lemma: Prüfung
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.check
+    definition: festgelegte Handlung zur Feststellung, ob ein Zustand oder Kriterium erfüllt ist
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Prüfungen
+- entry_id: DE-ADV-rechts
+  lemma: rechts
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.right
+    definition: kennzeichnet die rechte Seite relativ zum festgelegten Bezugssystem
+  review_status: provisional_v0.2
+- entry_id: DE-VER-reduzieren
+  lemma: reduzieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: reduce
+    definition: einen Umfang, eine Menge oder eine Größe kleiner machen
+  review_status: provisional_v0.2
+  restrictions:
+  - Für reine numerische Werte bevorzugt verringern verwenden.
+- entry_id: DE-VER-referenzieren
+  lemma: referenzieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: reference
+    definition: eine eindeutig bezeichnete Quelle oder ein Objekt als Referenz angeben
+  review_status: provisional_v0.2
+  restrictions:
+  - In Lesertexten bevorzugt auf ... verweisen.
+- entry_id: DE-VER-regeln
+  lemma: regeln
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: regulate
+    definition: eine Größe automatisch oder manuell auf einen Sollwert oder innerhalb eines Bereichs halten
+  review_status: provisional_v0.2
+  restrictions:
+  - Nur im technischen Regelungs-Sinn verwenden.
+- entry_id: DE-VER-reinigen
+  lemma: reinigen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: clean
+    definition: unerwünschtes Material von einem Objekt oder einer Oberfläche entfernen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-reparieren
+  lemma: reparieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: repair
+    definition: einen beschädigten oder fehlerhaften Gegenstand nach einem freigegebenen Verfahren wieder in den
+      zulässigen Zustand bringen
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-richtung
+  lemma: Richtung
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.direction
+    definition: orientierte räumliche oder logische Bewegungsrichtung
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Richtungen
+- entry_id: DE-NOU-risiko
+  lemma: Risiko
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.risk
+    definition: Kombination aus Möglichkeit eines schädlichen Ereignisses und dessen Auswirkung nach anwendbarem
+      Sicherheitsmodell
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Risiken
+- entry_id: DE-ADJ-sauber
+  lemma: sauber
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.clean
+    definition: frei von dem im Verfahren nicht zulässigen Schmutz oder Fremdmaterial
+  review_status: provisional_v0.2
+  restrictions:
+  - Bei kritischer Sauberkeit messbares oder referenziertes Kriterium verwenden.
+- entry_id: DE-NOU-schaden
+  lemma: Schaden
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.damage
+    definition: physische, funktionale oder materielle Beeinträchtigung eines Objekts oder einer Person
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Schäden
+- entry_id: DE-VER-schieben
+  lemma: schieben
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: push.slide
+    definition: ein Objekt durch eine geradlinige Druckbewegung zu einer ausdrücklich genannten Position bewegen
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - schiebe
+  - schiebst
+  - schiebt
+  - schieben
+  - schob
+  - schoben
+  - geschoben
+- entry_id: DE-VER-schlie-en
+  lemma: schließen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: close
+    definition: ein Teil, eine Öffnung, Datei oder Funktion aus dem offenen Zustand in den geschlossenen Zustand
+      bringen
+  review_status: provisional_v0.2
+  restrictions:
+  - Bei Software und Mechanik muss der Kontext eindeutig sein.
+  surface_forms:
+  - geschlossen
+- entry_id: DE-VER-schmieren
+  lemma: schmieren
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: lubricate
+    definition: ein freigegebenes Schmiermittel auf eine Reib- oder Kontaktstelle aufbringen
+  review_status: provisional_v0.2
+  restrictions:
+  - Schmiermittel nennen oder auf freigegebene Spezifikation verweisen.
+- entry_id: DE-VER-schneiden
+  lemma: schneiden
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: cut.material
+    definition: Material mit einem dafür vorgesehenen Schneidwerkzeug trennen
+  review_status: provisional_v0.2
+- entry_id: DE-ADV-schnell
+  lemma: schnell
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.quickly
+    definition: kennzeichnet eine hohe Geschwindigkeit
+  review_status: provisional_v0.2
+  restrictions:
+  - Wenn die Geschwindigkeit sicherheits- oder qualitätskritisch ist, einen messbaren Grenzwert angeben.
+- entry_id: DE-NOU-schritt
+  lemma: Schritt
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.step
+    definition: einzelne abgegrenzte Handlung oder Anweisung innerhalb eines Verfahrens
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Schritte
+- entry_id: DE-VER-sch-tzen
+  lemma: schützen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: protect
+    definition: ein Objekt oder eine Person durch eine ausdrücklich genannte Maßnahme vor einer definierten Gefahr
+      oder Einwirkung bewahren
+  review_status: provisional_v0.2
+  restrictions:
+  - Gefahr oder Einwirkung nennen, wenn sie nicht eindeutig ist.
+- entry_id: DE-VER-scrollen
+  lemma: scrollen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: scroll.ui
+    definition: den sichtbaren Ausschnitt einer digitalen Ansicht verschieben
+  review_status: provisional_v0.2
+- entry_id: DE-QUA-sechs
+  lemma: sechs
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.six
+    definition: bezeichnet die Zahl 6 in ausgeschriebener Form
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-VER-sein
+  lemma: sein
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: be.state
+    definition: einen Zustand, eine Eigenschaft, Identität oder Existenz ausdrücken
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht als Hilfsverb für eine unnötige Passivkonstruktion verwenden.
+  surface_forms:
+  - bin
+  - bist
+  - ist
+  - sind
+  - seid
+  - war
+  - waren
+  morphology_note: Surface forms support lexical resolution; tense/mode remains constrained by STG-3.2.
+- entry_id: DE-PRE-seit
+  lemma: seit
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.since
+    definition: kennzeichnet den Beginn eines Zeitraums, der bis zum Bezugszeitpunkt andauert
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-seite
+  lemma: Seite
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.side_page
+    definition: räumliche Seite eines Objekts oder Seite eines Dokuments
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Seiten
+  restrictions:
+  - Räumliche und dokumentarische Bedeutung müssen aus Kontext eindeutig sein.
+- entry_id: DE-ADJ-sekund-r
+  lemma: sekundär
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.secondary
+    definition: als zweite oder unterstützende Funktion in der anwendbaren Terminologie definiert
+  review_status: provisional_v0.2
+- entry_id: DE-VER-senden
+  lemma: senden
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: send
+    definition: Daten, ein Signal oder eine Nachricht zu einem Empfänger übertragen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-senken
+  lemma: senken
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: lower.position
+    definition: ein Objekt in eine tiefere Position bewegen
+  review_status: provisional_v0.2
+- entry_id: DE-PRO-sich
+  lemma: sich
+  part_of_speech: pronoun
+  status: restricted
+  meanings:
+  - id: pron.reflexive
+    definition: reflexives Pronomen, das eindeutig auf das grammatische Subjekt derselben Klausel verweist
+  review_status: corpus_candidate_v0.3
+  restrictions:
+  - Nur bei eindeutigem reflexivem Bezug verwenden. Bei möglichem Bezug auf mehrere Objekte den technischen Begriff
+    wiederholen.
+- entry_id: DE-ADJ-sicher
+  lemma: sicher
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.sicher
+    definition: ohne eine nach dem anwendbaren Risikokriterium unzulässige Gefahr
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - sichere
+  - sicheren
+  - sicherer
+  - sicheres
+  - sicherem
+  restrictions:
+  - Nicht als unquantifizierte Qualitätsbehauptung verwenden.
+- entry_id: DE-VER-sicherstellen
+  lemma: sicherstellen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: ensure
+    definition: durch eine Prüfung oder eindeutige Feststellung bestätigen, dass eine genannte Bedingung erfüllt
+      ist
+  review_status: provisional_v0.2
+  separable: true
+  prefix: sicher
+  approved_examples:
+  - Stellen Sie sicher, dass das Ventil geschlossen ist.
+  forms:
+    imperative_formal: Stellen Sie sicher, dass ...
+- entry_id: DE-ADJ-sichtbar
+  lemma: sichtbar
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.visible
+    definition: mit dem vorgesehenen visuellen Verfahren erkennbar
+  review_status: provisional_v0.2
+  restrictions:
+  - Für Prüfhandlungen bevorzugt Stellen Sie sicher, dass Sie ... sehen können, wenn Beobachterbezug relevant ist.
+- entry_id: DE-PRO-SIE-READER
+  lemma: Sie
+  part_of_speech: pronoun
+  status: approved
+  meanings:
+  - id: pronoun.reader_formal
+    definition: bezeichnet die lesende oder handelnde Person in formalen Anweisungen
+  review_status: provisional_v0.2
+  surface_forms:
+  - Sie
+  - Ihnen
+  approved_examples:
+  - Entfernen Sie die Abdeckung.
+  case_sensitive: true
+- entry_id: DE-PRO-sie
+  lemma: sie
+  part_of_speech: pronoun
+  status: restricted
+  meanings:
+  - id: pronoun.she_they
+    definition: ersetzt ein eindeutig identifiziertes feminines Singular- oder Pluralreferenzobjekt
+  review_status: provisional_v0.2
+  surface_forms:
+  - sie
+  - ihnen
+  restrictions:
+  - Nicht verwenden, wenn Numerus oder Bezug mehrdeutig ist.
+  case_sensitive: true
+- entry_id: DE-QUA-sieben
+  lemma: sieben
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.seven
+    definition: bezeichnet die Zahl 7 in ausgeschriebener Form
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-NOU-signal
+  lemma: Signal
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.signal
+    definition: physikalische oder digitale Größe, die Information überträgt
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Signale
+- entry_id: DE-VER-sinken
+  lemma: sinken
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: decrease.intransitive
+    definition: von selbst oder durch einen Prozess einen niedrigeren numerischen Wert annehmen
+  review_status: provisional_v0.2
+- entry_id: DE-PHR-so-viel-wie
+  lemma: so viel wie
+  part_of_speech: phrase
+  status: restricted
+  meanings:
+  - id: phrase.equal_amount
+    definition: kennzeichnet Gleichheit einer Menge oder eines Werts
+  review_status: provisional_v0.2
+- entry_id: DE-CON-sobald
+  lemma: sobald
+  part_of_speech: conjunction
+  status: restricted
+  meanings:
+  - id: conj.as_soon_as
+    definition: kennzeichnet den ersten Zeitpunkt, an dem eine eindeutig definierte Bedingung erfüllt ist
+  review_status: provisional_v0.2
+  restrictions:
+  - Nur verwenden, wenn die Reaktion tatsächlich unmittelbar beim Eintritt der Bedingung erfolgen soll.
+- entry_id: DE-ADV-sofort
+  lemma: sofort
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.immediately
+    definition: kennzeichnet, dass keine absichtliche Verzögerung zulässig ist
+  review_status: provisional_v0.2
+- entry_id: DE-CON-sondern
+  lemma: sondern
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.but_rather
+    definition: ersetzt nach einer Verneinung ein ausgeschlossenes Element durch das korrekte Element
+  review_status: provisional_v0.2
+- entry_id: DE-VER-sortieren
+  lemma: sortieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: sort
+    definition: Elemente nach einem ausdrücklich genannten Kriterium in eine Reihenfolge bringen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-speichern
+  lemma: speichern
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: save.data
+    definition: Daten dauerhaft oder für spätere Verwendung ablegen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-sp-len
+  lemma: spülen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: flush
+    definition: ein System oder eine Oberfläche mit einem Flüssigkeits- oder Gasstrom reinigen oder auswaschen
+  review_status: provisional_v0.2
+  restrictions:
+  - Spülmedium und Ziel nennen, wenn nicht durch Verfahren festgelegt.
+- entry_id: DE-ADJ-stabil
+  lemma: stabil
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.stable
+    definition: ändert den relevanten Zustand oder Wert innerhalb des definierten Beobachtungszeitraums nicht außerhalb
+      der zulässigen Grenze
+  review_status: provisional_v0.2
+  restrictions:
+  - Kriterium oder Zeitraum nennen, wenn für Entscheidung relevant.
+- entry_id: DE-VER-starten
+  lemma: starten
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: start
+    definition: einen Prozess, Test, Motor oder Ablauf beginnen lassen
+  review_status: provisional_v0.2
+  prohibited_synonyms:
+  - beginnen
+  - anfangen
+  surface_forms:
+  - gestartet
+- entry_id: DE-VER-steigen
+  lemma: steigen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: increase.intransitive
+    definition: von selbst oder durch einen Prozess einen höheren numerischen Wert annehmen
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-stelle
+  lemma: Stelle
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.location
+    definition: genau bezeichneter räumlicher Punkt, Dokumentort oder organisatorischer Empfänger
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Stellen
+  restrictions:
+  - Art der Stelle nennen, wenn nicht eindeutig.
+- entry_id: DE-VER-steuern
+  lemma: steuern
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: control
+    definition: den Zustand oder Ablauf eines Systems durch Signale oder Befehle beeinflussen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-stoppen
+  lemma: stoppen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: stop
+    definition: einen laufenden Prozess oder eine Bewegung gezielt anhalten
+  review_status: provisional_v0.2
+- entry_id: DE-VER-subtrahieren
+  lemma: subtrahieren
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: subtract.math
+    definition: einen numerischen Wert mathematisch von einem anderen abziehen
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-symbol
+  lemma: Symbol
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.symbol
+    definition: grafisches Zeichen mit festgelegter technischer oder sicherheitsbezogener Bedeutung
+  review_status: multi_industry_candidate_v0.4
+  plural: Symbole
+- entry_id: DE-NOU-system
+  lemma: System
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.system
+    definition: funktional zusammengehörige Menge von Elementen mit einer definierten Aufgabe
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Systeme
+- entry_id: DE-NOU-tabelle
+  lemma: Tabelle
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.table
+    definition: strukturierte Darstellung von Daten in Zeilen und Spalten
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Tabellen
+- entry_id: DE-ADJ-technisch
+  lemma: technisch
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.technisch
+    definition: auf Technik, ein technisches Produkt oder einen technischen Prozess bezogen
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - technische
+  - technischen
+  - technischer
+  - technisches
+  - technischem
+  restrictions:
+  - Nur verwenden, wenn die Bezugsart für den Leser relevant ist.
+- entry_id: DE-NOU-teil
+  lemma: Teil
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.part
+    definition: abgegrenztes Element eines größeren Ganzen
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Teile
+  restrictions:
+  - Offizielle technische Benennung bevorzugen.
+- entry_id: DE-ADV-teilweise
+  lemma: teilweise
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.partly
+    definition: kennzeichnet, dass nur ein ausdrücklich bestimmter Teil betroffen ist
+  review_status: provisional_v0.2
+  restrictions:
+  - Den betroffenen Teil nennen, wenn er für die Aufgabe relevant ist.
+- entry_id: DE-VER-testen
+  lemma: testen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: test
+    definition: mit einem definierten Test feststellen, ob eine Funktion oder ein System festgelegte Kriterien erfüllt
+  review_status: provisional_v0.2
+  restrictions:
+  - Nur verwenden, wenn ein definierter Test gemeint ist; sonst prüfen verwenden.
+- entry_id: DE-NOU-text
+  lemma: Text
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.text
+    definition: geschriebene sprachliche Information
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Texte
+- entry_id: DE-VER-tippen
+  lemma: tippen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: tap.ui
+    definition: eine Touch-Oberfläche kurz berühren, um eine Bedienhandlung auszuführen
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht im Sinn von Text mit Tastatur eingeben verwenden.
+- entry_id: DE-VER-trennen
+  lemma: trennen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: disconnect
+    definition: eine bestehende mechanische, elektrische oder logische Verbindung aufheben
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-trocken
+  lemma: trocken
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.dry
+    definition: weist keine für die Aufgabe relevante freie Feuchtigkeit oder Flüssigkeit auf
+  review_status: provisional_v0.2
+- entry_id: DE-VER-trocknen
+  lemma: trocknen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: dry
+    definition: Feuchtigkeit oder Flüssigkeit von einem Objekt oder aus einem Bereich entfernen
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-typ
+  lemma: Typ
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.type_class
+    definition: definierte technische oder dokumentarische Klasse
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Typen
+- entry_id: DE-NOU-taetigkeit
+  lemma: Tätigkeit
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.taetigkeit
+    definition: abgegrenzte menschliche technische Handlung oder Arbeitsaufgabe
+  review_status: multi_industry_candidate_v0.4
+  plural: Tätigkeiten
+  restrictions:
+  - In Verfahren die konkrete Handlung mit einem direkten Verb formulieren.
+- entry_id: DE-PRE-um
+  lemma: um
+  part_of_speech: preposition
+  status: restricted
+  meanings:
+  - id: prep.around
+    definition: kennzeichnet eine Bewegung oder Position um eine ausdrücklich genannte Achse oder ein Objekt
+  - id: prep.delta
+    definition: kennzeichnet eine ausdrücklich genannte Änderung um einen numerischen Betrag
+  - id: prep.time
+    definition: kennzeichnet einen ausdrücklich genannten Zeitpunkt
+  review_status: corpus_candidate_v0.3
+  restrictions:
+  - Die Konstruktion „um ... zu“ ist nicht durch diesen Eintrag freigegeben; Zweck besser als eigener Satz oder
+    mit einer eindeutigen Zweckangabe ausdrücken.
+- entry_id: DE-CON-und
+  lemma: und
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.and
+    definition: verbindet gleichrangige Elemente, Aussagen oder gleichzeitig geltende Bedingungen
+  review_status: provisional_v0.2
+- entry_id: DE-ADV-ungef-hr
+  lemma: ungefähr
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: adv.approximately
+    definition: kennzeichnet einen Näherungswert, für den keine exakte Grenze gemeint ist
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht für Akzeptanzgrenzen, Toleranzen oder sicherheitskritische Werte verwenden.
+- entry_id: DE-ADJ-unm-glich
+  lemma: unmöglich
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.impossible
+    definition: unter den genannten technischen Bedingungen nicht realisierbar oder nicht eintretbar
+  review_status: provisional_v0.2
+- entry_id: DE-ADV-unten
+  lemma: unten
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.down
+    definition: kennzeichnet eine tiefere Position im festgelegten Bezugssystem
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-unter
+  lemma: unter
+  part_of_speech: preposition
+  status: restricted
+  meanings:
+  - id: prep.below_under
+    definition: kennzeichnet eine räumlich tiefere Position oder eine Lage unter einem Objekt
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht für numerische Grenzwerte verwenden; dafür weniger als verwenden.
+- entry_id: DE-ADJ-unterschiedlich
+  lemma: unterschiedlich
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.different
+    definition: hat im ausdrücklich verglichenen Merkmal nicht denselben Wert oder Zustand
+  review_status: provisional_v0.2
+- entry_id: DE-VER-untersuchen
+  lemma: untersuchen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: examine
+    definition: ein Objekt oder einen Bereich systematisch auf Schäden, Fehler oder andere festgelegte Merkmale
+      ansehen oder prüfen
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-unvollst-ndig
+  lemma: unvollständig
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.incomplete
+    definition: enthält nicht alle für den definierten Umfang erforderlichen Teile oder Daten
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-unzul-ssig
+  lemma: unzulässig
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.not_permitted
+    definition: durch eine ausdrücklich geltende Anforderung, Grenze oder Freigabe nicht erlaubt
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-ursache
+  lemma: Ursache
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.cause
+    definition: Ereignis oder Zustand, der eine ausdrücklich genannte Wirkung hervorruft
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Ursachen
+- entry_id: DE-VER-verbinden
+  lemma: verbinden
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: connect
+    definition: zwei oder mehr Teile, Leitungen, Systeme oder Datenpfade funktional miteinander koppeln
+  review_status: provisional_v0.2
+  surface_forms:
+  - verbunden
+- entry_id: DE-NOU-verbindung
+  lemma: Verbindung
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.connection
+    definition: mechanische, elektrische, stoffliche oder logische Kopplung zwischen ausdrücklich genannten Elementen
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Verbindungen
+- entry_id: DE-ADJ-verboten
+  lemma: verboten
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.forbidden
+    definition: durch eine Regel oder Sicherheitsanforderung ausdrücklich nicht erlaubt
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-verbunden
+  lemma: verbunden
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.connected
+    definition: mit dem ausdrücklich genannten Objekt mechanisch, elektrisch oder logisch gekoppelt
+  review_status: provisional_v0.2
+  restrictions:
+  - Art der Verbindung muss aus dem Kontext eindeutig sein.
+- entry_id: DE-NOU-verfahren
+  lemma: Verfahren
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.procedure
+    definition: festgelegte Folge von Handlungen zur Erreichung eines technischen Ziels
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Verfahren
+- entry_id: DE-ADJ-verf-gbar
+  lemma: verfügbar
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.available
+    definition: für die vorgesehene Verwendung oder Auswahl vorhanden und zugänglich
+  review_status: provisional_v0.2
+  restrictions:
+  - Zeit- oder Systembezug nennen, wenn veränderlich.
+- entry_id: DE-NOU-verfuegbarkeit
+  lemma: Verfügbarkeit
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.verfuegbarkeit
+    definition: Zustand, in dem eine ausdrücklich genannte Funktion, Ressource oder Komponente zur vorgesehenen
+      Nutzung bereitsteht
+  review_status: multi_industry_candidate_v0.4
+  restrictions:
+  - Nicht als unquantifizierte Zuverlässigkeitskennzahl verwenden.
+- entry_id: DE-VER-vergleichen
+  lemma: vergleichen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: compare
+    definition: zwei oder mehr Werte, Zustände oder Merkmale gegenüberstellen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-verhindern
+  lemma: verhindern
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: prevent
+    definition: eine ausdrücklich genannte unerwünschte Wirkung oder Handlung unmöglich machen
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-verletzung
+  lemma: Verletzung
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.verletzung
+    definition: körperliche Schädigung einer Person
+  review_status: multi_industry_candidate_v0.4
+  plural: Verletzungen
+- entry_id: DE-VER-verriegeln
+  lemma: verriegeln
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: lock
+    definition: eine mechanische oder logische Verriegelung in den gesicherten Zustand bringen
+  review_status: provisional_v0.2
+- entry_id: DE-ADJ-verriegelt
+  lemma: verriegelt
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.locked
+    definition: in einem definierten Verriegelungszustand
+  review_status: provisional_v0.2
+- entry_id: DE-VER-verringern
+  lemma: verringern
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: decrease.transitive
+    definition: einen numerischen Wert kleiner machen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-verschieben
+  lemma: verschieben
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: move.relocate
+    definition: ein Objekt oder Datenelement von einer Position an eine andere Position bewegen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-verschliessen
+  lemma: verschließen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: close.seal_opening
+    definition: eine Öffnung mit dem vorgesehenen Verschlusselement schließen
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - verschließe
+  - verschließt
+  - verschließen
+  - verschloss
+  - verschlossen
+  restrictions:
+  - Nicht mit verriegeln verwechseln.
+- entry_id: DE-NOU-version
+  lemma: Version
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.version
+    definition: eindeutig identifizierter Entwicklungs- oder Ausgabestand eines Produkts, Dokuments oder Softwareelements
+  review_status: multi_industry_candidate_v0.4
+  plural: Versionen
+- entry_id: DE-VER-verursachen
+  lemma: verursachen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: cause
+    definition: eine ausdrücklich genannte Wirkung als Ursache hervorrufen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-verweisen
+  lemma: verweisen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: refer
+    definition: den Leser auf eine eindeutig bezeichnete Stelle, Quelle oder Referenz lenken
+  review_status: provisional_v0.2
+- entry_id: DE-VER-verwenden
+  lemma: verwenden
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: use
+    definition: ein Werkzeug, Material, Bauteil oder Hilfsmittel für einen ausdrücklich genannten Zweck einsetzen
+  review_status: provisional_v0.2
+  prohibited_synonyms:
+  - benutzen
+  - nutzen
+  - gebrauchen
+  surface_forms:
+  - verwendet
+- entry_id: DE-NOU-verwendung
+  lemma: Verwendung
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.verwendung
+    definition: Einsatz eines Produkts, Werkzeugs, Stoffes oder Verfahrens für einen ausdrücklich genannten Zweck
+  review_status: multi_industry_candidate_v0.4
+  plural: Verwendungen
+  restrictions:
+  - In Anweisungen bevorzugt das direkte Verb verwenden.
+- entry_id: DE-QUA-vier
+  lemma: vier
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.four
+    definition: bezeichnet die Zahl 4 in ausgeschriebener Form
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-ADJ-voll
+  lemma: voll
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.full
+    definition: enthält die definierte maximale oder vorgesehene Füllmenge
+  review_status: provisional_v0.2
+  restrictions:
+  - Bei Messbehältern nach Möglichkeit Füllgrenze nennen.
+- entry_id: DE-ADJ-vollst-ndig
+  lemma: vollständig
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.complete
+    definition: enthält alle für den definierten Umfang erforderlichen Teile oder Daten
+  review_status: provisional_v0.2
+- entry_id: DE-ADV-vollst-ndig
+  lemma: vollständig
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.completely
+    definition: kennzeichnet, dass kein Teil oder Rest der beschriebenen Menge oder Handlung fehlt
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-von
+  lemma: von
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.from_of
+    definition: kennzeichnet Ausgangspunkt, Urheber oder eindeutige Zuordnung
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-vor
+  lemma: vor
+  part_of_speech: preposition
+  status: restricted
+  meanings:
+  - id: prep.before_in_front
+    definition: kennzeichnet eine räumlich vordere Position oder einen früheren Zeitpunkt
+  review_status: provisional_v0.2
+  restrictions:
+  - Bei komplexen Zeitbedingungen einen bevor-Satz verwenden.
+- entry_id: DE-ADJ-vorhanden
+  lemma: vorhanden
+  part_of_speech: adjective
+  status: approved
+  meanings:
+  - id: adj.present
+    definition: an der ausdrücklich genannten Stelle oder im System existent
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-vorschrift
+  lemma: Vorschrift
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.vorschrift
+    definition: verbindliche dokumentierte Regel oder Anforderung aus einer ausdrücklich identifizierten Quelle
+  review_status: multi_industry_candidate_v0.4
+  plural: Vorschriften
+  restrictions:
+  - Quelle oder Dokument nennen, wenn sie für die Handlung oder Konformität erforderlich ist.
+- entry_id: DE-NOU-warnung
+  lemma: Warnung
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.warnung
+    definition: Sicherheitsinformation, die auf eine Gefahr für Personen hinweist
+  review_status: multi_industry_candidate_v0.4
+  plural: Warnungen
+  restrictions:
+  - Risikokategorie muss mit dem anwendbaren Sicherheitsstandard übereinstimmen.
+- entry_id: DE-VER-warten
+  lemma: warten
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: wait
+    definition: eine Handlung bis zum Eintritt eines ausdrücklich genannten Zeitpunkts oder Zustands nicht fortsetzen
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht im Sinn von Instandhaltung verwenden. Für Instandhaltung Projektterminologie verwenden.
+- entry_id: DE-PRE-wegen
+  lemma: wegen
+  part_of_speech: preposition
+  status: restricted
+  meanings:
+  - id: prep.because_of
+    definition: kennzeichnet eine ausdrücklich benannte Ursache
+  review_status: provisional_v0.2
+  restrictions:
+  - Bei komplexer Ursache einen weil-Satz verwenden.
+- entry_id: DE-CON-weil
+  lemma: weil
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.because
+    definition: leitet eine ausdrücklich genannte Ursache oder Begründung ein
+  review_status: provisional_v0.2
+- entry_id: DE-PHR-weniger-als
+  lemma: weniger als
+  part_of_speech: phrase
+  status: approved
+  meanings:
+  - id: phrase.less_than
+    definition: kennzeichnet einen Wert oder eine Menge unterhalb einer nicht eingeschlossenen Grenze
+  review_status: provisional_v0.2
+- entry_id: DE-CON-wenn
+  lemma: wenn
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.if
+    definition: leitet eine ausdrücklich genannte Bedingung ein
+  review_status: provisional_v0.2
+  approved_examples:
+  - Wenn die Anzeige rot ist, stoppen Sie den Test.
+- entry_id: DE-VER-werden
+  lemma: werden
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: become.future
+    definition: den Übergang in einen neuen Zustand oder eine ausdrücklich notwendige Zukunft ausdrücken
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht für vermeidbares Vorgangspassiv verwenden. Zukunft nach Möglichkeit mit Präsens und Zeitangabe ausdrücken.
+  surface_forms:
+  - werde
+  - wirst
+  - wird
+  - werden
+  - werdet
+  - wurde
+  - wurden
+  morphology_note: Surface forms support lexical resolution; tense/mode remains constrained by STG-3.2.
+- entry_id: DE-NOU-wert
+  lemma: Wert
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.value
+    definition: quantitative oder eindeutig codierte Ausprägung einer Größe oder eines Parameters
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Werte
+- entry_id: DE-ADJ-wichtig
+  lemma: wichtig
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.wichtig
+    definition: für Sicherheit, korrekte Funktion oder das Ergebnis wesentlich
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - wichtige
+  - wichtigen
+  - wichtiger
+  - wichtiges
+  - wichtigem
+  restrictions:
+  - Wenn möglich den konkreten Grund oder die Folge nennen.
+- entry_id: DE-CON-wie
+  lemma: wie
+  part_of_speech: conjunction
+  status: restricted
+  meanings:
+  - id: comparison.like
+    definition: kennzeichnet einen ausdrücklich benannten Vergleich oder eine ausdrücklich benannte Referenz
+  review_status: corpus_candidate_v0.3
+  restrictions:
+  - Vergleich oder Referenz muss eindeutig sein. Nicht als vage Art-und-Weise-Angabe verwenden.
+- entry_id: DE-VER-wiederholen
+  lemma: wiederholen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: repeat
+    definition: dieselbe ausdrücklich bestimmte Handlung oder Prüfung erneut ausführen
+  review_status: provisional_v0.2
+- entry_id: DE-PRO-wir
+  lemma: wir
+  part_of_speech: pronoun
+  status: restricted
+  meanings:
+  - id: pronoun.organization
+    definition: bezeichnet die herausgebende Organisation oder den Hersteller
+  review_status: provisional_v0.2
+  surface_forms:
+  - wir
+  - uns
+  restrictions:
+  - Nur verwenden, wenn der Autor eindeutig für die herausgebende Organisation spricht.
+- entry_id: DE-VER-waehlen
+  lemma: wählen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: verb.waehlen
+    definition: eine Option aus einer ausdrücklich vorhandenen Menge auswählen
+  review_status: multi_industry_candidate_v0.4
+  surface_forms:
+  - wähle
+  - wählst
+  - wählt
+  - wählen
+  - wählte
+  - wählten
+  - gewählt
+  restrictions:
+  - Auswahlmenge oder Benutzeroberflächenoption muss eindeutig sein.
+  approved_examples:
+  - Wählen Sie die Funktion aus.
+- entry_id: DE-CON-w-hrend
+  lemma: während
+  part_of_speech: conjunction
+  status: approved
+  meanings:
+  - id: conj.while
+    definition: kennzeichnet zwei Zustände oder Handlungen, die im selben Zeitraum gelten
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-w-hrend
+  lemma: während
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.during
+    definition: kennzeichnet einen Zeitraum, in dem ein Zustand oder eine Handlung gilt
+  review_status: provisional_v0.2
+- entry_id: DE-QUA-zehn
+  lemma: zehn
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.ten
+    definition: bezeichnet die Zahl 10 in ausgeschriebener Form
+  review_status: corpus_candidate_v0.3
+- entry_id: DE-VER-zeigen
+  lemma: zeigen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: show
+    definition: Information oder einen sichtbaren Zustand für den Leser erkennbar machen
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht im Sinn von beweisen oder hinweisen verwenden.
+  surface_forms:
+  - zeige
+  - zeigst
+  - zeigt
+  - zeigen
+  - zeigte
+  - zeigten
+  - gezeigt
+  morphology_note: Surface forms support lexical resolution; tense/mode remains constrained by STG-3.2.
+- entry_id: DE-NOU-zeit
+  lemma: Zeit
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.time
+    definition: Zeitpunkt oder Zeitgröße im ausdrücklich genannten Kontext
+  review_status: provisional_v0.2
+  gender: fem
+  plural: Zeiten
+- entry_id: DE-VER-zerlegen
+  lemma: zerlegen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: disassemble
+    definition: eine Baugruppe nach einem vorgesehenen Verfahren in ihre Teile trennen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-ziehen
+  lemma: ziehen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: pull
+    definition: eine Kraft in Richtung zum Kraftausübenden oder entlang einer definierten Richtung ausüben
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-ziel
+  lemma: Ziel
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.target
+    definition: ausdrücklich festgelegter gewünschter Endzustand oder Zweck
+  review_status: provisional_v0.2
+  gender: neut
+  plural: Ziele
+- entry_id: DE-PRE-zu
+  lemma: zu
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.to
+    definition: kennzeichnet eine Richtung zu einem Ziel oder eine feste Beziehung in einer freigegebenen Wortgruppe
+  review_status: provisional_v0.2
+- entry_id: DE-ADV-zuerst
+  lemma: zuerst
+  part_of_speech: adverb
+  status: approved
+  meanings:
+  - id: adv.first
+    definition: kennzeichnet den ersten Schritt einer ausdrücklich geordneten Folge
+  review_status: provisional_v0.2
+- entry_id: DE-NOU-zugriff
+  lemma: Zugriff
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.access
+    definition: technische Möglichkeit, auf ein Objekt, einen Bereich oder Daten zuzugreifen
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Zugriffe
+- entry_id: DE-ADJ-zul-ssig
+  lemma: zulässig
+  part_of_speech: adjective
+  status: restricted
+  meanings:
+  - id: adj.permitted
+    definition: durch eine ausdrücklich geltende Anforderung, Grenze oder Freigabe erlaubt
+  review_status: provisional_v0.2
+  restrictions:
+  - Geltende Anforderung oder Grenzwert muss bestimmbar sein.
+- entry_id: DE-PHR-zum-beispiel
+  lemma: zum Beispiel
+  part_of_speech: phrase
+  status: restricted
+  meanings:
+  - id: example.nonexhaustive
+    definition: leitet ausdrücklich eine nicht vollständige Menge von Beispielen ein
+  review_status: corpus_candidate_v0.3
+  surface_forms:
+  - zum Beispiel
+  restrictions:
+  - Nicht verwenden, wenn die Liste vollständig sein muss.
+- entry_id: DE-VER-zusammenbauen
+  lemma: zusammenbauen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: assemble
+    definition: mehrere Teile nach einer festgelegten Struktur zu einer Baugruppe verbinden
+  review_status: provisional_v0.2
+  separable: true
+  prefix: zusammen
+- entry_id: DE-NOU-zustand
+  lemma: Zustand
+  part_of_speech: noun
+  status: approved
+  meanings:
+  - id: noun.state
+    definition: feststellbare Ausprägung eines Systems, Objekts oder Parameters zu einem Zeitpunkt
+  review_status: provisional_v0.2
+  gender: masc
+  plural: Zustände
+- entry_id: DE-ADV-zusaetzlich
+  lemma: zusätzlich
+  part_of_speech: adverb
+  status: restricted
+  meanings:
+  - id: addition.additional
+    definition: kennzeichnet ein weiteres, ausdrücklich identifiziertes Element neben bereits genannten Elementen
+  review_status: corpus_candidate_v0.3
+  restrictions:
+  - Das zusätzliche Element muss konkret genannt sein.
+- entry_id: DE-QUA-zwei
+  lemma: zwei
+  part_of_speech: quantifier
+  status: approved
+  meanings:
+  - id: quantifier.two
+    definition: bezeichnet die Zahl 2 in ausgeschriebener Form
+  review_status: provisional_v0.2
+- entry_id: DE-PRE-zwischen
+  lemma: zwischen
+  part_of_speech: preposition
+  status: approved
+  meanings:
+  - id: prep.between
+    definition: kennzeichnet eine Position oder Beziehung zwischen zwei klar identifizierten Grenzen oder Objekten
+  review_status: provisional_v0.2
+- entry_id: DE-VER-z-hlen
+  lemma: zählen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: count
+    definition: die Anzahl diskreter Elemente bestimmen
+  review_status: provisional_v0.2
+- entry_id: DE-VER-ndern
+  lemma: ändern
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: change
+    definition: einen ausdrücklich bezeichneten Wert, Zustand oder Inhalt in einen anderen Wert, Zustand oder Inhalt
+      überführen
+  review_status: provisional_v0.2
+  restrictions:
+  - Zielzustand oder geänderten Parameter nennen.
+- entry_id: DE-NOU-aenderung
+  lemma: Änderung
+  part_of_speech: noun
+  status: restricted
+  meanings:
+  - id: noun.aenderung
+    definition: feststellbare Abweichung eines Zustands, Werts, Produkts oder Dokuments gegenüber einem vorherigen
+      Stand
+  review_status: multi_industry_candidate_v0.4
+  plural: Änderungen
+  restrictions:
+  - Geändertes Objekt oder Merkmal nennen.
+- entry_id: DE-VER-ffnen
+  lemma: öffnen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: open
+    definition: ein Teil, eine Öffnung, Datei oder Funktion aus dem geschlossenen Zustand zugänglich machen
+  review_status: provisional_v0.2
+  restrictions:
+  - Bei Software und Mechanik muss der Kontext eindeutig sein.
+  surface_forms:
+  - geöffnet
+- entry_id: DE-PRE-ber
+  lemma: über
+  part_of_speech: preposition
+  status: restricted
+  meanings:
+  - id: prep.above_over
+    definition: kennzeichnet eine räumlich höhere Position oder eine Bewegung über ein Objekt
+  review_status: provisional_v0.2
+  restrictions:
+  - Nicht für numerische Grenzwerte verwenden; dafür mehr als verwenden.
+- entry_id: DE-VER-bertragen
+  lemma: übertragen
+  part_of_speech: verb
+  status: restricted
+  meanings:
+  - id: transmit
+    definition: Daten, Energie, Kraft oder ein Signal von einer Quelle zu einem Ziel weitergeben
+  review_status: provisional_v0.2
+  restrictions:
+  - Die Art der übertragenen Größe muss aus dem Satz eindeutig sein.
+- entry_id: DE-VER-berwachen
+  lemma: überwachen
+  part_of_speech: verb
+  status: approved
+  meanings:
+  - id: monitor
+    definition: einen Zustand oder Wert fortlaufend beobachten oder erfassen
+  review_status: provisional_v0.2
