@@ -159,8 +159,8 @@ files:
   size_bytes: 8096
   sha256: a0fac0989df35bd6feeed2f0065e8098e72ac60fea41de18624f2e29f0b4adad
 - path: tests/test_stg_lint.py
-  size_bytes: 1508
-  sha256: 7a91d201803994f89e5f665ad9cebc018c039565d65b33805670138668f6aa0e
+  size_bytes: 3611
+  sha256: c6b86ac3cdb8783168791c7b20c1da2a3dcca6683dd657100f229ab195ba08eb
 - path: tools/build_manifest.py
   size_bytes: 744
   sha256: 911f1af07aad9f598dc82685e7c7d4dfea183819ecff8aca7faa2f290592314e
