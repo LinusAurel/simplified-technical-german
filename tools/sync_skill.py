@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate standalone Agent Skill references from canonical STG-DE sources."""
+"""Generate standalone Agent Skill references and scripts from canonical STG-DE sources."""
 from __future__ import annotations
 import argparse, shutil
 from pathlib import Path
@@ -39,14 +39,18 @@ def main() -> int:
                 mismatches.append(str(path.relative_to(ROOT)))
         else:
             path.write_text(content, encoding="utf-8")
-    script_target = SKILL / "scripts" / "stg_lint.py"
-    source = ROOT / "tools" / "stg_lint.py"
-    if args.check:
-        if not script_target.exists() or script_target.read_bytes() != source.read_bytes():
-            mismatches.append(str(script_target.relative_to(ROOT)))
-    else:
-        script_target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source, script_target)
+
+    scripts = ["stg_lint.py", "stg_analyze.py"]
+    for script_name in scripts:
+        script_target = SKILL / "scripts" / script_name
+        source = ROOT / "tools" / script_name
+        if args.check:
+            if not script_target.exists() or script_target.read_bytes() != source.read_bytes():
+                mismatches.append(str(script_target.relative_to(ROOT)))
+        else:
+            script_target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, script_target)
+
     if mismatches:
         print("Skill references are out of sync:")
         for mismatch in mismatches:
