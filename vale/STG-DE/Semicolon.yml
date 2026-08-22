@@ -1,0 +1,6 @@
+extends: existence
+message: "STG-8.1: Verwenden Sie kein Semikolon zum Verbinden von Aussagen."
+level: error
+scope: sentence
+raw:
+  - ';'
