@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "STG-DE application profiles",
+  "type": "object",
+  "required": ["schema_version", "profiles"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "profiles": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["description", "base_text_type", "sentence_word_limit", "primary_rules", "priorities"],
+        "properties": {
+          "description": {"type": "string"},
+          "base_text_type": {"enum": ["procedure", "description"]},
+          "sentence_word_limit": {"type": "integer", "minimum": 1},
+          "primary_rules": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "priorities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
