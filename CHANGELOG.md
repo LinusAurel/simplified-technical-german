@@ -1,6 +1,8 @@
 # Änderungsprotokoll
 
-## Unveröffentlicht
+## 0.3.0 — 2026-11-12
+
+Diese Version macht STG-DE in OpenAI Codex nutzbar und automatisiert Release und Aufräumen auf GitHub. Regeln, Wörterbuch und Werkzeuge bleiben inhaltlich gleich.
 
 ### OpenAI Codex
 
