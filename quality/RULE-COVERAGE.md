@@ -39,6 +39,10 @@ Der Linter und der Analyzer segmentieren Markdown, bevor sie Sätze zählen (`to
 - Überschriften, Listenelemente und Tabellenzellen sind getrennte Blöcke. Ein Satz geht deshalb nie über eine Markdown-Struktur hinaus.
 - Inline-Code, URLs und zitierter Text (`„…“`, `»…«`, `"…"`) sind vor lexikalischen Prüfungen geschützt und zählen als ein Wort (`STG-8.6`).
 
+## Gemessene Präzision
+
+`corpus/HOLDOUT-PRECISION.md` dokumentiert die Präzision des Linters auf dem Holdout des Korpus. Für Linter 0.6.0 gilt ohne Extraktionsfehler: 92,9 % insgesamt, 100 % für `STG-1.1` und 72,7 % für `STG-6.3`. Auf extrahierten PDF- und HTML-Texten sind die meisten Befunde zu `STG-6.3` und `STG-6.6` Artefakte der Extraktion.
+
 ## Bedeutungserhaltung
 
 `tools/stg_compare.py` vergleicht einen Quelltext mit seiner Umformulierung. Das Werkzeug ist keine Konformitätsprüfung und meldet keine Verstöße im Zieltext.
