@@ -128,7 +128,7 @@ Das Verzeichnis `vale/` enthält drei Regeln für [Vale](https://vale.sh). Die R
 - **Werkzeuge:** deterministischer Linter, Analysewerkzeug für deutsche Texte und Bedeutungsprüfung.
 - **Agent Skill** mit den Workflows `WRITE`, `REWRITE` und `AUDIT` und den Modi `strikt` und `pragmatisch`.
 - **Evaluationssuite** für den Skill, mit einem deterministischen Bewertungswerkzeug.
-- Öffentliche Korpusbelege: 139.646 Tokens aus 13 öffentlichen Volltextquellen mit festen Partitionen für Entwicklung, Validierung und Holdout (nur Metadaten und abgeleitete Kennzahlen).
+- Öffentliche Korpusbelege: 359.075 Token aus 28 öffentlichen Volltextquellen in 16 Domänen, mit festen Partitionen für Entwicklung, Validierung und Holdout (nur Metadaten und abgeleitete Kennzahlen).
 
 ## Agent Skill
 
@@ -210,6 +210,8 @@ Die Suite prüft die Einhaltung der Regeln, verlorene geschützte Inhalte, erfor
 ## Projektterminologie
 
 Fügen Sie nicht jeden Produktbegriff und jeden Branchenbegriff in das zentrale Wörterbuch ein. Fügen Sie präzise Fachterminologie in `.stg-de.yaml` ein (siehe `.stg-de.example.yaml`). Die Regeln für die Aufnahme in den zentralen Kern stehen in [`dictionary/GOVERNANCE.md`](dictionary/GOVERNANCE.md).
+
+Beispiel-Glossare für Embedded und IoT, funktionale Sicherheit, Produktsicherheit und Medizinprodukte stehen in [`examples/glossaries/`](examples/glossaries/README.md).
 
 ## Konformitätsprofile
 

@@ -57,14 +57,14 @@ files:
   size_bytes: 1557
   sha256: 498792fa66b0f67f69adc3f0d4b1ef763db7dae08987527c26210ae64c5887eb
 - path: README.md
-  size_bytes: 13226
-  sha256: ff9bdc214780f44967b428239d5e1724ea96a3842d85a9e9fdfae45ef3897f88
+  size_bytes: 13412
+  sha256: 77667b7979d4c8dd903d991a52da9c5476c8111bb2b975957135f28480e4e5f6
 - path: RELEASE-CHECKLIST.md
   size_bytes: 4883
   sha256: 24b705c24bb220b3e096d82cdc8910acc8c7c2be729e50f70e882d685c3d572f
 - path: ROADMAP.md
-  size_bytes: 10252
-  sha256: dc1e76c34cc995e57000ce67fa46319c89df31f1bf02a99f06ff61bb7b550ac5
+  size_bytes: 10575
+  sha256: 8bb445a50a58714dfb3ed8ba46d8e1cd75ca48a86fd571541401d24af7cc29c3
 - path: STG-DE.md
   size_bytes: 267954
   sha256: b1f24e3e2abfd2cd1e8abaa082362d4b17e8bf6de85296a0ef88252282e89639
@@ -78,11 +78,11 @@ files:
   size_bytes: 6079
   sha256: d62be1ea0eb8f29c7085c1ea3a2d2cabb5ed34e14cc38815f521a11bc99aaa32
 - path: corpus/PROTOCOL.md
-  size_bytes: 7677
-  sha256: 81f1e18dcf802ff8f825b63e8cda0ef321cdeaf5aae65058aeccc3a4defc7f6b
+  size_bytes: 8243
+  sha256: 7087f74e0581f5e523c7ab71d6a2a91bc4a73b7bf8a0a217ac95fc9229acd1d0
 - path: corpus/README.md
-  size_bytes: 1562
-  sha256: 18b7084d40682e21890754c1182d693dfe98f9e9668545242b5f95763887dbe4
+  size_bytes: 1882
+  sha256: 5bcad499e03f58b963e5d15a55c676e32b6ea7d0cbba65d664782ee494244772
 - path: corpus/coverage-curves.csv
   size_bytes: 5172
   sha256: b1608143b901b1e545ce81812c01a278344c105171f0f86b00ee2a3bd742bc20
@@ -102,11 +102,11 @@ files:
   size_bytes: 10607
   sha256: 95a28422987c9adb8d41e35bf25af6610fee5ebce4fe5f7fc0b7cee5a39dae86
 - path: corpus/v0.2-fulltext-metrics.yaml
-  size_bytes: 4071
-  sha256: af20974ac5ef5f8e47629ec2077c9c52d4615da471300eb88004bf7176873cb2
+  size_bytes: 13263
+  sha256: 39453ebf48b4ac4911c44bfc3cddf085c1c4bf5e17a9ca53f9dd987cd1484274
 - path: corpus/v0.2-sources.yaml
-  size_bytes: 3758
-  sha256: adacaa09d18e3bfa96d1840de2f60b73c59e0743a5a148d6bf0a8a9450a36cc9
+  size_bytes: 11668
+  sha256: 3f337bb94f0d5f2aef7af207599c9ecda5cce753bd222dad4f1f3e3d3aa2dc6a
 - path: corpus/validation-report.md
   size_bytes: 6914
   sha256: 1b68db60d0f27e925a7117b27fd7d8beb33a9a1abc895c79c64c8c77e643f559
@@ -402,8 +402,8 @@ files:
   size_bytes: 4766
   sha256: 055027eb60d5858f0e5d808c73633df86ecab739f298ed778c14d848af458234
 - path: tools/build_corpus_v02.py
-  size_bytes: 7750
-  sha256: cd428c7dd107e862acc6a7a3f89443c5b305aab777fbc2a915694bc153e3dd2a
+  size_bytes: 9265
+  sha256: e291aef206fdf818af4c51bdeafc7623e65754b9621dd94197784549681ad6e6
 - path: tools/build_manifest.py
   size_bytes: 1236
   sha256: fcf8111b62705f09bfdc5667f3f5f5ba0dcc47d7552f7860fdb0f34a994dc236

@@ -10,6 +10,8 @@ Dieses Verzeichnis enthält abgeleitete Validierungsartefakte aus öffentlicher 
 - `industry-metrics.csv`: aggregierte Metriken je Branche.
 - `coverage-curves.csv`: Ergebnisse zur schrittweisen lexikalischen Abdeckung.
 - `findings.yaml`: Befunde und Einschränkungen der Kuratierung in einer für Agenten lesbaren Form.
+- `v0.2-sources.yaml`: Quellen des Volltextkorpus mit Domäne, Textsorte, Organisation, Partition, Abrufdatum und Extraktionsmethode. Die Partition steht vor jeder Analyse fest.
+- `v0.2-fulltext-metrics.yaml`: Kennzahlen des Volltextkorpus je Quelle, Partition, Domäne und Textsorte, mit und ohne Obergrenze je Quelle.
 - `HOLDOUT-PRECISION.md` und `holdout-precision.yaml`: Präzision des Linters auf der Holdout-Partition. Die YAML-Datei enthält nur Kennzahlen, Hashes und Bewertungen.
 
 ## Design des Korpus
