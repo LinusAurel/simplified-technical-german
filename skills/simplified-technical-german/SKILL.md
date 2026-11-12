@@ -113,7 +113,7 @@ Wenn keine Code-Ausführung verfügbar ist, fahren Sie ohne Code-Ausführung for
 8. Verwenden Sie Belege für die Prüfung, wenn diese Belege relevant sind: Passiv, mehrdeutige Modalität, komplexe Satzgefüge, Pronomenbezug, Reichweite der Verneinung, Nominalstil, Komposita und trennbare Verben.
 9. Lesen Sie das Ergebnis erneut und vergleichen Sie es mit dem Ausgangstext. Prüfen Sie, dass sich kein Fakt, keine Bedingung, keine Ausnahme, kein Akteur, keine Grenze und keine Beziehung geändert hat. Führen Sie `stg_compare.py` aus, wenn Werkzeuge verfügbar sind.
 10. Führen Sie den deterministischen Linter erneut aus, wenn Werkzeuge verfügbar sind. Korrigieren Sie deterministische Befunde, wenn die Korrektur die Bedeutung nicht ändert.
-11. Lassen Sie konformen Text unverändert. Formulieren Sie Text nicht nur aus stilistischen Gründen um.
+11. Lassen Sie konformen Text unverändert. Formulieren Sie Text nicht nur aus stilistischen Gründen um. Geben Sie konformen Text in WRITE und REWRITE ohne einen Satz über die Konformität oder den Linter aus.
 
 ## Prioritäten beim Schreiben
 
@@ -169,6 +169,8 @@ Verwenden Sie die tatsächlichen Regeldefinitionen in `references/rules.md` für
 
 Geben Sie **standardmäßig nur den fertigen STG-DE-Text** zurück. Fügen Sie keine Einleitung, keine Ankündigung des Profils, keine Regeltabelle, keine Anzahl der Verstöße und keine abschließende Erklärung hinzu. Eine Ausnahme gilt, wenn der Benutzer eines dieser Elemente anfordert.
 
+Wenn der Ausgangstext konform ist, geben Sie den Ausgangstext ohne Änderung zurück. Schreiben Sie auch in diesem Fall keinen Kommentar vor oder nach den Text. Der Benutzer erkennt am unveränderten Text, dass der Text konform ist.
+
 Wenn strikte Konformität nur mit einer Änderung der Bedeutung möglich ist, behalten Sie die notwendige Formulierung. Fügen Sie nur dann eine kurze `Hinweis:`-Zeile hinzu, wenn das ungelöste Problem für die angeforderte Ausgabe wesentlich ist.
 
 ### AUDIT
@@ -188,6 +190,8 @@ Ergebnis: PASS | PASS WITH REVIEW | FAIL
 ```
 
 Ein deterministischer Fehler des Linters ergibt das Ergebnis `FAIL`. Verwenden Sie `PASS WITH REVIEW`, wenn kein deterministischer Fehler vorhanden ist, aber relevante heuristische oder ungelöste Belege für die Prüfung bleiben. Vergeben Sie `FAIL` nicht allein auf Grund von Belegen des Analysewerkzeugs.
+
+Verwenden Sie `PASS`, wenn der Linter keinen Befund meldet und keine Regel verletzt ist. Ein allgemeiner Vorschlag für mehr Genauigkeit ist kein Beleg für die Prüfung, zum Beispiel ein fehlender Sollwert. Nennen Sie solche Vorschläge nur, wenn der Benutzer sie anfordert.
 
 Wenn Sie ein Profil oder einen Modus ausgewählt haben, nennen Sie beide in einer kurzen Zeile nach dem Ergebnis. Ein Beispiel ist `Profil: procedure · Modus: strikt`.
 
