@@ -2,6 +2,11 @@ name: Release
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version without v, for example 0.3.0. Must match CITATION.cff. The workflow creates the tag v<version> on main."
+        required: true
 
 permissions:
   contents: write
@@ -14,17 +19,38 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Determine tag
+        env:
+          EVENT: ${{ github.event_name }}
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            test "$GITHUB_REF" = "refs/heads/main" || { echo "Start the release from main, not $GITHUB_REF"; exit 1; }
+            echo "TAG=v${INPUT_VERSION#v}" >> "$GITHUB_ENV"
+          else
+            echo "TAG=$GITHUB_REF_NAME" >> "$GITHUB_ENV"
+          fi
+      - name: Check that the tag matches the release version
+        run: |
+          version=$(grep '^version:' CITATION.cff | awk '{print $2}')
+          test "v$version" = "$TAG" || { echo "Tag $TAG does not match version $version in CITATION.cff"; exit 1; }
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+      - name: Check that no release exists yet
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then echo "Release $TAG exists already"; exit 1; fi
       - run: python -m pip install -r requirements-dev.txt
       - run: python -m unittest discover -s tests -v
       - run: python tools/validate_release.py
-      - name: Check tag matches release version
-        run: |
-          version=$(grep '^version:' CITATION.cff | awk '{print $2}')
-          test "v$version" = "$GITHUB_REF_NAME" || { echo "Tag $GITHUB_REF_NAME does not match version $version"; exit 1; }
       - run: python tools/package_skill.py --out dist
+      - name: Extract release notes
+        run: |
+          awk -v v="$VERSION" '$0 ~ "^## " v "( |$)" {f=1; next} /^## /{if (f) exit} f' CHANGELOG.md > notes.md
+          test -s notes.md || { echo "CHANGELOG.md has no section '## $VERSION'"; exit 1; }
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" dist/* STG-DE.md manifest.yaml \
-            --title "STG-DE $GITHUB_REF_NAME" --notes-file <(awk '/^## /{n++} n==1' CHANGELOG.md)
+          gh release create "$TAG" dist/* STG-DE.md manifest.yaml \
+            --target "$GITHUB_SHA" --title "STG-DE $TAG" --notes-file notes.md
