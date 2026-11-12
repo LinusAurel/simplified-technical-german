@@ -32,6 +32,10 @@ class EvalSuiteTests(unittest.TestCase):
             "rewrite-already-compliant": "1. Schalten Sie das Gerät aus.\n2. Ziehen Sie den Stecker.\n3. Warten Sie 5 Minuten.",
             "audit-violations": "Ergebnis: PASS",
             "rewrite-consumer-keeps-du": "Wenn Sie Ihren Zählerstand melden, senden Sie ein Foto vom Zähler mit.",
+            "rewrite-requirement-ears-overvoltage": "Die Steuerung muss bei mehr als 30 V den Ausgang in 10 ms abschalten und ggf. einen Log-Eintrag schreiben.",
+            "rewrite-vulnerability-notice": "Eine Schwachstelle betrifft Versionen vor 3.2.0. Aktualisieren Sie auf Version 3.2.0.",
+            "rewrite-safety-requirement-sil": "SF-02 (SIL 2) muss in 50 ms den sicheren Zustand herstellen.",
+            "audit-requirement-iot": "Ergebnis: PASS WITH REVIEW",
         }
         for case_id, output in bad.items():
             self.assertFalse(score_case(CASES[case_id], output)["ok"], case_id)
