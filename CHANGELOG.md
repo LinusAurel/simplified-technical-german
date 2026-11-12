@@ -40,6 +40,8 @@ Diese Version ist die erste Version, deren Werkzeuge und Agent Skill für den pr
 
 ### Verpackung und CI
 
+- Python-Paket `stg-de` mit dem Befehl `stg` und den Unterbefehlen `lint`, `analyze` und `compare` (aus dem früheren Branch `v0.8/tooling`). Das Paket enthält Kopien der kanonischen Werkzeuge und Daten. `tools/sync_package.py --check` prüft die Kopien.
+- pre-commit-Hook `stg-de-lint` und erste Vale-Regeln in `vale/`.
 - Plugin und Marketplace für Claude Code in `.claude-plugin/`.
 - `tools/package_skill.py` erzeugt ein reproduzierbares ZIP des Skills mit SHA-256-Prüfsumme.
 - Wiederverwendbare GitHub Action `action.yml` für STG-DE-Prüfungen in anderen Repositorys.

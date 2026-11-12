@@ -57,6 +57,40 @@ Die Action prüft deutsches Markdown in Pull Requests und zeigt Annotationen dir
     fail-on: error       # error | warning | review | never
 ```
 
+### Kommandozeile `stg`
+
+Installieren Sie das Paket `stg-de` direkt aus dem Repository:
+
+```bash
+python -m pip install "git+https://github.com/LinusAurel/simplified-technical-german@v0.5.0"
+```
+
+Der Befehl `stg` enthält drei Unterbefehle. Die Unterbefehle verwenden dieselben Werkzeuge wie der Skill und die Action.
+
+| Befehl | Funktion |
+|---|---|
+| `stg lint docs/ --profile procedure` | deterministische Prüfung |
+| `stg analyze text.md` | heuristische Belege für die Prüfung |
+| `stg compare original.md umschreibung.md` | Bedeutungsprüfung einer Umschreibung |
+
+### pre-commit
+
+Tragen Sie den Hook in `.pre-commit-config.yaml` ein:
+
+```yaml
+repos:
+  - repo: https://github.com/LinusAurel/simplified-technical-german
+    rev: v0.5.0
+    hooks:
+      - id: stg-de-lint
+```
+
+Der Hook prüft geänderte Markdown- und Textdateien und bricht bei Fehlern ab.
+
+### Vale
+
+Das Verzeichnis `vale/` enthält drei Regeln für [Vale](https://vale.sh). Die Regeln decken nur einen kleinen deterministischen Teil von STG-DE ab. Lesen Sie `vale/README.md`.
+
 ## Inhalt
 
 - **75 Regeln und Empfehlungen** für kontrolliertes Schreiben auf Deutsch, in `rules/`.
@@ -88,7 +122,7 @@ WRITE und REWRITE geben nur den fertigen Text zurück. Wenn Code-Ausführung ver
 
 ## Werkzeuge
 
-Installieren Sie die einzige Abhängigkeit:
+Installieren Sie die Abhängigkeiten für die Entwicklung im Repository:
 
 ```bash
 python -m pip install -r requirements-dev.txt

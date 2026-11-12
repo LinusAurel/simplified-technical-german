@@ -1,0 +1,44 @@
+schema_version: '0.7'
+profiles:
+  procedure:
+    description: "Step-by-step operational instructions."
+    base_text_type: procedure
+    sentence_word_limit: 20
+    primary_rules: [STG-5.1, STG-5.2, STG-5.3, STG-5.4, STG-5.5]
+    priorities: [explicit_actor, one_instruction_per_sentence, condition_before_action]
+  safety:
+    description: "Warnings, cautions, and risk-control instructions."
+    base_text_type: procedure
+    sentence_word_limit: 20
+    primary_rules: [STG-7.1, STG-7.2, STG-7.3, STG-5.1]
+    priorities: [risk_level, protective_action, hazard_or_consequence]
+  description:
+    description: "Technical or factual explanatory prose."
+    base_text_type: description
+    sentence_word_limit: 25
+    primary_rules: [STG-6.1, STG-6.2, STG-6.3, STG-6.4, STG-6.5, STG-6.6]
+    priorities: [one_topic_per_paragraph, logical_sequence, terminology_consistency]
+  requirement:
+    description: "Requirements, specifications, and acceptance criteria."
+    base_text_type: description
+    sentence_word_limit: 25
+    primary_rules: [STG-DE-3.2, STG-DE-4.4, STG-4.4]
+    priorities: [explicit_modality, measurable_condition, explicit_scope]
+  support:
+    description: "Customer or internal support instructions and explanations."
+    base_text_type: description
+    sentence_word_limit: 25
+    primary_rules: [STG-4.1, STG-6.3, STG-9.4]
+    priorities: [actionable_language, terminology_consistency, explicit_reference]
+  consumer:
+    description: "B2C product instructions and service communication."
+    base_text_type: description
+    sentence_word_limit: 25
+    primary_rules: [STG-4.1, STG-6.3, STG-DE-9.2]
+    priorities: [plain_explicit_language, necessary_domain_terms, concrete_criteria]
+  agent:
+    description: "Prompts, tool descriptions, inter-agent instructions, and machine-consumed prose."
+    base_text_type: procedure
+    sentence_word_limit: 20
+    primary_rules: [STG-4.1, STG-5.1, STG-DE-3.2, STG-DE-4.4, STG-9.4]
+    priorities: [single_interpretation, explicit_modality, stable_terms, explicit_conditions]

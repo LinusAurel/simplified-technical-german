@@ -1,0 +1,6 @@
+extends: existence
+message: "STG-DE-8.1: Prüfen Sie die Schrägstrichkombination auf Mehrdeutigkeit."
+level: warning
+ignorecase: true
+raw:
+  - '\b(?:und\s*/\s*oder|oder\s*/\s*und)\b'

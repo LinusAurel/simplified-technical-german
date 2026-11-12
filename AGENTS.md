@@ -24,6 +24,7 @@ Führen Sie diese Befehle vor einem Commit aus:
 
 ```bash
 python tools/sync_skill.py
+python tools/sync_package.py
 python tools/build_standalone.py
 python tools/build_manifest.py
 python -m unittest discover -s tests -v
