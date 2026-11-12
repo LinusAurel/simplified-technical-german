@@ -63,6 +63,14 @@ if __name__ == "__main__":
     unittest.main()
 
 
+class LexicalContextTests(unittest.TestCase):
+    def test_lexical_finding_carries_sentence_and_count(self):
+        cp = cli("-", "--format", "json", text="Das Gerät ist aktuell aus.\n\nPrüfen Sie aktuell den Druck.\n")
+        finding = [f for f in json.loads(cp.stdout)["findings"] if f.get("term") == "aktuell"][0]
+        self.assertEqual(finding["original"], "Das Gerät ist aktuell aus.")
+        self.assertEqual((finding["occurrences"], finding["line"]), (2, 1))
+
+
 class PlatformRegressionTests(unittest.TestCase):
     """Regressions found by running the linter on a real German monorepo."""
 

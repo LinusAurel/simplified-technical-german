@@ -12,7 +12,7 @@ Verwenden Sie STG-DE für technische Dokumentation, Anleitungen, Sicherheitshinw
 
 Das Repository enthält einen **Sprachstandard**, ein **kontrolliertes Wörterbuch**, **deterministische Werkzeuge** und einen **Agent Skill**.
 
-> Aktuelles Release: **0.3.0** — experimenteller Standard, verwendbare Werkzeuge. Die Regel-IDs sind stabil. Das zentrale Wörterbuch und das heuristische Analysewerkzeug sind noch in der Validierung.
+> Release: **0.3.0** — experimenteller Standard, verwendbare Werkzeuge. Die Regel-IDs sind stabil. Das zentrale Wörterbuch und das heuristische Analysewerkzeug sind noch in der Validierung.
 
 ## Schnellstart
 

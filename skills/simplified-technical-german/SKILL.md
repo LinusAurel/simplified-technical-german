@@ -62,7 +62,7 @@ Anweisungen stehen in genau einer Anredeform (`STG-5.3`): `sie` („Prüfen Sie 
 
 ## Referenzen schrittweise laden
 
-Lesen Sie nur das Material, das die aktuelle Aufgabe benötigt:
+Lesen Sie nur das Material, das die vorliegende Aufgabe benötigt:
 
 - Lesen Sie `references/profiles.yaml`, wenn die Auswahl des Profils wichtig ist.
 - Lesen Sie `references/rules.md` für Schreibregeln und Beispiele.
@@ -76,7 +76,7 @@ Laden Sie nicht das vollständige Wörterbuch, wenn eine gezielte Suche genügt.
 
 ## Werkzeuge verwenden, wenn verfügbar
 
-Wenn Code-Ausführung verfügbar ist, verwenden Sie diese Ebenen dort, wo sie zum Ergebnis beitragen. Die Pfade in den Verzeichnissen `scripts/` und `references/` sind relativ zum Ordner dieses Skills, also zum Ordner von `SKILL.md`. Das aktuelle Arbeitsverzeichnis kann ein anderes Projekt sein. Rufen Sie die Skripte dann mit dem vollständigen Pfad auf. Die Skripte brauchen Python 3 und für `stg_lint.py` das Paket `PyYAML`.
+Wenn Code-Ausführung verfügbar ist, verwenden Sie diese Ebenen dort, wo sie zum Ergebnis beitragen. Die Pfade in den Verzeichnissen `scripts/` und `references/` sind relativ zum Ordner dieses Skills, also zum Ordner von `SKILL.md`. Das Arbeitsverzeichnis kann zu einem anderen Projekt gehören. Rufen Sie die Skripte dann mit dem vollständigen Pfad auf. Die Skripte brauchen Python 3 und für `stg_lint.py` das Paket `PyYAML`.
 
 1. Führen Sie `scripts/stg_lint.py` für deterministische und kontrollierte Prüfungen aus.
 2. Führen Sie für AUDIT oder für ein schwieriges REWRITE auch `scripts/stg_analyze.py` aus. Das Analysewerkzeug liefert Belege für die Prüfung der deutschen Sprache.
