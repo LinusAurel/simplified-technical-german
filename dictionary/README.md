@@ -1,6 +1,6 @@
 # STG-DE controlled dictionary — v0.4
 
-**Release:** 0.5.0  
+**Release:** 0.6.0  
 **Profile:** `de-DE`  
 **Status:** experimenteller Autorenkern, an einem geschichteten Korpus validiert. Dieser Kern ist in diesem Release kein Wörterbuch der deutschen Allgemeinsprache, das Menschen vollständig geprüft haben.
 
