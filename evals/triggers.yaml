@@ -1,0 +1,26 @@
+# Trigger evaluation for the skill description.
+#
+# should_trigger: requests where an agent should load the STG-DE skill.
+# should_not_trigger: requests where loading it would be wrong.
+# Use these prompts to check the `description` field after every change, for example
+# with the skill-creator description optimizer or by asking the agent which skill it would load.
+schema_version: '0.2'
+should_trigger:
+- Schreib diese Wartungsanleitung bitte in STG-DE um.
+- Kannst du diesen Text in vereinfachtes technisches Deutsch bringen?
+- Prüfe diese Bedienungsanleitung auf Verstöße gegen kontrollierte Sprache.
+- Formuliere die Tool-Beschreibung so, dass ein Agent sie nicht missverstehen kann. Sie ist auf Deutsch.
+- Mach diese deutsche Fehlermeldung eindeutig und kurz.
+- Wir brauchen STE100, aber auf Deutsch, für unsere Service-Dokumentation.
+- Vereinheitliche die Terminologie in dieser deutschen Spezifikation.
+- Rewrite these German safety warnings so they are unambiguous.
+- Audit this German AGENTS.md for ambiguous instructions.
+- Schreibe die Anforderungen im Lastenheft eindeutig, ohne die Modalität zu ändern.
+should_not_trigger:
+- Übersetze diesen Text ins Englische.
+- Schreib mir ein Gedicht über den Herbst.
+- Formuliere diesen Text in Leichte Sprache für Menschen mit Lernschwierigkeiten.
+- Rewrite this English README in Simplified Technical English.
+- Korrigiere nur die Rechtschreibfehler in diesem Brief.
+- Schreib einen emotionalen Werbetext für unsere neue Kaffeemaschine.
+- Fasse diesen deutschen Artikel in drei Sätzen zusammen.

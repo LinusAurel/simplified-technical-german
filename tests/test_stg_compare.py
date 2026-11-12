@@ -64,6 +64,26 @@ class CompareTests(unittest.TestCase):
         result = compare("Führen Sie `make test` aus. Lesen Sie https://example.org/doku.", "Führen Sie die Tests aus.")
         self.assertTrue({"code", "urls"} <= checks(result, "fail"))
 
+    def test_step_numbers_are_not_content(self):
+        result = compare("Schalten Sie das Gerät aus und ziehen Sie den Stecker.",
+                         "1. Schalten Sie das Gerät aus.\n2. Ziehen Sie den Stecker.")
+        self.assertNotIn("numbers", checks(result))
+
+    def test_equivalent_condition_words_pass(self):
+        result = compare("Falls die Anzeige rot ist, ziehen Sie den Stecker.",
+                         "Wenn die Anzeige rot ist, ziehen Sie den Stecker.")
+        self.assertEqual(result["result"], "PASS", result["findings"])
+
+    def test_negative_imperative_keeps_prohibition(self):
+        result = compare("Die Haube darf bei laufendem Motor auf keinen Fall entfernt werden.",
+                         "Entfernen Sie die Haube nicht, wenn der Motor läuft.")
+        self.assertNotIn("prohibition", checks(result))
+        self.assertNotIn("negation", checks(result))
+
+    def test_lost_restriction_is_review(self):
+        result = compare("Setzen Sie `force` nur nach Bestätigung.", "Setzen Sie `force` nach Bestätigung.")
+        self.assertIn("restrictions", checks(result, "review"))
+
     def test_cli_exit_codes(self):
         with tempfile.TemporaryDirectory() as tmp:
             src, new = Path(tmp, "a.txt"), Path(tmp, "b.txt")

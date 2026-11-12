@@ -49,8 +49,12 @@ MODALITY = {
     "ambiguous": {"soll", "sollen", "müsste", "müssten", "könnte", "könnten"},
 }
 NEGATORS = {"nicht", "kein", "keine", "keinen", "keinem", "keiner", "keines", "nie", "niemals", "nichts", "ohne", "weder"}
-CONDITIONS = {"wenn", "falls", "sofern", "sobald", "solange", "bevor", "nachdem", "außer", "ausgenommen", "nur", "ausschließlich", "unless"}
+# Words within one group are interchangeable for this check ("falls" -> "wenn" is fine).
+CONDITIONS = {"wenn", "falls", "sofern", "sobald", "solange", "bevor", "nachdem"}
+RESTRICTIONS = {"außer", "ausgenommen", "nur", "ausschließlich", "lediglich"}
 LIMITS = {"mindestens", "höchstens", "maximal", "minimal", "max", "min", "spätestens", "frühestens", "genau", "exakt", "ca", "circa", "etwa", "ungefähr"}
+LIST_MARKER_RE = re.compile(r"^(\s*)\d+[.)](?=\s)", re.M)
+NEGATIVE_IMPERATIVE_RE = re.compile(r"(?:^|[.!?:]\s+|\n\s*(?:\d+[.)]\s*|[-*]\s*)?)[A-ZÄÖÜ][a-zäöüß]+(?:en|ern|eln)\s+Sie\b[^.!?\n]*?\b(?:nicht|nie|niemals|kein\w*)\b")
 PROHIBITION_RE = re.compile(r"\b(?:darf|dürfen)\b[^.!?]*?\b(?:nicht|kein\w*|nie|niemals)\b|\b(?:nicht|nie|niemals)\b[^.!?]*?\b(?:darf|dürfen)\b|\bverboten\b|\bunzulässig\b", re.I)
 
 
@@ -87,7 +91,8 @@ def strip_protected(text: str) -> str:
 
 
 def numbers(text: str) -> Counter:
-    plain = strip_protected(text)
+    # Step numbering identifies a work step and is not content (STG-8.6).
+    plain = LIST_MARKER_RE.sub(r"\1", strip_protected(text))
     for word, digit in NUMBER_WORDS.items():
         plain = re.sub(rf"(?<![\wÄÖÜäöüß]){word}(?![\wÄÖÜäöüß])", digit, plain, flags=re.I)
     found = Counter()
@@ -167,10 +172,16 @@ def compare(source: str, rewrite: str) -> dict:
     src_mod = {k: sum(count_set(src_words, v).values()) for k, v in MODALITY.items()}
     new_mod = {k: sum(count_set(new_words, v).values()) for k, v in MODALITY.items()}
     src_imp, new_imp = imperative_count(source), imperative_count(rewrite)
-    src_prohib, new_prohib = len(PROHIBITION_RE.findall(source)), len(PROHIBITION_RE.findall(rewrite))
+    def prohibitions(text: str) -> int:
+        return len(PROHIBITION_RE.findall(text)) + len(NEGATIVE_IMPERATIVE_RE.findall(text))
+
+    def modal_prohibitions(text: str) -> int:
+        return len(PROHIBITION_RE.findall(text))
+
+    src_prohib, new_prohib = prohibitions(source), prohibitions(rewrite)
     # "darf nicht" is a prohibition, not a permission.
-    src_mod["permission"] = max(0, src_mod["permission"] - src_prohib)
-    new_mod["permission"] = max(0, new_mod["permission"] - new_prohib)
+    src_mod["permission"] = max(0, src_mod["permission"] - modal_prohibitions(source))
+    new_mod["permission"] = max(0, new_mod["permission"] - modal_prohibitions(rewrite))
 
     if src_prohib > new_prohib:
         findings.append(Finding("prohibition", "review", "Ein Verbot (z. B. 'darf nicht') ist in der Umschreibung seltener. Prüfen Sie, ob es erhalten ist.",
@@ -190,13 +201,14 @@ def compare(source: str, rewrite: str) -> dict:
 
     for check, vocabulary, message, rule in (
         ("negation", NEGATORS, "Verneinungen sind seltener. Prüfen Sie, ob eine Verneinung verloren ging oder ihr Bereich sich änderte.", "STG-DE-4.4"),
-        ("conditions", CONDITIONS, "Bedingungen oder Einschränkungen (wenn, nur, außer) sind seltener.", "STG-5.4"),
+        ("conditions", CONDITIONS, "Bedingungen (wenn, falls, bevor) sind seltener.", "STG-5.4"),
+        ("restrictions", RESTRICTIONS, "Einschränkungen (nur, außer, ausschließlich) sind seltener.", "STG-DE-4.4"),
         ("limits", LIMITS, "Grenz- oder Näherungsangaben (mindestens, höchstens, ca.) sind seltener.", "STG-DE-9.2"),
     ):
         src_c, new_c = count_set(src_words, vocabulary), count_set(new_words, vocabulary)
-        lost = missing(src_c, new_c)
-        if lost:
-            findings.append(Finding(check, "review", message, lost, missing(new_c, src_c), rule))
+        # Compare the group total. Word forms within a group are interchangeable.
+        if sum(src_c.values()) > sum(new_c.values()):
+            findings.append(Finding(check, "review", message, missing(src_c, new_c), missing(new_c, src_c), rule))
 
     counts = Counter(f.severity for f in findings)
     result = "FAIL" if counts["fail"] else ("REVIEW" if counts["review"] else "PASS")
