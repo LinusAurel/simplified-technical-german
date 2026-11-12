@@ -70,6 +70,27 @@ def mask_protected(text: str) -> str:
     return text
 
 
+# A semicolon between list items (authors, norms, values) joins no statements.
+# STG-8.1 forbids only semicolons between statements.
+LIST_ATOM_RE = re.compile(r"""^(?:
+    [^\s]*\d[^\s]*            # identifier or value with a digit: 60601-1, -7,5, +15)
+  | [A-ZÄÖÜ]{2,}[\w-]*      # norm body or abbreviation: IEC, EN, DIN
+  | [A-ZÄÖÜ]\.[:,]?          # initial of a name: R., M.:
+)$""", re.X)
+AUTHOR_START_RE = re.compile(r"^[A-ZÄÖÜ][\w-]+,\s+[A-ZÄÖÜ]\.")
+
+
+def semicolon_joins_statements(line: str, index: int) -> bool:
+    left = line[:index].split()
+    right_text = line[index + 1:].strip()
+    right = right_text.split()
+    if not left or not LIST_ATOM_RE.match(left[-1]):
+        return True
+    if not right:
+        return False
+    return not (LIST_ATOM_RE.match(right[0]) or AUTHOR_START_RE.match(right_text))
+
+
 def prose_sentences(text: str) -> list[str]:
     return [s for block in prose_blocks(text) for s in split_sentences(block)]
 
@@ -224,7 +245,10 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     masked = mask_protected(prose)
 
     for line in prose.splitlines():
-        if ";" in mask_protected(line) and not line.lstrip().startswith("#"):
+        masked_line = mask_protected(line)
+        if line.lstrip().startswith("#"):
+            continue
+        if any(semicolon_joins_statements(masked_line, i) for i, ch in enumerate(masked_line) if ch == ";"):
             findings.append(Finding("error", "STG-8.1", "Semikolon verwenden Sie nicht. Teilen Sie den Satz.", line.strip(), "Schreiben Sie zwei getrennte Sätze."))
 
     for sentence in prose_sentences(masked):

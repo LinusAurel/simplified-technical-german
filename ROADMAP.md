@@ -18,7 +18,6 @@ Werkzeuge müssen die kanonischen Regel- und Wörterbuchdaten des Repositorys ve
 
 Grundlage ist die Messung in [`corpus/HOLDOUT-PRECISION.md`](corpus/HOLDOUT-PRECISION.md).
 
-- [ ] `STG-8.1`: Semikolons in Listen von Namen und Normen nicht melden. Auf dem Holdout sind 10 von 12 Befunden dieser Art falsch.
 - [ ] `STG-6.3`: Marken in Fettschrift am Satzanfang nicht mitzählen. `z.B.` ohne Leerzeichen als Abkürzung erkennen.
 - [ ] Extraktionsfehler bei Menüs, Tabellen und Seitenköpfen verringern. Diese Fehler verursachen fast die Hälfte der Befunde auf dem Holdout.
 - [ ] Nach den Korrekturen mit neuen Holdout-Quellen erneut messen.

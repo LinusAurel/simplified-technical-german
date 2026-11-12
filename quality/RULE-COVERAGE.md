@@ -28,7 +28,7 @@ Eine Regel kann Teil des STG-DE-Standards sein, auch wenn der derzeitige Validat
 | `STG-5.3` | Erkennt die formale Anrede („Sie“, „Ihnen“, „Ihr…“, „Prüfen Sie“) und die Anrede mit „du“ (Pronomen). Mit festgelegter `anrede` ist eine andere Form ein Fehler. Ohne Festlegung ergibt eine gemischte Anrede eine Warnung. Ein Imperativ mit „du“ ohne Pronomen und der Infinitivstil bleiben unerkannt. | partial | error/warning |
 | `STG-6.3` | Zählt im Modus „description“ und im Standardmodus die Wörter und markiert Sätze mit mehr als 25 Wörtern. | deterministic | error |
 | `STG-6.6` | Zählt die Sätze in beschreibenden Absätzen und markiert Absätze mit mehr als sechs Sätzen. | deterministic | error |
-| `STG-8.1` | Markiert Semikolons in Prosazeilen. | partial | error |
+| `STG-8.1` | Markiert Semikolons zwischen Aussagen in Prosazeilen. Semikolons zwischen Listeneinträgen wie Autoren, Normen oder Werten sind ausgenommen. | partial | error |
 | `STG-DE-8.1` | Erkennt eine konservative Menge bekannter mehrdeutiger Formen mit Schrägstrich, zum Beispiel `und/oder`. Geschützte URLs und Code sind ausgenommen. | partial | warning |
 | `STG-9.4` | Setzt `preferred_terms` aus `.stg-de.yaml` durch. | partial | error |
 
