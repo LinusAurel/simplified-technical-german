@@ -113,10 +113,10 @@ Use these priorities in order:
 
 Text that an agent or program reads has no reader who can ask back. For prompts, tool descriptions, error messages, status reports, and inter-agent instructions, use the `agent` profile and `strikt` mode, and also:
 
-- name the actor and the object of each action;
-- state each condition, limit, and exception in its own sentence or list item;
-- use one term for one concept, also across tool names, parameters, and prose;
-- keep identifiers, parameter names, paths, and code exactly as given, in backticks;
+- name the actor and the object of each action,
+- state each condition, limit, and exception in its own sentence or list item,
+- use one term for one concept, also across tool names, parameters, and prose,
+- keep identifiers, parameter names, paths, and code exactly as given, in backticks,
 - write error messages as: what happened, why (if known), what the reader does next.
 
 ## Arbitrary German text
@@ -131,16 +131,16 @@ For persuasive or brand-sensitive text, preserve the communication goal but make
 
 Pay special attention to:
 
-- long or ambiguous compound nouns;
-- separable verbs and separated verb particles;
-- long sentence brackets;
-- nested subordinate clauses;
-- passive constructions with `werden`;
-- nominalized actions where a direct verb is clearer;
-- ambiguous pronouns and pronominal adverbs such as `dabei`, `dazu`, `daraus`, `davon`, and `darüber`;
-- vague modal words such as `gegebenenfalls`, `möglichst`, `ordnungsgemäß`, or `zeitnah`;
-- ambiguous scope of `nicht`, `nur`, `auch`, and similar particles;
-- inconsistent synonyms for the same concept;
+- long or ambiguous compound nouns,
+- separable verbs and separated verb particles,
+- long sentence brackets,
+- nested subordinate clauses,
+- passive constructions with `werden`,
+- nominalized actions where a direct verb is clearer,
+- ambiguous pronouns and pronominal adverbs such as `dabei`, `dazu`, `daraus`, `davon`, and `darüber`,
+- vague modal words such as `gegebenenfalls`, `möglichst`, `ordnungsgemäß`, or `zeitnah`,
+- ambiguous scope of `nicht`, `nur`, `auch`, and similar particles,
+- inconsistent synonyms for the same concept,
 - words whose inflected form collides with a separate lemma or meaning.
 
 Use the actual rule definitions in `references/rules.md` for normative decisions.
@@ -179,9 +179,9 @@ If `.stg-de.yaml` or another project glossary is present, give it precedence for
 
 When no project dictionary exists:
 
-- keep necessary domain nouns and verbs;
-- use the same term consistently;
-- do not invent a simpler synonym when it could change technical meaning;
+- keep necessary domain nouns and verbs,
+- use the same term consistently,
+- do not invent a simpler synonym when it could change technical meaning,
 - in AUDIT mode, mark unresolved domain terms as review items rather than automatic errors.
 
 ## Boundaries
