@@ -93,9 +93,10 @@ Diese Roadmap beschreibt den Weg vom aktuellen experimentellen Release (0.2.0) z
 - [x] Claude-Code-Plugin und Marketplace (`.claude-plugin/`).
 - [x] Reproduzierbares Skill-ZIP mit Prüfsumme für claude.ai und andere Skill-Loader.
 - [x] Kopiervorlagen für `AGENTS.md`, `CLAUDE.md` und System-Prompts (`prompts/agents-md.md`).
-- [ ] Python-Paket mit einer CLI `stg` (`pip install`).
-- [ ] pre-commit-Hook (benötigt das Python-Paket).
-- [ ] Vale-Regeln für Fälle, in denen eine deterministische Abbildung möglich und sinnvoll ist.
+- [x] Python-Paket `stg-de` mit einer CLI `stg` (`lint`, `analyze`, `compare`).
+- [x] pre-commit-Hook `stg-de-lint`.
+- [x] Erste Vale-Regeln für deterministisch abbildbare Fälle (`STG-8.1`, `STG-DE-4.3`, `STG-DE-8.1`).
+- [ ] Veröffentlichung des Pakets auf PyPI.
 - [ ] Adapter für das Language Server Protocol und Diagnosen in VS Code.
 - [ ] Optionaler MCP-Server für Integrationen in Editoren und Agenten.
 
@@ -151,6 +152,6 @@ STG-DE erreicht 1.0 durch Belege und Stabilität, nicht durch eine Zielgröße d
 
 1. Führen Sie `tools/run_evals.py` mit mindestens zwei Modellen aus, mit und ohne Skill. Veröffentlichen Sie die Ergebnisse.
 2. Prüfen Sie manuell eine Holdout-Stichprobe. Veröffentlichen Sie die Präzision von Linter und Analyzer.
-3. Paketieren Sie die Werkzeuge als Python-Paket mit einer CLI `stg` und einem pre-commit-Hook.
+3. Veröffentlichen Sie das Paket `stg-de` auf PyPI.
 4. Erweitern Sie das Korpus in Richtung 500.000 Token mit ausgewogenen Partitionen.
 5. Fügen Sie Lemmatisierung und Analyse von Komposita hinzu, innerhalb der Grenze „nur Review“.

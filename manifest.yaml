@@ -9,8 +9,8 @@ files:
   size_bytes: 663
   sha256: 2ffce0c40525be738d1ed77d4f891f6840bdf0ccfeb90dd9abf4897929a01d20
 - path: .github/workflows/ci.yml
-  size_bytes: 1261
-  sha256: d62f96cdaba33065020abc0de579cff9bc1532d0231d4c33fd676124cb7d27ec
+  size_bytes: 1316
+  sha256: 8193d99cfc502ba458f0f469c5e4563dc296dfbee9782b31b3aea430bd2dde71
 - path: .github/workflows/corpus-fulltext.yml
   size_bytes: 1103
   sha256: 5144c6562ddb8143a07883156113d394023a89735f2495201e8b4c78a873c9e3
@@ -18,17 +18,20 @@ files:
   size_bytes: 1001
   sha256: 22685be8c455c8a8e196c8ee2b7e816819d320acd3585f1a0e8bef4cab4f26ef
 - path: .gitignore
-  size_bytes: 85
-  sha256: 91641966134f1f76034ec284114bd0d1066f975d849d16a7b4008731f608f6c2
+  size_bytes: 92
+  sha256: f6b83cfae75f02edeee1892620ef78be3b9bdee1b823c4e9866cbca9c2a02257
+- path: .pre-commit-hooks.yaml
+  size_bytes: 229
+  sha256: cd60dd725f3e4c235aab60ef49d63261c8b28fac1384d708a3e461a72f6c7fb3
 - path: .stg-de.example.yaml
   size_bytes: 423
   sha256: 690bb27c9b172706fb2ea1d7607bcf78024eedce3895aab9550ea54bf9e6a50c
 - path: AGENTS.md
-  size_bytes: 1730
-  sha256: 76ba3ef92ceee0549f487f774a3a03381ebd380737d759c75e9ea255df3ee565
+  size_bytes: 1759
+  sha256: 2cb476b425196f405b2c88e73500fd2464e244f0e0b32d3581a75651898d7014
 - path: CHANGELOG.md
-  size_bytes: 6305
-  sha256: 9bac6339e45e6513f4927da6eab5977457edf48e77b5486fa357d529d03a84dc
+  size_bytes: 6627
+  sha256: 74d6a68bde4f04fec5b2c6e0808f5fdd87d09aa3dcfad741106cb6b81c64d619
 - path: CITATION.cff
   size_bytes: 471
   sha256: d411f9cd1c6f2113ecb4c4c55d93cec2c71b108bfb8899ed2232884c87d6600e
@@ -45,14 +48,14 @@ files:
   size_bytes: 1557
   sha256: 498792fa66b0f67f69adc3f0d4b1ef763db7dae08987527c26210ae64c5887eb
 - path: README.md
-  size_bytes: 11097
-  sha256: 36e4f34dad3764fd289f30e50857f55157dd1911924873fac3db64b12b8671e6
+  size_bytes: 12177
+  sha256: bb1e975fe7f6f8d44dfe1f0858bcd7f85d1f3dcb50e0fc6cdd796e62816fb3e2
 - path: RELEASE-CHECKLIST.md
-  size_bytes: 4560
-  sha256: 427dffa8baf3ba97b380a754a319606c0d2beeb18a7c01e5cc93d69026c3ab53
+  size_bytes: 4600
+  sha256: eccc8ca8826950c8593bfd8026115a13c097fd81e0b4e287bfd51fb9014c69f8
 - path: ROADMAP.md
-  size_bytes: 10113
-  sha256: 29d97c473e0cbdef868fefbe005426b2a230ed8481bf34014752944a658ec024
+  size_bytes: 10129
+  sha256: 28aac5aeac2da6d9704d750f1b34e43a0c9d0ebf55d33a8d0dc1c971a1e21580
 - path: STG-DE.md
   size_bytes: 266164
   sha256: b9d47881d30953d88bf4d410ce526520ed9a5b36ab059c5f9eab385ebe9d85f3
@@ -206,6 +209,9 @@ files:
 - path: proposals/STG-CHANGE-TEMPLATE.md
   size_bytes: 1714
   sha256: f88742d420d6316b64e0d920cdf48c7308a1a9919aa777041e4f627e13094407
+- path: pyproject.toml
+  size_bytes: 1074
+  sha256: fa26cbc30da8239e76590e16f494f6c6342c62cf1d3d5759768115feb1cb961c
 - path: quality/GERMAN-ANALYSIS.md
   size_bytes: 3077
   sha256: 711440e29957e2debf83799cb25097bcdb9cb7bbc0bbfecc446810bb1ff8a2f5
@@ -308,6 +314,51 @@ files:
 - path: specification.md
   size_bytes: 10323
   sha256: 8dd37e650fc0af125d07ddd4ba833d28e41e1260cc2d4ef1ce24f645844c76fe
+- path: stg_de/__init__.py
+  size_bytes: 52
+  sha256: d01dfcd4ff50ead79fd1c1df711e9d384675761b971b88f632e320cfe8ba301c
+- path: stg_de/cli.py
+  size_bytes: 1653
+  sha256: 8024ff1528869cea2014f965f211d8fe8f4495bc10549140f33f62dfc2d22bd1
+- path: stg_de/dictionary/approved-words.yaml
+  size_bytes: 136154
+  sha256: 5ccfdd6352daf744c8bb894790c61962ca8d62178773578eea7d439d76968ac7
+- path: stg_de/dictionary/prohibited-words.yaml
+  size_bytes: 29531
+  sha256: 69c7292cff71e5bf20cb3e6bf7b5877698a738620a928f3e85ca7e76a07710c9
+- path: stg_de/profiles/profiles.yaml
+  size_bytes: 2039
+  sha256: 12e5636b859ad67acdbada7d9f62507ed4b4af5f5ba35c39d8940355ef049e41
+- path: stg_de/stg_analyze.py
+  size_bytes: 11344
+  sha256: 2ca83c99340fae9ed36d6159fb60f80481e25993528c088802716abde1753186
+- path: stg_de/stg_compare.py
+  size_bytes: 15090
+  sha256: 69fe3d038c02f975c326ed70648e0a8e51889c7498410a483be6588ac1b71835
+- path: stg_de/stg_lint.py
+  size_bytes: 20901
+  sha256: 802af4c4ba1c244613121b42d102a7fdaf5470516e0b8f9b90cf3cc9694316c7
+- path: stg_de/stg_markdown.py
+  size_bytes: 2691
+  sha256: 998224f58bd4c2cf928897398ad36e56bb879b611fd997f7836a23a09a167763
+- path: stg_de.egg-info/PKG-INFO
+  size_bytes: 11974
+  sha256: cb99006c9fe7434713d168bcd4f5d35e89488a3d338316bea5ab65daf6bf590e
+- path: stg_de.egg-info/SOURCES.txt
+  size_bytes: 801
+  sha256: dacb634d822756101fd466536c4dcb39af2aff7c4433d74220e1eac2134b974b
+- path: stg_de.egg-info/dependency_links.txt
+  size_bytes: 1
+  sha256: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
+- path: stg_de.egg-info/entry_points.txt
+  size_bytes: 40
+  sha256: abf2e55e32b2636c98a398afa6e09bfe03403fd2ba59acadc346ea0e089cafd7
+- path: stg_de.egg-info/requires.txt
+  size_bytes: 12
+  sha256: 71749243f84428fee225bfaa796dca5ef6c1e83a98f6d2a407df615b0390d6fb
+- path: stg_de.egg-info/top_level.txt
+  size_bytes: 7
+  sha256: 78d11b2de955e49bb79ef235f9ad999d4c6cadad00dae3c47dfe958358491b6b
 - path: tests/test_address.py
   size_bytes: 3371
   sha256: 8ca04b0d56609969ffc858dda4c7b0013ddb467dedca079c52c4d7630346e9dc
@@ -323,9 +374,12 @@ files:
 - path: tests/test_markdown.py
   size_bytes: 2821
   sha256: ec85031fc2786f6b1b521e1d93d84c11a9f62871ec3372b648d46e31b3b1ffbe
+- path: tests/test_package_cli.py
+  size_bytes: 3467
+  sha256: 6a3d28333abc8e6fd9f4262d37f0c0cabdbc004fc48f4223fd51a0b3889bf3ad
 - path: tests/test_packaging.py
-  size_bytes: 3364
-  sha256: 8587f74192c4575d871f70330651d34f8893d9b1e53707a1718ba3e4fd78a657
+  size_bytes: 3676
+  sha256: de18fab36f882ab99512ac56eb7b166603afa99182f9c573d86d3f86fcc32c68
 - path: tests/test_profiles.py
   size_bytes: 2998
   sha256: 4d9fe4fe02e4d220c79c5017feb09b6205895a0a68a3a6373a30f2888f23c2db
@@ -377,12 +431,27 @@ files:
 - path: tools/stg_markdown.py
   size_bytes: 2691
   sha256: 998224f58bd4c2cf928897398ad36e56bb879b611fd997f7836a23a09a167763
+- path: tools/sync_package.py
+  size_bytes: 1627
+  sha256: d46110779b201689ab4b3cb6c21914ae83a0a396725b4ee712fe367cdd1b75bc
 - path: tools/sync_skill.py
   size_bytes: 2997
   sha256: 9cb54bee838073fb3d568bff9f664c8ff6b3d50abc7dd3ab7564dd6743641b8b
 - path: tools/validate_release.py
   size_bytes: 5039
   sha256: 2dd79e04b4e9be30d1dfe69471e795bbec2e5103b829ba10cb05250e28155c06
+- path: vale/README.md
+  size_bytes: 1200
+  sha256: 453d75ffc8878e61dc00c670a67667b9e6820933e39a30648f8e22b2abb8f978
+- path: vale/STG-DE/AmbiguousSlash.yml
+  size_bytes: 184
+  sha256: a1c50a675532c8e78a3d629297a15f82ff339bcbd62d9acc054cbae9ec0c49dc
+- path: vale/STG-DE/IndefiniteMan.yml
+  size_bytes: 148
+  sha256: 77325ed9f3c4f62552ac4744230999b80834d7e74165251d240a48f1fa8afca9
+- path: vale/STG-DE/Semicolon.yml
+  size_bytes: 138
+  sha256: b160417bbc6b0f87c68bcb94e2b7dfdc5c7a6210f53ecc953a3f60b4b5c01f14
 - path: validator-contract.md
   size_bytes: 8199
   sha256: 572c16888b9bc6e879fb93cc61ab2e55178cc42fb4dd8dafaeed699011108a41

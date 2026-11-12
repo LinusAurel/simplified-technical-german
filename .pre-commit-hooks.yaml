@@ -1,0 +1,7 @@
+- id: stg-de-lint
+  name: STG-DE lint
+  description: Deterministische STG-DE-Prüfung deutscher Text- und Markdown-Dateien.
+  entry: stg lint --fail-on error
+  language: python
+  types_or: [markdown, text]
+  require_serial: true
