@@ -31,6 +31,7 @@ class EvalSuiteTests(unittest.TestCase):
             "rewrite-requirement-vague-time": "Das System muss Anfragen innerhalb von 2 s im Protokoll beantworten.",
             "rewrite-already-compliant": "1. Schalten Sie das Gerät aus.\n2. Ziehen Sie den Stecker.\n3. Warten Sie 5 Minuten.",
             "audit-violations": "Ergebnis: PASS",
+            "rewrite-consumer-keeps-du": "Wenn Sie Ihren Zählerstand melden, senden Sie ein Foto vom Zähler mit.",
         }
         for case_id, output in bad.items():
             self.assertFalse(score_case(CASES[case_id], output)["ok"], case_id)

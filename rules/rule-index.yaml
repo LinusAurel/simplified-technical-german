@@ -169,7 +169,7 @@ rules:
   file: rules/05-procedures.md
   level: MUST
 - id: STG-5.3
-  title: Anweisungen im formalen Imperativ
+  title: Anweisungen in einer festgelegten Anredeform
   file: rules/05-procedures.md
   level: MUST
 - id: STG-5.4

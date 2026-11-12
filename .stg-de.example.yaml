@@ -1,4 +1,6 @@
 version: 1
+# Anredeform für Anweisungen (STG-5.3): sie (Standard), du oder infinitiv.
+anrede: sie
 technical_nouns:
   - term: "Beispielsystem"
     definition: "Produkt- oder Systembezeichnung im Projekt"

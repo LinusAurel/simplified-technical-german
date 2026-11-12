@@ -89,6 +89,10 @@ class CompareTests(unittest.TestCase):
         self.assertIn("quoted_text", checks(result, "fail"))
         self.assertEqual(compare("Sagen Sie nicht „Provision“.", 'Sagen Sie nicht "Provision".')["result"], "PASS")
 
+    def test_informal_address_modality(self):
+        self.assertIn("modality", checks(compare("Du kannst den Filter tauschen.", "Tausche den Filter.")))
+        self.assertEqual(compare("Du musst den Filter tauschen.", "Tausche den Filter.")["result"], "PASS")
+
     def test_cli_exit_codes(self):
         with tempfile.TemporaryDirectory() as tmp:
             src, new = Path(tmp, "a.txt"), Path(tmp, "b.txt")

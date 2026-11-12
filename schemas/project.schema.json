@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "STG-DE project configuration (.stg-de.yaml)",
+  "type": "object",
+  "properties": {
+    "version": {"type": "integer", "const": 1},
+    "anrede": {
+      "description": "Form of address for instructions (STG-5.3). Default: sie.",
+      "enum": ["sie", "du", "infinitiv"]
+    },
+    "technical_nouns": {"$ref": "#/$defs/terms"},
+    "technical_verbs": {"$ref": "#/$defs/terms"},
+    "protected_terms": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "preferred_terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["preferred", "avoid"],
+        "properties": {
+          "preferred": {"type": "string"},
+          "avoid": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "terms": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {"type": "string"},
+          {
+            "type": "object",
+            "required": ["term"],
+            "properties": {"term": {"type": "string"}, "definition": {"type": "string"}},
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  }
+}

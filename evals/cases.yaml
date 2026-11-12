@@ -14,6 +14,7 @@
 #   expect_unchanged true when compliant input must be returned unchanged
 #   expected_rules   AUDIT: rule IDs the audit must name
 #   expected_result  AUDIT: PASS | PASS WITH REVIEW | FAIL
+#   anrede           form of address the linter enforces on the output (sie | du | infinitiv)
 schema_version: '0.5'
 cases:
 - id: rewrite-procedure-housing
@@ -81,6 +82,17 @@ cases:
     vorhanden ist oder ungültiges YAML enthält; bitte prüfen.
   must_contain: ["`config.yaml`"]
   must_not_contain: [";"]
+
+- id: rewrite-consumer-keeps-du
+  operation: REWRITE
+  profile: consumer
+  # The source addresses the reader with "du". Without a project setting the rewrite keeps it.
+  anrede: du
+  input: >-
+    Wenn du deinen Zählerstand meldest, solltest du am besten gleich ein Foto vom Zähler mitschicken;
+    so können wir den Wert schneller prüfen und du bekommst deine Abrechnung ohne Rückfragen.
+  must_contain: [Zählerstand, Foto]
+  must_not_contain: [" Sie ", ";"]
 
 - id: rewrite-already-compliant
   operation: REWRITE
