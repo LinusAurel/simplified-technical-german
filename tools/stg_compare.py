@@ -150,14 +150,17 @@ def compare(source: str, rewrite: str) -> dict:
 
     src_quotes = Counter(next(g for g in m.groups() if g) for m in QUOTE_RE.finditer(source))
     new_quotes = Counter(next(g for g in m.groups() if g) for m in QUOTE_RE.finditer(rewrite))
-    lost_quotes = [q for q in missing(src_quotes, new_quotes) if q not in rewrite]
+    # A quote survives a change of quotation marks, but not a change of its wording.
+    lost_quotes = [q for q in missing(src_quotes, new_quotes)
+                   if not re.search(r"(?<![\wÄÖÜäöüß])" + re.escape(q) + r"(?![\wÄÖÜäöüß])", rewrite)]
     if lost_quotes:
         findings.append(Finding("quoted_text", "fail", "Zitierter Text (z. B. UI-Beschriftungen) fehlt oder wurde verändert.",
                                 lost_quotes, []))
 
     src_ids = Counter(IDENT_RE.findall(strip_protected(source)))
     new_ids = Counter(IDENT_RE.findall(strip_protected(rewrite)))
-    lost_ids = [i for i in missing(src_ids, new_ids) if i not in SIGNAL_WORDS and i not in rewrite]
+    lost_ids = [i for i in missing(src_ids, new_ids) if i not in SIGNAL_WORDS
+                and not re.search(r"(?<![\w-])" + re.escape(i) + r"(?![\w-])", rewrite)]
     if lost_ids:
         findings.append(Finding("identifiers", "fail", "Kennungen, Abkürzungen oder Produktnamen fehlen.",
                                 lost_ids, [], "STG-1.8"))
