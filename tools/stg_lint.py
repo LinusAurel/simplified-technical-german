@@ -38,6 +38,14 @@ AMBIGUOUS_SLASH_PATTERNS = (
 )
 
 
+ADDRESS_FORMS = ("sie", "du", "infinitiv")
+# Formal address: capitalized "Sie"/"Ihnen"/"Ihr…" after the first word of a sentence, or a
+# sentence-initial formal imperative ("Prüfen Sie …"). Lowercase "sie" is third person.
+FORMAL_RE = re.compile(r"(?<=[^\s.!?:]\s)(?:Sie|Ihnen|Ihre?[mnrs]?)\b|^[A-ZÄÖÜ][a-zäöüß]+(?:en|ern|eln)\s+Sie\b")
+INFORMAL_RE = re.compile(r"(?<![\wÄÖÜäöüß])(?:[Dd]u|[Dd]ich|[Dd]ir|[Dd]ein(?:e|em|en|er|es)?|[Ee]uch|[Ee]uer|[Ee]ure[mnrs]?)(?![\wÄÖÜäöüß])")
+ADDRESS_LABEL = {"sie": "formale Anrede mit „Sie“", "du": "Anrede mit „du“"}
+
+
 @dataclass
 class Finding:
     severity: str
@@ -165,9 +173,46 @@ def resolve_profile(root: Path, profile: str | None, text_type: str) -> tuple[st
     return effective_type, limit, config
 
 
+def address_findings(sentences: list[str], declared: str | None) -> list[Finding]:
+    """STG-5.3: one form of address per document set."""
+    hits: dict[str, list[str]] = {"sie": [], "du": []}
+    for sentence in sentences:
+        if FORMAL_RE.search(sentence):
+            hits["sie"].append(sentence)
+        if INFORMAL_RE.search(sentence):
+            hits["du"].append(sentence)
+    if declared:
+        out = []
+        for form, found in hits.items():
+            if form == declared:
+                continue
+            for sentence in found:
+                out.append(Finding("error", "STG-5.3",
+                                   f"Das Projekt legt die Anrede `{declared}` fest. Der Satz verwendet die {ADDRESS_LABEL[form]}.",
+                                   sentence, "Verwenden Sie die festgelegte Anredeform."))
+        return out
+    if hits["sie"] and hits["du"]:
+        minority = "du" if len(hits["du"]) <= len(hits["sie"]) else "sie"
+        return [Finding("warning", "STG-5.3",
+                        "Das Dokument mischt die formale Anrede mit „Sie“ und die Anrede mit „du“.",
+                        hits[minority][0], "Legen Sie eine Anredeform fest (`anrede` in `.stg-de.yaml`) und verwenden Sie nur diese.")]
+    return []
+
+
+def resolve_address(project: dict, address: str | None) -> str | None:
+    value = address or project.get("anrede") or project.get("address")
+    if value is None:
+        return None
+    value = str(value).casefold()
+    if value not in ADDRESS_FORMS:
+        raise ValueError(f"unknown form of address: {value} (expected sie, du or infinitiv)")
+    return value
+
+
 def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | None = None,
-               lexicon_report: bool = False, profile: str | None = None) -> dict:
+               lexicon_report: bool = False, profile: str | None = None, address: str | None = None) -> dict:
     project = project or {}
+    declared_address = resolve_address(project, address)
     if (root / "dictionary" / "approved-words.yaml").exists():
         approved_path = root / "dictionary" / "approved-words.yaml"
         prohibited_path = root / "dictionary" / "prohibited-words.yaml"
@@ -191,6 +236,8 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     for sentence in prose_sentences(masked):
         if MAN_RE.search(sentence):
             findings.append(Finding("error", "STG-DE-4.3", "`man` bezeichnet den Akteur nicht eindeutig.", sentence, "Nennen Sie den Akteur oder verwenden Sie eine direkte Anweisung.", "man"))
+
+    findings += address_findings(prose_sentences(masked), declared_address)
 
     for line in masked.splitlines():
         if line.lstrip().startswith("#"):
@@ -254,6 +301,7 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
         "tool": "stg_lint.py",
         "standard": f"STG-DE {STG_VERSION}",
         "profile": profile,
+        "address": declared_address,
         "profile_priorities": (profile_config or {}).get("priorities", []),
         "text_type": effective_type,
         "sentence_word_limit": sentence_limit,
@@ -345,6 +393,8 @@ def main() -> int:
     ap.add_argument("--project", help="Project terminology file (default: ./.stg-de.yaml when present)")
     ap.add_argument("--no-project", action="store_true", help="Do not load ./.stg-de.yaml automatically")
     ap.add_argument("--profile", help="Application profile: procedure, safety, description, requirement, support, consumer, agent")
+    ap.add_argument("--anrede", "--address", dest="address", choices=list(ADDRESS_FORMS),
+                    help="Form of address for instructions (default: `anrede` in .stg-de.yaml; otherwise only mixing is reported)")
     ap.add_argument("--text-type", choices=["auto", "procedure", "description"], default="auto", help="Legacy structural override; profile base type is used when auto")
     ap.add_argument("--format", choices=["text", "json", "github"], default="text")
     ap.add_argument("--lexicon-report", action="store_true")
@@ -370,7 +420,7 @@ def main() -> int:
         except (OSError, UnicodeDecodeError) as exc:
             ap.error(f"{path}: {exc}")
         try:
-            result = audit_text(text, root, args.text_type, project, args.lexicon_report, args.profile)
+            result = audit_text(text, root, args.text_type, project, args.lexicon_report, args.profile, args.address)
         except ValueError as exc:
             ap.error(str(exc))
         result["path"] = "<stdin>" if path == "-" else path

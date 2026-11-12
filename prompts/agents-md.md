@@ -2,6 +2,8 @@
 
 Diese Datei enthält zwei Textbausteine für Werkzeuge ohne Skill-Unterstützung. Kopieren Sie einen Baustein in `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md` oder einen Systemprompt.
 
+Die Bausteine verwenden die formale Anrede mit „Sie“. Wenn Ihr Projekt die Anrede mit „du“ verwendet, passen Sie die Anrede der Bausteine an.
+
 Der Skill ist genauer als diese Bausteine. Verwenden Sie den Skill, wenn Ihr Werkzeug Skills unterstützt.
 
 ## Kurzfassung
@@ -12,7 +14,7 @@ Der Skill ist genauer als diese Bausteine. Verwenden Sie den Skill, wenn Ihr Wer
 Schreiben Sie deutsche Dokumentation, Fehlermeldungen und Anweisungen an Agenten in STG-DE (https://github.com/linusaurel/simplified-technical-german):
 
 - höchstens 20 Wörter je Satz in Anleitungen,
-- eine Anweisung je Satz im formalen Imperativ: „Prüfen Sie den Druck.“,
+- eine Anweisung je Satz, im ganzen Dokument in einer Anredeform: „Prüfen Sie den Druck.“ oder „Prüfe den Druck.“ oder „Druck prüfen.“,
 - Aktiv statt Passiv, kein `man`,
 - die Bedingung vor der Anweisung,
 - kein Semikolon,
@@ -33,7 +35,8 @@ STG-DE ist eine kontrollierte Sprache nach dem Vorbild von ASD-STE100.
 
 - Schreiben Sie höchstens 20 Wörter je Satz.
 - Schreiben Sie eine Anweisung je Satz.
-- Verwenden Sie den formalen Imperativ: „Prüfen Sie den Druck.“
+- Verwenden Sie im ganzen Dokument eine Anredeform: „Prüfen Sie den Druck.“ oder „Prüfe den Druck.“ oder „Druck prüfen.“
+- Behalten Sie beim Umschreiben die Anredeform des Originals bei.
 - Nennen Sie die Bedingung zuerst: „Wenn die Anzeige rot ist, ziehen Sie den Stecker.“
 - Nummerieren Sie die Schritte.
 
