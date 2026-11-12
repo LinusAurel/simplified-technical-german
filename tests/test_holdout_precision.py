@@ -40,6 +40,37 @@ class HoldoutPrecisionTests(unittest.TestCase):
         self.assertEqual(report["positives"]["sampled"], report["positives"]["tp"] + report["positives"]["fp"]
                          + report["positives"]["extraction"])
 
+    def test_score_ignores_skipped_items_and_uses_sheet_sources(self):
+        sheet = {"seed": 1, "linter": "0.6.0", "sources": [{"id": "OLD", "sha256": "x"}], "positives": [
+            {"id": "a", "source": "OLD", "rule": "STG-1.1", "excerpt": "t", "label": "tp"},
+            {"id": "b", "source": "OLD", "rule": "STG-1.1", "excerpt": "t", "label": "skip"},
+        ], "negatives": [{"id": "c", "source": "OLD", "excerpt": "t", "label": "skip"}]}
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp, "sheet.yaml")
+            path.write_text(yaml.safe_dump(sheet), encoding="utf-8")
+            out = Path(tmp, "out.yaml")
+            with mock.patch.object(holdout_precision, "OUTPUT", out):
+                holdout_precision.score(path, "Test")
+            report = yaml.safe_load(out.read_text(encoding="utf-8"))
+        self.assertEqual(report["sources"], ["OLD"])
+        self.assertEqual(report["linter"], "0.6.0")
+        self.assertEqual(report["positives"]["sampled"], 1)
+        self.assertEqual(report["negatives"]["sampled"], 0)
+
+    def test_sample_never_counts_a_sentence_with_a_reported_term_as_clean(self):
+        # "ggf." occurs twice. The linter reports the term once, with the first sentence.
+        text = ("Prüfen Sie ggf. den Druck im System. Öffnen Sie ggf. das Ventil am Gerät. "
+                "Schließen Sie das Ventil am Gerät.")
+        source = {"id": "S", "partition": "holdout", "type": "text", "url": "u"}
+        with tempfile.TemporaryDirectory() as tmp, \
+                mock.patch.object(holdout_precision, "holdout_sources", return_value=[source]), \
+                mock.patch.object(holdout_precision, "download", return_value=(text.encode(), "text/plain")):
+            holdout_precision.sample(Path(tmp), per_source=10, negatives=10)
+            sheet = yaml.safe_load(Path(tmp, "holdout-labels.yaml").read_text(encoding="utf-8"))
+        clean = [x["excerpt"] for x in sheet["negatives"]]
+        self.assertEqual(clean, ["Schließen Sie das Ventil am Gerät."])
+        self.assertEqual(sheet["sources"][0]["id"], "S")
+
     def test_sample_refuses_output_inside_repository(self):
         with mock.patch.object(sys, "argv", ["holdout_precision.py", "sample", "--out", str(ROOT / "tmp")]):
             with self.assertRaises(SystemExit):
