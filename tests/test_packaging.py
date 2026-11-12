@@ -48,6 +48,39 @@ class PackagingTests(unittest.TestCase):
         self.assertEqual(entry["source"], "./")
         self.assertNotIn(market["name"], {"claude-plugins-official", "anthropic-plugins"})
 
+    def test_codex_plugin_manifest(self):
+        claude = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
+        codex = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))
+        self.assertEqual(codex["name"], claude["name"])
+        self.assertEqual(codex["version"], release_version())
+        skills_dir = (ROOT / codex["skills"]).resolve()
+        self.assertTrue((skills_dir / SKILL.name / "SKILL.md").is_file())
+        interface = codex["interface"]
+        for key in ("displayName", "shortDescription", "longDescription", "developerName", "category", "defaultPrompt"):
+            self.assertTrue(interface.get(key), key)
+        self.assertIsInstance(interface["defaultPrompt"], list)
+        # Only plugin.json belongs inside .codex-plugin/.
+        self.assertEqual(sorted(p.name for p in (ROOT / ".codex-plugin").iterdir()), ["plugin.json"])
+
+    def test_codex_marketplace_entry(self):
+        market = json.loads((ROOT / ".agents" / "plugins" / "marketplace.json").read_text(encoding="utf-8"))
+        codex = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8"))
+        entry = market["plugins"][0]
+        self.assertEqual(entry["name"], codex["name"])
+        self.assertEqual(entry["source"]["source"], "local")
+        plugin_root = (ROOT / entry["source"]["path"]).resolve()
+        self.assertTrue((plugin_root / ".codex-plugin" / "plugin.json").is_file())
+        self.assertIn(entry["policy"]["installation"], {"AVAILABLE", "INSTALLED_BY_DEFAULT", "NOT_AVAILABLE"})
+        self.assertNotIn(market["name"], {"openai-curated"})
+
+    def test_openai_yaml_follows_codex_conventions(self):
+        text = (SKILL / "agents" / "openai.yaml").read_text(encoding="utf-8")
+        meta = yaml.safe_load(text)["interface"]
+        self.assertTrue(25 <= len(meta["short_description"]) <= 64, len(meta["short_description"]))
+        self.assertIn(f"${SKILL.name}", meta["default_prompt"])
+        for key in ("display_name", "short_description", "default_prompt"):
+            self.assertRegex(text, rf'{key}: "[^"]+"', f"{key} must be a quoted string")
+
     def test_skill_frontmatter_follows_agent_skills_spec(self):
         meta = frontmatter()
         self.assertEqual(meta["name"], SKILL.name)

@@ -1,0 +1,29 @@
+{
+  "name": "simplified-technical-german",
+  "version": "0.2.0",
+  "description": "STG-DE: Write, rewrite, and audit German text with Simplified Technical German, the German counterpart of ASD-STE100. Includes a deterministic linter and a meaning-preservation check.",
+  "author": {
+    "name": "LinusAurel",
+    "url": "https://github.com/LinusAurel"
+  },
+  "homepage": "https://github.com/LinusAurel/simplified-technical-german",
+  "repository": "https://github.com/LinusAurel/simplified-technical-german",
+  "license": "MIT",
+  "keywords": ["german", "deutsch", "controlled-language", "technical-writing", "ste100", "simplified-technical-english", "agents"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Simplified Technical German",
+    "shortDescription": "Eindeutiges Deutsch für Menschen und Agenten",
+    "longDescription": "STG-DE ist das deutsche Gegenstück zu ASD-STE100. Der Skill schreibt, überarbeitet und prüft deutsche Texte: Anleitungen, Sicherheitshinweise, Anforderungen, Support-Texte, Fehlermeldungen, Tool-Beschreibungen und Anweisungen für Agenten. Ein deterministischer Linter und eine Bedeutungsprüfung sichern das Ergebnis ab.",
+    "developerName": "LinusAurel",
+    "category": "Writing",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Schreibe diese Anleitung in STG-DE um und behalte alle Fakten bei.",
+      "Prüfe diese deutsche Fehlermeldung auf STG-DE-Konformität.",
+      "Formuliere diese Tool-Beschreibung so, dass ein Agent sie nicht missversteht."
+    ],
+    "websiteURL": "https://github.com/LinusAurel/simplified-technical-german",
+    "brandColor": "#1F4E79"
+  }
+}
