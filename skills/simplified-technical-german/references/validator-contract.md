@@ -211,7 +211,7 @@ Erkennen Sie deutsche Pronominaladverbien wie `dabei`, `dazu`, `daraus`, `davon`
 
 ## 13. Modus für die Korpusentwicklung
 
-Ein Entwicklungswerkzeug darf nicht aufgelöste Token als `MORPHOLOGY_CANDIDATE`, `LEXICAL_NOUN_CANDIDATE` oder `PROTECTED_TOKEN_CANDIDATE` klassifizieren. Diese Kennzeichnungen sind Status für die Sichtung. Sie bedeuten kein Bestehen der Konformitätsprüfung. Siehe `tools/corpus_validate.py`.
+Ein Entwicklungswerkzeug darf nicht aufgelöste Token als `MORPHOLOGY_CANDIDATE`, `LEXICAL_NOUN_CANDIDATE` oder `PROTECTED_TOKEN_CANDIDATE` klassifizieren. Diese Kennzeichnungen sind Status für die Sichtung. Sie bedeuten kein Bestehen der Konformitätsprüfung.
 
 ## 14. Routing deutscher Nomenkandidaten
 

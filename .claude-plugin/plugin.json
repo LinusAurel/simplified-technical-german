@@ -1,6 +1,6 @@
 {
   "name": "simplified-technical-german",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "STG-DE: Write, rewrite, and audit German text with Simplified Technical German, the German counterpart of ASD-STE100. Includes a deterministic linter and a meaning-preservation check.",
   "author": {
     "name": "LinusAurel",

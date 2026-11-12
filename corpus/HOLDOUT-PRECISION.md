@@ -1,6 +1,6 @@
 # Präzision des Linters auf dem Holdout
 
-Diese Messung prüft, wie oft der Linter auf echten deutschen Texten richtig liegt. Grundlage ist die Holdout-Partition des Korpus aus `corpus/v0.2-sources.yaml`. Die Entwicklung des Wörterbuchs und des Linters verwendet diese Quellen nicht.
+Diese Messung prüft, wie oft der Linter auf echten deutschen Texten richtig liegt. Grundlage ist die Holdout-Partition des Korpus aus `corpus/fulltext-sources.yaml`. Die Entwicklung des Wörterbuchs und des Linters verwendet diese Quellen nicht.
 
 Die Kennzahlen der letzten Messung stehen in `corpus/holdout-precision.yaml`. Das Repository enthält keinen Text aus den Quellen. Jeder bewertete Befund hat nur eine ID: die ersten 16 Zeichen des SHA-256-Hashes aus Quelle, Regel und Satz.
 
@@ -76,7 +76,7 @@ Die Modelle hatten bei 274 von 295 eindeutigen Einträgen dasselbe Label (93 %).
 - Die Prüfung `STG-6.3` soll Marken in Fettschrift am Satzanfang nicht mitzählen. Die Prüfung soll `z.B.` ohne Leerzeichen als Abkürzung erkennen.
 - Extraktionsfehler verursachen fast die Hälfte aller Befunde. Diese Fehler entstehen im Werkzeug für das Korpus, nicht im Linter. Auf sauberem Markdown oder Text treten diese Fehler nicht auf.
 
-Die Korrekturen stehen in `ROADMAP.md` (Release 0.5.0). Eine Messung der korrigierten Version braucht wieder neue Holdout-Quellen.
+Die Korrekturen stehen in `ROADMAP.md`. Eine Messung der korrigierten Version braucht wieder neue Holdout-Quellen.
 
 ## Frühere Messung: Linter 0.3.0
 
@@ -107,7 +107,7 @@ Diese Messung ist nicht vollständig reproduzierbar. Die drei HTML-Seiten haben 
 - **Keine Prüfung durch Menschen:** Sprachmodelle haben die Befunde bewertet. Zwei Modelle von zwei Anbietern verringern das Risiko, dass ein Modell systematisch falsch bewertet. Ein Review durch Fachleute ist ein Kriterium für 1.0.
 - **Kleine Zahlen:** Für `STG-5.3`, `STG-6.6`, `STG-DE-4.3` und `STG-DE-8.1` gibt es zu wenige Befunde für eine Aussage.
 - **Übersehene Verstöße:** Die Stichprobe der Sätze ohne Befund prüft nur implementierte Prüfungen. Verstöße gegen semantische Regeln zählt sie nicht.
-- **Zeitpunkt:** Die Quellen sind Webseiten und PDFs. Ihr Inhalt kann sich ändern. Die Hashes in `corpus/v0.2-fulltext-metrics.yaml` und in der Bewertungsdatei zeigen, ob eine Quelle noch dieselbe ist.
+- **Zeitpunkt:** Die Quellen sind Webseiten und PDFs. Ihr Inhalt kann sich ändern. Die Hashes in `corpus/fulltext-metrics.yaml` und in der Bewertungsdatei zeigen, ob eine Quelle noch dieselbe ist.
 
 ## Messung wiederholen
 

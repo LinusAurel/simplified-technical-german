@@ -1,5 +1,5 @@
 schema_version: '0.1'
-release: 0.3.0
+release: 0.4.0
 status: corpus_validated_authoring_core
 entries:
 - term: abklemmen
@@ -69,7 +69,7 @@ entries:
   reason: starke Exklusivitätsaussage; der ausgeschlossene Bereich muss klar sein
   rewrite: Nur verwenden, wenn die Exklusivität technisch oder normativ belegt ist; sonst konkrete Einschränkung
     nennen.
-  review_status: multi_industry_candidate_v0.1
+  review_status: multi_industry_candidate
   surface_forms:
   - ausschliesslich
 - term: austauschen
@@ -128,7 +128,7 @@ entries:
   status: review_required
   reason: kann eine relevante Bedingung nennen, ohne zu sagen, welche konkrete Handlung daraus folgt
   rewrite: Bedingung ausdrücklich formulieren und die daraus erforderliche Handlung nennen.
-  review_status: multi_industry_candidate_v0.1
+  review_status: multi_industry_candidate
   surface_forms:
   - berücksichtigt
   - berücksichtigte
@@ -156,7 +156,7 @@ entries:
   status: review_required
   reason: abstraktes Besitz- oder Leistungsverb; technische Beziehung bleibt häufig unpräzise
   rewrite: Je nach Bedeutung haben, geben, bereitstellen oder enthalten verwenden.
-  review_status: multi_industry_candidate_v0.1
+  review_status: multi_industry_candidate
   approved_alternatives:
   - haben
   - geben
@@ -234,7 +234,7 @@ entries:
   status: review_required
   reason: unspezifische Aussage über Informationsumfang
   rewrite: Konkrete Information geben oder den relevanten Abschnitt nennen.
-  review_status: multi_industry_candidate_v0.1
+  review_status: multi_industry_candidate
   surface_forms:
   - detaillierte
   - detaillierten
@@ -349,7 +349,7 @@ entries:
   status: review_required
   reason: hochgradig mehrdeutig zwischen physischer Bewegung, Leitung, Ergebnisbeziehung und Bedienhandlung
   rewrite: Konkretes Verb oder eine explizite Ursache-Folge-Konstruktion verwenden.
-  review_status: multi_industry_candidate_v0.1
+  review_status: multi_industry_candidate
   surface_forms:
   - führt
   - führte
@@ -389,7 +389,7 @@ entries:
   reason: abstrakte Ergebniszusage ohne sichtbare Prüfhandlung oder messbares Kriterium
   rewrite: Prüfbare Bedingung und konkrete Maßnahme nennen; falls passend sicherstellen mit prüfbarer Bedingung
     verwenden.
-  review_status: multi_industry_candidate_v0.1
+  review_status: multi_industry_candidate
   approved_alternatives:
   - sicherstellen
   surface_forms:
@@ -464,7 +464,7 @@ entries:
   status: review_required
   reason: unbegrenzte zeitliche Aussage kann technisch oder vertraglich zu stark sein
   rewrite: Gültigen Zeitraum oder Systemzustand nennen, wenn die Verfügbarkeit nicht wirklich uneingeschränkt ist.
-  review_status: multi_industry_candidate_v0.1
+  review_status: multi_industry_candidate
 - term: jedoch
   status: prohibited
   reason: stilistische Kontrastvariante zu aber
@@ -715,7 +715,7 @@ entries:
   status: review_required
   reason: kann Unterschiede behaupten, ohne das unterscheidende Merkmal zu nennen
   rewrite: Unterschied oder konkrete Varianten nennen.
-  review_status: multi_industry_candidate_v0.1
+  review_status: multi_industry_candidate
   surface_forms:
   - verschiedene
   - verschiedenen
@@ -784,7 +784,7 @@ entries:
   status: review_required
   reason: Bezug kann unklar sein, wenn mehrere Systeme oder Dokumentteile möglich sind
   rewrite: Zugehöriges System, Objekt oder Dokument ausdrücklich nennen.
-  review_status: multi_industry_candidate_v0.1
+  review_status: multi_industry_candidate
   surface_forms:
   - zugehörige
   - zugehörigen

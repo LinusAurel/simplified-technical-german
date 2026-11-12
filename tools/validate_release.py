@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import argparse, collections, csv, hashlib, json, subprocess, sys, yaml
+import argparse, collections, hashlib, json, subprocess, sys, yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -68,20 +68,12 @@ def main():
     if traced != rule_ids:
         fail(f"STG rules without ASD-STE100 traceability: {sorted(rule_ids - traced)}")
 
-    # Legacy 0.1 sample corpus: declared counts must match the listed sources.
-    src = yaml.safe_load((ROOT / "corpus/sources.yaml").read_text(encoding="utf-8"))
-    if src.get("source_count") != len(src["sources"]):
-        fail(f"corpus/sources.yaml: source_count {src.get('source_count')} != {len(src['sources'])} listed sources")
-    inds = collections.Counter(s["industry"] for s in src["sources"])
-    if dict(inds) != src.get("industries", {}):
-        fail(f"corpus/sources.yaml: industries {src.get('industries')} != counted {dict(inds)}")
-
     # Full-text corpus: source list and metrics must describe the same sources.
-    fsrc = yaml.safe_load((ROOT / "corpus/v0.2-sources.yaml").read_text(encoding="utf-8"))["sources"]
-    fmet = yaml.safe_load((ROOT / "corpus/v0.2-fulltext-metrics.yaml").read_text(encoding="utf-8"))
+    fsrc = yaml.safe_load((ROOT / "corpus/fulltext-sources.yaml").read_text(encoding="utf-8"))["sources"]
+    fmet = yaml.safe_load((ROOT / "corpus/fulltext-metrics.yaml").read_text(encoding="utf-8"))
     src_ids = [s["id"] for s in fsrc]
     if len(src_ids) != len(set(src_ids)):
-        fail("corpus/v0.2-sources.yaml: duplicate source id")
+        fail("corpus/fulltext-sources.yaml: duplicate source id")
     met_ids = [s["id"] for s in fmet["sources"]]
     if set(met_ids) != set(src_ids):
         fail(f"corpus source/metrics id mismatch: {sorted(set(src_ids) ^ set(met_ids))}")
@@ -114,8 +106,6 @@ def main():
             if hashlib.sha256(fp.read_bytes()).hexdigest() != item["sha256"]:
                 fail(f"manifest hash mismatch: {item['path']}")
 
-    rows = list(csv.DictReader((ROOT / "corpus/coverage-curves.csv").open(encoding="utf-8")))
-    final = float(rows[-1]["overall_coverage"]) if rows else 0
     print(
         json.dumps(
             {
@@ -128,8 +118,6 @@ def main():
                 "rules_and_recommendations": len(ri),
                 "public_corpus_sources": len(src_ids),
                 "public_corpus_domains": len(fmet["domains"]),
-                "legacy_sample_sources": len(src["sources"]),
-                "final_public_controlled_surface_coverage": final,
                 "agent_skill": "PASS",
             },
             ensure_ascii=False,

@@ -1,21 +1,18 @@
 # Kontrolliertes Wörterbuch von STG-DE
 
-**Release:** 0.3.0  
-**Profile:** `de-DE`  
-**Status:** experimenteller Autorenkern, an einem geschichteten Korpus validiert. Dieser Kern ist in diesem Release kein Wörterbuch der deutschen Allgemeinsprache, das Menschen vollständig geprüft haben.
+**Profil:** `de-DE`  
+**Status:** experimenteller Autorenkern, an einem geschichteten Korpus validiert. Dieser Kern ist kein Wörterbuch der deutschen Allgemeinsprache, das Menschen vollständig geprüft haben.
 
 ## Inhalt
 
-- **435** zentrale freigegebene oder eingeschränkte lexikalische Einträge,
-- **442** kontrollierte Bedeutungen,
-- **160** verbotene oder prüfpflichtige Wörter und Wortgruppen,
-- **172** kontrollierte zentrale Verben,
+- zentrale freigegebene oder eingeschränkte lexikalische Einträge mit kontrollierten Bedeutungen,
+- verbotene oder prüfpflichtige Wörter und Wortgruppen,
 - kontrollierte Kontraktionen,
 - deklarierte Pluralformen von Substantiven und kuratierte unregelmäßige Oberflächenformen,
-- Begriffsindex und Metadaten zur Abdeckung des Releases,
+- Begriffsindex und Zahlen des Wörterbuchs,
 - Kategoriemodelle für technische Substantive und technische Verben in Projekten und Domänen.
 
-Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kontrolliertes Wörterbuch mit definierten Bedeutungen, Wortarten und freigegebenen Formen.
+Die Zahl der Einträge steht in `coverage.yaml`. Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kontrolliertes Wörterbuch mit definierten Bedeutungen, Wortarten und freigegebenen Formen.
 
 ## Dateien
 
@@ -23,7 +20,7 @@ Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kon
 - `prohibited-words.yaml` — verbotene oder prüfpflichtige Formulierungen mit Hinweisen zur Umformulierung.
 - `contractions.yaml` — Normalisierung von Präposition und Artikel vor der lexikalischen Suche.
 - `concept-index.yaml` — Index der kontrollierten Bedeutungen für Agenten und Validatoren.
-- `coverage.yaml` — Zahlen des Releases und Zusammenfassung des Korpus.
+- `coverage.yaml` — Zahl der Einträge, Bedeutungen und Regeln.
 - `DECISIONS.md` — Begründungen für die Kuratierung.
 - `MORPHOLOGY.md` — Auflösung von Lemma, Flexion und trennbaren Verben.
 - `technical-nouns.yaml` — Kategorien für technische Substantive in Projekten und Domänen.
@@ -60,7 +57,7 @@ Die Häufigkeit im Korpus ist ein Beleg für eine **Prüfung**, keine Freigabe. 
 
 Domänenspezifische Bauteile, Produktnamen, medizinische Begriffe, Fahrzeugbegriffe, Software-Kennungen und ähnlicher Wortschatz gehören zur Projektterminologie oder Domänenterminologie. Diese Regel gilt auch, wenn diese Wörter häufig sind.
 
-Siehe `../corpus/validation-report.md`.
+Die Kennzahlen des Korpus stehen in `../corpus/fulltext-metrics.yaml`.
 
 ## `STG-C-core` versus `STG-C`
 

@@ -54,24 +54,3 @@ jobs:
         run: |
           gh release create "$TAG" dist/* STG-DE.md manifest.yaml \
             --target "$GITHUB_SHA" --title "STG-DE $TAG" --notes-file notes.md
-
-  pypi:
-    # Publishes the package stg-de with PyPI trusted publishing (no token in the repository).
-    # Runs only when the repository variable PYPI_PUBLISH is "true". See RELEASE-CHECKLIST.md.
-    needs: release
-    if: vars.PYPI_PUBLISH == 'true'
-    runs-on: ubuntu-latest
-    environment: pypi
-    permissions:
-      id-token: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: python -m pip install build
-      - run: python -m build --outdir pypi-dist
-      - uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # release/v1
-        with:
-          packages-dir: pypi-dist

@@ -1,6 +1,6 @@
 # STG-DE-Korpusprotokoll
 
-Dieses Protokoll regelt die korpusbasierte Entwicklung ab Release 0.2.0. Das Ziel ist, Sprachmodell und Validator zu verbessern, ohne das zentrale Wörterbuch an eine kleine Menge von Dokumenten zu überanpassen.
+Dieses Protokoll regelt die korpusbasierte Entwicklung. Das Ziel ist, Sprachmodell und Validator zu verbessern, ohne das zentrale Wörterbuch an eine kleine Menge von Dokumenten zu überanpassen.
 
 ## 1. Korpuspartitionen
 
@@ -43,7 +43,7 @@ Schichten Sie die Aufteilung nach Domäne. Schichten Sie die Aufteilung auch nac
 
 Wir empfehlen, das Korpus nicht auf Handbücher aus dem Ingenieurwesen zu begrenzen. STG-DE ist für kontrolliertes Deutsch in technischer, betrieblicher, B2B-, B2C- und agentenbezogener Kommunikation vorgesehen.
 
-Zielstrata ab Release 0.2.0:
+Zielstrata:
 
 1. Maschinenbau und Fertigung
 2. Automotive und Mobilität
@@ -148,7 +148,7 @@ Melden Sie mindestens diese Metriken:
 - Anzahl deterministischer Befunde je 1.000 Wörter,
 - Metriken je Domäne, je Textsorte und je Partition.
 
-Eine Quelle darf die Kennzahlen nicht allein bestimmen. `policy.source_token_cap` in `corpus/v0.2-sources.yaml` legt eine Obergrenze an Token je Quelle fest. Die Felder `capped_tokens` und `capped_coverage` zählen von jeder Quelle höchstens diese Zahl an Token. Melden Sie die Zahlen mit und ohne Obergrenze.
+Eine Quelle darf die Kennzahlen nicht allein bestimmen. `policy.source_token_cap` in `corpus/fulltext-sources.yaml` legt eine Obergrenze an Token je Quelle fest. Die Felder `capped_tokens` und `capped_coverage` zählen von jeder Quelle höchstens diese Zahl an Token. Melden Sie die Zahlen mit und ohne Obergrenze.
 
 Die Abdeckung ist keine Qualitätsbewertung. Eine höhere Abdeckung durch die Aufnahme von Domänenvokabular in den zentralen Kern ist nicht automatisch eine Verbesserung.
 
@@ -189,4 +189,4 @@ Erstes Ziel, erreicht mit Release 0.2.0:
 - mehrere unabhängige Organisationen je wichtigem Stratum,
 - eine nicht leere Holdout-Partition auf Dokumentebene.
 
-Nächstes Ziel: mehr als 500.000 Token mit einer verbesserten linguistischen Analyse des Deutschen. Dieses Ziel ist offen. Die Zahl der Token im Korpus steht in `corpus/v0.2-fulltext-metrics.yaml`.
+Nächstes Ziel: mehr als 500.000 Token mit einer verbesserten linguistischen Analyse des Deutschen. Dieses Ziel ist offen. Die Zahl der Token im Korpus steht in `corpus/fulltext-metrics.yaml`.

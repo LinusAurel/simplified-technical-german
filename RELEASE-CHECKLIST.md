@@ -20,9 +20,7 @@ Verwenden Sie diese Checkliste für jedes Release mit Tag.
 
 ## Validator und Qualität
 
-- [ ] Führen Sie `python -m unittest discover -s tests -v` aus.
-- [ ] Führen Sie `python tools/sync_skill.py --check` aus.
-- [ ] Führen Sie `python tools/validate_release.py --skip-manifest` aus.
+- [ ] Führen Sie die Befehle aus `AGENTS.md`, Abschnitt „Validierung“, aus.
 - [ ] Prüfen Sie, dass `quality/rule-coverage.yaml` jede veröffentlichte Regel genau einmal enthält.
 - [ ] Prüfen Sie bei neuen deterministischen Prüfungen die Grenzen für falsch positive Befunde.
 - [ ] Prüfen Sie, dass die Golden-Audit-Fixtures bestehen.
@@ -58,7 +56,6 @@ Verwenden Sie diese Checkliste für jedes Release mit Tag.
 - [ ] Aktualisieren Sie die Version in `CITATION.cff`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.codex-plugin/plugin.json`, `pyproject.toml` und `stg_de/__init__.py`. Aktualisieren Sie `STG_VERSION` in `tools/stg_lint.py` und `tools/stg_compare.py`. Aktualisieren Sie die Felder `release` der Datendateien. `tests/test_packaging.py` prüft, dass alle Versionen übereinstimmen.
 - [ ] Benennen Sie den Abschnitt `## Unveröffentlicht` in `CHANGELOG.md` in `## X.Y.Z — <Datum>` um. Der Release-Workflow liest die Notizen aus diesem Abschnitt.
 - [ ] Starten Sie auf `main` den Workflow `Release` mit der Eingabe `version: X.Y.Z`. Alternativ pushen Sie den Git-Tag `vX.Y.Z`. Der Workflow erstellt den Tag, das Skill-ZIP und die Prüfsumme und veröffentlicht das GitHub-Release.
-- [ ] PyPI: Der Job `pypi` im Workflow `Release` veröffentlicht das Paket `stg-de` mit Trusted Publishing. Der Job läuft nur, wenn die Repository-Variable `PYPI_PUBLISH` den Wert `true` hat. Für die erste Veröffentlichung tragen Sie auf pypi.org einen „Pending Publisher“ ein: Projekt `stg-de`, Repository `LinusAurel/simplified-technical-german`, Workflow `release.yml`, Umgebung `pypi`.
 - [ ] Veröffentlichen Sie Release Notes aus `CHANGELOG.md` und den angenommenen Vorschlägen.
 - [ ] Hängen Sie den paketierten Agent Skill und andere Release-Artefakte an, wenn verfügbar.
 - [ ] Veröffentlichen Sie die Prüfsummendatei mit den Release-Assets.
