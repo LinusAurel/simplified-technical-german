@@ -14,6 +14,9 @@ import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from stg_markdown import prose_blocks  # noqa: E402
+
 WORD = r"[A-Za-zÄÖÜäöüß]+"
 TOKEN_RE = re.compile(WORD)
 SENTENCE_RE = re.compile(r"(?<=[.!?])(?:[\"'»”)]*)\s+(?=[A-ZÄÖÜ0-9„\"'([])")
@@ -65,10 +68,11 @@ def mask(text: str) -> str:
 
 
 def sentences(text: str) -> list[str]:
-    compact = re.sub(r"\s+", " ", mask(text).strip())
-    if not compact:
-        return []
-    return [part.strip() for part in SENTENCE_RE.split(compact) if part.strip()]
+    out: list[str] = []
+    for block in prose_blocks(text):
+        compact = re.sub(r"\s+", " ", mask(block).strip())
+        out += [part.strip() for part in SENTENCE_RE.split(compact) if part.strip()]
+    return out
 
 
 def words(sentence: str) -> list[str]:
