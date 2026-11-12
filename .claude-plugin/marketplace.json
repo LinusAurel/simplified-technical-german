@@ -10,7 +10,7 @@
       "name": "simplified-technical-german",
       "source": "./",
       "description": "Write, rewrite, and audit German text with STG-DE, the German counterpart of ASD-STE100.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "category": "writing",
       "keywords": ["german", "deutsch", "controlled-language", "ste100"]
     }

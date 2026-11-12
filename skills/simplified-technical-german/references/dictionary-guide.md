@@ -9,7 +9,7 @@ Erzeugt aus der kanonischen Dokumentation im Verzeichnis `dictionary/`. Bearbeit
 
 # STG-DE controlled dictionary — v0.1
 
-**Release:** 0.2.0  
+**Release:** 0.3.0  
 **Profile:** `de-DE`  
 **Status:** experimenteller Autorenkern, an einem geschichteten Korpus validiert. Dieser Kern ist in diesem Release kein Wörterbuch der deutschen Allgemeinsprache, das Menschen vollständig geprüft haben.
 
