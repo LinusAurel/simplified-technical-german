@@ -15,6 +15,10 @@ from pathlib import Path
 
 import yaml
 
+STG_VERSION = "0.2.0"
+TEXT_SUFFIXES = {".md", ".markdown", ".txt", ".rst", ".adoc"}
+SEVERITY_RANK = {"review": 1, "warning": 2, "error": 3}
+
 WORD_RE = re.compile(r"[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß0-9_:+/.-]*|\d+(?:[.,]\d+)?", re.UNICODE)
 URL_RE = re.compile(r"https?://\S+|www\.\S+", re.I)
 CODE_RE = re.compile(r"`[^`]*`")
@@ -37,6 +41,7 @@ class Finding:
     original: str
     suggestion: str | None = None
     term: str | None = None
+    line: int | None = None
 
 
 def load_yaml(path: Path) -> dict:
@@ -184,9 +189,11 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
             if match:
                 findings.append(Finding("warning", "STG-DE-8.1", "Die Schrägstrichkombination kann mehrdeutig sein.", match.group(0), "Verwenden Sie `und`, `oder`, eine Liste oder getrennte Sätze.", match.group(0)))
 
+    # Terms with a dedicated structural check are reported once, by that check.
+    dedicated_terms = {f.term.casefold() for f in findings if f.term}
     for entry in prohibited:
         term = str(entry.get("term", "")).strip()
-        if not term or not phrase_regex(term).search(masked):
+        if not term or term.casefold() in dedicated_terms or not phrase_regex(term).search(masked):
             continue
         status = entry.get("status", "review_required")
         severity = "error" if status == "prohibited" else "review"
@@ -223,13 +230,17 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
                 continue
             unknown_counts[low] = unknown_counts.get(low, 0) + 1
 
+    lines = text.splitlines()
+    for finding in findings:
+        finding.line = locate_line(lines, finding.original)
+
     counts = {"error": 0, "warning": 0, "review": 0}
     for finding in findings:
         counts[finding.severity] = counts.get(finding.severity, 0) + 1
     result = "FAIL" if counts["error"] else ("PASS WITH REVIEW" if counts["review"] or counts["warning"] else "PASS")
     return {
         "tool": "stg_lint.py",
-        "standard": "STG-DE 0.1.0",
+        "standard": f"STG-DE {STG_VERSION}",
         "profile": profile,
         "profile_priorities": (profile_config or {}).get("priorities", []),
         "text_type": effective_type,
@@ -247,6 +258,22 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     }
 
 
+def locate_line(lines: list[str], original: str) -> int | None:
+    """Return the 1-based line where a finding starts, when it can be found."""
+    needle = (original or "").strip().splitlines()[0].strip() if (original or "").strip() else ""
+    if not needle:
+        return None
+    probe = needle[:60]
+    for i, line in enumerate(lines, 1):
+        if probe in line:
+            return i
+    low = probe.casefold()
+    for i, line in enumerate(lines, 1):
+        if re.search(r"(?<![\wÄÖÜäöüß])" + re.escape(low) + r"(?![\wÄÖÜäöüß])", line.casefold()):
+            return i
+    return None
+
+
 def render_text(result: dict) -> str:
     label = f"STG-DE audit ({result['profile']})" if result.get("profile") else "STG-DE audit"
     lines = [f"{label}: {result['result']}", ""]
@@ -254,7 +281,8 @@ def render_text(result: dict) -> str:
         lines.append("Keine deterministischen Befunde.")
     else:
         for i, f in enumerate(result["findings"], 1):
-            lines.append(f"{i}. [{f['severity'].upper()}] {f['rule']}: {f['message']}")
+            where = f" (Zeile {f['line']})" if f.get("line") else ""
+            lines.append(f"{i}. [{f['severity'].upper()}] {f['rule']}{where}: {f['message']}")
             lines.append(f"   Original: {f['original']}")
             if f.get("suggestion"):
                 lines.append(f"   Vorschlag: {f['suggestion']}")
@@ -265,27 +293,100 @@ def render_text(result: dict) -> str:
     return "\n".join(lines)
 
 
+def collect_inputs(inputs: list[str]) -> list[str]:
+    """Expand directories to text/Markdown files; keep files and '-' as given."""
+    paths: list[str] = []
+    for item in inputs:
+        p = Path(item)
+        if item != "-" and p.is_dir():
+            paths += sorted(str(f) for f in p.rglob("*") if f.is_file() and f.suffix.lower() in TEXT_SUFFIXES
+                            and not any(part.startswith(".") for part in f.relative_to(p).parts))
+        else:
+            paths.append(item)
+    return paths
+
+
+def overall_result(results: list[dict]) -> str:
+    states = {r["result"] for r in results}
+    if "FAIL" in states:
+        return "FAIL"
+    return "PASS WITH REVIEW" if "PASS WITH REVIEW" in states else "PASS"
+
+
+def render_github(path: str, result: dict) -> str:
+    level = {"error": "error", "warning": "warning", "review": "notice"}
+    out = []
+    for f in result["findings"]:
+        loc = f"file={path}" + (f",line={f['line']}" if f.get("line") else "")
+        msg = f"{f['message']} Vorschlag: {f['suggestion']}" if f.get("suggestion") else f["message"]
+        msg = msg.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+        out.append(f"::{level.get(f['severity'], 'notice')} {loc},title={f['rule']}::{msg}")
+    return "\n".join(out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Deterministic STG-DE linter")
-    ap.add_argument("input", help="UTF-8 text/Markdown file or - for stdin")
+    ap.add_argument("inputs", nargs="+", metavar="input", help="UTF-8 text/Markdown files, directories, or - for stdin")
     ap.add_argument("--root", default=str(Path(__file__).resolve().parents[1]), help="STG-DE repository/skill reference root")
-    ap.add_argument("--project", help="Optional .stg-de.yaml project terminology")
+    ap.add_argument("--project", help="Project terminology file (default: ./.stg-de.yaml when present)")
+    ap.add_argument("--no-project", action="store_true", help="Do not load ./.stg-de.yaml automatically")
     ap.add_argument("--profile", help="Application profile: procedure, safety, description, requirement, support, consumer, agent")
     ap.add_argument("--text-type", choices=["auto", "procedure", "description"], default="auto", help="Legacy structural override; profile base type is used when auto")
-    ap.add_argument("--format", choices=["text", "json"], default="text")
+    ap.add_argument("--format", choices=["text", "json", "github"], default="text")
     ap.add_argument("--lexicon-report", action="store_true")
-    ap.add_argument("--fail-on-error", action="store_true", help="Exit 1 when deterministic errors exist")
+    ap.add_argument("--fail-on", choices=["error", "warning", "review", "never"], default="never",
+                    help="Exit 1 when a finding of this severity or higher exists")
+    ap.add_argument("--fail-on-error", action="store_true", help="Alias for --fail-on error")
     args = ap.parse_args()
 
     root = Path(args.root)
-    text = sys.stdin.read() if args.input == "-" else Path(args.input).read_text(encoding="utf-8")
-    project = load_yaml(Path(args.project)) if args.project else {}
-    try:
-        result = audit_text(text, root, args.text_type, project, args.lexicon_report, args.profile)
-    except ValueError as exc:
-        ap.error(str(exc))
-    print(json.dumps(result, ensure_ascii=False, indent=2) if args.format == "json" else render_text(result))
-    return 1 if args.fail_on_error and result["counts"].get("error", 0) else 0
+    project_path = args.project
+    if not project_path and not args.no_project and Path(".stg-de.yaml").is_file():
+        project_path = ".stg-de.yaml"
+    project = load_yaml(Path(project_path)) if project_path else {}
+    threshold = "error" if args.fail_on_error else args.fail_on
+
+    paths = collect_inputs(args.inputs)
+    if not paths:
+        ap.error("no text or Markdown files found")
+    results = []
+    for path in paths:
+        try:
+            text = sys.stdin.read() if path == "-" else Path(path).read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError) as exc:
+            ap.error(f"{path}: {exc}")
+        try:
+            result = audit_text(text, root, args.text_type, project, args.lexicon_report, args.profile)
+        except ValueError as exc:
+            ap.error(str(exc))
+        result["path"] = "<stdin>" if path == "-" else path
+        results.append(result)
+
+    if args.format == "json":
+        if len(results) == 1:
+            print(json.dumps(results[0], ensure_ascii=False, indent=2))
+        else:
+            print(json.dumps({"tool": "stg_lint.py", "standard": f"STG-DE {STG_VERSION}", "result": overall_result(results),
+                              "files": results}, ensure_ascii=False, indent=2))
+    elif args.format == "github":
+        text_out = "\n".join(filter(None, (render_github(r["path"], r) for r in results)))
+        if text_out:
+            print(text_out)
+        print(f"STG-DE: {overall_result(results)} ({len(results)} Datei(en))")
+    else:
+        blocks = []
+        for r in results:
+            block = render_text(r)
+            blocks.append(f"== {r['path']}\n{block}" if len(results) > 1 else block)
+        if len(results) > 1:
+            blocks.append(f"Gesamtergebnis: {overall_result(results)} ({len(results)} Dateien)")
+        print("\n\n".join(blocks))
+
+    if threshold == "never":
+        return 0
+    limit = SEVERITY_RANK[threshold]
+    worst = max((SEVERITY_RANK.get(f["severity"], 0) for r in results for f in r["findings"]), default=0)
+    return 1 if worst >= limit else 0
 
 
 if __name__ == "__main__":
