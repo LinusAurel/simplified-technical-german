@@ -24,8 +24,8 @@ files:
   size_bytes: 1087
   sha256: 4979ba9a7d18b9d578292bcac454ac340a5355460e9b73145aceea78ff56181e
 - path: .github/workflows/release.yml
-  size_bytes: 2170
-  sha256: 559b6909cd370a02c9b12704ee1de185ca8d11ebe77092fe8f4d96502d75eb47
+  size_bytes: 2895
+  sha256: 7c14932723de3fbaa1c9ca91e0fb496652a7a97db6c4ab31a306b3580b828ae4
 - path: .gitignore
   size_bytes: 92
   sha256: f6b83cfae75f02edeee1892620ef78be3b9bdee1b823c4e9866cbca9c2a02257
@@ -60,8 +60,8 @@ files:
   size_bytes: 13412
   sha256: 77667b7979d4c8dd903d991a52da9c5476c8111bb2b975957135f28480e4e5f6
 - path: RELEASE-CHECKLIST.md
-  size_bytes: 4883
-  sha256: 24b705c24bb220b3e096d82cdc8910acc8c7c2be729e50f70e882d685c3d572f
+  size_bytes: 5411
+  sha256: 73cbe50ef2f3fbce0ba7c9939bb5056f5e23602c4d0809a6d71b4a728525b44f
 - path: ROADMAP.md
   size_bytes: 10575
   sha256: 8bb445a50a58714dfb3ed8ba46d8e1cd75ca48a86fd571541401d24af7cc29c3
@@ -264,8 +264,8 @@ files:
   size_bytes: 1714
   sha256: f88742d420d6316b64e0d920cdf48c7308a1a9919aa777041e4f627e13094407
 - path: pyproject.toml
-  size_bytes: 1074
-  sha256: 101d6d443401514eac9ea0fe901e8317c860b05206a964650d5bb41e82ed8f7e
+  size_bytes: 1089
+  sha256: a6aadaaced2520fa22aa508572fc6d17d7394176c000ce33171b8c14d866a82f
 - path: quality/GERMAN-ANALYSIS.md
   size_bytes: 3077
   sha256: 711440e29957e2debf83799cb25097bcdb9cb7bbc0bbfecc446810bb1ff8a2f5
