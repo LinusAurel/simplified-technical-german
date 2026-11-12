@@ -31,7 +31,7 @@ Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kon
 
 ## Prinzip der Auflösung
 
-Lösen Sie die Eingabe in dieser Reihenfolge auf:
+Lösen Sie die Eingabe in dieser Reihenfolge auf. Die Reihenfolge ist dieselbe wie in `dictionary/MORPHOLOGY.md` und `validator-contract.md`:
 
 1. geschützter Text oder Kennung,
 2. freigegebene Projektterminologie oder Domänenterminologie,
@@ -40,8 +40,8 @@ Lösen Sie die Eingabe in dieser Reihenfolge auf:
 5. lexikalische Unterscheidung nach Groß- und Kleinschreibung,
 6. kanonisches zentrales Lemma oder deklarierte Oberflächenform,
 7. deklarierte kontrollierte Flexion,
-8. Suche in der Liste der verbotenen und prüfpflichtigen Wörter,
-9. deterministische morphologische Analyse und Analyse trennbarer Verben,
+8. deterministische morphologische Analyse und Analyse trennbarer Verben,
+9. Suche in der Liste der verbotenen und prüfpflichtigen Wörter für das aufgelöste Lemma,
 10. in allen anderen Fällen `NEEDS_LEXICON_REVIEW`.
 
 Ein kanonisches Lemma hat Vorrang vor dem Flexionsalias eines anderen Eintrags. Diese Regel verhindert, dass ein Validator `Daten` (technische Informationen oder Daten) ohne Meldung als Plural von `Datum` auflöst.

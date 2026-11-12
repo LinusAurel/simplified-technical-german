@@ -39,8 +39,8 @@ files:
   size_bytes: 1759
   sha256: 2cb476b425196f405b2c88e73500fd2464e244f0e0b32d3581a75651898d7014
 - path: CHANGELOG.md
-  size_bytes: 11090
-  sha256: 7b71427f70c5ff38ca3ec8235af1f03211a0cd7f2b0977c9d78e69c53d91d952
+  size_bytes: 11778
+  sha256: 9e9736a445158128ea60f1b72a198559e5b1681f8905dbe5352b4047991eab25
 - path: CITATION.cff
   size_bytes: 471
   sha256: fcb137ce311cbeb3c36691e86d83d79d58a1f2347f59417d65f98bfd3bad06b7
@@ -66,8 +66,8 @@ files:
   size_bytes: 10575
   sha256: 61f18d3dd46ad731cb616ffafc70bbd44188f96faeb02139b9c39623e7516f20
 - path: STG-DE.md
-  size_bytes: 267122
-  sha256: 9c9cca1bf0cc89765314af71a33915d1c8f6ba122d18a4635e6e1f78cee8819c
+  size_bytes: 267882
+  sha256: 2588dba7bb3bbd1ac60a959027219357cd723b45f8d8d0f82486f08ec945f1f8
 - path: VERSIONING.md
   size_bytes: 3559
   sha256: 8c24e383449f5ce32a144d15d0e204c8d5c6006805e86b3836d39f7995a62e06
@@ -111,17 +111,17 @@ files:
   size_bytes: 6900
   sha256: 2fdaa218280d446f522d7f47c709f4eec6cf608ae99cb65e906c2964b20f4181
 - path: dictionary/DECISIONS.md
-  size_bytes: 9625
-  sha256: f97cba17fad6d537cfeb4709def63930f2db3b51ef4fd0d3bca9e3818b1a778e
+  size_bytes: 9640
+  sha256: a37d1d4509bc78a395ef6e7ed5154521662cea37ec3cfa71742234c082972c32
 - path: dictionary/GOVERNANCE.md
-  size_bytes: 7156
-  sha256: ba4b584ade130cd542c706f2ba11203b339f0b3f5ca946138b179abc3cb956ff
+  size_bytes: 7154
+  sha256: 09ef01fdd5fc08c40cfe84e969c0f21fdf4cf4af457328c8244732795145b07c
 - path: dictionary/MORPHOLOGY.md
   size_bytes: 4809
   sha256: 8e8f5f2ab432eed08f7c5a44b92e87439013997f3f84c8e7f2fd8e723a06560e
 - path: dictionary/README.md
-  size_bytes: 4110
-  sha256: 7d854cb05bf77dd2b9664a31eb56f4e8e25a437e8b0ee19c6eee9ae56dfefcfb
+  size_bytes: 4229
+  sha256: c1f3194eedb8f512606d1d47231b9c11219e30fb99f0cb9efa712693c61fb693
 - path: dictionary/approved-words.yaml
   size_bytes: 135348
   sha256: 325e4a358780843b1c4020d2215b5c81ebb2dd53bfe9f2abb8b4275ef93c6a60
@@ -257,6 +257,9 @@ files:
 - path: proposals/STG-2026-001-anrede.md
   size_bytes: 4956
   sha256: 7e7e2c2418a1d35e1fe5b741a041db7fb69108adff3c9afdcd5dc96624f935b3
+- path: proposals/STG-2026-002-modality-of-recommendations.md
+  size_bytes: 4476
+  sha256: 9d19adb88d60e2d4bfd473d60e9d70837782411967789d9809f72db0200afdda
 - path: proposals/STG-CHANGE-TEMPLATE.md
   size_bytes: 1714
   sha256: f88742d420d6316b64e0d920cdf48c7308a1a9919aa777041e4f627e13094407
@@ -285,8 +288,8 @@ files:
   size_bytes: 6562
   sha256: ec831902cc0e3b4c601888de95e4ec2ed09a53474d382884a5ef8b358e73a2ae
 - path: rules/04-sentences.md
-  size_bytes: 6140
-  sha256: 29ea6fade157e58d15f9d1efed51a82e787ff91654f325ed3ca24072db426e48
+  size_bytes: 6227
+  sha256: c2a8dd740a5cec65206ecb0aaf5a53145c76af4a58ea393b8681e15b4f30074a
 - path: rules/05-procedures.md
   size_bytes: 3536
   sha256: a41c39773fe9e3d6a9739ba07cd257e68cdebc424dda3ea481c73106f6d81b26
@@ -300,8 +303,8 @@ files:
   size_bytes: 3625
   sha256: e082e74d90efadbe4624fcd2f1a639c76c7ab849b680d134cdae3ed0628a56fb
 - path: rules/09-writing-practices.md
-  size_bytes: 6142
-  sha256: 56b5143bd67599e0aba5e601cfcb82fc81e0899c35b981a5902518470dd78dc5
+  size_bytes: 6239
+  sha256: e43b5d1470158f547bfb5fd2b47ac3009f8e3c7675e8f5993e844c8b7d71291e
 - path: rules/rule-index.yaml
   size_bytes: 8449
   sha256: 8b74e401fa8739b3abc011f9fe271ce6333cd8a1170ea7812af0de2e742bb8d6
@@ -330,8 +333,8 @@ files:
   size_bytes: 135348
   sha256: 325e4a358780843b1c4020d2215b5c81ebb2dd53bfe9f2abb8b4275ef93c6a60
 - path: skills/simplified-technical-german/references/dictionary-guide.md
-  size_bytes: 18853
-  sha256: 78d413195914eae60ed0a9dce5c8352decb09ae9aab05a2ebd3a5bc70d10fd1a
+  size_bytes: 18987
+  sha256: 99b4f6f009d9c8088f74146ffa48b1109b7ae9e0902e376b3b3f834e6c543632
 - path: skills/simplified-technical-german/references/profiles.yaml
   size_bytes: 2039
   sha256: 4c2c8d47b2f39cc6ee22cc35ff6b72153c220070319b231f0b1bf93f714006a8
@@ -342,11 +345,11 @@ files:
   size_bytes: 1344
   sha256: 5c22109656417903b0d64d34fe9bf3c8488a5c0130419bcfef79de6c695e3c11
 - path: skills/simplified-technical-german/references/rules.md
-  size_bytes: 41399
-  sha256: c38431e089bca9be582de88ea3b9991d2efb30f4b2fc023dfa5606f8fc4f3476
+  size_bytes: 41583
+  sha256: a623e48e2c974e9412c4f770e049c5a30b17279a29e8a386cc76154d3f8a8b81
 - path: skills/simplified-technical-german/references/validator-contract.md
-  size_bytes: 8199
-  sha256: 5fdaabb6d96c9eac5379469bacd290bba2774d3168aeb866e4a95fc8a93696f6
+  size_bytes: 8188
+  sha256: 1dc671703984edd489fd02bb3891aee092fc118fd8106d0b349dd71be0ca7fb7
 - path: skills/simplified-technical-german/scripts/stg_analyze.py
   size_bytes: 11261
   sha256: 10438a178ef56e2f5a723d54841390ec74d6bc5d4eecb196bf7b693ebd64ece9
@@ -363,8 +366,8 @@ files:
   size_bytes: 1238
   sha256: 3a41ac10842fbc6c8ffad3d8f95fbe3e3fa982f6e7067bd50107ebe33406f382
 - path: specification.md
-  size_bytes: 10323
-  sha256: 3d3df6f61ae6042562c6ebab3b19a53ed99e6560c0869480f9584e02f58a5b7d
+  size_bytes: 10765
+  sha256: f062bb1d8db03ab9069cb398e4b76ab93beb76df5867348bf67d65d2a878f885
 - path: stg_de/__init__.py
   size_bytes: 52
   sha256: 9a435bd3422ea576ac75c3dc7399805089b38ad55b634b02a14a7beee9a40033
@@ -492,5 +495,5 @@ files:
   size_bytes: 138
   sha256: b160417bbc6b0f87c68bcb94e2b7dfdc5c7a6210f53ecc953a3f60b4b5c01f14
 - path: validator-contract.md
-  size_bytes: 8199
-  sha256: 5fdaabb6d96c9eac5379469bacd290bba2774d3168aeb866e4a95fc8a93696f6
+  size_bytes: 8188
+  sha256: 1dc671703984edd489fd02bb3891aee092fc118fd8106d0b349dd71be0ca7fb7
