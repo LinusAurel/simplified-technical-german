@@ -29,6 +29,10 @@ class PackagingTests(unittest.TestCase):
         market = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
         self.assertEqual(plugin["version"], version)
         self.assertEqual(market["plugins"][0]["version"], version)
+        import re as _re
+        pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+        self.assertEqual(_re.search(r'^version = "([^"]+)"', pyproject, _re.M).group(1), version)
+        self.assertIn(f'__version__ = "{version}"', (ROOT / "stg_de" / "__init__.py").read_text(encoding="utf-8"))
         import stg_compare
         import stg_lint
         self.assertEqual(stg_lint.STG_VERSION, version)
