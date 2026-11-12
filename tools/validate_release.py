@@ -5,6 +5,13 @@ import argparse, collections, csv, hashlib, json, subprocess, sys, yaml
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def release_version() -> str:
+    for line in (ROOT / "CITATION.cff").read_text(encoding="utf-8").splitlines():
+        if line.startswith("version:"):
+            return line.split(":", 1)[1].strip().strip("'\"")
+    raise SystemExit("version not found in CITATION.cff")
+
+
 def fail(msg):
     print("FAIL:", msg, file=sys.stderr)
     raise SystemExit(1)
@@ -95,7 +102,7 @@ def main():
         json.dumps(
             {
                 "status": "PASS",
-                "release": "0.1.0",
+                "release": release_version(),
                 "validation_mode": "development" if args.skip_manifest else "release",
                 "central_entries": len(A),
                 "controlled_meanings": len(mids),

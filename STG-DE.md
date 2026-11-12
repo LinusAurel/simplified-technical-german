@@ -1,6 +1,6 @@
 # STG-DE — Simplified Technical German
 
-Standalone specification snapshot for release 0.1.0. The repository files remain the canonical source.
+Standalone specification snapshot for release 0.2.0. The repository files remain the canonical source.
 
 ---
 
@@ -1232,7 +1232,7 @@ If no measurable criterion is available, request domain input instead of inventi
 
 # STG-DE controlled dictionary — v0.1
 
-**Release:** 0.1.0  
+**Release:** 0.2.0  
 **Profile:** `de-DE`  
 **Status:** stratified-corpus-validated experimental authoring core; not yet a human-reviewed full German general-language dictionary.
 
@@ -1690,7 +1690,7 @@ v0.1 is materially stronger than v0.0.3, but it is still an experimental authori
 
 ```yaml
 schema_version: '0.1'
-release: 0.1.0
+release: 0.2.0
 rule_or_recommendation_count: 75
 mandatory_or_normative_rule_count: 67
 general_recommendation_count: 8
@@ -2354,7 +2354,7 @@ german_extensions:
 
 ```yaml
 schema_version: '0.1'
-release: 0.1.0
+release: 0.2.0
 status: multi_industry_corpus_validated_authoring_core
 language: de-DE
 normative_for_profile: STG-C-core
@@ -6853,7 +6853,7 @@ entries:
 
 ```yaml
 schema_version: '0.1'
-release: 0.1.0
+release: 0.2.0
 status: corpus_validated_authoring_core
 entries:
 - term: abklemmen
