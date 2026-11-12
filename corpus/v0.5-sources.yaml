@@ -1,96 +1,319 @@
-schema_version: '0.5'
+schema_version: '0.6'
 policy:
   raw_text_committed: false
   holdout_used_for_lexicon_development: false
+  source_token_cap: 10000
+  holdout_rotation: '2026-11-12: the four holdout sources of the 0.6.0 precision measurement moved to development (PROTOCOL.md section 9.6); see previous_partition.'
 sources:
-  - id: MED-HAMILTON-C1-FULL
-    domain: medizintechnik
-    partition: development
-    type: pdf
-    url: https://www.hamilton-medical.com/dam/jcr:e66ea4f2-39d8-4bb1-9ed9-83196b9d4c5b/HAMILTON-C1-ops-manual-SW3.0.x-de-10101872.00.pdf
-    title: HAMILTON-C1 – Bedienungshandbuch
-    version: SW 3.0.x
-  - id: PLANT-WILO-STRATOS-FULL
-    domain: anlagenbau
-    partition: holdout
-    type: pdf
-    url: https://cms.media.wilo.com/dcidocpfinder/wilo713698/9534323/wilo713698.pdf
-    title: Wilo-Stratos MAXO – Bedienungsanleitung
-    version: Ed.01/2024-08
-  - id: PLANT-GRUNDFOS-CRATEX-FULL
-    domain: anlagenbau
-    partition: development
-    type: pdf
-    url: https://api.grundfos.com/literature/Grundfosliterature-3407.pdf
-    title: CR-Pumpen mit ATEX-Zulassung – Montage- und Betriebsanleitung
-    version: public document 3407
-  - id: AUTO-BMW-SAFETY-FULL
-    domain: automotive
-    partition: validation
-    type: pdf
-    url: https://www.bmw.de/content/dam/bmw/marketDE/bmw_de/digital-hub/gpsr/01405B56E22_2411_de-de_BA_2411_BMW_SB_de-de.pdf.coredownload.inline.pdf
-    title: BMW Sicherheitsbroschüre
-    version: 2411
-  - id: SW-NEXTCLOUD-WEB-FULL
-    domain: software_it
-    partition: development
-    type: html
-    url: https://docs.nextcloud.com/server/latest/user_manual/de/webinterface.html
-    title: Nextcloud Benutzerhandbuch – Weboberfläche
-    version: latest
-  - id: SW-SUSE-YAST-FULL
-    domain: software_it
-    partition: validation
-    type: html
-    url: https://documentation.suse.com/de-de/sles/15-SP5/html/SLES-all/cha-yast-software.html
-    title: SLES 15 SP5 Verwaltungshandbuch – YaST Software
-    version: 15 SP5
-  - id: SW-SYNOLOGY-VOLUME-FULL
-    domain: software_it
-    partition: validation
-    type: html
-    url: https://kb.synology.com/de-de/DSM/help/DSM/StorageManager/volume_create_volume
-    title: DSM – Ein Volume erstellen
-    version: DSM Knowledge Center
-  - id: TEL-TELEKOM-SPEEDPORT
-    domain: telecom
-    partition: validation
-    type: html
-    url: https://www.telekom.de/hilfe/geraete/router/speedport/konfigurationsmenue-oeffnen
-    title: Speedport Konfigurationsmenü öffnen
-    version: accessed public help page
-  - id: LOG-DHL-ONLINE-FRANKIERUNG
-    domain: logistics
-    partition: holdout
-    type: html
-    url: https://www.dhl.de/de/privatkunden/pakete-versenden/online-frankieren/so-funktioniert-es.html
-    title: DHL Online Frankierung – So funktioniert es
-    version: accessed public help page
-  - id: PUBLIC-AUSWEISAPP
-    domain: public_sector
-    partition: holdout
-    type: html
-    url: https://www.ausweisapp.bund.de/ausweisapp-nutzen
-    title: AusweisApp nutzen
-    version: accessed public instruction page
-  - id: PUBLIC-BA-ALG
-    domain: public_sector
-    partition: development
-    type: html
-    url: https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld
-    title: Arbeitsuchend melden und Arbeitslosengeld erhalten
-    version: accessed public service page
-  - id: ENERGY-VZ-TARIFFINDER
-    domain: energy_consumer
-    partition: validation
-    type: html
-    url: https://www.verbraucherzentrale.de/wissen/energie/preise-tarife-anbieterwechsel/so-finden-sie-den-passenden-strom-oder-gastarif-6436
-    title: So finden Sie den passenden Strom- oder Gastarif
-    version: Stand 29. Juli 2026
-  - id: ENERGY-VZ-WECHSEL
-    domain: energy_consumer
-    partition: holdout
-    type: html
-    url: https://www.verbraucherzentrale.de/wissen/energie/preise-tarife-anbieterwechsel/so-laeuft-der-anbieterwechsel-bei-strom-und-gas-ab-10645
-    title: So läuft der Anbieterwechsel bei Strom und Gas ab
-    version: Stand 28. Mai 2025
+- id: MED-HAMILTON-C1-FULL
+  domain: medizintechnik
+  text_type: manual
+  organization: Hamilton Medical
+  partition: development
+  type: pdf
+  url: https://www.hamilton-medical.com/dam/jcr:e66ea4f2-39d8-4bb1-9ed9-83196b9d4c5b/HAMILTON-C1-ops-manual-SW3.0.x-de-10101872.00.pdf
+  title: HAMILTON-C1 – Bedienungshandbuch
+  version: SW 3.0.x
+  accessed_on: '2026-08-22'
+  extraction_method: pdf-text
+- id: PLANT-WILO-STRATOS-FULL
+  domain: anlagenbau
+  text_type: manual
+  organization: Wilo
+  partition: development
+  previous_partition: holdout
+  type: pdf
+  url: https://cms.media.wilo.com/dcidocpfinder/wilo713698/9534323/wilo713698.pdf
+  title: Wilo-Stratos MAXO – Bedienungsanleitung
+  version: Ed.01/2024-08
+  accessed_on: '2026-08-22'
+  extraction_method: pdf-text
+- id: PLANT-GRUNDFOS-CRATEX-FULL
+  domain: anlagenbau
+  text_type: manual
+  organization: Grundfos
+  partition: development
+  type: pdf
+  url: https://api.grundfos.com/literature/Grundfosliterature-3407.pdf
+  title: CR-Pumpen mit ATEX-Zulassung – Montage- und Betriebsanleitung
+  version: public document 3407
+  accessed_on: '2026-08-22'
+  extraction_method: pdf-text
+- id: AUTO-BMW-SAFETY-FULL
+  domain: automotive
+  text_type: safety_information
+  organization: BMW
+  partition: validation
+  type: pdf
+  url: https://www.bmw.de/content/dam/bmw/marketDE/bmw_de/digital-hub/gpsr/01405B56E22_2411_de-de_BA_2411_BMW_SB_de-de.pdf.coredownload.inline.pdf
+  title: BMW Sicherheitsbroschüre
+  version: 2411
+  accessed_on: '2026-08-22'
+  extraction_method: pdf-text
+- id: SW-NEXTCLOUD-WEB-FULL
+  domain: software_it
+  text_type: user_manual
+  organization: Nextcloud
+  partition: development
+  type: html
+  url: https://docs.nextcloud.com/server/latest/user_manual/de/webinterface.html
+  title: Nextcloud Benutzerhandbuch – Weboberfläche
+  version: latest
+  accessed_on: '2026-08-22'
+  extraction_method: html-text
+- id: SW-SUSE-YAST-FULL
+  domain: software_it
+  text_type: admin_manual
+  organization: SUSE
+  partition: validation
+  type: html
+  url: https://documentation.suse.com/de-de/sles/15-SP5/html/SLES-all/cha-yast-software.html
+  title: SLES 15 SP5 Verwaltungshandbuch – YaST Software
+  version: 15 SP5
+  accessed_on: '2026-08-22'
+  extraction_method: html-text
+- id: SW-SYNOLOGY-VOLUME-FULL
+  domain: software_it
+  text_type: online_help
+  organization: Synology
+  partition: validation
+  type: html
+  url: https://kb.synology.com/de-de/DSM/help/DSM/StorageManager/volume_create_volume
+  title: DSM – Ein Volume erstellen
+  version: DSM Knowledge Center
+  accessed_on: '2026-08-22'
+  extraction_method: html-text
+- id: TEL-TELEKOM-SPEEDPORT
+  domain: telecom
+  text_type: support_article
+  organization: Deutsche Telekom
+  partition: validation
+  type: html
+  url: https://www.telekom.de/hilfe/geraete/router/speedport/konfigurationsmenue-oeffnen
+  title: Speedport Konfigurationsmenü öffnen
+  version: accessed public help page
+  accessed_on: '2026-08-22'
+  extraction_method: html-text
+- id: LOG-DHL-ONLINE-FRANKIERUNG
+  domain: logistics
+  text_type: support_article
+  organization: DHL
+  partition: development
+  previous_partition: holdout
+  type: html
+  url: https://www.dhl.de/de/privatkunden/pakete-versenden/online-frankieren/so-funktioniert-es.html
+  title: DHL Online Frankierung – So funktioniert es
+  version: accessed public help page
+  accessed_on: '2026-08-22'
+  extraction_method: html-text
+- id: PUBLIC-AUSWEISAPP
+  domain: public_sector
+  text_type: public_service_page
+  organization: BSI / Governikus
+  partition: development
+  previous_partition: holdout
+  type: html
+  url: https://www.ausweisapp.bund.de/ausweisapp-nutzen
+  title: AusweisApp nutzen
+  version: accessed public instruction page
+  accessed_on: '2026-08-22'
+  extraction_method: html-text
+- id: PUBLIC-BA-ALG
+  domain: public_sector
+  text_type: public_service_page
+  organization: Bundesagentur für Arbeit
+  partition: development
+  type: html
+  url: https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/arbeitslosengeld
+  title: Arbeitsuchend melden und Arbeitslosengeld erhalten
+  version: accessed public service page
+  accessed_on: '2026-08-22'
+  extraction_method: html-text
+- id: ENERGY-VZ-TARIFFINDER
+  domain: energy_consumer
+  text_type: consumer_guide
+  organization: Verbraucherzentrale
+  partition: validation
+  type: html
+  url: https://www.verbraucherzentrale.de/wissen/energie/preise-tarife-anbieterwechsel/so-finden-sie-den-passenden-strom-oder-gastarif-6436
+  title: So finden Sie den passenden Strom- oder Gastarif
+  version: Stand 29. Juli 2026
+  accessed_on: '2026-08-22'
+  extraction_method: html-text
+- id: ENERGY-VZ-WECHSEL
+  domain: energy_consumer
+  text_type: consumer_guide
+  organization: Verbraucherzentrale
+  partition: development
+  previous_partition: holdout
+  type: html
+  url: https://www.verbraucherzentrale.de/wissen/energie/preise-tarife-anbieterwechsel/so-laeuft-der-anbieterwechsel-bei-strom-und-gas-ab-10645
+  title: So läuft der Anbieterwechsel bei Strom und Gas ab
+  version: Stand 28. Mai 2025
+  accessed_on: '2026-08-22'
+  extraction_method: html-text
+- id: SEC-BSI-FAQ-HERSTELLER
+  domain: cyber_security
+  text_type: faq
+  organization: Bundesamt für Sicherheit in der Informationstechnik
+  partition: development
+  type: html
+  url: https://www.bsi.bund.de/DE/IT-Sicherheitsvorfall/IT-Schwachstellen/FAQ_Hersteller/FAQ_Hersteller.html
+  title: FAQ für Hersteller – Umgang mit Schwachstellenmeldungen
+  version: accessed public page
+  accessed_on: '2026-11-12'
+  extraction_method: html-text
+- id: SEC-IHK-CRA-PFLICHTEN
+  domain: cyber_security
+  text_type: regulatory_information
+  organization: IHK Rhein-Neckar
+  partition: validation
+  type: html
+  url: https://www.ihk.de/rhein-neckar/recht/datenschutz-itrecht-internetrecht/it-sicherheit/cyber-resilience-act-pflichten-hersteller-6755242
+  title: Cyber Resilience Act – Pflichten für Hersteller
+  version: accessed public page
+  accessed_on: '2026-11-12'
+  extraction_method: html-text
+- id: REQ-BSI-TR03109-1
+  domain: energy_iiot
+  text_type: requirement_specification
+  organization: Bundesamt für Sicherheit in der Informationstechnik
+  partition: development
+  type: pdf
+  url: https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Publikationen/TechnischeRichtlinien/TR03109/TR03109-1.pdf?__blob=publicationFile
+  title: BSI TR-03109-1 – Anforderungen an die Interoperabilität der Kommunikationseinheit eines intelligenten Messsystems
+  version: current public PDF
+  accessed_on: '2026-11-12'
+  extraction_method: pdf-text
+- id: MEAS-JANITZA-UMG96PA
+  domain: measurement
+  text_type: manual
+  organization: Janitza electronics
+  partition: development
+  type: pdf
+  url: https://static.rapidonline.com/pdf/09-5267m_v1.pdf
+  title: Power Analyser UMG 96-PA – Benutzerhandbuch
+  version: Dok.-Nr. 2.061.048.6.g, 05/2024
+  accessed_on: '2026-11-12'
+  extraction_method: pdf-text
+- id: SAFE-IFA-REPORT-2-2017
+  domain: functional_safety
+  text_type: technical_guide
+  organization: Institut für Arbeitsschutz der DGUV (IFA)
+  partition: development
+  type: pdf
+  url: https://publikationen.dguv.de/widgets/pdf/download/article/3145
+  title: IFA Report 2/2017 – Funktionale Sicherheit von Maschinensteuerungen
+  version: 2/2017
+  accessed_on: '2026-11-12'
+  extraction_method: pdf-text
+- id: FW-AVM-ONLINE-UPDATE
+  domain: embedded_iot
+  text_type: update_procedure
+  organization: AVM
+  partition: development
+  type: html
+  url: https://fritz.com/pages/online-update
+  title: FRITZ!OS per Online-Update aktualisieren
+  version: accessed public page
+  accessed_on: '2026-11-12'
+  extraction_method: html-text
+- id: AGENT-GITHUB-REPO-INSTRUCTIONS
+  domain: agent_instructions
+  text_type: agent_instructions
+  organization: GitHub
+  partition: development
+  type: html
+  url: https://docs.github.com/de/copilot/how-tos/configure-custom-instructions/add-repository-instructions
+  title: Hinzufügen von benutzerdefinierten Repositoryanweisungen für GitHub Copilot
+  version: accessed public page
+  accessed_on: '2026-11-12'
+  extraction_method: html-text
+- id: FIN-BAFIN-BASISKONTO
+  domain: finance
+  text_type: consumer_guide
+  organization: Bundesanstalt für Finanzdienstleistungsaufsicht
+  partition: validation
+  type: html
+  url: https://www.bafin.de/DE/Verbraucher/Bank/Produkte/Basiskonto/basiskonto_node.html
+  title: Basiskonto
+  version: accessed public page
+  accessed_on: '2026-11-12'
+  extraction_method: html-text
+- id: FW-AVM-7590AX-RELEASE-NOTES
+  domain: embedded_iot
+  text_type: release_notes
+  organization: AVM
+  partition: holdout
+  type: text
+  url: https://download.avm.de/fritzbox/fritzbox-7590-ax/deutschland/fritz.os/info_de.txt
+  title: FRITZ!Box 7590 AX – Versionshinweise FRITZ!OS
+  version: accessed public file
+  accessed_on: '2026-11-12'
+  extraction_method: plain-text
+- id: FW-TELEKOM-FRITZBOX-UPDATE
+  domain: telecom
+  text_type: update_procedure
+  organization: Deutsche Telekom
+  partition: holdout
+  type: html
+  url: https://www.telekom.de/hilfe/geraete/router/fritzbox/firmware-update
+  title: Wie kann ich die Firmware meiner FRITZ!Box aktualisieren?
+  version: accessed public help page
+  accessed_on: '2026-11-12'
+  extraction_method: html-text
+- id: MEAS-TESTO-625
+  domain: measurement
+  text_type: manual
+  organization: Testo
+  partition: holdout
+  type: pdf
+  url: https://www.uttscheid.de/product-downloads/4494%20-%20Bedienungsanleitung%20Testo%20625%20-%20Digitales%20Thermohygrometer%20mit%20App-Anbindung.pdf
+  title: testo 625 – Digitales Thermohygrometer – Bedienungsanleitung
+  version: public PDF (retailer copy)
+  accessed_on: '2026-11-12'
+  extraction_method: pdf-text
+- id: SAFE-IFA-PRAXISHILFE-13849
+  domain: functional_safety
+  text_type: technical_guide
+  organization: Institut für Arbeitsschutz der DGUV (IFA)
+  partition: holdout
+  type: html
+  url: https://www.dguv.de/ifa/praxishilfen/praxishilfen-maschinenschutz/sicherheit-von-maschinensteuerungen/index.jsp
+  title: Sicherheit von Maschinensteuerungen nach DIN EN ISO 13849
+  version: accessed public page
+  accessed_on: '2026-11-12'
+  extraction_method: html-text
+- id: AGENT-GITHUB-CUSTOMIZE-OVERVIEW
+  domain: agent_instructions
+  text_type: agent_instructions
+  organization: GitHub
+  partition: holdout
+  type: html
+  url: https://docs.github.com/de/copilot/how-tos/copilot-on-github/customize-copilot/customize-copilot-overview
+  title: Anpassen von Copilot für Ihr Projekt
+  version: accessed public page
+  accessed_on: '2026-11-12'
+  extraction_method: html-text
+- id: B2B-LEXWARE-DATEV-EXPORT
+  domain: b2b_software
+  text_type: support_article
+  organization: Lexware
+  partition: holdout
+  type: html
+  url: https://help.lexware.de/de-form/articles/548356-manueller-export-belegbilder-wie-importiere-ich-belegbilder-mit-den-zugehorigen-belegdaten-in-datev
+  title: 'Manueller Export Belegbilder: Belegbilder mit Belegdaten in DATEV importieren'
+  version: accessed public help page
+  accessed_on: '2026-11-12'
+  extraction_method: html-text
+- id: MED-DRAEGER-VISTA120SC
+  domain: medizintechnik
+  text_type: product_information
+  organization: Drägerwerk
+  partition: holdout
+  type: pdf
+  url: https://www.draeger.com/Content/Documents/Products/Vista-120-SC-pi-102255-de-DE.pdf
+  title: Dräger Vista 120 SC – Produktinformation
+  version: 102255 de-DE
+  accessed_on: '2026-11-12'
+  extraction_method: pdf-text
