@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - v0.5/corpus-pipeline
+      - main
     paths:
       - corpus/v0.5-sources.yaml
       - tools/build_corpus_v05.py

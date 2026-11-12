@@ -1,135 +1,179 @@
 ---
 name: simplified-technical-german
-description: "Write, rewrite, simplify, or audit German text with STG-DE (Simplified Technical German), a controlled-language system for reducing ambiguity and improving consistency for humans and AI agents. Use when a user asks for STG-DE, controlled German, simplified technical German, unambiguous German, machine-readable German prose, consistent terminology, a German technical-writing audit, or a rewrite that must preserve facts and constraints. Accept arbitrary German text across industries and B2B/B2C contexts, including procedures, requirements, support content, product text, documentation, messages, prompts, and agent instructions."
+description: "Write, rewrite, or audit German text with STG-DE (Simplified Technical German), the German counterpart of ASD-STE100. Use when German text must be unambiguous for humans or AI agents: procedures, safety notes, requirements, support answers, UI and error messages, tool descriptions, system prompts, AGENTS.md or inter-agent instructions. Triggers: STG-DE, STE100 auf Deutsch, vereinfachtes technisches Deutsch, kontrollierte Sprache, eindeutig formulieren, so umschreiben, dass ein Agent es nicht missversteht, Terminologie vereinheitlichen, technische Redaktion prüfen. Preserves facts, numbers, modality, and domain terms. Not for creative, literary, or Leichte-Sprache texts."
 ---
 
 # Simplified Technical German
 
-Apply STG-DE to German text. Prioritize unambiguous meaning, consistent terminology, short structures, and explicit relationships. Preserve the user's facts, modality, scope, numbers, warnings, product names, and technical meaning.
+Wenden Sie STG-DE auf deutschen Text an. Geben Sie eindeutiger Bedeutung, einheitlicher Terminologie, kurzen Strukturen und expliziten Beziehungen Vorrang. Erhalten Sie die Fakten, die Modalität, den Geltungsbereich, die Zahlen, die Warnungen, die Produktnamen und die technische Bedeutung des Benutzers.
 
-## Select the workflow
+## Den Workflow auswählen
 
-Determine the requested operation before changing text:
+Bestimmen Sie die angeforderte Operation, bevor Sie Text ändern:
 
-1. **WRITE** — create new German text in STG-DE.
-2. **REWRITE** — transform supplied German text into STG-DE.
-3. **AUDIT** — identify violations and suggest corrections without silently replacing the user's source.
+1. **WRITE** — Erstellen Sie neuen deutschen Text in STG-DE.
+2. **REWRITE** — Formen Sie den gelieferten deutschen Text in STG-DE um.
+3. **AUDIT** — Ermitteln Sie Verstöße und schlagen Sie Korrekturen vor. Ersetzen Sie den Ausgangstext des Benutzers nicht stillschweigend.
 
-If the user only says "apply STG-DE" to existing text, use REWRITE. If the user asks whether text complies, requests rule IDs, asks for a diff, or asks what is wrong, use AUDIT.
+Wenn der Benutzer zu vorhandenem Text nur „wende STG-DE an“ sagt, verwenden Sie REWRITE. Verwenden Sie AUDIT, wenn der Benutzer eine dieser Anfragen stellt:
 
-## Select an application profile
+- Er fragt, ob der Text konform ist.
+- Er fordert Regel-IDs an.
+- Er fordert einen Diff an.
+- Er fragt, was falsch ist.
 
-Use a profile when the text purpose is clear. Read `references/profiles.yaml` for the profile configuration.
+## Ein Anwendungsprofil auswählen
 
-- `procedure` — operational steps and instructions.
-- `safety` — warnings, cautions, hazards, and protective actions.
-- `description` — technical or factual explanatory prose.
-- `requirement` — specifications, acceptance criteria, and normative requirements.
-- `support` — customer/internal support instructions and explanations.
-- `consumer` — B2C product and service communication.
-- `agent` — prompts, tool descriptions, inter-agent instructions, and machine-consumed prose.
+Verwenden Sie ein Profil, wenn der Zweck des Texts klar ist. Lesen Sie `references/profiles.yaml` für die Konfiguration der Profile.
 
-If the user names a profile, use it. Otherwise infer the profile only when the purpose is clear. When no profile fits confidently, apply the base STG-DE rules without inventing one.
+- `procedure` — operative Arbeitsschritte und Anweisungen.
+- `safety` — Warnungen, Vorsichtshinweise, Gefährdungen und Schutzmaßnahmen.
+- `description` — technische oder sachliche erklärende Prosa.
+- `requirement` — Spezifikationen, Abnahmekriterien und normative Anforderungen.
+- `support` — Anweisungen und Erklärungen für Kunden-Support und internen Support.
+- `consumer` — Kommunikation zu Produkten und Dienstleistungen im B2C-Bereich.
+- `agent` — Prompts, Tool-Beschreibungen, Anweisungen zwischen Agenten und Prosa für Maschinen.
 
-Profiles do not define a different vocabulary or language. They define applicability, sentence limits, and review priorities for the same STG-DE rules.
+Wenn der Benutzer ein Profil nennt, verwenden Sie dieses Profil. Leiten Sie sonst das Profil nur ab, wenn der Zweck klar ist. Wenn kein Profil sicher passt, wenden Sie die Basisregeln von STG-DE an. Erfinden Sie kein Profil.
 
-## Load references progressively
+Profile definieren kein anderes Vokabular und keine andere Sprache. Profile definieren für dieselben STG-DE-Regeln die Anwendbarkeit, die Satzgrenzen und die Prioritäten der Prüfung.
 
-Read only the material needed for the current task:
+## Den Modus auswählen
 
-- Read `references/profiles.yaml` when profile selection matters.
-- Read `references/rules.md` for writing rules and examples.
-- Read `references/dictionary-guide.md` for morphology, terminology, and lexicon behavior.
-- Search `references/approved-words.yaml` when lexical approval or meaning matters.
-- Search `references/prohibited-words.yaml` for prohibited/review-required terms and rewrite guidance.
-- Read `references/project-terminology.md` when a project glossary exists or domain terms are unresolved.
-- Read `references/validator-contract.md` when interpreting validator output or conformance profiles.
+Wählen Sie, wie streng die lexikalischen Regeln gelten. Die strukturellen Regeln gelten in beiden Modi: Satzlänge, eine Anweisung je Satz, Aktiv, explizite Bedingungen, kein Semikolon, kein `man`.
 
-Do not load the complete dictionary when a focused lookup is sufficient.
+| Modus | Verwendung | Lexikalische Regeln | Konformitätsziel |
+|---|---|---|---|
+| `strikt` | Anleitungen, Sicherheitshinweise, Anforderungen, Fehlermeldungen, Tool-Beschreibungen, Anweisungen für Agenten | Bevorzugen Sie zentrale STG-DE-Wörter mit ihrer kontrollierten Bedeutung. Lösen Sie jedes unklare allgemeine Wort auf oder markieren Sie es. | `STG-T` |
+| `pragmatisch` | Beschreibungen, Support-Antworten, Verbrauchertexte, READMEs, PR-Beschreibungen, Erklärungen | Richtung: Verwenden Sie das schlichteste präzise Wort und verwenden Sie es einheitlich. | `STG-R` |
 
-## Use tools when available
+Wenn der Benutzer einen Modus nennt, verwenden Sie diesen Modus. Verwenden Sie sonst `strikt` für die Profile `procedure`, `safety`, `requirement` und `agent`. Verwenden Sie `pragmatisch` für alle anderen Texte.
 
-When code execution is available, use both layers where they add value:
+## Die Anredeform festlegen
 
-1. Run `scripts/stg_lint.py` for deterministic/controlled checks.
-2. For AUDIT, or for a difficult REWRITE, also run `scripts/stg_analyze.py` for German-language review evidence.
+Anweisungen stehen in genau einer Anredeform (`STG-5.3`): `sie` („Prüfen Sie …“), `du` („Prüfe …“) oder `infinitiv` („… prüfen.“). Bestimmen Sie die Anredeform in dieser Reihenfolge:
 
-Examples:
+1. Verwenden Sie die Anredeform, die der Benutzer nennt.
+2. Verwenden Sie sonst die Einstellung `anrede` aus `.stg-de.yaml`.
+3. Behalten Sie bei REWRITE sonst die Anredeform des Originals bei. Wenn das Original Anredeformen mischt, verwenden Sie die häufigste Form und schreiben Sie eine Zeile `Hinweis:`.
+4. Verwenden Sie bei WRITE sonst `sie`.
+
+Ändern Sie die Anredeform nicht, um eine Regel zu erfüllen. Die Anredeform gehört zum Ton und zur Marke des Texts. Übergeben Sie die Anredeform an den Linter: `--anrede du`.
+
+## Referenzen schrittweise laden
+
+Lesen Sie nur das Material, das die aktuelle Aufgabe benötigt:
+
+- Lesen Sie `references/profiles.yaml`, wenn die Auswahl des Profils wichtig ist.
+- Lesen Sie `references/rules.md` für Schreibregeln und Beispiele.
+- Lesen Sie `references/dictionary-guide.md` für Morphologie, Terminologie und das Verhalten des Lexikons.
+- Durchsuchen Sie `references/approved-words.yaml`, wenn die lexikalische Freigabe oder die Bedeutung wichtig ist.
+- Durchsuchen Sie `references/prohibited-words.yaml` für verbotene und prüfpflichtige Begriffe und Hinweise zur Umformulierung.
+- Lesen Sie `references/project-terminology.md`, wenn ein Projektglossar vorhanden ist oder Fachbegriffe ungelöst sind.
+- Lesen Sie `references/validator-contract.md`, wenn Sie die Ausgabe des Validators oder Konformitätsprofile interpretieren.
+
+Laden Sie nicht das vollständige Wörterbuch, wenn eine gezielte Suche genügt.
+
+## Werkzeuge verwenden, wenn verfügbar
+
+Wenn Code-Ausführung verfügbar ist, verwenden Sie diese Ebenen dort, wo sie zum Ergebnis beitragen:
+
+1. Führen Sie `scripts/stg_lint.py` für deterministische und kontrollierte Prüfungen aus.
+2. Führen Sie für AUDIT oder für ein schwieriges REWRITE auch `scripts/stg_analyze.py` aus. Das Analysewerkzeug liefert Belege für die Prüfung der deutschen Sprache.
+3. Führen Sie nach jedem REWRITE `scripts/stg_compare.py` mit dem Ausgangstext und der Umformulierung aus.
+
+Die Bedeutungsprüfung erkennt verlorene Zahlen, Einheiten, Bezeichner, Code, URLs, zitierte UI-Texte und Signalwörter für Sicherheit. Die Bedeutungsprüfung erkennt auch geänderte Modalität, Verbote, Verneinungen, Bedingungen und Grenzen.
+
+Beispiele:
 
 ```bash
 python scripts/stg_lint.py input.txt --profile procedure --format json
 python scripts/stg_lint.py input.md --profile support --project .stg-de.yaml --format json
 python scripts/stg_analyze.py input.md --format json
+python scripts/stg_compare.py original.txt rewrite.txt --format json
 ```
 
-Treat deterministic linter `error` findings as violations. Treat linter `warning`/`review` findings and **all** `stg_analyze.py` evidence as context that requires interpretation. The analyzer is review-only even when its confidence is `high`.
+Ein `FAIL` von `stg_compare.py` bedeutet: Geschützter Inhalt ist verloren oder geändert. Stellen Sie diesen Inhalt wieder her, bevor Sie die Umformulierung zurückgeben. Werten Sie die `REVIEW`-Befunde der Bedeutungsprüfung als Aufforderung, die betroffenen Sätze zu vergleichen. Diese Befunde sind kein Beweis für eine Änderung der Bedeutung.
 
-Never rewrite a sentence only because a heuristic says it is wrong. Confirm the actual rule and preserve the source meaning.
+Werten Sie deterministische `error`-Befunde des Linters als Verstöße. Werten Sie `warning`- und `review`-Befunde des Linters und **alle** Belege von `stg_analyze.py` als Kontext, der eine Interpretation erfordert. Das Analysewerkzeug dient nur der Prüfung, auch wenn seine Konfidenz `high` ist.
 
-If code execution is unavailable, continue without it. Apply the bundled rules, selected profile, and dictionary directly.
+Formulieren Sie einen Satz nie nur deshalb um, weil eine Heuristik ihn als falsch meldet. Bestätigen Sie die tatsächliche Regel und erhalten Sie die Bedeutung des Ausgangstexts.
 
-## Apply the core process
+Wenn keine Code-Ausführung verfügbar ist, fahren Sie ohne Code-Ausführung fort. Wenden Sie die mitgelieferten Regeln, das ausgewählte Profil und das Wörterbuch direkt an.
 
-1. Read the complete input once for meaning.
-2. Identify protected content: numbers, units, identifiers, quoted UI text, legal names, product names, code, URLs, and domain terminology.
-3. Select the application profile when appropriate.
-4. Preserve modality. Do not convert possibility into certainty, permission into obligation, or recommendation into requirement.
-5. Resolve terminology. Use the project term when a project dictionary specifies one. Otherwise preserve necessary domain terms and flag unresolved terms only in AUDIT mode.
-6. Apply structural rules before lexical optimization.
-7. Apply lexical rules with the controlled meaning and part of speech.
-8. Use review evidence for passive voice, modal ambiguity, clause complexity, pronoun reference, negation scope, nominal style, compounds, and separable verbs when relevant.
-9. Re-read the result against the source. Verify that no fact, condition, exception, actor, limit, or relationship changed.
-10. Run the deterministic linter again when tools are available. Fix deterministic findings that do not alter meaning.
+## Den Kernprozess anwenden
 
-## Writing priorities
+1. Lesen Sie die vollständige Eingabe einmal, um die Bedeutung zu verstehen.
+2. Ermitteln Sie geschützte Inhalte: Zahlen, Einheiten, Bezeichner, zitierte UI-Texte, rechtliche Namen, Produktnamen, Code, URLs und Fachterminologie.
+3. Wählen Sie das Anwendungsprofil aus, wenn der Zweck des Texts klar ist. Bestimmen Sie die Anredeform.
+4. Erhalten Sie die Modalität. Ändern Sie Möglichkeit nicht in Gewissheit, Erlaubnis nicht in Pflicht und Empfehlung nicht in Anforderung.
+5. Lösen Sie die Terminologie auf. Verwenden Sie den Projektbegriff, wenn ein Projektwörterbuch einen Begriff festlegt. Erhalten Sie sonst notwendige Fachbegriffe. Markieren Sie ungelöste Begriffe nur im AUDIT-Modus.
+6. Wenden Sie die strukturellen Regeln vor der lexikalischen Optimierung an.
+7. Wenden Sie die lexikalischen Regeln mit der kontrollierten Bedeutung und der Wortart an.
+8. Verwenden Sie Belege für die Prüfung, wenn diese Belege relevant sind: Passiv, mehrdeutige Modalität, komplexe Satzgefüge, Pronomenbezug, Reichweite der Verneinung, Nominalstil, Komposita und trennbare Verben.
+9. Lesen Sie das Ergebnis erneut und vergleichen Sie es mit dem Ausgangstext. Prüfen Sie, dass sich kein Fakt, keine Bedingung, keine Ausnahme, kein Akteur, keine Grenze und keine Beziehung geändert hat. Führen Sie `stg_compare.py` aus, wenn Werkzeuge verfügbar sind.
+10. Führen Sie den deterministischen Linter erneut aus, wenn Werkzeuge verfügbar sind. Korrigieren Sie deterministische Befunde, wenn die Korrektur die Bedeutung nicht ändert.
+11. Lassen Sie konformen Text unverändert. Formulieren Sie Text nicht nur aus stilistischen Gründen um.
 
-Use these priorities in order:
+## Prioritäten beim Schreiben
 
-1. **Technical correctness** — never change the intended fact or action.
-2. **Safety and legal meaning** — never weaken warnings, conditions, permissions, prohibitions, or obligations.
-3. **Unambiguous structure** — prefer explicit actors, objects, conditions, and references.
-4. **Terminology consistency** — use one term for one concept within the applicable scope.
-5. **Controlled vocabulary** — prefer approved central words where they express the correct meaning.
-6. **Profile priorities** — apply the selected profile's additional priorities.
-7. **Brevity** — shorten only after the first six priorities are satisfied.
+Verwenden Sie diese Prioritäten in dieser Reihenfolge:
 
-## Arbitrary German text
+1. **Technische Korrektheit** — Ändern Sie nie den beabsichtigten Fakt oder die beabsichtigte Handlung.
+2. **Sicherheit und rechtliche Bedeutung** — Schwächen Sie nie Warnungen, Bedingungen, Erlaubnisse, Verbote oder Pflichten ab.
+3. **Eindeutige Struktur** — Bevorzugen Sie explizite Akteure, Objekte, Bedingungen und Bezüge.
+4. **Einheitliche Terminologie** — Verwenden Sie im jeweiligen Geltungsbereich einen Begriff für ein Konzept.
+5. **Kontrolliertes Vokabular** — Bevorzugen Sie freigegebene zentrale Wörter, wenn sie die korrekte Bedeutung ausdrücken.
+6. **Prioritäten des Profils** — Wenden Sie die zusätzlichen Prioritäten des ausgewählten Profils an.
+7. **Kürze** — Kürzen Sie nur, wenn die ersten sechs Prioritäten erfüllt sind.
 
-Accept German text from any domain. Do not require that the text is an engineering manual. STG-DE can be used for support messages, consumer instructions, product copy, internal operations, software UI text, requirements, contracts, prompts, and other prose.
+## Text für KI-Agenten
 
-Do not remove necessary domain vocabulary to make a text look simpler. A controlled language controls ambiguity, not expertise.
+Ein Text, den ein Agent oder ein Programm liest, hat keinen Leser, der nachfragen kann. Verwenden Sie für diese Texte das Profil `agent` und den Modus `strikt`: Prompts, Tool-Beschreibungen, Fehlermeldungen, Statusberichte und Anweisungen zwischen Agenten. Beachten Sie zusätzlich diese Punkte:
 
-For persuasive or brand-sensitive text, preserve the communication goal but make the language more explicit and consistent. If STG-DE materially removes a requested tone or rhetorical effect, preserve the intended message and mention the trade-off only when the user asks for analysis.
+- Nennen Sie den Akteur und das Objekt jeder Handlung.
+- Nennen Sie jede Bedingung, jede Grenze und jede Ausnahme in einem eigenen Satz oder Listenpunkt.
+- Verwenden Sie einen Begriff für ein Konzept, auch in Tool-Namen, Parametern und Prosa.
+- Übernehmen Sie Bezeichner, Parameternamen, Pfade und Code genau wie angegeben, in Backticks.
+- Schreiben Sie Fehlermeldungen in dieser Form: was geschehen ist, warum (wenn bekannt), was der Leser als Nächstes tut.
 
-## German-specific checks
+## Beliebiger deutscher Text
 
-Pay special attention to:
+Akzeptieren Sie deutschen Text aus jedem Fachgebiet. Verlangen Sie nicht, dass der Text ein technisches Handbuch ist. Sie können STG-DE für viele Textarten verwenden: Support-Nachrichten, Anweisungen für Verbraucher, Produkttexte, interne Abläufe, UI-Texte von Software, Anforderungen, Verträge, Prompts und andere Prosa.
 
-- long or ambiguous compound nouns;
-- separable verbs and separated verb particles;
-- long sentence brackets;
-- nested subordinate clauses;
-- passive constructions with `werden`;
-- nominalized actions where a direct verb is clearer;
-- ambiguous pronouns and pronominal adverbs such as `dabei`, `dazu`, `daraus`, `davon`, and `darüber`;
-- vague modal words such as `gegebenenfalls`, `möglichst`, `ordnungsgemäß`, or `zeitnah`;
-- ambiguous scope of `nicht`, `nur`, `auch`, and similar particles;
-- inconsistent synonyms for the same concept;
-- words whose inflected form collides with a separate lemma or meaning.
+Entfernen Sie kein notwendiges Fachvokabular, nur damit ein Text schlichter aussieht. Eine kontrollierte Sprache kontrolliert Mehrdeutigkeit, nicht Fachwissen.
 
-Use the actual rule definitions in `references/rules.md` for normative decisions.
+Erhalten Sie bei werbenden oder markensensiblen Texten das Kommunikationsziel. Formulieren Sie den Text aber expliziter und einheitlicher. Wenn STG-DE einen gewünschten Ton oder eine rhetorische Wirkung wesentlich entfernt, erhalten Sie die beabsichtigte Aussage. Nennen Sie den Zielkonflikt nur, wenn der Benutzer eine Analyse anfordert.
 
-## Output
+## Prüfungen für das Deutsche
 
-### WRITE and REWRITE
+Achten Sie besonders auf diese Punkte:
 
-Return **only the finished STG-DE text by default**. Do not add a preamble, profile announcement, rule table, violation count, or closing explanation unless the user asks for one.
+- lange oder mehrdeutige Komposita,
+- trennbare Verben und abgetrennte Verbpartikeln,
+- lange Satzklammern,
+- verschachtelte Nebensätze,
+- Passivkonstruktionen mit `werden`,
+- nominalisierte Handlungen, wenn ein direktes Verb klarer ist,
+- mehrdeutige Pronomen und Pronominaladverbien wie `dabei`, `dazu`, `daraus`, `davon` und `darüber`,
+- vage modale Wörter wie `gegebenenfalls`, `möglichst`, `ordnungsgemäß` oder `zeitnah`,
+- mehrdeutige Reichweite von `nicht`, `nur`, `auch` und ähnlichen Partikeln,
+- uneinheitliche Synonyme für dasselbe Konzept,
+- Wörter, deren flektierte Form mit einem anderen Lemma oder einer anderen Bedeutung zusammenfällt.
 
-If strict compliance cannot be achieved without changing meaning, keep the necessary wording. Add one short `Hinweis:` line only when the unresolved issue is material to the requested output.
+Verwenden Sie die tatsächlichen Regeldefinitionen in `references/rules.md` für normative Entscheidungen.
+
+## Ausgabe
+
+### WRITE und REWRITE
+
+Geben Sie **standardmäßig nur den fertigen STG-DE-Text** zurück. Fügen Sie keine Einleitung, keine Ankündigung des Profils, keine Regeltabelle, keine Anzahl der Verstöße und keine abschließende Erklärung hinzu. Eine Ausnahme gilt, wenn der Benutzer eines dieser Elemente anfordert.
+
+Wenn strikte Konformität nur mit einer Änderung der Bedeutung möglich ist, behalten Sie die notwendige Formulierung. Fügen Sie nur dann eine kurze `Hinweis:`-Zeile hinzu, wenn das ungelöste Problem für die angeforderte Ausgabe wesentlich ist.
 
 ### AUDIT
 
-Return a concise table:
+Geben Sie eine knappe Tabelle zurück:
 
 ```markdown
 | Regel | Befund | Original | Vorschlag |
@@ -137,33 +181,33 @@ Return a concise table:
 | STG-5.2 | Mehrere unabhängige Anweisungen | ... | ... |
 ```
 
-After the table, give:
+Geben Sie nach der Tabelle diese Zeile an:
 
 ```text
 Ergebnis: PASS | PASS WITH REVIEW | FAIL
 ```
 
-A deterministic linter error makes the result `FAIL`. When there is no deterministic error but relevant heuristic or unresolved review evidence remains, use `PASS WITH REVIEW`. Do not turn analyzer evidence into `FAIL` by itself.
+Ein deterministischer Fehler des Linters ergibt das Ergebnis `FAIL`. Verwenden Sie `PASS WITH REVIEW`, wenn kein deterministischer Fehler vorhanden ist, aber relevante heuristische oder ungelöste Belege für die Prüfung bleiben. Vergeben Sie `FAIL` nicht allein auf Grund von Belegen des Analysewerkzeugs.
 
-When a profile was selected, name it in one short line after the result.
+Wenn Sie ein Profil oder einen Modus ausgewählt haben, nennen Sie beide in einer kurzen Zeile nach dem Ergebnis. Ein Beispiel ist `Profil: procedure · Modus: strikt`.
 
-## Project terminology
+## Projektterminologie
 
-If `.stg-de.yaml` or another project glossary is present, give it precedence for technical nouns, technical verbs, protected terms, and preferred terminology. Project terminology extends the central core; it does not override structural writing rules.
+Wenn `.stg-de.yaml` oder ein anderes Projektglossar vorhanden ist, geben Sie diesem Glossar Vorrang. Der Vorrang gilt für technische Substantive, technische Verben, geschützte Begriffe und bevorzugte Terminologie. Die Projektterminologie erweitert den zentralen Kern. Die Projektterminologie setzt die strukturellen Schreibregeln nicht außer Kraft.
 
-When no project dictionary exists:
+Wenn kein Projektwörterbuch vorhanden ist:
 
-- keep necessary domain nouns and verbs;
-- use the same term consistently;
-- do not invent a simpler synonym when it could change technical meaning;
-- in AUDIT mode, mark unresolved domain terms as review items rather than automatic errors.
+- Behalten Sie notwendige fachliche Substantive und Verben.
+- Verwenden Sie denselben Begriff einheitlich.
+- Erfinden Sie kein schlichteres Synonym, wenn das Synonym die technische Bedeutung ändern kann.
+- Markieren Sie im AUDIT-Modus ungelöste Fachbegriffe als Prüfpunkte und nicht als automatische Fehler.
 
-## Boundaries
+## Grenzen
 
-- Do not invent facts to make text more explicit.
-- Do not silently delete qualifications or exceptions to meet word limits.
-- Do not claim full lexical conformance when unresolved words remain.
-- Do not classify an unknown capitalized German noun as a technical term solely because it is capitalized.
-- Do not treat heuristic analysis as stronger evidence than the actual sentence meaning.
-- Do not require specialized vocabulary to be part of the central dictionary when a project term is appropriate.
-- Do not let an application profile override the meaning of a core rule or controlled word.
+- Erfinden Sie keine Fakten, um einen Text expliziter zu formulieren.
+- Löschen Sie keine Einschränkungen oder Ausnahmen stillschweigend, um Wortgrenzen einzuhalten.
+- Behaupten Sie keine vollständige lexikalische Konformität, wenn ungelöste Wörter bleiben.
+- Klassifizieren Sie ein unbekanntes großgeschriebenes deutsches Substantiv nicht als Fachbegriff, nur weil es großgeschrieben ist.
+- Werten Sie eine heuristische Analyse nicht als stärkeren Beleg als die tatsächliche Bedeutung des Satzes.
+- Verlangen Sie nicht, dass Fachvokabular zum zentralen Wörterbuch gehört, wenn ein Projektbegriff passt.
+- Lassen Sie nicht zu, dass ein Anwendungsprofil die Bedeutung einer Kernregel oder eines kontrollierten Worts außer Kraft setzt.

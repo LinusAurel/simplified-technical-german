@@ -1,68 +1,68 @@
-# STG Change Proposal
+# STG-Änderungsvorschlag
 
-**Proposal ID:** STG-YYYY-NNN  
+**Vorschlags-ID:** STG-YYYY-NNN  
 **Status:** draft | review | accepted | rejected | deferred  
-**Change class:** rule | profile | conformance | other normative  
-**Target release:**
+**Änderungsklasse:** rule | profile | conformance | other normative  
+**Ziel-Release:**
 
 ## Problem
 
-Describe the concrete ambiguity, inconsistency, or adoption problem.
+Beschreiben Sie die konkrete Mehrdeutigkeit, die Inkonsistenz oder das Problem bei der Einführung.
 
-## Current behavior
+## Derzeitiges Verhalten
 
-Identify the current rule IDs and behavior. Do not paraphrase away important normative details.
+Nennen Sie die derzeitigen Regel-IDs und das derzeitige Verhalten. Lassen Sie bei der Umschreibung keine wichtigen normativen Details weg.
 
-## Proposed behavior
+## Vorgeschlagenes Verhalten
 
-State the new normative behavior precisely.
+Beschreiben Sie das neue normative Verhalten präzise.
 
-## Examples
+## Beispiele
 
-### Compliant
-
-```text
-...
-```
-
-### Non-compliant
+### Konform
 
 ```text
 ...
 ```
 
-## Compatibility impact
+### Nicht konform
 
-- Does previously conforming text become non-conforming?
-- Does a controlled meaning change?
-- Does validator severity change?
-- Does an Agent Skill rewrite change materially?
+```text
+...
+```
 
-## Evidence
+## Auswirkung auf die Kompatibilität
 
-List corpus observations, public examples, linguistic rationale, user reports, or other evidence. Do not use a release holdout set to tune the same release.
+- Wird ein bisher konformer Text nicht konform?
+- Ändert sich eine kontrollierte Bedeutung?
+- Ändert sich der Schweregrad im Validator?
+- Ändert sich eine Umformulierung durch den Agent Skill wesentlich?
 
-## Alternatives considered
+## Belege
 
-Explain why the existing behavior or other proposed solutions are insufficient.
+Nennen Sie Beobachtungen aus dem Korpus, öffentliche Beispiele, eine linguistische Begründung, Berichte von Benutzern oder andere Belege. Verwenden Sie das Holdout-Set eines Release nicht, um dasselbe Release abzustimmen.
 
-## Implementation impact
+## Geprüfte Alternativen
 
-List expected changes to:
+Erklären Sie, warum das vorhandene Verhalten oder andere vorgeschlagene Lösungen nicht genügen.
 
-- specification/rules;
-- rule index;
-- dictionary;
-- validator;
-- profiles;
-- Agent Skill;
-- tests/evaluations;
-- documentation.
+## Auswirkung auf die Implementierung
 
-## Decision
+Nennen Sie die erwarteten Änderungen an diesen Elementen:
 
-**Outcome:** pending | accepted | rejected | deferred
+- Spezifikation und Regeln,
+- Regelindex,
+- Wörterbuch,
+- Validator,
+- Profile,
+- Agent Skill,
+- Tests und Evaluationen,
+- Dokumentation.
 
-**Rationale:**
+## Entscheidung
 
-Record the final reasoning, including important dissent or limitations.
+**Ergebnis:** pending | accepted | rejected | deferred
+
+**Begründung:**
+
+Dokumentieren Sie die endgültige Begründung. Nennen Sie auch wichtige abweichende Meinungen und Einschränkungen.

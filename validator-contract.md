@@ -1,12 +1,12 @@
-# STG-DE validator contract
+# STG-DE-Validatorvertrag
 
-## 1. Purpose
+## 1. Zweck
 
-This file defines a practical contract for linters, authoring tools, LLM reviewers, CI gates, and editor integrations.
+Diese Datei definiert einen praktischen Vertrag für Linter, Autorenwerkzeuge, LLM-Reviewer, CI-Gates und Integrationen in Editoren.
 
-## 2. Input
+## 2. Eingabe
 
-Minimum input:
+Minimale Eingabe:
 
 ```yaml
 text: "..."
@@ -15,7 +15,7 @@ locale: de-DE
 conformance_target: STG-R | STG-T | STG-C-core | STG-C
 ```
 
-Recommended additional input:
+Empfohlene zusätzliche Eingabe:
 
 ```yaml
 terminology_sources:
@@ -28,7 +28,7 @@ safety_profile: project-safety-v2
 instruction_profile: formal-sie-imperative
 ```
 
-## 3. Output
+## 3. Ausgabe
 
 ```yaml
 status: pass | fail | needs_input
@@ -46,150 +46,155 @@ diagnostics:
     proposed_fix: "Entfernen Sie die Sicherung."
 ```
 
-## 4. Severity
+## 4. Schweregrad
 
-- `error`: deterministic mandatory violation or high-confidence semantic violation.
-- `warning`: heuristic finding that requires review.
-- `info`: non-mandatory recommendation.
-- `needs_input`: safe rewrite requires domain, safety, or modality information.
+- `error`: deterministischer Verstoß gegen eine verbindliche Regel oder semantischer Verstoß mit hoher Konfidenz.
+- `warning`: heuristischer Befund, der ein Review erfordert.
+- `info`: nicht verbindliche Empfehlung.
+- `needs_input`: Eine sichere Umformulierung erfordert Informationen zu Domäne, Sicherheit oder Modalität.
 
-## 5. Recommended rule pipeline
+## 5. Empfohlene Pipeline für Regeln
 
-### Phase A — protected spans
+### Phase A: geschützte Bereiche
 
-Identify and freeze:
+Erkennen Sie diese Elemente und schützen Sie die Elemente vor Änderungen:
 
-- identifiers,
-- formulas,
-- part numbers,
-- UI labels,
-- proper names,
-- quoted/legal text,
-- document titles.
+- Kennungen,
+- Formeln,
+- Teilenummern,
+- Bezeichnungen der Benutzeroberfläche,
+- Eigennamen,
+- zitierte Texte und Rechtstexte,
+- Titel von Dokumenten.
 
-### Phase B — segmentation and counts
+### Phase B: Segmentierung und Zählungen
 
-Check:
+Prüfen Sie diese Elemente:
 
-- sentence boundaries,
-- list structure,
-- 20/25-word limits,
-- paragraph sentence count,
-- semicolons,
-- parentheses rules.
+- Satzgrenzen,
+- Listenstruktur,
+- Grenzen von 20 und 25 Wörtern,
+- Anzahl der Sätze in einem Absatz,
+- Semikolons,
+- Regeln für Klammern.
 
-### Phase C — deterministic lexical checks
+### Phase C: deterministische lexikalische Prüfungen
 
-Check:
+Prüfen Sie diese Elemente:
 
-- prohibited terms/phrases,
-- unapproved abbreviations,
-- locale spelling profile where tooling permits,
-- known project terminology variants.
+- verbotene Begriffe und Wendungen,
+- nicht zugelassene Abkürzungen,
+- Profil für regionale Schreibweisen, wenn die Werkzeuge es unterstützen,
+- bekannte Varianten der Projektterminologie.
 
-### Phase D — syntax heuristics
+### Phase D: syntaktische Heuristiken
 
-Detect:
+Erkennen Sie diese Elemente:
 
-- passive candidates (`werden` + Partizip II),
-- long sentence brackets from separable verbs,
-- nominalizations and function-verb constructions,
-- nested subordinate clauses,
+- Passivkandidaten (`werden` + Partizip II),
+- lange Satzklammern durch trennbare Verben,
+- Nominalisierungen und Funktionsverbgefüge,
+- verschachtelte Nebensätze,
 - `man`,
-- ambiguous modal verbs,
-- ambiguous negation.
+- mehrdeutige Modalverben,
+- mehrdeutige Negationen.
 
-A parser must distinguish state constructions such as `ist geschlossen` from action passives where possible.
+Ein Parser muss Zustandskonstruktionen wie `ist geschlossen` von Vorgangspassiven unterscheiden, wo das möglich ist.
 
-### Phase E — semantic/domain checks
+### Phase E: semantische und domänenbezogene Prüfungen
 
-Check:
+Prüfen Sie diese Elemente:
 
-- one term per concept,
-- pronoun antecedent ambiguity,
-- technical-term approval,
-- technical-verb approval,
-- modality intent,
-- safety consequence and category consistency.
+- ein Begriff je Konzept,
+- Mehrdeutigkeit des Bezugsworts eines Pronomens,
+- Zulassung von Fachbegriffen,
+- Zulassung von Fachverben,
+- Absicht der Modalität,
+- Konsistenz von Sicherheitsfolge und Sicherheitskategorie.
 
-## 6. Compound complexity heuristic
+## 6. Heuristik für die Komplexität von Komposita
 
-For new/unapproved compounds, a validator may split a noun using a compound splitter. Emit a warning when:
+Für neue oder nicht zugelassene Komposita darf ein Validator ein Nomen mit einem Kompositazerleger zerlegen. Geben Sie eine Warnung aus, wenn eine dieser Bedingungen zutrifft:
 
-- more than three meaningful lexical components are detected, or
-- more than one plausible decomposition exists, or
-- the compound is longer than 30 characters and is not an approved term.
+- Der Zerleger erkennt mehr als drei bedeutungstragende lexikalische Bestandteile.
+- Es gibt mehr als eine plausible Zerlegung.
+- Das Kompositum ist länger als 30 Zeichen und ist kein zugelassener Begriff.
 
-This is a heuristic, not a mandatory lexical rule for official terms.
+Das ist eine Heuristik und keine verbindliche lexikalische Regel für offizielle Begriffe.
 
-## 7. Passive detection
+## 7. Erkennung von Passiv
 
-High-value patterns:
+Muster mit hohem Wert:
 
-- `werden` + Partizip II → likely Vorgangspassiv,
-- modal + Partizip II + `werden` → complex passive,
-- `sein` + Partizip II → state/adjective candidate, not automatically a violation.
+- `werden` + Partizip II → wahrscheinlich Vorgangspassiv,
+- Modalverb + Partizip II + `werden` → komplexes Passiv,
+- `sein` + Partizip II → Kandidat für Zustand oder Adjektiv, nicht automatisch ein Verstoß.
 
-In a `procedure`, a passive candidate should normally be an error. In a `description`, it is a warning unless the agent/actor is clearly known.
+In einem Text vom Typ `procedure` empfehlen wir, einen Passivkandidaten im Normalfall als Fehler zu melden. In einem Text vom Typ `description` ist ein Passivkandidat eine Warnung, außer wenn der Agent oder Akteur eindeutig bekannt ist.
 
-## 8. Modality detection
+## 8. Erkennung von Modalität
 
-Flag:
+Markieren Sie diese Formen:
 
 - `soll`, `sollen`, `sollte`, `sollten`,
 - `müsste`, `müssten`,
 - `könnte`, `könnten`,
 - `gegebenenfalls`, `ggf.`.
 
-The tool must not auto-convert these to `muss` or an imperative without knowing the intended force.
+Das Werkzeug darf diese Formen nicht automatisch in `muss` oder einen Imperativ umwandeln, wenn es die beabsichtigte Verbindlichkeit nicht kennt.
 
-## 9. Pronoun resolution
+## 9. Auflösung von Pronomen
 
-If a third-person pronoun or demonstrative has more than one plausible antecedent of compatible number/gender in the preceding sentence or clause, emit a warning or error.
+Ein Pronomen der dritten Person oder ein Demonstrativum kann im vorherigen Satz oder Teilsatz mehr als ein plausibles Bezugswort haben. Ein plausibles Bezugswort passt in Numerus und Genus zum Pronomen. Wenn mehr als ein plausibles Bezugswort existiert, geben Sie eine Warnung oder einen Fehler aus.
 
-Prefer noun repetition in proposed fixes.
+Wiederholen Sie in vorgeschlagenen Korrekturen bevorzugt das Nomen.
 
-## 10. Unknown words
+## 10. Unbekannte Wörter
 
-For `STG-R`, an unknown general word is not automatically an error unless it violates a specific rule.
+Für `STG-R` ist ein unbekanntes allgemeines Wort nicht automatisch ein Fehler, außer wenn es gegen eine bestimmte Regel verstößt.
 
-For `STG-T`, unknown technical-looking terms are errors or `needs_input` until approved.
+Für `STG-T` sind unbekannte Begriffe, die technisch aussehen, Fehler oder `needs_input`, bis sie zugelassen sind.
 
-For `STG-C-core`, every non-locked lexical item must resolve to an approved/restricted central v0.4 entry or an approved technical entry. Restricted entries must satisfy their restrictions. Unknown general words produce `needs_input`/`NEEDS_LEXICON_REVIEW`.
+Für `STG-C-core` muss jedes nicht gesperrte lexikalische Element zu einem dieser Einträge aufgelöst werden:
 
-For `STG-C`, every non-locked lexical item must resolve to a future broad, human-reviewed central or technical entry. v0.4 does not claim general `STG-C` certification.
+- ein zugelassener oder eingeschränkter zentraler Eintrag von v0.4,
+- ein zugelassener technischer Eintrag.
 
+Eingeschränkte Einträge müssen ihre Einschränkungen erfüllen. Unbekannte allgemeine Wörter erzeugen `needs_input` oder `NEEDS_LEXICON_REVIEW`.
 
-## 11. Lexical resolution in v0.4
-
-Recommended resolution order for `STG-C-core`:
-
-1. locked/protected spans,
-2. approved project terminology,
-3. longest approved/prohibited phrase patterns,
-4. German contraction expansion from `dictionary/contractions.yaml`,
-5. case-sensitive lexical distinctions (`Sie` vs `sie`),
-6. canonical central lemma with correct part of speech and approved meaning,
-7. declared surface forms and controlled inflections, with canonical-lemma precedence on collisions,
-8. deterministic morphology and separable-verb reconstruction,
-9. prohibited/review list at the resolved lemma,
-10. unknown -> `NEEDS_LEXICON_REVIEW`.
-
-A `restricted` central word can pass only when its restriction is satisfied. A validator must not turn `review_required` into an automatic pass.
-
-Lexical lookup is lemma-based. Apply morphological analysis before lookup and reconstruct separable verb lemmas where possible; see `dictionary/MORPHOLOGY.md`.
+Für `STG-C` muss jedes nicht gesperrte lexikalische Element zu einem zukünftigen zentralen oder technischen Eintrag aufgelöst werden. Dieser Eintrag muss zu einem breiten Wortschatz gehören, den Menschen geprüft haben. v0.4 beansprucht keine allgemeine Zertifizierung für `STG-C`.
 
 
-## 12. Pronominal adverbs
+## 11. Lexikalische Auflösung in v0.4
 
-Detect German pronominal adverbs such as `dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür`, and `hierfür`. If the form can refer to more than one object, action, cause, purpose, or preceding proposition, return `NEEDS_REFERENCE_INPUT` under STG-DE-4.5. Do not auto-select an antecedent.
+Empfohlene Reihenfolge der Auflösung für `STG-C-core`:
 
-## 13. Corpus-development mode
+1. gesperrte und geschützte Bereiche,
+2. zugelassene Projektterminologie,
+3. längste zugelassene und verbotene Muster für Wendungen,
+4. Auflösung deutscher Kontraktionen aus `dictionary/contractions.yaml`,
+5. lexikalische Unterscheidungen nach Groß- und Kleinschreibung (`Sie` gegenüber `sie`),
+6. kanonisches zentrales Lemma mit korrekter Wortart und zugelassener Bedeutung,
+7. deklarierte Oberflächenformen und kontrollierte Flexionsformen, mit Vorrang des kanonischen Lemmas bei Kollisionen,
+8. deterministische Morphologie und Rekonstruktion trennbarer Verben,
+9. Liste der verbotenen Wörter und der Wörter mit Review-Pflicht für das aufgelöste Lemma,
+10. unbekannt -> `NEEDS_LEXICON_REVIEW`.
 
-A development tool may classify unresolved tokens as `MORPHOLOGY_CANDIDATE`, `LEXICAL_NOUN_CANDIDATE`, or `PROTECTED_TOKEN_CANDIDATE`. These labels are triage states and are not conformance passes. See `tools/corpus_validate.py`.
-## 14. German noun-candidate routing
+Ein zentrales Wort mit dem Status `restricted` besteht nur, wenn seine Einschränkung erfüllt ist. Ein Validator darf `review_required` nicht in ein automatisches Bestehen umwandeln.
 
-Do not infer `technical noun` from capitalization. All German nouns are capitalized. An unknown capitalized token is a `LEXICAL_NOUN_CANDIDATE` until it resolves to the central lexicon, approved project/domain terminology, a protected span, or review.
+Die lexikalische Suche basiert auf Lemmata. Wenden Sie die morphologische Analyse vor der Suche an. Rekonstruieren Sie die Lemmata trennbarer Verben, wo das möglich ist. Siehe `dictionary/MORPHOLOGY.md`.
 
-For declared noun plurals, accept only lexicon-declared plural forms. Before applying a plural alias, check whether the surface form is itself a canonical lemma. `Daten` must resolve to `DE-NOU-daten` in the technical-data meaning rather than being consumed by the `Datum` plural alias.
 
+## 12. Pronominaladverbien
+
+Erkennen Sie deutsche Pronominaladverbien wie `dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür` und `hierfür`. Eine solche Form kann sich auf mehr als ein Objekt, eine Handlung, eine Ursache, einen Zweck oder eine vorherige Aussage beziehen. In diesem Fall geben Sie `NEEDS_REFERENCE_INPUT` unter STG-DE-4.5 zurück. Wählen Sie nicht automatisch ein Bezugswort aus.
+
+## 13. Modus für die Korpusentwicklung
+
+Ein Entwicklungswerkzeug darf nicht aufgelöste Token als `MORPHOLOGY_CANDIDATE`, `LEXICAL_NOUN_CANDIDATE` oder `PROTECTED_TOKEN_CANDIDATE` klassifizieren. Diese Kennzeichnungen sind Status für die Sichtung. Sie bedeuten kein Bestehen der Konformitätsprüfung. Siehe `tools/corpus_validate.py`.
+
+## 14. Routing deutscher Nomenkandidaten
+
+Leiten Sie `technical noun` nicht aus der Großschreibung ab. Im Deutschen sind alle Nomen großgeschrieben. Ein unbekanntes großgeschriebenes Token ist ein `LEXICAL_NOUN_CANDIDATE`, bis es zu einem dieser Ziele aufgelöst ist: zentrales Lexikon, zugelassene Projekt- oder Domänenterminologie, geschützter Bereich oder Review.
+
+Akzeptieren Sie für deklarierte Pluralformen von Nomen nur die Pluralformen, die das Lexikon deklariert. Prüfen Sie vor der Anwendung eines Plural-Alias, ob die Oberflächenform selbst ein kanonisches Lemma ist. `Daten` muss zu `DE-NOU-daten` in der Bedeutung „technische Daten“ aufgelöst werden. Der Plural-Alias von `Datum` darf `Daten` nicht übernehmen.

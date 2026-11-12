@@ -1,83 +1,87 @@
-# Section 8 — Zeichensetzung und Wortzählung
+# Abschnitt 8 — Zeichensetzung und Wortzählung
 
-## STG-8.1 — Standardsatzzeichen; kein Semikolon zum Verbinden von Aussagen
+## STG-8.1 — Standardsatzzeichen und kein Semikolon zum Verbinden von Aussagen
 
 **Level:** `MUST_NOT`
 
-Use standard German punctuation. Do not use the semicolon (`;`) to connect independent technical propositions. Write separate sentences instead.
+Verwenden Sie die Standardzeichensetzung des Deutschen. Verbinden Sie unabhängige technische Aussagen nicht mit einem Semikolon (`;`). Schreiben Sie stattdessen getrennte Sätze.
 
-This restriction is intentionally stronger than ordinary German punctuation rules because it limits sentence complexity.
+Diese Einschränkung ist absichtlich strenger als die normalen deutschen Zeichensetzungsregeln. Der Grund: Die Einschränkung begrenzt die Komplexität der Sätze.
 
 ## STG-8.2 — Bindestriche nur für echte Wortstruktur
 
 **Level:** `MUST`
 
-Use hyphens according to German orthography and approved terminology. Use them when they clarify compound boundaries, connect letters/numbers with words where required, or are part of an official term.
+Verwenden Sie Bindestriche nach der deutschen Rechtschreibung und nach der freigegebenen Terminologie. Verwenden Sie Bindestriche in diesen Fällen:
 
-Do not use hyphens to hide syntactic complexity or to force a long phrase into one counted word.
+- Ein Bindestrich zeigt die Grenzen in einem Kompositum deutlich.
+- Ein Bindestrich verbindet Buchstaben oder Zahlen mit Wörtern, wenn die Rechtschreibung diese Verbindung verlangt.
+- Ein Bindestrich ist ein Teil eines offiziellen Begriffs.
+
+Verwenden Sie Bindestriche nicht, um syntaktische Komplexität zu verstecken. Verwenden Sie Bindestriche auch nicht, um eine lange Wortgruppe in ein einziges gezähltes Wort zu zwingen.
 
 ## STG-8.3 — Klammern restriktiv verwenden
 
 **Level:** `MUST`
 
-Parentheses may be used for:
+Klammern dürfen diese Inhalte enthalten:
 
-- figure/text references,
-- identifiers,
-- work-step identifiers,
-- abbreviations after the full form,
-- short clarifications,
-- controlled alternatives where the project format explicitly permits them.
+- Verweise auf Abbildungen oder Textstellen,
+- Kennungen,
+- Kennungen von Arbeitsschritten,
+- Abkürzungen nach der vollständigen Form,
+- kurze Erläuterungen,
+- kontrollierte Alternativen, wenn das Projektformat diese Alternativen ausdrücklich zulässt.
 
-Do not put a required instruction, safety action, or primary technical condition only in parentheses.
+Schreiben Sie eine erforderliche Anweisung, eine Schutzhandlung oder eine primäre technische Bedingung nicht nur in Klammern.
 
 ## STG-8.4 — Doppelpunkt beendet die Einleitung einer vertikalen Liste
 
 **Level:** `MUST`
 
-For word counting, the text before a colon that introduces a vertical list is counted as one sentence. Each list item is checked separately.
+Für die Wortzählung gilt: Der Text vor einem Doppelpunkt, der eine vertikale Liste einleitet, zählt als ein Satz. Jeder Listenpunkt wird separat geprüft.
 
-Limits:
+Grenzen:
 
-- 20 words for procedural items,
-- 25 words for descriptive items.
+- 20 Wörter für Listenpunkte in anleitendem Text,
+- 25 Wörter für Listenpunkte in beschreibendem Text.
 
 ## STG-8.5 — Klammertext separat prüfen
 
 **Level:** `MUST`
 
-Parenthetical text counts as one word in the outer sentence. The text inside parentheses is also checked separately for clarity and applicable sentence length.
+Text in Klammern zählt im äußeren Satz als ein Wort. Der Text in den Klammern wird zusätzlich separat auf Klarheit und auf die zutreffende Satzlänge geprüft.
 
-This counting rule does not permit complex instructions inside parentheses.
+Diese Zählregel erlaubt keine komplexen Anweisungen in Klammern.
 
 ## STG-8.6 — Geschützte Einheiten zählen als ein Wort
 
 **Level:** `MUST`
 
-For sentence-length counting, each of these counts as one word in the surrounding sentence:
+Für die Zählung der Satzlänge zählt jedes dieser Elemente im umgebenden Satz als ein Wort:
 
-- a number,
-- a number directly combined with its unit,
-- an abbreviation,
-- an alphanumeric identifier,
-- quoted/locked text,
-- an official title/heading/label,
-- a protected proper name.
+- eine Zahl,
+- eine Zahl, die direkt mit ihrer Einheit verbunden ist,
+- eine Abkürzung,
+- eine alphanumerische Kennung,
+- zitierter oder gesperrter Text,
+- ein offizieller Titel, eine offizielle Überschrift oder eine offizielle Beschriftung,
+- ein geschützter Eigenname.
 
-Do not count numbering that only identifies a work step.
+Zählen Sie keine Nummerierung, die nur einen Arbeitsschritt kennzeichnet.
 
 ## STG-8.7 — Bindestrichkomposita zählen orthografisch als ein Wort
 
 **Level:** `MUST`
 
-A hyphenated German compound counts as one orthographic word for sentence length. The compound is still subject to Section 2 complexity rules.
+Ein deutsches Kompositum mit Bindestrich zählt für die Satzlänge als ein orthografisches Wort. Für das Kompositum gelten trotzdem die Komplexitätsregeln in Abschnitt 2.
 
 ## STG-DE-8.1 — Schrägstrichkombinationen vermeiden
 
 **Level:** `SHOULD_NOT`
 
-Avoid forms such as `und/oder`, `der/die`, `ein-/ausschalten`, and compressed slash alternatives in running technical text when they can have more than one interpretation.
+Wir empfehlen, Formen wie `und/oder`, `der/die`, `ein-/ausschalten` und komprimierte Alternativen mit Schrägstrich in technischem Fließtext zu vermeiden. Diese Empfehlung gilt, wenn diese Formen mehr als eine Interpretation zulassen.
 
-Use an explicit `und`, `oder`, a vertical list, or separate sentences.
+Verwenden Sie ein explizites `und`, ein explizites `oder`, eine vertikale Liste oder getrennte Sätze.
 
-Exceptions are locked identifiers and project-defined compact table notation.
+Ausnahmen sind gesperrte Kennungen und kompakte Tabellennotationen, die das Projekt definiert.

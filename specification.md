@@ -1,165 +1,187 @@
-# STG-DE normative specification
+# Normative Spezifikation von STG-DE
 
-## 1. Scope
+## 1. Anwendungsbereich
 
-STG-DE is a controlled form of written German for technical documentation. It is intended for procedures, maintenance information, operating information, system descriptions, service documentation, technical reports, safety instructions, and similar technical content.
+STG-DE ist eine kontrollierte Form des geschriebenen Deutsch für technische Dokumentation. STG-DE ist für diese Inhalte vorgesehen:
 
-STG-DE controls **expression**, not document layout. Typography, numbering systems, page design, product-specific warning graphics, units policy, and document architecture remain subject to the applicable publication standard or company directive.
+- Anleitungen,
+- Wartungsinformationen,
+- Betriebsinformationen,
+- Systembeschreibungen,
+- Servicedokumentation,
+- technische Berichte,
+- Sicherheitshinweise,
+- ähnliche technische Inhalte.
 
-## 2. Design principles
+STG-DE kontrolliert den **Ausdruck**, nicht das Layout des Dokuments. Für diese Themen gilt der anwendbare Publikationsstandard oder die anwendbare Unternehmensrichtlinie: Typografie, Nummerierungssysteme, Seitengestaltung, produktspezifische Warngrafiken, Regeln für Einheiten und Dokumentarchitektur.
 
-STG-DE is based on these principles:
+## 2. Gestaltungsprinzipien
 
-1. **One term — one concept.** Use one approved designation for one technical concept within a defined scope.
-2. **One general word — one controlled meaning.** A central lexicon can restrict a general-language word to one meaning and one word class.
-3. **Actions use verbs.** Prefer direct verbs to nominalizations and function-verb constructions.
-4. **Known agent first.** Use active voice when the agent is known. Use the formal imperative for instructions.
-5. **One instruction per sentence.** Combine actions only when they are simultaneous or form one inseparable physical action.
-6. **Conditions before commands.** The reader sees the condition before the action it controls.
-7. **Short sentences.** Maximum 20 words for procedure/safety commands; maximum 25 words for descriptions and notes.
-8. **One topic per sentence and paragraph.** Add information progressively.
-9. **No stylistic synonym variation.** Repetition is preferred to lexical variation.
-10. **No hidden modality.** Distinguish requirement, permission, capability/possibility, recommendation, and prohibition.
-11. **No unresolved reference.** Pronouns, demonstratives, ellipses, and negation must have an unambiguous scope.
-12. **German morphology is explicit data.** Dictionary entries carry gender, plural, inflection, separability, and approved forms as applicable.
+STG-DE beruht auf diesen Prinzipien:
 
-## 3. German baseline
+1. **Ein Term — ein Konzept.** Verwenden Sie in einem definierten Geltungsbereich eine freigegebene Benennung für ein technisches Konzept.
+2. **Ein allgemeines Wort — eine kontrollierte Bedeutung.** Ein zentrales Lexikon kann ein allgemeinsprachliches Wort auf eine Bedeutung und eine Wortart beschränken.
+3. **Handlungen mit Verben ausdrücken.** Bevorzugen Sie direkte Verben statt Nominalisierungen und Funktionsverbgefügen.
+4. **Bekannter Akteur zuerst.** Verwenden Sie das Aktiv, wenn der Akteur bekannt ist. Verwenden Sie für Anweisungen den formellen Imperativ.
+5. **Eine Anweisung je Satz.** Kombinieren Sie Handlungen nur, wenn die Handlungen gleichzeitig sind oder eine untrennbare physische Handlung bilden.
+6. **Bedingungen vor Befehlen.** Der Leser sieht die Bedingung vor der Handlung, die von dieser Bedingung abhängt.
+7. **Kurze Sätze.** Befehle in Anleitungen und Sicherheitshinweisen haben höchstens 20 Wörter. Beschreibungen und Hinweise haben höchstens 25 Wörter je Satz.
+8. **Ein Thema je Satz und Absatz.** Fügen Sie Informationen schrittweise hinzu.
+9. **Keine stilistische Variation mit Synonymen.** Wiederholung hat Vorrang vor lexikalischer Variation.
+10. **Keine versteckte Modalität.** Unterscheiden Sie Anforderung, Erlaubnis, Fähigkeit oder Möglichkeit, Empfehlung und Verbot.
+11. **Kein ungeklärter Bezug.** Pronomen, Demonstrativa, Ellipsen und Negationen müssen einen eindeutigen Bezugsbereich haben.
+12. **Deutsche Morphologie ist explizit erfasst.** Wörterbucheinträge enthalten Genus, Plural, Flexion, Trennbarkeit und freigegebene Formen, wenn diese Angaben zutreffen.
 
-The default spelling profile is `de-DE` and follows the **Amtliches Regelwerk der deutschen Rechtschreibung (2024)** unless an applicable official directive requires another German national or organizational spelling profile.
+## 3. Deutsche Grundlage
 
-Project configuration may declare a different profile, for example `de-CH`. A document must not mix spelling profiles without an explicit reason.
+Das Standardprofil für die Rechtschreibung ist `de-DE`. Grundlage dieses Profils ist das **Amtliche Regelwerk der deutschen Rechtschreibung (2024)**. Eine Ausnahme gilt, wenn eine anwendbare offizielle Richtlinie ein anderes nationales oder organisatorisches Rechtschreibprofil für Deutsch verlangt.
 
-## 4. Text types
+Die Projektkonfiguration darf ein anderes Profil festlegen, zum Beispiel `de-CH`. Ein Dokument darf Rechtschreibprofile nicht ohne ausdrücklichen Grund mischen.
 
-### 4.1 Procedure
+## 4. Textarten
 
-A procedure tells the reader what to do. Instructions use the formal imperative with `Sie` unless a mandatory project directive specifies a different controlled imperative profile.
+### 4.1 Anleitung
 
-Default:
+Eine Anleitung sagt dem Leser, welche Handlungen der Leser ausführt. Anweisungen verwenden den formellen Imperativ mit `Sie`. Eine Ausnahme gilt, wenn eine verbindliche Projektrichtlinie ein anderes kontrolliertes Imperativprofil festlegt.
+
+Standard:
 
 > Entfernen Sie die Abdeckung.
 
-Not default:
+<!-- stg-lint: off -->
+Nicht Standard:
 
 > Abdeckung entfernen.
+<!-- stg-lint: on -->
 
-The infinitive instruction style can be enabled only as a project profile and must then be used consistently.
+Den Infinitivstil für Anweisungen dürfen Sie nur als Projektprofil aktivieren. Wenn ein Projekt diesen Stil aktiviert, muss das Projekt den Infinitivstil konsistent verwenden.
 
-### 4.2 Description
+### 4.2 Beschreibung
 
-A description gives information and does not command the reader. Descriptions normally use Präsens. Each sentence has one main topic.
+Eine Beschreibung gibt Informationen und gibt dem Leser keine Befehle. Die Standardzeitform für Beschreibungen ist das Präsens. Jeder Satz hat ein Hauptthema.
 
-### 4.3 Safety instruction
+### 4.3 Sicherheitshinweis
 
-A safety instruction contains:
+Ein Sicherheitshinweis enthält:
 
-1. the signal word or other project-defined risk identifier,
-2. the preventive command or the condition,
-3. the consequence/risk when known.
+1. das Signalwort oder eine andere projektdefinierte Kennzeichnung des Risikos,
+2. den vorbeugenden Befehl oder die Bedingung,
+3. die Folge oder das Risiko, wenn die Folge oder das Risiko bekannt ist.
 
-The risk taxonomy comes from the applicable safety standard, not from STG-DE.
+Die Taxonomie der Risiken kommt aus der anwendbaren Sicherheitsnorm, nicht aus STG-DE.
 
-### 4.4 Note
+### 4.4 Hinweis
 
-A note gives optional supporting information. A note must not contain an instruction, mandatory requirement, acceptance limit, tolerance, or safety-critical action.
+Ein Hinweis gibt optionale unterstützende Informationen. Ein Hinweis darf keine Anweisung, keine verbindliche Anforderung, keinen Abnahmegrenzwert, keine Toleranz und keine sicherheitskritische Handlung enthalten.
 
-### 4.5 Locked external text
+### 4.5 Gesperrter externer Text
 
-Legal names, UI labels, placards, document titles, identifiers, formulas, quoted material, and externally controlled strings may be outside STG-DE. The surrounding sentence must still obey STG rules where possible.
+Diese Texte dürfen außerhalb von STG-DE liegen:
 
-## 5. Conformance
+- rechtliche Namen,
+- Beschriftungen der Benutzeroberfläche,
+- Schilder,
+- Dokumenttitel,
+- Kennungen,
+- Formeln,
+- zitiertes Material,
+- extern kontrollierte Zeichenketten.
+
+Der umgebende Satz muss den STG-Regeln trotzdem folgen, wo das möglich ist.
+
+## 5. Konformität
 
 ### 5.1 `STG-R`
 
-A text conforms to `STG-R` when all applicable mandatory writing rules are satisfied.
+Ein Text ist konform zu `STG-R`, wenn der Text alle anwendbaren verbindlichen Schreibregeln erfüllt.
 
 ### 5.2 `STG-T`
 
-A text conforms to `STG-T` when it conforms to `STG-R` and every technical noun and technical verb is approved in the applicable terminology source.
+Ein Text ist konform zu `STG-T`, wenn der Text konform zu `STG-R` ist. Zusätzlich muss die anwendbare Terminologiequelle jedes technische Substantiv und jedes technische Verb freigeben.
 
 ### 5.3 `STG-C-core`
 
-A text conforms to `STG-C-core` when it conforms to `STG-T` and every other non-locked lexical item is approved for its used meaning and word class in the central v0.4 authoring-core lexicon. Unknown general-language words are not accepted automatically.
+Ein Text ist konform zu `STG-C-core`, wenn der Text konform zu `STG-T` ist. Zusätzlich muss das zentrale Kernlexikon v0.4 für das Schreiben jedes andere nicht gesperrte lexikalische Element freigeben. Diese Freigabe muss für die verwendete Bedeutung und die verwendete Wortart gelten. Unbekannte allgemeinsprachliche Wörter sind nicht automatisch akzeptiert.
 
 ### 5.4 `STG-C`
 
-A text conforms to `STG-C` when it conforms to `STG-T` and every other lexical item is approved for its used meaning and word class in a broad, human-reviewed central controlled lexicon.
+Ein Text ist konform zu `STG-C`, wenn der Text konform zu `STG-T` ist. Zusätzlich muss ein umfassendes, von Menschen geprüftes zentrales kontrolliertes Lexikon jedes andere lexikalische Element freigeben. Diese Freigabe muss für die verwendete Bedeutung und die verwendete Wortart gelten.
 
-`STG-C-core` is a closed-vocabulary profile for constrained authoring with the shipped v0.4 core lexicon. `STG-C` remains reserved for a broader, human-reviewed central lexicon and is not a general certification claim in this release.
-
-
-### 5.5 Canonical lemma and inflection collisions
-
-Lexical resolution must check canonical lemmas before accepting an inflection alias from another entry. If the same surface form can represent two controlled concepts, the lexicon must encode the distinction explicitly and the validator must use context/word class/entry precedence.
-
-Normative example: `Daten` is an independent restricted noun for technical data/information. It must not be resolved automatically as the plural of `Datum`.
-
-## 6. Terminology sources
-
-The terminology resolution order is:
-
-1. Regulatory or contractual terminology that cannot be changed
-2. Approved company/product terminology
-3. Approved industry/domain terminology
-4. STG central lexicon
-5. New term proposal subject to review
-
-An agent must not replace an official technical designation merely because a shorter or more common synonym exists.
-
-## 7. Word counting
-
-For rule limits:
-
-- A whitespace-delimited orthographic word normally counts as one word.
-- A number with its directly associated unit counts as one word.
-- An abbreviation or alphanumeric identifier counts as one word.
-- A protected proper name, title, label, or quoted string counts as one word in the surrounding sentence.
-- Parenthetical text counts as one word in the outer sentence and is also checked as its own sentence/fragment.
-- A hyphenated compound counts as one orthographic word, but the compound-complexity rule still applies.
-- Numbering that only identifies a work step does not count.
-
-The word-count rules are compatibility rules, not a license to build syntactically dense compounds.
-
-## 8. Machine-checking philosophy
-
-Rules are classified as:
-
-- `deterministic` — can normally be checked mechanically, for example word count or prohibited semicolon.
-- `heuristic` — can be detected with high-value heuristics, for example passive voice or vague words.
-- `semantic` — requires terminology or meaning analysis, for example one term/one concept or pronoun ambiguity.
-- `domain` — requires approved terminology or subject-matter knowledge.
-
-A validator must distinguish a hard violation from a heuristic finding.
+`STG-C-core` ist ein Profil mit geschlossenem Wortschatz. Dieses Profil ist für kontrolliertes Schreiben mit dem mitgelieferten Kernlexikon v0.4 vorgesehen. `STG-C` bleibt für ein umfassenderes, von Menschen geprüftes zentrales Lexikon reserviert. In diesem Release ist `STG-C` kein allgemeiner Anspruch auf Zertifizierung.
 
 
-## 8.1 Corpus evidence and lexical governance
+### 5.5 Kanonische Lemmata und Kollisionen von Flexionsformen
 
-Corpus frequency is evidence for lexical review, not automatic approval. A common expression can remain prohibited or review-required when it is vague, polysemous, stylistically redundant, or difficult to resolve deterministically.
+Die lexikalische Auflösung muss kanonische Lemmata prüfen, bevor die Auflösung einen Flexionsalias aus einem anderen Eintrag akzeptiert. Wenn dieselbe Oberflächenform zwei kontrollierte Konzepte darstellen kann, muss das Lexikon die Unterscheidung explizit kodieren. Der Validator muss in diesem Fall Kontext, Wortart und Vorrang der Einträge verwenden.
 
-A corpus audit must distinguish at least:
+Normatives Beispiel: `Daten` ist ein unabhängiges, eingeschränktes Substantiv für technische Daten oder Informationen. Die lexikalische Auflösung darf `Daten` nicht automatisch als Plural von `Datum` einstufen.
 
-- general-language lexical gaps,
-- inflection/contraction resolution gaps,
-- approved project terminology candidates,
-- protected identifiers/names/labels,
-- prohibited or review-required wording.
+## 6. Terminologiequellen
 
-STG-DE must not increase general-language coverage by silently classifying unknown words as technical terms.
+Die Reihenfolge für die Auflösung der Terminologie ist:
 
-## 9. Rule traceability
+1. Regulatorische oder vertragliche Terminologie, die nicht änderbar ist
+2. Freigegebene Unternehmens- oder Produktterminologie
+3. Freigegebene Branchen- oder Fachgebietsterminologie
+4. Zentrales STG-Lexikon
+5. Vorschlag für einen neuen Term, der eine Prüfung erfordert
 
-`rules/rule-index.yaml` is the canonical index for every STG-DE rule and recommendation. Rule IDs are stable within a major release line. A rule record identifies its scope, level, title, and the canonical Markdown file that contains its normative wording.
+Ein Agent darf eine offizielle technische Benennung nicht nur deshalb ersetzen, weil ein kürzeres oder häufigeres Synonym existiert.
 
-## 10. Change control
+## 7. Wortzählung
 
-A change to a mandatory rule or dictionary meaning must include:
+Für die Grenzwerte der Regeln gilt:
 
-- identifier,
-- old wording/meaning,
-- proposed wording/meaning,
-- technical reason,
-- examples,
-- impact on validators,
-- migration note.
+- Ein orthografisches Wort zwischen Leerzeichen zählt als ein Wort, wenn keine der folgenden Regeln gilt.
+- Eine Zahl mit der direkt zugehörigen Einheit zählt als ein Wort.
+- Eine Abkürzung oder alphanumerische Kennung zählt als ein Wort.
+- Ein geschützter Eigenname, Titel, eine geschützte Beschriftung oder eine zitierte Zeichenkette zählt im umgebenden Satz als ein Wort.
+- Text in Klammern zählt im äußeren Satz als ein Wort. Die Prüfung prüft diesen Text zusätzlich als eigenen Satz oder eigenes Fragment.
+- Ein Kompositum mit Bindestrich zählt als ein orthografisches Wort. Die Regel für die Komplexität von Komposita gilt trotzdem.
+- Eine Nummerierung, die nur einen Arbeitsschritt kennzeichnet, zählt nicht.
 
-Versioning follows semantic versioning while the project is experimental. Before a stable 1.0 release, rule IDs should remain stable whenever possible.
+Die Regeln für die Wortzählung sind Kompatibilitätsregeln. Diese Regeln erlauben nicht, syntaktisch dichte Komposita zu bilden.
+
+## 8. Prinzipien der maschinellen Prüfung
+
+Die Regeln haben diese Klassen:
+
+- `deterministic` — Die Prüfung ist im Regelfall mechanisch möglich, zum Beispiel für die Wortanzahl oder ein verbotenes Semikolon.
+- `heuristic` — Wertvolle Heuristiken können die Fälle erkennen, zum Beispiel Passiv oder vage Wörter.
+- `semantic` — Die Prüfung erfordert eine Analyse von Terminologie oder Bedeutung, zum Beispiel für „ein Term, ein Konzept“ oder mehrdeutige Pronomen.
+- `domain` — Die Prüfung erfordert freigegebene Terminologie oder Fachwissen.
+
+Ein Validator muss einen harten Verstoß von einem heuristischen Befund unterscheiden.
+
+
+## 8.1 Korpusbelege und lexikalische Steuerung
+
+Die Häufigkeit im Korpus ist ein Beleg für die lexikalische Prüfung, keine automatische Freigabe. Ein häufiger Ausdruck kann verboten bleiben oder eine Prüfung erfordern, wenn der Ausdruck vage, mehrdeutig, stilistisch redundant oder deterministisch schwer auflösbar ist.
+
+Ein Korpus-Audit muss mindestens diese Gruppen unterscheiden:
+
+- Lücken im allgemeinsprachlichen Wortschatz,
+- Lücken bei der Auflösung von Flexionsformen und Kontraktionen,
+- Kandidaten für freigegebene Projektterminologie,
+- geschützte Kennungen, Namen und Beschriftungen,
+- verbotene Formulierungen und Formulierungen, die eine Prüfung erfordern.
+
+STG-DE darf unbekannte Wörter nicht stillschweigend als technische Terme einstufen, um die Abdeckung der Allgemeinsprache zu erhöhen.
+
+## 9. Rückverfolgbarkeit der Regeln
+
+`rules/rule-index.yaml` ist der kanonische Index für jede Regel und jede Empfehlung von STG-DE. Regel-IDs sind innerhalb einer Hauptversionslinie stabil. Ein Regeldatensatz nennt den Geltungsbereich, die Stufe, den Titel und die kanonische Markdown-Datei mit dem normativen Wortlaut.
+
+## 10. Änderungssteuerung
+
+Eine Änderung an einer verbindlichen Regel oder an einer Bedeutung im Wörterbuch muss diese Angaben enthalten:
+
+- Kennung,
+- alter Wortlaut oder alte Bedeutung,
+- vorgeschlagener Wortlaut oder vorgeschlagene Bedeutung,
+- technischer Grund,
+- Beispiele,
+- Auswirkung auf Validatoren,
+- Hinweis zur Migration.
+
+Die Versionierung folgt Semantic Versioning, solange das Projekt experimentell ist. Empfehlung: Halten Sie Regel-IDs vor einem stabilen Release 1.0 stabil, wenn das möglich ist.

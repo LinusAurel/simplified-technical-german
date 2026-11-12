@@ -1,41 +1,41 @@
-# Section 6 — Beschreibendes Schreiben
+# Abschnitt 6 — Beschreibungen
 
 ## STG-6.1 — Informationen schrittweise geben
 
 **Level:** `MUST`
 
-Introduce one topic, then add related information in a logical sequence. Do not force the reader to decode several new concepts in the same sentence.
+Nennen Sie zuerst ein Thema. Geben Sie danach verwandte Informationen in einer logischen Reihenfolge. Der Leser darf nicht mehrere neue Begriffe in demselben Satz entschlüsseln müssen.
 
 ## STG-6.2 — Schlüsselwörter und feste Verknüpfungen wiederverwenden
 
 **Level:** `MUST`
 
-Reuse the same key terms and connecting words to make relationships explicit. Do not replace a key term with a synonym for stylistic variety.
+Verwenden Sie dieselben Schlüsselbegriffe und dieselben Verknüpfungswörter wieder, um Beziehungen explizit zu zeigen. Ersetzen Sie einen Schlüsselbegriff nicht durch ein Synonym, nur um den Stil zu variieren.
 
-## STG-6.3 — Maximal 25 Wörter pro beschreibendem Satz
+## STG-6.3 — Maximal 25 Wörter je beschreibendem Satz
 
 **Level:** `MUST`
 
-A descriptive sentence has a maximum of **25 words** under the counting rules in Section 8.
+Ein beschreibender Satz hat maximal **25 Wörter** nach den Zählregeln in Abschnitt 8.
 
-If a sentence exceeds the limit, divide it by topic or logical relation; do not only remove articles or compress terms.
+Wenn ein Satz die Grenze überschreitet, teilen Sie den Satz nach Thema oder logischer Beziehung. Entfernen Sie nicht nur Artikel und komprimieren Sie nicht nur Begriffe.
 
 ## STG-6.4 — Verwandte Informationen in Absätzen gruppieren
 
 **Level:** `MUST`
 
-Use paragraphs as logical units. Start a paragraph with a topic sentence when the content type permits it.
+Verwenden Sie Absätze als logische Einheiten. Starten Sie einen Absatz mit einem Thema-Satz, wenn die Inhaltsart diese Struktur zulässt.
 
-## STG-6.5 — Ein Thema pro Absatz
-
-**Level:** `MUST`
-
-A paragraph has one primary topic. Start a new paragraph when the topic changes.
-
-A useful test: The first sentence of each paragraph should form a meaningful outline of the section.
-
-## STG-6.6 — Maximal sechs Sätze pro Absatz
+## STG-6.5 — Ein Thema je Absatz
 
 **Level:** `MUST`
 
-A descriptive paragraph has no more than six sentences. If more sentences are necessary, check whether the paragraph contains more than one topic and divide it.
+Ein Absatz hat ein Hauptthema. Starten Sie einen neuen Absatz, wenn das Thema wechselt.
+
+Eine nützliche Prüfung: Lesen Sie nur den ersten Satz von jedem Absatz. Wir empfehlen, dass diese Sätze zusammen eine sinnvolle Gliederung des Abschnitts ergeben.
+
+## STG-6.6 — Maximal sechs Sätze je Absatz
+
+**Level:** `MUST`
+
+Ein beschreibender Absatz hat maximal sechs Sätze. Wenn mehr Sätze notwendig sind, prüfen Sie, ob der Absatz mehr als ein Thema enthält. Wenn ja, teilen Sie den Absatz.
