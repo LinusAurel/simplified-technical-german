@@ -1,0 +1,20 @@
+{
+  "name": "stg-de",
+  "interface": {
+    "displayName": "STG-DE — Simplified Technical German"
+  },
+  "plugins": [
+    {
+      "name": "simplified-technical-german",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Writing"
+    }
+  ]
+}
