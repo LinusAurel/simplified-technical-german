@@ -147,8 +147,8 @@ files:
   size_bytes: 1273
   sha256: d90a9ba68a6fdc2e0e5101c5c716bc9f6ee3595d4f54e60f9f8725df1ff0af9d
 - path: evals/README.md
-  size_bytes: 2405
-  sha256: c4d65b71a05f6d19e0d47abee80e7e1df1b68ce72d27cbf26a470c6223d0c706
+  size_bytes: 3199
+  sha256: 04404f02755b5df0896a782719146eb3eb6b795e15105a5786797681053de9a2
 - path: evals/cases.yaml
   size_bytes: 8541
   sha256: fef49f4bb7d4c45d1d94ecdc4e02406bfd870d216dfd7b890331693fcdb6c11c
@@ -399,8 +399,8 @@ files:
   size_bytes: 4625
   sha256: ad8f9a7bc837d016c7816b2f576b46033bc86ad20e20157165f5197d307bf6eb
 - path: tests/test_evals.py
-  size_bytes: 2717
-  sha256: 007a97e923809f2dcf4f3a5b3e080d412f08ae622651328e7039eeb286d92f68
+  size_bytes: 3253
+  sha256: bf653272a45c8202c791a72c01219f2ba15f0453be20b88128ce6be10e25d4f4
 - path: tests/test_holdout_precision.py
   size_bytes: 4507
   sha256: 3d6259bee6ee624b1ab68e90407ac3b8dc9d5cf7a23ce9fe8f16ca7cafd0507d
@@ -459,8 +459,8 @@ files:
   size_bytes: 2323
   sha256: b9988471ca5771fa74ffca7e31356dc020c2769b4504fe9dc99f6a0c592ef986
 - path: tools/run_evals.py
-  size_bytes: 6872
-  sha256: a59f9e7215bea4f59b7d6d64b5179f3597d8c506ef6f4a051ad495ea80f94e16
+  size_bytes: 7410
+  sha256: 89443b9a1a5da1766b413e28844418d91702dc45870c0dfab52bccde08daee2c
 - path: tools/stg_analyze.py
   size_bytes: 11261
   sha256: 10438a178ef56e2f5a723d54841390ec74d6bc5d4eecb196bf7b693ebd64ece9
