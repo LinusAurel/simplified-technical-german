@@ -12,7 +12,8 @@
 
 ### Evaluation
 
-- Wiederholung der Evaluation mit dem korrigierten Skill in `evals/results/2026-11-12-rerun.md`: Claude 113 von 115 Prüfungen (vorher 109), Codex 110 von 115 (vorher 112).
+- Wiederholung der Evaluation mit dem korrigierten Skill in `evals/results/2026-11-12-rerun.md`: Claude besteht 115 von 115 Prüfungen, Codex 112 von 115.
+- `tools/run_evals.py` liest für `avoids …` die `Hinweis:`-Zeile nicht mehr mit und erkennt die `Ergebnis:`-Zeile auch mit Markdown wie `**FAIL**`.
 
 ### Struktur des Repositorys
 
