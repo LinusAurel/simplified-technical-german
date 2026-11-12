@@ -40,7 +40,9 @@ Diese Roadmap beschreibt den Weg vom derzeitigen experimentellen Release (0.3.0)
 - [x] Für die erste größere Evaluation mindestens 100.000 Token erreichen.
 - [ ] Mehr als 500.000 Token mit einem Partitionsdesign erreichen, das nach Token ausgewogen ist.
 - [x] Über technische Handbücher hinaus auf Texte aus öffentlicher Verwaltung, Software, Energie, Logistik und Telekommunikation erweitern.
-- [x] Exakte Dokument-URLs, Hashes und Stichprobenmethoden speichern.
+- [x] Auf Embedded und IoT, funktionale Sicherheit, Produktsicherheit, Messtechnik, Finanzen, B2B und Texte für Agenten erweitern (359.075 Token, 28 Quellen).
+- [x] Eine Obergrenze an Token je Quelle für ausgeglichene Kennzahlen festlegen (10.000 Token).
+- [x] Exakte Dokument-URLs, Hashes und Stichprobenmethoden speichern. Je Quelle Textsorte, Abrufdatum und Extraktionsmethode speichern.
 - [x] Die Abdeckung je Domäne und die Verteilung unbekannter Token verfolgen.
 - [x] Falsch positive und falsch negative Befunde auf dem Holdout messen (`corpus/HOLDOUT-PRECISION.md`, bewertet durch ein Modell, menschliche Prüfung offen).
 - [x] Quelltexte von Dritten aus dem Repository fernhalten.

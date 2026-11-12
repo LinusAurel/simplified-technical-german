@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import datetime
 import hashlib
 import io
 import json
@@ -64,11 +65,19 @@ def extract_text(data: bytes, source_type: str, content_type: str) -> str:
         return extract_pdf(data)
     if source_type == "html" or "text/html" in content_type:
         return extract_html(data)
-    return data.decode("utf-8", errors="replace")
+    try:
+        return data.decode("utf-8")
+    except UnicodeDecodeError:
+        return data.decode("cp1252", errors="replace")
 
 
 def token_list(text: str) -> list[str]:
     return WORD_RE.findall(text)
+
+
+def package_version() -> str:
+    match = re.search(r'^version\s*=\s*"([^"]+)"', (ROOT / "pyproject.toml").read_text(encoding="utf-8"), re.M)
+    return match.group(1) if match else "unknown"
 
 
 def approved_surfaces() -> set[str]:
@@ -91,7 +100,7 @@ def approved_surfaces() -> set[str]:
     return surfaces
 
 
-def source_metrics(source: dict, approved: set[str]) -> tuple[dict, collections.Counter[str]]:
+def source_metrics(source: dict, approved: set[str], cap: int | None = None) -> tuple[dict, collections.Counter[str]]:
     data, content_type = download(source["url"])
     text = extract_text(data, source["type"], content_type)
     tokens = token_list(text)
@@ -100,9 +109,12 @@ def source_metrics(source: dict, approved: set[str]) -> tuple[dict, collections.
     controlled = sum(1 for t in normalized if t in approved)
     unknown = collections.Counter(t for t in normalized if t not in approved)
     token_count = len(normalized)
+    capped = min(token_count, cap) if cap else token_count
     return {
         "id": source["id"],
         "domain": source["domain"],
+        "text_type": source.get("text_type"),
+        "organization": source.get("organization"),
         "partition": source["partition"],
         "title": source["title"],
         "url": source["url"],
@@ -111,7 +123,10 @@ def source_metrics(source: dict, approved: set[str]) -> tuple[dict, collections.
         "http_content_type": content_type,
         "sha256": hashlib.sha256(data).hexdigest(),
         "bytes": len(data),
+        "accessed_on": datetime.date.today().isoformat(),
+        "extraction_method": source.get("extraction_method"),
         "token_count": token_count,
+        "capped_token_count": capped,
         "controlled_token_count": controlled,
         "controlled_surface_coverage": round(controlled / token_count, 6) if token_count else 0.0,
         "extraction_status": "ok" if token_count else "empty",
@@ -121,22 +136,29 @@ def source_metrics(source: dict, approved: set[str]) -> tuple[dict, collections.
 def aggregate(rows: list[dict], unknowns: dict[str, collections.Counter[str]]) -> dict:
     by_partition: dict[str, dict] = {}
     by_domain: dict[str, dict] = {}
-    for key_name, output in (("partition", by_partition), ("domain", by_domain)):
+    by_text_type: dict[str, dict] = {}
+    for key_name, output in (("partition", by_partition), ("domain", by_domain), ("text_type", by_text_type)):
         groups: dict[str, list[dict]] = collections.defaultdict(list)
         for row in rows:
             groups[row[key_name]].append(row)
         for key, group in sorted(groups.items()):
             tokens = sum(r["token_count"] for r in group)
             controlled = sum(r["controlled_token_count"] for r in group)
-            output[key] = {
+            capped = sum(r["capped_token_count"] for r in group)
+            weighted = sum(r["controlled_surface_coverage"] * r["capped_token_count"] for r in group)
+            output[str(key)] = {
                 "sources": len(group),
                 "tokens": tokens,
+                "capped_tokens": capped,
                 "controlled_tokens": controlled,
                 "controlled_surface_coverage": round(controlled / tokens, 6) if tokens else 0.0,
+                "capped_coverage": round(weighted / capped, 6) if capped else 0.0,
             }
 
     total_tokens = sum(r["token_count"] for r in rows)
+    total_capped = sum(r["capped_token_count"] for r in rows)
     total_controlled = sum(r["controlled_token_count"] for r in rows)
+    largest = max(rows, key=lambda r: r["capped_token_count"], default=None)
     combined_unknown = collections.Counter()
     for counter in unknowns.values():
         combined_unknown.update(counter)
@@ -145,9 +167,14 @@ def aggregate(rows: list[dict], unknowns: dict[str, collections.Counter[str]]) -
         "sources_attempted": len(rows),
         "tokens": total_tokens,
         "controlled_tokens": total_controlled,
+        "capped_tokens": total_capped,
         "controlled_surface_coverage": round(total_controlled / total_tokens, 6) if total_tokens else 0.0,
+        "largest_source_share_capped": (
+            {"id": largest["id"], "share": round(largest["capped_token_count"] / total_capped, 4)}
+            if largest and total_capped else None),
         "by_partition": by_partition,
         "by_domain": by_domain,
+        "by_text_type": by_text_type,
         "top_unknown_tokens": combined_unknown.most_common(100),
     }
 
@@ -161,13 +188,14 @@ def main() -> int:
 
     manifest = load_yaml(Path(args.manifest))
     approved = approved_surfaces()
+    cap = (manifest.get("policy") or {}).get("source_token_cap")
     rows: list[dict] = []
     unknowns: dict[str, collections.Counter[str]] = {}
     failures: list[dict] = []
 
     for source in manifest.get("sources", []):
         try:
-            row, unknown = source_metrics(source, approved)
+            row, unknown = source_metrics(source, approved, cap)
             rows.append(row)
             unknowns[source["id"]] = unknown
             print(f"OK {source['id']}: {row['token_count']} tokens", flush=True)
@@ -178,9 +206,10 @@ def main() -> int:
                 raise
 
     report = {
-        "schema_version": "0.2",
+        "schema_version": "0.3",
         "method": "transient public-source full-text extraction; raw text not persisted",
-        "lexicon_release": "0.1.0",
+        "source_token_cap": cap,
+        "lexicon_release": package_version(),
         "sources": rows,
         "failures": failures,
         "aggregate": aggregate(rows, unknowns),

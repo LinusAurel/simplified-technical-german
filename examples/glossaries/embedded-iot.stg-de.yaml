@@ -1,0 +1,46 @@
+# Example project glossary: embedded systems, IoT gateways, and device fleets.
+# Copy the file to .stg-de.yaml in a project and remove terms that the project does not use.
+version: 1
+anrede: sie
+technical_nouns:
+  - term: "Firmware"
+    definition: "Software, die fest auf einem Mikrocontroller oder einem Gerät läuft"
+  - term: "Bootloader"
+    definition: "Programm, das beim Start die Firmware prüft und lädt"
+  - term: "Gateway"
+    definition: "Gerät, das ein lokales Netz oder einen Feldbus mit einem anderen Netz verbindet"
+  - term: "Feldbus"
+    definition: "Kommunikationssystem zwischen Steuerung, Sensoren und Aktoren"
+  - term: "OTA-Update"
+    definition: "Firmware-Update über eine Netzverbindung (over the air)"
+  - term: "Flotte"
+    definition: "Gesamtheit der Geräte, die ein Betreiber zentral verwaltet"
+  - term: "Telemetriedaten"
+    definition: "Messwerte und Zustandsdaten, die ein Gerät an einen Server sendet"
+  - term: "Broker"
+    definition: "Server, der Nachrichten zwischen Geräten und Diensten verteilt, zum Beispiel bei MQTT"
+  - term: "Gerätezertifikat"
+    definition: "Zertifikat, mit dem sich ein Gerät gegenüber einem Server ausweist"
+  - term: "Watchdog"
+    definition: "Zeitgeber, der ein System neu startet, wenn die Software nicht rechtzeitig reagiert"
+technical_verbs:
+  - term: "flashen"
+    definition: "Firmware in den Speicher eines Zielsystems schreiben"
+  - term: "provisionieren"
+    definition: "Ein Gerät mit Identität, Zugangsdaten und Grundkonfiguration ausstatten"
+protected_terms:
+  - "MQTT"
+  - "TLS"
+  - "RTOS"
+  - "Embedded Linux"
+  - "Secure Boot"
+  - "OTA"
+  - "GPIO"
+  - "UART"
+  - "CAN"
+  - "IO-Link"
+preferred_terms:
+  - preferred: "Firmware-Update"
+    avoid: ["Firmwareaktualisierung", "FW-Update"]
+  - preferred: "Gateway"
+    avoid: ["Gatewaygerät"]
