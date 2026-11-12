@@ -3,6 +3,9 @@
 from pathlib import Path
 import hashlib, subprocess, yaml
 ROOT=Path(__file__).resolve().parents[1]
+# Version of the manifest file format, not of the release. Change it only when
+# the structure of manifest.yaml changes (see VERSIONING.md, "Schema-Versionen").
+MANIFEST_SCHEMA_VERSION='0.4'
 VERSION=next(l.split(':',1)[1].strip() for l in (ROOT/'CITATION.cff').read_text(encoding='utf-8').splitlines() if l.startswith('version:'))
 
 
@@ -22,6 +25,6 @@ for rel in tracked_files():
     if not p.is_file():
         continue
     files.append({'path':rel,'size_bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
-manifest={'schema_version':'0.4','release':VERSION,'status':'experimental','files':files}
+manifest={'schema_version':MANIFEST_SCHEMA_VERSION,'release':VERSION,'status':'experimental','files':files}
 (ROOT/'manifest.yaml').write_text(yaml.safe_dump(manifest,sort_keys=False,allow_unicode=True),encoding='utf-8')
 print(f'Wrote manifest with {len(files)} files')

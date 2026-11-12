@@ -1,6 +1,6 @@
 # STG-DE-Korpusprotokoll
 
-Dieses Protokoll regelt die korpusbasierte Entwicklung ab v0.5. Das Ziel ist, Sprachmodell und Validator zu verbessern, ohne das zentrale Wörterbuch an eine kleine Menge von Dokumenten zu überanpassen.
+Dieses Protokoll regelt die korpusbasierte Entwicklung ab Release 0.5.0. Das Ziel ist, Sprachmodell und Validator zu verbessern, ohne das zentrale Wörterbuch an eine kleine Menge von Dokumenten zu überanpassen.
 
 ## 1. Korpuspartitionen
 
@@ -43,7 +43,7 @@ Schichten Sie die Aufteilung nach Domäne. Schichten Sie die Aufteilung auch nac
 
 Wir empfehlen, das Korpus nicht auf Handbücher aus dem Ingenieurwesen zu begrenzen. STG-DE ist für kontrolliertes Deutsch in technischer, betrieblicher, B2B-, B2C- und agentenbezogener Kommunikation vorgesehen.
 
-Zielstrata für v0.5:
+Zielstrata ab Release 0.5.0:
 
 1. Maschinenbau und Fertigung
 2. Automotive und Mobilität
@@ -180,13 +180,13 @@ Für ein Release, das Wörterbuch, Regeln oder Validator ändert:
 5. Veröffentlichen Sie aggregierte Holdout-Metriken.
 6. Verschieben Sie altes Holdout-Material nur in die Entwicklung, wenn ein neues unabhängiges Holdout für den nächsten Zyklus ausgewählt ist.
 
-## 10. Größenziel für v0.5
+## 10. Größenziele
 
-Erstes Ziel:
+Erstes Ziel, erreicht mit Release 0.5.0:
 
 - mindestens 100.000 deutsche Token im gesamten Korpus,
 - mindestens 10 Zielstrata, wenn geeignetes öffentliches oder lizenziertes Material existiert,
 - mehrere unabhängige Organisationen je wichtigem Stratum,
 - eine nicht leere Holdout-Partition auf Dokumentebene.
 
-Bevorzugtes Ziel vor v0.6: mehr als 500.000 Token mit einer verbesserten linguistischen Analyse des Deutschen.
+Nächstes Ziel: mehr als 500.000 Token mit einer verbesserten linguistischen Analyse des Deutschen. Dieses Ziel ist offen. Die Zahl der Token im Korpus steht in `corpus/v0.5-fulltext-metrics.yaml`.

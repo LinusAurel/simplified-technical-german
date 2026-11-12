@@ -16,6 +16,10 @@ Eine Regel kann Teil des STG-DE-Standards sein, auch wenn der derzeitige Validat
 
 ## Implementierte Abdeckung
 
+`quality/rule-coverage.yaml` ist die maßgebliche Liste. Diese Liste nennt für jede der 75 Regeln und Empfehlungen die Erkennungsklasse und den Stand der Implementierung. 19 Regeln haben eine implementierte Prüfung: 9 Regeln im Linter und 10 Regeln im Analyzer.
+
+### Linter (`tools/stg_lint.py`)
+
 | Regel | Derzeitige automatisierte Prüfung | Abdeckung | Schweregrad |
 |---|---|---|---|
 | `STG-1.1` | Findet Einträge aus `dictionary/prohibited-words.yaml` und gibt den konfigurierten Status zurück. | partial | error/review |
@@ -27,6 +31,25 @@ Eine Regel kann Teil des STG-DE-Standards sein, auch wenn der derzeitige Validat
 | `STG-8.1` | Markiert Semikolons in Prosazeilen. | partial | error |
 | `STG-DE-8.1` | Erkennt eine konservative Menge bekannter mehrdeutiger Formen mit Schrägstrich, zum Beispiel `und/oder`. Geschützte URLs und Code sind ausgenommen. | partial | warning |
 | `STG-9.4` | Setzt `preferred_terms` aus `.stg-de.yaml` durch. | partial | error |
+
+Der Wortzähler für `STG-5.1` und `STG-6.3` zählt ein Bindestrichkompositum als ein Wort. Diese Zählung setzt `STG-8.7` um. `STG-8.7` hat keine eigene Prüfung und erzeugt keine eigenen Befunde. Aus diesem Grund hat `STG-8.7` in `quality/rule-coverage.yaml` den Wert `implemented: false`.
+
+### Analyzer (`tools/stg_analyze.py`)
+
+Der Analyzer gibt nur Belege für das Review zurück. Die Belege beschreibt `quality/GERMAN-ANALYSIS.md`.
+
+| Regel | Beleg für das Review | Abdeckung |
+|---|---|---|
+| `STG-DE-2.1` | Kandidaten für sehr lange deutsche Komposita | heuristic |
+| `STG-3.5` | Kandidaten für Nominalisierungen | heuristic |
+| `STG-3.6` | mögliche Passivkonstruktionen | heuristic |
+| `STG-DE-3.1` | lange Klammern durch trennbare Verben | heuristic |
+| `STG-DE-3.2` | mehrdeutige Modalformen wie `sollte` und Beobachtungen zu `muss`, `darf` und `kann` | partial |
+| `STG-DE-3.3` | restriktives Review von `werden` | heuristic |
+| `STG-DE-4.1` | mehrere oder lange Marker für Nebensätze | heuristic |
+| `STG-DE-4.2` | mögliche mehrdeutige Pronomenbezüge | partial |
+| `STG-DE-4.4` | Geltungsbereich von Negation oder Fokus | partial |
+| `STG-DE-4.5` | Pronominaladverbien | partial |
 
 Mit der Option `--lexicon-report` meldet der Validator auch Oberflächenformen, die das zentrale Lexikon nicht kennt. Unbekannte Wörter sind Kandidaten für ein Review und keine automatischen Verstöße.
 
@@ -80,11 +103,11 @@ Die meisten Regeln von `STG-1.2` bis `STG-1.14`, `STG-2.1`, `STG-2.2` und `STG-D
 
 ### Verben und Modalität
 
-`STG-3.1` bis `STG-3.7` und `STG-DE-3.1` bis `STG-DE-3.3` erfordern zusätzliche Analysen. Diese Analysen umfassen die Analyse von Verbformen, die Erkennung von Passiv, der Abstand bei trennbaren Verben, die Klassifizierung von Modalverben und die Erkennung von Nominalstil. Wir empfehlen, diese Regeln nicht zu deterministischen Fehlern hochzustufen, bis die gemessene Präzision akzeptabel ist.
+`STG-3.1` bis `STG-3.7` und `STG-DE-3.1` bis `STG-DE-3.3` erfordern zusätzliche Analysen. Für `STG-3.5`, `STG-3.6` und `STG-DE-3.1` bis `STG-DE-3.3` liefert der Analyzer nur Belege für das Review. Diese Analysen umfassen die Analyse von Verbformen, die Erkennung von Passiv, der Abstand bei trennbaren Verben, die Klassifizierung von Modalverben und die Erkennung von Nominalstil. Wir empfehlen, diese Regeln nicht zu deterministischen Fehlern hochzustufen, bis die gemessene Präzision akzeptabel ist.
 
 ### Satzstruktur
 
-Der größte Teil von Abschnitt 4 bleibt semantisch oder benötigt einen Parser. `STG-DE-4.3` ist die deterministische Ausnahme. Zukünftige Arbeit umfasst die Tiefe von Nebensätzen, das Review von Pronomenbezügen, den Geltungsbereich von Negationen und das Review von Pronominaladverbien.
+Der größte Teil von Abschnitt 4 bleibt semantisch oder benötigt einen Parser. `STG-DE-4.3` ist die deterministische Ausnahme. Für `STG-DE-4.1`, `STG-DE-4.2`, `STG-DE-4.4` und `STG-DE-4.5` liefert der Analyzer nur Belege für das Review. Zukünftige Arbeit umfasst die Tiefe von Nebensätzen, das Review von Pronomenbezügen, den Geltungsbereich von Negationen und das Review von Pronominaladverbien.
 
 ### Anleitungen
 
@@ -112,9 +135,9 @@ Eine Funktion des Validators darf eine Regel-ID nur ausgeben, wenn diese ID in `
 
 Wir empfehlen, keine Funktion des Validators nur deshalb als `deterministic` zu kennzeichnen, weil sie einen regulären Ausdruck verwendet. Die Klassifizierung bedeutet: Die implementierte Teilmenge hat eine klare, maschinell testbare Bedingung mit absichtlich begrenztem Geltungsbereich.
 
-## Abnahmeziel für v0.5
+## Abnahmeziel vor 1.0
 
-v0.5 fordert keine automatische Durchsetzung aller 75 Regeln und Empfehlungen. v0.5 fordert diese Punkte:
+STG-DE fordert vor 1.0 keine automatische Durchsetzung aller 75 Regeln und Empfehlungen. STG-DE fordert diese Punkte:
 
 - ein vollständiges Inventar der Automatisierung,
 - Regressionstests für jede implementierte Prüfung,

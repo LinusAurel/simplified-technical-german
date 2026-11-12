@@ -1,4 +1,4 @@
-schema_version: '0.7'
+schema_version: '0.5'
 profiles:
   procedure:
     description: "Step-by-step operational instructions."

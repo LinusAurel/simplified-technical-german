@@ -1,4 +1,4 @@
-# STG-DE morphology and lexical resolution — v0.4
+# Morphologie und lexikalische Auflösung in STG-DE
 
 `STG-C-core` ist auf der Ebene **Lemma + Wortart + kontrollierte Bedeutung** definiert. Ein Validator darf nicht verlangen, dass jede flektierte deutsche Oberflächenform ein separater Wörterbucheintrag ist.
 

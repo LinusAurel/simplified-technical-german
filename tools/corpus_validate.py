@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Development corpus audit for STG-DE v0.4.
+"""Development corpus audit for STG-DE.
 
 This tool measures lexical coverage and routes unresolved tokens for curation. It is not
 the normative STG conformance validator.
 
-Important v0.4 changes:
+Changes introduced in release 0.4.0:
 - declared noun plurals are recognized as controlled inflections;
 - plural aliases never override an independently approved lemma (Datum/Daten collision);
 - unknown capitalized German words are routed as LEXICAL_NOUN_CANDIDATE, not assumed

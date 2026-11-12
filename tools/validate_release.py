@@ -68,12 +68,30 @@ def main():
     if traced != rule_ids:
         fail(f"STG rules without ASD-STE100 traceability: {sorted(rule_ids - traced)}")
 
+    # Legacy 0.4 sample corpus: declared counts must match the listed sources.
     src = yaml.safe_load((ROOT / "corpus/sources.yaml").read_text(encoding="utf-8"))
-    if src.get("source_count") != 18:
-        fail("expected 18 public corpus sources")
+    if src.get("source_count") != len(src["sources"]):
+        fail(f"corpus/sources.yaml: source_count {src.get('source_count')} != {len(src['sources'])} listed sources")
     inds = collections.Counter(s["industry"] for s in src["sources"])
-    if len(inds) != 6 or set(inds.values()) != {3}:
-        fail(f"corpus imbalance: {dict(inds)}")
+    if dict(inds) != src.get("industries", {}):
+        fail(f"corpus/sources.yaml: industries {src.get('industries')} != counted {dict(inds)}")
+
+    # Full-text corpus: source list and metrics must describe the same sources.
+    fsrc = yaml.safe_load((ROOT / "corpus/v0.5-sources.yaml").read_text(encoding="utf-8"))["sources"]
+    fmet = yaml.safe_load((ROOT / "corpus/v0.5-fulltext-metrics.yaml").read_text(encoding="utf-8"))
+    src_ids = [s["id"] for s in fsrc]
+    if len(src_ids) != len(set(src_ids)):
+        fail("corpus/v0.5-sources.yaml: duplicate source id")
+    met_ids = [s["id"] for s in fmet["sources"]]
+    if set(met_ids) != set(src_ids):
+        fail(f"corpus source/metrics id mismatch: {sorted(set(src_ids) ^ set(met_ids))}")
+    if fmet["aggregate"]["sources"] != len(src_ids):
+        fail(f"corpus metrics aggregate.sources {fmet['aggregate']['sources']} != {len(src_ids)} sources")
+    for key, field in (("partitions", "partition"), ("domains", "domain")):
+        counted = collections.Counter(s[field] for s in fsrc)
+        declared = {k: v["sources"] for k, v in fmet[key].items()}
+        if dict(counted) != declared:
+            fail(f"corpus metrics {key} {declared} != counted {dict(counted)}")
 
     # Skill must be synchronized.
     cp = subprocess.run(
@@ -108,8 +126,9 @@ def main():
                 "controlled_meanings": len(mids),
                 "prohibited_or_review_entries": len(P),
                 "rules_and_recommendations": len(ri),
-                "public_corpus_sources": 18,
-                "public_corpus_industries": 6,
+                "public_corpus_sources": len(src_ids),
+                "public_corpus_domains": len(fmet["domains"]),
+                "legacy_sample_sources": len(src["sources"]),
                 "final_public_controlled_surface_coverage": final,
                 "agent_skill": "PASS",
             },

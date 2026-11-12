@@ -62,6 +62,16 @@ Wir empfehlen, jede normative lexikalische Änderung in ihrem Vorschlag mit eine
 
 Einschränkungen, Bedeutungsänderungen, Abkündigungen und Verbote müssen im Changelog deutlich sichtbar sein.
 
+## Schema-Versionen
+
+Das Feld `schema_version` in einer Datendatei ist die Version des Dateiformats. Das Feld ist nicht die Version des Releases.
+
+- Tragen Sie in `schema_version` die Version `MAJOR.MINOR` des Releases ein, in dem sich das Format der Datei zuletzt geändert hat.
+- Ändern Sie `schema_version` nur, wenn sich die Struktur der Datei ändert. Neue Daten in derselben Struktur ändern `schema_version` nicht.
+- Der Wert von `schema_version` ist nie höher als die Version des Releases, das die Datei enthält.
+
+Aus diesem Grund haben die Datendateien eines Releases verschiedene Werte für `schema_version`.
+
 ## Schweregrad im Validator
 
 Wenn Sie einen vorhandenen Befund von `review` oder `warning` zu einem deterministischen `error` hochstufen, ist das eine normative Änderung der Kompatibilität. Eine Ausnahme gilt, wenn diese zwei Bedingungen zutreffen: Die veröffentlichte Regel forderte dieses Verhalten vorher eindeutig. Der vorherige Schweregrad war ein Fehler der Implementierung.

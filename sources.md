@@ -10,6 +10,6 @@ Die sprachliche Basis ist Standarddeutsch (`de-DE`). Rechtschreibung und Flexion
 
 ## Öffentliche Korpusbelege
 
-Version 0.4 verwendet einen geschichteten Satz von Belegen aus 18 öffentlich zugänglichen deutschen technischen Quellen aus sechs Branchen. Die Metadaten der Quellen stehen in `corpus/sources.yaml`. Die abgeleiteten Kennzahlen stehen in `corpus/validation-report.md` und in den CSV-Dateien in `corpus/`.
+Release 0.4.0 verwendet einen geschichteten Satz von Belegen aus 18 öffentlich zugänglichen deutschen technischen Quellen aus sechs Branchen. Die Metadaten der Quellen stehen in `corpus/sources.yaml`. Die abgeleiteten Kennzahlen stehen in `corpus/validation-report.md` und in den CSV-Dateien in `corpus/`. Ab Release 0.5.0 stehen die Quellen des Volltextkorpus in `corpus/v0.5-sources.yaml`. Die Kennzahlen stehen in `corpus/v0.5-fulltext-metrics.yaml`.
 
 Das Repository verbreitet keine Auszüge aus Quellen und keine Handbücher Dritter. Die Häufigkeit im Korpus ist ein Beleg für eine Prüfung. Die Häufigkeit ist keine automatische Freigabe eines Worts oder einer Konstruktion.
