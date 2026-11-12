@@ -29,6 +29,30 @@ A rule can be part of the STG-DE standard even when the current validator cannot
 
 The validator also reports unknown central-lexicon surface forms when `--lexicon-report` is enabled. Unknown words are review candidates, not automatic violations.
 
+### Input handling
+
+The linter and the analyzer segment Markdown before they count sentences (`tools/stg_markdown.py`):
+
+- fenced code blocks and HTML comments are ignored;
+- headings, list items, and table cells are separate blocks, so a sentence never runs across Markdown structure;
+- inline code, URLs, and quoted text (`„…“`, `»…«`, `"…"`) are protected from lexical checks and count as one word (`STG-8.6`).
+
+## Meaning preservation
+
+`tools/stg_compare.py` compares a source text with its rewrite. It is not a conformance check and does not emit violations of the target text.
+
+| Signal | Result when changed | Related rule |
+|---|---|---|
+| numbers, units | `FAIL` (lost), `REVIEW` (added) | `STG-8.6` |
+| code, URLs, quoted UI text, identifiers | `FAIL` | `STG-1.8` |
+| safety signal words | `FAIL` | `STG-7.1` |
+| prohibitions, requirement/recommendation/possibility balance | `REVIEW` | `STG-DE-3.2` |
+| negations, restrictions | `REVIEW` | `STG-DE-4.4` |
+| conditions | `REVIEW` | `STG-5.4` |
+| limits and approximations | `REVIEW` | `STG-DE-9.2` |
+
+Counts are document-level. A moved negation or condition can keep its count and still change scope, so `PASS` never proves equal meaning.
+
 ## Test policy
 
 Every implemented validator path must have regression coverage. The suite must include, where applicable:

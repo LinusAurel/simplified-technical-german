@@ -8,7 +8,7 @@ This repository contains the canonical STG-DE specification, dictionary, validat
 
 - Edit canonical rules in `rules/`.
 - Edit central terminology in `dictionary/`.
-- Edit mapping data in `mapping/`.
+- Edit mapping data in `mapping/`. Never copy ASD-STE100 rule text, examples, or dictionary entries into the repository (see `NOTICE.md`).
 - Do not hand-edit generated files in `skills/simplified-technical-german/references/` or the generated skill linter copy.
 - After canonical changes, run `python tools/sync_skill.py`.
 - Rebuild `STG-DE.md` with `python tools/build_standalone.py`.
@@ -29,7 +29,10 @@ python tools/build_manifest.py
 python -m unittest discover -s tests -v
 python tools/sync_skill.py --check
 python tools/validate_release.py
+python tools/run_evals.py --outputs evals/reference
 ```
+
+`validate_release.py` without `--skip-manifest` passes only after `build_manifest.py` ran on the final release files. On development branches use `--skip-manifest`.
 
 ## Language design
 

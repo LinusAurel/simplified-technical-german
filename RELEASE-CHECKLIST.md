@@ -38,9 +38,10 @@ Use this checklist for every tagged release.
 
 ## Agent Skill
 
-- [ ] Run Skill validation/packaging.
+- [ ] Run `python tools/package_skill.py` and `claude plugin validate .`.
+- [ ] Run `python tools/run_evals.py --outputs evals/reference` (must score 100%).
 - [ ] Confirm bundled references and linter are synchronized with canonical repository files.
-- [ ] Run available WRITE/REWRITE/AUDIT regression evaluations.
+- [ ] Run `python tools/run_evals.py --command "<model CLI>"` against at least one model and record the score.
 - [ ] Confirm default WRITE/REWRITE output behavior has not changed unintentionally.
 
 ## Artifact integrity
@@ -53,7 +54,8 @@ Use this checklist for every tagged release.
 
 ## Publication
 
-- [ ] Create the Git tag `vX.Y.Z`.
+- [ ] Update the version in `CITATION.cff`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `STG_VERSION` in `tools/stg_lint.py` and `tools/stg_compare.py`, and the `release` fields of the data files. `tests/test_packaging.py` checks that they match.
+- [ ] Create the Git tag `vX.Y.Z`. The release workflow builds the skill ZIP and checksum and publishes the GitHub release.
 - [ ] Publish release notes from `CHANGELOG.md` and accepted proposals.
 - [ ] Attach packaged Agent Skill and other release artifacts when available.
 - [ ] Publish checksum file with the release assets.
