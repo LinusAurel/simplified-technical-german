@@ -1,0 +1,63 @@
+import json
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+LINTER = ROOT / "tools" / "stg_lint.py"
+
+
+def cli(*args, text=None, cwd=None):
+    return subprocess.run([sys.executable, str(LINTER), *args], input=text, text=True,
+                          capture_output=True, cwd=cwd)
+
+
+class LintCliTests(unittest.TestCase):
+    def test_man_is_reported_once(self):
+        cp = cli("-", "--format", "json", text="Man prüft den Stecker.")
+        findings = json.loads(cp.stdout)["findings"]
+        self.assertEqual([f["rule"] for f in findings if f.get("term") == "man"], ["STG-DE-4.3"])
+
+    def test_findings_carry_line_numbers(self):
+        cp = cli("-", "--format", "json", text="Prüfen Sie das Gerät.\n\nMan prüft den Stecker.\n")
+        finding = json.loads(cp.stdout)["findings"][0]
+        self.assertEqual(finding["line"], 3)
+
+    def test_fail_on_thresholds(self):
+        review_only = "Wählen Sie die Option A und/oder B."
+        self.assertEqual(cli("-", text=review_only).returncode, 0)
+        self.assertEqual(cli("-", "--fail-on", "error", text=review_only).returncode, 0)
+        self.assertEqual(cli("-", "--fail-on", "warning", text=review_only).returncode, 1)
+        self.assertEqual(cli("-", "--fail-on-error", text="Man prüft den Stecker.").returncode, 1)
+
+    def test_directory_input_and_aggregate_json(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, "a.md").write_text("Prüfen Sie das Gerät.\n", encoding="utf-8")
+            Path(tmp, "b.txt").write_text("Man prüft den Stecker.\n", encoding="utf-8")
+            Path(tmp, "ignored.yaml").write_text("x: 1\n", encoding="utf-8")
+            cp = cli(tmp, "--format", "json")
+            data = json.loads(cp.stdout)
+            self.assertEqual(data["result"], "FAIL")
+            self.assertEqual(sorted(Path(r["path"]).name for r in data["files"]), ["a.md", "b.txt"])
+
+    def test_github_annotations(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            doc = Path(tmp, "doc.md")
+            doc.write_text("Prüfen Sie das Gerät.\nMan prüft den Stecker.\n", encoding="utf-8")
+            cp = cli(str(doc), "--format", "github")
+            self.assertIn(f"::error file={doc},line=2,title=STG-DE-4.3::", cp.stdout)
+
+    def test_project_file_is_loaded_from_working_directory(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, ".stg-de.yaml").write_text(
+                "preferred_terms:\n  - preferred: Steuergerät\n    avoid: [Controller]\n", encoding="utf-8")
+            cp = cli("-", "--format", "json", text="Prüfen Sie den Controller.", cwd=tmp)
+            self.assertIn("STG-9.4", {f["rule"] for f in json.loads(cp.stdout)["findings"]})
+            cp = cli("-", "--format", "json", "--no-project", text="Prüfen Sie den Controller.", cwd=tmp)
+            self.assertNotIn("STG-9.4", {f["rule"] for f in json.loads(cp.stdout)["findings"]})
+
+
+if __name__ == "__main__":
+    unittest.main()
