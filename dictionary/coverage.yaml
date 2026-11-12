@@ -23,11 +23,6 @@ central_by_status:
 prohibited_list_by_status:
   prohibited: 101
   review_required: 60
-corpus:
-  public_sources: 18
-  industries: 6
-  public_excerpt_tokens: 2066
-  v0_1_final_controlled_surface_coverage: 0.580833
 rule_or_recommendation_count: 75
 mandatory_or_normative_rule_count: 67
 general_recommendation_count: 8

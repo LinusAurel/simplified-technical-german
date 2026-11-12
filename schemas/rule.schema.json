@@ -1,11 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "STG-DE rule index",
+  "title": "STG-DE rule index entry",
   "type": "object",
   "required": [
     "id",
     "title",
-    "source",
     "level"
   ],
   "properties": {
@@ -15,18 +14,6 @@
     },
     "title": {
       "type": "string"
-    },
-    "source": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "transfer": {
-      "type": [
-        "string",
-        "null"
-      ]
     },
     "level": {
       "enum": [

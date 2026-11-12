@@ -21,7 +21,7 @@ Eine ungefähre Schreibweise oder ein Stemming ist kein normativer Ersatz für e
 
 Wenn eine flektierte Form eines Eintrags auch das kanonische Lemma eines anderen Eintrags ist, hat das kanonische Lemma Vorrang.
 
-### Required example: `Datum` / `Daten`
+### Pflichtbeispiel: `Datum` und `Daten`
 
 Im Deutschen ist `Daten` der Plural von `Datum`. Im technischen Deutsch ist `Daten` auch ein unabhängiger lexikalischer Begriff mit der Bedeutung technische Informationen oder Daten.
 
@@ -96,4 +96,4 @@ Lösen Sie Einträge mit mehreren Tokens vor der Suche nach einzelnen Tokens auf
 
 ## Heuristiken für die Entwicklung
 
-`tools/corpus_validate.py` darf den deutschen Snowball-Stemmer verwenden, um `MORPHOLOGY_CANDIDATE` auszugeben. Diese Klasse ist nur ein Beleg für die Kuratierung und zählt **nie als normative Konformität**.
+Ein Werkzeug für die Entwicklung des Korpus darf den deutschen Snowball-Stemmer verwenden, um `MORPHOLOGY_CANDIDATE` auszugeben. Diese Klasse ist nur ein Beleg für die Kuratierung und zählt **nie als normative Konformität**.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build aggregate STG-DE v0.2 corpus metrics from public source URLs.
+"""Build aggregate STG-DE full-text corpus metrics from public source URLs.
 
 The script downloads source documents into memory, extracts text, computes hashes and
 aggregate lexical metrics, and writes only derived metadata. Raw third-party text is
@@ -33,7 +33,7 @@ def download(url: str, timeout: int = 90) -> tuple[bytes, str]:
     response = requests.get(
         url,
         timeout=timeout,
-        headers={"User-Agent": "STG-DE-corpus-audit/0.2 (+https://github.com/LinusAurel/simplified-technical-german)"},
+        headers={"User-Agent": "STG-DE-corpus-audit (+https://github.com/LinusAurel/simplified-technical-german)"},
     )
     response.raise_for_status()
     return response.content, response.headers.get("content-type", "")
@@ -181,8 +181,8 @@ def aggregate(rows: list[dict], unknowns: dict[str, collections.Counter[str]]) -
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--manifest", default=str(ROOT / "corpus" / "v0.2-sources.yaml"))
-    parser.add_argument("--output", default=str(ROOT / "corpus" / "v0.2-fulltext-metrics.json"))
+    parser.add_argument("--manifest", default=str(ROOT / "corpus" / "fulltext-sources.yaml"))
+    parser.add_argument("--output", default=str(ROOT / "corpus" / "fulltext-metrics.json"))
     parser.add_argument("--allow-failures", action="store_true")
     args = parser.parse_args()
 
@@ -219,7 +219,7 @@ def main() -> int:
     print("REPORT_JSON=" + json.dumps(report["aggregate"], ensure_ascii=False), flush=True)
 
     if report["aggregate"]["tokens"] < 100_000:
-        print(f"WARNING: corpus has {report['aggregate']['tokens']} tokens; v0.2 target is at least 100000", flush=True)
+        print(f"WARNING: corpus has {report['aggregate']['tokens']} tokens; the target is at least 100000", flush=True)
         return 2
     if not report["aggregate"]["by_partition"].get("holdout", {}).get("tokens"):
         print("ERROR: holdout partition is empty", flush=True)

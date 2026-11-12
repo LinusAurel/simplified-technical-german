@@ -9,22 +9,19 @@ Erzeugt aus der kanonischen Dokumentation im Verzeichnis `dictionary/`. Bearbeit
 
 # Kontrolliertes Wörterbuch von STG-DE
 
-**Release:** 0.3.0  
-**Profile:** `de-DE`  
-**Status:** experimenteller Autorenkern, an einem geschichteten Korpus validiert. Dieser Kern ist in diesem Release kein Wörterbuch der deutschen Allgemeinsprache, das Menschen vollständig geprüft haben.
+**Profil:** `de-DE`  
+**Status:** experimenteller Autorenkern, an einem geschichteten Korpus validiert. Dieser Kern ist kein Wörterbuch der deutschen Allgemeinsprache, das Menschen vollständig geprüft haben.
 
 ## Inhalt
 
-- **435** zentrale freigegebene oder eingeschränkte lexikalische Einträge,
-- **442** kontrollierte Bedeutungen,
-- **160** verbotene oder prüfpflichtige Wörter und Wortgruppen,
-- **172** kontrollierte zentrale Verben,
+- zentrale freigegebene oder eingeschränkte lexikalische Einträge mit kontrollierten Bedeutungen,
+- verbotene oder prüfpflichtige Wörter und Wortgruppen,
 - kontrollierte Kontraktionen,
 - deklarierte Pluralformen von Substantiven und kuratierte unregelmäßige Oberflächenformen,
-- Begriffsindex und Metadaten zur Abdeckung des Releases,
+- Begriffsindex und Zahlen des Wörterbuchs,
 - Kategoriemodelle für technische Substantive und technische Verben in Projekten und Domänen.
 
-Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kontrolliertes Wörterbuch mit definierten Bedeutungen, Wortarten und freigegebenen Formen.
+Die Zahl der Einträge steht in `coverage.yaml`. Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kontrolliertes Wörterbuch mit definierten Bedeutungen, Wortarten und freigegebenen Formen.
 
 ## Dateien
 
@@ -32,7 +29,7 @@ Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kon
 - `prohibited-words.yaml` — verbotene oder prüfpflichtige Formulierungen mit Hinweisen zur Umformulierung.
 - `contractions.yaml` — Normalisierung von Präposition und Artikel vor der lexikalischen Suche.
 - `concept-index.yaml` — Index der kontrollierten Bedeutungen für Agenten und Validatoren.
-- `coverage.yaml` — Zahlen des Releases und Zusammenfassung des Korpus.
+- `coverage.yaml` — Zahl der Einträge, Bedeutungen und Regeln.
 - `DECISIONS.md` — Begründungen für die Kuratierung.
 - `MORPHOLOGY.md` — Auflösung von Lemma, Flexion und trennbaren Verben.
 - `technical-nouns.yaml` — Kategorien für technische Substantive in Projekten und Domänen.
@@ -69,7 +66,7 @@ Die Häufigkeit im Korpus ist ein Beleg für eine **Prüfung**, keine Freigabe. 
 
 Domänenspezifische Bauteile, Produktnamen, medizinische Begriffe, Fahrzeugbegriffe, Software-Kennungen und ähnlicher Wortschatz gehören zur Projektterminologie oder Domänenterminologie. Diese Regel gilt auch, wenn diese Wörter häufig sind.
 
-Siehe `../corpus/validation-report.md`.
+Die Kennzahlen des Korpus stehen in `../corpus/fulltext-metrics.yaml`.
 
 ## `STG-C-core` versus `STG-C`
 
@@ -104,7 +101,7 @@ Eine ungefähre Schreibweise oder ein Stemming ist kein normativer Ersatz für e
 
 Wenn eine flektierte Form eines Eintrags auch das kanonische Lemma eines anderen Eintrags ist, hat das kanonische Lemma Vorrang.
 
-### Required example: `Datum` / `Daten`
+### Pflichtbeispiel: `Datum` und `Daten`
 
 Im Deutschen ist `Daten` der Plural von `Datum`. Im technischen Deutsch ist `Daten` auch ein unabhängiger lexikalischer Begriff mit der Bedeutung technische Informationen oder Daten.
 
@@ -179,7 +176,7 @@ Lösen Sie Einträge mit mehreren Tokens vor der Suche nach einzelnen Tokens auf
 
 ## Heuristiken für die Entwicklung
 
-`tools/corpus_validate.py` darf den deutschen Snowball-Stemmer verwenden, um `MORPHOLOGY_CANDIDATE` auszugeben. Diese Klasse ist nur ein Beleg für die Kuratierung und zählt **nie als normative Konformität**.
+Ein Werkzeug für die Entwicklung des Korpus darf den deutschen Snowball-Stemmer verwenden, um `MORPHOLOGY_CANDIDATE` auszugeben. Diese Klasse ist nur ein Beleg für die Kuratierung und zählt **nie als normative Konformität**.
 
 ---
 
@@ -189,15 +186,15 @@ Lösen Sie Einträge mit mehreren Tokens vor der Suche nach einzelnen Tokens auf
 
 ## Status
 
-Diese Datei dokumentiert lexikalische Entscheidungen mit großer Wirkung, die bis zum Autorenkern v0.1 entstanden sind. Die Einträge sind **vorläufig**, bis Fachleute für deutsche technische Redaktion und Terminologie die Einträge prüfen.
+Diese Datei dokumentiert lexikalische Entscheidungen mit großer Wirkung für den Autorenkern. Die Einträge sind **vorläufig**, bis Fachleute für deutsche technische Redaktion und Terminologie die Einträge prüfen.
 
 Der Ausgangsstandard verwendet ein kontrolliertes Wörterbuch. In diesem Wörterbuch haben freigegebene Wörter eine festgelegte Wortart und eine freigegebene Bedeutung. Nicht freigegebene Wörter können auf freigegebene Alternativen oder auf eine andere Satzkonstruktion verweisen. STG-DE behält diese Architektur, übersetzt das englische Wörterbuch aber **nicht** eins zu eins.
 
-## Ziel des Release
+## Ziel des Autorenkerns
 
-Die Versionen 0.0.3 und 0.1 definieren einen durchsetzbaren **Autorenkern** für häufige deutsche technische Texte. Das Ziel des Kerns ist ein Grad an Determinismus, mit dem Agenten und Validatoren Texte erzeugen und umformulieren können. Die Domänenterminologie bleibt bei den Quellen der Projektterminologie.
+STG-DE definiert einen durchsetzbaren **Autorenkern** für häufige deutsche technische Texte. Das Ziel des Kerns ist ein Grad an Determinismus, mit dem Agenten und Validatoren Texte erzeugen und umformulieren können. Die Domänenterminologie bleibt bei den Quellen der Projektterminologie.
 
-### Selection order
+### Reihenfolge der Auswahl
 
 1. Behalten Sie die offizielle technische Terminologie.
 2. Verwenden Sie bevorzugt ein kurzes, häufiges Lemma der deutschen Allgemeinsprache für eine beabsichtigte Bedeutung.
@@ -208,21 +205,21 @@ Die Versionen 0.0.3 und 0.1 definieren einen durchsetzbaren **Autorenkern** für
 
 ## Wichtige lexikalische Entscheidungen
 
-### `verwenden` instead of `benutzen`, `nutzen`, `gebrauchen`
+### `verwenden` statt `benutzen`, `nutzen`, `gebrauchen`
 
 `verwenden` ist das bevorzugte allgemeine Verb für die Verwendung von Werkzeug, Material, Bauteil oder Hilfsmittel. `anwenden` ist für Methoden, Regeln und Verfahren reserviert. Diese Trennung behält zwei nützliche Begriffe und entfernt die stilistische Variation mit Synonymen.
 
-### `prüfen` versus `testen` versus `untersuchen`
+### `prüfen`, `testen` und `untersuchen`
 
 - `prüfen`: feststellen, ob eine explizite Bedingung oder Anforderung erfüllt ist.
 - `testen`: einen definierten Test mit Kriterien ausführen.
 - `untersuchen`: systematisch nach Schäden, Fehlern oder festgelegten Merkmalen suchen.
 
-### `erhöhen` / `verringern` versus `steigen` / `sinken`
+### `erhöhen` und `verringern`, `steigen` und `sinken`
 
 Verwenden Sie das transitive Paar, wenn ein Akteur einen Wert ändert. Verwenden Sie das intransitive Paar, wenn sich der Wert als Ergebnis eines Prozesses ändert.
 
-### `einbauen` versus `installieren`
+### `einbauen` und `installieren`
 
 Verwenden Sie `einbauen` für mechanische oder elektrische Bauteile in einer Einbaulage. Verwenden Sie `installieren` hauptsächlich für Software. Verwenden Sie `installieren` auch, wenn die offizielle Terminologie die Installation eines vollständigen Systems definiert.
 
@@ -242,7 +239,7 @@ Das allgemeine Verb ist nicht freigegeben. Das Verb kann befestigen, eine Datens
 
 Konditionale oder abschwächende Formen wie `könnte`, `müsste` und `sollte` sind kein Teil der kontrollierten verbindlichen Formulierungen.
 
-### Vague qualifiers
+### Vage Qualifikatoren
 
 Wörter wie `ordnungsgemäß`, `geeignet`, `ausreichend`, `vorsichtig` und `zeitnah` sind verboten oder prüfpflichtig. Der Grund: Diese Wörter ersetzen oft ein fehlendes Kriterium. Wir empfehlen, dass ein Validator das Kriterium anfordert und kein Kriterium erfindet.
 
@@ -258,19 +255,19 @@ Für `STG-C-core` gilt: Ein nicht gesperrtes Token der Allgemeinsprache, das sic
 Diese Strategie ist absichtlich konservativ.
 
 
-## v0.0.3 corpus-driven decisions
+## Entscheidungen aus dem Korpus
 
-### Corpus frequency is not approval
+### Häufigkeit im Korpus ist keine Freigabe
 
 Ein häufiges Wort in normalem technischem Deutsch kann für kontrolliertes Deutsch trotzdem ungeeignet sein. Belege aus dem Korpus erzeugen eine Pflicht zur Prüfung. Diese Belege haben keinen Vorrang vor den Präzisionsregeln. Aus diesem Grund bleiben häufige Formen wie `sowie`, `beziehungsweise`, vage Qualifikatoren und unpersönliche Konstruktionen verboten oder prüfpflichtig.
 
-### Contractions are normalized, not prohibited
+### Kontraktionen werden normalisiert und nicht verboten
 
-Deutsche Formen wie `im`, `am`, `beim`, `vom`, `zum` und `zur` sind regelmäßige grammatische Kontraktionen. In v0.0.2 hat die Behandlung dieser Formen als unabhängige unbekannte Wörter falsche lexikalische Lücken erzeugt. Version 0.0.3 löst diese Formen für die Suche auf und behält den Oberflächentext.
+Deutsche Formen wie `im`, `am`, `beim`, `vom`, `zum` und `zur` sind regelmäßige grammatische Kontraktionen. Wenn ein Validator diese Formen als unabhängige unbekannte Wörter behandelt, erzeugt der Validator falsche lexikalische Lücken. Deshalb löst STG-DE diese Formen für die Suche auf und behält den Oberflächentext.
 
-### Controlled connector set
+### Kontrollierte Menge von Verknüpfungswörtern
 
-Die Korpusanalyse hat eine große stilistische Variation bei logischen Verknüpfungswörtern gezeigt. Version 0.0.3 verwendet bevorzugt eine kleinere explizite Menge:
+Die Korpusanalyse hat eine große stilistische Variation bei logischen Verknüpfungswörtern gezeigt. STG-DE verwendet bevorzugt eine kleinere explizite Menge:
 
 - Addition: `und`
 - Gegensatz: `aber`
@@ -283,11 +280,11 @@ Die Korpusanalyse hat eine große stilistische Variation bei logischen Verknüpf
 
 Deshalb werden `sowie`, `jedoch`, `daher` und `anschließend` zu kontrollierten Alternativen normalisiert, wenn die Bedeutung erhalten bleibt.
 
-### Pronominal adverbs
+### Pronominaladverbien
 
 `dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür` und `hierfür` sind nützliche deutsche Formen. Diese Formen können aber ein Bezugswort und eine semantische Beziehung gleichzeitig komprimieren. Deshalb sind diese Formen im strengen Kern `review_required`. Für diese Formen gilt STG-DE-4.5.
 
-### Cross-domain direct verbs
+### Direkte Verben aus mehreren Domänen
 
 Die Belege aus dem öffentlichen Korpus haben die Aufnahme enger zentraler Bedeutungen für bestimmte Verben gestützt. Diese Verben kommen in mehreren technischen Domänen vor und beschreiben konkrete Handlungen oder Beziehungen. Beispiele sind `anschließen`, `abziehen`, `abkühlen`, `verschließen`, `beheben`, `bereitstellen`, `enthalten` und `entsprechen`.
 
@@ -303,27 +300,27 @@ Nur die Bedeutung Zusammensetzung ist zentral kontrolliert: `X besteht aus Y`. A
 
 ---
 
-# Korpusentscheidungen in Release 0.1.0
+# Entscheidungen zur Auflösung im Validator
 
-## D-04-01 — Declared noun plurals are controlled inflections
+## D-01 — Deklarierte Pluralformen von Substantiven sind kontrollierte Flexionen
 
 **Entscheidung:** Der deklarierte Plural eines Substantivs wird als kontrollierte Flexion aufgelöst. Für diesen Plural ist kein zweiter Wörterbucheintrag notwendig.
 
-**Grund:** Der Validator in v0.0.3 hat normale deklarierte Pluralformen wie `Informationen`, `Gefahren`, `Schritte` und `Geräte` falsch als unbekannte Wörter oder Begriffskandidaten eingeordnet. Diese Lücke ist eine Lücke im Validator, keine Lücke im Wortschatz.
+**Grund:** Ein früherer Validator hat normale deklarierte Pluralformen wie `Informationen`, `Gefahren`, `Schritte` und `Geräte` falsch als unbekannte Wörter oder Begriffskandidaten eingeordnet. Diese Lücke ist eine Lücke im Validator, keine Lücke im Wortschatz.
 
-## D-04-02 — Canonical lemma wins over an inflection alias
+## D-02 — Das kanonische Lemma hat Vorrang vor einem Flexionsalias
 
 **Entscheidung:** Prüfen Sie vor der Annahme eines Flexionsalias, ob diese Oberflächenform selbst ein kanonisches Lemma ist.
 
-**Grund:** `Datum` deklariert den Plural `Daten`. Technisches Deutsch verwendet `Daten` aber als unabhängigen Begriff für technische Informationen oder Daten. Deshalb fügt v0.1 `DE-NOU-daten` hinzu und verhindert, dass der Pluralalias Vorrang vor diesem Eintrag hat.
+**Grund:** `Datum` deklariert den Plural `Daten`. Technisches Deutsch verwendet `Daten` aber als unabhängigen Begriff für technische Informationen oder Daten. Deshalb enthält das Lexikon `DE-NOU-daten` und verhindert, dass der Pluralalias Vorrang vor diesem Eintrag hat.
 
-## D-04-03 — Capitalization does not establish terminology status
+## D-03 — Großschreibung bestimmt nicht den Status als Terminologie
 
 **Entscheidung:** Unbekannte großgeschriebene Wörter werden als `LEXICAL_NOUN_CANDIDATE` eingeordnet, nicht als `TECHNICAL_TERM_CANDIDATE`.
 
 **Grund:** Alle deutschen Substantive sind großgeschrieben. Wenn ein Validator die Großschreibung als Beleg für Terminologie behandelt, ordnet der Validator normale allgemeine Substantive systematisch falsch ein.
 
-## D-04-04 — Cross-domain frequency is necessary evidence, not sufficient approval
+## D-04 — Häufigkeit in mehreren Domänen ist ein notwendiger Beleg und keine Freigabe
 
 **Entscheidung:** Häufige Wörter kommen nur in das zentrale Lexikon, wenn eine enge kontrollierte Bedeutung festgelegt werden kann.
 

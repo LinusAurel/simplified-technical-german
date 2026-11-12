@@ -68,7 +68,6 @@
 
 ### Verpackung
 
-- Der Release-Workflow kann das Paket auf PyPI veröffentlichen (Trusted Publishing, Variable `PYPI_PUBLISH`).
 - `pyproject.toml` verwendet die Lizenzangabe nach PEP 639.
 
 ## 0.3.0 — 2026-11-12

@@ -37,6 +37,7 @@ Führen Sie danach diese Prüfungen aus:
 ```bash
 python -m unittest discover -s tests -v
 python tools/sync_skill.py --check
+python tools/build_standalone.py --check
 python tools/sync_package.py --check
 python tools/validate_release.py
 ```

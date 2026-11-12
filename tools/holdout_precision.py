@@ -36,7 +36,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
-from build_corpus_v02 import download, extract_text, package_version  # noqa: E402
+from build_corpus import download, extract_text, package_version  # noqa: E402
 from stg_lint import audit_text  # noqa: E402
 from stg_markdown import prose_blocks  # noqa: E402
 from stg_lint import split_sentences  # noqa: E402
@@ -50,7 +50,7 @@ def finding_id(source_id: str, rule: str, text: str) -> str:
 
 
 def holdout_sources(ids: list[str] | None = None) -> list[dict]:
-    data = yaml.safe_load((ROOT / "corpus" / "v0.2-sources.yaml").read_text(encoding="utf-8"))
+    data = yaml.safe_load((ROOT / "corpus" / "fulltext-sources.yaml").read_text(encoding="utf-8"))
     if ids:
         by_id = {s["id"]: s for s in data["sources"]}
         missing = [i for i in ids if i not in by_id]
