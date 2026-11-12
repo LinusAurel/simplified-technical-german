@@ -40,7 +40,7 @@ def main() -> int:
         else:
             path.write_text(content, encoding="utf-8")
 
-    scripts = ["stg_lint.py", "stg_analyze.py"]
+    scripts = ["stg_lint.py", "stg_analyze.py", "stg_compare.py"]
     for script_name in scripts:
         script_target = SKILL / "scripts" / script_name
         source = ROOT / "tools" / script_name
