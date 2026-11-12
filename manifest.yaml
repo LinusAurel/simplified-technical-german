@@ -341,24 +341,6 @@ files:
 - path: stg_de/stg_markdown.py
   size_bytes: 2691
   sha256: 998224f58bd4c2cf928897398ad36e56bb879b611fd997f7836a23a09a167763
-- path: stg_de.egg-info/PKG-INFO
-  size_bytes: 11974
-  sha256: cb99006c9fe7434713d168bcd4f5d35e89488a3d338316bea5ab65daf6bf590e
-- path: stg_de.egg-info/SOURCES.txt
-  size_bytes: 801
-  sha256: dacb634d822756101fd466536c4dcb39af2aff7c4433d74220e1eac2134b974b
-- path: stg_de.egg-info/dependency_links.txt
-  size_bytes: 1
-  sha256: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
-- path: stg_de.egg-info/entry_points.txt
-  size_bytes: 40
-  sha256: abf2e55e32b2636c98a398afa6e09bfe03403fd2ba59acadc346ea0e089cafd7
-- path: stg_de.egg-info/requires.txt
-  size_bytes: 12
-  sha256: 71749243f84428fee225bfaa796dca5ef6c1e83a98f6d2a407df615b0390d6fb
-- path: stg_de.egg-info/top_level.txt
-  size_bytes: 7
-  sha256: 78d11b2de955e49bb79ef235f9ad999d4c6cadad00dae3c47dfe958358491b6b
 - path: tests/test_address.py
   size_bytes: 3371
   sha256: 8ca04b0d56609969ffc858dda4c7b0013ddb467dedca079c52c4d7630346e9dc
@@ -378,8 +360,8 @@ files:
   size_bytes: 3467
   sha256: 6a3d28333abc8e6fd9f4262d37f0c0cabdbc004fc48f4223fd51a0b3889bf3ad
 - path: tests/test_packaging.py
-  size_bytes: 3676
-  sha256: de18fab36f882ab99512ac56eb7b166603afa99182f9c573d86d3f86fcc32c68
+  size_bytes: 4221
+  sha256: 7a8c8344fa711a4fec3de2c9620802cc6c79584f68c8b0eb5abd48b336795458
 - path: tests/test_profiles.py
   size_bytes: 2998
   sha256: 4d9fe4fe02e4d220c79c5017feb09b6205895a0a68a3a6373a30f2888f23c2db
@@ -405,8 +387,8 @@ files:
   size_bytes: 7750
   sha256: cd428c7dd107e862acc6a7a3f89443c5b305aab777fbc2a915694bc153e3dd2a
 - path: tools/build_manifest.py
-  size_bytes: 884
-  sha256: b68f1a16c3926ca05473ba789d1f1c26cccfa49091092e21a6c0524eef16af62
+  size_bytes: 1236
+  sha256: fcf8111b62705f09bfdc5667f3f5f5ba0dcc47d7552f7860fdb0f34a994dc236
 - path: tools/build_standalone.py
   size_bytes: 1256
   sha256: ca7bff505593699c32ee0dfc4fba9e7e1e163fa3f8d271eedc2e314e95bd1ae5
