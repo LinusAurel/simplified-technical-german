@@ -11,7 +11,7 @@ Der Skill ist genauer als diese Bausteine. Verwenden Sie den Skill, wenn Ihr Wer
 ```markdown
 ## Deutsche Texte
 
-Schreiben Sie deutsche Dokumentation, Fehlermeldungen und Anweisungen an Agenten in STG-DE (https://github.com/linusaurel/simplified-technical-german):
+Schreiben Sie deutsche Dokumentation, Fehlermeldungen und Anweisungen an Agenten in STG-DE (https://github.com/LinusAurel/simplified-technical-german):
 
 - höchstens 20 Wörter je Satz in Anleitungen,
 - eine Anweisung je Satz, im ganzen Dokument in einer Anredeform: „Prüfen Sie den Druck.“ oder „Prüfe den Druck.“ oder „Druck prüfen.“,

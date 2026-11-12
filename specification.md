@@ -101,13 +101,13 @@ Ein Text ist konform zu `STG-T`, wenn der Text konform zu `STG-R` ist. Zusätzli
 
 ### 5.3 `STG-C-core`
 
-Ein Text ist konform zu `STG-C-core`, wenn der Text konform zu `STG-T` ist. Zusätzlich muss das zentrale Kernlexikon v0.1 für das Schreiben jedes andere nicht gesperrte lexikalische Element freigeben. Diese Freigabe muss für die verwendete Bedeutung und die verwendete Wortart gelten. Unbekannte allgemeinsprachliche Wörter sind nicht automatisch akzeptiert.
+Ein Text ist konform zu `STG-C-core`, wenn der Text konform zu `STG-T` ist. Zusätzlich muss das mitgelieferte zentrale Kernlexikon für das Schreiben jedes andere nicht gesperrte lexikalische Element freigeben. Diese Freigabe muss für die verwendete Bedeutung und die verwendete Wortart gelten. Unbekannte allgemeinsprachliche Wörter sind nicht automatisch akzeptiert.
 
 ### 5.4 `STG-C`
 
 Ein Text ist konform zu `STG-C`, wenn der Text konform zu `STG-T` ist. Zusätzlich muss ein umfassendes, von Menschen geprüftes zentrales kontrolliertes Lexikon jedes andere lexikalische Element freigeben. Diese Freigabe muss für die verwendete Bedeutung und die verwendete Wortart gelten.
 
-`STG-C-core` ist ein Profil mit geschlossenem Wortschatz. Dieses Profil ist für kontrolliertes Schreiben mit dem mitgelieferten Kernlexikon v0.1 vorgesehen. `STG-C` bleibt für ein umfassenderes, von Menschen geprüftes zentrales Lexikon reserviert. In diesem Release ist `STG-C` kein allgemeiner Anspruch auf Zertifizierung.
+`STG-C-core` ist ein Profil mit geschlossenem Wortschatz. Dieses Profil ist für kontrolliertes Schreiben mit dem mitgelieferten Kernlexikon vorgesehen. `STG-C` bleibt für ein umfassenderes, von Menschen geprüftes zentrales Lexikon reserviert. In diesem Release ist `STG-C` kein allgemeiner Anspruch auf Zertifizierung.
 
 
 ### 5.5 Kanonische Lemmata und Kollisionen von Flexionsformen

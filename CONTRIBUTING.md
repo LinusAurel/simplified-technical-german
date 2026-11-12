@@ -53,19 +53,6 @@ Die Holdout-Partition dient nur der Evaluation. Verwenden Sie die Liste der unbe
 
 ## Tests
 
-Führen Sie für die normale Entwicklung diese Befehle aus:
-
-```bash
-python -m unittest discover -s tests -v
-python tools/sync_skill.py --check
-python tools/validate_release.py --skip-manifest
-```
-
-Erzeugen Sie vor einem getaggten Release das Manifest neu. Führen Sie danach die vollständige Prüfung der Integrität aus:
-
-```bash
-python tools/build_manifest.py
-python tools/validate_release.py
-```
+Die Befehle für die Prüfung vor einem Commit und vor einem Release stehen in [`AGENTS.md`](AGENTS.md) im Abschnitt „Validierung“. Die Prüfungen entsprechen der CI in `.github/workflows/ci.yml`.
 
 Eine Funktion des Validators muss Regressionstests für die Regel-ID der Funktion enthalten. Wenn anwendbar, muss die Funktion auch Regressionstests für eine bekannte Grenze falsch positiver Befunde enthalten.

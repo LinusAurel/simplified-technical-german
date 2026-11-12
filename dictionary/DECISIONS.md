@@ -1,4 +1,4 @@
-# STG-DE lexical decisions — through v0.1
+# Lexikalische Entscheidungen in STG-DE
 
 ## Status
 
@@ -116,7 +116,7 @@ Nur die Bedeutung Zusammensetzung ist zentral kontrolliert: `X besteht aus Y`. A
 
 ---
 
-# Korpusentscheidungen für v0.1
+# Korpusentscheidungen in Release 0.1.0
 
 ## D-04-01 — Declared noun plurals are controlled inflections
 
