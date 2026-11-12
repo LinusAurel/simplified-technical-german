@@ -1,43 +1,90 @@
-schema_version: '0.5'
+schema_version: '0.6'
 method: transient public-source full-text extraction; raw text not persisted
-lexicon_release: 0.4.0
-workflow_run: 32597222836
-generated_on: '2026-08-22'
+lexicon_release: 0.6.0
+generated_on: '2026-11-12'
+generated_by: python tools/build_corpus_v05.py --allow-failures (local run)
+source_token_cap: 10000
 aggregate:
-  sources: 13
-  tokens: 139646
-  controlled_tokens: 58524
-  controlled_surface_coverage: 0.419088
+  sources: 28
+  tokens: 359075
+  capped_tokens: 106031
+  controlled_tokens: 144247
+  controlled_surface_coverage: 0.401718
+  largest_source_share_capped: {id: MED-HAMILTON-C1-FULL, share: 0.0943}
   failures: 0
 partitions:
-  development: {sources: 4, tokens: 89757, controlled_tokens: 36415, controlled_surface_coverage: 0.405707}
-  validation: {sources: 5, tokens: 16686, controlled_tokens: 8187, controlled_surface_coverage: 0.490651}
-  holdout: {sources: 4, tokens: 33203, controlled_tokens: 13922, controlled_surface_coverage: 0.419299}
+  development: {sources: 14, tokens: 309882, capped_tokens: 65644, controlled_surface_coverage: 0.394686, capped_coverage: 0.380833}
+  holdout: {sources: 7, tokens: 29417, capped_tokens: 20611, controlled_surface_coverage: 0.417854, capped_coverage: 0.405225}
+  validation: {sources: 7, tokens: 19776, capped_tokens: 19776, controlled_surface_coverage: 0.487915, capped_coverage: 0.487915}
 domains:
-  anlagenbau: {sources: 2, tokens: 34705, controlled_surface_coverage: 0.382769}
-  automotive: {sources: 1, tokens: 9361, controlled_surface_coverage: 0.479650}
-  energy_consumer: {sources: 2, tokens: 5289, controlled_surface_coverage: 0.451503}
-  logistics: {sources: 1, tokens: 737, controlled_surface_coverage: 0.466757}
-  medizintechnik: {sources: 1, tokens: 82803, controlled_surface_coverage: 0.419188}
-  public_sector: {sources: 2, tokens: 1483, controlled_surface_coverage: 0.494943}
-  software_it: {sources: 3, tokens: 5061, controlled_surface_coverage: 0.485675}
-  telecom: {sources: 1, tokens: 207, controlled_surface_coverage: 0.560386}
+  agent_instructions: {sources: 2, tokens: 3750, capped_tokens: 3750, controlled_surface_coverage: 0.219200, capped_coverage: 0.219200}
+  anlagenbau: {sources: 2, tokens: 34640, capped_tokens: 15984, controlled_surface_coverage: 0.383458, capped_coverage: 0.349790}
+  automotive: {sources: 1, tokens: 9361, capped_tokens: 9361, controlled_surface_coverage: 0.479650, capped_coverage: 0.479650}
+  b2b_software: {sources: 1, tokens: 640, capped_tokens: 640, controlled_surface_coverage: 0.423438, capped_coverage: 0.423438}
+  cyber_security: {sources: 2, tokens: 1965, capped_tokens: 1965, controlled_surface_coverage: 0.454453, capped_coverage: 0.454453}
+  embedded_iot: {sources: 2, tokens: 19144, capped_tokens: 10338, controlled_surface_coverage: 0.448600, capped_coverage: 0.449613}
+  energy_consumer: {sources: 2, tokens: 5539, capped_tokens: 5539, controlled_surface_coverage: 0.452970, capped_coverage: 0.452970}
+  energy_iiot: {sources: 1, tokens: 36610, capped_tokens: 10000, controlled_surface_coverage: 0.426468, capped_coverage: 0.426468}
+  finance: {sources: 1, tokens: 1543, capped_tokens: 1543, controlled_surface_coverage: 0.496436, capped_coverage: 0.496436}
+  functional_safety: {sources: 2, tokens: 120430, capped_tokens: 11620, controlled_surface_coverage: 0.382513, capped_coverage: 0.375603}
+  logistics: {sources: 1, tokens: 737, capped_tokens: 737, controlled_surface_coverage: 0.466757, capped_coverage: 0.466757}
+  measurement: {sources: 2, tokens: 31609, capped_tokens: 13627, controlled_surface_coverage: 0.354361, capped_coverage: 0.369203}
+  medizintechnik: {sources: 2, tokens: 85816, capped_tokens: 13636, controlled_surface_coverage: 0.415214, capped_coverage: 0.384057}
+  public_sector: {sources: 2, tokens: 1483, capped_tokens: 1483, controlled_surface_coverage: 0.494943, capped_coverage: 0.494943}
+  software_it: {sources: 3, tokens: 5050, capped_tokens: 5050, controlled_surface_coverage: 0.526139, capped_coverage: 0.526139}
+  telecom: {sources: 2, tokens: 758, capped_tokens: 758, controlled_surface_coverage: 0.498681, capped_coverage: 0.498681}
+text_types:
+  admin_manual: {sources: 1, tokens: 4528, capped_tokens: 4528, controlled_surface_coverage: 0.536661, capped_coverage: 0.536661}
+  agent_instructions: {sources: 2, tokens: 3750, capped_tokens: 3750, controlled_surface_coverage: 0.219200, capped_coverage: 0.219200}
+  consumer_guide: {sources: 3, tokens: 7082, capped_tokens: 7082, controlled_surface_coverage: 0.462440, capped_coverage: 0.462440}
+  faq: {sources: 1, tokens: 724, capped_tokens: 724, controlled_surface_coverage: 0.479282, capped_coverage: 0.479282}
+  manual: {sources: 5, tokens: 148429, capped_tokens: 39611, controlled_surface_coverage: 0.398103, capped_coverage: 0.374471}
+  online_help: {sources: 1, tokens: 16, capped_tokens: 16, controlled_surface_coverage: 0.062500, capped_coverage: 0.062500}
+  product_information: {sources: 1, tokens: 3636, capped_tokens: 3636, controlled_surface_coverage: 0.282178, capped_coverage: 0.282178}
+  public_service_page: {sources: 2, tokens: 1483, capped_tokens: 1483, controlled_surface_coverage: 0.494943, capped_coverage: 0.494943}
+  regulatory_information: {sources: 1, tokens: 1241, capped_tokens: 1241, controlled_surface_coverage: 0.439968, capped_coverage: 0.439968}
+  release_notes: {sources: 1, tokens: 18806, capped_tokens: 10000, controlled_surface_coverage: 0.447410, capped_coverage: 0.447410}
+  requirement_specification: {sources: 1, tokens: 36610, capped_tokens: 10000, controlled_surface_coverage: 0.426468, capped_coverage: 0.426468}
+  safety_information: {sources: 1, tokens: 9361, capped_tokens: 9361, controlled_surface_coverage: 0.479650, capped_coverage: 0.479650}
+  support_article: {sources: 3, tokens: 1829, capped_tokens: 1829, controlled_surface_coverage: 0.455987, capped_coverage: 0.455987}
+  technical_guide: {sources: 2, tokens: 120430, capped_tokens: 11620, controlled_surface_coverage: 0.382513, capped_coverage: 0.375603}
+  update_procedure: {sources: 2, tokens: 644, capped_tokens: 644, controlled_surface_coverage: 0.517081, capped_coverage: 0.517081}
+  user_manual: {sources: 1, tokens: 506, capped_tokens: 506, controlled_surface_coverage: 0.446640, capped_coverage: 0.446640}
 sources:
-  - {id: MED-HAMILTON-C1-FULL, partition: development, sha256: 303cabdc9fc652cc66f03362eb5992258f4f71204c3885d14545adeb66a97b3f, bytes: 8760618, tokens: 82803, coverage: 0.419188}
-  - {id: PLANT-WILO-STRATOS-FULL, partition: holdout, sha256: 31983755d227141e204c14c165c8d968885c7e11ad5976b74cede7a6a1b4c02e, bytes: 6199417, tokens: 28721, coverage: 0.411406}
-  - {id: PLANT-GRUNDFOS-CRATEX-FULL, partition: development, sha256: 2e108efd59a9ce06d5286c54e1710df9acb4ba7b3bcbba3e98e6afa462fa97fa, bytes: 2444424, tokens: 5984, coverage: 0.245321}
-  - {id: AUTO-BMW-SAFETY-FULL, partition: validation, sha256: 0d4a54a14bb14040fa74439e714bfe7b6d1dba5f0f62ace2b30ebbe202576144, bytes: 292940, tokens: 9361, coverage: 0.479650}
-  - {id: SW-NEXTCLOUD-WEB-FULL, partition: development, sha256: c7657240e2cfb80e43806bc62b97206a90f6116146fbb49f0b3f6654e88d5e4e, bytes: 22007, tokens: 515, coverage: 0.052427}
-  - {id: SW-SUSE-YAST-FULL, partition: validation, sha256: f532fccc7a58db85783d96efd6622ac53839588d9bc989e3c114b51329915094, bytes: 86932, tokens: 4530, coverage: 0.536424}
-  - {id: SW-SYNOLOGY-VOLUME-FULL, partition: validation, sha256: 573191d1e0cad04528c9dcbda68f25e2b3d0faea1c1eb8a09c2acbe38f7597b7, bytes: 152322, tokens: 16, coverage: 0.062500}
-  - {id: TEL-TELEKOM-SPEEDPORT, partition: validation, sha256: afd4f2ef9a533860918163ee1d4013ad8f0dc30194c0158d2cc6101ad3cc1379, bytes: 176218, tokens: 207, coverage: 0.560386}
-  - {id: LOG-DHL-ONLINE-FRANKIERUNG, partition: holdout, sha256: 880756e7e4f01d3399294474bde3278c1229b66faa28d3866fab8dff9b7b9c40, bytes: 172565, tokens: 737, coverage: 0.466757}
-  - {id: PUBLIC-AUSWEISAPP, partition: holdout, sha256: 7c56b9a9f1f7880f6b5621c3508fc54e80529711040b912128995797aa44f81e, bytes: 66386, tokens: 1028, coverage: 0.509728}
-  - {id: PUBLIC-BA-ALG, partition: development, sha256: 2d8d259b689ef17dd00323475d06e37a2dd02b2e6cc1f8c52a75e5e188d1e668, bytes: 126608, tokens: 455, coverage: 0.461538}
-  - {id: ENERGY-VZ-TARIFFINDER, partition: validation, sha256: 4299fd78db9764b8078b00351e350016064df26d1aaaeeccb361484d9482227a, bytes: 725458, tokens: 2572, coverage: 0.447123}
-  - {id: ENERGY-VZ-WECHSEL, partition: holdout, sha256: 8f0c43ad40d7d3dbcfca05b09232728bab46adcd08444b2cd52f25dc48826a49, bytes: 835247, tokens: 2717, coverage: 0.455650}
+  - {id: MED-HAMILTON-C1-FULL, partition: development, sha256: 303cabdc9fc652cc66f03362eb5992258f4f71204c3885d14545adeb66a97b3f, bytes: 8760618, tokens: 82180, capped_tokens: 10000, coverage: 0.421100, accessed_on: '2026-11-12', extraction_method: pdf-text}
+  - {id: PLANT-WILO-STRATOS-FULL, partition: development, sha256: 31983755d227141e204c14c165c8d968885c7e11ad5976b74cede7a6a1b4c02e, bytes: 6199417, tokens: 28656, capped_tokens: 10000, coverage: 0.412305, accessed_on: '2026-11-12', extraction_method: pdf-text}
+  - {id: PLANT-GRUNDFOS-CRATEX-FULL, partition: development, sha256: 2e108efd59a9ce06d5286c54e1710df9acb4ba7b3bcbba3e98e6afa462fa97fa, bytes: 2444424, tokens: 5984, capped_tokens: 5984, coverage: 0.245321, accessed_on: '2026-11-12', extraction_method: pdf-text}
+  - {id: AUTO-BMW-SAFETY-FULL, partition: validation, sha256: 0d4a54a14bb14040fa74439e714bfe7b6d1dba5f0f62ace2b30ebbe202576144, bytes: 292940, tokens: 9361, capped_tokens: 9361, coverage: 0.479650, accessed_on: '2026-11-12', extraction_method: pdf-text}
+  - {id: SW-NEXTCLOUD-WEB-FULL, partition: development, sha256: 2dad99a4dbb3cb23d79fad951cb00a6cd8e05e625de15c4106575cf454df7381, bytes: 22599, tokens: 506, capped_tokens: 506, coverage: 0.446640, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: SW-SUSE-YAST-FULL, partition: validation, sha256: 1beb711034ecff02de89ab9fb004364bfe6938e791482d8779e5bf733b524fea, bytes: 86462, tokens: 4528, capped_tokens: 4528, coverage: 0.536661, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: SW-SYNOLOGY-VOLUME-FULL, partition: validation, sha256: 50a7be66da8ea7982de64414ba5559bb4b34fec35c55786b95398a3a1a6ca850, bytes: 153097, tokens: 16, capped_tokens: 16, coverage: 0.062500, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: TEL-TELEKOM-SPEEDPORT, partition: validation, sha256: d34bd38959071e392047bab93d5f67b503498736ab668bf64c7cda855cb64728, bytes: 183144, tokens: 452, capped_tokens: 452, coverage: 0.484513, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: LOG-DHL-ONLINE-FRANKIERUNG, partition: development, sha256: a76780efa8f1acaf342e7ff5375078be97a81c0cc9a1f408fa48658420846a05, bytes: 170459, tokens: 737, capped_tokens: 737, coverage: 0.466757, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: PUBLIC-AUSWEISAPP, partition: development, sha256: 9fa8109c0fe63f4b216a67e0e3bca2199dfbe66692a8171f79198229a4a0e839, bytes: 66532, tokens: 1028, capped_tokens: 1028, coverage: 0.509728, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: PUBLIC-BA-ALG, partition: development, sha256: 13f2dbc02d41fd990407c148b2629cdd7b470bd374080a037d2629d31de73717, bytes: 123709, tokens: 455, capped_tokens: 455, coverage: 0.461538, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: ENERGY-VZ-TARIFFINDER, partition: validation, sha256: daa9e533993c5851334406de453b081717fbbf2ba82abe633e601aa1ce24f445, bytes: 877745, tokens: 2635, capped_tokens: 2635, coverage: 0.454269, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: ENERGY-VZ-WECHSEL, partition: development, sha256: a8ab5887bba2d6d0dada2c4dcac7a7a04c7ca06ce71524bfda10586f2ee97037, bytes: 968858, tokens: 2904, capped_tokens: 2904, coverage: 0.451791, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: SEC-BSI-FAQ-HERSTELLER, partition: development, sha256: 1931bd4955bf2aa75889fb0c5cfa1475caf7021dfd29a986b82675f3b8932cbb, bytes: 68529, tokens: 724, capped_tokens: 724, coverage: 0.479282, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: SEC-IHK-CRA-PFLICHTEN, partition: validation, sha256: 0d70cdb6d943f22e6bb6ea44e49a43b3de509c1e6a47261cf4147b3199d41f76, bytes: 45157, tokens: 1241, capped_tokens: 1241, coverage: 0.439968, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: REQ-BSI-TR03109-1, partition: development, sha256: 2cdf155ba33ffb08ea8ce846fce24e7e3840bbdb22c00afc0e0a65686d1af037, bytes: 2935261, tokens: 36610, capped_tokens: 10000, coverage: 0.426468, accessed_on: '2026-11-12', extraction_method: pdf-text}
+  - {id: MEAS-JANITZA-UMG96PA, partition: development, sha256: fc56e0b72be1133648e2a8304061e9c16d4010d99c204cf97d5f9d81a9ab2cc3, bytes: 16564161, tokens: 27982, capped_tokens: 10000, coverage: 0.343113, accessed_on: '2026-11-12', extraction_method: pdf-text}
+  - {id: SAFE-IFA-REPORT-2-2017, partition: development, sha256: 49c130caaa9457e8d38e2508d5cdcbea882cb670334601b779d74389d68e00ac, bytes: 10308306, tokens: 118810, capped_tokens: 10000, coverage: 0.383251, accessed_on: '2026-11-12', extraction_method: pdf-text}
+  - {id: FW-AVM-ONLINE-UPDATE, partition: development, sha256: 52af02dffea26835d03754fdc56d245968d8d94726dd9abc3030bf5c721cf8b1, bytes: 552262, tokens: 338, capped_tokens: 338, coverage: 0.514793, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: AGENT-GITHUB-REPO-INSTRUCTIONS, partition: development, sha256: c877eeedfec560958a0b103b55ab0a0fc091b37a78d878db786185774af2419a, bytes: 737424, tokens: 2968, capped_tokens: 2968, coverage: 0.179245, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: FIN-BAFIN-BASISKONTO, partition: validation, sha256: e38aa755ad57e73f70697ed949bbd0949648253c52afd1dfdcfbc8da40d859fe, bytes: 113649, tokens: 1543, capped_tokens: 1543, coverage: 0.496436, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: FW-AVM-7590AX-RELEASE-NOTES, partition: holdout, sha256: 7ab98ccd42f2be592bb6f5ddcfa89fff228c2691301136bb5c623db6207dea25, bytes: 160882, tokens: 18806, capped_tokens: 10000, coverage: 0.447410, accessed_on: '2026-11-12', extraction_method: plain-text}
+  - {id: FW-TELEKOM-FRITZBOX-UPDATE, partition: holdout, sha256: d8452dd68f9fc21e3f0d9139d5f64bc10249c0604f1fe6e7ab839e1ebc0746ca, bytes: 181654, tokens: 306, capped_tokens: 306, coverage: 0.519608, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: MEAS-TESTO-625, partition: holdout, sha256: 12f1588b3c975a705c9ab1fa9b177d6eca82abafc18e77b07c26e51b1f3c570f, bytes: 1154648, tokens: 3627, capped_tokens: 3627, coverage: 0.441136, accessed_on: '2026-11-12', extraction_method: pdf-text}
+  - {id: SAFE-IFA-PRAXISHILFE-13849, partition: holdout, sha256: 8f6566668c4a7b8461c08277caa07409e346e6a3b0444c8f32c27010e0bd6f26, bytes: 67906, tokens: 1620, capped_tokens: 1620, coverage: 0.328395, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: AGENT-GITHUB-CUSTOMIZE-OVERVIEW, partition: holdout, sha256: 835a2ae607652f742f84431683141a79844fd9a7ad201a5dc36765fefac712b4, bytes: 645420, tokens: 782, capped_tokens: 782, coverage: 0.370844, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: B2B-LEXWARE-DATEV-EXPORT, partition: holdout, sha256: ce9b3e9f2c1aa06e0792dbbe5ac9d6e9aaafa814708dfc4b1c80c4d6efafc306, bytes: 127153, tokens: 640, capped_tokens: 640, coverage: 0.423438, accessed_on: '2026-11-12', extraction_method: html-text}
+  - {id: MED-DRAEGER-VISTA120SC, partition: holdout, sha256: d9fd69a9a6d7846cd1780b7262e5f88aaa3ae52fc0ac81a85ad006d312a97e3d, bytes: 738895, tokens: 3636, capped_tokens: 3636, coverage: 0.282178, accessed_on: '2026-11-12', extraction_method: pdf-text}
 limitations:
-  - The corpus exceeds 100k tokens but is not token-balanced; the medical manual dominates the development partition.
+  - The corpus has 359,075 tokens. The 500,000-token target is still open.
+  - A per-source cap of 10,000 tokens balances the capped metrics. Uncapped totals stay in the report. The release notes of FW-AVM-7590AX-RELEASE-NOTES are 49 % of the capped holdout.
+  - Nine new domains have one or two sources each. The numbers per domain are indicators, not stable estimates.
+  - HTML pages change. The hashes show whether a source is still the same document; HTML hashes differ between runs for most pages.
   - HTML extraction quality varies by site; the Synology page yielded only 16 tokens and should be replaced or improved in a later source revision.
+  - Two sources are retailer or distributor copies of manufacturer documents (MEAS-JANITZA-UMG96PA, MEAS-TESTO-625).
   - Controlled surface coverage is a lexical routing metric, not a document quality or STG-DE compliance score.
   - Holdout data has not been used to select new central vocabulary in this release cycle.
