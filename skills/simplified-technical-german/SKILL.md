@@ -175,7 +175,7 @@ When a profile or mode was selected, name both in one short line after the resul
 
 ## Project terminology
 
-If `.stg-de.yaml` or another project glossary is present, give it precedence for technical nouns, technical verbs, protected terms, and preferred terminology. Project terminology extends the central core; it does not override structural writing rules.
+If `.stg-de.yaml` or another project glossary is present, give it precedence for technical nouns, technical verbs, protected terms, and preferred terminology. Project terminology extends the central core. It does not override structural writing rules.
 
 When no project dictionary exists:
 
