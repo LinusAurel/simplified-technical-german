@@ -6,7 +6,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
-from run_evals import prompt_for, score_case  # noqa: E402
+from run_evals import generate, prompt_for, score_case  # noqa: E402
 
 CASES = {c["id"]: c for c in yaml.safe_load((ROOT / "evals" / "cases.yaml").read_text(encoding="utf-8"))["cases"]}
 
@@ -39,6 +39,14 @@ class EvalSuiteTests(unittest.TestCase):
         }
         for case_id, output in bad.items():
             self.assertFalse(score_case(CASES[case_id], output)["ok"], case_id)
+
+    def test_generate_runs_the_command_outside_the_repository(self):
+        import tempfile
+        case = {"id": "x", "operation": "WRITE", "profile": "procedure", "input": "Text"}
+        with tempfile.TemporaryDirectory() as out, tempfile.TemporaryDirectory() as work:
+            generate([case], Path(out), f'{sys.executable} -c "import os; print(os.getcwd())"', 30, Path(work))
+            cwd = Path(out, "x.md").read_text(encoding="utf-8").strip()
+        self.assertEqual(Path(cwd).resolve(), Path(work).resolve())
 
     def test_prompts_name_operation_and_profile(self):
         prompt = prompt_for(CASES["audit-violations"])
