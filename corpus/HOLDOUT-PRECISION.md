@@ -1,6 +1,6 @@
 # Präzision des Linters auf dem Holdout
 
-Diese Messung prüft, wie oft der Linter auf echten deutschen Texten richtig liegt. Grundlage ist die Holdout-Partition des Korpus aus `corpus/v0.2-sources.yaml`. Die Holdout-Partition hat 4 Quellen: eine Bedienungsanleitung (Anlagenbau), eine Hilfeseite (Logistik), eine Behördenseite (öffentlicher Sektor) und einen Ratgeber für Verbraucher (Energie).
+Diese Messung prüft, wie oft der Linter auf echten deutschen Texten richtig liegt. Grundlage war die Holdout-Partition des Korpus aus `corpus/v0.2-sources.yaml` zum Zeitpunkt von Release 0.3.0. Diese Partition hatte 4 Quellen: eine Bedienungsanleitung (Anlagenbau), eine Hilfeseite (Logistik), eine Behördenseite (öffentlicher Sektor) und einen Ratgeber für Verbraucher (Energie).
 
 Die Kennzahlen stehen in `corpus/holdout-precision.yaml`. Das Repository enthält keinen Text aus den Quellen. Jeder bewertete Befund hat nur eine ID: die ersten 16 Zeichen des SHA-256-Hashes aus Quelle, Regel und Satz.
 
@@ -54,7 +54,27 @@ Mit den Korrekturen sinkt die Zahl der `STG-6.3`-Befunde auf dem Holdout von 229
 
 ## Grenzen
 
-- **Bewertung durch ein Modell:** Ein KI-Modell (Claude) hat die Befunde bewertet. Ein Mensch hat die Bewertung noch nicht geprüft. Prüfen Sie die Bewertung mit `tools/holdout_precision.py sample`. Der feste Startwert erzeugt dieselbe Stichprobe.
+- **Bewertung durch ein Modell:** Ein KI-Modell (Claude) hat die Befunde bewertet. Ein Mensch hat die Bewertung noch nicht geprüft (Issue #19).
+- **Reproduzierbarkeit:** Der feste Startwert erzeugt nur dann dieselbe Stichprobe, wenn die Quellen gleich sind. Die drei HTML-Seiten haben sich nach der Messung geändert. Eine neue Stichprobe mit Linter 0.3.0 vom 12. November 2026 enthält 89 der 191 bewerteten Einträge. Die Bewertungsdatei der Messung ist nicht erhalten. Das Werkzeug speichert jetzt die Hashes der Quellen in der Bewertungsdatei.
+- **Fehler in der Stichprobe:** Linter 0.3.0 meldet ein Wort aus der Sperrliste nur einmal je Dokument. Die Stichprobe der Sätze ohne Befund konnte deshalb Sätze mit einem gemeldeten Wort enthalten. In der neuen Stichprobe sind das 8 von 60 Sätzen. Das Werkzeug prüft jetzt jeden Satz einzeln.
 - **Verbrauchter Holdout:** Die drei Korrekturen sind nach Befunden auf diesem Holdout entstanden. Eine Messung der korrigierten Version braucht neue Holdout-Quellen.
-- **Zeitpunkt:** Die Quellen sind Webseiten und PDFs. Ihr Inhalt kann sich ändern. Die Hashes in `corpus/v0.2-fulltext-metrics.yaml` zeigen, ob eine Quelle noch dieselbe ist.
+- **Zeitpunkt:** Die Quellen sind Webseiten und PDFs. Ihr Inhalt kann sich ändern. Die Hashes in `corpus/v0.2-fulltext-metrics.yaml` von Release 0.3.0 zeigen, ob eine Quelle noch dieselbe ist.
+
+## Neue Holdout-Partition
+
+Die 4 Quellen dieser Messung sind jetzt in der Entwicklungspartition (Protokoll Abschnitt 9). Die neue Holdout-Partition hat 7 Quellen aus 7 Domänen:
+
+- Release Notes einer Firmware,
+- eine Hilfeseite zum Firmware-Update,
+- eine Bedienungsanleitung aus der Messtechnik,
+- eine Seite zur funktionalen Sicherheit,
+- eine Seite mit Anweisungen für Agenten,
+- ein Hilfeartikel einer B2B-Software,
+- eine Produktinformation zu einem Medizinprodukt. Mit dieser Partition ist die korrigierte Version des Linters messbar.
+
+Wiederholen Sie die Stichprobe für Linter 0.3.0 mit den alten Quellen:
+
+```bash
+python tools/holdout_precision.py sample --out <Ordner> --sources PLANT-WILO-STRATOS-FULL LOG-DHL-ONLINE-FRANKIERUNG PUBLIC-AUSWEISAPP ENERGY-VZ-WECHSEL --prefill corpus/holdout-precision.yaml
+```
 - **Übersehene Verstöße:** Die Stichprobe der Sätze ohne Befund prüft nur implementierte Prüfungen. Verstöße gegen semantische Regeln zählt sie nicht.
