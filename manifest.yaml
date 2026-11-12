@@ -54,8 +54,8 @@ files:
   size_bytes: 8198
   sha256: 5b61f23255a864aa8451c1b692090dd159f71ba3a2becb7f8dbe421223d5faac
 - path: STG-DE.md
-  size_bytes: 250583
-  sha256: ba32b66a22ea0e4724268b76c44fa3dc086c9d8a1b00dda814a31e121760402c
+  size_bytes: 250672
+  sha256: 12fa8c4415bc892c3eb8638c2aa2c88ae3b3090a26fdc78fee9c4ca5b480e528
 - path: VERSIONING.md
   size_bytes: 2792
   sha256: 11c35f670b2227a1f29b9b7970b666ca4c46ba59ef2890fb95203bf4bc1e50ae
@@ -90,8 +90,8 @@ files:
   size_bytes: 3758
   sha256: adacaa09d18e3bfa96d1840de2f60b73c59e0743a5a148d6bf0a8a9450a36cc9
 - path: corpus/validation-report.md
-  size_bytes: 5944
-  sha256: e0b8ebf463cd108655412d3e1a4cbbfaee5fced6a4466789607beca475d72199
+  size_bytes: 6869
+  sha256: ace177b5488524057e4539205adf63e09b9a91fbf5f1572244021db70ce842a3
 - path: dictionary/DECISIONS.md
   size_bytes: 7894
   sha256: 2a6208420a6dc6441d1fcd47815d03a1ae56ac7d90e1e1a00660d2b672848e91
@@ -264,8 +264,8 @@ files:
   size_bytes: 136154
   sha256: 5ccfdd6352daf744c8bb894790c61962ca8d62178773578eea7d439d76968ac7
 - path: skills/simplified-technical-german/references/dictionary-guide.md
-  size_bytes: 15101
-  sha256: 57a18f9ac8dc8491cb2c3d169e951fc9cfe198c13b62e4f7224b58a14bb2b660
+  size_bytes: 15174
+  sha256: 8486309614c35b3c1f4d1350f06a2957447839bcd0299007d3e4b300198ed1a9
 - path: skills/simplified-technical-german/references/profiles.yaml
   size_bytes: 2039
   sha256: 12e5636b859ad67acdbada7d9f62507ed4b4af5f5ba35c39d8940355ef049e41
@@ -276,8 +276,8 @@ files:
   size_bytes: 1154
   sha256: 8ec0181d33df5a41fa2f6576f9131a510a52ce759b360be89fd3cdf62ccda060
 - path: skills/simplified-technical-german/references/rules.md
-  size_bytes: 33041
-  sha256: b9ed7794cf06925443b4b8c8e0f3b360d3af3c008d8ef4e604e956769cf9ab6e
+  size_bytes: 33073
+  sha256: a444b2f794424fbeb2c685b40202c6bc26cb1b12b38cdac778d231a1e8604e63
 - path: skills/simplified-technical-german/references/validator-contract.md
   size_bytes: 6434
   sha256: c9d5ab0fb3d3dfad81db827c9c4fddac745a34ebc4a2f8c7fb94a28cb000c69d
