@@ -1,19 +1,19 @@
-# Notice
+# Hinweis
 
 ## STG-DE
 
-STG-DE (Simplified Technical German) is an independent open project. Its rules, examples, dictionary, tools, and Agent Skill are licensed under the MIT License (see `LICENSE`).
+STG-DE (Simplified Technical German) ist ein unabhängiges offenes Projekt. Die Regeln, Beispiele, das Wörterbuch, die Werkzeuge und der Agent Skill von STG-DE stehen unter der MIT-Lizenz (siehe `LICENSE`).
 
-## Relationship to ASD-STE100
+## Beziehung zu ASD-STE100
 
-STG-DE uses the structure and rule numbering of **ASD-STE100 Simplified Technical English, Issue 9 (January 2025)** as its design basis. Each numbered STG-DE rule `STG-x.y` implements the intent of ASD-STE100 rule `x.y` for German. `mapping/ste100-issue9.yaml` documents the traceability.
+STG-DE verwendet die Struktur und die Nummerierung der Regeln von **ASD-STE100 Simplified Technical English, Issue 9 (Januar 2025)** als Grundlage für das Design. Jede nummerierte STG-DE-Regel `STG-x.y` setzt die Absicht der ASD-STE100-Regel `x.y` für das Deutsche um. `mapping/ste100-issue9.yaml` dokumentiert die Rückverfolgbarkeit.
 
-ASD-STE100 is a copyright and EU-registered trademark of ASD (Aerospace, Security and Defence Industries Association of Europe), Brussels, Belgium. ASD distributes the standard free of charge through <https://www.asd-ste100.org>. Redistribution requires written permission from the ASD Simplified Technical English Maintenance Group (STEMG).
+ASD-STE100 ist ein Urheberrecht und eine in der EU eingetragene Marke von ASD (Aerospace, Security and Defence Industries Association of Europe), Brüssel, Belgien. ASD stellt den Standard kostenlos über <https://www.asd-ste100.org> zur Verfügung. Eine Weitergabe erfordert eine schriftliche Genehmigung der ASD Simplified Technical English Maintenance Group (STEMG).
 
-This repository therefore does **not** contain ASD-STE100 rule text, examples, or dictionary entries. The German rules, examples, and the central German lexicon are independently written.
+Aus diesem Grund enthält dieses Repository **keinen** Regeltext, keine Beispiele und keine Wörterbucheinträge aus ASD-STE100. Die deutschen Regeln, die Beispiele und das zentrale deutsche Lexikon sind unabhängig geschrieben.
 
-STG-DE is not an official ASD publication. It is not endorsed by ASD or the STEMG. Conformance with STG-DE does not mean conformance with ASD-STE100.
+STG-DE ist keine offizielle Veröffentlichung von ASD. STG-DE hat keine Billigung (Endorsement) durch ASD oder die STEMG. Konformität mit STG-DE bedeutet nicht Konformität mit ASD-STE100.
 
-## Corpus sources
+## Korpusquellen
 
-The `corpus/` directory contains only source metadata, hashes, and derived metrics. It does not redistribute third-party documents.
+Das Verzeichnis `corpus/` enthält nur Metadaten der Quellen, Hashes und abgeleitete Kennzahlen. Das Verzeichnis verbreitet keine Dokumente Dritter.

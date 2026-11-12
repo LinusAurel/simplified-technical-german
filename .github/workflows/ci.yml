@@ -18,11 +18,21 @@ jobs:
       - run: python tools/package_skill.py --out dist
 
   self-check:
-    # Dogfooding: the reusable action checks this repository's German prompt snippets.
+    # Dogfooding: the reusable action checks this repository's own German documentation.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./
+      - name: STG-DE documentation
+        uses: ./
+        with:
+          paths: >-
+            README.md AGENTS.md CONTRIBUTING.md GOVERNANCE.md NOTICE.md RELEASE-CHECKLIST.md ROADMAP.md
+            VERSIONING.md sources.md specification.md validator-contract.md rules dictionary mapping
+            profiles proposals quality corpus evals/README.md skills/simplified-technical-german/SKILL.md
+          profile: description
+          fail-on: error
+      - name: STG-DE prompt snippets
+        uses: ./
         with:
           paths: prompts
           profile: agent

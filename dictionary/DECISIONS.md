@@ -2,146 +2,146 @@
 
 ## Status
 
-This file records high-impact lexical choices accumulated through the v0.4 authoring core. The entries are **provisional** until review by German technical-writing and terminology specialists.
+Diese Datei dokumentiert lexikalische Entscheidungen mit großer Wirkung, die bis zum Autorenkern v0.4 entstanden sind. Die Einträge sind **vorläufig**, bis Fachleute für deutsche technische Redaktion und Terminologie die Einträge prüfen.
 
-The source standard uses a controlled dictionary in which approved words have a specified word class and approved meaning, while non-approved words can point to approved alternatives or a different sentence construction. STG-DE keeps that architecture but does **not** translate the English dictionary one-to-one.
+Der Ausgangsstandard verwendet ein kontrolliertes Wörterbuch. In diesem Wörterbuch haben freigegebene Wörter eine festgelegte Wortart und eine freigegebene Bedeutung. Nicht freigegebene Wörter können auf freigegebene Alternativen oder auf eine andere Satzkonstruktion verweisen. STG-DE behält diese Architektur, übersetzt das englische Wörterbuch aber **nicht** eins zu eins.
 
-## Release objective
+## Ziel des Release
 
-v0.3 defines an enforceable **authoring core** for common German technical prose. It is intended to make generation and rewriting deterministic enough for agents and validators while leaving domain terminology to project terminology sources.
+Version 0.3 definiert einen durchsetzbaren **Autorenkern** für häufige deutsche technische Texte. Das Ziel des Kerns ist ein Grad an Determinismus, mit dem Agenten und Validatoren Texte erzeugen und umformulieren können. Die Domänenterminologie bleibt bei den Quellen der Projektterminologie.
 
 ### Selection order
 
-1. Preserve official technical terminology.
-2. Prefer one short, common German general-language lemma for one intended meaning.
-3. Split meanings when German has a more precise lexical choice.
-4. Prohibit stylistic synonyms when they add no technical distinction.
-5. Mark a word `restricted` when it is useful but needs context or an explicit criterion.
-6. Send domain-specific manufacturing, legal, medical, military, and scientific verbs to project terminology unless they are broadly necessary.
+1. Behalten Sie die offizielle technische Terminologie.
+2. Verwenden Sie bevorzugt ein kurzes, häufiges Lemma der deutschen Allgemeinsprache für eine beabsichtigte Bedeutung.
+3. Teilen Sie Bedeutungen, wenn das Deutsche eine präzisere lexikalische Wahl hat.
+4. Verbieten Sie stilistische Synonyme, wenn diese Synonyme keine technische Unterscheidung hinzufügen.
+5. Markieren Sie ein Wort als `restricted`, wenn das Wort nützlich ist, aber Kontext oder ein explizites Kriterium verlangt.
+6. Geben Sie domänenspezifische Verben aus Fertigung, Recht, Medizin, Militär und Wissenschaft an die Projektterminologie, außer wenn diese Verben allgemein notwendig sind.
 
-## Important lexical decisions
+## Wichtige lexikalische Entscheidungen
 
 ### `verwenden` instead of `benutzen`, `nutzen`, `gebrauchen`
 
-`verwenden` is the preferred general verb for using a tool, material, component, or aid. `anwenden` is reserved for methods, rules, and procedures. This keeps two useful concepts separate while removing stylistic synonym variation.
+`verwenden` ist das bevorzugte allgemeine Verb für die Verwendung von Werkzeug, Material, Bauteil oder Hilfsmittel. `anwenden` ist für Methoden, Regeln und Verfahren reserviert. Diese Trennung behält zwei nützliche Begriffe und entfernt die stilistische Variation mit Synonymen.
 
 ### `prüfen` versus `testen` versus `untersuchen`
 
-- `prüfen`: determine whether an explicit condition or requirement is satisfied.
-- `testen`: execute a defined test against criteria.
-- `untersuchen`: systematically look for damage, defects, or specified features.
+- `prüfen`: feststellen, ob eine explizite Bedingung oder Anforderung erfüllt ist.
+- `testen`: einen definierten Test mit Kriterien ausführen.
+- `untersuchen`: systematisch nach Schäden, Fehlern oder festgelegten Merkmalen suchen.
 
 ### `erhöhen` / `verringern` versus `steigen` / `sinken`
 
-Use the transitive pair when an actor changes a value. Use the intransitive pair when the value changes as a process result.
+Verwenden Sie das transitive Paar, wenn ein Akteur einen Wert ändert. Verwenden Sie das intransitive Paar, wenn sich der Wert als Ergebnis eines Prozesses ändert.
 
 ### `einbauen` versus `installieren`
 
-Use `einbauen` for mechanical/electrical components in an installation position. Use `installieren` primarily for software or when official terminology defines installation of a whole system.
+Verwenden Sie `einbauen` für mechanische oder elektrische Bauteile in einer Einbaulage. Verwenden Sie `installieren` hauptsächlich für Software. Verwenden Sie `installieren` auch, wenn die offizielle Terminologie die Installation eines vollständigen Systems definiert.
 
 ### `warten`
 
-The temporal verb `warten` is permitted. The maintenance meaning is intentionally not part of the central lexicon because the homonym is highly ambiguous. Use approved project terminology for maintenance, for example `instand halten` if the project approves it.
+Das zeitliche Verb `warten` ist zulässig. Die Bedeutung Instandhaltung ist absichtlich nicht im zentralen Lexikon, weil dieses Homonym sehr mehrdeutig ist. Verwenden Sie für Instandhaltung freigegebene Projektterminologie, zum Beispiel `instand halten`, wenn das Projekt diesen Begriff freigibt.
 
 ### `sichern`
 
-The general verb is not approved because it can mean fastening, data backup, locking, safeguarding, or making safe. Use the precise verb: `befestigen`, `speichern`, `verriegeln`, `schützen`, or a project technical term.
+Das allgemeine Verb ist nicht freigegeben. Das Verb kann befestigen, eine Datensicherung erstellen, verriegeln, schützen oder einen sicheren Zustand herstellen bedeuten. Verwenden Sie das präzise Verb: `befestigen`, `speichern`, `verriegeln`, `schützen` oder einen technischen Begriff des Projekts.
 
 ### `können`, `dürfen`, `müssen`
 
-- `können`: capability or factual possibility.
-- `dürfen`: permission; `nicht dürfen`: prohibition.
-- `müssen`: explicit requirement.
+- `können`: Fähigkeit oder faktische Möglichkeit.
+- `dürfen`: Erlaubnis. `nicht dürfen`: Verbot.
+- `müssen`: explizite Anforderung.
 
-Conditional or tentative forms such as `könnte`, `müsste`, and `sollte` are not part of controlled mandatory wording.
+Konditionale oder vorsichtige Formen wie `könnte`, `müsste` und `sollte` sind kein Teil der kontrollierten verbindlichen Formulierungen.
 
 ### Vague qualifiers
 
-Words such as `ordnungsgemäß`, `geeignet`, `ausreichend`, `vorsichtig`, and `zeitnah` are prohibited or review-required because they often replace a missing criterion. A validator should request the criterion rather than invent it.
+Wörter wie `ordnungsgemäß`, `geeignet`, `ausreichend`, `vorsichtig` und `zeitnah` sind verboten oder prüfpflichtig. Der Grund: Diese Wörter ersetzen oft ein fehlendes Kriterium. Wir empfehlen, dass ein Validator das Kriterium anfordert und kein Kriterium erfindet.
 
-## Unknown-word policy
+## Richtlinie für unbekannte Wörter
 
-For `STG-C-core`, a non-locked general-language token that does not resolve to this lexicon is **not automatically a synonym candidate**. The agent must:
+Für `STG-C-core` gilt: Ein nicht gesperrtes Token der Allgemeinsprache, das sich nicht zu diesem Lexikon auflösen lässt, ist **nicht automatisch ein Synonymkandidat**. Der Agent muss diese Arbeitsschritte ausführen:
 
-1. check whether it is approved project terminology,
-2. check whether it is a protected name/label/identifier,
-3. check the prohibited/rewrite list,
-4. otherwise return `NEEDS_LEXICON_REVIEW`.
+1. Prüfen, ob das Token freigegebene Projektterminologie ist.
+2. Prüfen, ob das Token ein geschützter Name, eine geschützte Beschriftung oder eine geschützte Kennung ist.
+3. Die Liste der verbotenen Wörter und Umformulierungen prüfen.
+4. In allen anderen Fällen `NEEDS_LEXICON_REVIEW` zurückgeben.
 
-This is intentionally conservative.
+Diese Strategie ist absichtlich konservativ.
 
 
 ## v0.3 corpus-driven decisions
 
 ### Corpus frequency is not approval
 
-A frequent word in ordinary technical German can still be unsuitable for controlled German. Corpus evidence creates a review obligation; it does not override precision rules. This is why frequent forms such as `sowie`, `beziehungsweise`, vague qualifiers, and impersonal constructions remain prohibited or review-required.
+Ein häufiges Wort in normalem technischem Deutsch kann für kontrolliertes Deutsch trotzdem ungeeignet sein. Belege aus dem Korpus erzeugen eine Pflicht zur Prüfung. Diese Belege haben keinen Vorrang vor den Präzisionsregeln. Aus diesem Grund bleiben häufige Formen wie `sowie`, `beziehungsweise`, vage Qualifikatoren und unpersönliche Konstruktionen verboten oder prüfpflichtig.
 
 ### Contractions are normalized, not prohibited
 
-German forms such as `im`, `am`, `beim`, `vom`, `zum`, and `zur` are regular grammatical contractions. Treating them as independent unknown words created false lexical gaps in v0.2. v0.3 expands them for lookup while preserving the surface text.
+Deutsche Formen wie `im`, `am`, `beim`, `vom`, `zum` und `zur` sind regelmäßige grammatische Kontraktionen. In v0.2 hat die Behandlung dieser Formen als unabhängige unbekannte Wörter falsche lexikalische Lücken erzeugt. Version 0.3 löst diese Formen für die Suche auf und behält den Oberflächentext.
 
 ### Controlled connector set
 
-Corpus analysis showed substantial stylistic variation in logical connectors. v0.3 prefers a smaller explicit set:
+Die Korpusanalyse hat eine große stilistische Variation bei logischen Verknüpfungswörtern gezeigt. Version 0.3 verwendet bevorzugt eine kleinere explizite Menge:
 
-- addition: `und`
-- contrast: `aber`
-- sequence: `dann` / `danach`
-- result: `deshalb`
-- condition: `wenn`
-- cause: `weil`
-- earlier event: `bevor`
-- simultaneous period: `während`
+- Addition: `und`
+- Gegensatz: `aber`
+- Reihenfolge: `dann` / `danach`
+- Ergebnis: `deshalb`
+- Bedingung: `wenn`
+- Ursache: `weil`
+- früheres Ereignis: `bevor`
+- gleichzeitiger Zeitraum: `während`
 
-Consequently, `sowie`, `jedoch`, `daher`, and `anschließend` are normalized to controlled alternatives when meaning is preserved.
+Deshalb werden `sowie`, `jedoch`, `daher` und `anschließend` zu kontrollierten Alternativen normalisiert, wenn die Bedeutung erhalten bleibt.
 
 ### Pronominal adverbs
 
-`dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür`, and `hierfür` are useful German forms but can compress both an antecedent and a semantic relation. They are therefore `review_required` in the strict core and governed by STG-DE-4.5.
+`dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür` und `hierfür` sind nützliche deutsche Formen. Diese Formen können aber ein Bezugswort und eine semantische Beziehung gleichzeitig komprimieren. Deshalb sind diese Formen im strengen Kern `review_required`. Für diese Formen gilt STG-DE-4.5.
 
 ### Cross-domain direct verbs
 
-The public corpus evidence supported adding narrow central meanings for verbs that occur across technical domains and describe concrete actions or relations. Examples include `anschließen`, `abziehen`, `abkühlen`, `verschließen`, `beheben`, `bereitstellen`, `enthalten`, and `entsprechen`.
+Die Belege aus dem öffentlichen Korpus haben die Aufnahme enger zentraler Bedeutungen für bestimmte Verben gestützt. Diese Verben kommen in mehreren technischen Domänen vor und beschreiben konkrete Handlungen oder Beziehungen. Beispiele sind `anschließen`, `abziehen`, `abkühlen`, `verschließen`, `beheben`, `bereitstellen`, `enthalten` und `entsprechen`.
 
-The same evidence did **not** justify moving product-specific or engineering-domain verbs into the central lexicon. Those remain project technical verbs.
+Dieselben Belege haben die Aufnahme produktspezifischer Verben oder Verben aus Ingenieurdomänen in das zentrale Lexikon **nicht** gerechtfertigt. Diese Verben bleiben technische Verben des Projekts.
 
 ### `bestehen`
 
-Only the composition meaning is centrally controlled: `X besteht aus Y`. Other meanings of `bestehen` (for example succeeding in an examination, continuing to exist, or insisting on something) are outside the central entry.
+Nur die Bedeutung Zusammensetzung ist zentral kontrolliert: `X besteht aus Y`. Andere Bedeutungen von `bestehen` sind außerhalb des zentralen Eintrags. Beispiele für diese Bedeutungen sind eine Prüfung erfolgreich abschließen, fortbestehen oder auf etwas beharren.
 
 ### `lassen`
 
-`lassen` is restricted to constructions where the reader allows an explicitly named physical or automatic process to continue, for example cooling. It must not be used to hide the responsible actor.
+`lassen` ist auf Konstruktionen eingeschränkt, in denen der Leser einen explizit genannten physischen oder automatischen Prozess fortsetzen lässt, zum Beispiel das Abkühlen. Autoren dürfen `lassen` nicht verwenden, um den verantwortlichen Akteur zu verstecken.
 
 ---
 
-# v0.4 corpus decisions
+# Korpusentscheidungen für v0.4
 
 ## D-04-01 — Declared noun plurals are controlled inflections
 
-**Decision:** A noun's declared plural is resolved as a controlled inflection without requiring a second dictionary entry.
+**Entscheidung:** Der deklarierte Plural eines Substantivs wird als kontrollierte Flexion aufgelöst. Für diesen Plural ist kein zweiter Wörterbucheintrag notwendig.
 
-**Reason:** The v0.3 validator incorrectly routed ordinary declared plurals such as `Informationen`, `Gefahren`, `Schritte`, and `Geräte` as unknown/term candidates. This is a validator gap, not a vocabulary gap.
+**Grund:** Der Validator in v0.3 hat normale deklarierte Pluralformen wie `Informationen`, `Gefahren`, `Schritte` und `Geräte` falsch als unbekannte Wörter oder Begriffskandidaten eingeordnet. Diese Lücke ist eine Lücke im Validator, keine Lücke im Wortschatz.
 
 ## D-04-02 — Canonical lemma wins over an inflection alias
 
-**Decision:** Before accepting an inflection alias, check whether that surface form is itself a canonical lemma.
+**Entscheidung:** Prüfen Sie vor der Annahme eines Flexionsalias, ob diese Oberflächenform selbst ein kanonisches Lemma ist.
 
-**Reason:** `Datum` declares plural `Daten`, but technical German uses `Daten` as an independent concept for technical information/data. v0.4 therefore adds `DE-NOU-daten` and prevents the plural alias from overriding it.
+**Grund:** `Datum` deklariert den Plural `Daten`. Technisches Deutsch verwendet `Daten` aber als unabhängigen Begriff für technische Informationen oder Daten. Deshalb fügt v0.4 `DE-NOU-daten` hinzu und verhindert, dass der Pluralalias Vorrang vor diesem Eintrag hat.
 
 ## D-04-03 — Capitalization does not establish terminology status
 
-**Decision:** Unknown capitalized words are routed as `LEXICAL_NOUN_CANDIDATE`, not `TECHNICAL_TERM_CANDIDATE`.
+**Entscheidung:** Unbekannte großgeschriebene Wörter werden als `LEXICAL_NOUN_CANDIDATE` eingeordnet, nicht als `TECHNICAL_TERM_CANDIDATE`.
 
-**Reason:** All German nouns are capitalized. Treating capitalization as terminology evidence systematically over-classified ordinary general nouns.
+**Grund:** Alle deutschen Substantive sind großgeschrieben. Wenn ein Validator die Großschreibung als Beleg für Terminologie behandelt, ordnet der Validator normale allgemeine Substantive systematisch falsch ein.
 
 ## D-04-04 — Cross-domain frequency is necessary evidence, not sufficient approval
 
-**Decision:** Frequent words enter the central lexicon only when a narrow controlled meaning can be specified.
+**Entscheidung:** Häufige Wörter kommen nur in das zentrale Lexikon, wenn eine enge kontrollierte Bedeutung festgelegt werden kann.
 
-**Approved/restricted examples:** `Betriebsanleitung`, `Fachpersonal`, `Verletzung`, `Produkt`, `Version`, `Daten`, `lesen`, `wählen`.
+**Beispiele für freigegebene oder eingeschränkte Wörter:** `Betriebsanleitung`, `Fachpersonal`, `Verletzung`, `Produkt`, `Version`, `Daten`, `lesen`, `wählen`.
 
-**Review-required despite frequency:** `führen`, `bieten`, `berücksichtigen`, `gewährleisten`.
+**Prüfpflichtig trotz Häufigkeit:** `führen`, `bieten`, `berücksichtigen`, `gewährleisten`.
 
-The latter group is too polysemous or abstract for unconditional automated acceptance.
+Die zweite Gruppe ist für eine bedingungslose automatische Annahme zu mehrdeutig oder zu abstrakt.

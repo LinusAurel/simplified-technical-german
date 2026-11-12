@@ -1,35 +1,35 @@
-# STG-DE Corpus Protocol
+# STG-DE-Korpusprotokoll
 
-This protocol governs corpus-based development from v0.5 onward. The objective is to improve the language model and validator without overfitting the central dictionary to a small set of documents.
+Dieses Protokoll regelt die korpusbasierte Entwicklung ab v0.5. Das Ziel ist, Sprachmodell und Validator zu verbessern, ohne das zentrale Wörterbuch an eine kleine Menge von Dokumenten zu überanpassen.
 
-## 1. Corpus partitions
+## 1. Korpuspartitionen
 
-Every evaluation corpus must assign each document to exactly one partition.
+Jedes Evaluationskorpus muss jedes Dokument genau einer Partition zuordnen.
 
-### Development set
+### Entwicklungsset
 
-Use for:
+Verwenden Sie dieses Set für diese Aufgaben:
 
-- discovering missing core vocabulary;
-- finding recurring ambiguity patterns;
-- proposing new rules or validator checks;
-- improving morphology and terminology routing.
+- fehlendes Kernvokabular finden,
+- wiederkehrende Muster von Mehrdeutigkeit finden,
+- neue Regeln oder neue Prüfungen des Validators vorschlagen,
+- Morphologie und Routing der Terminologie verbessern.
 
-Dictionary and rule changes may be derived from this set.
+Änderungen an Wörterbuch und Regeln dürfen auf diesem Set basieren.
 
-### Validation set
+### Validierungsset
 
-Use during implementation to compare candidate changes and identify regressions.
+Verwenden Sie dieses Set während der Implementierung. Vergleichen Sie damit mögliche Änderungen und erkennen Sie Regressionen.
 
-Do not add vocabulary only because it improves validation-set coverage. A candidate still needs cross-domain justification.
+Fügen Sie kein Vokabular hinzu, nur weil es die Abdeckung im Validierungsset verbessert. Ein Kandidat benötigt trotzdem eine domänenübergreifende Begründung.
 
-### Holdout set
+### Holdout-Set
 
-Use only for release evaluation.
+Verwenden Sie dieses Set nur für die Evaluation eines Release.
 
-Do not inspect holdout unknown-token lists while curating the dictionary for the same release. Holdout results estimate generalization to unseen German text.
+Prüfen Sie keine Listen unbekannter Token aus dem Holdout, während Sie das Wörterbuch für dasselbe Release kuratieren. Die Holdout-Ergebnisse schätzen, wie gut die Ergebnisse auf unbekannten deutschen Text übertragbar sind.
 
-Recommended initial split by document count:
+Empfohlene erste Aufteilung nach Anzahl der Dokumente:
 
 ```text
 70% development
@@ -37,46 +37,46 @@ Recommended initial split by document count:
 15% holdout
 ```
 
-Stratify the split by domain and, where practical, by source organization.
+Schichten Sie die Aufteilung nach Domäne. Schichten Sie die Aufteilung auch nach herausgebender Organisation, wenn das praktisch möglich ist.
 
-## 2. Target domains
+## 2. Zieldomänen
 
-The corpus should not be limited to engineering manuals. STG-DE is intended for controlled German across technical, operational, B2B, B2C, and agent-facing communication.
+Wir empfehlen, das Korpus nicht auf Handbücher aus dem Ingenieurwesen zu begrenzen. STG-DE ist für kontrolliertes Deutsch in technischer, betrieblicher, B2B-, B2C- und agentenbezogener Kommunikation vorgesehen.
 
-Target strata for v0.5:
+Zielstrata für v0.5:
 
-1. Maschinenbau and manufacturing
-2. Automotive and mobility
-3. Elektrotechnik and energy
-4. Software, SaaS, and IT operations
-5. Medizintechnik and health-product instructions
-6. Anlagenbau and infrastructure
-7. Customer support and help-center content
-8. Consumer product instructions
-9. Public-sector and administrative instructions
-10. Finance and insurance customer communication
-11. Logistics and transport
-12. Telecommunications
-13. Requirements and specifications
-14. Agent, API, tool, and system instructions
+1. Maschinenbau und Fertigung
+2. Automotive und Mobilität
+3. Elektrotechnik und Energie
+4. Software, SaaS und IT-Betrieb
+5. Medizintechnik und Anleitungen für Gesundheitsprodukte
+6. Anlagenbau und Infrastruktur
+7. Kundensupport und Inhalte von Hilfecentern
+8. Anleitungen für Verbraucherprodukte
+9. Anweisungen aus öffentlichem Sektor und Verwaltung
+10. Kundenkommunikation in Finanzwesen und Versicherung
+11. Logistik und Transport
+12. Telekommunikation
+13. Anforderungen und Spezifikationen
+14. Anweisungen für Agenten, APIs, Werkzeuge und Systeme
 
-No single stratum should dominate the token count enough to define the general core vocabulary by itself.
+Wir empfehlen, dass kein einzelnes Stratum einen Anteil an der Token-Anzahl hat, mit dem es allein das allgemeine Kernvokabular bestimmen kann.
 
-## 3. Source eligibility
+## 3. Zulässigkeit von Quellen
 
-A source is eligible when:
+Eine Quelle ist zulässig, wenn alle diese Bedingungen zutreffen:
 
-- it is public, licensed for the intended analysis, or otherwise available for lawful internal evaluation;
-- its language is primarily German;
-- its document identity and version can be recorded;
-- its provenance can be reproduced;
-- the text represents real communication rather than synthetic text generated solely to improve STG-DE metrics.
+- Die Quelle ist öffentlich, für die vorgesehene Analyse lizenziert oder auf andere Art für eine rechtmäßige interne Evaluation verfügbar.
+- Die Sprache der Quelle ist hauptsächlich Deutsch.
+- Identität und Version des Dokuments sind dokumentierbar.
+- Die Herkunft der Quelle ist reproduzierbar.
+- Der Text ist reale Kommunikation. Er ist kein synthetischer Text, den jemand nur zur Verbesserung von STG-DE-Metriken erzeugt hat.
 
-Do not redistribute third-party full text unless the right to redistribute it is explicit.
+Verteilen Sie keinen vollständigen Text von Dritten, außer wenn das Recht zur Weitergabe ausdrücklich besteht.
 
-## 4. Source metadata
+## 4. Metadaten der Quelle
 
-Record at least:
+Dokumentieren Sie mindestens diese Angaben:
 
 ```yaml
 id: unique-source-id
@@ -97,59 +97,59 @@ extraction_method: html-text | pdf-text | other
 notes: ...
 ```
 
-Prefer an exact document URL over a manufacturer homepage.
+Verwenden Sie bevorzugt eine exakte Dokument-URL statt der Startseite eines Herstellers.
 
-## 5. Sampling and deduplication
+## 5. Stichproben und Deduplizierung
 
-For full-text evaluation:
+Für die Evaluation von Volltexten:
 
-- remove navigation chrome, repeated headers/footers, cookie text, and obvious boilerplate where possible;
-- retain meaningful headings, warnings, lists, procedures, and prose;
-- detect exact duplicates by content hash;
-- identify near-duplicate manuals or versioned copies where practical;
-- avoid counting the same source text through mirrors or multiple URLs.
+- Entfernen Sie Navigationselemente, wiederholte Kopf- und Fußzeilen, Cookie-Texte und offensichtliche Textbausteine, wo möglich.
+- Behalten Sie aussagekräftige Überschriften, Warnungen, Listen, Anleitungen und Prosa.
+- Erkennen Sie exakte Duplikate über den Inhalts-Hash.
+- Erkennen Sie fast gleiche Handbücher oder versionierte Kopien, wo das praktisch möglich ist.
+- Zählen Sie denselben Quelltext nicht mehrfach über Spiegelserver oder mehrere URLs.
 
-For excerpt evaluation:
+Für die Evaluation von Auszügen:
 
-- document the selection method before inspecting STG-DE results;
-- do not cherry-pick excerpts because they contain known violations or known approved vocabulary;
-- keep excerpt lengths comparable within the same benchmark.
+- Dokumentieren Sie die Auswahlmethode, bevor Sie STG-DE-Ergebnisse prüfen.
+- Wählen Sie Auszüge nicht gezielt aus, weil sie bekannte Verstöße oder bekanntes zugelassenes Vokabular enthalten.
+- Halten Sie die Länge der Auszüge innerhalb desselben Benchmarks vergleichbar.
 
-## 6. Core-vocabulary admission
+## 6. Aufnahme in das Kernvokabular
 
-Corpus frequency alone does not make a word suitable for the central dictionary.
+Häufigkeit im Korpus allein macht ein Wort nicht für das zentrale Wörterbuch geeignet.
 
-A proposed core entry should normally satisfy all of these conditions:
+Wir empfehlen, dass ein vorgeschlagener Kerneintrag im Normalfall alle diese Bedingungen erfüllt:
 
-- appears across multiple independent documents;
-- appears across more than one domain or has a strong general-language function;
-- has a controllable meaning and part of speech;
-- is preferable to competing synonyms for clarity or consistency;
-- is not primarily a product, organization, standard, or domain-specific term;
-- can be documented with a stable controlled meaning.
+- Er kommt in mehreren unabhängigen Dokumenten vor.
+- Er kommt in mehr als einer Domäne vor oder hat eine starke allgemeinsprachliche Funktion.
+- Er hat eine kontrollierbare Bedeutung und Wortart.
+- Er ist konkurrierenden Synonymen für Klarheit oder Konsistenz vorzuziehen.
+- Er ist nicht hauptsächlich ein Begriff für ein Produkt, eine Organisation, einen Standard oder eine bestimmte Domäne.
+- Er lässt sich mit einer stabilen kontrollierten Bedeutung dokumentieren.
 
-Domain-specific terms belong in project terminology unless there is evidence for general core use.
+Domänenspezifische Begriffe gehören in die Projektterminologie, außer wenn Belege für eine allgemeine Verwendung im Kern existieren.
 
-## 7. Evaluation metrics
+## 7. Evaluationsmetriken
 
-Report at least:
+Melden Sie mindestens diese Metriken:
 
-- total token count;
-- unique normalized token count;
-- central controlled surface coverage;
-- project/domain terminology routing rate where applicable;
-- unknown-token rate;
-- prohibited/review-term rate;
-- deterministic finding count per 1,000 words;
-- metrics per domain and partition.
+- gesamte Token-Anzahl,
+- Anzahl eindeutiger normalisierter Token,
+- Abdeckung durch zentrale kontrollierte Oberflächenformen,
+- Rate des Routings zu Projekt- oder Domänenterminologie, wenn zutreffend,
+- Rate unbekannter Token,
+- Rate verbotener Begriffe und Begriffe mit Review-Pflicht,
+- Anzahl deterministischer Befunde je 1.000 Wörter,
+- Metriken je Domäne und je Partition.
 
-Coverage is not a quality score. Increasing coverage by absorbing domain vocabulary into the central core is not automatically an improvement.
+Die Abdeckung ist keine Qualitätsbewertung. Eine höhere Abdeckung durch die Aufnahme von Domänenvokabular in den zentralen Kern ist nicht automatisch eine Verbesserung.
 
-## 8. Manual holdout review
+## 8. Manuelles Review des Holdouts
 
-For each release candidate, manually label a sample from the holdout set.
+Kennzeichnen Sie für jeden Release-Kandidaten manuell eine Stichprobe aus dem Holdout-Set.
 
-At minimum, record for each validator finding:
+Dokumentieren Sie für jeden Befund des Validators mindestens diese Angaben:
 
 ```text
 true positive
@@ -158,28 +158,28 @@ severity correct/incorrect
 rule ID correct/incorrect
 ```
 
-Also review a sample of unflagged sentences for false negatives.
+Prüfen Sie auch eine Stichprobe nicht markierter Sätze auf falsch negative Befunde.
 
-Report precision for deterministic checks separately from heuristic checks. Do not combine them into one headline accuracy number.
+Melden Sie die Präzision deterministischer Prüfungen getrennt von der Präzision heuristischer Prüfungen. Fassen Sie die Werte nicht zu einer einzigen Kennzahl für die Genauigkeit zusammen.
 
-## 9. Release discipline
+## 9. Disziplin bei Releases
 
-For a release that changes the dictionary, rules, or validator:
+Für ein Release, das Wörterbuch, Regeln oder Validator ändert:
 
-1. freeze the development changes;
-2. run the validation set;
-3. resolve implementation bugs without using holdout vocabulary for curation;
-4. run the holdout once for the release candidate;
-5. publish aggregate holdout metrics;
-6. move old holdout material into development only when a new independent holdout has been selected for the next cycle.
+1. Frieren Sie die Änderungen aus der Entwicklung ein.
+2. Führen Sie das Validierungsset aus.
+3. Korrigieren Sie Fehler der Implementierung, ohne Holdout-Vokabular für die Kuratierung zu verwenden.
+4. Führen Sie das Holdout für den Release-Kandidaten einmal aus.
+5. Veröffentlichen Sie aggregierte Holdout-Metriken.
+6. Verschieben Sie altes Holdout-Material nur in die Entwicklung, wenn ein neues unabhängiges Holdout für den nächsten Zyklus ausgewählt ist.
 
-## 10. v0.5 scale target
+## 10. Größenziel für v0.5
 
-Initial target:
+Erstes Ziel:
 
-- at least 100,000 German tokens across the full corpus;
-- at least 10 target strata represented where suitable public/licensed material exists;
-- multiple independent organizations per major stratum;
-- a non-empty document-level holdout partition.
+- mindestens 100.000 deutsche Token im gesamten Korpus,
+- mindestens 10 Zielstrata, wenn geeignetes öffentliches oder lizenziertes Material existiert,
+- mehrere unabhängige Organisationen je wichtigem Stratum,
+- eine nicht leere Holdout-Partition auf Dokumentebene.
 
-Preferred target before v0.6: 500,000+ tokens with improved German linguistic analysis.
+Bevorzugtes Ziel vor v0.6: mehr als 500.000 Token mit einer verbesserten linguistischen Analyse des Deutschen.

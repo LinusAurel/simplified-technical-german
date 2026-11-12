@@ -1,42 +1,42 @@
 # STG-DE morphology and lexical resolution — v0.4
 
-`STG-C-core` is defined at the **lemma + word class + controlled meaning** level. A validator must not require every inflected German surface form to be a separate dictionary entry.
+`STG-C-core` ist auf der Ebene **Lemma + Wortart + kontrollierte Bedeutung** definiert. Ein Validator darf nicht verlangen, dass jede flektierte deutsche Oberflächenform ein separater Wörterbucheintrag ist.
 
-## Resolution order
+## Reihenfolge der Auflösung
 
-1. Protected/locked spans
-2. Approved project/domain terminology
-3. Longest approved/prohibited phrase match
-4. Standard contraction expansion
-5. Case-sensitive lexical lookup
-6. Exact canonical central lemma or declared `surface_forms`
-7. Declared controlled inflection
-8. Deterministic morphological analysis and separable-verb reconstruction
-9. Prohibited/review lookup at the resolved lemma
-10. Otherwise `NEEDS_LEXICON_REVIEW`
+1. Geschützte oder gesperrte Textabschnitte
+2. Freigegebene Projektterminologie oder Domänenterminologie
+3. Längster Treffer einer freigegebenen oder verbotenen Wortgruppe
+4. Auflösung von Standardkontraktionen
+5. Lexikalische Suche mit Unterscheidung nach Groß- und Kleinschreibung
+6. Exaktes kanonisches zentrales Lemma oder deklarierte `surface_forms`
+7. Deklarierte kontrollierte Flexion
+8. Deterministische morphologische Analyse und Rekonstruktion trennbarer Verben
+9. Suche in der Liste der verbotenen und prüfpflichtigen Wörter für das aufgelöste Lemma
+10. In allen anderen Fällen `NEEDS_LEXICON_REVIEW`
 
-Approximate spelling or stemming is not a normative substitute for lemmatization.
+Eine ungefähre Schreibweise oder ein Stemming ist kein normativer Ersatz für eine Lemmatisierung.
 
-## Canonical-lemma precedence
+## Vorrang des kanonischen Lemmas
 
-If an inflected form of one entry is also the canonical lemma of another entry, the canonical lemma takes precedence.
+Wenn eine flektierte Form eines Eintrags auch das kanonische Lemma eines anderen Eintrags ist, hat das kanonische Lemma Vorrang.
 
 ### Required example: `Datum` / `Daten`
 
-German permits `Daten` as the plural of `Datum`. Technical German also uses `Daten` as an independent lexical concept meaning technical information/data.
+Im Deutschen ist `Daten` der Plural von `Datum`. Im technischen Deutsch ist `Daten` auch ein unabhängiger lexikalischer Begriff mit der Bedeutung technische Informationen oder Daten.
 
-Therefore:
+Deshalb gilt:
 
 ```text
 Daten  -> DE-NOU-daten      # technical data/information
 Datum  -> DE-NOU-datum      # calendar date
 ```
 
-A validator must **not** accept a naive `Datum -> Daten` plural mapping before checking whether `Daten` is itself a canonical entry.
+Ein Validator darf eine naive Pluralzuordnung `Datum -> Daten` **nicht** annehmen, bevor der Validator prüft, ob `Daten` selbst ein kanonischer Eintrag ist.
 
-## German contractions
+## Deutsche Kontraktionen
 
-Standard preposition+article contractions are grammar, not technical vocabulary. Normalize forms such as:
+Standardkontraktionen aus Präposition und Artikel sind Grammatik und kein technischer Wortschatz. Normalisieren Sie Formen wie diese:
 
 - `im` -> `in` + `dem`
 - `am` -> `an` + `dem`
@@ -45,50 +45,55 @@ Standard preposition+article contractions are grammar, not technical vocabulary.
 - `zum` -> `zu` + `dem`
 - `zur` -> `zu` + `der`
 
-Expansion is for lexical analysis only. Do not rewrite a correct, unambiguous surface form merely to expose the components.
+Diese Auflösung dient nur der lexikalischen Analyse. Schreiben Sie eine korrekte, eindeutige Oberflächenform nicht um, nur um die Bestandteile zu zeigen.
 
-## Nouns
+## Substantive
 
-An approved noun permits its grammatical case forms and its explicitly declared plural unless a restriction says otherwise.
+Ein freigegebenes Substantiv erlaubt die grammatischen Kasusformen und den ausdrücklich deklarierten Plural. Diese Erlaubnis gilt nicht, wenn eine Einschränkung etwas anderes festlegt.
 
-The development validator counts the **declared plural** as `CENTRAL_INFLECTION`. It does not invent unlisted plurals.
+Der Entwicklungsvalidator zählt den **deklarierten Plural** als `CENTRAL_INFLECTION`. Der Entwicklungsvalidator erfindet keine Pluralformen, die nicht in der Liste stehen.
 
-Unknown capitalized words are not automatically technical terms. German capitalizes ordinary nouns; an unresolved noun must resolve to a central entry, project terminology, a protected name/identifier, or review.
+Unbekannte großgeschriebene Wörter sind nicht automatisch technische Begriffe. Im Deutschen schreiben Autoren normale Substantive groß. Ein nicht aufgelöstes Substantiv muss zu einem dieser Ziele aufgelöst werden:
 
-## Case-sensitive forms
+- zu einem zentralen Eintrag,
+- zu Projektterminologie,
+- zu einem geschützten Namen oder einer geschützten Kennung,
+- zu einer Prüfung.
 
-Resolve formal reader forms before case folding:
+## Formen mit Groß- und Kleinschreibung
+
+Lösen Sie die formalen Leserformen vor der Normalisierung der Groß- und Kleinschreibung auf:
 
 - `Sie`, `Ihnen`
 - `Ihr`, `Ihre`, `Ihren`, `Ihrem`, `Ihrer`, `Ihres`
 
-Third-person `sie` / `ihr` are separate restricted entries and require an unambiguous antecedent.
+Die Formen `sie` und `ihr` in der dritten Person sind separate eingeschränkte Einträge. Diese Formen verlangen ein eindeutiges Bezugswort.
 
-## Articles and determiners
+## Artikel und Determinative
 
-Common inflected forms are stored in `surface_forms`. Resolve them to their controlled determiner/article entry before syntactic validation.
+Häufige flektierte Formen stehen in `surface_forms`. Lösen Sie diese Formen vor der syntaktischen Validierung zu dem kontrollierten Eintrag für den Artikel oder den Determinativ auf.
 
-## Verbs
+## Verben
 
-A normative validator should lemmatize finite and non-finite forms before dictionary lookup.
+Wir empfehlen, dass ein normativer Validator finite und infinite Formen vor der Suche im Wörterbuch lemmatisiert.
 
-For separable verbs, reconstruct the lemma from the clause:
+Rekonstruieren Sie bei trennbaren Verben das Lemma aus dem Satz:
 
 - `Schalten Sie das Gerät ein.` -> `einschalten`
 - `Die Anzeige zeigt den Wert an.` -> `anzeigen`
 - `Stellen Sie den Datensatz bereit.` -> `bereitstellen`
 - `Legen Sie den Grenzwert fest.` -> `festlegen`
 
-A finite stem such as `stellt` must not be judged in isolation when a separable prefix later in the clause can change the lemma.
+Ein Validator darf einen finiten Stamm wie `stellt` nicht isoliert bewerten, wenn eine abgetrennte Verbpartikel später im Satz das Lemma ändern kann.
 
-## Adjectives
+## Adjektive
 
-Regularly inflected adjective forms resolve to the approved base lemma. Comparative and superlative forms require explicit permission or a rule/entry that allows the comparison. Do not assume every approved adjective can be compared meaningfully.
+Regelmäßig flektierte Formen von Adjektiven werden zu dem freigegebenen Grundlemma aufgelöst. Komparativ und Superlativ verlangen eine ausdrückliche Erlaubnis oder eine Regel oder einen Eintrag, die den Vergleich zulassen. Nehmen Sie nicht an, dass jedes freigegebene Adjektiv sinnvoll gesteigert werden kann.
 
-## Phrases
+## Wortgruppen
 
-Resolve multi-token entries before single-token lookup. Entries containing `...` require a syntactic pattern rather than literal substring matching.
+Lösen Sie Einträge mit mehreren Tokens vor der Suche nach einzelnen Tokens auf. Einträge, die `...` enthalten, verlangen ein syntaktisches Muster und keinen wörtlichen Teilstring-Vergleich.
 
-## Development heuristics
+## Heuristiken für die Entwicklung
 
-`tools/corpus_validate.py` may use the German Snowball stemmer to emit `MORPHOLOGY_CANDIDATE`. This class is evidence for curation only and **never counts as normative conformance**.
+`tools/corpus_validate.py` darf den deutschen Snowball-Stemmer verwenden, um `MORPHOLOGY_CANDIDATE` auszugeben. Diese Klasse ist nur ein Beleg für die Kuratierung und zählt **nie als normative Konformität**.

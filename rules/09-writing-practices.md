@@ -1,118 +1,122 @@
-# Section 9 — Schreibpraxis
+# Abschnitt 9 — Schreibpraxis
 
 ## STG-9.1 — Satz neu bauen, wenn Wortersatz nicht reicht
 
 **Level:** `MUST`
 
-Do not replace an unapproved word mechanically when the replacement changes grammar, meaning, or modality. Rewrite the complete sentence while preserving technical meaning.
+Ersetzen Sie ein nicht freigegebenes Wort nicht mechanisch, wenn der Ersatz die Grammatik, die Bedeutung oder die Modalität ändert. Schreiben Sie den vollständigen Satz neu und behalten Sie die technische Bedeutung.
 
-A language tool must prefer `NEEDS_DOMAIN_INPUT` to an invented rewrite when the intended meaning is unclear.
+Wenn die beabsichtigte Bedeutung unklar ist, muss ein Sprachwerkzeug `NEEDS_DOMAIN_INPUT` zurückgeben und keine erfundene Umformulierung.
 
 ## STG-9.2 — Freigegebene Wörter korrekt verwenden
 
 **Level:** `MUST`
 
-Before using an approved word, check its approved meaning, word class, restrictions, and domain profile.
+Bevor Sie ein freigegebenes Wort verwenden, prüfen Sie die freigegebene Bedeutung, die Wortart, die Einschränkungen und das Domänenprofil des Worts.
 
-If a word has several approved meanings, the lexicon must distinguish them with separate meaning IDs.
+Wenn ein Wort mehrere freigegebene Bedeutungen hat, muss das Lexikon diese Bedeutungen mit getrennten Bedeutungs-IDs unterscheiden.
 
 ## STG-9.3 — Keine idiomatischen Verbgefüge als Ersatz für direkte Verben
 
 **Level:** `MUST_NOT`
 
-In German, ambiguity and verbosity often come from idioms and function-verb constructions.
+Im Deutschen kommen Mehrdeutigkeit und unnötige Länge oft von Redewendungen und Funktionsverbgefügen.
 
-Do not use an idiomatic or noun-heavy verb phrase when a direct approved verb gives the same technical meaning.
+Verwenden Sie keine idiomatische oder substantivlastige Verbalphrase, wenn ein direktes freigegebenes Verb dieselbe technische Bedeutung gibt.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Nehmen Sie eine Prüfung vor.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Prüfen Sie das Bauteil.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Bringen Sie die Änderung zur Anwendung.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Wenden Sie die Änderung an.
 
-Lexicalized technical multiword verbs may be approved as single dictionary entries when the domain requires them.
+Lexikalisierte technische Mehrwortverben dürfen als einzelne Wörterbucheinträge freigegeben werden, wenn die Domäne diese Verben verlangt.
 
 ## STG-9.4 — Terminologie und Formulierungen konsistent halten
 
 **Level:** `MUST`
 
-For the same action in the same context, use the same approved wording. Do not alternate sentence patterns for stylistic variety.
+Verwenden Sie für dieselbe Handlung in demselben Kontext dieselbe freigegebene Formulierung. Ändern Sie das Satzmuster nicht, um den Stil zu variieren.
 
-Templates are encouraged for recurrent work steps.
+Wir empfehlen Vorlagen für wiederkehrende Arbeitsschritte.
 
 ---
 
-# General recommendations
+# Allgemeine Empfehlungen
 
-These recommendations are not mandatory by default. A project may promote any of them to mandatory status.
+Diese Empfehlungen sind standardmäßig nicht verbindlich. Ein Projekt darf jede dieser Empfehlungen als verbindlich festlegen.
 
 ## STG-GR-1 — Nebensatzmarker explizit und korrekt
 
 
-Use explicit conjunctions such as `dass`, `wenn`, `weil`, and `bevor` when they make clause relations clear. Avoid compressed headline-style omission in running text.
+Verwenden Sie explizite Konjunktionen wie `dass`, `wenn`, `weil` und `bevor`, wenn diese Konjunktionen die Beziehungen zwischen Sätzen klar zeigen. Vermeiden Sie in Fließtext komprimierte Auslassungen im Stil von Schlagzeilen.
 
 ## STG-GR-2 — `mit` auf Mehrdeutigkeit prüfen
 
 
-The preposition `mit` can express instrument, accompaniment, association, or condition. If more than one reading is plausible, rewrite the sentence.
+Die Präposition `mit` kann ein Werkzeug, eine Begleitung, eine Zuordnung oder eine Bedingung ausdrücken. Wenn mehr als eine Lesart plausibel ist, schreiben Sie den Satz neu.
 
-**Ambiguous**
+**Mehrdeutig**
 
 > Montieren Sie die Abdeckung mit den roten Schrauben.
 
-Possible intended meanings include:
+Mögliche beabsichtigte Bedeutungen sind zum Beispiel:
 
-- the cover already has red screws,
-- install the cover together with the red screws,
-- use the red screws as fasteners.
+- Montieren Sie die Abdeckung, die rote Schrauben hat.
+- Montieren Sie die Abdeckung zusammen mit den roten Schrauben.
+- Verwenden Sie die roten Schrauben als Befestigungselemente.
 
-State the intended relation explicitly.
+Nennen Sie die beabsichtigte Beziehung explizit.
 
 ## STG-GR-3 — Pronomen sparsam verwenden
 
 
-Use a pronoun only when its antecedent is unmistakable. Repetition of a technical noun is preferable to ambiguous reference.
+Verwenden Sie ein Pronomen nur, wenn das Bezugswort eindeutig ist. Eine Wiederholung des technischen Substantivs ist besser als ein mehrdeutiger Bezug.
 
 ## STG-GR-4 — Demonstrativa mit Nomen verwenden
 
 
-Prefer `diese Leitung`, `dieser Wert`, `diese Methode` to a bare `dies` or `diese`, especially after several possible antecedents.
+Verwenden Sie bevorzugt `diese Leitung`, `dieser Wert` oder `diese Methode` statt eines alleinstehenden `dies` oder `diese`. Diese Empfehlung ist besonders wichtig, wenn mehrere Bezugswörter möglich sind.
 
 ## STG-GR-5 — Lehnübersetzungen und falsche Freunde prüfen
 
 
-Writers and translation systems must not transfer meanings from English merely because a German word looks similar. Examples requiring context checks include `realisieren`, `kontrollieren`, `eventuell`, and `aktuell` when translating to/from English.
+Autoren und Übersetzungssysteme dürfen Bedeutungen nicht aus dem Englischen übertragen, nur weil ein deutsches Wort ähnlich aussieht. Beispiele, die eine Prüfung des Kontexts verlangen, sind `realisieren`, `kontrollieren`, `eventuell` und `aktuell`. Diese Prüfung gilt für Übersetzungen aus dem Englischen und in das Englische.
 
-The rule does not prescribe a replacement without context.
+Diese Regel schreibt ohne Kontext keinen Ersatz vor.
 
 ## STG-GR-6 — Abkürzungen in Fließtext reduzieren
 
 
-Prefer full German expressions to general prose abbreviations such as `z. B.`, `d. h.`, `ggf.`, `bzw.`, and `usw.` when the abbreviation could reduce clarity.
+Verwenden Sie bevorzugt vollständige deutsche Ausdrücke statt allgemeiner Abkürzungen wie `z. B.`, `d. h.`, `ggf.`, `bzw.` und `usw.`. Diese Empfehlung gilt, wenn die Abkürzung die Klarheit verringern kann.
 
-`ggf.` and `bzw.` are prohibited by the seed vocabulary policy because they often hide a condition or relation.
+Die Wortschatzrichtlinie des Basislexikons verbietet `ggf.` und `bzw.`, weil diese Abkürzungen oft eine Bedingung oder eine Beziehung verstecken.
 
 ## STG-GR-7 — Neutrale Personenbezeichnungen bevorzugen
 
 
-Use role or function terms that are neutral and technically precise where possible, for example `Personal`, `Fachkraft`, `Bedienperson`, `Prüfperson`, or a project-defined role name.
+Verwenden Sie nach Möglichkeit neutrale und technisch präzise Rollen- oder Funktionsbezeichnungen. Beispiele sind `Personal`, `Fachkraft`, `Bedienperson`, `Prüfperson` oder eine Rollenbezeichnung, die das Projekt definiert.
 
-Avoid gender-specific pronouns when they are unnecessary. Special orthographic gender markers are governed by the applicable language/style directive; STG-DE itself does not require them.
+Vermeiden Sie geschlechtsspezifische Pronomen, wenn diese Pronomen nicht notwendig sind. Die zutreffende Sprach- oder Stilrichtlinie regelt besondere orthografische Genderzeichen. STG-DE selbst verlangt diese Zeichen nicht.
 
 ## STG-GR-8 — Genitivketten vermeiden
 
 
-A simple German genitive is permitted. Avoid long chains of possessive/genitive relations that force the reader to resolve several nested dependencies.
+Ein einfacher deutscher Genitiv ist zulässig. Vermeiden Sie lange Ketten von Besitz- oder Genitivbeziehungen. Solche Ketten zwingen den Leser, mehrere verschachtelte Abhängigkeiten aufzulösen.
 
 **Schwer lesbar**
 
@@ -126,15 +130,15 @@ A simple German genitive is permitted. Avoid long chains of possessive/genitive 
 
 **Level:** `MUST_NOT`
 
-Do not use modal particles or conversational fillers such as `mal`, `doch`, `eben`, `halt`, `wohl`, `eigentlich`, `einfach` when they do not have a precise technical meaning.
+Verwenden Sie keine Modalpartikeln und keine Füllwörter aus der Umgangssprache, wenn diese Wörter keine präzise technische Bedeutung haben. Beispiele sind `mal`, `doch`, `eben`, `halt`, `wohl`, `eigentlich` und `einfach`.
 
 ## STG-DE-9.2 — Vage Qualitäts- und Zeitangaben ersetzen
 
 **Level:** `MUST`
 
-Replace vague expressions with observable criteria whenever the criterion matters to the task.
+Ersetzen Sie vage Ausdrücke durch beobachtbare Kriterien, wenn das Kriterium für die Aufgabe wichtig ist.
 
-Examples of terms that normally require rewriting:
+Beispiele für Ausdrücke, die im Normalfall eine Umformulierung verlangen:
 
 - `möglichst schnell`,
 - `zeitnah`,
@@ -144,12 +148,14 @@ Examples of terms that normally require rewriting:
 - `bei Bedarf`,
 - `gegebenenfalls`.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Ziehen Sie die Schraube ausreichend fest.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Ziehen Sie die Schraube mit 8 Nm fest.
 
-If no measurable criterion is available, request domain input instead of inventing one.
+Wenn kein messbares Kriterium verfügbar ist, fordern Sie Domäneninformationen an und erfinden Sie kein Kriterium.
