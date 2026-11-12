@@ -1,6 +1,6 @@
 # STG-DE-Roadmap
 
-Diese Roadmap beschreibt den Weg vom aktuellen experimentellen Release (0.6.0) zu einem stabilen STG-DE 1.0. Prioritäten können sich ändern. Das gilt, wenn Belege aus dem Korpus, Rückmeldungen von Benutzern oder Befunde aus der Implementierung eine andere Reihenfolge als nützlicher zeigen.
+Diese Roadmap beschreibt den Weg vom derzeitigen experimentellen Release (0.6.0) zu einem stabilen STG-DE 1.0. Prioritäten können sich ändern. Das gilt, wenn Belege aus dem Korpus, Rückmeldungen von Benutzern oder Befunde aus der Implementierung eine andere Reihenfolge als nützlicher zeigen.
 
 ## Leitprinzipien
 
@@ -42,7 +42,7 @@ Diese Roadmap beschreibt den Weg vom aktuellen experimentellen Release (0.6.0) z
 - [x] Über technische Handbücher hinaus auf Texte aus öffentlicher Verwaltung, Software, Energie, Logistik und Telekommunikation erweitern.
 - [x] Exakte Dokument-URLs, Hashes und Stichprobenmethoden speichern.
 - [x] Die Abdeckung je Domäne und die Verteilung unbekannter Token verfolgen.
-- [ ] Falsch positive und falsch negative Befunde mit einem manuell geprüften Holdout-Set messen.
+- [x] Falsch positive und falsch negative Befunde auf dem Holdout messen (`corpus/HOLDOUT-PRECISION.md`, bewertet durch ein Modell, menschliche Prüfung offen).
 - [x] Quelltexte von Dritten aus dem Repository fernhalten.
 
 ### Grundlage der Wörterbuch-Governance
@@ -151,7 +151,7 @@ STG-DE erreicht 1.0 durch Belege und Stabilität, nicht durch eine Zielgröße d
 ## Reihenfolge der nächsten Schritte
 
 1. Führen Sie `tools/run_evals.py` mit mindestens zwei Modellen aus, mit und ohne Skill. Veröffentlichen Sie die Ergebnisse.
-2. Prüfen Sie manuell eine Holdout-Stichprobe. Veröffentlichen Sie die Präzision von Linter und Analyzer.
+2. Lassen Sie die Bewertung in `corpus/HOLDOUT-PRECISION.md` von einem Menschen prüfen. Messen Sie die korrigierte Version und den Analyzer mit neuen Holdout-Quellen.
 3. Veröffentlichen Sie das Paket `stg-de` auf PyPI.
 4. Erweitern Sie das Korpus in Richtung 500.000 Token mit ausgewogenen Partitionen.
 5. Fügen Sie Lemmatisierung und Analyse von Komposita hinzu, innerhalb der Grenze „nur Review“.
