@@ -65,6 +65,14 @@ class PackagingTests(unittest.TestCase):
         for rel in set(re.findall(r"`((?:references|scripts)/[\w.-]+)`", text)):
             self.assertTrue((SKILL / rel).is_file(), rel)
 
+    def test_manifest_lists_only_tracked_files(self):
+        import subprocess
+        tracked = set(subprocess.run(["git", "ls-files"], cwd=ROOT, check=True, capture_output=True,
+                                     text=True).stdout.splitlines())
+        manifest = yaml.safe_load((ROOT / "manifest.yaml").read_text(encoding="utf-8"))
+        untracked = [item["path"] for item in manifest["files"] if item["path"] not in tracked]
+        self.assertEqual(untracked, [], "manifest.yaml lists files that a release checkout does not contain")
+
     def test_release_zip_layout(self):
         import package_skill
         import tempfile
