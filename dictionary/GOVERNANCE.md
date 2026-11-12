@@ -1,124 +1,124 @@
-# STG-DE Core Lexicon Governance
+# Governance des zentralen STG-DE-Lexikons
 
-The central STG-DE dictionary is a cross-domain controlled vocabulary. It is not a collection of all words that occur frequently in German documentation.
+Das zentrale STG-DE-Wörterbuch ist ein domänenübergreifendes kontrolliertes Vokabular. Es ist keine Sammlung aller Wörter, die in deutscher Dokumentation häufig vorkommen.
 
-This document defines how entries are proposed, reviewed, accepted, restricted, deprecated, or rejected.
+Dieses Dokument definiert, wie Beitragende Personen Einträge vorschlagen und wie Maintainer Einträge prüfen, annehmen, einschränken, abkündigen oder ablehnen.
 
-## Scope
+## Geltungsbereich
 
-The central core should contain words that are broadly useful for controlled German across multiple domains or that provide necessary grammatical/technical functions.
+Wir empfehlen, dass der zentrale Kern Wörter enthält, die für kontrolliertes Deutsch in mehreren Domänen allgemein nützlich sind. Wir empfehlen auch Wörter, die notwendige grammatische oder technische Funktionen erfüllen.
 
-Narrow product, company, industry, legal, medical, software, or engineering terminology normally belongs in project terminology (`.stg-de.yaml`) rather than the central core.
+Enge Terminologie für Produkte, Unternehmen, Branchen, Recht, Medizin, Software oder Ingenieurwesen gehört im Normalfall in die Projektterminologie (`.stg-de.yaml`). Sie gehört im Normalfall nicht in den zentralen Kern.
 
-## Decision principles
+## Prinzipien für Entscheidungen
 
-A proposal is evaluated in this order:
+Maintainer bewerten einen Vorschlag in dieser Reihenfolge:
 
-1. **Meaning necessity** — Does STG-DE need this concept in the central language?
-2. **Cross-domain utility** — Is the concept useful beyond one narrow domain?
-3. **Ambiguity risk** — Can the lemma be restricted to a clear controlled meaning and part of speech?
-4. **Replacement quality** — Is an existing approved word already sufficient?
-5. **Corpus evidence** — Does independent evidence show recurring real use or need?
-6. **Consistency** — Does the entry fit existing lexical decisions and terminology patterns?
-7. **Teachability** — Can a writer and an agent apply the decision without hidden context?
+1. **Notwendigkeit der Bedeutung**: Benötigt STG-DE dieses Konzept in der zentralen Sprache?
+2. **Domänenübergreifende Verwendbarkeit**: Ist das Konzept außerhalb einer engen Domäne nützlich?
+3. **Risiko der Mehrdeutigkeit**: Lässt sich das Lemma auf eine klare kontrollierte Bedeutung und eine Wortart einschränken?
+4. **Qualität der Ersetzung**: Genügt ein vorhandenes zugelassenes Wort?
+5. **Korpusbelege**: Zeigen unabhängige Belege eine wiederkehrende reale Verwendung oder einen Bedarf?
+6. **Konsistenz**: Passt der Eintrag zu vorhandenen lexikalischen Entscheidungen und Terminologiemustern?
+7. **Lehrbarkeit**: Können eine schreibende Person und ein Agent die Entscheidung ohne verborgenen Kontext anwenden?
 
-Frequency alone is not sufficient for admission.
+Häufigkeit allein genügt nicht für eine Aufnahme.
 
-## Evidence classes
+## Belegklassen
 
-Evidence can be supplied from these sources:
+Belege können aus diesen Quellen kommen:
 
-- `development_corpus`: observations from the development partition;
-- `validation_corpus`: observations from the validation partition;
-- `external_public`: independently cited public examples;
-- `linguistic_rationale`: a grammatical or semantic need that does not depend on frequency;
-- `user_report`: a real writing/validation case submitted by a user.
+- `development_corpus`: Beobachtungen aus der Entwicklungspartition,
+- `validation_corpus`: Beobachtungen aus der Validierungspartition,
+- `external_public`: unabhängig zitierte öffentliche Beispiele,
+- `linguistic_rationale`: ein grammatischer oder semantischer Bedarf, der nicht von der Häufigkeit abhängt,
+- `user_report`: ein realer Fall aus Schreiben oder Validierung, den eine benutzende Person eingereicht hat.
 
-The holdout corpus must not be used to select new core vocabulary for the release that is evaluated against that holdout.
+Das Holdout-Korpus darf nicht zur Auswahl von neuem Kernvokabular für das Release dienen, das Sie mit diesem Holdout evaluieren.
 
-## Proposal types
+## Arten von Vorschlägen
 
-A lexical proposal has one of these actions:
+Ein lexikalischer Vorschlag hat eine dieser Aktionen:
 
-- `add` — add a new central entry;
-- `restrict` — narrow a controlled meaning, part of speech, or form;
-- `expand` — add a controlled meaning or permitted form;
-- `deprecate` — keep temporarily but mark for replacement;
-- `prohibit` — move a term or meaning to prohibited/review status;
-- `replace` — designate a preferred central alternative;
-- `clarify` — change documentation without changing normative behavior.
+- `add`: einen neuen zentralen Eintrag hinzufügen,
+- `restrict`: eine kontrollierte Bedeutung, eine Wortart oder eine Form einschränken,
+- `expand`: eine kontrollierte Bedeutung oder eine zulässige Form hinzufügen,
+- `deprecate`: vorübergehend behalten, aber zur Ersetzung kennzeichnen,
+- `prohibit`: einen Begriff oder eine Bedeutung in den Status „verboten“ oder „Review“ verschieben,
+- `replace`: eine bevorzugte zentrale Alternative festlegen,
+- `clarify`: die Dokumentation ändern, ohne das normative Verhalten zu ändern.
 
-## Required proposal fields
+## Pflichtfelder eines Vorschlags
 
-Use `dictionary/proposals/TEMPLATE.yaml` and validate against `schemas/lexicon-proposal.schema.json`.
+Verwenden Sie `dictionary/proposals/TEMPLATE.yaml`. Validieren Sie den Vorschlag gegen `schemas/lexicon-proposal.schema.json`.
 
-Every normative proposal must identify:
+Jeder normative Vorschlag muss diese Angaben enthalten:
 
-- proposal ID and action;
-- lemma/term and part of speech;
-- proposed controlled meaning;
-- rationale;
-- ambiguity risk;
-- alternatives considered;
-- evidence across domains/sources when applicable;
-- impact on existing dictionary entries;
-- examples;
-- validator impact;
-- final decision and rationale after review.
+- ID und Aktion des Vorschlags,
+- Lemma oder Begriff und Wortart,
+- vorgeschlagene kontrollierte Bedeutung,
+- Begründung,
+- Risiko der Mehrdeutigkeit,
+- geprüfte Alternativen,
+- Belege aus mehreren Domänen und Quellen, wenn zutreffend,
+- Auswirkung auf vorhandene Wörterbucheinträge,
+- Beispiele,
+- Auswirkung auf den Validator,
+- endgültige Entscheidung und Begründung nach dem Review.
 
-## Admission guidance
+## Hinweise zur Aufnahme
 
-A new general content word should normally have evidence from at least two materially different domains or a strong general-language/grammatical rationale.
+Wir empfehlen für ein neues allgemeines Inhaltswort im Normalfall Belege aus mindestens zwei deutlich unterschiedlichen Domänen. Eine starke allgemeinsprachliche oder grammatische Begründung ist eine Alternative zu diesen Belegen.
 
-This is guidance, not an automatic vote-counting rule. A word that occurs in many documents can still be rejected when it is vague, polysemous, stylistic, or better represented by an existing controlled word.
+Dieser Hinweis ist eine Orientierung und keine automatische Regel zum Zählen von Stimmen. Maintainer können ein Wort ablehnen, auch wenn es in vielen Dokumenten vorkommt. Gründe für eine Ablehnung sind: Das Wort ist vage, polysem oder stilistisch. Oder ein vorhandenes kontrolliertes Wort drückt das Konzept besser aus.
 
-A narrow term should normally stay project-specific when any of these are true:
+Wir empfehlen, einen engen Begriff im Normalfall projektspezifisch zu halten, wenn eine dieser Bedingungen zutrifft:
 
-- it identifies a product/component unique to a domain;
-- its meaning depends on one technical standard or organization;
-- a project glossary can define it without weakening interoperability;
-- adding it would mainly increase corpus coverage rather than language clarity.
+- Der Begriff bezeichnet ein Produkt oder eine Komponente, die nur in einer Domäne vorkommt.
+- Seine Bedeutung hängt von einem technischen Standard oder einer Organisation ab.
+- Ein Projektglossar kann den Begriff definieren, ohne die Interoperabilität zu schwächen.
+- Die Aufnahme des Begriffs erhöht hauptsächlich die Korpus-Abdeckung und nicht die Klarheit der Sprache.
 
-## Ambiguity policy
+## Richtlinie für Mehrdeutigkeit
 
-When one lemma has several common meanings, prefer one of these outcomes:
+Wenn ein Lemma mehrere übliche Bedeutungen hat, empfehlen wir eines dieser Ergebnisse:
 
-1. approve one controlled meaning and prohibit/review the others;
-2. use different unambiguous words for different concepts;
-3. keep the word project-specific;
-4. reject the lemma from the central core.
+1. Eine kontrollierte Bedeutung zulassen und die anderen Bedeutungen verbieten oder zum Review markieren.
+2. Für unterschiedliche Konzepte unterschiedliche eindeutige Wörter verwenden.
+3. Das Wort projektspezifisch halten.
+4. Das Lemma für den zentralen Kern ablehnen.
 
-Do not approve multiple meanings merely because they are common German usage.
+Lassen Sie nicht mehrere Bedeutungen zu, nur weil diese Bedeutungen in der deutschen Gemeinsprache üblich sind.
 
-## Part-of-speech policy
+## Richtlinie für Wortarten
 
-Approval is specific to part of speech. Approval of a noun does not automatically approve the same surface form as a verb, adjective, or other class.
+Eine Zulassung gilt für eine bestimmte Wortart. Wenn ein Nomen zugelassen ist, ist dieselbe Oberflächenform nicht automatisch als Verb, Adjektiv oder andere Wortart zugelassen.
 
-Inflectional forms are governed by the morphology policy. A surface form that collides with another canonical lemma must resolve according to explicit lexical precedence rules.
+Die Morphologierichtlinie regelt die Flexionsformen. Eine Oberflächenform kann mit einem anderen kanonischen Lemma kollidieren. Diese Kollision muss nach ausdrücklichen Regeln für den lexikalischen Vorrang aufgelöst werden.
 
-## Review states
+## Review-Status
 
-A proposal moves through:
+Ein Vorschlag durchläuft diese Status:
 
 `draft` → `evidence_ready` → `review` → `accepted` | `rejected` | `deferred`
 
-Accepted normative proposals must include tests or validation updates when the behavior is machine-checkable.
+Angenommene normative Vorschläge müssen Tests oder Aktualisierungen der Validierung enthalten, wenn das Verhalten maschinell prüfbar ist.
 
-## Release handling
+## Behandlung in Releases
 
-- Additions and clarifications can normally ship in a minor release while STG-DE is pre-1.0.
-- Restrictions, prohibitions, or controlled-meaning changes must be called out in `CHANGELOG.md`.
-- After 1.0, incompatible lexical changes require the compatibility policy defined by project governance.
-- The release manifest records the exact dictionary artifacts used for conformance claims.
+- Solange STG-DE vor 1.0 ist, können Ergänzungen und Klarstellungen im Normalfall in einem Minor-Release erscheinen.
+- Einschränkungen, Verbote und Änderungen kontrollierter Bedeutungen müssen in `CHANGELOG.md` ausdrücklich genannt sein.
+- Nach 1.0 gilt für inkompatible lexikalische Änderungen die Kompatibilitätsrichtlinie aus der Governance des Projekts.
+- Das Release-Manifest dokumentiert die exakten Wörterbuchartefakte, auf die sich Aussagen zur Konformität beziehen.
 
-## Corpus integrity
+## Integrität des Korpus
 
-Do not tune the dictionary against a holdout set and then report that same holdout as independent evidence.
+Stimmen Sie das Wörterbuch nicht mit einem Holdout-Set ab, um danach dasselbe Holdout als unabhängigen Beleg zu melden.
 
-When corpus analysis produces an unknown-token list, treat it as a review queue. Do not automatically convert unknown tokens into approved entries.
+Wenn eine Korpusanalyse eine Liste unbekannter Token erzeugt, verwenden Sie diese Liste als Warteschlange für das Review. Wandeln Sie unbekannte Token nicht automatisch in zugelassene Einträge um.
 
-## Project terminology escape hatch
+## Ausweg über Projektterminologie
 
-Project terminology is a first-class part of STG-DE. Rejecting a term from the central core does not mean the term is forbidden in technical content.
+Projektterminologie ist ein vollwertiger Teil von STG-DE. Wenn Maintainer einen Begriff für den zentralen Kern ablehnen, ist der Begriff in technischen Inhalten nicht verboten.
 
-A precise domain term can be valid through `.stg-de.yaml` even when it should never become part of the general STG-DE dictionary.
+Ein präziser Domänenbegriff kann über `.stg-de.yaml` gültig sein. Das gilt auch, wenn wir empfehlen, ihn nie in das allgemeine STG-DE-Wörterbuch aufzunehmen.

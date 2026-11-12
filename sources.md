@@ -1,15 +1,15 @@
-# Sources and evidence
+# Quellen und Belege
 
-## Normative design input
+## Normative Grundlagen für das Design
 
-The German rules, examples, terminology model, and dictionary are independently authored. STG-DE defines its own scope, rule identifiers, profiles, and validation behavior for German grammar, morphology, terminology, and sentence structure.
+Die deutschen Regeln, die Beispiele, das Terminologiemodell und das Wörterbuch sind unabhängig verfasst. STG-DE definiert einen eigenen Geltungsbereich, eigene Regel-IDs, eigene Profile und ein eigenes Validierungsverhalten. Diese Definitionen gelten für deutsche Grammatik, Morphologie, Terminologie und Satzstruktur.
 
-## German language baseline
+## Sprachliche Basis
 
-The language baseline is standard German (`de-DE`). Orthography and inflection should follow current standard German usage. Project-specific terminology can extend the central lexicon without changing the core language specification.
+Die sprachliche Basis ist Standarddeutsch (`de-DE`). Rechtschreibung und Flexion sollen dem aktuellen Gebrauch des Standarddeutschen folgen. Projektspezifische Terminologie kann das zentrale Lexikon erweitern, ohne die Spezifikation der Kernsprache zu ändern.
 
-## Public corpus evidence
+## Öffentliche Korpusbelege
 
-Version 0.1 uses a stratified evidence set of 18 publicly accessible German technical sources across six industries. Source metadata is in `corpus/sources.yaml`; derived metrics are in `corpus/validation-report.md` and the CSV files in `corpus/`.
+Version 0.1 verwendet einen geschichteten Satz von Belegen aus 18 öffentlich zugänglichen deutschen technischen Quellen aus sechs Branchen. Die Metadaten der Quellen stehen in `corpus/sources.yaml`. Die abgeleiteten Kennzahlen stehen in `corpus/validation-report.md` und in den CSV-Dateien in `corpus/`.
 
-The repository does not distribute source excerpts or third-party manuals. Corpus frequency is evidence for review, not automatic approval of a word or construction.
+Das Repository verbreitet keine Auszüge aus Quellen und keine Handbücher Dritter. Die Häufigkeit im Korpus ist ein Beleg für eine Prüfung. Die Häufigkeit ist keine automatische Freigabe eines Worts oder einer Konstruktion.

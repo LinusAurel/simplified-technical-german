@@ -1,59 +1,59 @@
-# Contributing to STG-DE
+# Beiträge zu STG-DE
 
-STG-DE is intended to work across industries and communication types. Contributions should therefore separate general German from domain-specific terminology.
+STG-DE soll branchenübergreifend und für verschiedene Arten von Kommunikation funktionieren. Aus diesem Grund sollen Beiträge allgemeines Deutsch von fachspezifischer Terminologie trennen.
 
-## Central vocabulary proposals
+## Vorschläge für das zentrale Vokabular
 
-Do not add a word directly to `dictionary/approved-words.yaml` only because it occurs frequently in a corpus.
+Fügen Sie ein Wort nicht direkt in `dictionary/approved-words.yaml` ein, nur weil das Wort in einem Korpus häufig vorkommt.
 
-For a normative central-lexicon change:
+Für eine normative Änderung am zentralen Lexikon:
 
-1. Read `dictionary/GOVERNANCE.md`.
-2. Copy `dictionary/proposals/TEMPLATE.yaml`.
-3. Assign a proposal ID such as `LEX-2026-001`.
-4. Define one controlled meaning and part of speech.
-5. Document ambiguity risk and alternatives considered.
-6. Add corpus/public/linguistic evidence where applicable.
-7. Explain whether the term belongs in the central core rather than project terminology.
-8. Add or update tests if validator behavior changes.
-9. Record the final review decision before merging the normative dictionary change.
+1. Lesen Sie `dictionary/GOVERNANCE.md`.
+2. Kopieren Sie `dictionary/proposals/TEMPLATE.yaml`.
+3. Vergeben Sie eine ID für den Vorschlag, zum Beispiel `LEX-2026-001`.
+4. Definieren Sie eine kontrollierte Bedeutung und eine Wortart.
+5. Dokumentieren Sie das Risiko der Mehrdeutigkeit und die geprüften Alternativen.
+6. Fügen Sie Belege aus Korpus, öffentlichen Quellen oder Linguistik hinzu, wenn anwendbar.
+7. Erklären Sie, ob der Begriff in den zentralen Kern gehört und nicht in die Projektterminologie.
+8. Fügen Sie Tests hinzu oder aktualisieren Sie Tests, wenn sich das Verhalten des Validators ändert.
+9. Dokumentieren Sie die endgültige Entscheidung der Prüfung vor dem Merge der normativen Änderung am Wörterbuch.
 
-The proposal format is defined by `schemas/lexicon-proposal.schema.json`.
+`schemas/lexicon-proposal.schema.json` definiert das Format der Vorschläge.
 
-### Core vs project terminology
+### Zentraler Kern oder Projektterminologie
 
-Prefer `.stg-de.yaml` project terminology when a word is primarily:
+Bevorzugen Sie die Projektterminologie in `.stg-de.yaml`, wenn ein Wort hauptsächlich zu einer dieser Gruppen gehört:
 
-- a product or component name;
-- domain-specific jargon with a precise local meaning;
-- terminology defined by one organization or technical standard;
-- useful mainly for increasing one corpus/domain's coverage.
+- ein Name eines Produkts oder einer Komponente,
+- fachspezifischer Jargon mit einer präzisen lokalen Bedeutung,
+- Terminologie, die eine Organisation oder ein technischer Standard definiert,
+- ein Wort, das hauptsächlich die Abdeckung eines Korpus oder eines Fachgebiets erhöht.
 
-A rejected central-core proposal can still be valid project terminology.
+Ein abgelehnter Vorschlag für den zentralen Kern kann trotzdem gültige Projektterminologie sein.
 
-## Rule changes
+## Änderungen an Regeln
 
-A rule change should include:
+Eine Änderung an einer Regel soll diese Punkte enthalten:
 
-- the problem it solves;
-- at least one non-compliant and compliant example;
-- the expected effect on existing texts;
-- validator implications when applicable;
-- an update to `quality/RULE-COVERAGE.md` when automation status changes.
+- das Problem, das die Änderung löst,
+- mindestens ein nicht konformes Beispiel und ein konformes Beispiel,
+- die erwartete Wirkung auf vorhandene Texte,
+- die Folgen für den Validator, wenn anwendbar,
+- eine Aktualisierung von `quality/RULE-COVERAGE.md`, wenn sich der Stand der Automatisierung ändert.
 
-Rule IDs are stable identifiers. Do not invent a new ID in validator code before adding it to `rules/rule-index.yaml`.
+Regel-IDs sind stabile Bezeichner. Erfinden Sie im Code des Validators keine neue ID, bevor Sie die ID in `rules/rule-index.yaml` eingetragen haben.
 
-## Corpus changes
+## Änderungen am Korpus
 
-Follow `corpus/PROTOCOL.md`.
+Befolgen Sie `corpus/PROTOCOL.md`.
 
-Do not commit third-party full-text corpus documents unless redistribution rights are explicit. Add metadata and derived metrics instead.
+Committen Sie keine Volltextdokumente Dritter für das Korpus, außer die Rechte zur Weitergabe sind explizit. Fügen Sie stattdessen Metadaten und abgeleitete Kennzahlen hinzu.
 
-The holdout partition is evaluation-only. Do not use its unknown-token list to select central vocabulary for the same release.
+Die Holdout-Partition dient nur der Evaluation. Verwenden Sie die Liste der unbekannten Tokens der Holdout-Partition nicht, um zentrales Vokabular für dasselbe Release auszuwählen.
 
 ## Tests
 
-For normal development run:
+Führen Sie für die normale Entwicklung diese Befehle aus:
 
 ```bash
 python -m unittest discover -s tests -v
@@ -61,11 +61,11 @@ python tools/sync_skill.py --check
 python tools/validate_release.py --skip-manifest
 ```
 
-Before a tagged release, rebuild the manifest and run the full integrity check:
+Erzeugen Sie vor einem getaggten Release das Manifest neu. Führen Sie danach die vollständige Prüfung der Integrität aus:
 
 ```bash
 python tools/build_manifest.py
 python tools/validate_release.py
 ```
 
-A validator feature must include regression tests for its rule ID and for a known false-positive boundary when applicable.
+Eine Funktion des Validators muss Regressionstests für die Regel-ID der Funktion enthalten. Wenn anwendbar, muss die Funktion auch Regressionstests für eine bekannte Grenze falsch positiver Befunde enthalten.

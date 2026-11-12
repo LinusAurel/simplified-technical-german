@@ -1,118 +1,120 @@
-# STG-DE Rule Automation Coverage
+# Automatisierungsabdeckung der STG-DE-Regeln
 
-This document records what the shipped validator can prove today. It is intentionally conservative.
+Dieses Dokument beschreibt, was der mitgelieferte Validator heute nachweisen kann. Das Dokument ist absichtlich konservativ.
 
-A rule can be part of the STG-DE standard even when the current validator cannot detect it automatically.
+Eine Regel kann Teil des STG-DE-Standards sein, auch wenn der derzeitige Validator sie nicht automatisch erkennen kann.
 
-## Detection classes
+## Erkennungsklassen
 
-| Class | Meaning |
+| Klasse | Bedeutung |
 |---|---|
-| `deterministic` | The validator can detect the listed condition mechanically with high confidence. |
-| `partial` | A deterministic subset is implemented, but the complete rule needs context or additional analysis. |
-| `heuristic` | Automation can provide evidence, but a finding must remain a review item. |
-| `semantic` | Correct application depends primarily on meaning or discourse context. |
-| `human-review` | The rule currently has no reliable automated implementation. |
+| `deterministic` | Der Validator kann die genannte Bedingung maschinell und mit hoher Konfidenz erkennen. |
+| `partial` | Eine deterministische Teilmenge ist implementiert. Die vollständige Regel erfordert Kontext oder eine zusätzliche Analyse. |
+| `heuristic` | Die Automatisierung kann Belege liefern. Ein Befund muss ein Review-Punkt bleiben. |
+| `semantic` | Die korrekte Anwendung hängt hauptsächlich von der Bedeutung oder vom Kontext des Diskurses ab. |
+| `human-review` | Für die Regel gibt es derzeit keine zuverlässige automatisierte Implementierung. |
 
-## Implemented coverage
+## Implementierte Abdeckung
 
-| Rule | Current automated check | Coverage | Severity |
+| Regel | Derzeitige automatisierte Prüfung | Abdeckung | Schweregrad |
 |---|---|---|---|
-| `STG-1.1` | Matches entries in `dictionary/prohibited-words.yaml` and returns the configured status. | partial | error/review |
-| `STG-DE-4.3` | Detects standalone `man` as an indefinite technical actor. | deterministic | error |
-| `STG-5.1` | Counts words in procedure mode and flags sentences above 20 words. | deterministic | error |
-| `STG-6.3` | Counts words in description/default mode and flags sentences above 25 words. | deterministic | error |
-| `STG-6.6` | Counts sentences in descriptive prose paragraphs and flags more than six. | deterministic | error |
-| `STG-8.1` | Flags semicolons in prose lines. | partial | error |
-| `STG-DE-8.1` | Detects a conservative set of known ambiguous slash forms such as `und/oder`; protected URLs/code are excluded. | partial | warning |
-| `STG-9.4` | Enforces `preferred_terms` from `.stg-de.yaml`. | partial | error |
+| `STG-1.1` | Findet Einträge aus `dictionary/prohibited-words.yaml` und gibt den konfigurierten Status zurück. | partial | error/review |
+| `STG-DE-4.3` | Erkennt ein alleinstehendes `man` als unbestimmten technischen Akteur. | deterministic | error |
+| `STG-5.1` | Zählt im Modus „procedure“ die Wörter und markiert Sätze mit mehr als 20 Wörtern. | deterministic | error |
+| `STG-5.3` | Erkennt die formale Anrede („Sie“, „Ihnen“, „Ihr…“, „Prüfen Sie“) und die Anrede mit „du“ (Pronomen). Mit festgelegter `anrede` ist eine andere Form ein Fehler. Ohne Festlegung ergibt eine gemischte Anrede eine Warnung. Ein Imperativ mit „du“ ohne Pronomen und der Infinitivstil bleiben unerkannt. | partial | error/warning |
+| `STG-6.3` | Zählt im Modus „description“ und im Standardmodus die Wörter und markiert Sätze mit mehr als 25 Wörtern. | deterministic | error |
+| `STG-6.6` | Zählt die Sätze in beschreibenden Absätzen und markiert Absätze mit mehr als sechs Sätzen. | deterministic | error |
+| `STG-8.1` | Markiert Semikolons in Prosazeilen. | partial | error |
+| `STG-DE-8.1` | Erkennt eine konservative Menge bekannter mehrdeutiger Formen mit Schrägstrich, zum Beispiel `und/oder`. Geschützte URLs und Code sind ausgenommen. | partial | warning |
+| `STG-9.4` | Setzt `preferred_terms` aus `.stg-de.yaml` durch. | partial | error |
 
-The validator also reports unknown central-lexicon surface forms when `--lexicon-report` is enabled. Unknown words are review candidates, not automatic violations.
+Mit der Option `--lexicon-report` meldet der Validator auch Oberflächenformen, die das zentrale Lexikon nicht kennt. Unbekannte Wörter sind Kandidaten für ein Review und keine automatischen Verstöße.
 
-### Input handling
+### Verarbeitung der Eingabe
 
-The linter and the analyzer segment Markdown before they count sentences (`tools/stg_markdown.py`):
+Der Linter und der Analyzer segmentieren Markdown, bevor sie Sätze zählen (`tools/stg_markdown.py`):
 
-- fenced code blocks and HTML comments are ignored;
-- headings, list items, and table cells are separate blocks, so a sentence never runs across Markdown structure;
-- inline code, URLs, and quoted text (`„…“`, `»…«`, `"…"`) are protected from lexical checks and count as one word (`STG-8.6`).
+- Die Werkzeuge ignorieren Codeblöcke, HTML-Kommentare und YAML-Frontmatter.
+- Die Werkzeuge ignorieren Bereiche zwischen `<!-- stg-lint: off -->` und `<!-- stg-lint: on -->`. Verwenden Sie diese Markierungen nur für absichtlich nicht konforme Beispiele.
+- Überschriften, Listenelemente und Tabellenzellen sind getrennte Blöcke. Ein Satz geht deshalb nie über eine Markdown-Struktur hinaus.
+- Inline-Code, URLs und zitierter Text (`„…“`, `»…«`, `"…"`) sind vor lexikalischen Prüfungen geschützt und zählen als ein Wort (`STG-8.6`).
 
-## Meaning preservation
+## Bedeutungserhaltung
 
-`tools/stg_compare.py` compares a source text with its rewrite. It is not a conformance check and does not emit violations of the target text.
+`tools/stg_compare.py` vergleicht einen Quelltext mit seiner Umformulierung. Das Werkzeug ist keine Konformitätsprüfung und meldet keine Verstöße im Zieltext.
 
-| Signal | Result when changed | Related rule |
+| Signal | Ergebnis bei Änderung | Zugehörige Regel |
 |---|---|---|
-| numbers, units | `FAIL` (lost), `REVIEW` (added) | `STG-8.6` |
-| code, URLs, quoted UI text, identifiers | `FAIL` | `STG-1.8` |
-| safety signal words | `FAIL` | `STG-7.1` |
-| prohibitions, requirement/recommendation/possibility balance | `REVIEW` | `STG-DE-3.2` |
-| negations, restrictions | `REVIEW` | `STG-DE-4.4` |
-| conditions | `REVIEW` | `STG-5.4` |
-| limits and approximations | `REVIEW` | `STG-DE-9.2` |
+| Zahlen, Einheiten | `FAIL` (verloren), `REVIEW` (hinzugefügt) | `STG-8.6` |
+| Code, URLs, zitierte UI-Texte, Kennungen | `FAIL` | `STG-1.8` |
+| Signalwörter für Sicherheit | `FAIL` | `STG-7.1` |
+| Verbote, Verhältnis von Anforderung, Empfehlung und Möglichkeit | `REVIEW` | `STG-DE-3.2` |
+| Negationen, Einschränkungen | `REVIEW` | `STG-DE-4.4` |
+| Bedingungen | `REVIEW` | `STG-5.4` |
+| Grenzwerte und Näherungen | `REVIEW` | `STG-DE-9.2` |
 
-Counts are document-level. A moved negation or condition can keep its count and still change scope, so `PASS` never proves equal meaning.
+Die Zählungen gelten für das ganze Dokument. Eine verschobene Negation oder Bedingung kann ihre Anzahl behalten und trotzdem den Geltungsbereich ändern. Ein `PASS` beweist deshalb nie eine gleiche Bedeutung.
 
-## Test policy
+## Testrichtlinie
 
-Every implemented validator path must have regression coverage. The suite must include, where applicable:
+Jeder implementierte Pfad des Validators muss eine Abdeckung durch Regressionstests haben. Die Suite muss diese Elemente enthalten, wenn zutreffend:
 
-1. a violating example;
-2. a non-violating example;
-3. the expected published rule ID;
-4. the expected severity/result;
-5. a false-positive guard;
-6. a global assertion that every emitted rule ID exists in `rules/rule-index.yaml`.
+1. ein Beispiel mit Verstoß,
+2. ein Beispiel ohne Verstoß,
+3. die erwartete veröffentlichte Regel-ID,
+4. den erwarteten Schweregrad oder das erwartete Ergebnis,
+5. einen Schutz gegen falsch positive Befunde,
+6. eine globale Prüfung, dass jede ausgegebene Regel-ID in `rules/rule-index.yaml` existiert.
 
-The current suite includes explicit false-positive guards for `man` vs `Mann`, URLs vs slash forms, paragraph boundaries, and compliant sentence lengths.
+Die derzeitige Suite enthält ausdrückliche Schutztests gegen falsch positive Befunde. Diese Tests betreffen `man` gegenüber `Mann`, URLs gegenüber Schrägstrichformen, Absatzgrenzen und konforme Satzlängen.
 
-## Rules not yet mechanically proven
+## Regeln ohne maschinellen Nachweis
 
-### Vocabulary and terminology
+### Vokabular und Terminologie
 
-Most of `STG-1.2` through `STG-1.14`, `STG-2.1`, `STG-2.2`, and `STG-DE-2.1` through `STG-DE-2.3` still need morphology, part-of-speech analysis, compound analysis, abbreviation tracking, or document-level terminology state.
+Die meisten Regeln von `STG-1.2` bis `STG-1.14`, `STG-2.1`, `STG-2.2` und `STG-DE-2.1` bis `STG-DE-2.3` benötigen zusätzliche Analysen. Diese Analysen umfassen Morphologie, Wortartanalyse, Analyse von Komposita, Verfolgung von Abkürzungen und Terminologiestatus auf Dokumentebene.
 
-### Verbs and modality
+### Verben und Modalität
 
-`STG-3.1` through `STG-3.7` and `STG-DE-3.1` through `STG-DE-3.3` require verb-form analysis, passive detection, separable-verb distance, modal classification, or nominal-style detection. These should not be promoted to deterministic errors until measured precision is acceptable.
+`STG-3.1` bis `STG-3.7` und `STG-DE-3.1` bis `STG-DE-3.3` erfordern zusätzliche Analysen. Diese Analysen umfassen die Analyse von Verbformen, die Erkennung von Passiv, der Abstand bei trennbaren Verben, die Klassifizierung von Modalverben und die Erkennung von Nominalstil. Wir empfehlen, diese Regeln nicht zu deterministischen Fehlern hochzustufen, bis die gemessene Präzision akzeptabel ist.
 
-### Sentence structure
+### Satzstruktur
 
-Most of Section 4 remains semantic or parser-assisted. `STG-DE-4.3` is the deterministic exception. Future work includes subordinate-clause depth, pronoun-reference review, negation scope, and pronominal-adverb review.
+Der größte Teil von Abschnitt 4 bleibt semantisch oder benötigt einen Parser. `STG-DE-4.3` ist die deterministische Ausnahme. Zukünftige Arbeit umfasst die Tiefe von Nebensätzen, das Review von Pronomenbezügen, den Geltungsbereich von Negationen und das Review von Pronominaladverbien.
 
-### Procedures
+### Anleitungen
 
-`STG-5.1` is deterministic. `STG-5.2` through `STG-5.5` require instruction-structure, condition, and modality analysis.
+`STG-5.1` ist deterministisch. `STG-5.2` bis `STG-5.5` erfordern eine Analyse von Anweisungsstruktur, Bedingungen und Modalität.
 
-### Descriptions
+### Beschreibungen
 
-`STG-6.3` and `STG-6.6` are deterministic. `STG-6.1`, `STG-6.2`, `STG-6.4`, and `STG-6.5` are discourse-level rules.
+`STG-6.3` und `STG-6.6` sind deterministisch. `STG-6.1`, `STG-6.2`, `STG-6.4` und `STG-6.5` sind Regeln auf Ebene des Diskurses.
 
-### Safety
+### Sicherheit
 
-`STG-7.1` through `STG-7.3` require explicit safety structure or high-confidence semantic analysis before strict automation is reliable.
+`STG-7.1` bis `STG-7.3` erfordern eine ausdrückliche Sicherheitsstruktur oder eine semantische Analyse mit hoher Konfidenz. Ohne diese Voraussetzungen ist eine strikte Automatisierung nicht zuverlässig.
 
-### Punctuation and counting
+### Zeichensetzung und Zählung
 
-`STG-8.1` has partial semicolon support. `STG-DE-8.1` has conservative slash-pattern support. The remaining Section 8 rules need structured list/parenthesis handling and more exact protected-token counting.
+`STG-8.1` unterstützt Semikolons teilweise. `STG-DE-8.1` unterstützt Schrägstrichmuster konservativ. Die restlichen Regeln von Abschnitt 8 benötigen eine strukturierte Verarbeitung von Listen und Klammern. Sie benötigen auch eine exaktere Zählung geschützter Token.
 
-### Writing practices and recommendations
+### Schreibpraxis und Empfehlungen
 
-`STG-9.4` has partial project-terminology support. Many fillers and vague expressions are caught indirectly through `STG-1.1`. The remaining rules and recommendations should stay review-oriented until their semantics can be measured.
+`STG-9.4` unterstützt Projektterminologie teilweise. Viele Füllwörter und vage Ausdrücke erkennt der Validator indirekt über `STG-1.1`. Wir empfehlen, die restlichen Regeln und Empfehlungen auf das Review auszurichten, bis ihre Semantik messbar ist.
 
-## Quality rule
+## Qualitätsregel
 
-A validator feature must not emit a rule ID unless that ID exists in `rules/rule-index.yaml`.
+Eine Funktion des Validators darf eine Regel-ID nur ausgeben, wenn diese ID in `rules/rule-index.yaml` existiert.
 
-No validator feature should be labeled `deterministic` merely because it uses a regular expression. The classification means the implemented subset has a clear, mechanically testable condition with intentionally bounded scope.
+Wir empfehlen, keine Funktion des Validators nur deshalb als `deterministic` zu kennzeichnen, weil sie einen regulären Ausdruck verwendet. Die Klassifizierung bedeutet: Die implementierte Teilmenge hat eine klare, maschinell testbare Bedingung mit absichtlich begrenztem Geltungsbereich.
 
-## v0.2 acceptance target
+## Abnahmeziel für v0.2
 
-v0.2 does not require automatic enforcement of all 75 rules/recommendations. It requires:
+v0.2 fordert keine automatische Durchsetzung aller 75 Regeln und Empfehlungen. v0.2 fordert diese Punkte:
 
-- a complete automation inventory;
-- regression tests for every implemented check;
-- no invalid rule IDs;
-- clear separation of error, warning, review, and unresolved semantic cases;
-- additional low-risk deterministic checks only when false-positive risk is bounded;
-- measured evaluation against a held-out corpus before parser/LLM-assisted checks are promoted.
+- ein vollständiges Inventar der Automatisierung,
+- Regressionstests für jede implementierte Prüfung,
+- keine ungültigen Regel-IDs,
+- eine klare Trennung von Fehlern, Warnungen, Review-Punkten und ungelösten semantischen Fällen,
+- zusätzliche deterministische Prüfungen mit geringem Risiko nur dann, wenn das Risiko falsch positiver Befunde begrenzt ist,
+- eine gemessene Evaluation mit einem Holdout-Korpus, bevor Prüfungen mit Parser- oder LLM-Unterstützung hochgestuft werden.

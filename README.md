@@ -1,16 +1,22 @@
-# STG-DE — Simplified Technical German
+# STG-DE — Vereinfachtes Technisches Deutsch (Simplified Technical German)
 
-**STG-DE** is an open controlled-language specification for clear, consistent, and machine-readable German. It is the German counterpart of [ASD-STE100 Simplified Technical English](https://www.asd-ste100.org): every numbered STG-DE rule implements the intent of the ASD-STE100 Issue 9 rule with the same number, adapted to German grammar.
+**STG-DE** ist eine offene Spezifikation einer kontrollierten Sprache für klares, einheitliches und maschinenlesbares Deutsch. STG-DE ist das deutsche Gegenstück zu [ASD-STE100 Simplified Technical English](https://www.asd-ste100.org). Jede nummerierte STG-DE-Regel setzt die Absicht der ASD-STE100-Regel mit derselben Nummer aus Issue 9 um und passt sie an die deutsche Grammatik an.
 
-Use it for technical documentation, procedures, safety notes, requirements, support content, UI and error messages, and for text that AI agents read: prompts, tool descriptions, `AGENTS.md`, and inter-agent instructions.
+<!-- stg-lint: off -->
+## In English
 
-The repository combines a **language standard**, a **controlled dictionary**, **deterministic tools**, and an **Agent Skill**.
+STG-DE is an open controlled-language specification for clear, consistent, and machine-readable German. It is the German counterpart of ASD-STE100 Simplified Technical English. Every numbered STG-DE rule maps to the ASD-STE100 Issue 9 rule with the same number, adapted to German grammar. To use it in Claude Code, run `claude plugin marketplace add LinusAurel/simplified-technical-german` and then `claude plugin install simplified-technical-german@stg-de`.
+<!-- stg-lint: on -->
 
-> Current release: **0.2.0** — experimental standard, usable tools. Rule IDs are stable. The central dictionary and the heuristic analyzer are still being validated.
+Verwenden Sie STG-DE für technische Dokumentation, Anleitungen, Sicherheitshinweise, Anforderungen, Support-Inhalte, UI-Texte und Fehlermeldungen. Verwenden Sie STG-DE auch für Texte, die KI-Agenten lesen: Prompts, Tool-Beschreibungen, `AGENTS.md` und Anweisungen zwischen Agenten.
 
-## Quick start
+Das Repository enthält einen **Sprachstandard**, ein **kontrolliertes Wörterbuch**, **deterministische Werkzeuge** und einen **Agent Skill**.
 
-### Claude Code (plugin)
+> Aktuelles Release: **0.2.0** — experimenteller Standard, verwendbare Werkzeuge. Die Regel-IDs sind stabil. Das zentrale Wörterbuch und das heuristische Analysewerkzeug sind noch in der Validierung.
+
+## Schnellstart
+
+### Claude Code (Plugin)
 
 ```bash
 claude plugin marketplace add LinusAurel/simplified-technical-german
@@ -20,27 +26,27 @@ claude plugin marketplace add LinusAurel/simplified-technical-german
 claude plugin install simplified-technical-german@stg-de
 ```
 
-Inside a session, use `/plugin marketplace add LinusAurel/simplified-technical-german` and `/plugin install simplified-technical-german@stg-de`. Then ask, for example: *„Schreib diese Anleitung in STG-DE um.“*
+In einer Sitzung verwenden Sie `/plugin marketplace add LinusAurel/simplified-technical-german` und `/plugin install simplified-technical-german@stg-de`. Schreiben Sie danach zum Beispiel: *„Schreib diese Anleitung in STG-DE um.“*
 
-### claude.ai, Claude Desktop, and other skill loaders
+### claude.ai, Claude Desktop und andere Skill-Loader
 
-Download `simplified-technical-german-<version>.zip` from the [releases](https://github.com/LinusAurel/simplified-technical-german/releases) and upload it under *Settings → Capabilities → Skills*. You can also build it yourself:
+Laden Sie `simplified-technical-german-<version>.zip` aus den [Releases](https://github.com/LinusAurel/simplified-technical-german/releases) herunter. Laden Sie die Datei unter *Settings → Capabilities → Skills* hoch. Sie können die Datei auch selbst erstellen:
 
 ```bash
 python tools/package_skill.py
 ```
 
-### Copy the skill folder
+### Den Skill-Ordner kopieren
 
-Copy `skills/simplified-technical-german/` into your agent's skills directory, for example `~/.claude/skills/` for Claude Code. The folder is self-contained: `SKILL.md`, references, and scripts. Tools that support the [`skills` CLI](https://skills.sh) can also run `npx skills add LinusAurel/simplified-technical-german` (this path is not covered by the repository's tests).
+Kopieren Sie `skills/simplified-technical-german/` in das Skill-Verzeichnis Ihres Agenten. Für Claude Code ist das zum Beispiel `~/.claude/skills/`. Der Ordner ist eigenständig: `SKILL.md`, Referenzen und Skripte. Werkzeuge mit Unterstützung für die [`skills` CLI](https://skills.sh) können auch `npx skills add LinusAurel/simplified-technical-german` ausführen. Die Tests des Repositorys prüfen diesen Weg nicht.
 
-### Tools without skill support
+### Werkzeuge ohne Skill-Unterstützung
 
-Paste a snippet from [`prompts/agents-md.md`](prompts/agents-md.md) into `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, or a system prompt. The short version has six rules. The full version covers procedures, descriptions, words, modality, punctuation, protected content, and error messages.
+Fügen Sie einen Textbaustein aus [`prompts/agents-md.md`](prompts/agents-md.md) in `AGENTS.md`, `CLAUDE.md`, `.cursorrules` oder einen System-Prompt ein. Die kurze Version hat sechs Regeln. Die vollständige Version behandelt Anleitungen, Beschreibungen, Wörter, Modalität, Zeichensetzung, geschützte Inhalte und Fehlermeldungen.
 
 ### GitHub Action
 
-Check German Markdown in pull requests and get inline annotations:
+Die Action prüft deutsches Markdown in Pull Requests und zeigt Annotationen direkt im Code:
 
 ```yaml
 - uses: actions/checkout@v4
@@ -51,38 +57,38 @@ Check German Markdown in pull requests and get inline annotations:
     fail-on: error       # error | warning | review | never
 ```
 
-## What is included
+## Inhalt
 
-- **75 rules and recommendations** for German controlled writing, in `rules/`.
-- **Traceability to ASD-STE100 Issue 9:** all 53 writing rules and 8 general recommendations, in [`mapping/`](mapping/README.md).
-- **435** central lexical entries with **442** controlled meanings, and **160** prohibited or review-required words with rewrite guidance.
-- German morphology and contraction handling, and project terminology through `.stg-de.yaml`.
-- Seven **application profiles**: `procedure`, `safety`, `description`, `requirement`, `support`, `consumer`, `agent`.
-- **Tools:** deterministic linter, German review analyzer, and meaning-preservation check.
-- **Agent Skill** with `WRITE`, `REWRITE`, and `AUDIT` workflows and the modes `strikt` and `pragmatisch`.
-- **Evaluation suite** for the skill, with a deterministic scorer.
-- Public corpus evidence: 139,646 tokens from 13 public full-text sources with fixed development, validation, and holdout partitions (metadata and derived metrics only).
+- **75 Regeln und Empfehlungen** für kontrolliertes Schreiben auf Deutsch, in `rules/`.
+- **Rückverfolgbarkeit zu ASD-STE100 Issue 9:** alle 53 Schreibregeln und 8 allgemeinen Empfehlungen, in [`mapping/`](mapping/README.md).
+- **435** zentrale lexikalische Einträge mit **442** kontrollierten Bedeutungen und **160** verbotene oder prüfpflichtige Wörter mit Hinweisen zur Umformulierung.
+- Deutsche Morphologie und Behandlung von Verschmelzungen, Projektterminologie über `.stg-de.yaml`.
+- Sieben **Anwendungsprofile**: `procedure`, `safety`, `description`, `requirement`, `support`, `consumer`, `agent`.
+- **Werkzeuge:** deterministischer Linter, Analysewerkzeug für deutsche Texte und Bedeutungsprüfung.
+- **Agent Skill** mit den Workflows `WRITE`, `REWRITE` und `AUDIT` und den Modi `strikt` und `pragmatisch`.
+- **Evaluationssuite** für den Skill, mit einem deterministischen Bewertungswerkzeug.
+- Öffentliche Korpusbelege: 139.646 Tokens aus 13 öffentlichen Volltextquellen mit festen Partitionen für Entwicklung, Validierung und Holdout (nur Metadaten und abgeleitete Kennzahlen).
 
 ## Agent Skill
 
-The skill accepts arbitrary German text. It is not limited to engineering or one industry.
+Der Skill akzeptiert beliebigen deutschen Text. Der Skill ist nicht auf Ingenieurwesen oder eine Branche begrenzt.
 
-| Workflow | Result |
+| Workflow | Ergebnis |
 |---|---|
-| `WRITE` | New German text in STG-DE. |
-| `REWRITE` | Existing text in STG-DE. Facts, numbers, modality, conditions, and domain terms stay the same. Compliant text stays unchanged. |
-| `AUDIT` | A table of findings with rule IDs and suggestions, and `Ergebnis: PASS`, `PASS WITH REVIEW`, or `FAIL`. |
+| `WRITE` | Neuer deutscher Text in STG-DE. |
+| `REWRITE` | Vorhandener Text in STG-DE. Fakten, Zahlen, Modalität, Bedingungen und Fachbegriffe bleiben gleich. Konformer Text bleibt unverändert. |
+| `AUDIT` | Eine Tabelle mit Befunden, Regel-IDs und Vorschlägen und `Ergebnis: PASS`, `PASS WITH REVIEW` oder `FAIL`. |
 
-| Mode | Use for | Conformance target |
+| Modus | Verwendung | Konformitätsziel |
 |---|---|---|
-| `strikt` | procedures, safety notes, requirements, error messages, tool descriptions, agent instructions | `STG-T` |
-| `pragmatisch` | descriptions, support, consumer text, READMEs | `STG-R` |
+| `strikt` | Anleitungen, Sicherheitshinweise, Anforderungen, Fehlermeldungen, Tool-Beschreibungen, Anweisungen für Agenten | `STG-T` |
+| `pragmatisch` | Beschreibungen, Support, Verbrauchertexte, READMEs | `STG-R` |
 
-WRITE and REWRITE return only the finished text. When code execution is available, the skill runs the linter, the analyzer, and the meaning-preservation check. Without tools, it applies the bundled rules and dictionary directly.
+WRITE und REWRITE geben nur den fertigen Text zurück. Wenn Code-Ausführung verfügbar ist, führt der Skill den Linter, das Analysewerkzeug und die Bedeutungsprüfung aus. Ohne Werkzeuge wendet der Skill die mitgelieferten Regeln und das Wörterbuch direkt an.
 
-## Tools
+## Werkzeuge
 
-Install the only dependency:
+Installieren Sie die einzige Abhängigkeit:
 
 ```bash
 python -m pip install -r requirements-dev.txt
@@ -90,43 +96,43 @@ python -m pip install -r requirements-dev.txt
 
 ### Linter
 
-Check files and directories (Markdown-aware: code blocks are ignored, list items and table cells are separate sentences):
+Prüfen Sie Dateien und Verzeichnisse. Der Linter erkennt Markdown: Er ignoriert Codeblöcke und behandelt Listenpunkte und Tabellenzellen als eigene Sätze.
 
 ```bash
 python tools/stg_lint.py docs/ README.de.md --profile procedure
 ```
 
-JSON output from stdin:
+JSON-Ausgabe aus stdin:
 
 ```bash
 printf 'Prüfen Sie gegebenenfalls das Gerät.' | python tools/stg_lint.py - --format json
 ```
 
-Fail a CI step on errors:
+Einen CI-Schritt bei Fehlern scheitern lassen:
 
 ```bash
 python tools/stg_lint.py docs/ --fail-on error
 ```
 
-The linter loads `./.stg-de.yaml` automatically. It separates deterministic violations (`error`) from review candidates (`warning`, `review`). An unknown word is **not automatically an error**, and an uppercase German noun is **not automatically a technical term**.
+Der Linter lädt `./.stg-de.yaml` automatisch. Der Linter trennt deterministische Verstöße (`error`) von Kandidaten für eine Prüfung (`warning`, `review`). Ein unbekanntes Wort ist **nicht automatisch ein Fehler**. Ein großgeschriebenes deutsches Substantiv ist **nicht automatisch ein Fachbegriff**.
 
-### Meaning-preservation check
+### Bedeutungsprüfung
 
-Compare a source text with its rewrite:
+Vergleichen Sie einen Ausgangstext mit seiner Umformulierung:
 
 ```bash
 python tools/stg_compare.py original.md rewrite.md
 ```
 
-Lost numbers, units, identifiers, code, URLs, quoted UI text, or safety signal words give `FAIL`. Changed modality, prohibitions, negations, conditions, or limits give `REVIEW`.
+Verlorene Zahlen, Einheiten, Bezeichner, Code, URLs, zitierte UI-Texte oder Signalwörter für Sicherheit ergeben `FAIL`. Geänderte Modalität, Verbote, Verneinungen, Bedingungen oder Grenzen ergeben `REVIEW`.
 
-### German review analyzer
+### Analysewerkzeug für deutsche Texte
 
 ```bash
 python tools/stg_analyze.py input.md
 ```
 
-Reports passive, modality, clause-depth, pronoun, negation, nominal-style, and separable-verb candidates. All analyzer output is review evidence, never a violation by itself.
+Das Analysewerkzeug meldet Kandidaten für Passiv, Modalität, Satztiefe, Pronomen, Verneinung, Nominalstil und trennbare Verben. Jede Ausgabe des Analysewerkzeugs ist ein Beleg für eine Prüfung. Eine Ausgabe allein ist nie ein Verstoß.
 
 ## Evaluation
 
@@ -138,22 +144,22 @@ python tools/run_evals.py --outputs evals/reference
 python tools/run_evals.py --outputs runs/claude --command "claude -p"
 ```
 
-The suite checks rule compliance, lost protected content, required facts, output discipline, and audit accuracy. See [`evals/README.md`](evals/README.md).
+Die Suite prüft die Einhaltung der Regeln, verlorene geschützte Inhalte, erforderliche Fakten, Ausgabedisziplin und die Genauigkeit von Audits. Siehe [`evals/README.md`](evals/README.md).
 
-## Project terminology
+## Projektterminologie
 
-Do not put every product or industry term into the central dictionary. Add precise domain terminology in `.stg-de.yaml` (see `.stg-de.example.yaml`). See [`dictionary/GOVERNANCE.md`](dictionary/GOVERNANCE.md) for central-core admission rules.
+Fügen Sie nicht jeden Produktbegriff und jeden Branchenbegriff in das zentrale Wörterbuch ein. Fügen Sie präzise Fachterminologie in `.stg-de.yaml` ein (siehe `.stg-de.example.yaml`). Die Regeln für die Aufnahme in den zentralen Kern stehen in [`dictionary/GOVERNANCE.md`](dictionary/GOVERNANCE.md).
 
-## Conformance profiles
+## Konformitätsprofile
 
-| Profile | Meaning |
+| Profil | Bedeutung |
 |---|---|
-| `STG-R` | Applicable writing rules are satisfied. |
-| `STG-T` | `STG-R` plus project technical terminology is resolved. |
-| `STG-C-core` | `STG-T` plus all remaining lexical items resolve to the shipped central core. |
-| `STG-C` | Reserved for a broader, mature, human-reviewed central lexicon. |
+| `STG-R` | Die anwendbaren Schreibregeln sind erfüllt. |
+| `STG-T` | `STG-R` und die technische Projektterminologie ist aufgelöst. |
+| `STG-C-core` | `STG-T` und alle anderen lexikalischen Einheiten gehören zum mitgelieferten zentralen Kern. |
+| `STG-C` | Reserviert für ein breiteres, ausgereiftes und von Menschen geprüftes zentrales Lexikon. |
 
-## Repository structure
+## Struktur des Repositorys
 
 ```text
 .
@@ -178,9 +184,9 @@ Do not put every product or industry term into the central dictionary. Add preci
     └── scripts/                  # copied from tools/
 ```
 
-The top-level specification and dictionary are the source of truth. `python tools/sync_skill.py` regenerates the skill references and scripts.
+Die Spezifikation und das Wörterbuch auf der obersten Ebene sind die maßgebliche Quelle. Der Befehl `python tools/sync_skill.py` erzeugt die Referenzen und Skripte des Skills neu.
 
-## Development
+## Entwicklung
 
 ```bash
 python -m unittest discover -s tests -v
@@ -194,21 +200,21 @@ python tools/sync_skill.py --check
 python tools/validate_release.py --skip-manifest
 ```
 
-For a release, follow [`RELEASE-CHECKLIST.md`](RELEASE-CHECKLIST.md).
+Für ein Release folgen Sie [`RELEASE-CHECKLIST.md`](RELEASE-CHECKLIST.md).
 
-## Roadmap and governance
+## Roadmap und Governance
 
-- [`ROADMAP.md`](ROADMAP.md) — development plan through 1.0.
-- [`GOVERNANCE.md`](GOVERNANCE.md) — decision and review process.
-- [`VERSIONING.md`](VERSIONING.md) — compatibility and semantic versioning.
-- [`dictionary/GOVERNANCE.md`](dictionary/GOVERNANCE.md) — evidence-based core lexicon changes.
-- [`quality/RULE-COVERAGE.md`](quality/RULE-COVERAGE.md) — automation status.
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution workflow.
+- [`ROADMAP.md`](ROADMAP.md) — Entwicklungsplan bis 1.0.
+- [`GOVERNANCE.md`](GOVERNANCE.md) — Prozess für Entscheidungen und Prüfungen.
+- [`VERSIONING.md`](VERSIONING.md) — Kompatibilität und semantische Versionierung.
+- [`dictionary/GOVERNANCE.md`](dictionary/GOVERNANCE.md) — belegbasierte Änderungen am zentralen Lexikon.
+- [`quality/RULE-COVERAGE.md`](quality/RULE-COVERAGE.md) — Stand der Automatisierung.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — Ablauf für Beiträge.
 
-Contributions from technical writers, linguists, engineers, support teams, translators, terminology specialists, and agent developers are welcome.
+Beiträge von technischen Redakteuren, Linguisten, Ingenieuren, Support-Teams, Übersetzern, Terminologie-Fachleuten und Entwicklern von Agenten sind willkommen.
 
-## License and notice
+## Lizenz und Hinweis
 
-MIT. See [`LICENSE`](LICENSE).
+MIT. Siehe [`LICENSE`](LICENSE).
 
-ASD-STE100 is a copyright and trademark of ASD, Brussels. STG-DE is not an official ASD publication and contains no ASD-STE100 text. See [`NOTICE.md`](NOTICE.md).
+ASD-STE100 ist ein Urheberrecht und eine Marke von ASD, Brüssel. STG-DE ist keine offizielle Veröffentlichung von ASD und enthält keinen Text aus ASD-STE100. Siehe [`NOTICE.md`](NOTICE.md).

@@ -41,7 +41,7 @@ rules:
 - {id: STG-DE-4.5, class: partial, implemented: true}
 - {id: STG-5.1, class: deterministic, implemented: true}
 - {id: STG-5.2, class: semantic, implemented: false}
-- {id: STG-5.3, class: heuristic, implemented: false}
+- {id: STG-5.3, class: partial, implemented: true}
 - {id: STG-5.4, class: semantic, implemented: false}
 - {id: STG-5.5, class: semantic, implemented: false}
 - {id: STG-6.1, class: semantic, implemented: false}

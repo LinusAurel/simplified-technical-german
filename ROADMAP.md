@@ -1,154 +1,156 @@
-# STG-DE Roadmap
+# STG-DE-Roadmap
 
-This roadmap describes the path from the current experimental release (0.2.0) to a stable STG-DE 1.0. Priorities can change when corpus evidence, user feedback, or implementation findings show that a different order is more useful.
+Diese Roadmap beschreibt den Weg vom aktuellen experimentellen Release (0.2.0) zu einem stabilen STG-DE 1.0. Prioritäten können sich ändern. Das gilt, wenn Belege aus dem Korpus, Rückmeldungen von Benutzern oder Befunde aus der Implementierung eine andere Reihenfolge als nützlicher zeigen.
 
-## Guiding principles
+## Leitprinzipien
 
-1. Keep the language standard independent from the Agent Skill and implementation tools.
-2. Keep rule IDs stable once they are published unless a correction is unavoidable.
-3. Separate deterministic violations from heuristic or semantic review findings.
-4. Add central vocabulary only when evidence supports cross-domain use.
-5. Keep domain terminology in project dictionaries instead of expanding the core without need.
-6. Preserve meaning, modality, safety conditions, numbers, and scope during rewrites.
-7. Validate changes with both machine tests and real German text.
+1. Halten Sie den Sprachstandard unabhängig vom Agent Skill und von den Werkzeugen der Implementierung.
+2. Halten Sie Regel-IDs nach der Veröffentlichung stabil, außer wenn eine Korrektur unvermeidbar ist.
+3. Trennen Sie deterministische Verstöße von heuristischen oder semantischen Befunden für das Review.
+4. Fügen Sie zentrales Vokabular nur hinzu, wenn Belege eine domänenübergreifende Verwendung stützen.
+5. Halten Sie Domänenterminologie in Projektwörterbüchern, statt den Kern ohne Notwendigkeit zu erweitern.
+6. Erhalten Sie bei Umformulierungen Bedeutung, Modalität, Sicherheitsbedingungen, Zahlen und Geltungsbereich.
+7. Validieren Sie Änderungen mit maschinellen Tests und mit echtem deutschem Text.
 
-## Source traceability (0.2.0)
+## Rückverfolgbarkeit der Quellen (0.2.0)
 
-- [x] Map all 53 ASD-STE100 Issue 9 writing rules and 8 general recommendations to STG-DE (`mapping/ste100-issue9.yaml`).
-- [x] Enforce that every STG-DE rule is traceable and every mapping target exists.
-- [x] Document the ASD-STE100 copyright boundary (`NOTICE.md`).
+- [x] Alle 53 Schreibregeln und 8 allgemeinen Empfehlungen aus ASD-STE100 Issue 9 auf STG-DE abbilden (`mapping/ste100-issue9.yaml`).
+- [x] Sicherstellen, dass jede STG-DE-Regel rückverfolgbar ist und jedes Ziel der Abbildung existiert.
+- [x] Die Grenze des Urheberrechts von ASD-STE100 dokumentieren (`NOTICE.md`).
+- [x] Die Dokumentation des Repositorys auf Deutsch schreiben. Die Dokumentation folgt selbst STG-DE.
 
-## v0.2 — Evidence and reliability
+## v0.2 — Belege und Zuverlässigkeit
 
-### Rule and validator quality
+### Qualität von Regeln und Validator
 
-- [x] Build a rule-to-test matrix for all published STG-DE rules.
-- [x] Add at least one positive and one negative case for each deterministically testable rule.
-- [x] Verify that every validator finding references an existing rule ID.
-- [x] Add regression tests for rule-ID stability.
-- [x] Add golden audit fixtures with expected finding IDs, severities, and output status.
-- [x] Document which rules are deterministic, heuristic, semantic, or human-review-only.
-- [x] Expand tests from the minimal set to a meaningful conformance suite.
-- [x] Make the linter and analyzer Markdown-aware (fenced code, headings, lists, tables).
-- [x] Protect quoted text from lexical checks (STG-8.6).
+- [x] Eine Matrix von Regeln zu Tests für alle veröffentlichten STG-DE-Regeln erstellen.
+- [x] Für jede deterministisch testbare Regel mindestens einen positiven und einen negativen Fall hinzufügen.
+- [x] Prüfen, dass jeder Befund des Validators eine vorhandene Regel-ID referenziert.
+- [x] Regressionstests für die Stabilität der Regel-IDs hinzufügen.
+- [x] Golden-Audit-Fixtures mit erwarteten Befund-IDs, Schweregraden und Ausgabestatus hinzufügen.
+- [x] Dokumentieren, welche Regeln deterministisch, heuristisch, semantisch oder nur durch Menschen prüfbar sind.
+- [x] Die Tests von der minimalen Menge zu einer aussagekräftigen Konformitätssuite erweitern.
+- [x] Markdown-Struktur in Linter und Analyzer erkennen (Codeblöcke, Überschriften, Listen, Tabellen).
+- [x] Zitierten Text vor lexikalischen Prüfungen schützen (STG-8.6).
 
-### Corpus methodology
+### Korpusmethodik
 
-- [x] Define development, validation, and holdout corpus splits.
-- [x] Expand from short evidence samples to a larger public German corpus (139,646 tokens, 13 full-text sources).
-- [x] Reach at least 100,000 tokens for the first larger evaluation.
-- [ ] Reach 500,000+ tokens with a token-balanced partition design.
-- [x] Expand beyond technical manuals into public-sector, software, energy, logistics, and telecom text.
-- [x] Store exact document URLs, hashes, and sampling methods.
-- [x] Track per-domain coverage and unknown-token distributions.
-- [ ] Measure false positives and false negatives on a manually reviewed holdout set.
-- [x] Keep third-party source text out of the repository.
+- [x] Entwicklungs-, Validierungs- und Holdout-Partitionen für das Korpus definieren.
+- [x] Von kurzen Belegproben zu einem größeren öffentlichen deutschen Korpus erweitern (139.646 Token, 13 Volltextquellen).
+- [x] Für die erste größere Evaluation mindestens 100.000 Token erreichen.
+- [ ] Mehr als 500.000 Token mit einem Partitionsdesign erreichen, das nach Token ausgewogen ist.
+- [x] Über technische Handbücher hinaus auf Texte aus öffentlicher Verwaltung, Software, Energie, Logistik und Telekommunikation erweitern.
+- [x] Exakte Dokument-URLs, Hashes und Stichprobenmethoden speichern.
+- [x] Die Abdeckung je Domäne und die Verteilung unbekannter Token verfolgen.
+- [ ] Falsch positive und falsch negative Befunde mit einem manuell geprüften Holdout-Set messen.
+- [x] Quelltexte von Dritten aus dem Repository fernhalten.
 
-### Dictionary governance foundation
+### Grundlage der Wörterbuch-Governance
 
-- [x] Define evidence requirements for adding a core lexical entry.
-- [x] Add a machine-readable lexical proposal format.
-- [x] Record alternatives considered, ambiguity risk, corpus evidence, and decision rationale.
-- [x] Distinguish core vocabulary from project/domain terminology in contribution guidance.
+- [x] Anforderungen an Belege für einen neuen lexikalischen Kerneintrag definieren.
+- [x] Ein maschinenlesbares Format für lexikalische Vorschläge hinzufügen.
+- [x] Geprüfte Alternativen, Risiko der Mehrdeutigkeit, Korpusbelege und Begründung der Entscheidung dokumentieren.
+- [x] In den Hinweisen für Beiträge Kernvokabular von Projekt- und Domänenterminologie unterscheiden.
 
-### v0.2 exit criteria
+### Abschlusskriterien für v0.2
 
-- [x] Deterministic rule IDs are internally consistent and regression-tested.
-- [x] The rule coverage matrix is published.
-- [x] A larger, reproducible corpus methodology exists.
-- [x] Holdout evaluation is separated from dictionary development.
-- [x] Known validator limitations are explicitly classified.
+- [x] Deterministische Regel-IDs sind intern konsistent und durch Regressionstests geprüft.
+- [x] Die Matrix für die Regelabdeckung ist veröffentlicht.
+- [x] Eine größere, reproduzierbare Korpusmethodik existiert.
+- [x] Die Holdout-Evaluation ist von der Wörterbuchentwicklung getrennt.
+- [x] Bekannte Einschränkungen des Validators sind ausdrücklich klassifiziert.
 
-## v0.3 — German language engine
+## v0.3 — Engine für die deutsche Sprache
 
-**Goal:** improve analysis of German morphology and syntax without turning uncertain NLP output into false certainty.
+**Ziel:** Die Analyse deutscher Morphologie und Syntax verbessern. Unsichere NLP-Ergebnisse dürfen nicht zu falscher Sicherheit werden.
 
-- [ ] Add robust German lemmatization.
-- [ ] Improve inflection handling and collision detection beyond the curated collision list.
-- [ ] Add compound-noun analysis and terminology routing.
-- [ ] Add POS tagging where it improves controlled-meaning checks.
-- [x] Detect subordinate-clause depth and long sentence brackets (heuristic, `stg_analyze.py`).
-- [x] Detect passive-voice candidates, including `werden` constructions (heuristic).
-- [x] Detect likely nominal style (heuristic).
-- [x] Add heuristic pronoun and pronominal-adverb reference checks.
-- [x] Add modality and negation-scope review checks.
-- [x] Introduce explicit confidence levels for NLP-derived findings.
-- [ ] Measure analyzer precision on the holdout set before any promotion to deterministic checks.
+- [ ] Eine robuste deutsche Lemmatisierung hinzufügen.
+- [ ] Die Behandlung der Flexion und die Erkennung von Kollisionen über die kuratierte Kollisionsliste hinaus verbessern.
+- [ ] Eine Analyse von Komposita und ein Routing für Terminologie hinzufügen.
+- [ ] POS-Tagging hinzufügen, wenn es die Prüfungen der kontrollierten Bedeutung verbessert.
+- [x] Die Tiefe von Nebensätzen und lange Satzklammern erkennen (heuristisch, `stg_analyze.py`).
+- [x] Kandidaten für Passiv erkennen, auch Konstruktionen mit `werden` (heuristisch).
+- [x] Wahrscheinlichen Nominalstil erkennen (heuristisch).
+- [x] Heuristische Prüfungen der Bezüge von Pronomen und Pronominaladverbien hinzufügen.
+- [x] Review-Prüfungen für Modalität und für den Geltungsbereich von Negationen hinzufügen.
+- [x] Ausdrückliche Konfidenzstufen für Befunde aus NLP einführen.
+- [ ] Die Präzision des Analyzers mit dem Holdout-Set messen, bevor eine Prüfung zur deterministischen Prüfung hochgestuft wird.
 
-## v0.4 — Application profiles
+## v0.4 — Anwendungsprofile
 
-- [x] Formal profile schema.
-- [x] Rule-applicability matrix by profile.
-- [x] Profile-aware CLI and Agent Skill behavior.
-- [x] Conformance examples for each profile (`evals/cases.yaml` covers all seven).
-- [x] Strict and pragmatic skill modes mapped to `STG-T` and `STG-R`.
+- [x] Formales Profilschema.
+- [x] Matrix der Anwendbarkeit von Regeln je Profil.
+- [x] Profilabhängiges Verhalten von CLI und Agent Skill.
+- [x] Konformitätsbeispiele für jedes Profil (`evals/cases.yaml` deckt alle sieben ab).
+- [x] Strikter und pragmatischer Skill-Modus, abgebildet auf `STG-T` und `STG-R`.
+- [x] Anredeform je Projekt (`sie`, `du`, `infinitiv`) nach STG-2026-001, mit Prüfung im Linter und Verhalten im Skill.
 
-## v0.5 — Tool ecosystem
+## v0.5 — Werkzeug-Ökosystem
 
-- [x] `stg_lint.py` for files and directories, with line numbers and `--fail-on`.
-- [x] Reusable GitHub Action with pull-request annotations (`action.yml`).
-- [x] Meaning-preservation check for rewrites (`stg_compare.py`).
-- [x] Claude Code plugin and marketplace (`.claude-plugin/`).
-- [x] Reproducible skill ZIP with checksum for claude.ai and other skill loaders.
-- [x] Copy-paste snippets for `AGENTS.md`, `CLAUDE.md`, and system prompts (`prompts/agents-md.md`).
-- [ ] Python package with an `stg` CLI (`pip install`).
-- [ ] pre-commit hook (needs the Python package).
-- [ ] Vale rules where deterministic mapping is appropriate.
-- [ ] Language Server Protocol adapter and VS Code diagnostics.
-- [ ] Optional MCP server for editor and agent integrations.
+- [x] `stg_lint.py` für Dateien und Verzeichnisse, mit Zeilennummern und `--fail-on`.
+- [x] Wiederverwendbare GitHub Action mit Annotationen in Pull Requests (`action.yml`).
+- [x] Prüfung der Bedeutungserhaltung bei Umformulierungen (`stg_compare.py`).
+- [x] Claude-Code-Plugin und Marketplace (`.claude-plugin/`).
+- [x] Reproduzierbares Skill-ZIP mit Prüfsumme für claude.ai und andere Skill-Loader.
+- [x] Kopiervorlagen für `AGENTS.md`, `CLAUDE.md` und System-Prompts (`prompts/agents-md.md`).
+- [ ] Python-Paket mit einer CLI `stg` (`pip install`).
+- [ ] pre-commit-Hook (benötigt das Python-Paket).
+- [ ] Vale-Regeln für Fälle, in denen eine deterministische Abbildung möglich und sinnvoll ist.
+- [ ] Adapter für das Language Server Protocol und Diagnosen in VS Code.
+- [ ] Optionaler MCP-Server für Integrationen in Editoren und Agenten.
 
-Tooling must consume the repository's canonical rule and dictionary data rather than maintain independent copies.
+Werkzeuge müssen die kanonischen Regel- und Wörterbuchdaten des Repositorys verwenden. Sie dürfen keine unabhängigen Kopien pflegen.
 
-## Agent Skill track
+## Bereich Agent Skill
 
-### Evaluation suite
+### Evaluationssuite
 
-- [x] Create WRITE, REWRITE, and AUDIT evaluation sets with a deterministic scorer (`evals/`, `tools/run_evals.py`).
-- [x] Cover procedures, requirements, support, consumer text, safety text, error messages, and agent instructions.
-- [x] Measure rule compliance, lost protected content, invented numbers, modality changes, and audit accuracy.
-- [ ] Run the suite against multiple models, with and without the skill, and publish the results.
-- [ ] Add trigger-accuracy measurements for `evals/triggers.yaml`.
-- [ ] Add regression cases for failures found in real use.
+- [x] Evaluationssets für WRITE, REWRITE und AUDIT mit einem deterministischen Bewertungswerkzeug erstellen (`evals/`, `tools/run_evals.py`).
+- [x] Anleitungen, Anforderungen, Support, Verbrauchertexte, Sicherheitstexte, Fehlermeldungen und Anweisungen für Agenten abdecken.
+- [x] Regelkonformität, verlorene geschützte Inhalte, erfundene Zahlen, Änderungen der Modalität und Genauigkeit von Audits messen.
+- [ ] Die Suite mit mehreren Modellen ausführen, mit und ohne Skill, und die Ergebnisse veröffentlichen.
+- [ ] Messungen der Trigger-Genauigkeit für `evals/triggers.yaml` hinzufügen.
+- [ ] Regressionsfälle für Fehler aus der realen Verwendung hinzufügen.
 
-### Skill behavior
+### Verhalten des Skills
 
-- [x] Keep default WRITE/REWRITE output limited to the finished text.
-- [x] Keep detailed rule output in AUDIT or when explicitly requested.
-- [x] Use deterministic validator results when tool execution is available.
-- [x] Never treat heuristic findings as stronger evidence than sentence meaning.
-- [x] Support project terminology consistently across agent environments.
+- [x] Die Standardausgabe für WRITE und REWRITE auf den fertigen Text begrenzen.
+- [x] Detaillierte Regelausgaben nur in AUDIT oder auf ausdrückliche Anforderung ausgeben.
+- [x] Deterministische Ergebnisse des Validators verwenden, wenn Werkzeuge ausführbar sind.
+- [x] Heuristische Befunde nie als stärkeren Beleg als die Bedeutung des Satzes bewerten.
+- [x] Projektterminologie in allen Agentenumgebungen einheitlich unterstützen.
 
-## v0.6 — Governance and release discipline
+## v0.6 — Governance und Disziplin bei Releases
 
-- [x] Add STG Change Proposal template.
-- [x] Add lexical proposal template.
-- [x] Define rule-change and deprecation policy.
-- [x] Define semantic versioning policy for specification, dictionary, validator, and skill changes.
-- [x] Define maintainer and review expectations.
-- [x] Add `CITATION.cff`.
-- [x] Publish checksum-verifiable release artifacts (release workflow).
-- [x] Create a documented release checklist.
+- [x] Vorlage für STG-Änderungsvorschläge hinzufügen.
+- [x] Vorlage für lexikalische Vorschläge hinzufügen.
+- [x] Richtlinie für Regeländerungen und Abkündigungen definieren.
+- [x] Richtlinie für semantische Versionierung von Spezifikation, Wörterbuch, Validator und Skill definieren.
+- [x] Erwartungen an Maintainer und Reviews definieren.
+- [x] `CITATION.cff` hinzufügen.
+- [x] Release-Artefakte veröffentlichen, die mit Prüfsummen überprüfbar sind (Release-Workflow).
+- [x] Eine dokumentierte Release-Checkliste erstellen.
 
-## v1.0 — Stable controlled language
+## v1.0 — Stabile kontrollierte Sprache
 
-STG-DE 1.0 is reached by evidence and stability, not by a target dictionary size.
+STG-DE erreicht 1.0 durch Belege und Stabilität, nicht durch eine Zielgröße des Wörterbuchs.
 
-- [ ] Rule set stable across multiple releases.
-- [ ] Published rule IDs treated as stable public identifiers.
-- [ ] Large independent holdout corpus evaluated.
-- [ ] Acceptable false-positive rate documented for deterministic and NLP checks.
-- [ ] Broad coverage of general German function and action language.
-- [ ] Domain terminology cleanly separated from the core.
-- [ ] Deterministically testable rules have comprehensive automated coverage.
-- [ ] Agent Skill evaluated across multiple models and text domains.
-- [ ] Human review from technical-writing and/or linguistic specialists.
-- [ ] Evidence of real use outside the original project.
-- [ ] Governance and change process documented and active.
+- [ ] Regelsatz über mehrere Releases stabil.
+- [ ] Veröffentlichte Regel-IDs als stabile öffentliche Kennungen behandelt.
+- [ ] Großes unabhängiges Holdout-Korpus evaluiert.
+- [ ] Akzeptable Rate falsch positiver Befunde für deterministische Prüfungen und NLP-Prüfungen dokumentiert.
+- [ ] Breite Abdeckung der allgemeinen deutschen Funktions- und Handlungssprache.
+- [ ] Domänenterminologie sauber vom Kern getrennt.
+- [ ] Deterministisch testbare Regeln mit umfassender automatisierter Abdeckung.
+- [ ] Agent Skill mit mehreren Modellen und Textdomänen evaluiert.
+- [ ] Review durch Fachleute aus technischer Redaktion, Linguistik oder beiden Bereichen.
+- [ ] Belege für eine reale Verwendung außerhalb des ursprünglichen Projekts.
+- [ ] Governance und Änderungsprozess dokumentiert und aktiv.
 
-## Near-term execution order
+## Reihenfolge der nächsten Schritte
 
-1. Run `tools/run_evals.py` against at least two models, with and without the skill, and publish the results.
-2. Manually review a holdout sample and publish linter and analyzer precision.
-3. Package the tools as a Python package with an `stg` CLI and a pre-commit hook.
-4. Expand the corpus toward 500,000 tokens with balanced partitions.
-5. Add lemmatization and compound analysis behind the review-only boundary.
+1. Führen Sie `tools/run_evals.py` mit mindestens zwei Modellen aus, mit und ohne Skill. Veröffentlichen Sie die Ergebnisse.
+2. Prüfen Sie manuell eine Holdout-Stichprobe. Veröffentlichen Sie die Präzision von Linter und Analyzer.
+3. Paketieren Sie die Werkzeuge als Python-Paket mit einer CLI `stg` und einem pre-commit-Hook.
+4. Erweitern Sie das Korpus in Richtung 500.000 Token mit ausgewogenen Partitionen.
+5. Fügen Sie Lemmatisierung und Analyse von Komposita hinzu, innerhalb der Grenze „nur Review“.

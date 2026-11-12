@@ -2,68 +2,68 @@
 
 **Release:** 0.2.0  
 **Profile:** `de-DE`  
-**Status:** stratified-corpus-validated experimental authoring core; not yet a human-reviewed full German general-language dictionary.
+**Status:** experimenteller Autorenkern, an einem geschichteten Korpus validiert. Dieser Kern ist in diesem Release kein Wörterbuch der deutschen Allgemeinsprache, das Menschen vollständig geprüft haben.
 
-## Contents
+## Inhalt
 
-- **435** central approved/restricted lexical entries,
-- **442** controlled meanings,
-- **160** prohibited or review-required words/phrases,
-- **172** controlled central verbs,
-- controlled contractions,
-- declared noun plurals and curated irregular surface forms,
-- concept index and release coverage metadata,
-- project/domain technical noun and verb category models.
+- **435** zentrale freigegebene oder eingeschränkte lexikalische Einträge,
+- **442** kontrollierte Bedeutungen,
+- **160** verbotene oder prüfpflichtige Wörter und Wortgruppen,
+- **172** kontrollierte zentrale Verben,
+- kontrollierte Kontraktionen,
+- deklarierte Pluralformen von Substantiven und kuratierte unregelmäßige Oberflächenformen,
+- Begriffsindex und Metadaten zur Abdeckung des Releases,
+- Kategoriemodelle für technische Substantive und technische Verben in Projekten und Domänen.
 
-The lexicon is independently designed for German. It is a controlled dictionary with defined meanings, word classes, and approved forms.
+Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kontrolliertes Wörterbuch mit definierten Bedeutungen, Wortarten und freigegebenen Formen.
 
-## Files
+## Dateien
 
-- `approved-words.yaml` — normative v0.1 authoring-core entries.
-- `prohibited-words.yaml` — prohibited/review-required wording and rewrite guidance.
-- `contractions.yaml` — preposition+article normalization before lexical lookup.
-- `concept-index.yaml` — controlled-meaning index for agents and validators.
-- `coverage.yaml` — release counts and corpus summary.
-- `DECISIONS.md` — curation rationale.
-- `MORPHOLOGY.md` — lemma/inflection and separable-verb resolution.
-- `technical-nouns.yaml` — categories for project/domain technical nouns.
-- `technical-verbs.yaml` — categories for project/domain technical verbs.
+- `approved-words.yaml` — normative Einträge des Autorenkerns v0.1.
+- `prohibited-words.yaml` — verbotene oder prüfpflichtige Formulierungen mit Hinweisen zur Umformulierung.
+- `contractions.yaml` — Normalisierung von Präposition und Artikel vor der lexikalischen Suche.
+- `concept-index.yaml` — Index der kontrollierten Bedeutungen für Agenten und Validatoren.
+- `coverage.yaml` — Zahlen des Releases und Zusammenfassung des Korpus.
+- `DECISIONS.md` — Begründungen für die Kuratierung.
+- `MORPHOLOGY.md` — Auflösung von Lemma, Flexion und trennbaren Verben.
+- `technical-nouns.yaml` — Kategorien für technische Substantive in Projekten und Domänen.
+- `technical-verbs.yaml` — Kategorien für technische Verben in Projekten und Domänen.
 
-## Resolution principle
+## Prinzip der Auflösung
 
-Resolve input in this order:
+Lösen Sie die Eingabe in dieser Reihenfolge auf:
 
-1. protected text/identifier,
-2. approved project/domain terminology,
-3. longest phrase,
-4. contraction normalization,
-5. case-sensitive lexical distinction,
-6. canonical central lemma or declared surface form,
-7. declared controlled inflection,
-8. prohibited/review lookup,
-9. deterministic morphology/separable-verb analysis,
-10. otherwise `NEEDS_LEXICON_REVIEW`.
+1. geschützter Text oder Kennung,
+2. freigegebene Projektterminologie oder Domänenterminologie,
+3. längste Wortgruppe,
+4. Normalisierung von Kontraktionen,
+5. lexikalische Unterscheidung nach Groß- und Kleinschreibung,
+6. kanonisches zentrales Lemma oder deklarierte Oberflächenform,
+7. deklarierte kontrollierte Flexion,
+8. Suche in der Liste der verbotenen und prüfpflichtigen Wörter,
+9. deterministische morphologische Analyse und Analyse trennbarer Verben,
+10. in allen anderen Fällen `NEEDS_LEXICON_REVIEW`.
 
-A canonical lemma takes precedence over another entry's inflection alias. This prevents `Daten` (technical information/data) from being silently resolved as the plural of `Datum`.
+Ein kanonisches Lemma hat Vorrang vor dem Flexionsalias eines anderen Eintrags. Diese Regel verhindert, dass ein Validator `Daten` (technische Informationen oder Daten) ohne Meldung als Plural von `Datum` auflöst.
 
-## Status values
+## Statuswerte
 
-- `approved` — permitted for the listed controlled meaning.
-- `restricted` — permitted only when all listed restrictions are satisfied.
-- `technical_only` — requires project/domain terminology approval.
-- `prohibited` — do not use except inside protected external text.
-- `review_required` — not safe for automatic acceptance; context or rewrite is required.
+- `approved` — für die angegebene kontrollierte Bedeutung zulässig.
+- `restricted` — nur zulässig, wenn alle angegebenen Einschränkungen erfüllt sind.
+- `technical_only` — verlangt eine Freigabe als Projektterminologie oder Domänenterminologie.
+- `prohibited` — nicht verwenden, außer in geschütztem externem Text.
+- `review_required` — für eine automatische Annahme nicht sicher. Der Eintrag verlangt eine Prüfung des Kontexts oder eine Umformulierung.
 
-## Corpus policy
+## Richtlinie für das Korpus
 
-Corpus frequency is evidence for **review**, not approval. v0.1 adds a word to the core only when its cross-domain meaning can be controlled usefully. Common but abstract/polysemous verbs such as `führen`, `bieten`, `berücksichtigen`, and `gewährleisten` remain review-required.
+Die Häufigkeit im Korpus ist ein Beleg für eine **Prüfung**, keine Freigabe. Version 0.1 nimmt ein Wort nur in den Kern auf, wenn die domänenübergreifende Bedeutung des Worts sinnvoll kontrolliert werden kann. Häufige, aber abstrakte oder mehrdeutige Verben wie `führen`, `bieten`, `berücksichtigen` und `gewährleisten` bleiben prüfpflichtig.
 
-Domain parts, product names, medical concepts, vehicle terms, software identifiers, and similar vocabulary belong to project/domain terminology even when frequent.
+Domänenspezifische Bauteile, Produktnamen, medizinische Begriffe, Fahrzeugbegriffe, Software-Kennungen und ähnlicher Wortschatz gehören zur Projektterminologie oder Domänenterminologie. Diese Regel gilt auch, wenn diese Wörter häufig sind.
 
-See `../corpus/validation-report.md`.
+Siehe `../corpus/validation-report.md`.
 
 ## `STG-C-core` versus `STG-C`
 
-`STG-C-core` is a closed-vocabulary experimental profile for texts intentionally authored with this core plus approved project terminology.
+`STG-C-core` ist ein experimentelles Profil mit geschlossenem Wortschatz. Dieses Profil gilt für Texte, die Autoren absichtlich mit diesem Kern und mit freigegebener Projektterminologie schreiben.
 
-`STG-C` remains reserved for a future broader, human-reviewed lexicon and must not be claimed by this release.
+`STG-C` bleibt für ein zukünftiges, breiteres Lexikon reserviert, das Menschen geprüft haben. Dieses Release darf `STG-C` nicht beanspruchen.

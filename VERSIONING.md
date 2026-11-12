@@ -1,71 +1,71 @@
-# STG-DE Versioning Policy
+# STG-DE-Versionierungsrichtlinie
 
-STG-DE uses semantic versions for public releases: `MAJOR.MINOR.PATCH`.
+STG-DE verwendet für öffentliche Releases semantische Versionen: `MAJOR.MINOR.PATCH`.
 
-The specification, dictionary, validator, and bundled Agent Skill ship as one repository release while they remain tightly coupled. Individual tools may later expose their own package versions, but every packaged artifact must declare the STG-DE specification version it targets.
+Spezifikation, Wörterbuch, Validator und mitgelieferter Agent Skill sind eng gekoppelt. Solange diese Kopplung besteht, erscheinen sie zusammen als ein Release des Repositorys. Einzelne Werkzeuge können später eigene Paketversionen erhalten. Jedes paketierte Artefakt muss die Version der STG-DE-Spezifikation angeben, auf die es sich bezieht.
 
-## Before 1.0
+## Vor 1.0
 
-The project is experimental. Minor releases can contain normative additions or restrictions, but every incompatible change must be called out in `CHANGELOG.md`.
+Das Projekt ist experimentell. Minor-Releases können normative Ergänzungen oder Einschränkungen enthalten. Jede inkompatible Änderung muss in `CHANGELOG.md` ausdrücklich genannt sein.
 
-- **PATCH**: editorial fixes, tests, tooling fixes, validator corrections that make behavior match already-published rules.
-- **MINOR**: new rules, new application profiles, central dictionary additions, new validator capabilities, or documented normative refinements.
-- **MAJOR**: reserved for 1.0 or a deliberate compatibility break after 1.0.
+- **PATCH**: redaktionelle Korrekturen, Tests, Korrekturen an Werkzeugen und Korrekturen am Validator, die das Verhalten an die veröffentlichten Regeln anpassen.
+- **MINOR**: neue Regeln, neue Anwendungsprofile, Ergänzungen im zentralen Wörterbuch, neue Funktionen des Validators oder dokumentierte normative Präzisierungen.
+- **MAJOR**: reserviert für 1.0 oder für einen absichtlichen Bruch der Kompatibilität nach 1.0.
 
-## After 1.0
+## Nach 1.0
 
 ### PATCH
 
-No intended normative compatibility break. Examples:
+Kein beabsichtigter Bruch der normativen Kompatibilität. Beispiele:
 
-- typo/documentation corrections;
-- bug fixes where implementation contradicted the published rule;
-- additional tests;
-- performance improvements;
-- new non-normative examples.
+- Korrekturen von Tippfehlern und Dokumentation,
+- Fehlerkorrekturen, wenn die Implementierung der veröffentlichten Regel widersprach,
+- zusätzliche Tests,
+- Verbesserungen der Leistung,
+- neue nicht normative Beispiele.
 
 ### MINOR
 
-Backward-compatible capability additions. Examples:
+Abwärtskompatible Ergänzungen von Funktionen. Beispiele:
 
-- new optional application profile;
-- new approved central word that does not alter existing meanings;
-- additional validator warnings/review evidence;
-- new tooling or integrations.
+- ein neues optionales Anwendungsprofil,
+- ein neues zugelassenes zentrales Wort, das keine vorhandenen Bedeutungen ändert,
+- zusätzliche Warnungen des Validators oder zusätzliche Belege für das Review,
+- neue Werkzeuge oder Integrationen.
 
 ### MAJOR
 
-A change that can make previously conforming text non-conforming or changes the controlled interpretation of existing text. Examples:
+Eine Änderung, durch die ein bisher konformer Text nicht mehr konform sein kann. Oder eine Änderung, die die kontrollierte Interpretation eines vorhandenen Texts ändert. Beispiele:
 
-- restricting or prohibiting an existing approved meaning;
-- changing a mandatory sentence threshold;
-- changing the controlled meaning of an existing entry;
-- changing profile semantics incompatibly;
-- removing a supported public interface.
+- eine vorhandene zugelassene Bedeutung einschränken oder verbieten,
+- einen verbindlichen Schwellenwert für Sätze ändern,
+- die kontrollierte Bedeutung eines vorhandenen Eintrags ändern,
+- die Semantik eines Profils inkompatibel ändern,
+- eine unterstützte öffentliche Schnittstelle entfernen.
 
-## Rule IDs
+## Regel-IDs
 
-Rule IDs are more stable than file layout. Renaming or moving a rule section does not justify renumbering IDs.
+Regel-IDs sind stabiler als die Dateistruktur. Wenn Sie einen Regelabschnitt umbenennen oder verschieben, ist das kein Grund für eine neue Nummerierung der IDs.
 
-A deprecated rule ID remains reserved.
+Eine abgekündigte Regel-ID bleibt reserviert.
 
-## Dictionary compatibility
+## Kompatibilität des Wörterbuchs
 
-Every normative lexical change should be classified in its proposal as:
+Wir empfehlen, jede normative lexikalische Änderung in ihrem Vorschlag mit einer dieser Klassen zu kennzeichnen:
 
-- `compatible_addition`;
-- `clarification`;
-- `restriction`;
-- `meaning_change`;
-- `deprecation`;
+- `compatible_addition`,
+- `clarification`,
+- `restriction`,
+- `meaning_change`,
+- `deprecation`,
 - `prohibition`.
 
-Restrictions, meaning changes, deprecations, and prohibitions must appear prominently in the changelog.
+Einschränkungen, Bedeutungsänderungen, Abkündigungen und Verbote müssen im Changelog deutlich sichtbar sein.
 
-## Validator severity
+## Schweregrad im Validator
 
-Promoting an existing finding from `review`/`warning` to deterministic `error` is a normative compatibility change unless the published rule already unambiguously required that behavior and the previous severity was an implementation bug.
+Wenn Sie einen vorhandenen Befund von `review` oder `warning` zu einem deterministischen `error` hochstufen, ist das eine normative Änderung der Kompatibilität. Eine Ausnahme gilt, wenn diese zwei Bedingungen zutreffen: Die veröffentlichte Regel forderte dieses Verhalten vorher eindeutig. Der vorherige Schweregrad war ein Fehler der Implementierung.
 
 ## Agent Skill
 
-Changes that only improve prompt routing or implementation quality are usually PATCH changes. A skill change that intentionally alters STG-DE output semantics follows the same compatibility rules as the underlying standard.
+Änderungen, die nur das Prompt-Routing oder die Qualität der Implementierung verbessern, sind im Normalfall PATCH-Änderungen. Eine Änderung am Skill kann die Semantik der STG-DE-Ausgabe absichtlich ändern. Für diese Änderung gelten dieselben Kompatibilitätsregeln wie für den zugrunde liegenden Standard.

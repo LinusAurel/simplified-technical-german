@@ -1,37 +1,37 @@
-# STG-DE skill evaluation
+# Evaluation des STG-DE-Skills
 
-This directory measures how well an agent applies STG-DE with the bundled skill.
+Dieses Verzeichnis misst, wie gut ein Agent STG-DE mit dem mitgelieferten Skill anwendet.
 
-| File | Purpose |
+| Datei | Zweck |
 |---|---|
-| `cases.yaml` | 12 WRITE, REWRITE, and AUDIT cases across all seven profiles, with machine-checkable expectations. |
-| `triggers.yaml` | Requests that should and should not load the skill. Use them to check the skill `description`. |
-| `reference/` | Reference outputs. They pass every check and prove that the scorer works. |
+| `cases.yaml` | 12 Fälle für WRITE, REWRITE und AUDIT in allen sieben Profilen, mit maschinell prüfbaren Erwartungen. |
+| `triggers.yaml` | Anfragen, bei denen der Agent den Skill laden soll, und Anfragen, bei denen der Agent den Skill nicht laden soll. Prüfen Sie mit diesen Anfragen die `description` des Skills. |
+| `reference/` | Referenzausgaben. Die Referenzausgaben bestehen jede Prüfung und belegen, dass das Bewertungswerkzeug funktioniert. |
 
-## What is measured
+## Was die Evaluation misst
 
-All checks are deterministic:
+Alle Prüfungen sind deterministisch:
 
-- **Rule compliance:** no deterministic linter errors in WRITE and REWRITE output, with the case profile.
-- **Fidelity:** `stg_compare.py` must not report lost protected content (numbers, units, identifiers, code, URLs, quoted UI text, safety signal words).
-- **Facts:** required strings are present, prohibited strings are absent.
-- **Output discipline:** no preamble, a `Hinweis:` line when the source cannot be made compliant without new facts, and compliant input stays unchanged.
-- **Audit accuracy:** the audit names the expected rule IDs and the correct `Ergebnis:` line.
+- **Einhaltung der Regeln:** keine deterministischen Fehler des Linters in der Ausgabe von WRITE und REWRITE, mit dem Profil des Falls.
+- **Treue:** `stg_compare.py` darf keinen verlorenen geschützten Inhalt melden (Zahlen, Einheiten, Bezeichner, Code, URLs, zitierte UI-Texte, Signalwörter für Sicherheit).
+- **Fakten:** Erforderliche Zeichenketten sind vorhanden. Verbotene Zeichenketten fehlen.
+- **Ausgabedisziplin:** keine Einleitung. Eine `Hinweis:`-Zeile, wenn der Ausgangstext ohne neue Fakten nicht konform werden kann. Konforme Eingabe bleibt unverändert.
+- **Genauigkeit des Audits:** Das Audit nennt die erwarteten Regel-IDs und die korrekte `Ergebnis:`-Zeile.
 
-The checks do not prove that meaning is preserved. Review `REVIEW` findings from `stg_compare.py` and a sample of outputs manually.
+Die Prüfungen beweisen nicht, dass die Bedeutung erhalten bleibt. Prüfen Sie die `REVIEW`-Befunde von `stg_compare.py` und eine Stichprobe der Ausgaben manuell.
 
-## Run
+## Ausführen
 
-Score the reference outputs:
+Bewerten Sie die Referenzausgaben:
 
 ```bash
 python tools/run_evals.py --outputs evals/reference
 ```
 
-Generate and score outputs with any CLI that reads a prompt on stdin:
+Erzeugen und bewerten Sie Ausgaben mit einer beliebigen CLI, die einen Prompt von stdin liest:
 
 ```bash
 python tools/run_evals.py --outputs runs/claude --command "claude -p"
 ```
 
-Compare runs with and without the skill installed, and across models. Store run outputs outside the repository or in a dated directory. Add a case to `cases.yaml` for every failure that you find in real use.
+Vergleichen Sie Durchläufe mit installiertem Skill und ohne installierten Skill. Vergleichen Sie Durchläufe auch zwischen verschiedenen Modellen. Speichern Sie die Ausgaben der Durchläufe außerhalb des Repositorys oder in einem datierten Verzeichnis. Fügen Sie für jeden Fehler aus der realen Verwendung einen Fall zu `cases.yaml` hinzu.

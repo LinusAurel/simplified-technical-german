@@ -1,68 +1,68 @@
-# STG-DE Release Checklist
+# STG-DE-Release-Checkliste
 
-Use this checklist for every tagged release.
+Verwenden Sie diese Checkliste für jedes Release mit Tag.
 
-## Scope and compatibility
+## Umfang und Kompatibilität
 
-- [ ] Set the intended version according to `VERSIONING.md`.
-- [ ] Review all normative rule and dictionary changes since the previous release.
-- [ ] Record restrictions, meaning changes, deprecations, and prohibitions in `CHANGELOG.md`.
-- [ ] Verify published rule IDs were not accidentally renumbered or reused.
-- [ ] Confirm application profiles reference valid rule IDs.
+- [ ] Legen Sie die vorgesehene Version nach `VERSIONING.md` fest.
+- [ ] Prüfen Sie alle Änderungen an normativen Regeln und am Wörterbuch seit dem vorherigen Release.
+- [ ] Dokumentieren Sie Einschränkungen, Bedeutungsänderungen, Abkündigungen und Verbote in `CHANGELOG.md`.
+- [ ] Prüfen Sie, dass niemand veröffentlichte Regel-IDs versehentlich neu nummeriert oder wiederverwendet hat.
+- [ ] Prüfen Sie, dass die Anwendungsprofile gültige Regel-IDs referenzieren.
 
-## Specification and dictionary
+## Spezifikation und Wörterbuch
 
-- [ ] Parse all YAML and JSON resources.
-- [ ] Verify dictionary entry IDs and controlled meaning IDs are unique.
-- [ ] Verify approved/prohibited canonical entries do not overlap unintentionally.
-- [ ] Review accepted lexical proposals for the release.
-- [ ] Confirm project/domain terminology was not absorbed into the central core solely to raise corpus coverage.
+- [ ] Parsen Sie alle YAML- und JSON-Ressourcen.
+- [ ] Prüfen Sie, dass die IDs der Wörterbucheinträge und der kontrollierten Bedeutungen eindeutig sind.
+- [ ] Prüfen Sie, dass sich zugelassene und verbotene kanonische Einträge nicht unbeabsichtigt überschneiden.
+- [ ] Prüfen Sie die angenommenen lexikalischen Vorschläge für das Release.
+- [ ] Prüfen Sie, dass Projekt- oder Domänenterminologie nicht nur für eine höhere Korpus-Abdeckung in den zentralen Kern kam.
 
-## Validator and quality
+## Validator und Qualität
 
-- [ ] Run `python -m unittest discover -s tests -v`.
-- [ ] Run `python tools/sync_skill.py --check`.
-- [ ] Run `python tools/validate_release.py --skip-manifest`.
-- [ ] Verify `quality/rule-coverage.yaml` contains every published rule exactly once.
-- [ ] Review any new deterministic checks for false-positive boundaries.
-- [ ] Verify golden audit fixtures pass.
+- [ ] Führen Sie `python -m unittest discover -s tests -v` aus.
+- [ ] Führen Sie `python tools/sync_skill.py --check` aus.
+- [ ] Führen Sie `python tools/validate_release.py --skip-manifest` aus.
+- [ ] Prüfen Sie, dass `quality/rule-coverage.yaml` jede veröffentlichte Regel genau einmal enthält.
+- [ ] Prüfen Sie bei neuen deterministischen Prüfungen die Grenzen für falsch positive Befunde.
+- [ ] Prüfen Sie, dass die Golden-Audit-Fixtures bestehen.
 
-## Corpus and evidence
+## Korpus und Belege
 
-- [ ] Confirm development, validation, and holdout partitions are fixed before release evaluation.
-- [ ] Confirm holdout evidence was not used to tune the same release dictionary/rules.
-- [ ] Run the reproducible corpus workflow when the release changes corpus-sensitive behavior.
-- [ ] Record source failures or extraction limitations.
-- [ ] Publish only permitted metadata/derived metrics; do not add third-party raw text without redistribution rights.
-- [ ] Record token counts and per-domain/per-partition metrics.
+- [ ] Prüfen Sie, dass die Entwicklungs-, Validierungs- und Holdout-Partitionen vor der Release-Evaluation festgelegt sind.
+- [ ] Prüfen Sie, dass niemand Holdout-Belege verwendet hat, um Wörterbuch oder Regeln desselben Release abzustimmen.
+- [ ] Führen Sie den reproduzierbaren Korpus-Workflow aus, wenn das Release korpusabhängiges Verhalten ändert.
+- [ ] Dokumentieren Sie Fehler bei Quellen und Einschränkungen bei der Extraktion.
+- [ ] Veröffentlichen Sie nur zulässige Metadaten und abgeleitete Metriken. Fügen Sie keinen unbearbeiteten Text von Dritten ohne Rechte zur Weitergabe hinzu.
+- [ ] Dokumentieren Sie die Token-Anzahl und die Metriken je Domäne und je Partition.
 
 ## Agent Skill
 
-- [ ] Run `python tools/package_skill.py` and `claude plugin validate .`.
-- [ ] Run `python tools/run_evals.py --outputs evals/reference` (must score 100%).
-- [ ] Confirm bundled references and linter are synchronized with canonical repository files.
-- [ ] Run `python tools/run_evals.py --command "<model CLI>"` against at least one model and record the score.
-- [ ] Confirm default WRITE/REWRITE output behavior has not changed unintentionally.
+- [ ] Führen Sie `python tools/package_skill.py` und `claude plugin validate .` aus.
+- [ ] Führen Sie `python tools/run_evals.py --outputs evals/reference` aus. Das Ergebnis muss 100 % sein.
+- [ ] Prüfen Sie, dass die mitgelieferten Referenzen und der Linter mit den kanonischen Dateien des Repositorys synchron sind.
+- [ ] Führen Sie `python tools/run_evals.py --command "<model CLI>"` mit mindestens einem Modell aus. Dokumentieren Sie das Ergebnis.
+- [ ] Prüfen Sie, dass sich das Standardverhalten der Ausgabe für WRITE und REWRITE nicht unbeabsichtigt geändert hat.
 
-## Artifact integrity
+## Integrität der Artefakte
 
-- [ ] Build standalone generated artifacts as applicable.
-- [ ] Run `python tools/build_manifest.py` only after all release files are final.
-- [ ] Run `python tools/validate_release.py` with manifest validation enabled.
-- [ ] Generate SHA-256 checksums for downloadable release artifacts.
-- [ ] Verify the tagged commit matches the release manifest.
+- [ ] Erstellen Sie die eigenständigen generierten Artefakte, wenn zutreffend.
+- [ ] Führen Sie `python tools/build_manifest.py` nur aus, wenn alle Release-Dateien endgültig sind.
+- [ ] Führen Sie `python tools/validate_release.py` mit aktivierter Validierung des Manifests aus.
+- [ ] Erzeugen Sie SHA-256-Prüfsummen für die herunterladbaren Release-Artefakte.
+- [ ] Prüfen Sie, dass der Commit mit dem Tag zum Release-Manifest passt.
 
-## Publication
+## Veröffentlichung
 
-- [ ] Update the version in `CITATION.cff`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `STG_VERSION` in `tools/stg_lint.py` and `tools/stg_compare.py`, and the `release` fields of the data files. `tests/test_packaging.py` checks that they match.
-- [ ] Create the Git tag `vX.Y.Z`. The release workflow builds the skill ZIP and checksum and publishes the GitHub release.
-- [ ] Publish release notes from `CHANGELOG.md` and accepted proposals.
-- [ ] Attach packaged Agent Skill and other release artifacts when available.
-- [ ] Publish checksum file with the release assets.
-- [ ] Verify README version/status information and installation examples.
+- [ ] Aktualisieren Sie die Version in `CITATION.cff`, `.claude-plugin/plugin.json` und `.claude-plugin/marketplace.json`. Aktualisieren Sie `STG_VERSION` in `tools/stg_lint.py` und `tools/stg_compare.py`. Aktualisieren Sie die Felder `release` der Datendateien. `tests/test_packaging.py` prüft, dass alle Versionen übereinstimmen.
+- [ ] Erstellen Sie den Git-Tag `vX.Y.Z`. Der Release-Workflow erstellt das Skill-ZIP und die Prüfsumme und veröffentlicht das GitHub-Release.
+- [ ] Veröffentlichen Sie Release Notes aus `CHANGELOG.md` und den angenommenen Vorschlägen.
+- [ ] Hängen Sie den paketierten Agent Skill und andere Release-Artefakte an, wenn verfügbar.
+- [ ] Veröffentlichen Sie die Prüfsummendatei mit den Release-Assets.
+- [ ] Prüfen Sie Versions- und Statusinformationen und Installationsbeispiele in der README.
 
-## Post-release
+## Nach dem Release
 
-- [ ] Check CI on the tagged/default-branch commit.
-- [ ] Open follow-up issues for known limitations that were explicitly deferred.
-- [ ] Do not retroactively modify holdout results for the tagged release.
+- [ ] Prüfen Sie die CI für den Commit mit dem Tag und für den Commit auf dem Standard-Branch.
+- [ ] Öffnen Sie Folge-Issues für bekannte Einschränkungen, deren Bearbeitung ausdrücklich verschoben wurde.
+- [ ] Ändern Sie Holdout-Ergebnisse für das Release mit Tag nicht nachträglich.

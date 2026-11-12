@@ -2,7 +2,7 @@
 
 ## Zusammenfassung des Ergebnisses
 
-v0.1 validiert den Autorenkern mit einem **geschichteten Korpus aus sechs Branchen** und nicht mit einer einzelnen Ingenieursdomäne. Das öffentliche Validierungsset enthält **18 unabhängige technische Quellen**, je drei Quellen aus jeder Branche. Es enthält **2,066 analysierte Token** in kurzen deutschen Auszügen. Das Release verteilt die Auszüge und Handbücher **nicht**. Es speichert nur Metadaten der Quellen, Hashes, Häufigkeiten und aggregierte Metriken.
+v0.1 validiert den Autorenkern mit einem **geschichteten Korpus aus sechs Branchen** und nicht mit einer einzelnen Ingenieursdomäne. Das öffentliche Validierungsset enthält **18 unabhängige technische Quellen**, je drei Quellen aus jeder Branche. Es enthält **2.066 analysierte Token** in kurzen deutschen Auszügen. Das Release verteilt die Auszüge und Handbücher **nicht**. Es speichert nur Metadaten der Quellen, Hashes, Häufigkeiten und aggregierte Metriken.
 
 | Metrik | v0.0.3-Basis | v0.1 nur Normalisierung | v0.1 endgültig |
 |---|---:|---:|---:|
@@ -23,7 +23,7 @@ Die endgültige Abdeckung durch zentrale Oberflächenformen liegt bei diesem öf
 | Medizintechnik | 3 | 334 | 52.1% | **55.4%** |
 | Software/IT | 3 | 364 | 58.0% | **62.1%** |
 
-Die sechs Strata sind Maschinenbau, Automotive, Elektrotechnik, Software/IT, Medizintechnik und Anlagenbau. Die Auswahl der Quellen bevorzugt Dokumentation von Herstellern oder Projekten, die öffentlich auf Deutsch zugänglich ist. `corpus/sources.yaml` dokumentiert die exakten Metadaten der Quellen und die Hashes der Stichproben.
+Die sechs Strata sind Maschinenbau, Automotive, Elektrotechnik, Software/IT, Medizintechnik und Anlagenbau. Die Auswahl der Quellen bevorzugt Dokumentation von Herstellern oder Projekten, die öffentlich auf Deutsch zugänglich ist. Die Datei `corpus/sources.yaml` dokumentiert die exakten Metadaten der Quellen und die Hashes der Stichproben.
 
 Die Token-Anzahlen sind absichtlich ähnlich, aber nicht gleich. Eine gleiche Anzahl von Dokumenten verhindert, dass eine Branche die Kuratierung dominiert. Das Release enthält keine Handbücher von Dritten. Lesen Sie dieses Release deshalb als **geschichtetes Belegkorpus** und nicht als Volltextarchiv.
 
@@ -43,7 +43,7 @@ Dieser Befund ist für die agentenbasierte Validierung wichtig. Gleiche Oberflä
 
 ### 3. Großschreibung bedeutet nicht mehr „Fachbegriff“
 
-Im Deutschen sind alle Nomen großgeschrieben. Die Entwicklungsheuristik von v0.0.3 ordnete jedes unbekannte großgeschriebene Token `TECHNICAL_TERM_CANDIDATE` zu. Diese Zuordnung zeigt eine zu hohe Abdeckung durch Terminologie. v0.1 verwendet die neutrale Klasse `LEXICAL_NOUN_CANDIDATE`. Ein Kandidat wird erst nach der Auflösung gegen ein zugelassenes Projektglossar oder eine Kategorie für Fachnomen zu Projektterminologie.
+Im Deutschen sind alle Nomen großgeschrieben. Die Entwicklungsheuristik von v0.0.3 ordnete jedes unbekannte großgeschriebene Token `TECHNICAL_TERM_CANDIDATE` zu. Diese Zuordnung zeigt eine zu hohe Abdeckung durch Terminologie. v0.1 verwendet die neutrale Klasse `LEXICAL_NOUN_CANDIDATE`. Ein Kandidat wird nur nach der Auflösung gegen ein zugelassenes Projektglossar oder eine Kategorie für Fachnomen zu Projektterminologie.
 
 ### 4. Nur domänenübergreifendes, kontrollierbares Vokabular kam in den Kern
 
@@ -53,7 +53,7 @@ Häufigkeit allein genügte **nicht** für eine Zulassung. Häufige Wörter wie 
 
 ### 5. Die Abdeckungskurve ist jetzt reproduzierbar
 
-`corpus/coverage-curves.csv` beginnt mit dem historischen Ergebnis von v0.0.3. Danach wendet die Kurve die Normalisierungsschicht von v0.1 an. Danach fügt sie jeden neuen Kerneintrag in einer deterministischen Reihenfolge der Belege hinzu. So trennt die Kurve die Gewinne aus Korrekturen an Grammatik und Lemmatisierung von den Gewinnen durch neues Vokabular.
+`corpus/coverage-curves.csv` beginnt mit dem historischen Ergebnis von v0.0.3. Danach wendet die Kurve die Normalisierungsschicht von v0.1 an. Danach fügt sie jeden neuen Kerneintrag in einer deterministischen Reihenfolge der Belege hinzu. Mit diesem Verfahren trennt die Kurve die Gewinne aus Korrekturen an Grammatik und Lemmatisierung von den Gewinnen durch neues Vokabular.
 
 ## Endgültige Verteilung nach Branchen
 
@@ -75,7 +75,7 @@ Das Ziel ist nicht, dass vorhandene Handbücher ohne Änderung bestehen. Das Zie
 
 ## Was v0.1 nicht beweist
 
-v0.1 ist deutlich stärker als v0.0.3. v0.1 ist aber weiterhin ein experimenteller Autorenstandard. v0.1 belegt keine Abdeckung der gesamten deutschen technischen Dokumentation. v0.1 ersetzt diese Punkte nicht:
+v0.1 ist deutlich stärker als v0.0.3. Trotzdem ist v0.1 weiterhin ein experimenteller Autorenstandard. Die Version belegt keine Abdeckung der gesamten deutschen technischen Dokumentation. Die Version ersetzt diese Punkte nicht:
 
 - Review durch Fachleute aus deutscher technischer Redaktion und Terminologie,
 - Analyse lizenzierter Volltextkorpora in deutlich größerem Umfang,

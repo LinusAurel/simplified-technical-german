@@ -1,26 +1,26 @@
 # AGENTS.md
 
-## Purpose
+## Zweck
 
-This repository contains the canonical STG-DE specification, dictionary, validator tools, public corpus-derived metrics, and the packaged Agent Skill source.
+Dieses Repository enthält die kanonische Spezifikation von STG-DE, das Wörterbuch, die Validator-Werkzeuge, öffentliche Kennzahlen aus Korpora und die Quelle des paketierten Agent Skills.
 
-## Source of truth
+## Maßgebliche Quellen
 
-- Edit canonical rules in `rules/`.
-- Edit central terminology in `dictionary/`.
-- Edit mapping data in `mapping/`. Never copy ASD-STE100 rule text, examples, or dictionary entries into the repository (see `NOTICE.md`).
-- Do not hand-edit generated files in `skills/simplified-technical-german/references/` or the generated skill linter copy.
-- After canonical changes, run `python tools/sync_skill.py`.
-- Rebuild `STG-DE.md` with `python tools/build_standalone.py`.
-- Rebuild `manifest.yaml` with `python tools/build_manifest.py`.
+- Ändern Sie kanonische Regeln in `rules/`.
+- Ändern Sie die zentrale Terminologie in `dictionary/`.
+- Ändern Sie Daten der Zuordnung in `mapping/`.
+- Ändern Sie erzeugte Dateien in `skills/simplified-technical-german/references/` nicht von Hand. Ändern Sie die erzeugte Kopie des Linters im Skill nicht von Hand.
+- Führen Sie nach kanonischen Änderungen `python tools/sync_skill.py` aus.
+- Erzeugen Sie `STG-DE.md` mit `python tools/build_standalone.py` neu.
+- Erzeugen Sie `manifest.yaml` mit `python tools/build_manifest.py` neu.
 
-## Corpus boundary
+## Grenze für Korpora
 
-Use only public or explicitly approved corpus sources in repository-facing validation artifacts. Do not commit full third-party manuals or private source documents. Store source metadata and derived metrics only.
+Verwenden Sie in Validierungsartefakten des Repositorys nur öffentliche oder ausdrücklich genehmigte Korpusquellen. Committen Sie keine vollständigen Handbücher Dritter und keine privaten Quelldokumente. Speichern Sie nur Metadaten der Quellen und abgeleitete Kennzahlen.
 
-## Validation
+## Validierung
 
-Run before commit:
+Führen Sie diese Befehle vor einem Commit aus:
 
 ```bash
 python tools/sync_skill.py
@@ -29,11 +29,8 @@ python tools/build_manifest.py
 python -m unittest discover -s tests -v
 python tools/sync_skill.py --check
 python tools/validate_release.py
-python tools/run_evals.py --outputs evals/reference
 ```
 
-`validate_release.py` without `--skip-manifest` passes only after `build_manifest.py` ran on the final release files. On development branches use `--skip-manifest`.
+## Sprachdesign
 
-## Language design
-
-Do not add a word to the central dictionary merely because it appears frequently. Prefer project terminology for narrow product, company, scientific, legal, medical, or industry-specific terms. Preserve the distinction between deterministic violations and review-required heuristics.
+Fügen Sie ein Wort nicht nur deshalb in das zentrale Wörterbuch ein, weil das Wort häufig vorkommt. Bevorzugen Sie Projektterminologie für enge Begriffe aus Produkt, Unternehmen, Wissenschaft, Recht, Medizin oder Branche. Erhalten Sie die Unterscheidung zwischen deterministischen Verstößen und heuristischen Befunden, die eine Prüfung erfordern.
