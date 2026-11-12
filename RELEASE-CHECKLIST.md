@@ -54,7 +54,7 @@ Verwenden Sie diese Checkliste für jedes Release mit Tag.
 
 ## Veröffentlichung
 
-- [ ] Aktualisieren Sie die Version in `CITATION.cff`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `pyproject.toml` und `stg_de/__init__.py`. Aktualisieren Sie `STG_VERSION` in `tools/stg_lint.py` und `tools/stg_compare.py`. Aktualisieren Sie die Felder `release` der Datendateien. `tests/test_packaging.py` prüft, dass alle Versionen übereinstimmen.
+- [ ] Aktualisieren Sie die Version in `CITATION.cff`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.codex-plugin/plugin.json`, `pyproject.toml` und `stg_de/__init__.py`. Aktualisieren Sie `STG_VERSION` in `tools/stg_lint.py` und `tools/stg_compare.py`. Aktualisieren Sie die Felder `release` der Datendateien. `tests/test_packaging.py` prüft, dass alle Versionen übereinstimmen.
 - [ ] Erstellen Sie den Git-Tag `vX.Y.Z`. Der Release-Workflow erstellt das Skill-ZIP und die Prüfsumme und veröffentlicht das GitHub-Release.
 - [ ] Veröffentlichen Sie Release Notes aus `CHANGELOG.md` und den angenommenen Vorschlägen.
 - [ ] Hängen Sie den paketierten Agent Skill und andere Release-Artefakte an, wenn verfügbar.

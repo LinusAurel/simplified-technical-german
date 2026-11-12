@@ -2,12 +2,18 @@ schema_version: '0.4'
 release: 0.5.0
 status: experimental
 files:
+- path: .agents/plugins/marketplace.json
+  size_bytes: 388
+  sha256: 0f2379dbc055acf8b14d7818d622890e72ab1d91fcef23515904b1cc8a04422f
 - path: .claude-plugin/marketplace.json
   size_bytes: 525
   sha256: a373e5910e2cd5cf742513c83364191b628b16eb7d671891d37fbbc5f8946aab
 - path: .claude-plugin/plugin.json
   size_bytes: 663
   sha256: a1bcc62ad20b98f8e41aa988880f7cce4bd7a0930310d0687fd93d2bc73a112e
+- path: .codex-plugin/plugin.json
+  size_bytes: 1654
+  sha256: 1ed96b527a8614246aba0451dac9bd63bdaf33a2126f07467cce54451730c17a
 - path: .github/workflows/ci.yml
   size_bytes: 1316
   sha256: 8193d99cfc502ba458f0f469c5e4563dc296dfbee9782b31b3aea430bd2dde71
@@ -30,8 +36,8 @@ files:
   size_bytes: 1759
   sha256: 2cb476b425196f405b2c88e73500fd2464e244f0e0b32d3581a75651898d7014
 - path: CHANGELOG.md
-  size_bytes: 6627
-  sha256: 14da04129d5d85ae7301f71b8f88fe6f66f418d14aafe8e4832571be595849b0
+  size_bytes: 7253
+  sha256: d7a7f5d3215d014b2c12103a80868e5631c9a3a4eeb69c6d1f2ef24b72f3ef98
 - path: CITATION.cff
   size_bytes: 471
   sha256: 7848d27a6ad1ff0d3b78c2efeabb30b37d69a001ef743fc44494024c74ed1459
@@ -48,11 +54,11 @@ files:
   size_bytes: 1557
   sha256: 498792fa66b0f67f69adc3f0d4b1ef763db7dae08987527c26210ae64c5887eb
 - path: README.md
-  size_bytes: 12177
-  sha256: 6c67206e4a37f1a9a6ee9041501b8c176f97d13fedf7c3855d4d4be78569c767
+  size_bytes: 13236
+  sha256: 530211c6605dbfb0bc5230e783867c61cef23e15817bc48e457f750a9f96cde7
 - path: RELEASE-CHECKLIST.md
-  size_bytes: 4600
-  sha256: eccc8ca8826950c8593bfd8026115a13c097fd81e0b4e287bfd51fb9014c69f8
+  size_bytes: 4629
+  sha256: eb5f2f02cd82ebe1d2e0309bd7630b1e19ef4d706b9e53b8a7434d06f1bc2a42
 - path: ROADMAP.md
   size_bytes: 10129
   sha256: 04da7e070f62c376970e06f2f4a833c46ea7218fd14efb2531e8322dfbbb4357
@@ -132,8 +138,8 @@ files:
   size_bytes: 1273
   sha256: a16ac0e132f44807048a70358e87b16ba65f00562437bb942c63f90db930617a
 - path: evals/README.md
-  size_bytes: 2159
-  sha256: 2a6c2f6118657f250826913261c3aa56c148238212698b6bddd36981e323fe10
+  size_bytes: 2244
+  sha256: d77a7ef55a1ee923754f1e12d23810756b032cd960c2d35653bbec6cd35eec8e
 - path: evals/cases.yaml
   size_bytes: 5288
   sha256: 7171eb9e1e8509fa4beac700b8afd1731ac114a92f312266145ee7dd1931ca99
@@ -270,11 +276,11 @@ files:
   size_bytes: 727
   sha256: 2b55b12c0b233439577781722d9fe3984bc614b40d8981a592bebbe208c5ab9e
 - path: skills/simplified-technical-german/SKILL.md
-  size_bytes: 15526
-  sha256: 717ad1f99dc9c1a287c48cef36f4b2e084ce7152dd9901875be6ee0078675b31
+  size_bytes: 15854
+  sha256: 35abec37c9670177935d9515b5b57400d8b82c1b8ed32e9a120aa5b8370f759d
 - path: skills/simplified-technical-german/agents/openai.yaml
-  size_bytes: 238
-  sha256: 94b0f8a563440f53d746b25e14d1749dd53ad9cb8a9ca64eee1f06e099637737
+  size_bytes: 279
+  sha256: 8157e7ae56af423ec1d6e643e2f9b74be0af7f0d54e9d53ce3676bbaa967cd3b
 - path: skills/simplified-technical-german/references/approved-words.yaml
   size_bytes: 135348
   sha256: 3400ca73698755ffe67d2d42ba1b0e3d948601f4c25f3728c60a219750f66df3
@@ -360,8 +366,8 @@ files:
   size_bytes: 3467
   sha256: 6a3d28333abc8e6fd9f4262d37f0c0cabdbc004fc48f4223fd51a0b3889bf3ad
 - path: tests/test_packaging.py
-  size_bytes: 4221
-  sha256: 7a8c8344fa711a4fec3de2c9620802cc6c79584f68c8b0eb5abd48b336795458
+  size_bytes: 6384
+  sha256: 7470a7ec247d9c76d906a61ab2010592b888c8cc862918b298475463a4da5b58
 - path: tests/test_profiles.py
   size_bytes: 2998
   sha256: 4d9fe4fe02e4d220c79c5017feb09b6205895a0a68a3a6373a30f2888f23c2db

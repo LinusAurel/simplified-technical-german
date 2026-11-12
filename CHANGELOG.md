@@ -1,5 +1,15 @@
 # Änderungsprotokoll
 
+## Unveröffentlicht
+
+### OpenAI Codex
+
+- Das Repository ist ein Codex-Plugin: `.codex-plugin/plugin.json` und der Marketplace `.agents/plugins/marketplace.json`.
+- `agents/openai.yaml` folgt den Vorgaben von Codex: kurze Beschreibung mit 25 bis 64 Zeichen und ein Standard-Prompt mit `$simplified-technical-german`.
+- `SKILL.md` nennt die Pfade der Skripte relativ zum Ordner des Skills. Codex führt Befehle im Projektverzeichnis aus.
+- Das README beschreibt die Installation in Codex als Plugin, über `$skill-installer` und als Ordner in `.agents/skills/`.
+- Tests prüfen Manifest, Marketplace und `agents/openai.yaml`.
+
 ## 0.5.0 — 2026-11-12
 
 Diese Version ist die erste Version, deren Werkzeuge und Agent Skill für den praktischen Einsatz vorgesehen sind. Die kontrollierten Bedeutungen im Wörterbuch bleiben gleich. Alle veröffentlichten Regel-IDs bleiben stabil.
