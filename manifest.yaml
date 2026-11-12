@@ -324,8 +324,8 @@ files:
   size_bytes: 727
   sha256: 2b55b12c0b233439577781722d9fe3984bc614b40d8981a592bebbe208c5ab9e
 - path: skills/simplified-technical-german/SKILL.md
-  size_bytes: 15857
-  sha256: 30a26fab9c71ab66e02d9b4fd0c7276ef22eaf343ad0f85e613abb837b88d933
+  size_bytes: 16474
+  sha256: 631a592acd1063ad02383d4c90aa53ce57d19515c70d47c24ce6ffacdc02efee
 - path: skills/simplified-technical-german/agents/openai.yaml
   size_bytes: 279
   sha256: 8157e7ae56af423ec1d6e643e2f9b74be0af7f0d54e9d53ce3676bbaa967cd3b
