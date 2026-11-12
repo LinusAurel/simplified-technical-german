@@ -45,11 +45,8 @@ Verwenden Sie diese Checkliste für jedes Release mit Tag.
 
 ## Integrität der Artefakte
 
-- [ ] Erstellen Sie die eigenständigen generierten Artefakte, wenn zutreffend.
-- [ ] Führen Sie `python tools/build_manifest.py` nur aus, wenn alle Release-Dateien endgültig sind.
-- [ ] Führen Sie `python tools/validate_release.py` mit aktivierter Validierung des Manifests aus.
-- [ ] Erzeugen Sie SHA-256-Prüfsummen für die herunterladbaren Release-Artefakte.
-- [ ] Prüfen Sie, dass der Commit mit dem Tag zum Release-Manifest passt.
+- [ ] Der Release-Workflow erzeugt `STG-DE.md` und `manifest.yaml`, prüft das Manifest mit `tools/validate_release.py` und hängt beide Dateien an das Release an. Das Repository enthält diese Dateien nicht.
+- [ ] Prüfen Sie nach dem Release, dass `manifest.yaml` im Release den Stand des Tags beschreibt.
 
 ## Veröffentlichung
 

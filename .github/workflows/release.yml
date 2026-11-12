@@ -42,6 +42,8 @@ jobs:
           if gh release view "$TAG" >/dev/null 2>&1; then echo "Release $TAG exists already"; exit 1; fi
       - run: python -m pip install -r requirements-dev.txt
       - run: python -m unittest discover -s tests -v
+      - run: python tools/build_standalone.py
+      - run: python tools/build_manifest.py
       - run: python tools/validate_release.py
       - run: python tools/package_skill.py --out dist
       - name: Extract release notes
