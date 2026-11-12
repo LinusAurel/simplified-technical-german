@@ -10,6 +10,11 @@
 - Das README beschreibt die Installation in Codex als Plugin, über `$skill-installer` und als Ordner in `.agents/skills/`.
 - Tests prüfen Manifest, Marketplace und `agents/openai.yaml`.
 
+### Automatisierung auf GitHub
+
+- Der Workflow `Release` ist auch manuell startbar (`workflow_dispatch` mit `version`). Er erstellt dann den Tag auf `main` selbst. Die Notizen kommen aus dem Abschnitt der Version in `CHANGELOG.md`.
+- Neuer Workflow `Clean up branches`: Er löscht den Branch eines gemergten Pull Requests automatisch. Ein manueller Start löscht alle Branches ohne eigene Commits außerhalb von `main`.
+
 ## 0.5.0 — 2026-11-12
 
 Diese Version ist die erste Version, deren Werkzeuge und Agent Skill für den praktischen Einsatz vorgesehen sind. Die kontrollierten Bedeutungen im Wörterbuch bleiben gleich. Alle veröffentlichten Regel-IDs bleiben stabil.
