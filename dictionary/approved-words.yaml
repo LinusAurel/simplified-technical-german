@@ -1,5 +1,5 @@
 schema_version: '0.1'
-release: 0.3.0
+release: 0.4.0
 status: multi_industry_corpus_validated_authoring_core
 language: de-DE
 normative_for_profile: STG-C-core

@@ -1,6 +1,21 @@
 # Änderungsprotokoll
 
-## Unveröffentlicht
+## 0.4.0 — 2026-11-12
+
+### Neue Nummerierung der Releases
+
+- Die Releases heißen jetzt 0.1.0 (vorher 0.4.0), 0.2.0 (vorher 0.5.0) und 0.3.0 (vorher 0.6.0). Die Entwürfe vor dem öffentlichen Repository heißen 0.0.1 bis 0.0.3.
+- Die Historie des Repositorys ist umgeschrieben. Die Dateien der alten Stände nennen die neuen Nummern. Die Tags `v0.1.0`, `v0.2.0` und `v0.3.0` zeigen auf diese Stände.
+
+### Aufräumen
+
+- `ROADMAP.md` nennt nur noch offene Arbeit. Erledigte Arbeit steht in diesem Änderungsprotokoll.
+- Die Vale-Regeln in `vale/` sind entfernt. Der Linter prüft dieselben Fälle.
+- Die Dateien des alten Korpus aus 0.1.0 sind entfernt, auch `tools/corpus_validate.py`.
+- Neue Namen ohne Version: `corpus/fulltext-sources.yaml`, `corpus/fulltext-metrics.yaml`, `tools/build_corpus.py`.
+- Die Werte von `review_status` im Wörterbuch haben keine Version mehr, zum Beispiel `provisional`.
+- Ein Test prüft die Daten von Wörterbuch und Regelindex gegen die JSON-Schemas in `schemas/`.
+- `build_standalone.py --check` prüft in der CI, dass `STG-DE.md` zu den Quelldateien passt.
 
 ### Modalität von Empfehlungen (STG-2026-002)
 
@@ -57,7 +72,6 @@
 
 ### Ordnung und Konsistenz
 
-- `ROADMAP.md` zeigt jetzt die veröffentlichten Versionen und den Plan für 0.4.0, 0.5.0, 0.6.0 und 1.0. Die früheren Abschnitte v0.3 bis v0.6 waren Arbeitsbereiche, keine Releases.
 - `validate_release.py` prüft die Zahl der Quellen gegen die Daten des Korpus statt gegen eine feste Zahl.
 - `AGENTS.md` enthält jetzt die einzige Liste der Prüfungen vor einem Commit. `CONTRIBUTING.md` und `README.md` verweisen auf diese Liste.
 - `VERSIONING.md` legt fest: `schema_version` ist die Version des Dateiformats. `profiles/profiles.yaml` hat jetzt `schema_version` 0.2.

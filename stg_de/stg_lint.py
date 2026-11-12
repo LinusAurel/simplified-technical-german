@@ -18,7 +18,7 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from stg_markdown import LIST_ITEM_RE, prose_blocks, split_sentences, strip_markdown_code  # noqa: E402
 
-STG_VERSION = "0.3.0"
+STG_VERSION = "0.4.0"
 TEXT_SUFFIXES = {".md", ".markdown", ".txt", ".rst", ".adoc"}
 SEVERITY_RANK = {"review": 1, "warning": 2, "error": 3}
 
