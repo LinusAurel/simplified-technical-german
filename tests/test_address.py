@@ -6,10 +6,10 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(ROOT / "stg_de"))
 from stg_lint import audit_text  # noqa: E402
 
-LINTER = ROOT / "tools" / "stg_lint.py"
+LINTER = ROOT / "stg_de" / "stg_lint.py"
 
 
 def address(text, form=None, project=None):

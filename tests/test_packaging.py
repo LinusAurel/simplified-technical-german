@@ -10,6 +10,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "simplified-technical-german"
 sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(ROOT / "stg_de"))
 
 
 def release_version():

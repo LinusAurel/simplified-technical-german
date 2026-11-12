@@ -10,7 +10,8 @@ Dieses Repository enthält die kanonische Spezifikation von STG-DE, das Wörterb
 - Ändern Sie die zentrale Terminologie in `dictionary/`.
 - Ändern Sie Daten der Zuordnung in `mapping/`.
 - Ändern Sie erzeugte Dateien in `skills/simplified-technical-german/references/` nicht von Hand. Ändern Sie die erzeugte Kopie des Linters im Skill nicht von Hand.
-- Ändern Sie die Kopien im Paket `stg_de/` nicht von Hand.
+- Ändern Sie den Code der Werkzeuge (Linter, Analysewerkzeug, Vergleich) in `stg_de/`. Diese Module sind die einzige Implementierung.
+- Ändern Sie die Datenkopien in `stg_de/dictionary/` und `stg_de/profiles/` nicht von Hand.
 - Führen Sie nach kanonischen Änderungen `python tools/sync_skill.py` und `python tools/sync_package.py` aus.
 - Erzeugen Sie `STG-DE.md` mit `python tools/build_standalone.py` neu.
 - Erzeugen Sie `manifest.yaml` nur vor einem getaggten Release mit `python tools/build_manifest.py` neu.

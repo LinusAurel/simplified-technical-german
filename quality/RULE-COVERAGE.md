@@ -18,7 +18,7 @@ Eine Regel kann Teil des STG-DE-Standards sein, auch wenn der derzeitige Validat
 
 `quality/rule-coverage.yaml` ist die maßgebliche Liste. Diese Liste nennt für jede der 75 Regeln und Empfehlungen die Erkennungsklasse und den Stand der Implementierung. 19 Regeln haben eine implementierte Prüfung: 9 Regeln im Linter und 10 Regeln im Analyzer.
 
-### Linter (`tools/stg_lint.py`)
+### Linter (`stg_de/stg_lint.py`)
 
 | Regel | Derzeitige automatisierte Prüfung | Abdeckung | Schweregrad |
 |---|---|---|---|
@@ -34,7 +34,7 @@ Eine Regel kann Teil des STG-DE-Standards sein, auch wenn der derzeitige Validat
 
 Der Wortzähler für `STG-5.1` und `STG-6.3` zählt ein Bindestrichkompositum als ein Wort. Diese Zählung setzt `STG-8.7` um. `STG-8.7` hat keine eigene Prüfung und erzeugt keine eigenen Befunde. Aus diesem Grund hat `STG-8.7` in `quality/rule-coverage.yaml` den Wert `implemented: false`.
 
-### Analyzer (`tools/stg_analyze.py`)
+### Analyzer (`stg_de/stg_analyze.py`)
 
 Der Analyzer gibt nur Belege für das Review zurück. Die Belege beschreibt `quality/GERMAN-ANALYSIS.md`.
 
@@ -55,7 +55,7 @@ Mit der Option `--lexicon-report` meldet der Validator auch Oberflächenformen, 
 
 ### Verarbeitung der Eingabe
 
-Der Linter und der Analyzer segmentieren Markdown, bevor sie Sätze zählen (`tools/stg_markdown.py`):
+Der Linter und der Analyzer segmentieren Markdown, bevor sie Sätze zählen (`stg_de/stg_markdown.py`):
 
 - Die Werkzeuge ignorieren Codeblöcke, HTML-Kommentare und YAML-Frontmatter.
 - Die Werkzeuge ignorieren Bereiche zwischen `<!-- stg-lint: off -->` und `<!-- stg-lint: on -->`. Verwenden Sie diese Markierungen nur für absichtlich nicht konforme Beispiele.
@@ -68,7 +68,7 @@ Der Linter und der Analyzer segmentieren Markdown, bevor sie Sätze zählen (`to
 
 ## Bedeutungserhaltung
 
-`tools/stg_compare.py` vergleicht einen Quelltext mit seiner Umformulierung. Das Werkzeug ist keine Konformitätsprüfung und meldet keine Verstöße im Zieltext.
+`stg_de/stg_compare.py` vergleicht einen Quelltext mit seiner Umformulierung. Das Werkzeug ist keine Konformitätsprüfung und meldet keine Verstöße im Zieltext.
 
 | Signal | Ergebnis bei Änderung | Zugehörige Regel |
 |---|---|---|

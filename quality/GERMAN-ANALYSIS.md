@@ -1,8 +1,8 @@
 # Analyseschicht für Deutsch
 
-`tools/stg_analyze.py` fügt eine konservative Review-Schicht für deutsche Strukturen hinzu, die der deterministische Linter nicht zuverlässig nachweisen kann.
+`stg_de/stg_analyze.py` fügt eine konservative Review-Schicht für deutsche Strukturen hinzu, die der deterministische Linter nicht zuverlässig nachweisen kann.
 
-Diese Schicht ist absichtlich von `tools/stg_lint.py` getrennt.
+Diese Schicht ist absichtlich von `stg_de/stg_lint.py` getrennt.
 
 ## Vertrag
 
@@ -38,15 +38,15 @@ Der Analyzer kann Kandidaten für diese Fälle anzeigen:
 ## Verwendung
 
 ```bash
-python tools/stg_analyze.py document.md
-python tools/stg_analyze.py document.md --format json
+python stg_de/stg_analyze.py document.md
+python stg_de/stg_analyze.py document.md --format json
 ```
 
 Verwenden Sie den deterministischen Linter und den Review-Analyzer zusammen:
 
 ```bash
-python tools/stg_lint.py document.md --profile procedure --format json
-python tools/stg_analyze.py document.md --format json
+python stg_de/stg_lint.py document.md --profile procedure --format json
+python stg_de/stg_analyze.py document.md --format json
 ```
 
 ## Semantik der Konfidenz

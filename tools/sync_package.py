@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Synchronize/check installable-package copies against canonical STG-DE sources."""
+"""Synchronize/check the data copies in the package stg_de/ against the canonical data.
+
+The code in stg_de/ is canonical. Only the dictionary and profile data are copies.
+"""
 from __future__ import annotations
 
 import argparse
@@ -9,10 +12,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / "stg_de"
 MAPPINGS = {
-    ROOT / "tools" / "stg_lint.py": PACKAGE / "stg_lint.py",
-    ROOT / "tools" / "stg_analyze.py": PACKAGE / "stg_analyze.py",
-    ROOT / "tools" / "stg_compare.py": PACKAGE / "stg_compare.py",
-    ROOT / "tools" / "stg_markdown.py": PACKAGE / "stg_markdown.py",
     ROOT / "dictionary" / "approved-words.yaml": PACKAGE / "dictionary" / "approved-words.yaml",
     ROOT / "dictionary" / "prohibited-words.yaml": PACKAGE / "dictionary" / "prohibited-words.yaml",
     ROOT / "profiles" / "profiles.yaml": PACKAGE / "profiles" / "profiles.yaml",
@@ -32,7 +31,7 @@ def main() -> int:
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source, target)
     if mismatches:
-        print("Package copies are out of sync:")
+        print("Package data copies are out of sync:")
         for path in mismatches:
             print("-", path)
         return 1

@@ -8,7 +8,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-LINTER = ROOT / "tools/stg_lint.py"
+LINTER = ROOT / "stg_de/stg_lint.py"
 
 
 def run(text, *args):

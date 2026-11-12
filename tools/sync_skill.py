@@ -43,7 +43,7 @@ def main() -> int:
     scripts = ["stg_lint.py", "stg_analyze.py", "stg_compare.py", "stg_markdown.py"]
     for script_name in scripts:
         script_target = SKILL / "scripts" / script_name
-        source = ROOT / "tools" / script_name
+        source = ROOT / "stg_de" / script_name
         if args.check:
             if not script_target.exists() or script_target.read_bytes() != source.read_bytes():
                 mismatches.append(str(script_target.relative_to(ROOT)))

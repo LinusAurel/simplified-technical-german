@@ -33,9 +33,9 @@ Ein Profil kann eine strukturelle Grenze explizit festlegen. Ein Profil kann abe
 ## CLI
 
 ```bash
-python tools/stg_lint.py instructions.md --profile procedure
-python tools/stg_lint.py warning.md --profile safety --format json
-python tools/stg_lint.py prompt.md --profile agent --format json
+python stg_de/stg_lint.py instructions.md --profile procedure
+python stg_de/stg_lint.py warning.md --profile safety --format json
+python stg_de/stg_lint.py prompt.md --profile agent --format json
 ```
 
 Die ältere Option `--text-type` ist als explizite strukturelle Überschreibung verfügbar. Wenn der Wert `auto` ist, liefert das ausgewählte Profil den strukturellen Typ.

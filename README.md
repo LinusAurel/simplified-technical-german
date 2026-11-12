@@ -156,19 +156,19 @@ python -m pip install -r requirements-dev.txt
 Prüfen Sie Dateien und Verzeichnisse. Der Linter erkennt Markdown: Er ignoriert Codeblöcke und behandelt Listenpunkte und Tabellenzellen als eigene Sätze.
 
 ```bash
-python tools/stg_lint.py docs/ README.de.md --profile procedure
+python stg_de/stg_lint.py docs/ README.de.md --profile procedure
 ```
 
 JSON-Ausgabe aus stdin:
 
 ```bash
-printf 'Prüfen Sie gegebenenfalls das Gerät.' | python tools/stg_lint.py - --format json
+printf 'Prüfen Sie gegebenenfalls das Gerät.' | python stg_de/stg_lint.py - --format json
 ```
 
 Einen CI-Schritt bei Fehlern scheitern lassen:
 
 ```bash
-python tools/stg_lint.py docs/ --fail-on error
+python stg_de/stg_lint.py docs/ --fail-on error
 ```
 
 Der Linter lädt `./.stg-de.yaml` automatisch. Der Linter trennt deterministische Verstöße (`error`) von Kandidaten für eine Prüfung (`warning`, `review`). Ein unbekanntes Wort ist **nicht automatisch ein Fehler**. Ein großgeschriebenes deutsches Substantiv ist **nicht automatisch ein Fachbegriff**.
@@ -178,7 +178,7 @@ Der Linter lädt `./.stg-de.yaml` automatisch. Der Linter trennt deterministisch
 Vergleichen Sie einen Ausgangstext mit seiner Umformulierung:
 
 ```bash
-python tools/stg_compare.py original.md rewrite.md
+python stg_de/stg_compare.py original.md rewrite.md
 ```
 
 Verlorene Zahlen, Einheiten, Bezeichner, Code, URLs, zitierte UI-Texte oder Signalwörter für Sicherheit ergeben `FAIL`. Geänderte Modalität, Verbote, Verneinungen, Bedingungen oder Grenzen ergeben `REVIEW`.
@@ -186,7 +186,7 @@ Verlorene Zahlen, Einheiten, Bezeichner, Code, URLs, zitierte UI-Texte oder Sign
 ### Analysewerkzeug für deutsche Texte
 
 ```bash
-python tools/stg_analyze.py input.md
+python stg_de/stg_analyze.py input.md
 ```
 
 Das Analysewerkzeug meldet Kandidaten für Passiv, Modalität, Satztiefe, Pronomen, Verneinung, Nominalstil und trennbare Verben. Jede Ausgabe des Analysewerkzeugs ist ein Beleg für eine Prüfung. Eine Ausgabe allein ist nie ein Verstoß.

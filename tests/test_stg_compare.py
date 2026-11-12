@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(ROOT / "stg_de"))
 from stg_compare import compare  # noqa: E402
 
 SOURCE = ("WARNUNG: Sie müssen die Stromversorgung ausschalten, bevor Sie die Abdeckung öffnen. "
@@ -98,7 +98,7 @@ class CompareTests(unittest.TestCase):
             src, new = Path(tmp, "a.txt"), Path(tmp, "b.txt")
             src.write_text("Stellen Sie 2 bar ein.", encoding="utf-8")
             new.write_text("Stellen Sie den Druck ein.", encoding="utf-8")
-            tool = str(ROOT / "tools" / "stg_compare.py")
+            tool = str(ROOT / "stg_de" / "stg_compare.py")
             cp = subprocess.run([sys.executable, tool, str(src), str(new), "--format", "json", "--fail-on", "fail"],
                                 capture_output=True, text=True)
             self.assertEqual(cp.returncode, 1)
