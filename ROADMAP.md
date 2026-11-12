@@ -1,6 +1,6 @@
 # STG-DE-Roadmap
 
-Diese Roadmap beschreibt den Weg vom aktuellen experimentellen Release (0.5.0) zu einem stabilen STG-DE 1.0. Prioritäten können sich ändern. Das gilt, wenn Belege aus dem Korpus, Rückmeldungen von Benutzern oder Befunde aus der Implementierung eine andere Reihenfolge als nützlicher zeigen.
+Diese Roadmap beschreibt den Weg vom aktuellen experimentellen Release (0.6.0) zu einem stabilen STG-DE 1.0. Prioritäten können sich ändern. Das gilt, wenn Belege aus dem Korpus, Rückmeldungen von Benutzern oder Befunde aus der Implementierung eine andere Reihenfolge als nützlicher zeigen.
 
 ## Leitprinzipien
 
