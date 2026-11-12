@@ -84,6 +84,11 @@ class CompareTests(unittest.TestCase):
         result = compare("Setzen Sie `force` nur nach Bestätigung.", "Setzen Sie `force` nach Bestätigung.")
         self.assertIn("restrictions", checks(result, "review"))
 
+    def test_changed_quoted_word_fails(self):
+        result = compare("Sagen Sie nicht „Provision“.", "Sagen Sie nicht „Provisionen“.")
+        self.assertIn("quoted_text", checks(result, "fail"))
+        self.assertEqual(compare("Sagen Sie nicht „Provision“.", 'Sagen Sie nicht "Provision".')["result"], "PASS")
+
     def test_cli_exit_codes(self):
         with tempfile.TemporaryDirectory() as tmp:
             src, new = Path(tmp, "a.txt"), Path(tmp, "b.txt")

@@ -29,4 +29,6 @@ Resolution order:
 4. central STG-DE dictionary,
 5. review.
 
+Project technical nouns, technical verbs, protected terms, and preferred terms take precedence over the central prohibited list. Example: a software project can declare `laufen` (software is executed) as a technical verb, so that the linter no longer reports it.
+
 Never approve a domain term merely because it is capitalized. German capitalization is grammatical, not terminological evidence.

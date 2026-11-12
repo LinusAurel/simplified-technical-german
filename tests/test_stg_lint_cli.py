@@ -61,3 +61,23 @@ class LintCliTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PlatformRegressionTests(unittest.TestCase):
+    """Regressions found by running the linter on a real German monorepo."""
+
+    def test_wrapped_sentence_gets_line_number(self):
+        text = ("Erste Zeile.\n\nDer Job startet um 3 Uhr und schreibt danach die Ergebnisse in die Datenbank, damit\n"
+                "der Bericht am Morgen bereit ist und alle Teams die Zahlen ohne weiteren Schritt sehen können.\n")
+        cp = cli("-", "--format", "json", "--profile", "procedure", text=text)
+        finding = json.loads(cp.stdout)["findings"][0]
+        self.assertEqual((finding["rule"], finding["line"]), ("STG-5.1", 3))
+
+    def test_project_technical_verb_overrides_central_prohibited_list(self):
+        text = "Die Jobs laufen jede Nacht."
+        self.assertIn("laufen", {f.get("term") for f in json.loads(cli("-", "--format", "json", text=text).stdout)["findings"]})
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, ".stg-de.yaml").write_text(
+                "technical_verbs:\n  - term: laufen\n    definition: Software wird ausgeführt\n", encoding="utf-8")
+            cp = cli("-", "--format", "json", text=text, cwd=tmp)
+            self.assertEqual(json.loads(cp.stdout)["findings"], [])
