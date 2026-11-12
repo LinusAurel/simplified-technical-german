@@ -1,4 +1,5 @@
 interface:
   display_name: "Simplified Technical German"
-  short_description: "Write, rewrite, and audit German text with STG-DE."
-  default_prompt: "Schreibe diesen Text in STG-DE um und behalte alle Fakten, Zahlen und Bedingungen bei."
+  short_description: "Deutsche Texte in STG-DE schreiben und prüfen"
+  brand_color: "#1F4E79"
+  default_prompt: "Verwende $simplified-technical-german, um diesen Text in STG-DE umzuschreiben und alle Fakten zu erhalten."
