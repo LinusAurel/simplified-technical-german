@@ -1,6 +1,6 @@
 ---
 name: simplified-technical-german
-description: "Write, rewrite, simplify, or audit German text with STG-DE (Simplified Technical German), a controlled-language system for reducing ambiguity and improving consistency for humans and AI agents. Use when a user asks for STG-DE, controlled German, simplified technical German, unambiguous German, machine-readable German prose, consistent terminology, a German technical-writing audit, or a rewrite that must preserve facts and constraints. Accept arbitrary German text across industries and B2B/B2C contexts, including procedures, requirements, support content, product text, documentation, messages, prompts, and agent instructions."
+description: "Write, rewrite, or audit German text with STG-DE (Simplified Technical German), the German counterpart of ASD-STE100. Use when German text must be unambiguous for humans or AI agents: procedures, safety notes, requirements, support answers, UI and error messages, tool descriptions, system prompts, AGENTS.md or inter-agent instructions. Triggers: STG-DE, STE100 auf Deutsch, vereinfachtes technisches Deutsch, kontrollierte Sprache, eindeutig formulieren, so umschreiben, dass ein Agent es nicht missversteht, Terminologie vereinheitlichen, technische Redaktion prüfen. Preserves facts, numbers, modality, and domain terms. Not for creative, literary, or Leichte-Sprache texts."
 ---
 
 # Simplified Technical German
@@ -33,6 +33,17 @@ If the user names a profile, use it. Otherwise infer the profile only when the p
 
 Profiles do not define a different vocabulary or language. They define applicability, sentence limits, and review priorities for the same STG-DE rules.
 
+## Select the mode
+
+Choose how strictly lexical rules apply. Structural rules (sentence length, one instruction per sentence, active voice, explicit conditions, no semicolon, no `man`) apply in both modes.
+
+| Mode | Use for | Lexical rules | Conformance target |
+|---|---|---|---|
+| `strikt` | procedures, safety notes, requirements, error messages, tool descriptions, agent instructions | Prefer central STG-DE words with their controlled meaning. Resolve or flag every unclear general word. | `STG-T` |
+| `pragmatisch` | descriptions, support answers, consumer text, READMEs, PR descriptions, explanations | Direction of travel: use the plainest precise word and use it consistently. | `STG-R` |
+
+If the user names a mode, use it. Otherwise use `strikt` for the profiles `procedure`, `safety`, `requirement`, and `agent`, and `pragmatisch` for all other text.
+
 ## Load references progressively
 
 Read only the material needed for the current task:
@@ -49,10 +60,11 @@ Do not load the complete dictionary when a focused lookup is sufficient.
 
 ## Use tools when available
 
-When code execution is available, use both layers where they add value:
+When code execution is available, use these layers where they add value:
 
 1. Run `scripts/stg_lint.py` for deterministic/controlled checks.
 2. For AUDIT, or for a difficult REWRITE, also run `scripts/stg_analyze.py` for German-language review evidence.
+3. After every REWRITE, run `scripts/stg_compare.py` with the source and the rewrite. It detects lost numbers, units, identifiers, code, URLs, quoted UI text, and safety signal words, and changed modality, prohibitions, negations, conditions, and limits.
 
 Examples:
 
@@ -60,7 +72,10 @@ Examples:
 python scripts/stg_lint.py input.txt --profile procedure --format json
 python scripts/stg_lint.py input.md --profile support --project .stg-de.yaml --format json
 python scripts/stg_analyze.py input.md --format json
+python scripts/stg_compare.py original.txt rewrite.txt --format json
 ```
+
+A `FAIL` from `stg_compare.py` means protected content was lost or changed. Restore it before you return the rewrite. Treat its `REVIEW` findings as prompts to compare the affected sentences, not as proof of a meaning change.
 
 Treat deterministic linter `error` findings as violations. Treat linter `warning`/`review` findings and **all** `stg_analyze.py` evidence as context that requires interpretation. The analyzer is review-only even when its confidence is `high`.
 
@@ -78,8 +93,9 @@ If code execution is unavailable, continue without it. Apply the bundled rules, 
 6. Apply structural rules before lexical optimization.
 7. Apply lexical rules with the controlled meaning and part of speech.
 8. Use review evidence for passive voice, modal ambiguity, clause complexity, pronoun reference, negation scope, nominal style, compounds, and separable verbs when relevant.
-9. Re-read the result against the source. Verify that no fact, condition, exception, actor, limit, or relationship changed.
+9. Re-read the result against the source. Verify that no fact, condition, exception, actor, limit, or relationship changed. Run `stg_compare.py` when tools are available.
 10. Run the deterministic linter again when tools are available. Fix deterministic findings that do not alter meaning.
+11. Leave text that already complies unchanged. Do not rewrite for style alone.
 
 ## Writing priorities
 
@@ -92,6 +108,16 @@ Use these priorities in order:
 5. **Controlled vocabulary** — prefer approved central words where they express the correct meaning.
 6. **Profile priorities** — apply the selected profile's additional priorities.
 7. **Brevity** — shorten only after the first six priorities are satisfied.
+
+## Text for AI agents
+
+Text that an agent or program reads has no reader who can ask back. For prompts, tool descriptions, error messages, status reports, and inter-agent instructions, use the `agent` profile and `strikt` mode, and also:
+
+- name the actor and the object of each action;
+- state each condition, limit, and exception in its own sentence or list item;
+- use one term for one concept, also across tool names, parameters, and prose;
+- keep identifiers, parameter names, paths, and code exactly as given, in backticks;
+- write error messages as: what happened, why (if known), what the reader does next.
 
 ## Arbitrary German text
 
@@ -145,7 +171,7 @@ Ergebnis: PASS | PASS WITH REVIEW | FAIL
 
 A deterministic linter error makes the result `FAIL`. When there is no deterministic error but relevant heuristic or unresolved review evidence remains, use `PASS WITH REVIEW`. Do not turn analyzer evidence into `FAIL` by itself.
 
-When a profile was selected, name it in one short line after the result.
+When a profile or mode was selected, name both in one short line after the result, for example `Profil: procedure · Modus: strikt`.
 
 ## Project terminology
 
