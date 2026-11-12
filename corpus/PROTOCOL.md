@@ -59,6 +59,10 @@ Zielstrata für v0.5:
 12. Telekommunikation
 13. Anforderungen und Spezifikationen
 14. Anweisungen für Agenten, APIs, Werkzeuge und Systeme
+15. Embedded-Systeme, IoT und Firmware
+16. Funktionale Sicherheit
+17. Produktsicherheit und Cyber Resilience Act
+18. Mess- und Labortechnik
 
 Wir empfehlen, dass kein einzelnes Stratum einen Anteil an der Token-Anzahl hat, mit dem es allein das allgemeine Kernvokabular bestimmen kann.
 
@@ -90,10 +94,11 @@ published_on: 2026-01-15
 accessed_on: 2026-08-22
 language: de-DE
 source_type: manual
+text_type: manual | release_notes | update_procedure | requirement_specification | ...
 license_or_access_basis: public-analysis-only
 content_sha256: ...
 token_count: 12345
-extraction_method: html-text | pdf-text | other
+extraction_method: html-text | pdf-text | plain-text | other
 notes: ...
 ```
 
@@ -141,7 +146,9 @@ Melden Sie mindestens diese Metriken:
 - Rate unbekannter Token,
 - Rate verbotener Begriffe und Begriffe mit Review-Pflicht,
 - Anzahl deterministischer Befunde je 1.000 Wörter,
-- Metriken je Domäne und je Partition.
+- Metriken je Domäne, je Textsorte und je Partition.
+
+Eine Quelle darf die Kennzahlen nicht allein bestimmen. `policy.source_token_cap` in `corpus/v0.5-sources.yaml` legt eine Obergrenze an Token je Quelle fest. Die Felder `capped_tokens` und `capped_coverage` zählen von jeder Quelle höchstens diese Zahl an Token. Melden Sie die Zahlen mit und ohne Obergrenze.
 
 Die Abdeckung ist keine Qualitätsbewertung. Eine höhere Abdeckung durch die Aufnahme von Domänenvokabular in den zentralen Kern ist nicht automatisch eine Verbesserung.
 
