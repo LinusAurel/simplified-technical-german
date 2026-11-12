@@ -167,7 +167,7 @@ Für `STG-C` muss jedes nicht gesperrte lexikalische Element zu einem zukünftig
 
 ## 11. Lexikalische Auflösung in v0.4
 
-Empfohlene Reihenfolge der Auflösung für `STG-C-core`:
+Reihenfolge der Auflösung für `STG-C-core`:
 
 1. gesperrte und geschützte Bereiche,
 2. zugelassene Projektterminologie,

@@ -192,7 +192,9 @@ Eine Änderung an einer verbindlichen Regel oder an einer Bedeutung im Wörterbu
 - Auswirkung auf Validatoren,
 - Hinweis zur Migration.
 
-Die Versionierung folgt Semantic Versioning, solange das Projekt experimentell ist. Empfehlung: Halten Sie Regel-IDs vor einem stabilen Release 1.0 stabil, wenn das möglich ist.
+Die Versionierung folgt Semantic Versioning, solange das Projekt experimentell ist. Eine veröffentlichte Regel-ID muss auch vor Release 1.0 stabil bleiben. Eine Regel-ID darf nur mit einem angenommenen Änderungsvorschlag ihre Bedeutung ändern oder entfallen. Eine entfallene Regel-ID bleibt reserviert.
+
+Eine Regel mit der Stufe `RECOMMENDATION` ist als Ganzes eine Empfehlung. In einer Regel mit der Stufe `MUST` sind Sätze im Imperativ und Sätze mit „muss“ oder „darf nicht“ verbindlich. Ein Satz mit „Wir empfehlen“ oder „Empfehlung:“ ist auch in einer Regel mit der Stufe `MUST` eine Empfehlung.
 
 ---
 
@@ -693,7 +695,7 @@ Wir empfehlen, `werden` nicht zu verwenden, wenn `werden` nur ein Passiv oder ei
 
 **Level:** `MUST`
 
-Schreiben Sie kurze Sätze mit einer primären Aussage. In beschreibendem Text empfehlen wir ein Hauptthema je Satz. Verdichten Sie nicht mehrere unabhängige Fakten in einem Satz.
+Schreiben Sie kurze Sätze mit einer primären Aussage. Empfehlung: Geben Sie in beschreibendem Text jedem Satz ein Hauptthema. Verdichten Sie nicht mehrere unabhängige Fakten in einem Satz.
 
 <!-- stg-lint: off -->
 **Nicht STG**
@@ -853,7 +855,7 @@ Wiederholen Sie beim strengen Schreiben nach `STG-C-core` das technische Substan
 
 > Wenn Sie den Sensor mit dem Adapter verbinden, beschädigen Sie die Dichtung nicht.
 
-Wir empfehlen, dass ein Validator ein ungeklärtes Pronominaladverb als `NEEDS_REFERENCE_INPUT` meldet. Der Validator darf das Bezugswort nicht erfinden.
+Ein Validator muss ein Pronominaladverb mit ungeklärtem Bezug als Befund zur Prüfung melden, zum Beispiel mit dem Status `NEEDS_REFERENCE_INPUT` (siehe `validator-contract.md`). Der Validator darf das Bezugswort nicht erfinden.
 
 ---
 
@@ -1257,7 +1259,7 @@ Verwenden Sie bevorzugt `diese Leitung`, `dieser Wert` oder `diese Methode` stat
 ## STG-GR-5 — Lehnübersetzungen und falsche Freunde prüfen
 
 
-Autoren und Übersetzungssysteme dürfen Bedeutungen nicht aus dem Englischen übertragen, nur weil ein deutsches Wort ähnlich aussieht. Beispiele, die eine Prüfung des Kontexts verlangen, sind `realisieren`, `kontrollieren`, `eventuell` und `aktuell`. Diese Prüfung gilt für Übersetzungen aus dem Englischen und in das Englische.
+Prüfen Sie die Bedeutung eines deutschen Worts, das einem englischen Wort ähnlich sieht. Übertragen Sie eine englische Bedeutung nicht nur wegen dieser Ähnlichkeit. Diese Empfehlung gilt für Autoren und für Übersetzungssysteme. Beispiele, die eine Prüfung des Kontexts verlangen, sind `realisieren`, `kontrollieren`, `eventuell` und `aktuell`. Diese Prüfung gilt für Übersetzungen aus dem Englischen und in das Englische.
 
 Diese Regel schreibt ohne Kontext keinen Ersatz vor.
 
@@ -1359,7 +1361,7 @@ Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kon
 
 ## Prinzip der Auflösung
 
-Lösen Sie die Eingabe in dieser Reihenfolge auf:
+Lösen Sie die Eingabe in dieser Reihenfolge auf. Die Reihenfolge ist dieselbe wie in `dictionary/MORPHOLOGY.md` und `validator-contract.md`:
 
 1. geschützter Text oder Kennung,
 2. freigegebene Projektterminologie oder Domänenterminologie,
@@ -1368,8 +1370,8 @@ Lösen Sie die Eingabe in dieser Reihenfolge auf:
 5. lexikalische Unterscheidung nach Groß- und Kleinschreibung,
 6. kanonisches zentrales Lemma oder deklarierte Oberflächenform,
 7. deklarierte kontrollierte Flexion,
-8. Suche in der Liste der verbotenen und prüfpflichtigen Wörter,
-9. deterministische morphologische Analyse und Analyse trennbarer Verben,
+8. deterministische morphologische Analyse und Analyse trennbarer Verben,
+9. Suche in der Liste der verbotenen und prüfpflichtigen Wörter für das aufgelöste Lemma,
 10. in allen anderen Fällen `NEEDS_LEXICON_REVIEW`.
 
 Ein kanonisches Lemma hat Vorrang vor dem Flexionsalias eines anderen Eintrags. Diese Regel verhindert, dass ein Validator `Daten` (technische Informationen oder Daten) ohne Meldung als Plural von `Datum` auflöst.
@@ -1514,7 +1516,7 @@ Der Ausgangsstandard verwendet ein kontrolliertes Wörterbuch. In diesem Wörter
 
 ## Ziel des Release
 
-Version 0.3 definiert einen durchsetzbaren **Autorenkern** für häufige deutsche technische Texte. Das Ziel des Kerns ist ein Grad an Determinismus, mit dem Agenten und Validatoren Texte erzeugen und umformulieren können. Die Domänenterminologie bleibt bei den Quellen der Projektterminologie.
+Die Versionen 0.3 und 0.4 definieren einen durchsetzbaren **Autorenkern** für häufige deutsche technische Texte. Das Ziel des Kerns ist ein Grad an Determinismus, mit dem Agenten und Validatoren Texte erzeugen und umformulieren können. Die Domänenterminologie bleibt bei den Quellen der Projektterminologie.
 
 ### Selection order
 

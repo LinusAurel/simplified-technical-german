@@ -70,7 +70,7 @@ Jeder normative Vorschlag muss diese Angaben enthalten:
 
 Wir empfehlen für ein neues allgemeines Inhaltswort im Normalfall Belege aus mindestens zwei deutlich unterschiedlichen Domänen. Eine starke allgemeinsprachliche oder grammatische Begründung ist eine Alternative zu diesen Belegen.
 
-Dieser Hinweis ist eine Orientierung und keine automatische Regel zum Zählen von Stimmen. Maintainer können ein Wort ablehnen, auch wenn es in vielen Dokumenten vorkommt. Gründe für eine Ablehnung sind: Das Wort ist vage, polysem oder stilistisch. Oder ein vorhandenes kontrolliertes Wort drückt das Konzept besser aus.
+Dieser Hinweis ist eine Empfehlung und keine automatische Regel zum Zählen von Stimmen. Maintainer können ein Wort ablehnen, auch wenn es in vielen Dokumenten vorkommt. Gründe für eine Ablehnung sind: Das Wort ist vage, polysem oder stilistisch. Oder ein vorhandenes kontrolliertes Wort drückt das Konzept besser aus.
 
 Wir empfehlen, einen engen Begriff im Normalfall projektspezifisch zu halten, wenn eine dieser Bedingungen zutrifft:
 
