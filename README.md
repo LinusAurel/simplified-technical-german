@@ -5,7 +5,7 @@
 <!-- stg-lint: off -->
 ## In English
 
-STG-DE is an open controlled-language specification for clear, consistent, and machine-readable German. It is the German counterpart of ASD-STE100 Simplified Technical English. Every numbered STG-DE rule maps to the ASD-STE100 Issue 9 rule with the same number, adapted to German grammar. To use it in Claude Code, run `claude plugin marketplace add LinusAurel/simplified-technical-german` and then `claude plugin install simplified-technical-german@stg-de`.
+STG-DE is an open controlled-language specification for clear, consistent, and machine-readable German. It is the German counterpart of ASD-STE100 Simplified Technical English. Every numbered STG-DE rule maps to the ASD-STE100 Issue 9 rule with the same number, adapted to German grammar. The repository works as a plugin for Claude Code and OpenAI Codex, as a standalone Agent Skill, and as a Python CLI (`stg`).
 <!-- stg-lint: on -->
 
 Verwenden Sie STG-DE für technische Dokumentation, Anleitungen, Sicherheitshinweise, Anforderungen, Support-Inhalte, UI-Texte und Fehlermeldungen. Verwenden Sie STG-DE auch für Texte, die KI-Agenten lesen: Prompts, Tool-Beschreibungen, `AGENTS.md` und Anweisungen zwischen Agenten.
@@ -28,6 +28,26 @@ claude plugin install simplified-technical-german@stg-de
 
 In einer Sitzung verwenden Sie `/plugin marketplace add LinusAurel/simplified-technical-german` und `/plugin install simplified-technical-german@stg-de`. Schreiben Sie danach zum Beispiel: *„Schreib diese Anleitung in STG-DE um.“*
 
+### OpenAI Codex (Plugin)
+
+Das Repository ist auch ein Codex-Plugin. Codex liest `.codex-plugin/plugin.json` und den Marketplace in `.agents/plugins/marketplace.json`. Fügen Sie den Marketplace hinzu:
+
+```bash
+codex plugin marketplace add LinusAurel/simplified-technical-german
+```
+
+Installieren Sie danach das Plugin `simplified-technical-german` im Plugin-Verzeichnis von Codex (`/plugins`). Codex unterstützt Plugins ab Version 0.117.
+
+### OpenAI Codex (nur Skill)
+
+Installieren Sie nur den Skill mit dem Skill-Installer von Codex:
+
+```text
+$skill-installer install https://github.com/LinusAurel/simplified-technical-german/tree/main/skills/simplified-technical-german
+```
+
+Starten Sie Codex danach neu. Rufen Sie den Skill mit `$simplified-technical-german` auf, zum Beispiel: *„$simplified-technical-german Schreib diese Anleitung in STG-DE um.“* Codex wählt den Skill auch ohne Aufruf, wenn die Anfrage zur Beschreibung des Skills passt.
+
 ### claude.ai, Claude Desktop und andere Skill-Loader
 
 Laden Sie `simplified-technical-german-<version>.zip` aus den [Releases](https://github.com/LinusAurel/simplified-technical-german/releases) herunter. Laden Sie die Datei unter *Settings → Capabilities → Skills* hoch. Sie können die Datei auch selbst erstellen:
@@ -38,7 +58,14 @@ python tools/package_skill.py
 
 ### Den Skill-Ordner kopieren
 
-Kopieren Sie `skills/simplified-technical-german/` in das Skill-Verzeichnis Ihres Agenten. Für Claude Code ist das zum Beispiel `~/.claude/skills/`. Der Ordner ist eigenständig: `SKILL.md`, Referenzen und Skripte. Werkzeuge mit Unterstützung für die [`skills` CLI](https://skills.sh) können auch `npx skills add LinusAurel/simplified-technical-german` ausführen. Die Tests des Repositorys prüfen diesen Weg nicht.
+Kopieren Sie `skills/simplified-technical-german/` in das Skill-Verzeichnis Ihres Agenten:
+
+| Agent | Verzeichnis für alle Projekte | Verzeichnis für ein Repository |
+|---|---|---|
+| Claude Code | `~/.claude/skills/` | `.claude/skills/` |
+| OpenAI Codex | `~/.agents/skills/` | `.agents/skills/` |
+ Der Ordner ist eigenständig: `SKILL.md`, Referenzen und Skripte. 
+Werkzeuge mit Unterstützung für die [`skills` CLI](https://skills.sh) können auch `npx skills add LinusAurel/simplified-technical-german` ausführen. Die Tests des Repositorys prüfen diesen Weg nicht.
 
 ### Werkzeuge ohne Skill-Unterstützung
 

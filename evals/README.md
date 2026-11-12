@@ -34,4 +34,8 @@ Erzeugen und bewerten Sie Ausgaben mit einer beliebigen CLI, die einen Prompt vo
 python tools/run_evals.py --outputs runs/claude --command "claude -p"
 ```
 
+```bash
+python tools/run_evals.py --outputs runs/codex --command "codex exec -"
+```
+
 Vergleichen Sie Durchläufe mit installiertem Skill und ohne installierten Skill. Vergleichen Sie Durchläufe auch zwischen verschiedenen Modellen. Speichern Sie die Ausgaben der Durchläufe außerhalb des Repositorys oder in einem datierten Verzeichnis. Fügen Sie für jeden Fehler aus der realen Verwendung einen Fall zu `cases.yaml` hinzu.
