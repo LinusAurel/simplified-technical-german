@@ -1,6 +1,6 @@
-# STG-DE dictionary and morphology guide
+# STG-DE-Leitfaden für Wörterbuch und Morphologie
 
-Generated from canonical repository documentation.
+Erzeugt aus der kanonischen Dokumentation im Verzeichnis `dictionary/`. Bearbeiten Sie diese Datei nicht direkt.
 
 
 ---

@@ -1,6 +1,6 @@
-# STG-DE writing rules
+# STG-DE-Schreibregeln
 
-Generated from the canonical top-level `rules/` directory.
+Erzeugt aus dem kanonischen Verzeichnis `rules/`. Bearbeiten Sie diese Datei nicht direkt.
 
 ---
 
