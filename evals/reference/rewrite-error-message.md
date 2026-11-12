@@ -1,0 +1,1 @@
+Fehler: Die Konfiguration wurde nicht geladen. Die Datei `config.yaml` ist nicht vorhanden oder enthält ungültiges YAML. Prüfen Sie, ob die Datei `config.yaml` vorhanden ist und gültiges YAML enthält.
