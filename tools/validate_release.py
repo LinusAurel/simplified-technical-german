@@ -5,6 +5,13 @@ import argparse, collections, csv, hashlib, json, subprocess, sys, yaml
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def release_version() -> str:
+    for line in (ROOT / "CITATION.cff").read_text(encoding="utf-8").splitlines():
+        if line.startswith("version:"):
+            return line.split(":", 1)[1].strip().strip("'\"")
+    raise SystemExit("version not found in CITATION.cff")
+
+
 def fail(msg):
     print("FAIL:", msg, file=sys.stderr)
     raise SystemExit(1)
@@ -47,6 +54,20 @@ def main():
     if len(ri) != 75 or len({r["id"] for r in ri}) != 75:
         fail("expected 75 unique rules/recommendations")
 
+    # ASD-STE100 Issue 9 traceability must stay complete.
+    mp = yaml.safe_load((ROOT / "mapping/ste100-issue9.yaml").read_text(encoding="utf-8"))
+    rule_ids = {r["id"] for r in ri}
+    if len({m["ste"] for m in mp["mappings"]}) != 53:
+        fail("expected 53 mapped ASD-STE100 Issue 9 writing rules")
+    traced = {e["stg"] for e in mp["german_extensions"]}
+    for m in mp["mappings"] + mp["general_recommendations"]:
+        targets = set(m["stg"]) | set(m.get("related", []))
+        if targets - rule_ids:
+            fail(f"mapping {m['ste']} references unknown STG rule(s): {sorted(targets - rule_ids)}")
+        traced |= targets
+    if traced != rule_ids:
+        fail(f"STG rules without ASD-STE100 traceability: {sorted(rule_ids - traced)}")
+
     src = yaml.safe_load((ROOT / "corpus/sources.yaml").read_text(encoding="utf-8"))
     if src.get("source_count") != 18:
         fail("expected 18 public corpus sources")
@@ -81,7 +102,7 @@ def main():
         json.dumps(
             {
                 "status": "PASS",
-                "release": "0.4.0",
+                "release": release_version(),
                 "validation_mode": "development" if args.skip_manifest else "release",
                 "central_entries": len(A),
                 "controlled_meanings": len(mids),

@@ -1,18 +1,18 @@
-# Corpus validation assets — STG-DE v0.4
+# Artefakte zur Korpusvalidierung: STG-DE v0.4
 
-This directory contains derived validation artifacts from public German technical documentation. It does not contain third-party manuals or source excerpts.
+Dieses Verzeichnis enthält abgeleitete Validierungsartefakte aus öffentlicher deutscher technischer Dokumentation. Es enthält keine Handbücher von Dritten und keine Auszüge aus Quellen.
 
-## Files
+## Dateien
 
-- `validation-report.md` — human-readable validation results.
-- `sources.yaml` — public source metadata, access dates, sample token counts, and SHA-256 sample hashes.
-- `source-metrics.csv` — per-source lexical metrics.
-- `industry-metrics.csv` — per-industry aggregate metrics.
-- `coverage-curves.csv` — incremental lexical coverage results.
-- `findings.yaml` — agent-readable curation findings and limitations.
+- `validation-report.md`: Ergebnisse der Validierung in einer für Menschen lesbaren Form.
+- `sources.yaml`: Metadaten öffentlicher Quellen, Zugriffsdaten, Token-Anzahl der Stichproben und SHA-256-Hashes der Stichproben.
+- `source-metrics.csv`: lexikalische Metriken je Quelle.
+- `industry-metrics.csv`: aggregierte Metriken je Branche.
+- `coverage-curves.csv`: Ergebnisse zur schrittweisen lexikalischen Abdeckung.
+- `findings.yaml`: Befunde und Einschränkungen der Kuratierung in einer für Agenten lesbaren Form.
 
-## Corpus design
+## Design des Korpus
 
-The v0.4 evidence set contains 18 public German sources: three each from Maschinenbau, Automotive, Elektrotechnik, Software/IT, Medizintechnik, and Anlagenbau. Only derived metrics and metadata are distributed.
+Das Belegset von v0.4 enthält 18 öffentliche deutsche Quellen. Es enthält je drei Quellen aus Maschinenbau, Automotive, Elektrotechnik, Software/IT, Medizintechnik und Anlagenbau. Das Repository verteilt nur abgeleitete Metriken und Metadaten.
 
-Coverage measures how many observed tokens resolve to the central controlled lexicon, declared noun plurals, or approved contractions. It is not a quality score for a source and is not a target to maximize by absorbing domain terminology into the core.
+Die Abdeckung misst, wie viele beobachtete Token zu einem dieser Elemente aufgelöst werden: zentrales kontrolliertes Lexikon, deklarierte Pluralformen von Nomen oder zugelassene Kontraktionen. Die Abdeckung ist keine Qualitätsbewertung einer Quelle. Sie ist auch kein Ziel, das Sie durch die Aufnahme von Domänenterminologie in den Kern maximieren.

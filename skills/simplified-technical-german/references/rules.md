@@ -1,29 +1,31 @@
-# STG-DE writing rules
+# STG-DE-Schreibregeln
 
-Generated from the canonical top-level `rules/` directory.
+Erzeugt aus dem kanonischen Verzeichnis `rules/`. Bearbeiten Sie diese Datei nicht direkt.
 
 ---
 
 <!-- source: rules/01-words.md -->
 
-# Section 1 — Wörter und Terminologie
+# Abschnitt 1 — Wörter und Terminologie
 
 ## STG-1.1 — Zulässiger Wortschatz
 
 **Level:** `MUST`
 
-Use only words that belong to at least one approved class:
+Verwenden Sie nur Wörter, die zu mindestens einer freigegebenen Klasse gehören:
 
-1. a word in the central STG lexicon,
-2. an approved technical noun,
-3. an approved technical verb,
-4. locked external text where changing the text is not permitted.
+1. ein Wort im zentralen STG-Lexikon,
+2. ein freigegebenes technisches Substantiv,
+3. ein freigegebenes technisches Verb,
+4. gesperrter externer Text, wenn eine Änderung des Textes nicht zulässig ist.
 
-Unknown general-language words are not automatically technical terms.
+Unbekannte allgemeinsprachliche Wörter sind nicht automatisch technische Terme.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Die Komponente ist irgendwie falsch positioniert.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -33,200 +35,208 @@ Unknown general-language words are not automatically technical terms.
 
 **Level:** `MUST`
 
-Use an approved lexical item only with its approved word class. German derivational morphology does not automatically create a new approved entry.
+Verwenden Sie ein freigegebenes lexikalisches Element nur mit der freigegebenen Wortart. Die deutsche Wortbildung erzeugt nicht automatisch einen neuen freigegebenen Eintrag.
 
-If `Prüfung` is approved as a noun, this does not automatically approve `prüfen` as a verb. Each lexeme/word class combination is a separate dictionary entry unless the lexicon explicitly links them.
+Wenn `Prüfung` als Substantiv freigegeben ist, ist `prüfen` nicht automatisch als Verb freigegeben. Jede Kombination aus Lexem und Wortart ist ein eigener Wörterbucheintrag. Eine Ausnahme gilt, wenn das Lexikon die Einträge ausdrücklich verknüpft.
 
 ## STG-1.3 — Kontrollierte Bedeutung
 
 **Level:** `MUST`
 
-Use an approved word only with an approved meaning. If the intended meaning is not approved, select another approved word or rewrite the sentence.
+Verwenden Sie ein freigegebenes Wort nur mit einer freigegebenen Bedeutung. Wenn die beabsichtigte Bedeutung nicht freigegeben ist, wählen Sie ein anderes freigegebenes Wort oder formulieren Sie den Satz neu.
 
-**Example:** If `lösen` is approved only for releasing a mechanical connection, do not use it for `ein Problem lösen` unless that second meaning is separately approved.
+**Beispiel:** Wenn `lösen` nur für das Lösen einer mechanischen Verbindung freigegeben ist, verwenden Sie `lösen` nicht für `ein Problem lösen`. Eine Ausnahme gilt, wenn diese zweite Bedeutung separat freigegeben ist.
 
 ## STG-1.4 — Zulässige Flexionsformen
 
 **Level:** `MUST`
 
-Use only grammatically valid forms that the dictionary schema permits for the entry.
+Verwenden Sie nur grammatisch korrekte Formen, die das Schema des Wörterbuchs für den Eintrag zulässt.
 
-For German, the lexicon may specify:
+Für Deutsch darf das Lexikon diese Angaben festlegen:
 
-- noun gender and plural,
-- adjective inflection class and comparison policy,
-- verb person/number forms,
-- imperative form,
-- participle forms,
-- separable prefix,
-- auxiliary selection where relevant.
+- Genus und Plural von Substantiven,
+- Flexionsklasse und Regel für die Steigerung von Adjektiven,
+- Formen von Verben nach Person und Numerus,
+- Imperativform,
+- Partizipformen,
+- trennbares Präfix,
+- Wahl des Hilfsverbs, wenn diese Wahl relevant ist.
 
-A generated form is permitted only if it follows the declared morphology and the rule set does not prohibit its syntactic use.
+Eine generierte Form ist nur zulässig, wenn die Form der deklarierten Morphologie folgt. Zusätzlich darf das Regelwerk die syntaktische Verwendung der Form nicht verbieten.
 
 ## STG-1.5 — Technische Substantive
 
 **Level:** `MUST`
 
-A technical noun is a term for a defined concept in a technical subject field. Use a word or multiword term as a technical noun only when it fits an approved technical-noun category and is accepted by the applicable terminology source.
+Ein technisches Substantiv ist ein Term für ein definiertes Konzept in einem technischen Fachgebiet. Verwenden Sie ein Wort oder einen Mehrwortterm nur dann als technisches Substantiv, wenn zwei Bedingungen gelten. Das Wort passt zu einer freigegebenen Kategorie für technische Substantive. Die anwendbare Terminologiequelle akzeptiert das Wort.
 
-The category model is in `dictionary/technical-nouns.yaml`.
+Das Kategoriemodell steht in `dictionary/technical-nouns.yaml`.
 
 ## STG-1.6 — Nicht-zentrale Wörter als technische Terme
 
 **Level:** `MUST`
 
-A word that is not approved in the central lexicon may be used only when it is part of an approved technical term or protected external designation.
+Ein Wort, das im zentralen Lexikon nicht freigegeben ist, dürfen Sie nur als Teil eines freigegebenen technischen Terms oder einer geschützten externen Benennung verwenden.
 
-Do not use the existence of a word inside one technical term as permission to use that word with its ordinary general-language meaning.
+Ein Wort kann in einem technischen Term vorkommen. Dieses Vorkommen gibt Ihnen keine Erlaubnis, das Wort mit der normalen allgemeinsprachlichen Bedeutung zu verwenden.
 
 ## STG-1.7 — Technisches Substantiv ist nicht automatisch Verb
 
 **Level:** `MUST`
 
-Do not convert a technical noun into a verb unless the verb itself is approved as a technical verb or central lexical entry.
+Bilden Sie aus einem technischen Substantiv kein Verb. Eine Ausnahme gilt, wenn das Verb selbst als technisches Verb oder als zentraler lexikalischer Eintrag freigegeben ist.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Ölen Sie die Führung.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Tragen Sie Öl auf die Führung auf.
 
-If `ölen` is explicitly approved as a project technical verb, the project entry takes precedence.
+Wenn `ölen` ausdrücklich als technisches Verb des Projekts freigegeben ist, hat der Eintrag des Projekts Vorrang.
 
 ## STG-1.8 — Offizielle technische Benennungen
 
 **Level:** `MUST`
 
-Use the technical designation approved by the company, product, industry, contract, drawing, parts catalog, data model, or terminology database. Do not replace an official designation merely to make it shorter.
+Verwenden Sie die technische Benennung, die eine dieser Quellen freigibt: Unternehmen, Produkt, Branche, Vertrag, Zeichnung, Ersatzteilkatalog, Datenmodell oder Terminologiedatenbank. Ersetzen Sie eine offizielle Benennung nicht nur mit dem Ziel, die Benennung zu kürzen.
 
 ## STG-1.9 — Neue technische Benennungen kurz halten
 
 **Level:** `SHOULD`
 
-When no approved technical designation exists, create the shortest designation that uniquely identifies the concept.
+Wenn keine freigegebene technische Benennung existiert, empfehlen wir die kürzeste Benennung, die das Konzept eindeutig kennzeichnet.
 
-For a newly created German compound, prefer no more than three meaningful lexical components when this is technically sufficient. If more components are necessary, apply the compound rules in Section 2.
+Für ein neu gebildetes deutsches Kompositum empfehlen wir höchstens drei bedeutungstragende lexikalische Bestandteile, wenn diese Zahl technisch ausreicht. Wenn mehr Bestandteile notwendig sind, wenden Sie die Regeln für Komposita in Abschnitt 2 an.
 
-Do not remove differentiating information that is necessary for technical correctness.
+Entfernen Sie keine unterscheidende Information, die für die technische Korrektheit notwendig ist.
 
 ## STG-1.10 — Keine regionale Sprache, Umgangssprache oder Jargon
 
 **Level:** `MUST_NOT`
 
-Do not use regional expressions, colloquial wording, workshop slang, internet slang, or unexplained jargon as general technical language.
+Verwenden Sie diese Ausdrücke nicht als allgemeine technische Sprache: regionale Ausdrücke, Umgangssprache, Werkstattjargon, Internetjargon und unerklärten Fachjargon.
 
-Project-specific technical terms are permitted only after terminology approval.
+Projektspezifische technische Terme sind nur nach einer Freigabe der Terminologie zulässig.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Wenn das Update fehlschlägt, darf das Gerät nicht gebrickt werden.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Wenn das Update fehlschlägt, darf das Gerät nicht funktionsunfähig werden.
 
-Better still, state the exact failure condition when known.
+Empfehlung: Nennen Sie die genaue Fehlerbedingung, wenn die Fehlerbedingung bekannt ist.
 
 ## STG-1.11 — Ein Konzept, eine Benennung
 
 **Level:** `MUST`
 
-Use the same approved technical designation every time you refer to the same concept within the defined document scope.
+Verwenden Sie für dasselbe Konzept im definierten Geltungsbereich des Dokuments immer dieselbe freigegebene technische Benennung.
 
-Do not alternate between synonyms such as `Steuergerät`, `Controller`, and `Regler` for the same component unless the terminology model defines them as different concepts.
+Verwenden Sie für dieselbe Komponente nicht abwechselnd Synonyme wie `Steuergerät`, `Controller` und `Regler`. Eine Ausnahme gilt, wenn das Terminologiemodell diese Benennungen als unterschiedliche Konzepte definiert.
 
 ## STG-1.12 — Technische Verben
 
 **Level:** `MUST`
 
-A technical verb denotes a defined technical process or action in a subject field. Use a technical verb only when:
+Ein technisches Verb bezeichnet einen definierten technischen Prozess oder eine definierte technische Handlung in einem Fachgebiet. Verwenden Sie ein technisches Verb nur, wenn alle diese Bedingungen gelten:
 
-1. the action has a domain-specific meaning,
-2. the verb is approved in the applicable terminology source,
-3. a simpler central STG verb would not express the same technical action precisely.
+1. Die Handlung hat eine fachspezifische Bedeutung.
+2. Die anwendbare Terminologiequelle gibt das Verb frei.
+3. Ein einfacheres zentrales STG-Verb drückt dieselbe technische Handlung nicht genau aus.
 
-The category model is in `dictionary/technical-verbs.yaml`.
+Das Kategoriemodell steht in `dictionary/technical-verbs.yaml`.
 
 ## STG-1.13 — Technisches Verb ist nicht automatisch Substantiv
 
 **Level:** `MUST`
 
-Do not nominalize an approved technical verb and treat the result as an approved technical noun unless the noun is separately approved.
+Nominalisieren Sie ein freigegebenes technisches Verb nicht, um das Ergebnis als freigegebenes technisches Substantiv zu verwenden. Eine Ausnahme gilt, wenn das Substantiv separat freigegeben ist.
 
-This rule is important in German because productive nominalization can create formally valid but uncontrolled terms.
+Diese Regel ist für Deutsch wichtig. Die produktive Nominalisierung kann formal korrekte, aber unkontrollierte Terme erzeugen.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Das Reamen des Lochs erfolgt danach.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Reiben Sie danach das Loch auf.
 
-If `Reiben` is an official process name in a heading, approve it as a technical noun entry.
+Wenn `Reiben` in einer Überschrift ein offizieller Prozessname ist, geben Sie `Reiben` als Eintrag für ein technisches Substantiv frei.
 
 ## STG-1.14 — Deutsche Standardschreibung
 
 **Level:** `MUST`
 
-Use the declared German spelling profile. The default profile `de-DE` follows the 2024 official German orthography.
+Verwenden Sie das deklarierte Rechtschreibprofil für Deutsch. Das Standardprofil `de-DE` folgt der amtlichen deutschen Rechtschreibung von 2024.
 
-For `de-DE`:
+Für `de-DE` gilt:
 
-- preserve `ä`, `ö`, `ü`, and `ß` where standard spelling requires them,
-- do not replace them with `ae`, `oe`, `ue`, or `ss` unless a technical identifier or system limitation requires it,
-- capitalize German nouns,
-- preserve the official spelling of product names, identifiers, UI strings, and quoted text.
+- Behalten Sie `ä`, `ö`, `ü` und `ß`, wenn die Standardschreibung diese Zeichen verlangt.
+- Ersetzen Sie diese Zeichen nicht durch `ae`, `oe`, `ue` oder `ss`. Eine Ausnahme gilt, wenn eine technische Kennung oder eine Systemgrenze den Ersatz verlangt.
+- Schreiben Sie deutsche Substantive groß.
+- Behalten Sie die offizielle Schreibung von Produktnamen, Kennungen, Zeichenketten der Benutzeroberfläche und zitiertem Text.
 
-A project may declare `de-CH` or another approved profile, but one document should not mix profiles.
+Ein Projekt darf `de-CH` oder ein anderes freigegebenes Profil deklarieren. Wir empfehlen, in einem Dokument keine Profile zu mischen.
 
 ---
 
 <!-- source: rules/02-compounds-and-terms.md -->
 
-# Section 2 — Komposita und Mehrwortterme
+# Abschnitt 2 — Komposita und Mehrwortterme
 
-German technical language relies heavily on compounds. STG-DE therefore defines dedicated rules for their controlled use.
+Die deutsche Fachsprache verwendet Komposita in großem Umfang. Deshalb definiert STG-DE eigene Regeln für die kontrollierte Verwendung von Komposita.
 
-## STG-2.1 — Begrenze die semantische Dichte technischer Benennungen
+## STG-2.1 — Semantische Dichte technischer Benennungen begrenzen
 
 **Level:** `MUST`
 
-A newly created technical designation must be understandable without having to infer several possible internal relations between components.
+Eine neu gebildete technische Benennung muss verständlich sein, ohne dass der Leser mehrere mögliche interne Beziehungen zwischen den Bestandteilen erschließen muss.
 
-Use these methods in order:
+Verwenden Sie diese Methoden in dieser Reihenfolge:
 
-1. Use the approved official term if one exists, regardless of length.
-2. For a new term, prefer at most three meaningful lexical components.
-3. If a longer designation is necessary, use a grammatically clear phrase or a structured compound.
-4. Use a hyphen when it materially clarifies the boundaries of a long compound or when the official orthography requires or permits it for clarity.
-5. Do not create a chain of modifiers only to keep the expression to one orthographic word.
+1. Verwenden Sie den freigegebenen offiziellen Term, wenn ein solcher Term existiert. Die Länge des Terms ist in diesem Fall nicht relevant.
+2. Für einen neuen Term empfehlen wir höchstens drei bedeutungstragende lexikalische Bestandteile.
+3. Wenn eine längere Benennung notwendig ist, verwenden Sie eine grammatisch klare Wortgruppe oder ein strukturiertes Kompositum.
+4. Verwenden Sie einen Bindestrich, wenn der Bindestrich die Grenzen in einem langen Kompositum deutlich klarer macht. Verwenden Sie einen Bindestrich auch, wenn die amtliche Rechtschreibung den Bindestrich zur Klarheit verlangt oder erlaubt.
+5. Bilden Sie keine Kette von Bestimmungswörtern, nur damit der Ausdruck ein orthografisches Wort bleibt.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Kraftstoffhauptpumpenausgangsdruckprüfanschlussabdeckung
+<!-- stg-lint: on -->
 
 **STG**
 
 > Abdeckung des Prüfanschlusses am Ausgang der Hauptkraftstoffpumpe
 
-If the long compound is the official part name, keep the official name and define a controlled shorter form under STG-2.2.
+Wenn das lange Kompositum der offizielle Name des Teils ist, behalten Sie den offiziellen Namen. Definieren Sie dann nach STG-2.2 eine kontrollierte kürzere Form.
 
 ## STG-2.2 — Lange offizielle Benennung zuerst vollständig
 
 **Level:** `MUST`
 
-When an official technical designation is long:
+Wenn eine offizielle technische Benennung lang ist, gilt:
 
-1. write the full official designation at first occurrence,
-2. define an approved short form or abbreviation if useful,
-3. use only that short form afterwards within the declared scope.
+1. Schreiben Sie beim ersten Vorkommen die vollständige offizielle Benennung.
+2. Definieren Sie eine freigegebene Kurzform oder Abkürzung, wenn die Kurzform hilfreich ist.
+3. Verwenden Sie danach im deklarierten Geltungsbereich nur diese Kurzform.
 
-Do not introduce several short forms for the same term.
+Legen Sie für denselben Term nicht mehrere Kurzformen fest.
 
-**Example**
+**Beispiel**
 
 > Die **zentrale Steuerung der Kühlmittelpumpe (Kühlmittelsteuerung)** überwacht den Druck. Die **Kühlmittelsteuerung** schaltet die Pumpe bei Überdruck aus.
 
@@ -234,73 +244,75 @@ Do not introduce several short forms for the same term.
 
 **Level:** `MUST`
 
-Treat a German compound as a terminology object, not merely as a concatenation of approved general words.
+Betrachten Sie ein deutsches Kompositum als Terminologieobjekt, nicht nur als Verbindung von freigegebenen allgemeinen Wörtern.
 
-For each approved compound, a terminology database should store:
+Für jedes freigegebene Kompositum empfehlen wir, diese Angaben in einer Terminologiedatenbank zu speichern:
 
-- canonical spelling,
-- concept identifier,
-- grammatical gender,
-- plural form,
-- approved short form if any,
-- decomposition into meaningful components when useful for validators.
+- kanonische Schreibung,
+- Kennung des Konzepts,
+- grammatisches Genus,
+- Pluralform,
+- freigegebene Kurzform, wenn eine Kurzform existiert,
+- Zerlegung in bedeutungstragende Bestandteile, wenn diese Zerlegung für Validatoren hilfreich ist.
 
-Approval of `Druck`, `Regler`, and `Ventil` does not automatically approve `Druckregelventil` as a technical term.
+Die Freigabe von `Druck`, `Regler` und `Ventil` gibt `Druckregelventil` nicht automatisch als technischen Term frei.
 
-## STG-DE-2.2 — Bindestriche nicht als Komplexitäts-Trick verwenden
+## STG-DE-2.2 — Bindestriche nicht zur scheinbaren Verkürzung verwenden
 
 **Level:** `MUST_NOT`
 
-Do not use hyphens solely to make a complex designation appear shorter for the word-count rule. A hyphenated compound counts as one orthographic word, but it still receives a compound-complexity check.
+Verwenden Sie Bindestriche nicht nur mit dem Ziel, eine komplexe Benennung für die Regel zur Wortzählung kürzer erscheinen zu lassen. Ein Kompositum mit Bindestrich zählt als ein orthografisches Wort. Das Kompositum erhält trotzdem eine Prüfung auf die Komplexität von Komposita.
 
 ## STG-DE-2.3 — Abkürzungen sparsam und stabil verwenden
 
 **Level:** `MUST`
 
-Use an abbreviation only when it is official or explicitly introduced. At first occurrence, write the full term followed by the abbreviation in parentheses unless the abbreviation is universally required by the project.
+Verwenden Sie eine Abkürzung nur, wenn die Abkürzung offiziell ist oder ausdrücklich eingeführt ist. Schreiben Sie beim ersten Vorkommen den vollständigen Term und danach die Abkürzung in Klammern. Eine Ausnahme gilt, wenn das Projekt die Abkürzung allgemein verlangt.
 
-After introduction, do not alternate between multiple abbreviations or between several shortened forms.
+Verwenden Sie nach der Einführung nicht abwechselnd mehrere Abkürzungen oder mehrere Kurzformen.
 
 ---
 
 <!-- source: rules/03-verbs.md -->
 
-# Section 3 — Verben
+# Abschnitt 3 — Verben
 
 ## STG-3.1 — Nur freigegebene Verbformen
 
 **Level:** `MUST`
 
-Use only verb forms permitted by the lexical entry and by this section. German conjugation is productive, but grammatical availability does not imply STG approval.
+Verwenden Sie nur Verbformen, die der lexikalische Eintrag und dieser Abschnitt zulassen. Die deutsche Konjugation ist produktiv. Eine grammatisch mögliche Form ist aber nicht automatisch in STG freigegeben.
 
 ## STG-3.2 — Kontrollierte Tempora und Modi
 
 **Level:** `MUST`
 
-Use these default forms:
+Verwenden Sie diese Standardformen:
 
-### Procedures
+### Anleitungen
 
-- formal imperative: `Entfernen Sie ...`
-- infinitive only inside an approved infinitive construction, not as the default instruction style.
+- formeller Imperativ: `Entfernen Sie ...`
+- Infinitiv nur in einer freigegebenen Infinitivkonstruktion, nicht als Standardstil für Anweisungen.
 
-### Descriptions
+### Beschreibungen
 
-- Präsens for current states, functions, and general technical facts,
-- Präteritum or Perfekt only when a past event must be reported,
-- present tense plus explicit time expression for future scheduled states when possible.
+- Präsens für aktuelle Zustände, Funktionen und allgemeine technische Fakten,
+- Präteritum oder Perfekt nur, wenn der Text ein vergangenes Ereignis berichten muss,
+- Präsens mit expliziter Zeitangabe für geplante zukünftige Zustände, wenn diese Form möglich ist.
 
-Avoid Futur I when Präsens is equally clear.
+Vermeiden Sie das Futur I, wenn das Präsens gleich klar ist.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Der Test wird morgen durchgeführt werden.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Das Personal prüft das System morgen.
 
-Or, if the actor is irrelevant but the schedule is the point:
+Alternative, wenn der Akteur nicht relevant ist, aber der Zeitplan die zentrale Information ist:
 
 > Der Test ist für morgen geplant.
 
@@ -308,7 +320,7 @@ Or, if the actor is irrelevant but the schedule is the point:
 
 **Level:** `MUST`
 
-A past participle may be used as an adjective or state description when it describes a condition and not an omitted action.
+Ein Partizip II darf als Adjektiv oder als Beschreibung eines Zustands stehen, wenn das Partizip einen Zustand beschreibt und keine ausgelassene Handlung.
 
 **STG**
 
@@ -318,23 +330,25 @@ A past participle may be used as an adjective or state description when it descr
 
 > Prüfen Sie die gereinigte Fläche.
 
-If the sentence describes who performs an action, use active voice instead.
+Wenn der Satz beschreibt, wer eine Handlung ausführt, verwenden Sie das Aktiv.
 
 ## STG-3.4 — Keine unnötigen Hilfsverbketten
 
 **Level:** `MUST_NOT`
 
-Do not use complex auxiliary/modal constructions when a direct verb expresses the same information.
+Verwenden Sie keine komplexen Konstruktionen mit Hilfsverben oder Modalverben, wenn ein direktes Verb dieselbe Information ausdrückt.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Die Dichtung muss ersetzt worden sein, bevor die Prüfung durchgeführt werden kann.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Ersetzen Sie die Dichtung vor der Prüfung.
 
-If the completed state itself is the requirement:
+Wenn der abgeschlossene Zustand selbst die Anforderung ist:
 
 > Vor der Prüfung muss die Dichtung ersetzt sein.
 
@@ -342,13 +356,15 @@ If the completed state itself is the requirement:
 
 **Level:** `MUST`
 
-German has no direct equivalent of the English `-ing` ambiguity. The corresponding German risk is productive nominalization.
+Das Deutsche hat keine direkte Entsprechung zur Mehrdeutigkeit der englischen Form auf `-ing`. Das entsprechende Risiko im Deutschen ist die produktive Nominalisierung.
 
-Use nominalizations only when they denote an approved technical concept, document heading, process name, or result. For actions in sentences, prefer a finite or imperative verb.
+Verwenden Sie Nominalisierungen nur, wenn die Nominalisierung eines dieser Elemente bezeichnet: ein freigegebenes technisches Konzept, eine Überschrift im Dokument, einen Prozessnamen oder ein Ergebnis. Für Handlungen in Sätzen empfehlen wir ein finites Verb oder einen Imperativ.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Nach Durchführung der Reinigung erfolgt die Prüfung der Oberfläche.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -358,59 +374,67 @@ Use nominalizations only when they denote an approved technical concept, documen
 
 **Level:** `MUST`
 
-Use active voice when the agent is known or can be stated correctly.
+Verwenden Sie das Aktiv, wenn der Akteur bekannt ist oder Sie den Akteur korrekt nennen können.
 
-In procedures, use the imperative instead of passive instructions.
+Verwenden Sie in Anleitungen den Imperativ statt Anweisungen im Passiv.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Die Sicherung wird entfernt.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Entfernen Sie die Sicherung.
 
-In descriptions, passive voice is permitted only when the agent is genuinely unknown, irrelevant to the technical meaning, or intentionally omitted by an applicable legal/publication rule.
+In Beschreibungen ist das Passiv nur in diesen Fällen zulässig: Der Akteur ist wirklich unbekannt. Der Akteur ist für die technische Bedeutung nicht relevant. Eine anwendbare rechtliche Regel oder Publikationsregel verlangt, dass der Text den Akteur nicht nennt.
 
-Do not confuse a state with passive voice:
+Verwechseln Sie einen Zustand nicht mit dem Passiv:
 
 > Die Sicherung ist entfernt.
 
-This can be a valid state description if `entfernt` describes the required condition.
+Dieser Satz kann eine gültige Beschreibung eines Zustands sein, wenn `entfernt` den geforderten Zustand beschreibt.
 
 ## STG-3.7 — Handlungen mit direkten Verben ausdrücken
 
 **Level:** `MUST`
 
-When an approved direct verb expresses the action, use it instead of a noun-heavy construction.
+Wenn ein freigegebenes direktes Verb die Handlung ausdrückt, verwenden Sie dieses Verb statt einer Konstruktion mit vielen Substantiven.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Führen Sie eine Prüfung des Steckers durch.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Prüfen Sie den Stecker.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Nehmen Sie eine Einstellung des Drucks vor.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Stellen Sie den Druck ein.
 
-## STG-DE-3.1 — Trennbare Verben kontrollieren
+## STG-DE-3.1 — Trennbare Verben prüfen und begrenzen
 
 **Level:** `SHOULD`
 
-Separable verbs are permitted when they are the approved technical/general verb. Keep the sentence bracket short.
+Trennbare Verben sind zulässig, wenn das trennbare Verb das freigegebene technische oder allgemeine Verb ist. Wir empfehlen, die Satzklammer kurz zu halten.
 
-If more than about 12 words occur between the finite verb and its separable prefix, rewrite the sentence unless the terminology or syntax makes the longer bracket clearly preferable.
+Wenn zwischen dem finiten Verb und dem trennbaren Präfix mehr als ungefähr 12 Wörter stehen, empfehlen wir, den Satz neu zu formulieren. Eine Ausnahme gilt, wenn die Terminologie oder die Syntax die längere Satzklammer deutlich besser macht.
 
+<!-- stg-lint: off -->
 **Schwer lesbar**
 
 > Schalten Sie nach dem Ende der automatischen Kalibrierung die externe 24-V-Stromversorgung am hinteren Bedienfeld vollständig aus.
+<!-- stg-lint: on -->
 
 **Besser**
 
@@ -420,44 +444,48 @@ If more than about 12 words occur between the finite verb and its separable pref
 
 **Level:** `MUST`
 
-Use modality consistently:
+Verwenden Sie die Modalität konsistent:
 
-| Meaning | STG form |
+| Bedeutung | STG-Form |
 |---|---|
-| Mandatory action in a procedure | Imperative |
-| Mandatory state/requirement | `muss` |
-| Prohibition | `darf nicht` or negative imperative, depending text type |
-| Permission | `darf` |
-| Physical/technical capability or factual possibility | `kann` |
-| Recommendation | explicit recommendation wording only when recommendations are permitted |
+| Verbindliche Handlung in einer Anleitung | Imperativ |
+| Verbindlicher Zustand oder verbindliche Anforderung | `muss` |
+| Verbot | `darf nicht` oder negativer Imperativ, abhängig von der Textart |
+| Erlaubnis | `darf` |
+| Physische oder technische Fähigkeit oder tatsächliche Möglichkeit | `kann` |
+| Empfehlung | ausdrückliche Formulierung als Empfehlung, nur wenn Empfehlungen zulässig sind |
 
-Do not use `soll`, `sollte`, or `müsste` when the intended force is mandatory, permitted, or merely possible.
+Verwenden Sie nicht `soll`, `sollte` oder `müsste`, wenn die beabsichtigte Stärke verbindlich, erlaubt oder nur möglich ist.
 
-**Ambiguous**
+<!-- stg-lint: off -->
+**Mehrdeutig**
 
 > Die Schraube sollte ersetzt werden.
+<!-- stg-lint: on -->
 
-Possible STG rewrites depend on intent:
+Die möglichen Umformulierungen in STG hängen von der Absicht ab:
 
 > Ersetzen Sie die Schraube.  
 > Die Schraube muss ersetzt sein.  
 > Wir empfehlen, die Schraube zu ersetzen.
 
-If the intended modality is unknown, return `NEEDS_MODALITY_INPUT`.
+Wenn die beabsichtigte Modalität unbekannt ist, geben Sie `NEEDS_MODALITY_INPUT` zurück.
 
 ## STG-DE-3.3 — `werden` restriktiv verwenden
 
 **Level:** `SHOULD_NOT`
 
-Avoid `werden` when it only creates passive voice or Futur I. It may be used for an actual change of state when that meaning is clear.
+Wir empfehlen, `werden` nicht zu verwenden, wenn `werden` nur ein Passiv oder ein Futur I bildet. Für eine tatsächliche Änderung eines Zustands dürfen Sie `werden` verwenden, wenn diese Bedeutung klar ist.
 
 **STG**
 
 > Das Gehäuse wird warm.
 
+<!-- stg-lint: off -->
 **Nicht bevorzugt**
 
 > Die Leitung wird vom Steuergerät überwacht.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -467,17 +495,19 @@ Avoid `werden` when it only creates passive voice or Futur I. It may be used for
 
 <!-- source: rules/04-sentences.md -->
 
-# Section 4 — Sätze
+# Abschnitt 4 — Sätze
 
 ## STG-4.1 — Kurze, eindeutige Sätze
 
 **Level:** `MUST`
 
-Write short sentences with one primary proposition. In descriptive text, each sentence should have one main topic. Do not compress several independent facts into one sentence.
+Schreiben Sie kurze Sätze mit einer primären Aussage. In beschreibendem Text empfehlen wir ein Hauptthema je Satz. Verdichten Sie nicht mehrere unabhängige Fakten in einem Satz.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Der Sensor sitzt am Gehäuse, misst den Druck und sendet die Werte an das Steuergerät, das bei einem Grenzwertfehler die Pumpe abschaltet.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -487,68 +517,72 @@ Write short sentences with one primary proposition. In descriptive text, each se
 
 **Level:** `MUST_NOT`
 
-Do not omit a subject, object, verb, article, or reference when the omission can create ambiguity. Do not use telegraphic fragments as normal running text.
+Lassen Sie kein Subjekt, kein Objekt, kein Verb, keinen Artikel und keinen Bezug aus, wenn die Auslassung eine Mehrdeutigkeit erzeugen kann. Verwenden Sie keine Fragmente im Telegrammstil als normalen Fließtext.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Schalter auf EIN.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Stellen Sie den Schalter auf EIN.
 
-Headings, table cells, labels, and other controlled fragments may be exempt under their content model.
+Überschriften, Tabellenzellen, Beschriftungen und andere kontrollierte Fragmente können nach dem jeweiligen Inhaltsmodell von dieser Regel ausgenommen sein.
 
 ## STG-4.3 — Vertikale Listen für komplexe Aufzählungen
 
 **Level:** `MUST`
 
-Use a vertical list when a sentence contains many parallel items, conditions, or actions.
+Verwenden Sie eine vertikale Liste, wenn ein Satz viele parallele Elemente, Bedingungen oder Handlungen enthält.
 
-Rules:
+Regeln:
 
-- introduce the list with a grammatically complete lead-in and colon,
-- keep all list items grammatically parallel,
-- do not mix procedural commands and descriptive statements in the same list,
-- use a full stop for a list item that is a complete sentence,
-- do not use commas or semicolons as end punctuation merely to chain list items.
+- Leiten Sie die Liste mit einem grammatisch vollständigen Einleitungssatz und einem Doppelpunkt ein.
+- Halten Sie alle Listenelemente grammatisch parallel.
+- Mischen Sie in derselben Liste keine Befehle aus Anleitungen und keine beschreibenden Aussagen.
+- Schließen Sie ein Listenelement, das ein vollständiger Satz ist, mit einem Punkt ab.
+- Verwenden Sie Kommas oder Semikolons nicht als Endzeichen, nur um Listenelemente zu verketten.
 
-## STG-4.4 — Logische Verknüpfungen explizit machen
+## STG-4.4 — Logische Verknüpfungen explizit angeben
 
 **Level:** `MUST`
 
-Use stable connecting words when the logical relation between sentences matters.
+Verwenden Sie stabile Verknüpfungswörter, wenn die logische Beziehung zwischen Sätzen wichtig ist.
 
-Preferred controlled connectors include:
+Zu den bevorzugten kontrollierten Verknüpfungswörtern gehören:
 
-- `und` — addition,
-- `aber` — contrast,
-- `dann` / `danach` — sequence,
-- `deshalb` — result,
-- `weil` — cause,
-- `wenn` — condition,
-- `bevor` — earlier event,
-- `während` — simultaneous period.
+- `und` — Addition,
+- `aber` — Gegensatz,
+- `dann` / `danach` — Reihenfolge,
+- `deshalb` — Folge,
+- `weil` — Ursache,
+- `wenn` — Bedingung,
+- `bevor` — früheres Ereignis,
+- `während` — gleichzeitiger Zeitraum.
 
-Do not vary connectors merely for style.
+Variieren Sie Verknüpfungswörter nicht nur aus stilistischen Gründen.
 
 ## STG-4.5 — Artikel und Demonstrativa eindeutig verwenden
 
 **Level:** `MUST`
 
-Use articles and demonstratives according to German grammar and to make reference status clear. Ensure agreement in case, gender, and number.
+Verwenden Sie Artikel und Demonstrativa nach der deutschen Grammatik. Verwenden Sie Artikel und Demonstrativa, um den Status des Bezugs eindeutig anzugeben. Stellen Sie die Kongruenz in Kasus, Genus und Numerus sicher.
 
-Do not use a bare demonstrative pronoun when more than one antecedent is possible. Prefer a demonstrative adjective plus noun or repeat the technical noun.
+Verwenden Sie kein alleinstehendes Demonstrativpronomen, wenn mehr als ein Bezugswort möglich ist. Wir empfehlen ein Demonstrativadjektiv mit Substantiv oder die Wiederholung des technischen Substantivs.
 
-**Ambiguous**
+<!-- stg-lint: off -->
+**Mehrdeutig**
 
 > Entfernen Sie den Sensor aus dem Halter. Dieser ist beschädigt.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Entfernen Sie den Sensor aus dem Halter. Der Sensor ist beschädigt.
 
-or
+oder
 
 > Entfernen Sie den Sensor aus dem Halter. Der Halter ist beschädigt.
 
@@ -556,19 +590,21 @@ or
 
 **Level:** `MUST`
 
-Do not nest subordinate clauses inside subordinate clauses in procedural or safety text. In descriptive text, one level of subordination is the default maximum.
+Verschachteln Sie in anleitendem Text und in Sicherheitshinweisen keine Nebensätze in Nebensätzen. In beschreibendem Text ist eine Ebene der Unterordnung das Standardmaximum.
 
-Rewrite deeper structures as separate sentences.
+Formulieren Sie tiefere Strukturen als getrennte Sätze neu.
 
 ## STG-DE-4.2 — Pronomen nur mit eindeutigem Bezug
 
 **Level:** `MUST`
 
-A pronoun must have exactly one plausible antecedent in the local context. If it can refer to more than one noun, repeat the noun.
+Ein Pronomen muss im lokalen Kontext genau ein plausibles Bezugswort haben. Wenn das Pronomen auf mehr als ein Substantiv verweisen kann, wiederholen Sie das Substantiv.
 
-**Ambiguous**
+<!-- stg-lint: off -->
+**Mehrdeutig**
 
 > Verbinden Sie den Sensor mit dem Adapter, wenn er trocken ist.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -578,115 +614,139 @@ A pronoun must have exactly one plausible antecedent in the local context. If it
 
 **Level:** `MUST_NOT`
 
-Do not use the indefinite pronoun `man` to hide or generalize the actor in technical instructions or requirements.
+Verwenden Sie das Indefinitpronomen `man` nicht, um den Akteur in technischen Anweisungen oder Anforderungen zu verbergen oder zu verallgemeinern.
 
-Use:
+Verwenden Sie stattdessen:
 
-- the imperative when the reader acts,
-- a named role when a specified actor acts,
-- the responsible system/component when it acts automatically.
+- den Imperativ, wenn der Leser handelt,
+- eine benannte Rolle, wenn ein festgelegter Akteur handelt,
+- das verantwortliche System oder die verantwortliche Komponente, wenn das System oder die Komponente automatisch handelt.
 
-## STG-DE-4.4 — Negationsbereich eindeutig machen
+## STG-DE-4.4 — Negationsbereich eindeutig festlegen
 
 **Level:** `MUST`
 
-Place `nicht`, `kein`, and other negative expressions so that only one interpretation is plausible. When the scope is complex, rewrite with an explicit condition.
+Positionieren Sie `nicht`, `kein` und andere negative Ausdrücke so, dass nur eine Interpretation plausibel ist. Wenn der Bereich der Negation komplex ist, formulieren Sie den Satz mit einer expliziten Bedingung neu.
 
-**Ambiguous**
+<!-- stg-lint: off -->
+**Mehrdeutig**
 
 > Schalten Sie das Gerät nicht mit geöffnetem Gehäuse ein.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Wenn das Gehäuse offen ist, schalten Sie das Gerät nicht ein.
 
-Avoid double negation.
+Vermeiden Sie doppelte Negation.
 
 
 ## STG-DE-4.5 — Pronominaladverbien nur mit eindeutigem Bezug
 
 **Level:** `MUST`
 
-German pronominal adverbs such as `dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür` and `hierfür` can compress a reference to an object, action, cause, purpose, or previous sentence. Use such a form only when exactly one local antecedent and exactly one semantic relation are possible.
+Deutsche Pronominaladverbien wie `dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür` und `hierfür` können einen Bezug verdichten. Der Bezug kann auf ein Objekt, eine Handlung, eine Ursache, einen Zweck oder einen vorherigen Satz verweisen. Verwenden Sie eine solche Form nur, wenn genau ein lokales Bezugswort und genau eine semantische Beziehung möglich sind.
 
-In strict `STG-C-core` authoring, repeat the technical noun, action, or condition when the reference could be interpreted in more than one way.
+Wiederholen Sie beim strengen Schreiben nach `STG-C-core` das technische Substantiv, die Handlung oder die Bedingung, wenn der Bezug mehrere Interpretationen zulässt.
 
+<!-- stg-lint: off -->
 **Mehrdeutig**
 
 > Verbinden Sie den Sensor mit dem Adapter. Dabei darf die Dichtung nicht beschädigt werden.
+<!-- stg-lint: on -->
 
-`Dabei` can refer to connecting, to the adapter, or to the complete previous situation.
+`Dabei` kann auf das Verbinden, auf den Adapter oder auf die vollständige vorherige Situation verweisen.
 
 **STG**
 
 > Wenn Sie den Sensor mit dem Adapter verbinden, beschädigen Sie die Dichtung nicht.
 
-A validator should report an unresolved pronominal adverb as `NEEDS_REFERENCE_INPUT`; it must not invent the antecedent.
+Wir empfehlen, dass ein Validator ein ungeklärtes Pronominaladverb als `NEEDS_REFERENCE_INPUT` meldet. Der Validator darf das Bezugswort nicht erfinden.
 
 ---
 
 <!-- source: rules/05-procedures.md -->
 
-# Section 5 — Prozedurales Schreiben
+# Abschnitt 5 — Anleitungen
 
-## STG-5.1 — Maximal 20 Wörter pro prozeduralem Satz
-
-**Level:** `MUST`
-
-A procedural sentence, including a safety command, has a maximum of **20 words** under the counting rules in Section 8.
-
-A note is descriptive text and may contain up to 25 words per sentence.
-
-## STG-5.2 — Eine Anweisung pro Satz
+## STG-5.1 — Maximal 20 Wörter je Satz in anleitendem Text
 
 **Level:** `MUST`
 
-Write one instruction per sentence.
+Ein Satz in einem anleitenden Text hat maximal **20 Wörter** nach den Zählregeln in Abschnitt 8. Diese Grenze gilt auch für eine Anweisung in einem Sicherheitshinweis.
 
-More than one action is permitted in one sentence only when the actions:
+Ein Hinweis ist beschreibender Text. Ein Satz in einem Hinweis darf maximal 25 Wörter haben.
 
-- occur at the same time,
-- are a single inseparable physical operation,
-- or one action is an immediate acceptance/result statement belonging to the same work step.
+## STG-5.2 — Eine Anweisung je Satz
 
+**Level:** `MUST`
+
+Schreiben Sie eine Anweisung je Satz.
+
+Mehr als eine Handlung in einem Satz ist nur zulässig, wenn die Handlungen eine dieser Bedingungen erfüllen:
+
+- Die Handlungen finden gleichzeitig statt.
+- Die Handlungen sind ein einziger untrennbarer physischer Vorgang.
+- Eine Handlung ist eine direkte Abnahme- oder Ergebnisaussage, die zu demselben Arbeitsschritt gehört.
+
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Öffnen Sie die Abdeckung und entfernen Sie danach den Filter.
+<!-- stg-lint: on -->
 
 **STG**
 
 > 1. Öffnen Sie die Abdeckung.  
 > 2. Entfernen Sie den Filter.
 
-**Permitted simultaneous action**
+**Zulässige gleichzeitige Handlung**
 
 > Halten Sie die Leitung fest und lösen Sie die Mutter.
 
-## STG-5.3 — Anweisungen im formalen Imperativ
+## STG-5.3 — Anweisungen in einer festgelegten Anredeform
 
 **Level:** `MUST`
 
-Use the formal German imperative with `Sie` for required reader actions.
+Schreiben Sie erforderliche Handlungen des Lesers in der Anredeform des Projekts. Das Projekt legt die Anredeform mit der Einstellung `anrede` in `.stg-de.yaml` fest.
 
-**STG**
+| `anrede` | Form der Anweisung | Beispiel |
+|---|---|---|
+| `sie` (Standard) | formaler Imperativ mit „Sie“ | „Prüfen Sie die Leitung auf Schäden.“ |
+| `du` | Imperativ der 2. Person Singular | „Prüfe die Leitung auf Schäden.“ |
+| `infinitiv` | Infinitiv am Satzende | „Leitung auf Schäden prüfen.“ |
+
+Wenn das Projekt keine Anredeform festlegt, gilt `sie`.
+
+**STG** (`anrede: sie`)
 
 > Entfernen Sie die Abdeckung.  
 > Stellen Sie den Druck auf 2 bar ein.  
 > Prüfen Sie die Leitung auf Schäden.
 
-Do not use passive voice, `soll`, or noun-only fragments to encode a command.
+Ein kontrollierter Dokumentsatz verwendet genau eine Anredeform. Anweisungen, Pronomen und Possessivpronomen der Anrede folgen dieser Form. Ein Dokumentsatz schreibt „du“ oder „Du“ einheitlich.
 
-A project may adopt an infinitive instruction profile only by explicit directive; mixed imperative profiles are not permitted within one controlled document set.
+<!-- stg-lint: off -->
+**Nicht STG**
+
+> Prüfen Sie den Druck. Wenn du fertig bist, schließe das Ventil.
+<!-- stg-lint: on -->
+
+Verwenden Sie für eine Anweisung kein Passiv, kein `soll` und keine Fragmente, die nur aus Substantiven bestehen. Diese Vorgabe gilt für jede Anredeform.
+
+Der Änderungsvorschlag `proposals/STG-2026-001-anrede.md` begründet diese Regel.
 
 ## STG-5.4 — Bedingung vor Anweisung
 
 **Level:** `MUST`
 
-If the reader must know a condition before an action, place the condition first and separate it from the command with a comma.
+Wenn der Leser eine Bedingung vor einer Handlung kennen muss, schreiben Sie die Bedingung zuerst. Trennen Sie die Bedingung mit einem Komma von der Anweisung.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Entfernen Sie die Sicherung, wenn die Anzeige rot ist.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -696,19 +756,21 @@ If the reader must know a condition before an action, place the condition first 
 
 **Level:** `MUST`
 
-A note may provide useful context only. It must not contain:
+Ein Hinweis darf nur nützlichen Kontext geben. Ein Hinweis darf diese Inhalte nicht enthalten:
 
-- a command,
-- a safety action,
-- a mandatory requirement,
-- an acceptance criterion,
-- a limit or tolerance that is required to complete the work step correctly.
+- eine Anweisung,
+- eine Schutzhandlung,
+- eine verbindliche Anforderung,
+- ein Abnahmekriterium,
+- einen Grenzwert oder eine Toleranz, die für die korrekte Ausführung des Arbeitsschritts erforderlich ist.
 
-Test: Remove every note from the procedure. The reader must still be able to perform the procedure correctly and safely.
+Prüfung: Entfernen Sie jeden Hinweis aus der Anleitung. Der Leser muss die Anleitung auch ohne Hinweise korrekt und sicher ausführen können.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > HINWEIS: Ziehen Sie die Schraube mit 8 Nm fest.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -718,75 +780,75 @@ Test: Remove every note from the procedure. The reader must still be able to per
 
 <!-- source: rules/06-descriptions.md -->
 
-# Section 6 — Beschreibendes Schreiben
+# Abschnitt 6 — Beschreibungen
 
 ## STG-6.1 — Informationen schrittweise geben
 
 **Level:** `MUST`
 
-Introduce one topic, then add related information in a logical sequence. Do not force the reader to decode several new concepts in the same sentence.
+Nennen Sie zuerst ein Thema. Geben Sie danach verwandte Informationen in einer logischen Reihenfolge. Der Leser darf nicht mehrere neue Begriffe in demselben Satz entschlüsseln müssen.
 
 ## STG-6.2 — Schlüsselwörter und feste Verknüpfungen wiederverwenden
 
 **Level:** `MUST`
 
-Reuse the same key terms and connecting words to make relationships explicit. Do not replace a key term with a synonym for stylistic variety.
+Verwenden Sie dieselben Schlüsselbegriffe und dieselben Verknüpfungswörter wieder, um Beziehungen explizit zu zeigen. Ersetzen Sie einen Schlüsselbegriff nicht durch ein Synonym, nur um den Stil zu variieren.
 
-## STG-6.3 — Maximal 25 Wörter pro beschreibendem Satz
+## STG-6.3 — Maximal 25 Wörter je beschreibendem Satz
 
 **Level:** `MUST`
 
-A descriptive sentence has a maximum of **25 words** under the counting rules in Section 8.
+Ein beschreibender Satz hat maximal **25 Wörter** nach den Zählregeln in Abschnitt 8.
 
-If a sentence exceeds the limit, divide it by topic or logical relation; do not only remove articles or compress terms.
+Wenn ein Satz die Grenze überschreitet, teilen Sie den Satz nach Thema oder logischer Beziehung. Entfernen Sie nicht nur Artikel und komprimieren Sie nicht nur Begriffe.
 
 ## STG-6.4 — Verwandte Informationen in Absätzen gruppieren
 
 **Level:** `MUST`
 
-Use paragraphs as logical units. Start a paragraph with a topic sentence when the content type permits it.
+Verwenden Sie Absätze als logische Einheiten. Starten Sie einen Absatz mit einem Thema-Satz, wenn die Inhaltsart diese Struktur zulässt.
 
-## STG-6.5 — Ein Thema pro Absatz
-
-**Level:** `MUST`
-
-A paragraph has one primary topic. Start a new paragraph when the topic changes.
-
-A useful test: The first sentence of each paragraph should form a meaningful outline of the section.
-
-## STG-6.6 — Maximal sechs Sätze pro Absatz
+## STG-6.5 — Ein Thema je Absatz
 
 **Level:** `MUST`
 
-A descriptive paragraph has no more than six sentences. If more sentences are necessary, check whether the paragraph contains more than one topic and divide it.
+Ein Absatz hat ein Hauptthema. Starten Sie einen neuen Absatz, wenn das Thema wechselt.
+
+Eine nützliche Prüfung: Lesen Sie nur den ersten Satz von jedem Absatz. Wir empfehlen, dass diese Sätze zusammen eine sinnvolle Gliederung des Abschnitts ergeben.
+
+## STG-6.6 — Maximal sechs Sätze je Absatz
+
+**Level:** `MUST`
+
+Ein beschreibender Absatz hat maximal sechs Sätze. Wenn mehr Sätze notwendig sind, prüfen Sie, ob der Absatz mehr als ein Thema enthält. Wenn ja, teilen Sie den Absatz.
 
 ---
 
 <!-- source: rules/07-safety.md -->
 
-# Section 7 — Sicherheitsanweisungen
+# Abschnitt 7 — Sicherheitshinweise
 
-STG-DE controls the language of a safety instruction. The applicable safety standard controls the risk taxonomy, signal-word set, colors, symbols, and layout.
+STG-DE regelt die Sprache eines Sicherheitshinweises. Die zutreffende Sicherheitsnorm regelt die Risikoklassifikation, die Signalwörter, die Farben, die Symbole und das Layout.
 
 ## STG-7.1 — Risikostufe eindeutig kennzeichnen
 
 **Level:** `MUST`
 
-Use the signal word or symbol required by the project's safety classification system. A document must use one consistent safety taxonomy.
+Verwenden Sie das Signalwort oder das Symbol, das das Sicherheitsklassifikationssystem des Projekts verlangt. Ein Dokument muss eine einheitliche Sicherheitsklassifikation verwenden.
 
-Do not infer a lower risk category merely from legacy wording. If the correct category is unknown, return `NEEDS_SAFETY_INPUT`.
+Leiten Sie eine niedrigere Risikokategorie nicht nur aus einer alten Formulierung ab. Wenn die korrekte Kategorie unbekannt ist, geben Sie `NEEDS_SAFETY_INPUT` zurück.
 
-## STG-7.2 — Mit Schutzhandlung oder Bedingung beginnen
+## STG-7.2 — Schutzhandlung oder Bedingung zuerst
 
 **Level:** `MUST`
 
-After the signal word, state the preventive action or the necessary condition immediately. The reader must know what to do before reading secondary explanation.
+Nennen Sie direkt nach dem Signalwort die Schutzhandlung oder die notwendige Bedingung. Der Leser muss die erforderliche Handlung kennen, bevor er sekundäre Erklärungen liest.
 
-**STG pattern**
+**STG-Muster**
 
 > WARNUNG: Schalten Sie die Stromversorgung aus. ...
 
-or
+oder
 
 > WARNUNG: Wenn die Abdeckung offen ist, berühren Sie keine spannungsführenden Teile. ...
 
@@ -794,227 +856,237 @@ or
 
 **Level:** `MUST`
 
-When the consequence is known, explain the hazard or possible result in concrete terms.
+Wenn die Folge bekannt ist, erklären Sie die Gefahr oder das mögliche Ergebnis konkret.
 
-Avoid abstract formulations such as `Vorsicht ist geboten` or `besondere Sorgfalt ist erforderlich`.
+Vermeiden Sie abstrakte Formulierungen wie `Vorsicht ist geboten` oder `besondere Sorgfalt ist erforderlich`.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > WARNUNG: Arbeiten Sie vorsichtig.
+<!-- stg-lint: on -->
 
 **STG**
 
 > WARNUNG: Schalten Sie die Stromversorgung aus. Eine elektrische Spannung kann schwere Verletzungen verursachen.
 
-The technical safety content must come from an approved safety assessment; the language rule does not invent hazards.
+Der technische Sicherheitsinhalt muss aus einer freigegebenen Sicherheitsbewertung kommen. Die Sprachregel erfindet keine Gefahren.
 
 ---
 
 <!-- source: rules/08-punctuation-and-counting.md -->
 
-# Section 8 — Zeichensetzung und Wortzählung
+# Abschnitt 8 — Zeichensetzung und Wortzählung
 
-## STG-8.1 — Standardsatzzeichen; kein Semikolon zum Verbinden von Aussagen
+## STG-8.1 — Standardsatzzeichen und kein Semikolon zum Verbinden von Aussagen
 
 **Level:** `MUST_NOT`
 
-Use standard German punctuation. Do not use the semicolon (`;`) to connect independent technical propositions. Write separate sentences instead.
+Verwenden Sie die Standardzeichensetzung des Deutschen. Verbinden Sie unabhängige technische Aussagen nicht mit einem Semikolon (`;`). Schreiben Sie stattdessen getrennte Sätze.
 
-This restriction is intentionally stronger than ordinary German punctuation rules because it limits sentence complexity.
+Diese Einschränkung ist absichtlich strenger als die normalen deutschen Zeichensetzungsregeln. Der Grund: Die Einschränkung begrenzt die Komplexität der Sätze.
 
 ## STG-8.2 — Bindestriche nur für echte Wortstruktur
 
 **Level:** `MUST`
 
-Use hyphens according to German orthography and approved terminology. Use them when they clarify compound boundaries, connect letters/numbers with words where required, or are part of an official term.
+Verwenden Sie Bindestriche nach der deutschen Rechtschreibung und nach der freigegebenen Terminologie. Verwenden Sie Bindestriche in diesen Fällen:
 
-Do not use hyphens to hide syntactic complexity or to force a long phrase into one counted word.
+- Ein Bindestrich zeigt die Grenzen in einem Kompositum deutlich.
+- Ein Bindestrich verbindet Buchstaben oder Zahlen mit Wörtern, wenn die Rechtschreibung diese Verbindung verlangt.
+- Ein Bindestrich ist ein Teil eines offiziellen Begriffs.
+
+Verwenden Sie Bindestriche nicht, um syntaktische Komplexität zu verstecken. Verwenden Sie Bindestriche auch nicht, um eine lange Wortgruppe in ein einziges gezähltes Wort zu zwingen.
 
 ## STG-8.3 — Klammern restriktiv verwenden
 
 **Level:** `MUST`
 
-Parentheses may be used for:
+Klammern dürfen diese Inhalte enthalten:
 
-- figure/text references,
-- identifiers,
-- work-step identifiers,
-- abbreviations after the full form,
-- short clarifications,
-- controlled alternatives where the project format explicitly permits them.
+- Verweise auf Abbildungen oder Textstellen,
+- Kennungen,
+- Kennungen von Arbeitsschritten,
+- Abkürzungen nach der vollständigen Form,
+- kurze Erläuterungen,
+- kontrollierte Alternativen, wenn das Projektformat diese Alternativen ausdrücklich zulässt.
 
-Do not put a required instruction, safety action, or primary technical condition only in parentheses.
+Schreiben Sie eine erforderliche Anweisung, eine Schutzhandlung oder eine primäre technische Bedingung nicht nur in Klammern.
 
 ## STG-8.4 — Doppelpunkt beendet die Einleitung einer vertikalen Liste
 
 **Level:** `MUST`
 
-For word counting, the text before a colon that introduces a vertical list is counted as one sentence. Each list item is checked separately.
+Für die Wortzählung gilt: Der Text vor einem Doppelpunkt, der eine vertikale Liste einleitet, zählt als ein Satz. Jeder Listenpunkt wird separat geprüft.
 
-Limits:
+Grenzen:
 
-- 20 words for procedural items,
-- 25 words for descriptive items.
+- 20 Wörter für Listenpunkte in anleitendem Text,
+- 25 Wörter für Listenpunkte in beschreibendem Text.
 
 ## STG-8.5 — Klammertext separat prüfen
 
 **Level:** `MUST`
 
-Parenthetical text counts as one word in the outer sentence. The text inside parentheses is also checked separately for clarity and applicable sentence length.
+Text in Klammern zählt im äußeren Satz als ein Wort. Der Text in den Klammern wird zusätzlich separat auf Klarheit und auf die zutreffende Satzlänge geprüft.
 
-This counting rule does not permit complex instructions inside parentheses.
+Diese Zählregel erlaubt keine komplexen Anweisungen in Klammern.
 
 ## STG-8.6 — Geschützte Einheiten zählen als ein Wort
 
 **Level:** `MUST`
 
-For sentence-length counting, each of these counts as one word in the surrounding sentence:
+Für die Zählung der Satzlänge zählt jedes dieser Elemente im umgebenden Satz als ein Wort:
 
-- a number,
-- a number directly combined with its unit,
-- an abbreviation,
-- an alphanumeric identifier,
-- quoted/locked text,
-- an official title/heading/label,
-- a protected proper name.
+- eine Zahl,
+- eine Zahl, die direkt mit ihrer Einheit verbunden ist,
+- eine Abkürzung,
+- eine alphanumerische Kennung,
+- zitierter oder gesperrter Text,
+- ein offizieller Titel, eine offizielle Überschrift oder eine offizielle Beschriftung,
+- ein geschützter Eigenname.
 
-Do not count numbering that only identifies a work step.
+Zählen Sie keine Nummerierung, die nur einen Arbeitsschritt kennzeichnet.
 
 ## STG-8.7 — Bindestrichkomposita zählen orthografisch als ein Wort
 
 **Level:** `MUST`
 
-A hyphenated German compound counts as one orthographic word for sentence length. The compound is still subject to Section 2 complexity rules.
+Ein deutsches Kompositum mit Bindestrich zählt für die Satzlänge als ein orthografisches Wort. Für das Kompositum gelten trotzdem die Komplexitätsregeln in Abschnitt 2.
 
 ## STG-DE-8.1 — Schrägstrichkombinationen vermeiden
 
 **Level:** `SHOULD_NOT`
 
-Avoid forms such as `und/oder`, `der/die`, `ein-/ausschalten`, and compressed slash alternatives in running technical text when they can have more than one interpretation.
+Wir empfehlen, Formen wie `und/oder`, `der/die`, `ein-/ausschalten` und komprimierte Alternativen mit Schrägstrich in technischem Fließtext zu vermeiden. Diese Empfehlung gilt, wenn diese Formen mehr als eine Interpretation zulassen.
 
-Use an explicit `und`, `oder`, a vertical list, or separate sentences.
+Verwenden Sie ein explizites `und`, ein explizites `oder`, eine vertikale Liste oder getrennte Sätze.
 
-Exceptions are locked identifiers and project-defined compact table notation.
+Ausnahmen sind gesperrte Kennungen und kompakte Tabellennotationen, die das Projekt definiert.
 
 ---
 
 <!-- source: rules/09-writing-practices.md -->
 
-# Section 9 — Schreibpraxis
+# Abschnitt 9 — Schreibpraxis
 
 ## STG-9.1 — Satz neu bauen, wenn Wortersatz nicht reicht
 
 **Level:** `MUST`
 
-Do not replace an unapproved word mechanically when the replacement changes grammar, meaning, or modality. Rewrite the complete sentence while preserving technical meaning.
+Ersetzen Sie ein nicht freigegebenes Wort nicht mechanisch, wenn der Ersatz die Grammatik, die Bedeutung oder die Modalität ändert. Schreiben Sie den vollständigen Satz neu und behalten Sie die technische Bedeutung.
 
-A language tool must prefer `NEEDS_DOMAIN_INPUT` to an invented rewrite when the intended meaning is unclear.
+Wenn die beabsichtigte Bedeutung unklar ist, muss ein Sprachwerkzeug `NEEDS_DOMAIN_INPUT` zurückgeben und keine erfundene Umformulierung.
 
 ## STG-9.2 — Freigegebene Wörter korrekt verwenden
 
 **Level:** `MUST`
 
-Before using an approved word, check its approved meaning, word class, restrictions, and domain profile.
+Bevor Sie ein freigegebenes Wort verwenden, prüfen Sie die freigegebene Bedeutung, die Wortart, die Einschränkungen und das Domänenprofil des Worts.
 
-If a word has several approved meanings, the lexicon must distinguish them with separate meaning IDs.
+Wenn ein Wort mehrere freigegebene Bedeutungen hat, muss das Lexikon diese Bedeutungen mit getrennten Bedeutungs-IDs unterscheiden.
 
 ## STG-9.3 — Keine idiomatischen Verbgefüge als Ersatz für direkte Verben
 
 **Level:** `MUST_NOT`
 
-In German, ambiguity and verbosity often come from idioms and function-verb constructions.
+Im Deutschen kommen Mehrdeutigkeit und unnötige Länge oft von Redewendungen und Funktionsverbgefügen.
 
-Do not use an idiomatic or noun-heavy verb phrase when a direct approved verb gives the same technical meaning.
+Verwenden Sie keine idiomatische oder substantivlastige Verbalphrase, wenn ein direktes freigegebenes Verb dieselbe technische Bedeutung gibt.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Nehmen Sie eine Prüfung vor.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Prüfen Sie das Bauteil.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Bringen Sie die Änderung zur Anwendung.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Wenden Sie die Änderung an.
 
-Lexicalized technical multiword verbs may be approved as single dictionary entries when the domain requires them.
+Lexikalisierte technische Mehrwortverben dürfen als einzelne Wörterbucheinträge freigegeben werden, wenn die Domäne diese Verben verlangt.
 
 ## STG-9.4 — Terminologie und Formulierungen konsistent halten
 
 **Level:** `MUST`
 
-For the same action in the same context, use the same approved wording. Do not alternate sentence patterns for stylistic variety.
+Verwenden Sie für dieselbe Handlung in demselben Kontext dieselbe freigegebene Formulierung. Ändern Sie das Satzmuster nicht, um den Stil zu variieren.
 
-Templates are encouraged for recurrent work steps.
+Wir empfehlen Vorlagen für wiederkehrende Arbeitsschritte.
 
 ---
 
-# General recommendations
+# Allgemeine Empfehlungen
 
-These recommendations are not mandatory by default. A project may promote any of them to mandatory status.
+Diese Empfehlungen sind standardmäßig nicht verbindlich. Ein Projekt darf jede dieser Empfehlungen als verbindlich festlegen.
 
 ## STG-GR-1 — Nebensatzmarker explizit und korrekt
 
 
-Use explicit conjunctions such as `dass`, `wenn`, `weil`, and `bevor` when they make clause relations clear. Avoid compressed headline-style omission in running text.
+Verwenden Sie explizite Konjunktionen wie `dass`, `wenn`, `weil` und `bevor`, wenn diese Konjunktionen die Beziehungen zwischen Sätzen klar zeigen. Vermeiden Sie in Fließtext komprimierte Auslassungen im Stil von Schlagzeilen.
 
 ## STG-GR-2 — `mit` auf Mehrdeutigkeit prüfen
 
 
-The preposition `mit` can express instrument, accompaniment, association, or condition. If more than one reading is plausible, rewrite the sentence.
+Die Präposition `mit` kann ein Werkzeug, eine Begleitung, eine Zuordnung oder eine Bedingung ausdrücken. Wenn mehr als eine Lesart plausibel ist, schreiben Sie den Satz neu.
 
-**Ambiguous**
+**Mehrdeutig**
 
 > Montieren Sie die Abdeckung mit den roten Schrauben.
 
-Possible intended meanings include:
+Mögliche beabsichtigte Bedeutungen sind zum Beispiel:
 
-- the cover already has red screws,
-- install the cover together with the red screws,
-- use the red screws as fasteners.
+- Montieren Sie die Abdeckung, die rote Schrauben hat.
+- Montieren Sie die Abdeckung zusammen mit den roten Schrauben.
+- Verwenden Sie die roten Schrauben als Befestigungselemente.
 
-State the intended relation explicitly.
+Nennen Sie die beabsichtigte Beziehung explizit.
 
 ## STG-GR-3 — Pronomen sparsam verwenden
 
 
-Use a pronoun only when its antecedent is unmistakable. Repetition of a technical noun is preferable to ambiguous reference.
+Verwenden Sie ein Pronomen nur, wenn das Bezugswort eindeutig ist. Eine Wiederholung des technischen Substantivs ist besser als ein mehrdeutiger Bezug.
 
 ## STG-GR-4 — Demonstrativa mit Nomen verwenden
 
 
-Prefer `diese Leitung`, `dieser Wert`, `diese Methode` to a bare `dies` or `diese`, especially after several possible antecedents.
+Verwenden Sie bevorzugt `diese Leitung`, `dieser Wert` oder `diese Methode` statt eines alleinstehenden `dies` oder `diese`. Diese Empfehlung ist besonders wichtig, wenn mehrere Bezugswörter möglich sind.
 
 ## STG-GR-5 — Lehnübersetzungen und falsche Freunde prüfen
 
 
-Writers and translation systems must not transfer meanings from English merely because a German word looks similar. Examples requiring context checks include `realisieren`, `kontrollieren`, `eventuell`, and `aktuell` when translating to/from English.
+Autoren und Übersetzungssysteme dürfen Bedeutungen nicht aus dem Englischen übertragen, nur weil ein deutsches Wort ähnlich aussieht. Beispiele, die eine Prüfung des Kontexts verlangen, sind `realisieren`, `kontrollieren`, `eventuell` und `aktuell`. Diese Prüfung gilt für Übersetzungen aus dem Englischen und in das Englische.
 
-The rule does not prescribe a replacement without context.
+Diese Regel schreibt ohne Kontext keinen Ersatz vor.
 
 ## STG-GR-6 — Abkürzungen in Fließtext reduzieren
 
 
-Prefer full German expressions to general prose abbreviations such as `z. B.`, `d. h.`, `ggf.`, `bzw.`, and `usw.` when the abbreviation could reduce clarity.
+Verwenden Sie bevorzugt vollständige deutsche Ausdrücke statt allgemeiner Abkürzungen wie `z. B.`, `d. h.`, `ggf.`, `bzw.` und `usw.`. Diese Empfehlung gilt, wenn die Abkürzung die Klarheit verringern kann.
 
-`ggf.` and `bzw.` are prohibited by the seed vocabulary policy because they often hide a condition or relation.
+Die Wortschatzrichtlinie des Basislexikons verbietet `ggf.` und `bzw.`, weil diese Abkürzungen oft eine Bedingung oder eine Beziehung verstecken.
 
 ## STG-GR-7 — Neutrale Personenbezeichnungen bevorzugen
 
 
-Use role or function terms that are neutral and technically precise where possible, for example `Personal`, `Fachkraft`, `Bedienperson`, `Prüfperson`, or a project-defined role name.
+Verwenden Sie nach Möglichkeit neutrale und technisch präzise Rollen- oder Funktionsbezeichnungen. Beispiele sind `Personal`, `Fachkraft`, `Bedienperson`, `Prüfperson` oder eine Rollenbezeichnung, die das Projekt definiert.
 
-Avoid gender-specific pronouns when they are unnecessary. Special orthographic gender markers are governed by the applicable language/style directive; STG-DE itself does not require them.
+Vermeiden Sie geschlechtsspezifische Pronomen, wenn diese Pronomen nicht notwendig sind. Die zutreffende Sprach- oder Stilrichtlinie regelt besondere orthografische Genderzeichen. STG-DE selbst verlangt diese Zeichen nicht.
 
 ## STG-GR-8 — Genitivketten vermeiden
 
 
-A simple German genitive is permitted. Avoid long chains of possessive/genitive relations that force the reader to resolve several nested dependencies.
+Ein einfacher deutscher Genitiv ist zulässig. Vermeiden Sie lange Ketten von Besitz- oder Genitivbeziehungen. Solche Ketten zwingen den Leser, mehrere verschachtelte Abhängigkeiten aufzulösen.
 
 **Schwer lesbar**
 
@@ -1028,15 +1100,15 @@ A simple German genitive is permitted. Avoid long chains of possessive/genitive 
 
 **Level:** `MUST_NOT`
 
-Do not use modal particles or conversational fillers such as `mal`, `doch`, `eben`, `halt`, `wohl`, `eigentlich`, `einfach` when they do not have a precise technical meaning.
+Verwenden Sie keine Modalpartikeln und keine Füllwörter aus der Umgangssprache, wenn diese Wörter keine präzise technische Bedeutung haben. Beispiele sind `mal`, `doch`, `eben`, `halt`, `wohl`, `eigentlich` und `einfach`.
 
 ## STG-DE-9.2 — Vage Qualitäts- und Zeitangaben ersetzen
 
 **Level:** `MUST`
 
-Replace vague expressions with observable criteria whenever the criterion matters to the task.
+Ersetzen Sie vage Ausdrücke durch beobachtbare Kriterien, wenn das Kriterium für die Aufgabe wichtig ist.
 
-Examples of terms that normally require rewriting:
+Beispiele für Ausdrücke, die im Normalfall eine Umformulierung verlangen:
 
 - `möglichst schnell`,
 - `zeitnah`,
@@ -1046,12 +1118,14 @@ Examples of terms that normally require rewriting:
 - `bei Bedarf`,
 - `gegebenenfalls`.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Ziehen Sie die Schraube ausreichend fest.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Ziehen Sie die Schraube mit 8 Nm fest.
 
-If no measurable criterion is available, request domain input instead of inventing one.
+Wenn kein messbares Kriterium verfügbar ist, fordern Sie Domäneninformationen an und erfinden Sie kein Kriterium.

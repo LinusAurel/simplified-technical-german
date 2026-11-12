@@ -1,39 +1,41 @@
-# Section 3 — Verben
+# Abschnitt 3 — Verben
 
 ## STG-3.1 — Nur freigegebene Verbformen
 
 **Level:** `MUST`
 
-Use only verb forms permitted by the lexical entry and by this section. German conjugation is productive, but grammatical availability does not imply STG approval.
+Verwenden Sie nur Verbformen, die der lexikalische Eintrag und dieser Abschnitt zulassen. Die deutsche Konjugation ist produktiv. Eine grammatisch mögliche Form ist aber nicht automatisch in STG freigegeben.
 
 ## STG-3.2 — Kontrollierte Tempora und Modi
 
 **Level:** `MUST`
 
-Use these default forms:
+Verwenden Sie diese Standardformen:
 
-### Procedures
+### Anleitungen
 
-- formal imperative: `Entfernen Sie ...`
-- infinitive only inside an approved infinitive construction, not as the default instruction style.
+- formeller Imperativ: `Entfernen Sie ...`
+- Infinitiv nur in einer freigegebenen Infinitivkonstruktion, nicht als Standardstil für Anweisungen.
 
-### Descriptions
+### Beschreibungen
 
-- Präsens for current states, functions, and general technical facts,
-- Präteritum or Perfekt only when a past event must be reported,
-- present tense plus explicit time expression for future scheduled states when possible.
+- Präsens für aktuelle Zustände, Funktionen und allgemeine technische Fakten,
+- Präteritum oder Perfekt nur, wenn der Text ein vergangenes Ereignis berichten muss,
+- Präsens mit expliziter Zeitangabe für geplante zukünftige Zustände, wenn diese Form möglich ist.
 
-Avoid Futur I when Präsens is equally clear.
+Vermeiden Sie das Futur I, wenn das Präsens gleich klar ist.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Der Test wird morgen durchgeführt werden.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Das Personal prüft das System morgen.
 
-Or, if the actor is irrelevant but the schedule is the point:
+Alternative, wenn der Akteur nicht relevant ist, aber der Zeitplan die zentrale Information ist:
 
 > Der Test ist für morgen geplant.
 
@@ -41,7 +43,7 @@ Or, if the actor is irrelevant but the schedule is the point:
 
 **Level:** `MUST`
 
-A past participle may be used as an adjective or state description when it describes a condition and not an omitted action.
+Ein Partizip II darf als Adjektiv oder als Beschreibung eines Zustands stehen, wenn das Partizip einen Zustand beschreibt und keine ausgelassene Handlung.
 
 **STG**
 
@@ -51,23 +53,25 @@ A past participle may be used as an adjective or state description when it descr
 
 > Prüfen Sie die gereinigte Fläche.
 
-If the sentence describes who performs an action, use active voice instead.
+Wenn der Satz beschreibt, wer eine Handlung ausführt, verwenden Sie das Aktiv.
 
 ## STG-3.4 — Keine unnötigen Hilfsverbketten
 
 **Level:** `MUST_NOT`
 
-Do not use complex auxiliary/modal constructions when a direct verb expresses the same information.
+Verwenden Sie keine komplexen Konstruktionen mit Hilfsverben oder Modalverben, wenn ein direktes Verb dieselbe Information ausdrückt.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Die Dichtung muss ersetzt worden sein, bevor die Prüfung durchgeführt werden kann.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Ersetzen Sie die Dichtung vor der Prüfung.
 
-If the completed state itself is the requirement:
+Wenn der abgeschlossene Zustand selbst die Anforderung ist:
 
 > Vor der Prüfung muss die Dichtung ersetzt sein.
 
@@ -75,13 +79,15 @@ If the completed state itself is the requirement:
 
 **Level:** `MUST`
 
-German has no direct equivalent of the English `-ing` ambiguity. The corresponding German risk is productive nominalization.
+Das Deutsche hat keine direkte Entsprechung zur Mehrdeutigkeit der englischen Form auf `-ing`. Das entsprechende Risiko im Deutschen ist die produktive Nominalisierung.
 
-Use nominalizations only when they denote an approved technical concept, document heading, process name, or result. For actions in sentences, prefer a finite or imperative verb.
+Verwenden Sie Nominalisierungen nur, wenn die Nominalisierung eines dieser Elemente bezeichnet: ein freigegebenes technisches Konzept, eine Überschrift im Dokument, einen Prozessnamen oder ein Ergebnis. Für Handlungen in Sätzen empfehlen wir ein finites Verb oder einen Imperativ.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Nach Durchführung der Reinigung erfolgt die Prüfung der Oberfläche.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -91,59 +97,67 @@ Use nominalizations only when they denote an approved technical concept, documen
 
 **Level:** `MUST`
 
-Use active voice when the agent is known or can be stated correctly.
+Verwenden Sie das Aktiv, wenn der Akteur bekannt ist oder Sie den Akteur korrekt nennen können.
 
-In procedures, use the imperative instead of passive instructions.
+Verwenden Sie in Anleitungen den Imperativ statt Anweisungen im Passiv.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Die Sicherung wird entfernt.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Entfernen Sie die Sicherung.
 
-In descriptions, passive voice is permitted only when the agent is genuinely unknown, irrelevant to the technical meaning, or intentionally omitted by an applicable legal/publication rule.
+In Beschreibungen ist das Passiv nur in diesen Fällen zulässig: Der Akteur ist wirklich unbekannt. Der Akteur ist für die technische Bedeutung nicht relevant. Eine anwendbare rechtliche Regel oder Publikationsregel verlangt, dass der Text den Akteur nicht nennt.
 
-Do not confuse a state with passive voice:
+Verwechseln Sie einen Zustand nicht mit dem Passiv:
 
 > Die Sicherung ist entfernt.
 
-This can be a valid state description if `entfernt` describes the required condition.
+Dieser Satz kann eine gültige Beschreibung eines Zustands sein, wenn `entfernt` den geforderten Zustand beschreibt.
 
 ## STG-3.7 — Handlungen mit direkten Verben ausdrücken
 
 **Level:** `MUST`
 
-When an approved direct verb expresses the action, use it instead of a noun-heavy construction.
+Wenn ein freigegebenes direktes Verb die Handlung ausdrückt, verwenden Sie dieses Verb statt einer Konstruktion mit vielen Substantiven.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Führen Sie eine Prüfung des Steckers durch.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Prüfen Sie den Stecker.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Nehmen Sie eine Einstellung des Drucks vor.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Stellen Sie den Druck ein.
 
-## STG-DE-3.1 — Trennbare Verben kontrollieren
+## STG-DE-3.1 — Trennbare Verben prüfen und begrenzen
 
 **Level:** `SHOULD`
 
-Separable verbs are permitted when they are the approved technical/general verb. Keep the sentence bracket short.
+Trennbare Verben sind zulässig, wenn das trennbare Verb das freigegebene technische oder allgemeine Verb ist. Wir empfehlen, die Satzklammer kurz zu halten.
 
-If more than about 12 words occur between the finite verb and its separable prefix, rewrite the sentence unless the terminology or syntax makes the longer bracket clearly preferable.
+Wenn zwischen dem finiten Verb und dem trennbaren Präfix mehr als ungefähr 12 Wörter stehen, empfehlen wir, den Satz neu zu formulieren. Eine Ausnahme gilt, wenn die Terminologie oder die Syntax die längere Satzklammer deutlich besser macht.
 
+<!-- stg-lint: off -->
 **Schwer lesbar**
 
 > Schalten Sie nach dem Ende der automatischen Kalibrierung die externe 24-V-Stromversorgung am hinteren Bedienfeld vollständig aus.
+<!-- stg-lint: on -->
 
 **Besser**
 
@@ -153,44 +167,48 @@ If more than about 12 words occur between the finite verb and its separable pref
 
 **Level:** `MUST`
 
-Use modality consistently:
+Verwenden Sie die Modalität konsistent:
 
-| Meaning | STG form |
+| Bedeutung | STG-Form |
 |---|---|
-| Mandatory action in a procedure | Imperative |
-| Mandatory state/requirement | `muss` |
-| Prohibition | `darf nicht` or negative imperative, depending text type |
-| Permission | `darf` |
-| Physical/technical capability or factual possibility | `kann` |
-| Recommendation | explicit recommendation wording only when recommendations are permitted |
+| Verbindliche Handlung in einer Anleitung | Imperativ |
+| Verbindlicher Zustand oder verbindliche Anforderung | `muss` |
+| Verbot | `darf nicht` oder negativer Imperativ, abhängig von der Textart |
+| Erlaubnis | `darf` |
+| Physische oder technische Fähigkeit oder tatsächliche Möglichkeit | `kann` |
+| Empfehlung | ausdrückliche Formulierung als Empfehlung, nur wenn Empfehlungen zulässig sind |
 
-Do not use `soll`, `sollte`, or `müsste` when the intended force is mandatory, permitted, or merely possible.
+Verwenden Sie nicht `soll`, `sollte` oder `müsste`, wenn die beabsichtigte Stärke verbindlich, erlaubt oder nur möglich ist.
 
-**Ambiguous**
+<!-- stg-lint: off -->
+**Mehrdeutig**
 
 > Die Schraube sollte ersetzt werden.
+<!-- stg-lint: on -->
 
-Possible STG rewrites depend on intent:
+Die möglichen Umformulierungen in STG hängen von der Absicht ab:
 
 > Ersetzen Sie die Schraube.  
 > Die Schraube muss ersetzt sein.  
 > Wir empfehlen, die Schraube zu ersetzen.
 
-If the intended modality is unknown, return `NEEDS_MODALITY_INPUT`.
+Wenn die beabsichtigte Modalität unbekannt ist, geben Sie `NEEDS_MODALITY_INPUT` zurück.
 
 ## STG-DE-3.3 — `werden` restriktiv verwenden
 
 **Level:** `SHOULD_NOT`
 
-Avoid `werden` when it only creates passive voice or Futur I. It may be used for an actual change of state when that meaning is clear.
+Wir empfehlen, `werden` nicht zu verwenden, wenn `werden` nur ein Passiv oder ein Futur I bildet. Für eine tatsächliche Änderung eines Zustands dürfen Sie `werden` verwenden, wenn diese Bedeutung klar ist.
 
 **STG**
 
 > Das Gehäuse wird warm.
 
+<!-- stg-lint: off -->
 **Nicht bevorzugt**
 
 > Die Leitung wird vom Steuergerät überwacht.
+<!-- stg-lint: on -->
 
 **STG**
 

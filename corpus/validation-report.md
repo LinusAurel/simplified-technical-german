@@ -1,20 +1,20 @@
-# STG-DE v0.4 — Multi-industry corpus validation report
+# STG-DE v0.4: Bericht zur Korpusvalidierung über mehrere Branchen
 
-## Executive result
+## Zusammenfassung des Ergebnisses
 
-v0.4 validates the authoring core against a **stratified six-industry corpus** rather than a single engineering domain. The public validation set contains **18 independent technical sources** — three per industry — and **2,066 analyzed tokens** in short German excerpts. The release does **not** redistribute the excerpts or manuals; it stores source metadata, hashes, frequencies, and aggregate metrics only.
+v0.4 validiert den Autorenkern mit einem **geschichteten Korpus aus sechs Branchen** und nicht mit einer einzelnen Ingenieursdomäne. Das öffentliche Validierungsset enthält **18 unabhängige technische Quellen**, je drei Quellen aus jeder Branche. Es enthält **2.066 analysierte Token** in kurzen deutschen Auszügen. Das Release verteilt die Auszüge und Handbücher **nicht**. Es speichert nur Metadaten der Quellen, Hashes, Häufigkeiten und aggregierte Metriken.
 
-| Metric | v0.3 baseline | v0.4 normalization only | v0.4 final |
+| Metrik | v0.3-Basis | v0.4 nur Normalisierung | v0.4 endgültig |
 |---|---:|---:|---:|
-| Controlled central surface coverage | 51.4% | 52.7% | **58.1%** |
-| `NEEDS_LEXICON_REVIEW` tokens | 272 | 245 | **232** |
-| Routed/classified rate | 86.8% | 88.1% | **88.8%** |
+| Abdeckung durch zentrale kontrollierte Oberflächenformen | 51.4% | 52.7% | **58.1%** |
+| Token mit `NEEDS_LEXICON_REVIEW` | 272 | 245 | **232** |
+| Rate der gerouteten oder klassifizierten Token | 86.8% | 88.1% | **88.8%** |
 
-The final central surface coverage is **6.7 percentage points** above the historical v0.3 baseline on this public set. This is not a target acceptance rate: technical nouns, product names, identifiers, domain verbs, and intentionally disallowed language are expected to remain outside the general core.
+Die endgültige Abdeckung durch zentrale Oberflächenformen liegt bei diesem öffentlichen Set **6.7 Prozentpunkte** über der historischen v0.3-Basis. Dieser Wert ist keine Zielrate für die Akzeptanz. Fachnomen, Produktnamen, Kennungen, Domänenverben und absichtlich nicht zugelassene Sprache bleiben erwartungsgemäß außerhalb des allgemeinen Kerns.
 
-## Corpus design
+## Design des Korpus
 
-| Industry | Sources | Tokens | v0.3 baseline | v0.4 final |
+| Branche | Quellen | Token | v0.3-Basis | v0.4 endgültig |
 |---|---:|---:|---:|---:|
 | Anlagenbau | 3 | 311 | 49.2% | **58.5%** |
 | Automotive | 3 | 359 | 49.6% | **58.8%** |
@@ -23,41 +23,41 @@ The final central surface coverage is **6.7 percentage points** above the histor
 | Medizintechnik | 3 | 334 | 52.1% | **55.4%** |
 | Software/IT | 3 | 364 | 58.0% | **62.1%** |
 
-The six strata are Maschinenbau, Automotive, Elektrotechnik, Software/IT, Medizintechnik, and Anlagenbau. Source selection favors manufacturer or project documentation that is publicly accessible in German. `corpus/sources.yaml` records exact source metadata and sample hashes.
+Die sechs Strata sind Maschinenbau, Automotive, Elektrotechnik, Software/IT, Medizintechnik und Anlagenbau. Die Auswahl der Quellen bevorzugt Dokumentation von Herstellern oder Projekten, die öffentlich auf Deutsch zugänglich ist. Die Datei `corpus/sources.yaml` dokumentiert die exakten Metadaten der Quellen und die Hashes der Stichproben.
 
-The token counts are intentionally close but not identical. Equal document count prevents one industry from dominating the curation pass. Because third-party manuals are not included, this release should be read as a **stratified evidence corpus**, not a full-text archive.
+Die Token-Anzahlen sind absichtlich ähnlich, aber nicht gleich. Eine gleiche Anzahl von Dokumenten verhindert, dass eine Branche die Kuratierung dominiert. Das Release enthält keine Handbücher von Dritten. Lesen Sie dieses Release deshalb als **geschichtetes Belegkorpus** und nicht als Volltextarchiv.
 
-## What v0.4 changed
+## Änderungen in v0.4
 
-### 1. German noun morphology is part of lexical resolution
+### 1. Deutsche Nomenmorphologie ist Teil der lexikalischen Auflösung
 
-v0.3 stored plural forms such as `Informationen`, `Gefahren`, `Schritte`, and `Geräte` in noun metadata but the development validator did not resolve them. v0.4 recognizes **declared noun plurals** as `CENTRAL_INFLECTION`. On the same public excerpts, normalization alone raises controlled coverage from 51.4% to 52.7%.
+v0.3 speicherte Pluralformen wie `Informationen`, `Gefahren`, `Schritte` und `Geräte` in den Metadaten der Nomen. Der Entwicklungsvalidator löste diese Formen aber nicht auf. v0.4 erkennt **deklarierte Pluralformen von Nomen** als `CENTRAL_INFLECTION`. Mit denselben öffentlichen Auszügen erhöht die Normalisierung allein die kontrollierte Abdeckung von 51.4% auf 52.7%.
 
-This is a validator correction, not vocabulary inflation.
+Diese Änderung ist eine Korrektur des Validators und keine künstliche Vergrößerung des Vokabulars.
 
-### 2. `Datum` and `Daten` are no longer conflated
+### 2. `Datum` und `Daten` sind nicht mehr vermischt
 
-The corpus exposed a German lexical collision: `Datum` has the plural `Daten`, while technical documentation usually uses `Daten` to mean information/data. A naive plural index therefore gives the wrong controlled meaning. v0.4 adds an independent restricted lemma `Daten` and gives canonical lemmas priority over plural aliases.
+Das Korpus zeigte eine deutsche lexikalische Kollision: `Datum` hat den Plural `Daten`. Technische Dokumentation verwendet `Daten` aber im Normalfall in der Bedeutung „Informationen“. Ein naiver Pluralindex gibt deshalb die falsche kontrollierte Bedeutung. v0.4 fügt ein unabhängiges eingeschränktes Lemma `Daten` hinzu. Kanonische Lemmata haben in v0.4 Vorrang vor Plural-Aliasen.
 
-This finding is important for agentic validation: lexical surface equality is insufficient when German inflection collides with another lexical concept.
+Dieser Befund ist für die agentenbasierte Validierung wichtig. Gleiche Oberflächenformen genügen nicht, wenn eine deutsche Flexionsform mit einem anderen lexikalischen Konzept kollidiert.
 
-### 3. Capitalization no longer means “technical term”
+### 3. Großschreibung bedeutet nicht mehr „Fachbegriff“
 
-German capitalizes all nouns. The v0.3 development heuristic routed any unknown capitalized token to `TECHNICAL_TERM_CANDIDATE`; this overstates terminology coverage. v0.4 uses the neutral class `LEXICAL_NOUN_CANDIDATE`. A candidate becomes project terminology only after resolution against an approved project glossary or a technical-noun category.
+Im Deutschen sind alle Nomen großgeschrieben. Die Entwicklungsheuristik von v0.3 ordnete jedes unbekannte großgeschriebene Token `TECHNICAL_TERM_CANDIDATE` zu. Diese Zuordnung zeigt eine zu hohe Abdeckung durch Terminologie. v0.4 verwendet die neutrale Klasse `LEXICAL_NOUN_CANDIDATE`. Ein Kandidat wird nur nach der Auflösung gegen ein zugelassenes Projektglossar oder eine Kategorie für Fachnomen zu Projektterminologie.
 
-### 4. Only cross-domain, controllable vocabulary entered the core
+### 4. Nur domänenübergreifendes, kontrollierbares Vokabular kam in den Kern
 
-v0.4 adds general technical-document concepts such as `Betriebsanleitung`, `Fachpersonal`, `Verletzung`, `Verwendung`, `Produkt`, `Version`, `Änderung`, `Kennzeichnung`, `Symbol`, `Daten`, and direct verbs such as `lesen`, `wählen`, `bedienen`, and `benötigen`.
+v0.4 fügt allgemeine Konzepte technischer Dokumente hinzu. Beispiele sind `Betriebsanleitung`, `Fachpersonal`, `Verletzung`, `Verwendung`, `Produkt`, `Version`, `Änderung`, `Kennzeichnung`, `Symbol` und `Daten`. v0.4 fügt auch direkte Verben wie `lesen`, `wählen`, `bedienen` und `benötigen` hinzu.
 
-Frequency alone was **not** sufficient for approval. Common words such as `führen`, `bieten`, `berücksichtigen`, and `gewährleisten` are routed to review because their technical meaning is too context-dependent or abstract for unconditional approval.
+Häufigkeit allein genügte **nicht** für eine Zulassung. Häufige Wörter wie `führen`, `bieten`, `berücksichtigen` und `gewährleisten` gehen in das Review. Ihre technische Bedeutung ist für eine bedingungslose Zulassung zu kontextabhängig oder zu abstrakt.
 
-### 5. The coverage curve is now reproducible
+### 5. Die Abdeckungskurve ist jetzt reproduzierbar
 
-`corpus/coverage-curves.csv` starts with the historical v0.3 result, applies the v0.4 normalization layer, and then adds each new core entry in a deterministic evidence order. This separates gains from grammar/lemmatization fixes from gains caused by new vocabulary.
+`corpus/coverage-curves.csv` beginnt mit dem historischen Ergebnis von v0.3. Danach wendet die Kurve die Normalisierungsschicht von v0.4 an. Danach fügt sie jeden neuen Kerneintrag in einer deterministischen Reihenfolge der Belege hinzu. Mit diesem Verfahren trennt die Kurve die Gewinne aus Korrekturen an Grammatik und Lemmatisierung von den Gewinnen durch neues Vokabular.
 
-## Final industry distribution
+## Endgültige Verteilung nach Branchen
 
-| Industry | Controlled | Unknown | Review | Prohibited | Lexical noun candidates |
+| Branche | Kontrolliert | Unbekannt | Review | Verboten | Lexikalische Nomenkandidaten |
 |---|---:|---:|---:|---:|---:|
 | Anlagenbau | 58.5% | 32 | 6 | 4 | 81 |
 | Automotive | 58.8% | 39 | 7 | 5 | 85 |
@@ -66,22 +66,22 @@ Frequency alone was **not** sufficient for approval. Common words such as `führ
 | Medizintechnik | 55.4% | 42 | 9 | 6 | 83 |
 | Software/IT | 62.1% | 34 | 6 | 5 | 81 |
 
-## Recurring non-STG patterns
+## Wiederkehrende Muster außerhalb von STG
 
-The corpus continues to justify rejecting or reviewing ordinary professional German that is not sufficiently deterministic for controlled authoring. Recurring examples include `sowie`, `entsprechend`, `gegebenenfalls`, `ausreichend`, and context-dependent verbs such as `führen` or `durchführen`.
+Das Korpus begründet weiterhin, übliches fachsprachliches Deutsch abzulehnen oder zu prüfen, wenn es für kontrolliertes Schreiben nicht deterministisch genug ist. Wiederkehrende Beispiele sind `sowie`, `entsprechend`, `gegebenenfalls`, `ausreichend` und kontextabhängige Verben wie `führen` oder `durchführen`.
 
-The goal is not to make existing manuals pass unchanged. The goal is to give authors and agents deterministic rewrites and to separate general core vocabulary from domain terminology.
+Das Ziel ist nicht, dass vorhandene Handbücher ohne Änderung bestehen. Das Ziel ist, Autorinnen, Autoren und Agenten deterministische Umformulierungen zu geben. Das Ziel ist auch, allgemeines Kernvokabular von Domänenterminologie zu trennen.
 
 
-## What v0.4 does not prove
+## Was v0.4 nicht beweist
 
-v0.4 is materially stronger than v0.3, but it is still an experimental authoring standard. It does not establish population-level coverage of German technical documentation, and it does not replace:
+v0.4 ist deutlich stärker als v0.3. Trotzdem ist v0.4 weiterhin ein experimenteller Autorenstandard. Die Version belegt keine Abdeckung der gesamten deutschen technischen Dokumentation. Die Version ersetzt diese Punkte nicht:
 
-- expert review by German technical writers and terminologists;
-- full-text licensed corpus analysis at substantially larger scale;
-- a deterministic German morphological and syntactic analyzer;
-- reader comprehension testing;
-- safety-domain validation against the publication standard applicable to a product;
-- project terminology governance.
+- Review durch Fachleute aus deutscher technischer Redaktion und Terminologie,
+- Analyse lizenzierter Volltextkorpora in deutlich größerem Umfang,
+- einen deterministischen morphologischen und syntaktischen Analyzer für Deutsch,
+- Tests des Leseverständnisses,
+- Validierung von Sicherheitsinhalten nach dem Veröffentlichungsstandard, der für ein Produkt gilt,
+- Governance der Projektterminologie.
 
-`STG-C-core` therefore remains experimental. `STG-C` remains reserved for a later, human-reviewed release.
+`STG-C-core` bleibt deshalb experimentell. `STG-C` bleibt für ein späteres Release reserviert, das Menschen geprüft haben.

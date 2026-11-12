@@ -1,8 +1,8 @@
-# Project terminology
+# Projektterminologie
 
-Use a project dictionary when text contains product, company, scientific, legal, medical, software, or industry-specific terms that should not enter the central STG-DE lexicon.
+Verwenden Sie ein Projektwörterbuch, wenn ein Text Begriffe zu Produkten, Unternehmen, Wissenschaft, Recht, Medizin, Software oder einer Branche enthält. Diese Begriffe gehören nicht in das zentrale Lexikon von STG-DE.
 
-Recommended `.stg-de.yaml` structure:
+Empfohlene Struktur von `.stg-de.yaml`:
 
 ```yaml
 version: 1
@@ -21,12 +21,14 @@ protected_terms:
   - "DUT"
 ```
 
-Resolution order:
+Reihenfolge der Auflösung:
 
-1. protected or quoted text,
-2. project preferred terminology,
-3. project technical nouns and technical verbs,
-4. central STG-DE dictionary,
-5. review.
+1. geschützter oder zitierter Text,
+2. bevorzugte Terminologie des Projekts,
+3. technische Substantive und technische Verben des Projekts,
+4. zentrales Wörterbuch von STG-DE,
+5. Prüfung.
 
-Never approve a domain term merely because it is capitalized. German capitalization is grammatical, not terminological evidence.
+Technische Substantive, technische Verben, geschützte Begriffe und bevorzugte Begriffe des Projekts haben Vorrang vor der zentralen Liste der verbotenen Wörter. Ein Beispiel: Ein Softwareprojekt kann `laufen` (Software wird ausgeführt) als technisches Verb festlegen. Danach meldet der Linter dieses Wort nicht mehr.
+
+Geben Sie einen Fachbegriff nie nur deshalb frei, weil er großgeschrieben ist. Die deutsche Großschreibung ist ein grammatischer Beleg, kein terminologischer Beleg.

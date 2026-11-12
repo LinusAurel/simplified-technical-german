@@ -1,14 +1,16 @@
-# Section 4 — Sätze
+# Abschnitt 4 — Sätze
 
 ## STG-4.1 — Kurze, eindeutige Sätze
 
 **Level:** `MUST`
 
-Write short sentences with one primary proposition. In descriptive text, each sentence should have one main topic. Do not compress several independent facts into one sentence.
+Schreiben Sie kurze Sätze mit einer primären Aussage. In beschreibendem Text empfehlen wir ein Hauptthema je Satz. Verdichten Sie nicht mehrere unabhängige Fakten in einem Satz.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Der Sensor sitzt am Gehäuse, misst den Druck und sendet die Werte an das Steuergerät, das bei einem Grenzwertfehler die Pumpe abschaltet.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -18,68 +20,72 @@ Write short sentences with one primary proposition. In descriptive text, each se
 
 **Level:** `MUST_NOT`
 
-Do not omit a subject, object, verb, article, or reference when the omission can create ambiguity. Do not use telegraphic fragments as normal running text.
+Lassen Sie kein Subjekt, kein Objekt, kein Verb, keinen Artikel und keinen Bezug aus, wenn die Auslassung eine Mehrdeutigkeit erzeugen kann. Verwenden Sie keine Fragmente im Telegrammstil als normalen Fließtext.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Schalter auf EIN.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Stellen Sie den Schalter auf EIN.
 
-Headings, table cells, labels, and other controlled fragments may be exempt under their content model.
+Überschriften, Tabellenzellen, Beschriftungen und andere kontrollierte Fragmente können nach dem jeweiligen Inhaltsmodell von dieser Regel ausgenommen sein.
 
 ## STG-4.3 — Vertikale Listen für komplexe Aufzählungen
 
 **Level:** `MUST`
 
-Use a vertical list when a sentence contains many parallel items, conditions, or actions.
+Verwenden Sie eine vertikale Liste, wenn ein Satz viele parallele Elemente, Bedingungen oder Handlungen enthält.
 
-Rules:
+Regeln:
 
-- introduce the list with a grammatically complete lead-in and colon,
-- keep all list items grammatically parallel,
-- do not mix procedural commands and descriptive statements in the same list,
-- use a full stop for a list item that is a complete sentence,
-- do not use commas or semicolons as end punctuation merely to chain list items.
+- Leiten Sie die Liste mit einem grammatisch vollständigen Einleitungssatz und einem Doppelpunkt ein.
+- Halten Sie alle Listenelemente grammatisch parallel.
+- Mischen Sie in derselben Liste keine Befehle aus Anleitungen und keine beschreibenden Aussagen.
+- Schließen Sie ein Listenelement, das ein vollständiger Satz ist, mit einem Punkt ab.
+- Verwenden Sie Kommas oder Semikolons nicht als Endzeichen, nur um Listenelemente zu verketten.
 
-## STG-4.4 — Logische Verknüpfungen explizit machen
+## STG-4.4 — Logische Verknüpfungen explizit angeben
 
 **Level:** `MUST`
 
-Use stable connecting words when the logical relation between sentences matters.
+Verwenden Sie stabile Verknüpfungswörter, wenn die logische Beziehung zwischen Sätzen wichtig ist.
 
-Preferred controlled connectors include:
+Zu den bevorzugten kontrollierten Verknüpfungswörtern gehören:
 
-- `und` — addition,
-- `aber` — contrast,
-- `dann` / `danach` — sequence,
-- `deshalb` — result,
-- `weil` — cause,
-- `wenn` — condition,
-- `bevor` — earlier event,
-- `während` — simultaneous period.
+- `und` — Addition,
+- `aber` — Gegensatz,
+- `dann` / `danach` — Reihenfolge,
+- `deshalb` — Folge,
+- `weil` — Ursache,
+- `wenn` — Bedingung,
+- `bevor` — früheres Ereignis,
+- `während` — gleichzeitiger Zeitraum.
 
-Do not vary connectors merely for style.
+Variieren Sie Verknüpfungswörter nicht nur aus stilistischen Gründen.
 
 ## STG-4.5 — Artikel und Demonstrativa eindeutig verwenden
 
 **Level:** `MUST`
 
-Use articles and demonstratives according to German grammar and to make reference status clear. Ensure agreement in case, gender, and number.
+Verwenden Sie Artikel und Demonstrativa nach der deutschen Grammatik. Verwenden Sie Artikel und Demonstrativa, um den Status des Bezugs eindeutig anzugeben. Stellen Sie die Kongruenz in Kasus, Genus und Numerus sicher.
 
-Do not use a bare demonstrative pronoun when more than one antecedent is possible. Prefer a demonstrative adjective plus noun or repeat the technical noun.
+Verwenden Sie kein alleinstehendes Demonstrativpronomen, wenn mehr als ein Bezugswort möglich ist. Wir empfehlen ein Demonstrativadjektiv mit Substantiv oder die Wiederholung des technischen Substantivs.
 
-**Ambiguous**
+<!-- stg-lint: off -->
+**Mehrdeutig**
 
 > Entfernen Sie den Sensor aus dem Halter. Dieser ist beschädigt.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Entfernen Sie den Sensor aus dem Halter. Der Sensor ist beschädigt.
 
-or
+oder
 
 > Entfernen Sie den Sensor aus dem Halter. Der Halter ist beschädigt.
 
@@ -87,19 +93,21 @@ or
 
 **Level:** `MUST`
 
-Do not nest subordinate clauses inside subordinate clauses in procedural or safety text. In descriptive text, one level of subordination is the default maximum.
+Verschachteln Sie in anleitendem Text und in Sicherheitshinweisen keine Nebensätze in Nebensätzen. In beschreibendem Text ist eine Ebene der Unterordnung das Standardmaximum.
 
-Rewrite deeper structures as separate sentences.
+Formulieren Sie tiefere Strukturen als getrennte Sätze neu.
 
 ## STG-DE-4.2 — Pronomen nur mit eindeutigem Bezug
 
 **Level:** `MUST`
 
-A pronoun must have exactly one plausible antecedent in the local context. If it can refer to more than one noun, repeat the noun.
+Ein Pronomen muss im lokalen Kontext genau ein plausibles Bezugswort haben. Wenn das Pronomen auf mehr als ein Substantiv verweisen kann, wiederholen Sie das Substantiv.
 
-**Ambiguous**
+<!-- stg-lint: off -->
+**Mehrdeutig**
 
 > Verbinden Sie den Sensor mit dem Adapter, wenn er trocken ist.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -109,47 +117,51 @@ A pronoun must have exactly one plausible antecedent in the local context. If it
 
 **Level:** `MUST_NOT`
 
-Do not use the indefinite pronoun `man` to hide or generalize the actor in technical instructions or requirements.
+Verwenden Sie das Indefinitpronomen `man` nicht, um den Akteur in technischen Anweisungen oder Anforderungen zu verbergen oder zu verallgemeinern.
 
-Use:
+Verwenden Sie stattdessen:
 
-- the imperative when the reader acts,
-- a named role when a specified actor acts,
-- the responsible system/component when it acts automatically.
+- den Imperativ, wenn der Leser handelt,
+- eine benannte Rolle, wenn ein festgelegter Akteur handelt,
+- das verantwortliche System oder die verantwortliche Komponente, wenn das System oder die Komponente automatisch handelt.
 
-## STG-DE-4.4 — Negationsbereich eindeutig machen
+## STG-DE-4.4 — Negationsbereich eindeutig festlegen
 
 **Level:** `MUST`
 
-Place `nicht`, `kein`, and other negative expressions so that only one interpretation is plausible. When the scope is complex, rewrite with an explicit condition.
+Positionieren Sie `nicht`, `kein` und andere negative Ausdrücke so, dass nur eine Interpretation plausibel ist. Wenn der Bereich der Negation komplex ist, formulieren Sie den Satz mit einer expliziten Bedingung neu.
 
-**Ambiguous**
+<!-- stg-lint: off -->
+**Mehrdeutig**
 
 > Schalten Sie das Gerät nicht mit geöffnetem Gehäuse ein.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Wenn das Gehäuse offen ist, schalten Sie das Gerät nicht ein.
 
-Avoid double negation.
+Vermeiden Sie doppelte Negation.
 
 
 ## STG-DE-4.5 — Pronominaladverbien nur mit eindeutigem Bezug
 
 **Level:** `MUST`
 
-German pronominal adverbs such as `dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür` and `hierfür` can compress a reference to an object, action, cause, purpose, or previous sentence. Use such a form only when exactly one local antecedent and exactly one semantic relation are possible.
+Deutsche Pronominaladverbien wie `dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür` und `hierfür` können einen Bezug verdichten. Der Bezug kann auf ein Objekt, eine Handlung, eine Ursache, einen Zweck oder einen vorherigen Satz verweisen. Verwenden Sie eine solche Form nur, wenn genau ein lokales Bezugswort und genau eine semantische Beziehung möglich sind.
 
-In strict `STG-C-core` authoring, repeat the technical noun, action, or condition when the reference could be interpreted in more than one way.
+Wiederholen Sie beim strengen Schreiben nach `STG-C-core` das technische Substantiv, die Handlung oder die Bedingung, wenn der Bezug mehrere Interpretationen zulässt.
 
+<!-- stg-lint: off -->
 **Mehrdeutig**
 
 > Verbinden Sie den Sensor mit dem Adapter. Dabei darf die Dichtung nicht beschädigt werden.
+<!-- stg-lint: on -->
 
-`Dabei` can refer to connecting, to the adapter, or to the complete previous situation.
+`Dabei` kann auf das Verbinden, auf den Adapter oder auf die vollständige vorherige Situation verweisen.
 
 **STG**
 
 > Wenn Sie den Sensor mit dem Adapter verbinden, beschädigen Sie die Dichtung nicht.
 
-A validator should report an unresolved pronominal adverb as `NEEDS_REFERENCE_INPUT`; it must not invent the antecedent.
+Wir empfehlen, dass ein Validator ein ungeklärtes Pronominaladverb als `NEEDS_REFERENCE_INPUT` meldet. Der Validator darf das Bezugswort nicht erfinden.

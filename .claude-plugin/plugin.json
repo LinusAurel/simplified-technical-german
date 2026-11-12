@@ -1,0 +1,13 @@
+{
+  "name": "simplified-technical-german",
+  "version": "0.5.0",
+  "description": "STG-DE: Write, rewrite, and audit German text with Simplified Technical German, the German counterpart of ASD-STE100. Includes a deterministic linter and a meaning-preservation check.",
+  "author": {
+    "name": "LinusAurel",
+    "url": "https://github.com/LinusAurel"
+  },
+  "homepage": "https://github.com/LinusAurel/simplified-technical-german",
+  "repository": "https://github.com/LinusAurel/simplified-technical-german",
+  "license": "MIT",
+  "keywords": ["german", "deutsch", "controlled-language", "technical-writing", "ste100", "simplified-technical-english", "agents"]
+}

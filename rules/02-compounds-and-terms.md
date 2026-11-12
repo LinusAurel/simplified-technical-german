@@ -1,44 +1,46 @@
-# Section 2 — Komposita und Mehrwortterme
+# Abschnitt 2 — Komposita und Mehrwortterme
 
-German technical language relies heavily on compounds. STG-DE therefore defines dedicated rules for their controlled use.
+Die deutsche Fachsprache verwendet Komposita in großem Umfang. Deshalb definiert STG-DE eigene Regeln für die kontrollierte Verwendung von Komposita.
 
-## STG-2.1 — Begrenze die semantische Dichte technischer Benennungen
+## STG-2.1 — Semantische Dichte technischer Benennungen begrenzen
 
 **Level:** `MUST`
 
-A newly created technical designation must be understandable without having to infer several possible internal relations between components.
+Eine neu gebildete technische Benennung muss verständlich sein, ohne dass der Leser mehrere mögliche interne Beziehungen zwischen den Bestandteilen erschließen muss.
 
-Use these methods in order:
+Verwenden Sie diese Methoden in dieser Reihenfolge:
 
-1. Use the approved official term if one exists, regardless of length.
-2. For a new term, prefer at most three meaningful lexical components.
-3. If a longer designation is necessary, use a grammatically clear phrase or a structured compound.
-4. Use a hyphen when it materially clarifies the boundaries of a long compound or when the official orthography requires or permits it for clarity.
-5. Do not create a chain of modifiers only to keep the expression to one orthographic word.
+1. Verwenden Sie den freigegebenen offiziellen Term, wenn ein solcher Term existiert. Die Länge des Terms ist in diesem Fall nicht relevant.
+2. Für einen neuen Term empfehlen wir höchstens drei bedeutungstragende lexikalische Bestandteile.
+3. Wenn eine längere Benennung notwendig ist, verwenden Sie eine grammatisch klare Wortgruppe oder ein strukturiertes Kompositum.
+4. Verwenden Sie einen Bindestrich, wenn der Bindestrich die Grenzen in einem langen Kompositum deutlich klarer macht. Verwenden Sie einen Bindestrich auch, wenn die amtliche Rechtschreibung den Bindestrich zur Klarheit verlangt oder erlaubt.
+5. Bilden Sie keine Kette von Bestimmungswörtern, nur damit der Ausdruck ein orthografisches Wort bleibt.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Kraftstoffhauptpumpenausgangsdruckprüfanschlussabdeckung
+<!-- stg-lint: on -->
 
 **STG**
 
 > Abdeckung des Prüfanschlusses am Ausgang der Hauptkraftstoffpumpe
 
-If the long compound is the official part name, keep the official name and define a controlled shorter form under STG-2.2.
+Wenn das lange Kompositum der offizielle Name des Teils ist, behalten Sie den offiziellen Namen. Definieren Sie dann nach STG-2.2 eine kontrollierte kürzere Form.
 
 ## STG-2.2 — Lange offizielle Benennung zuerst vollständig
 
 **Level:** `MUST`
 
-When an official technical designation is long:
+Wenn eine offizielle technische Benennung lang ist, gilt:
 
-1. write the full official designation at first occurrence,
-2. define an approved short form or abbreviation if useful,
-3. use only that short form afterwards within the declared scope.
+1. Schreiben Sie beim ersten Vorkommen die vollständige offizielle Benennung.
+2. Definieren Sie eine freigegebene Kurzform oder Abkürzung, wenn die Kurzform hilfreich ist.
+3. Verwenden Sie danach im deklarierten Geltungsbereich nur diese Kurzform.
 
-Do not introduce several short forms for the same term.
+Legen Sie für denselben Term nicht mehrere Kurzformen fest.
 
-**Example**
+**Beispiel**
 
 > Die **zentrale Steuerung der Kühlmittelpumpe (Kühlmittelsteuerung)** überwacht den Druck. Die **Kühlmittelsteuerung** schaltet die Pumpe bei Überdruck aus.
 
@@ -46,29 +48,29 @@ Do not introduce several short forms for the same term.
 
 **Level:** `MUST`
 
-Treat a German compound as a terminology object, not merely as a concatenation of approved general words.
+Betrachten Sie ein deutsches Kompositum als Terminologieobjekt, nicht nur als Verbindung von freigegebenen allgemeinen Wörtern.
 
-For each approved compound, a terminology database should store:
+Für jedes freigegebene Kompositum empfehlen wir, diese Angaben in einer Terminologiedatenbank zu speichern:
 
-- canonical spelling,
-- concept identifier,
-- grammatical gender,
-- plural form,
-- approved short form if any,
-- decomposition into meaningful components when useful for validators.
+- kanonische Schreibung,
+- Kennung des Konzepts,
+- grammatisches Genus,
+- Pluralform,
+- freigegebene Kurzform, wenn eine Kurzform existiert,
+- Zerlegung in bedeutungstragende Bestandteile, wenn diese Zerlegung für Validatoren hilfreich ist.
 
-Approval of `Druck`, `Regler`, and `Ventil` does not automatically approve `Druckregelventil` as a technical term.
+Die Freigabe von `Druck`, `Regler` und `Ventil` gibt `Druckregelventil` nicht automatisch als technischen Term frei.
 
-## STG-DE-2.2 — Bindestriche nicht als Komplexitäts-Trick verwenden
+## STG-DE-2.2 — Bindestriche nicht zur scheinbaren Verkürzung verwenden
 
 **Level:** `MUST_NOT`
 
-Do not use hyphens solely to make a complex designation appear shorter for the word-count rule. A hyphenated compound counts as one orthographic word, but it still receives a compound-complexity check.
+Verwenden Sie Bindestriche nicht nur mit dem Ziel, eine komplexe Benennung für die Regel zur Wortzählung kürzer erscheinen zu lassen. Ein Kompositum mit Bindestrich zählt als ein orthografisches Wort. Das Kompositum erhält trotzdem eine Prüfung auf die Komplexität von Komposita.
 
 ## STG-DE-2.3 — Abkürzungen sparsam und stabil verwenden
 
 **Level:** `MUST`
 
-Use an abbreviation only when it is official or explicitly introduced. At first occurrence, write the full term followed by the abbreviation in parentheses unless the abbreviation is universally required by the project.
+Verwenden Sie eine Abkürzung nur, wenn die Abkürzung offiziell ist oder ausdrücklich eingeführt ist. Schreiben Sie beim ersten Vorkommen den vollständigen Term und danach die Abkürzung in Klammern. Eine Ausnahme gilt, wenn das Projekt die Abkürzung allgemein verlangt.
 
-After introduction, do not alternate between multiple abbreviations or between several shortened forms.
+Verwenden Sie nach der Einführung nicht abwechselnd mehrere Abkürzungen oder mehrere Kurzformen.
