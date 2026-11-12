@@ -184,4 +184,6 @@ Eine Änderung an einer verbindlichen Regel oder an einer Bedeutung im Wörterbu
 - Auswirkung auf Validatoren,
 - Hinweis zur Migration.
 
-Die Versionierung folgt Semantic Versioning, solange das Projekt experimentell ist. Empfehlung: Halten Sie Regel-IDs vor einem stabilen Release 1.0 stabil, wenn das möglich ist.
+Die Versionierung folgt Semantic Versioning, solange das Projekt experimentell ist. Eine veröffentlichte Regel-ID muss auch vor Release 1.0 stabil bleiben. Eine Regel-ID darf nur mit einem angenommenen Änderungsvorschlag ihre Bedeutung ändern oder entfallen. Eine entfallene Regel-ID bleibt reserviert.
+
+Eine Regel mit der Stufe `RECOMMENDATION` ist als Ganzes eine Empfehlung. In einer Regel mit der Stufe `MUST` sind Sätze im Imperativ und Sätze mit „muss“ oder „darf nicht“ verbindlich. Ein Satz mit „Wir empfehlen“ oder „Empfehlung:“ ist auch in einer Regel mit der Stufe `MUST` eine Empfehlung.

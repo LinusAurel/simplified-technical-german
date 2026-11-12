@@ -501,7 +501,7 @@ Wir empfehlen, `werden` nicht zu verwenden, wenn `werden` nur ein Passiv oder ei
 
 **Level:** `MUST`
 
-Schreiben Sie kurze Sätze mit einer primären Aussage. In beschreibendem Text empfehlen wir ein Hauptthema je Satz. Verdichten Sie nicht mehrere unabhängige Fakten in einem Satz.
+Schreiben Sie kurze Sätze mit einer primären Aussage. Empfehlung: Geben Sie in beschreibendem Text jedem Satz ein Hauptthema. Verdichten Sie nicht mehrere unabhängige Fakten in einem Satz.
 
 <!-- stg-lint: off -->
 **Nicht STG**
@@ -661,7 +661,7 @@ Wiederholen Sie beim strengen Schreiben nach `STG-C-core` das technische Substan
 
 > Wenn Sie den Sensor mit dem Adapter verbinden, beschädigen Sie die Dichtung nicht.
 
-Wir empfehlen, dass ein Validator ein ungeklärtes Pronominaladverb als `NEEDS_REFERENCE_INPUT` meldet. Der Validator darf das Bezugswort nicht erfinden.
+Ein Validator muss ein Pronominaladverb mit ungeklärtem Bezug als Befund zur Prüfung melden, zum Beispiel mit dem Status `NEEDS_REFERENCE_INPUT` (siehe `validator-contract.md`). Der Validator darf das Bezugswort nicht erfinden.
 
 ---
 
@@ -1065,7 +1065,7 @@ Verwenden Sie bevorzugt `diese Leitung`, `dieser Wert` oder `diese Methode` stat
 ## STG-GR-5 — Lehnübersetzungen und falsche Freunde prüfen
 
 
-Autoren und Übersetzungssysteme dürfen Bedeutungen nicht aus dem Englischen übertragen, nur weil ein deutsches Wort ähnlich aussieht. Beispiele, die eine Prüfung des Kontexts verlangen, sind `realisieren`, `kontrollieren`, `eventuell` und `aktuell`. Diese Prüfung gilt für Übersetzungen aus dem Englischen und in das Englische.
+Prüfen Sie die Bedeutung eines deutschen Worts, das einem englischen Wort ähnlich sieht. Übertragen Sie eine englische Bedeutung nicht nur wegen dieser Ähnlichkeit. Diese Empfehlung gilt für Autoren und für Übersetzungssysteme. Beispiele, die eine Prüfung des Kontexts verlangen, sind `realisieren`, `kontrollieren`, `eventuell` und `aktuell`. Diese Prüfung gilt für Übersetzungen aus dem Englischen und in das Englische.
 
 Diese Regel schreibt ohne Kontext keinen Ersatz vor.
 
