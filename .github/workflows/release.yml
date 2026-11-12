@@ -1,0 +1,30 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python tools/validate_release.py
+      - name: Check tag matches release version
+        run: |
+          version=$(grep '^version:' CITATION.cff | awk '{print $2}')
+          test "v$version" = "$GITHUB_REF_NAME" || { echo "Tag $GITHUB_REF_NAME does not match version $version"; exit 1; }
+      - run: python tools/package_skill.py --out dist
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/* STG-DE.md manifest.yaml \
+            --title "STG-DE $GITHUB_REF_NAME" --notes-file <(awk '/^## /{n++} n==1' CHANGELOG.md)
