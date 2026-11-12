@@ -40,6 +40,23 @@ class EvalSuiteTests(unittest.TestCase):
         for case_id, output in bad.items():
             self.assertFalse(score_case(CASES[case_id], output)["ok"], case_id)
 
+    def test_hinweis_line_may_quote_a_removed_word(self):
+        cases = yaml.safe_load((ROOT / "evals" / "cases.yaml").read_text(encoding="utf-8"))
+        cases = cases["cases"] if isinstance(cases, dict) else cases
+        case = next(c for c in cases if c["id"] == "rewrite-vulnerability-notice")
+        body = ("Die Weboberfläche hat eine Schwachstelle (CVE-2026-12345, CVSS 8.1). "
+                "Aktualisieren Sie auf Version 3.2.0.")
+        quoted = score_case(case, body + "\n\nHinweis: Das Wort „zeitnah“ ist nicht zulässig.")
+        self.assertTrue(quoted["checks"]["avoids zeitnah"])
+        kept = score_case(case, body + " Aktualisieren Sie zeitnah.")
+        self.assertFalse(kept["checks"]["avoids zeitnah"])
+
+    def test_result_line_may_use_markdown_emphasis(self):
+        from run_evals import RESULT_RE
+        for line in ["Ergebnis: FAIL", "Ergebnis: **FAIL**", "**Ergebnis:** `FAIL`"]:
+            self.assertEqual(RESULT_RE.search(line).group(1), "FAIL", line)
+        self.assertEqual(RESULT_RE.search("Ergebnis: **PASS WITH REVIEW**").group(1), "PASS WITH REVIEW")
+
     def test_generate_runs_the_command_outside_the_repository(self):
         import tempfile
         case = {"id": "x", "operation": "WRITE", "profile": "procedure", "input": "Text"}

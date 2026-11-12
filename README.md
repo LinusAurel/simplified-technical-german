@@ -12,7 +12,7 @@ Verwenden Sie STG-DE für technische Dokumentation, Anleitungen, Sicherheitshinw
 
 Das Repository enthält einen **Sprachstandard**, ein **kontrolliertes Wörterbuch**, **deterministische Werkzeuge** und einen **Agent Skill**.
 
-> Release: **0.4.0** — experimenteller Standard, verwendbare Werkzeuge. Die Regel-IDs sind stabil. Das zentrale Wörterbuch und das heuristische Analysewerkzeug sind noch in der Validierung.
+> Release: **0.5.0** — experimenteller Standard, verwendbare Werkzeuge. Die Regel-IDs sind stabil. Das zentrale Wörterbuch und das heuristische Analysewerkzeug sind noch in der Validierung.
 
 ## Schnellstart
 
@@ -77,7 +77,7 @@ Die Action prüft deutsches Markdown in Pull Requests und zeigt Annotationen dir
 
 ```yaml
 - uses: actions/checkout@v4
-- uses: LinusAurel/simplified-technical-german@v0.4.0
+- uses: LinusAurel/simplified-technical-german@v0.5.0
   with:
     paths: docs
     profile: procedure   # optional
@@ -89,7 +89,7 @@ Die Action prüft deutsches Markdown in Pull Requests und zeigt Annotationen dir
 Installieren Sie das Paket `stg-de` direkt aus dem Repository:
 
 ```bash
-python -m pip install "git+https://github.com/LinusAurel/simplified-technical-german@v0.4.0"
+python -m pip install "git+https://github.com/LinusAurel/simplified-technical-german@v0.5.0"
 ```
 
 Der Befehl `stg` enthält drei Unterbefehle. Die Unterbefehle verwenden dieselben Werkzeuge wie der Skill und die Action.
@@ -107,7 +107,7 @@ Tragen Sie den Hook in `.pre-commit-config.yaml` ein:
 ```yaml
 repos:
   - repo: https://github.com/LinusAurel/simplified-technical-german
-    rev: v0.4.0
+    rev: v0.5.0
     hooks:
       - id: stg-de-lint
 ```

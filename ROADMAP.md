@@ -38,7 +38,6 @@ Unsichere NLP-Ergebnisse dürfen nicht zu falscher Sicherheit werden.
 
 ## Agent Skill
 
-- [ ] Den Agenten verpflichten, den Linter nach jeder Umformulierung erneut auszuführen und jeden Befund mit der Stufe `error` zu beheben. In den Evaluationen bleiben sonst gemeldete Wörter wie `ggf.` und `zeitnah` stehen.
 - [ ] Die Trigger-Genauigkeit für `evals/triggers.yaml` messen.
 - [ ] Für jeden Fehler aus der realen Verwendung einen Regressionsfall hinzufügen.
 - [ ] Die Evaluation nach jeder Änderung am Skill wiederholen und in [`evals/results/`](evals/results/) veröffentlichen.

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stg-de"
-version = "0.4.0"
+version = "0.5.0"
 description = "STG-DE (Simplified Technical German): linter, analyzer, and meaning-preservation check for controlled German"
 readme = "README.md"
 requires-python = ">=3.10"

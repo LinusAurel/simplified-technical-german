@@ -35,7 +35,8 @@ from stg_compare import compare  # noqa: E402
 from stg_lint import audit_text  # noqa: E402
 
 PREAMBLE_RE = re.compile(r"^\s*(hier ist|hier sind|gerne|natürlich|klar|sure|here is|here's|okay|ok,)", re.I)
-RESULT_RE = re.compile(r"Ergebnis:\s*(PASS WITH REVIEW|PASS|FAIL)")
+# Markdown emphasis around the result (`**FAIL**`, `` `PASS` ``) does not change the result.
+RESULT_RE = re.compile(r"Ergebnis:\**\s*[*_`]*\s*(PASS WITH REVIEW|PASS|FAIL)")
 
 
 def prompt_for(case: dict) -> str:
@@ -61,8 +62,13 @@ def score_case(case: dict, output: str) -> dict:
 
     for needle in case.get("must_contain", []):
         checks[f"contains {needle}"] = needle in output
+    # A `Hinweis:` line may quote a removed word to explain the change. Only the
+    # rewritten text itself must avoid the word.
+    body = output
+    if op in {"WRITE", "REWRITE"}:
+        body = "\n".join(line for line in output.splitlines() if not line.startswith("Hinweis:"))
     for needle in case.get("must_not_contain", []):
-        checks[f"avoids {needle.strip()}"] = needle.casefold() not in f" {output.casefold()} "
+        checks[f"avoids {needle.strip()}"] = needle.casefold() not in f" {body.casefold()} "
 
     if op in {"WRITE", "REWRITE"}:
         checks["no preamble"] = not PREAMBLE_RE.match(output)

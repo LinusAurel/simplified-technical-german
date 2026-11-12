@@ -1,5 +1,5 @@
 schema_version: '0.1'
-release: 0.4.0
+release: 0.5.0
 status: normative_normalization_table
 purpose: Expand standard German preposition+article contractions before STG-C-core lexical lookup; expansion does
   not change source text.

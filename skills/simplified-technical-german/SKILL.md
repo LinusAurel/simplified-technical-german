@@ -81,6 +81,7 @@ Wenn Code-Ausführung verfügbar ist, verwenden Sie diese Ebenen dort, wo sie zu
 1. Führen Sie `scripts/stg_lint.py` für deterministische und kontrollierte Prüfungen aus.
 2. Führen Sie für AUDIT oder für ein schwieriges REWRITE auch `scripts/stg_analyze.py` aus. Das Analysewerkzeug liefert Belege für die Prüfung der deutschen Sprache.
 3. Führen Sie nach jedem REWRITE `scripts/stg_compare.py` mit dem Ausgangstext und der Umformulierung aus.
+4. Führen Sie nach jedem WRITE und REWRITE `scripts/stg_lint.py` mit dem Endergebnis und demselben Profil erneut aus. Beheben Sie jeden Befund mit der Stufe `error`. Wiederholen Sie diesen Schritt, bis der Linter keinen Befund mit der Stufe `error` meldet. Geben Sie das Ergebnis danach zurück.
 
 Die Bedeutungsprüfung erkennt verlorene Zahlen, Einheiten, Bezeichner, Code, URLs, zitierte UI-Texte und Signalwörter für Sicherheit. Die Bedeutungsprüfung erkennt auch geänderte Modalität, Verbote, Verneinungen, Bedingungen und Grenzen.
 
@@ -112,7 +113,7 @@ Wenn keine Code-Ausführung verfügbar ist, fahren Sie ohne Code-Ausführung for
 7. Wenden Sie die lexikalischen Regeln mit der kontrollierten Bedeutung und der Wortart an.
 8. Verwenden Sie Belege für die Prüfung, wenn diese Belege relevant sind: Passiv, mehrdeutige Modalität, komplexe Satzgefüge, Pronomenbezug, Reichweite der Verneinung, Nominalstil, Komposita und trennbare Verben.
 9. Lesen Sie das Ergebnis erneut und vergleichen Sie es mit dem Ausgangstext. Prüfen Sie, dass sich kein Fakt, keine Bedingung, keine Ausnahme, kein Akteur, keine Grenze und keine Beziehung geändert hat. Führen Sie `stg_compare.py` aus, wenn Werkzeuge verfügbar sind.
-10. Führen Sie den deterministischen Linter erneut aus, wenn Werkzeuge verfügbar sind. Korrigieren Sie deterministische Befunde, wenn die Korrektur die Bedeutung nicht ändert.
+10. Führen Sie den Linter mit dem Endergebnis erneut aus, wenn Werkzeuge verfügbar sind. Beheben Sie jeden Befund mit der Stufe `error`, zum Beispiel ein verbotenes Wort wie `ggf.`, `gegebenenfalls` oder `zeitnah`. Ersetzen Sie ein vages Wort durch die genaue Bedingung oder Frist aus dem Ausgangstext. Wenn der Ausgangstext diese Angabe nicht enthält, schreiben Sie eine `Hinweis:`-Zeile. Wenn keine Werkzeuge verfügbar sind, prüfen Sie das Ergebnis mit `references/prohibited-words.yaml`.
 11. Lassen Sie konformen Text unverändert. Formulieren Sie Text nicht nur aus stilistischen Gründen um. Geben Sie konformen Text in WRITE und REWRITE ohne einen Satz über die Konformität oder den Linter aus.
 
 ## Prioritäten beim Schreiben

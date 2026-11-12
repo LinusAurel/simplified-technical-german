@@ -20,7 +20,7 @@ from collections import Counter
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-STG_VERSION = "0.4.0"
+STG_VERSION = "0.5.0"
 
 NUMBER_WORDS = {
     "null": "0", "eins": "1", "zwei": "2", "drei": "3", "vier": "4", "fünf": "5", "sechs": "6",
