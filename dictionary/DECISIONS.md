@@ -53,7 +53,7 @@ Das allgemeine Verb ist nicht freigegeben. Das Verb kann befestigen, eine Datens
 - `dürfen`: Erlaubnis. `nicht dürfen`: Verbot.
 - `müssen`: explizite Anforderung.
 
-Konditionale oder vorsichtige Formen wie `könnte`, `müsste` und `sollte` sind kein Teil der kontrollierten verbindlichen Formulierungen.
+Konditionale oder abschwächende Formen wie `könnte`, `müsste` und `sollte` sind kein Teil der kontrollierten verbindlichen Formulierungen.
 
 ### Vague qualifiers
 
