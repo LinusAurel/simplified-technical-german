@@ -167,7 +167,7 @@ mappings:
 - ste: '5.3'
   stg: [STG-5.3]
   relation: adapted
-  note: Formaler Imperativ mit "Sie"; ein Infinitiv-Profil nur per ausdrücklicher Projektvorgabe.
+  note: Imperativ in der Anredeform des Projekts (sie, du oder infinitiv; Standard sie). Ein Dokumentsatz verwendet genau eine Form (STG-2026-001).
 - ste: '5.4'
   stg: [STG-5.4]
   relation: equivalent

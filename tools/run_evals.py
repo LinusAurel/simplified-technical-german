@@ -65,7 +65,7 @@ def score_case(case: dict, output: str) -> dict:
     if op in {"WRITE", "REWRITE"}:
         checks["no preamble"] = not PREAMBLE_RE.match(output)
         text = "\n".join(line for line in output.splitlines() if not line.startswith("Hinweis:"))
-        lint = audit_text(text, ROOT, profile=case.get("profile"))
+        lint = audit_text(text, ROOT, profile=case.get("profile"), address=case.get("anrede"))
         allowed = set(case.get("allow_rules", []))
         errors = [f for f in lint["findings"] if f["severity"] == "error" and f["rule"] not in allowed]
         details["lint_errors"] = [f"{f['rule']}: {f['original'][:60]}" for f in errors]

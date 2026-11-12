@@ -21,14 +21,14 @@ files:
   size_bytes: 85
   sha256: 91641966134f1f76034ec284114bd0d1066f975d849d16a7b4008731f608f6c2
 - path: .stg-de.example.yaml
-  size_bytes: 335
-  sha256: f377707dd39bfec0168160df401e4c940f402d30d378bb39a3375f700beb9c3b
+  size_bytes: 423
+  sha256: 690bb27c9b172706fb2ea1d7607bcf78024eedce3895aab9550ea54bf9e6a50c
 - path: AGENTS.md
   size_bytes: 1740
   sha256: ffd3a4290afb68cf94ee112f10a856a07417f5db0f3f35133d5622e0bf0686c6
 - path: CHANGELOG.md
-  size_bytes: 4827
-  sha256: b1854ebedf4a9945132ec9369b7c1123a6434f77d998fd389c839b4922af037e
+  size_bytes: 6305
+  sha256: 9bac6339e45e6513f4927da6eab5977457edf48e77b5486fa357d529d03a84dc
 - path: CITATION.cff
   size_bytes: 471
   sha256: d411f9cd1c6f2113ecb4c4c55d93cec2c71b108bfb8899ed2232884c87d6600e
@@ -132,8 +132,8 @@ files:
   size_bytes: 1697
   sha256: d0232dcc363b7b03c5f838ef2d3eff4bf84ae59dd257d090cd151f6aafb5a5b0
 - path: evals/cases.yaml
-  size_bytes: 4727
-  sha256: ffda557caefa2ded3daecb4023560ff54b0234875d32690b39e3edd35a33e8d8
+  size_bytes: 5288
+  sha256: 70ba8d75055c343174a45e005baf10b951acfb2db7a4b8dba35fa26a2922e4bd
 - path: evals/reference/audit-compliant.md
   size_bytes: 67
   sha256: 62d0316f06c43f56a54de7eaacb0335d4c093635398275577c776ff3e0aa109d
@@ -186,8 +186,8 @@ files:
   size_bytes: 2091
   sha256: b6036bb236865f72da4ddb4d2cf40f35fa94a0741e376b85505b65219dad0997
 - path: mapping/ste100-issue9.yaml
-  size_bytes: 11799
-  sha256: 5b6e173e3d19354f9bb09befd81f853a33a9bfb0836b8232b0ed0e905fa95de5
+  size_bytes: 11848
+  sha256: 4e7fd07cbb7e0e523b13853d91595be1a34ce0094550775e840420f74617f2a7
 - path: profiles/README.md
   size_bytes: 2089
   sha256: 800f8292d354fc6527967e569df491630f344fbbcaa83c0fa73a041707229317
@@ -195,8 +195,8 @@ files:
   size_bytes: 2039
   sha256: 12e5636b859ad67acdbada7d9f62507ed4b4af5f5ba35c39d8940355ef049e41
 - path: prompts/agents-md.md
-  size_bytes: 3001
-  sha256: 0910bcdf8c8d43ef6fd7806d5bae894811bdc2081db331bfb3c952f3959f4ce3
+  size_bytes: 3358
+  sha256: 5f8764e8f7d75569a0b3d081dd1d9dc812b051b180890a9eb76f478f25a26acc
 - path: proposals/STG-CHANGE-TEMPLATE.md
   size_bytes: 1374
   sha256: 102a28a960f18f8cd30b6f618709621ff32f8b6c77117aefb8aac6240ba8a609
@@ -240,8 +240,8 @@ files:
   size_bytes: 5038
   sha256: 79bccf853236de9f933287e41ff8c2e64e89c381b9821afef02369e2aaf01f6d
 - path: rules/rule-index.yaml
-  size_bytes: 8426
-  sha256: 6356c5679bf506311d41233ab7b7648ce4ca284659a7872e5626b111b983b976
+  size_bytes: 8437
+  sha256: f33f283ee0b794d8511c5efb935d94cd42315d8d8da829795bd8145ff3bc51e9
 - path: schemas/dictionary-entry.schema.json
   size_bytes: 1831
   sha256: 63aeda7059c3d4ef3727fe9f810b1e18d6d23ce53ac7baa063ade63397787e0f
@@ -285,11 +285,11 @@ files:
   size_bytes: 11344
   sha256: 2ca83c99340fae9ed36d6159fb60f80481e25993528c088802716abde1753186
 - path: skills/simplified-technical-german/scripts/stg_compare.py
-  size_bytes: 14682
-  sha256: 44631a5b1c0a99e4139f304f392d9c3ddce4936b9e429c03d86c12ff1f813eef
+  size_bytes: 15090
+  sha256: 69fe3d038c02f975c326ed70648e0a8e51889c7498410a483be6588ac1b71835
 - path: skills/simplified-technical-german/scripts/stg_lint.py
-  size_bytes: 18240
-  sha256: 8e72345dc52e513dae9fbae429ccd75a6c83ce908b85a717585fa50827643f5f
+  size_bytes: 20901
+  sha256: 802af4c4ba1c244613121b42d102a7fdaf5470516e0b8f9b90cf3cc9694316c7
 - path: skills/simplified-technical-german/scripts/stg_markdown.py
   size_bytes: 2417
   sha256: 88b6ba7ebc729739d3a86eb92613dc9b7979128d571826c088e360495d30c823
@@ -300,8 +300,8 @@ files:
   size_bytes: 8096
   sha256: a0fac0989df35bd6feeed2f0065e8098e72ac60fea41de18624f2e29f0b4adad
 - path: tests/test_evals.py
-  size_bytes: 2128
-  sha256: 45893abe6f137f63fec3575e6f3c4cd0c3cad17ffede33f8c88cc0cbb529332a
+  size_bytes: 2245
+  sha256: 13e3043a3f685761bb7f2dfe7898986864d34f2a0f6576a9fff9890f2a37233c
 - path: tests/test_lexicon_governance.py
   size_bytes: 1438
   sha256: 097de01cc43464d494b4bee5b32face120dfae0ed69db382ef31a50dbed93117
@@ -324,8 +324,8 @@ files:
   size_bytes: 3240
   sha256: 388d34e26d1e00fc1c6a8821e81fae3cc5392141dc530e159c2cb9f0028d3532
 - path: tests/test_stg_compare.py
-  size_bytes: 5750
-  sha256: 155ac78a52aba10738b7dc7e4789e31106a1e5808e502ff21299038222f86af2
+  size_bytes: 6013
+  sha256: f44a648175ba5b84c5e37cb38ffeeae4f5c3e7fcc1f25635fd9c41fb51691b48
 - path: tests/test_stg_lint.py
   size_bytes: 5616
   sha256: 4c9f291451d504b18afb2e8fa4c5731e75743b7e9a634fbe4c7bbed0d7c96f95
@@ -339,8 +339,8 @@ files:
   size_bytes: 884
   sha256: b68f1a16c3926ca05473ba789d1f1c26cccfa49091092e21a6c0524eef16af62
 - path: tools/build_standalone.py
-  size_bytes: 1233
-  sha256: 3bd5b140f12533309fcc09ffd029405941d6ffeabc3881a199026d7f9dbd693b
+  size_bytes: 1256
+  sha256: ca7bff505593699c32ee0dfc4fba9e7e1e163fa3f8d271eedc2e314e95bd1ae5
 - path: tools/corpus_validate.py
   size_bytes: 10798
   sha256: c4409a1b1fbc87a825ae6b654627019f187fec2f43417604555cd893fd09976f
@@ -348,23 +348,23 @@ files:
   size_bytes: 2323
   sha256: b9988471ca5771fa74ffca7e31356dc020c2769b4504fe9dc99f6a0c592ef986
 - path: tools/run_evals.py
-  size_bytes: 6844
-  sha256: fffec79d7fbfce9bfa2391bc07560b284a1727189dcf775ccdab9c0b14f316c0
+  size_bytes: 6872
+  sha256: a59f9e7215bea4f59b7d6d64b5179f3597d8c506ef6f4a051ad495ea80f94e16
 - path: tools/stg_analyze.py
   size_bytes: 11344
   sha256: 2ca83c99340fae9ed36d6159fb60f80481e25993528c088802716abde1753186
 - path: tools/stg_compare.py
-  size_bytes: 14682
-  sha256: 44631a5b1c0a99e4139f304f392d9c3ddce4936b9e429c03d86c12ff1f813eef
+  size_bytes: 15090
+  sha256: 69fe3d038c02f975c326ed70648e0a8e51889c7498410a483be6588ac1b71835
 - path: tools/stg_lint.py
-  size_bytes: 18240
-  sha256: 8e72345dc52e513dae9fbae429ccd75a6c83ce908b85a717585fa50827643f5f
+  size_bytes: 20901
+  sha256: 802af4c4ba1c244613121b42d102a7fdaf5470516e0b8f9b90cf3cc9694316c7
 - path: tools/stg_markdown.py
   size_bytes: 2417
   sha256: 88b6ba7ebc729739d3a86eb92613dc9b7979128d571826c088e360495d30c823
 - path: tools/sync_skill.py
-  size_bytes: 2892
-  sha256: df0038a51f170c2ebff1cc3729f42c162bddcd14daa18691ed26aaee654ba5e6
+  size_bytes: 2997
+  sha256: 9cb54bee838073fb3d568bff9f664c8ff6b3d50abc7dd3ab7564dd6743641b8b
 - path: tools/validate_release.py
   size_bytes: 5039
   sha256: 2dd79e04b4e9be30d1dfe69471e795bbec2e5103b829ba10cb05250e28155c06

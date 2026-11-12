@@ -43,10 +43,10 @@ WORD_RE = re.compile(r"[A-Za-zÄÖÜäöüß]+")
 
 MODALITY = {
     "requirement": {"muss", "müssen", "musst", "müsst", "erforderlich", "notwendig", "verpflichtend", "zwingend", "pflicht"},
-    "permission": {"darf", "dürfen", "zulässig", "erlaubt"},
-    "possibility": {"kann", "können", "möglich", "optional", "wahlweise"},
-    "recommendation": {"sollte", "sollten", "empfehlen", "empfohlen", "empfiehlt", "empfehlung", "ratsam"},
-    "ambiguous": {"soll", "sollen", "müsste", "müssten", "könnte", "könnten"},
+    "permission": {"darf", "dürfen", "darfst", "dürft", "zulässig", "erlaubt"},
+    "possibility": {"kann", "können", "kannst", "könnt", "möglich", "optional", "wahlweise"},
+    "recommendation": {"sollte", "sollten", "solltest", "solltet", "empfehlen", "empfohlen", "empfiehlt", "empfehlung", "ratsam"},
+    "ambiguous": {"soll", "sollen", "sollst", "sollt", "müsste", "müssten", "könnte", "könnten"},
 }
 NEGATORS = {"nicht", "kein", "keine", "keinen", "keinem", "keiner", "keines", "nie", "niemals", "nichts", "ohne", "weder"}
 # Words within one group are interchangeable for this check ("falls" -> "wenn" is fine).
@@ -111,7 +111,10 @@ def count_set(tokens: list[str], vocabulary: set[str]) -> Counter:
 
 def imperative_count(text: str) -> int:
     # Formal imperative: sentence-initial finite verb followed by "Sie" ("Prüfen Sie ...").
-    return len(re.findall(r"(?:^|[.!?:]\s+|\n\s*(?:\d+\.\s*|[-*]\s*)?)[A-ZÄÖÜ][a-zäöüß]+(?:en|ern|eln)\s+Sie\b", text))
+    formal = len(re.findall(r"(?:^|[.!?:]\s+|\n\s*(?:\d+\.\s*|[-*]\s*)?)[A-ZÄÖÜ][a-zäöüß]+(?:en|ern|eln)\s+Sie\b", text))
+    # Informal imperative followed by "bitte" or an object article ("Schick bitte ...", "Prüfe den ...").
+    informal = len(re.findall(r"(?:^|[.!?:,]\s+|\n\s*(?:\d+\.\s*|[-*]\s*)?)[A-ZÄÖÜa-zäöüß][a-zäöüß]+e?\s+(?:bitte|den|die|das|dein\w*)\b(?![^.!?\n]*\b(?:du|ich|wir)\b)", text))
+    return formal + informal
 
 
 def missing(source: Counter, rewrite: Counter) -> list:

@@ -1,50 +1,62 @@
-# Changelog
+# Änderungsprotokoll
 
 ## 0.2.0 — 2026-11-12
 
-First release intended for production use of the tools and the Agent Skill. The rule set and dictionary are unchanged in meaning. All published rule IDs are stable.
+Diese Version ist die erste Version, deren Werkzeuge und Agent Skill für den praktischen Einsatz vorgesehen sind. Die kontrollierten Bedeutungen im Wörterbuch bleiben gleich. Alle veröffentlichten Regel-IDs bleiben stabil.
 
-### Source traceability
+### Anrede (STG-2026-001)
 
-- Added `mapping/ste100-issue9.yaml`: all 53 ASD-STE100 Issue 9 writing rules and 8 general recommendations mapped to STG-DE (35 equivalent, 15 adapted, 3 replaced). Every STG-DE rule is traceable. Tests and `validate_release.py` enforce completeness.
-- Added `NOTICE.md`. The repository contains no ASD-STE100 rule text, examples, or dictionary entries.
+- `STG-5.3` erlaubt jetzt die Anredeformen `sie` (Standard), `du` und `infinitiv`. Ein Dokumentsatz verwendet genau eine Form. Die Einstellung `anrede` steht in `.stg-de.yaml`. Neuer Titel: „Anweisungen in einer festgelegten Anredeform“.
+- `stg_lint.py` prüft `STG-5.3`: `error` bei einer anderen als der festgelegten Anrede, `warning` bei gemischter Anrede ohne Festlegung. Neue Option `--anrede`.
+- Der Skill behält bei REWRITE die Anrede des Originals bei, wenn das Projekt keine Anrede festlegt.
+- Neues Schema `schemas/project.schema.json` für `.stg-de.yaml`.
 
-### Tools
+### Dokumentation auf Deutsch
 
-- `stg_lint.py`: accepts several files and directories, adds line numbers, `--fail-on {error,warning,review,never}`, `--format github` for pull-request annotations, and loads `./.stg-de.yaml` automatically (`--no-project` disables this).
-- `stg_lint.py` and `stg_analyze.py`: Markdown-aware segmentation (fenced code, HTML comments, headings, list items, table cells) in the shared `stg_markdown.py`. Before, a whole Markdown list could count as one sentence.
-- `stg_lint.py`: quoted text is protected from lexical checks and counts as one word (`STG-8.6`).
-- Fixed after a test on a real German monorepo: findings in sentences that wrap lines now carry line numbers; project technical terms override the central prohibited list; a changed quoted word (`„Provision“` → `„Provisionen“`) now fails the meaning check.
-- Fixed: `man` was reported twice (`STG-DE-4.3` and `STG-1.1`). It is now reported once, by `STG-DE-4.3`.
-- New `stg_compare.py`: meaning-preservation check for rewrites. Lost numbers, units, code, URLs, quoted text, identifiers, or safety signal words fail. Changed prohibitions, modality, negations, restrictions, conditions, and limits are review evidence.
+- Die Prosa des Repositorys ist jetzt deutsch und folgt selbst STG-DE. Das README enthält einen kurzen Abschnitt auf Englisch.
+- Die Markierungen `<!-- stg-lint: off -->` und `<!-- stg-lint: on -->` schließen absichtlich nicht konforme Beispiele von der Prüfung aus.
+
+### Zuordnung zu ASD-STE100
+
+- Neue Datei `mapping/ste100-issue9.yaml`: Alle 53 Schreibregeln und 8 Empfehlungen von ASD-STE100 Issue 9 sind STG-DE zugeordnet (35 gleich, 15 angepasst, 3 ersetzt). Jede STG-DE-Regel ist rückverfolgbar. Tests und `validate_release.py` prüfen die Vollständigkeit.
+- Neue Datei `NOTICE.md`. Das Repository enthält keinen Regeltext, keine Beispiele und keine Wörterbucheinträge aus ASD-STE100.
+
+### Werkzeuge
+
+- `stg_lint.py` prüft mehrere Dateien und Verzeichnisse und gibt Zeilennummern aus. Neu sind `--fail-on {error,warning,review,never}`, `--format github` für Annotationen in Pull Requests und das automatische Laden von `./.stg-de.yaml` (`--no-project` schaltet das Laden ab).
+- `stg_lint.py` und `stg_analyze.py` zerlegen Markdown korrekt in Blöcke (Codeblöcke, HTML-Kommentare, Überschriften, Listenpunkte, Tabellenzellen). Die gemeinsame Logik steht in `stg_markdown.py`. Vorher zählte eine ganze Markdown-Liste als ein Satz.
+- `stg_lint.py` schützt zitierten Text vor lexikalischen Prüfungen. Zitierter Text zählt als ein Wort (`STG-8.6`).
+- Korrekturen nach einem Test mit einem echten deutschen Monorepo: Befunde in Sätzen über mehrere Zeilen haben jetzt eine Zeilennummer. Technische Begriffe aus dem Projektglossar haben Vorrang vor der zentralen Sperrliste. Ein geändertes zitiertes Wort (`„Provision“` → `„Provisionen“`) ergibt jetzt `FAIL` in der Bedeutungsprüfung.
+- Korrektur: Der Linter hat `man` zweimal gemeldet (`STG-DE-4.3` und `STG-1.1`). Jetzt meldet nur `STG-DE-4.3` das Wort.
+- Neues Werkzeug `stg_compare.py` für die Bedeutungsprüfung von Umschreibungen. Fehlende Zahlen, Einheiten, Code, URLs, Zitate, Kennungen oder Signalwörter ergeben `FAIL`. Geänderte Verbote, Modalität, Verneinungen, Einschränkungen, Bedingungen und Grenzwerte ergeben `REVIEW`.
 
 ### Agent Skill
 
-- Added the modes `strikt` (`STG-T`) and `pragmatisch` (`STG-R`), with defaults by profile.
-- Added guidance for text that agents read: tool descriptions, error messages, system prompts.
-- The skill runs `stg_compare.py` after every rewrite and leaves compliant text unchanged.
-- Rewrote the description with German and English triggers and explicit exclusions.
-- Added `prompts/agents-md.md` with short and full snippets for `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, and system prompts.
+- Neue Modi `strikt` (`STG-T`) und `pragmatisch` (`STG-R`) mit Standardwerten je Anwendungsprofil.
+- Neue Regeln für Texte, die Agenten lesen: Tool-Beschreibungen, Fehlermeldungen, Systemprompts.
+- Der Skill führt nach jeder Umschreibung `stg_compare.py` aus. Konformer Text bleibt unverändert.
+- Neue Beschreibung mit Auslösern auf Deutsch und Englisch und mit ausdrücklichen Ausschlüssen.
+- Neue Datei `prompts/agents-md.md` mit einer kurzen und einer vollständigen Fassung für `AGENTS.md`, `CLAUDE.md`, `.cursorrules` und Systemprompts.
 
-### Packaging and CI
+### Verpackung und CI
 
-- Claude Code plugin and marketplace in `.claude-plugin/`.
-- `tools/package_skill.py` builds a reproducible skill ZIP and SHA-256 checksum.
-- Reusable GitHub Action `action.yml` for STG-DE checks in other repositories.
-- Release workflow for `v*` tags. CI builds the ZIP and runs the action on this repository.
+- Plugin und Marketplace für Claude Code in `.claude-plugin/`.
+- `tools/package_skill.py` erzeugt ein reproduzierbares ZIP des Skills mit SHA-256-Prüfsumme.
+- Wiederverwendbare GitHub Action `action.yml` für STG-DE-Prüfungen in anderen Repositorys.
+- Release-Workflow für Tags `v*`. Die CI erzeugt das ZIP und prüft das eigene Repository mit der Action.
 
 ### Evaluation
 
-- `evals/`: 12 WRITE, REWRITE, and AUDIT cases across all seven profiles, trigger prompts, and reference outputs.
-- `tools/run_evals.py`: deterministic scorer. It can generate outputs with any CLI that reads a prompt on stdin.
+- `evals/`: Fälle für WRITE, REWRITE und AUDIT über alle sieben Anwendungsprofile, Prompts für die Auslöser und Referenzausgaben.
+- `tools/run_evals.py`: deterministische Bewertung. Das Werkzeug erzeugt Ausgaben mit jedem CLI, das einen Prompt über stdin liest.
 
-### Since 0.1.0 (previously unreleased)
+### Seit 0.1.0 (vorher nicht veröffentlicht)
 
-- Rule automation matrix (`quality/rule-coverage.yaml`) and golden audit fixtures.
-- v0.2 corpus protocol with fixed development, validation, and holdout partitions; 139,646 tokens from 13 public full-text sources (derived metrics only).
-- Lexical proposal schema and template, change-proposal template, governance, versioning policy, release checklist, and `CITATION.cff`.
-- Application profiles (`procedure`, `safety`, `description`, `requirement`, `support`, `consumer`, `agent`) in linter and skill.
-- Conservative German review analyzer `stg_analyze.py`.
+- Matrix der automatisierten Regeln (`quality/rule-coverage.yaml`) und Golden-Audit-Fälle.
+- Korpusprotokoll v0.2 mit festen Partitionen für Entwicklung, Validierung und Holdout. Das Korpus hat 139.646 Token aus 13 öffentlichen Volltextquellen (nur abgeleitete Metriken).
+- Schema und Vorlage für Lexikonvorschläge, Vorlage für Änderungsvorschläge, Governance, Versionierungsrichtlinie, Release-Checkliste und `CITATION.cff`.
+- Anwendungsprofile (`procedure`, `safety`, `description`, `requirement`, `support`, `consumer`, `agent`) in Linter und Skill.
+- Konservatives Analysewerkzeug `stg_analyze.py` für die deutsche Sprache.
 
 ## 0.1.0 — 2026-08-22
 
