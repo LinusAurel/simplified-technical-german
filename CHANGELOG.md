@@ -6,6 +6,10 @@
 
 - `STG-8.1` meldet kein Semikolon zwischen Listeneinträgen mehr, zum Beispiel zwischen Autoren (`Apfeld, R.; Schaefer, M.`), Normen (`IEC 60601-1; IEC 60601-1-2`) oder Werten (`-7,5; +15`). Auf dem Holdout waren 10 von 12 Befunden dieser Art falsch. Semikolons zwischen Aussagen bleiben ein Fehler.
 
+### Evaluation
+
+- Wiederholung der Evaluation mit dem korrigierten Skill in `evals/results/2026-11-12-rerun.md`: Claude 113 von 115 Prüfungen (vorher 109), Codex 110 von 115 (vorher 112).
+
 ### Struktur des Repositorys
 
 - Der Code von Linter, Analysewerkzeug und Vergleich steht nur noch in `stg_de/`. Die Kopien in `tools/` sind entfernt. Der Skill enthält auch in Zukunft eine Kopie in `scripts/`, weil der Skill ohne das Repository funktionieren muss. Die GitHub Action und die Dokumentation verwenden `stg_de/stg_lint.py`.
