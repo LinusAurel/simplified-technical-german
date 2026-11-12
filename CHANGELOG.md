@@ -14,6 +14,7 @@ First release intended for production use of the tools and the Agent Skill. The 
 - `stg_lint.py`: accepts several files and directories, adds line numbers, `--fail-on {error,warning,review,never}`, `--format github` for pull-request annotations, and loads `./.stg-de.yaml` automatically (`--no-project` disables this).
 - `stg_lint.py` and `stg_analyze.py`: Markdown-aware segmentation (fenced code, HTML comments, headings, list items, table cells) in the shared `stg_markdown.py`. Before, a whole Markdown list could count as one sentence.
 - `stg_lint.py`: quoted text is protected from lexical checks and counts as one word (`STG-8.6`).
+- Fixed after a test on a real German monorepo: findings in sentences that wrap lines now carry line numbers; project technical terms override the central prohibited list; a changed quoted word (`„Provision“` → `„Provisionen“`) now fails the meaning check.
 - Fixed: `man` was reported twice (`STG-DE-4.3` and `STG-1.1`). It is now reported once, by `STG-DE-4.3`.
 - New `stg_compare.py`: meaning-preservation check for rewrites. Lost numbers, units, code, URLs, quoted text, identifiers, or safety signal words fail. Changed prohibitions, modality, negations, restrictions, conditions, and limits are review evidence.
 

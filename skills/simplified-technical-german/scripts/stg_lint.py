@@ -201,7 +201,9 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
                 findings.append(Finding("warning", "STG-DE-8.1", "Die Schrägstrichkombination kann mehrdeutig sein.", match.group(0), "Verwenden Sie `und`, `oder`, eine Liste oder getrennte Sätze.", match.group(0)))
 
     # Terms with a dedicated structural check are reported once, by that check.
-    dedicated_terms = {f.term.casefold() for f in findings if f.term}
+    # Project terminology (technical nouns/verbs, protected and preferred terms) takes
+    # precedence over the central prohibited list (STG-1.6, STG-1.8).
+    dedicated_terms = {f.term.casefold() for f in findings if f.term} | allowed_project
     for entry in prohibited:
         term = str(entry.get("term", "")).strip()
         if not term or term.casefold() in dedicated_terms or not phrase_regex(term).search(masked):
@@ -241,9 +243,8 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
                 continue
             unknown_counts[low] = unknown_counts.get(low, 0) + 1
 
-    lines = text.splitlines()
     for finding in findings:
-        finding.line = locate_line(lines, finding.original)
+        finding.line = locate_line(text, finding.original)
 
     counts = {"error": 0, "warning": 0, "review": 0}
     for finding in findings:
@@ -269,20 +270,22 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     }
 
 
-def locate_line(lines: list[str], original: str) -> int | None:
-    """Return the 1-based line where a finding starts, when it can be found."""
-    needle = (original or "").strip().splitlines()[0].strip() if (original or "").strip() else ""
-    if not needle:
+def locate_line(text: str, original: str) -> int | None:
+    """Return the 1-based line where a finding starts, also for sentences that wrap lines."""
+    words = []
+    for word in (original or "").split():
+        if "PROTECTED_" in word:
+            break
+        words.append(word)
+        if len(words) == 8:
+            break
+    if not words:
         return None
-    probe = needle[:60]
-    for i, line in enumerate(lines, 1):
-        if probe in line:
-            return i
-    low = probe.casefold()
-    for i, line in enumerate(lines, 1):
-        if re.search(r"(?<![\wÄÖÜäöüß])" + re.escape(low) + r"(?![\wÄÖÜäöüß])", line.casefold()):
-            return i
-    return None
+    pattern = r"[\s>*+-]*".join(re.escape(w) for w in words)
+    if len(words) == 1:
+        pattern = r"(?<![\wÄÖÜäöüß])" + pattern + r"(?![\wÄÖÜäöüß])"
+    m = re.search(pattern, text) or re.search(pattern, text, re.I)
+    return text.count("\n", 0, m.start()) + 1 if m else None
 
 
 def render_text(result: dict) -> str:
