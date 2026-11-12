@@ -17,12 +17,15 @@ files:
 - path: .github/workflows/ci.yml
   size_bytes: 1316
   sha256: 8193d99cfc502ba458f0f469c5e4563dc296dfbee9782b31b3aea430bd2dde71
+- path: .github/workflows/cleanup-branches.yml
+  size_bytes: 2021
+  sha256: 1ce01630e0db3da99da49d271730a186cb8cff55113b76fe0677a5b561f6c114
 - path: .github/workflows/corpus-fulltext.yml
   size_bytes: 1087
   sha256: aad9e9516f5a6e98d9ac3ad1a1f73f1f6344cbbfe6e92803f3afc0d0e95f41ae
 - path: .github/workflows/release.yml
-  size_bytes: 1001
-  sha256: 22685be8c455c8a8e196c8ee2b7e816819d320acd3585f1a0e8bef4cab4f26ef
+  size_bytes: 2170
+  sha256: ae4904f901043d066a8b98377596ee252c659e8d248f4cfa15267a059220e286
 - path: .gitignore
   size_bytes: 92
   sha256: f6b83cfae75f02edeee1892620ef78be3b9bdee1b823c4e9866cbca9c2a02257
@@ -36,8 +39,8 @@ files:
   size_bytes: 1759
   sha256: 2cb476b425196f405b2c88e73500fd2464e244f0e0b32d3581a75651898d7014
 - path: CHANGELOG.md
-  size_bytes: 7253
-  sha256: d7a7f5d3215d014b2c12103a80868e5631c9a3a4eeb69c6d1f2ef24b72f3ef98
+  size_bytes: 7674
+  sha256: aee9a3a7419b42dacab8b502211a19932324b9c096e94dcfa60630e4758ff631
 - path: CITATION.cff
   size_bytes: 471
   sha256: 7848d27a6ad1ff0d3b78c2efeabb30b37d69a001ef743fc44494024c74ed1459
@@ -57,8 +60,8 @@ files:
   size_bytes: 13236
   sha256: 530211c6605dbfb0bc5230e783867c61cef23e15817bc48e457f750a9f96cde7
 - path: RELEASE-CHECKLIST.md
-  size_bytes: 4629
-  sha256: eb5f2f02cd82ebe1d2e0309bd7630b1e19ef4d706b9e53b8a7434d06f1bc2a42
+  size_bytes: 4883
+  sha256: 24b705c24bb220b3e096d82cdc8910acc8c7c2be729e50f70e882d685c3d572f
 - path: ROADMAP.md
   size_bytes: 10129
   sha256: 04da7e070f62c376970e06f2f4a833c46ea7218fd14efb2531e8322dfbbb4357
