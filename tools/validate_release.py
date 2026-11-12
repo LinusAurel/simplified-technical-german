@@ -47,6 +47,20 @@ def main():
     if len(ri) != 75 or len({r["id"] for r in ri}) != 75:
         fail("expected 75 unique rules/recommendations")
 
+    # ASD-STE100 Issue 9 traceability must stay complete.
+    mp = yaml.safe_load((ROOT / "mapping/ste100-issue9.yaml").read_text(encoding="utf-8"))
+    rule_ids = {r["id"] for r in ri}
+    if len({m["ste"] for m in mp["mappings"]}) != 53:
+        fail("expected 53 mapped ASD-STE100 Issue 9 writing rules")
+    traced = {e["stg"] for e in mp["german_extensions"]}
+    for m in mp["mappings"] + mp["general_recommendations"]:
+        targets = set(m["stg"]) | set(m.get("related", []))
+        if targets - rule_ids:
+            fail(f"mapping {m['ste']} references unknown STG rule(s): {sorted(targets - rule_ids)}")
+        traced |= targets
+    if traced != rule_ids:
+        fail(f"STG rules without ASD-STE100 traceability: {sorted(rule_ids - traced)}")
+
     src = yaml.safe_load((ROOT / "corpus/sources.yaml").read_text(encoding="utf-8"))
     if src.get("source_count") != 18:
         fail("expected 18 public corpus sources")
