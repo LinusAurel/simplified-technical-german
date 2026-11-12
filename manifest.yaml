@@ -291,8 +291,8 @@ files:
   size_bytes: 18240
   sha256: 8e72345dc52e513dae9fbae429ccd75a6c83ce908b85a717585fa50827643f5f
 - path: skills/simplified-technical-german/scripts/stg_markdown.py
-  size_bytes: 2151
-  sha256: 170103b6b9baf102652da9572436981cd2cb3ba8c56ea67ba49eaecb34dc35a9
+  size_bytes: 2417
+  sha256: 88b6ba7ebc729739d3a86eb92613dc9b7979128d571826c088e360495d30c823
 - path: sources.md
   size_bytes: 998
   sha256: ca55c0e27ec3af18e6d34ae8d50f533cfe1c9c06669191600ab76225bcbe020a
@@ -309,8 +309,8 @@ files:
   size_bytes: 2690
   sha256: 4b1ff3b6fb560761694e409a4fe08fb987aab300758e18cc78c9386abd4cfc91
 - path: tests/test_markdown.py
-  size_bytes: 2133
-  sha256: 1c749cb8cb1234bd6ed3e5bd1307db84ed93f2af93e29c9b01ecff5dce2068e7
+  size_bytes: 2501
+  sha256: 64de73c6f7f6e7d28bf8b11b99d377c54fd7ef341d740cac1b26fc4ee24362a4
 - path: tests/test_packaging.py
   size_bytes: 3364
   sha256: 8587f74192c4575d871f70330651d34f8893d9b1e53707a1718ba3e4fd78a657
@@ -360,8 +360,8 @@ files:
   size_bytes: 18240
   sha256: 8e72345dc52e513dae9fbae429ccd75a6c83ce908b85a717585fa50827643f5f
 - path: tools/stg_markdown.py
-  size_bytes: 2151
-  sha256: 170103b6b9baf102652da9572436981cd2cb3ba8c56ea67ba49eaecb34dc35a9
+  size_bytes: 2417
+  sha256: 88b6ba7ebc729739d3a86eb92613dc9b7979128d571826c088e360495d30c823
 - path: tools/sync_skill.py
   size_bytes: 2892
   sha256: df0038a51f170c2ebff1cc3729f42c162bddcd14daa18691ed26aaee654ba5e6
