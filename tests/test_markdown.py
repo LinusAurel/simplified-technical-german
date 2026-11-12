@@ -38,6 +38,30 @@ class MarkdownTests(unittest.TestCase):
         self.assertEqual(rules("<!-- man; -->\nPrüfen Sie das Gerät.\n"), [])
 
 
+class HoldoutRegressionTests(unittest.TestCase):
+    """Linter weaknesses found by the holdout precision measurement (corpus/holdout-precision.yaml)."""
+
+    def test_abbreviations_and_ordinal_dates_do_not_end_sentences(self):
+        from stg_markdown import split_sentences
+        text = ("Teilen Sie den Stand dem neuen Strom- bzw. Gasanbieter mit. Das ist z. B. wichtig. "
+                "Siehe Abb. 3 und Nr. 5. Max. 5 bar sind erlaubt. Lieferung zum 31. Dezember. Sprache usw. Die Auswahl gilt.")
+        self.assertEqual(split_sentences(text), [
+            "Teilen Sie den Stand dem neuen Strom- bzw. Gasanbieter mit.", "Das ist z. B. wichtig.",
+            "Siehe Abb. 3 und Nr. 5.", "Max. 5 bar sind erlaubt.", "Lieferung zum 31. Dezember.",
+            "Sprache usw.", "Die Auswahl gilt."])
+
+    def test_plain_text_bullets_are_list_items(self):
+        self.assertEqual(prose_blocks("Einleitung.\n• Punkt eins\n‣ Punkt zwei\n→ Menü"),
+                         ["Einleitung.", "Punkt eins", "Punkt zwei", "Menü"])
+        items = "\n".join(f"• Prüfen Sie den Anschluss Nummer {i} am Gerät sorgfältig" for i in range(6))
+        self.assertNotIn("STG-6.3", rules(items))
+
+    def test_inflected_prohibited_adjectives_are_found(self):
+        found = {f["term"] for f in audit_text("Das sind einfache Tipps zu Ihrem aktuellen Vertrag.", ROOT)["findings"]}
+        self.assertTrue({"aktuell", "einfach"} <= found)
+        self.assertNotIn("weiter", {f["term"] for f in audit_text("Alle weiteren Sprachen sind Übersetzungen.", ROOT)["findings"]})
+
+
 class SuppressionTests(unittest.TestCase):
     def test_lint_off_region_is_ignored_and_lines_are_kept(self):
         text = "<!-- stg-lint: off -->\n> Man prüft das; fertig.\n<!-- stg-lint: on -->\nMan prüft den Stecker.\n"

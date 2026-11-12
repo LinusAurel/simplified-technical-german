@@ -488,7 +488,7 @@ Verwenden Sie diese Standardformen:
 
 ### Beschreibungen
 
-- Präsens für aktuelle Zustände, Funktionen und allgemeine technische Fakten,
+- Präsens für derzeitige Zustände, Funktionen und allgemeine technische Fakten,
 - Präteritum oder Perfekt nur, wenn der Text ein vergangenes Ereignis berichten muss,
 - Präsens mit expliziter Zeitangabe für geplante zukünftige Zustände, wenn diese Form möglich ist.
 
@@ -1559,7 +1559,7 @@ Das allgemeine Verb ist nicht freigegeben. Das Verb kann befestigen, eine Datens
 - `dürfen`: Erlaubnis. `nicht dürfen`: Verbot.
 - `müssen`: explizite Anforderung.
 
-Konditionale oder vorsichtige Formen wie `könnte`, `müsste` und `sollte` sind kein Teil der kontrollierten verbindlichen Formulierungen.
+Konditionale oder abschwächende Formen wie `könnte`, `müsste` und `sollte` sind kein Teil der kontrollierten verbindlichen Formulierungen.
 
 ### Vague qualifiers
 
@@ -6969,6 +6969,7 @@ entries:
   rewrite: derzeit, gültig oder konkrete Version/Datum nennen.
   approved_alternatives:
   - derzeit
+  surface_forms: [aktuelle, aktuellen, aktueller, aktuelles, aktuellem]
 - term: anfangen
   status: prohibited
   reason: Synonymvariation zu starten
@@ -6995,6 +6996,7 @@ entries:
   rewrite: danach verwenden.
   approved_alternatives:
   - danach
+  surface_forms: [anschließende, anschließenden, anschließender, anschließendes, anschließendem]
 - term: arbeiten
   status: review_required
   reason: kann menschliche Tätigkeit oder Maschinenfunktion bedeuten
@@ -7016,6 +7018,7 @@ entries:
   status: review_required
   reason: Kriterium für ausreichend bleibt häufig ungenannt
   rewrite: Grenzwert oder Referenz nennen.
+  surface_forms: [ausreichende, ausreichenden, ausreichender, ausreichendes, ausreichendem]
 - term: ausschließlich
   status: review_required
   reason: starke Exklusivitätsaussage; der ausgeschlossene Bereich muss klar sein
@@ -7034,6 +7037,7 @@ entries:
   status: review_required
   reason: kann Systemfunktion oder bloße Erwartung bedeuten
   rewrite: Nur als freigegebene technische Funktion verwenden; sonst Akteur/Trigger nennen.
+  surface_forms: [automatische, automatischen, automatischer, automatisches, automatischem]
 - term: bald
   status: prohibited
   reason: Zeitgrenze ist nicht messbar
@@ -7060,6 +7064,7 @@ entries:
   status: prohibited
   reason: Handlung oder Grenzwert bleibt unbestimmt
   rewrite: Konkrete Geschwindigkeit, Kraft oder Abstand nennen.
+  surface_forms: [behutsame, behutsamen, behutsamer, behutsames, behutsamem]
 - term: bei Bedarf
   status: prohibited
   reason: Bedingung für den Bedarf ist nicht definiert
@@ -7094,6 +7099,7 @@ entries:
   status: prohibited
   reason: nennt kein überprüfbares Zielkriterium
   rewrite: Messbares oder referenziertes Kriterium nennen.
+  surface_forms: [bestmögliche, bestmöglichen, bestmöglicher, bestmögliches, bestmöglichem]
 - term: beziehungsweise
   status: prohibited
   reason: kann oder, und, genauer gesagt oder eine Zuordnung bedeuten
@@ -7206,6 +7212,7 @@ entries:
   status: review_required
   reason: kann Füllwort oder unprüfbare Bewertung bedeuten
   rewrite: Entfernen oder als definierte Eigenschaft ausdrücklich qualifizieren.
+  surface_forms: [einfache, einfachen, einfacher, einfaches, einfachem]
 - term: einsetzen
   status: review_required
   reason: mehrdeutig zwischen verwenden, einbauen, einfügen und Personal zuweisen
@@ -7218,6 +7225,7 @@ entries:
   status: review_required
   reason: Bezug oder Zuordnung kann fehlen
   rewrite: Bezugsobjekt oder Regel ausdrücklich nennen.
+  surface_forms: [entsprechende, entsprechenden, entsprechender, entsprechendes, entsprechendem]
 - term: entsprechend den Vorschriften
   status: prohibited
   reason: Vorschriften sind nicht identifiziert
@@ -7255,6 +7263,7 @@ entries:
   status: prohibited
   reason: unspezifische Möglichkeit
   rewrite: kann mit klarer Bedingung oder Ursache verwenden.
+  surface_forms: [eventuelle, eventuellen, eventueller, eventuelles, eventuellem]
 - term: extrem
   status: review_required
   reason: unspezifische Verstärkung ohne Grenze
@@ -7325,6 +7334,7 @@ entries:
   status: review_required
   reason: Kriterium für genügend bleibt häufig ungenannt
   rewrite: Grenzwert oder Referenz nennen.
+  surface_forms: [genügende, genügenden, genügender, genügendes, genügendem]
 - term: gerade
   status: prohibited
   reason: mehrdeutig zwischen aktuell, genau jetzt, geometrisch gerade und Verstärkung
@@ -7351,6 +7361,7 @@ entries:
   status: prohibited
   reason: Geltungsbereich und Ausnahmen können unklar sein
   rewrite: Geltungsbereich und Ausnahmen ausdrücklich nennen.
+  surface_forms: [grundsätzliche, grundsätzlichen, grundsätzlicher, grundsätzliches, grundsätzlichem]
 - term: halt
   status: prohibited
   reason: Modalpartikel ohne technische Information
@@ -7371,6 +7382,7 @@ entries:
   status: prohibited
   reason: unspezifischer Grad
   rewrite: Messwert oder definierte Kategorie nennen.
+  surface_forms: [hochgradige, hochgradigen, hochgradiger, hochgradiges, hochgradigem]
 - term: im Allgemeinen
   status: prohibited
   reason: Geltungsbereich und Ausnahmen können unklar sein
@@ -7534,6 +7546,7 @@ entries:
   status: prohibited
   reason: verweist auf eine nicht genannte Norm oder korrekte Ausführung
   rewrite: Konkrete Anforderung oder Referenz nennen.
+  surface_forms: [ordnungsgemäße, ordnungsgemäßen, ordnungsgemäßer, ordnungsgemäßes, ordnungsgemäßem]
 - term: pro
   status: prohibited
   reason: Synonymvariation zu je bei Mengen pro Einheit
@@ -7544,6 +7557,7 @@ entries:
   status: prohibited
   reason: behauptet das Fehlen von Problemen ohne Kriterium
   rewrite: Konkrete Bedingung oder erwartetes Ergebnis nennen.
+  surface_forms: [problemlose, problemlosen, problemloser, problemloses, problemlosem]
 - term: realisieren
   status: prohibited
   reason: mehrdeutig zwischen umsetzen und erkennen
@@ -7564,6 +7578,7 @@ entries:
   status: prohibited
   reason: verweist auf eine nicht genannte korrekte Methode
   rewrite: Konkrete Handlung oder Referenz nennen.
+  surface_forms: [sachgemäße, sachgemäßen, sachgemäßer, sachgemäßes, sachgemäßem]
 - term: schon
   status: prohibited
   reason: mehrdeutig zwischen bereits, Betonung und Einschränkung
@@ -7650,6 +7665,7 @@ entries:
   status: prohibited
   reason: subjektive Bewertung
   rewrite: Technisches Kriterium nennen.
+  surface_forms: [vernünftige, vernünftigen, vernünftiger, vernünftiges, vernünftigem]
 - term: verschieden
   status: review_required
   reason: kann Unterschiede behaupten, ohne das unterscheidende Merkmal zu nennen
@@ -7673,10 +7689,12 @@ entries:
   status: prohibited
   reason: Handlung oder Grenzwert bleibt unbestimmt
   rewrite: Konkrete Geschwindigkeit, Kraft, Abstand oder verbotene Handlung nennen.
+  surface_forms: [vorsichtige, vorsichtigen, vorsichtiger, vorsichtiges, vorsichtigem]
 - term: wahrscheinlich
   status: review_required
   reason: Wahrscheinlichkeit ist nicht quantifiziert oder begründet
   rewrite: Wenn relevant, definierte Wahrscheinlichkeit oder beobachtbare Bedingung nennen.
+  surface_forms: [wahrscheinliche, wahrscheinlichen, wahrscheinlicher, wahrscheinliches, wahrscheinlichem]
 - term: warten (Instandhaltung)
   status: prohibited
   reason: Homonym zu zeitlichem warten und dadurch lexikalisch mehrdeutig
@@ -7711,10 +7729,12 @@ entries:
   status: prohibited
   reason: Zeitgrenze ist nicht messbar
   rewrite: Frist oder Zeitpunkt nennen.
+  surface_forms: [zeitnahe, zeitnahen, zeitnaher, zeitnahes, zeitnahem]
 - term: ziemlich
   status: prohibited
   reason: unspezifischer Grad
   rewrite: Messwert oder definierte qualitative Kategorie nennen.
+  surface_forms: [ziemliche, ziemlichen, ziemlicher, ziemliches, ziemlichem]
 - term: zugehörig
   status: review_required
   reason: Bezug kann unklar sein, wenn mehrere Systeme oder Dokumentteile möglich sind

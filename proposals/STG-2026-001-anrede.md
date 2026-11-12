@@ -18,7 +18,7 @@ Viele deutsche Texte verwenden die Anrede mit „du“ mit Absicht:
 
 Für diese Texte erzwingt `STG-5.3` einen Wechsel der Anrede. Dieser Wechsel ändert den Ton, aber nicht die Eindeutigkeit. Die eigentliche Ursache von Mehrdeutigkeit ist eine **gemischte** Anrede im selben Dokumentsatz.
 
-## Aktuelles Verhalten
+## Bisheriges Verhalten
 
 - `STG-5.3` (`MUST`): Anweisungen im formalen Imperativ mit „Sie“.
 - Ein Infinitivprofil ist nur per Projektvorgabe zulässig. Gemischte Imperativprofile sind in einem Dokumentsatz nicht zulässig.

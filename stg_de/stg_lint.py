@@ -16,7 +16,7 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from stg_markdown import prose_blocks, strip_markdown_code  # noqa: E402
+from stg_markdown import LIST_ITEM_RE, prose_blocks, split_sentences, strip_markdown_code  # noqa: E402
 
 STG_VERSION = "0.3.0"
 TEXT_SUFFIXES = {".md", ".markdown", ".txt", ".rst", ".adoc"}
@@ -55,6 +55,7 @@ class Finding:
     suggestion: str | None = None
     term: str | None = None
     line: int | None = None
+    occurrences: int | None = None
 
 
 def load_yaml(path: Path) -> dict:
@@ -73,13 +74,6 @@ def prose_sentences(text: str) -> list[str]:
     return [s for block in prose_blocks(text) for s in split_sentences(block)]
 
 
-def split_sentences(text: str) -> list[str]:
-    text = re.sub(r"\s+", " ", text.strip())
-    if not text:
-        return []
-    return [p.strip() for p in SENTENCE_SPLIT_RE.split(text) if p.strip()]
-
-
 def split_paragraphs(text: str) -> list[str]:
     paragraphs: list[str] = []
     current: list[str] = []
@@ -90,7 +84,7 @@ def split_paragraphs(text: str) -> list[str]:
                 paragraphs.append(" ".join(current))
                 current = []
             continue
-        if stripped.startswith(("#", "|", ">")) or re.match(r"^(?:[-*+] |\d+[.)] )", stripped):
+        if stripped.startswith(("#", "|", ">")) or LIST_ITEM_RE.match(stripped):
             if current:
                 paragraphs.append(" ".join(current))
                 current = []
@@ -251,9 +245,15 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     # Project terminology (technical nouns/verbs, protected and preferred terms) takes
     # precedence over the central prohibited list (STG-1.6, STG-1.8).
     dedicated_terms = {f.term.casefold() for f in findings if f.term} | allowed_project
+    masked_sentences = prose_sentences(masked)
     for entry in prohibited:
         term = str(entry.get("term", "")).strip()
-        if not term or term.casefold() in dedicated_terms or not phrase_regex(term).search(masked):
+        if not term or term.casefold() in dedicated_terms:
+            continue
+        forms = [term] + [str(f) for f in entry.get("surface_forms", []) or []]
+        patterns = [phrase_regex(f) for f in forms]
+        hits = [s for s in masked_sentences if any(p.search(s) for p in patterns)]
+        if not hits:
             continue
         status = entry.get("status", "review_required")
         severity = "error" if status == "prohibited" else "review"
@@ -261,7 +261,10 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
         suggestion = entry.get("rewrite")
         if alternatives:
             suggestion = (suggestion + " " if suggestion else "") + "Bevorzugt: " + ", ".join(map(str, alternatives)) + "."
-        findings.append(Finding(severity, "STG-1.1", str(entry.get("reason") or f"{term} erfordert Prüfung."), term, suggestion, term))
+        # One finding per term; `original` is the first sentence with the term, so the reader
+        # can judge the use in context. `occurrences` counts all sentences with the term.
+        findings.append(Finding(severity, "STG-1.1", str(entry.get("reason") or f"{term} erfordert Prüfung."),
+                                hits[0], suggestion, term, occurrences=len(hits)))
 
     lowered = masked.casefold()
     for avoided, preferred in avoid_project.items():
@@ -344,7 +347,9 @@ def render_text(result: dict) -> str:
     else:
         for i, f in enumerate(result["findings"], 1):
             where = f" (Zeile {f['line']})" if f.get("line") else ""
-            lines.append(f"{i}. [{f['severity'].upper()}] {f['rule']}{where}: {f['message']}")
+            term = f" `{f['term']}`" if f.get("term") and f["rule"] == "STG-1.1" else ""
+            count = f" ({f['occurrences']}×)" if (f.get("occurrences") or 0) > 1 else ""
+            lines.append(f"{i}. [{f['severity'].upper()}] {f['rule']}{where}{term}{count}: {f['message']}")
             lines.append(f"   Original: {f['original']}")
             if f.get("suggestion"):
                 lines.append(f"   Vorschlag: {f['suggestion']}")

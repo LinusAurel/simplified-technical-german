@@ -10,6 +10,7 @@ Dieses Verzeichnis enthält abgeleitete Validierungsartefakte aus öffentlicher 
 - `industry-metrics.csv`: aggregierte Metriken je Branche.
 - `coverage-curves.csv`: Ergebnisse zur schrittweisen lexikalischen Abdeckung.
 - `findings.yaml`: Befunde und Einschränkungen der Kuratierung in einer für Agenten lesbaren Form.
+- `HOLDOUT-PRECISION.md` und `holdout-precision.yaml`: Präzision des Linters auf der Holdout-Partition. Die YAML-Datei enthält nur Kennzahlen, Hashes und Bewertungen.
 
 ## Design des Korpus
 

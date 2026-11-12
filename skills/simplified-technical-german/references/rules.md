@@ -296,7 +296,7 @@ Verwenden Sie diese Standardformen:
 
 ### Beschreibungen
 
-- Präsens für aktuelle Zustände, Funktionen und allgemeine technische Fakten,
+- Präsens für derzeitige Zustände, Funktionen und allgemeine technische Fakten,
 - Präteritum oder Perfekt nur, wenn der Text ein vergangenes Ereignis berichten muss,
 - Präsens mit expliziter Zeitangabe für geplante zukünftige Zustände, wenn diese Form möglich ist.
 
