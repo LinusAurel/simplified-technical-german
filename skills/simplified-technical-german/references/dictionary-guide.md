@@ -7,7 +7,7 @@ Erzeugt aus der kanonischen Dokumentation im Verzeichnis `dictionary/`. Bearbeit
 
 <!-- source: dictionary/README.md -->
 
-# STG-DE controlled dictionary — v0.4
+# Kontrolliertes Wörterbuch von STG-DE
 
 **Release:** 0.6.0  
 **Profile:** `de-DE`  
@@ -28,7 +28,7 @@ Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kon
 
 ## Dateien
 
-- `approved-words.yaml` — normative Einträge des Autorenkerns v0.4.
+- `approved-words.yaml` — normative Einträge des Autorenkerns.
 - `prohibited-words.yaml` — verbotene oder prüfpflichtige Formulierungen mit Hinweisen zur Umformulierung.
 - `contractions.yaml` — Normalisierung von Präposition und Artikel vor der lexikalischen Suche.
 - `concept-index.yaml` — Index der kontrollierten Bedeutungen für Agenten und Validatoren.
@@ -65,7 +65,7 @@ Ein kanonisches Lemma hat Vorrang vor dem Flexionsalias eines anderen Eintrags. 
 
 ## Richtlinie für das Korpus
 
-Die Häufigkeit im Korpus ist ein Beleg für eine **Prüfung**, keine Freigabe. Version 0.4 nimmt ein Wort nur in den Kern auf, wenn die domänenübergreifende Bedeutung des Worts sinnvoll kontrolliert werden kann. Häufige, aber abstrakte oder mehrdeutige Verben wie `führen`, `bieten`, `berücksichtigen` und `gewährleisten` bleiben prüfpflichtig.
+Die Häufigkeit im Korpus ist ein Beleg für eine **Prüfung**, keine Freigabe. STG-DE nimmt ein Wort nur in den Kern auf, wenn die domänenübergreifende Bedeutung des Worts sinnvoll kontrolliert werden kann. Häufige, aber abstrakte oder mehrdeutige Verben wie `führen`, `bieten`, `berücksichtigen` und `gewährleisten` bleiben prüfpflichtig.
 
 Domänenspezifische Bauteile, Produktnamen, medizinische Begriffe, Fahrzeugbegriffe, Software-Kennungen und ähnlicher Wortschatz gehören zur Projektterminologie oder Domänenterminologie. Diese Regel gilt auch, wenn diese Wörter häufig sind.
 
@@ -81,7 +81,7 @@ Siehe `../corpus/validation-report.md`.
 
 <!-- source: dictionary/MORPHOLOGY.md -->
 
-# STG-DE morphology and lexical resolution — v0.4
+# Morphologie und lexikalische Auflösung in STG-DE
 
 `STG-C-core` ist auf der Ebene **Lemma + Wortart + kontrollierte Bedeutung** definiert. Ein Validator darf nicht verlangen, dass jede flektierte deutsche Oberflächenform ein separater Wörterbucheintrag ist.
 
@@ -185,7 +185,7 @@ Lösen Sie Einträge mit mehreren Tokens vor der Suche nach einzelnen Tokens auf
 
 <!-- source: dictionary/DECISIONS.md -->
 
-# STG-DE lexical decisions — through v0.4
+# Lexikalische Entscheidungen in STG-DE
 
 ## Status
 
@@ -303,7 +303,7 @@ Nur die Bedeutung Zusammensetzung ist zentral kontrolliert: `X besteht aus Y`. A
 
 ---
 
-# Korpusentscheidungen für v0.4
+# Korpusentscheidungen in Release 0.4.0
 
 ## D-04-01 — Declared noun plurals are controlled inflections
 

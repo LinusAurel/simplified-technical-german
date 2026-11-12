@@ -30,28 +30,48 @@ instruction_profile: formal-sie-imperative
 
 ## 3. Ausgabe
 
+`tools/stg_lint.py --format json` gibt diese Struktur aus:
+
 ```yaml
-status: pass | fail | needs_input
-metrics:
-  sentences: 8
-  max_words_in_sentence: 19
-  passive_candidates: 1
-  terminology_unknown: 0
-diagnostics:
-  - rule: STG-3.6
-    severity: error
-    confidence: 0.97
-    span: "Die Sicherung wird entfernt."
-    message: "Passive instruction."
-    proposed_fix: "Entfernen Sie die Sicherung."
+tool: stg_lint.py
+standard: STG-DE <Release>
+profile: procedure
+text_type: procedure
+sentence_word_limit: 20
+result: PASS | PASS WITH REVIEW | FAIL
+counts:
+  error: 1
+  warning: 0
+  review: 2
+findings:
+  - severity: error
+    rule: STG-DE-4.3
+    message: "`man` bezeichnet den Akteur nicht eindeutig."
+    original: "Dann prüft man den Druck."
+    suggestion: "Nennen Sie den Akteur oder verwenden Sie eine direkte Anweisung."
+    term: man
+    line: 4
 ```
+
+Das Feld `result` hat einen dieser Werte:
+
+- `FAIL`: Mindestens ein Befund hat den Schweregrad `error`.
+- `PASS WITH REVIEW`: Kein Befund hat den Schweregrad `error`. Mindestens ein Befund hat den Schweregrad `warning` oder `review`.
+- `PASS`: Der Linter hat keinen Befund.
+
+Mit mehreren Dateien gibt der Linter ein Gesamtergebnis und eine Liste `files` aus. Das Gesamtergebnis ist das schlechteste Ergebnis der Dateien.
+
+`tools/stg_analyze.py` gibt nur Belege für das Review aus (`status: REVIEW EVIDENCE ONLY`). Diese Belege ändern das Feld `result` des Linters nicht.
 
 ## 4. Schweregrad
 
-- `error`: deterministischer Verstoß gegen eine verbindliche Regel oder semantischer Verstoß mit hoher Konfidenz.
-- `warning`: heuristischer Befund, der ein Review erfordert.
-- `info`: nicht verbindliche Empfehlung.
-- `needs_input`: Eine sichere Umformulierung erfordert Informationen zu Domäne, Sicherheit oder Modalität.
+- `error`: deterministischer Verstoß gegen eine verbindliche Regel. Ein Fehler ergibt `FAIL`.
+- `warning`: heuristischer Befund mit einem bekannten Risiko für falsch positive Befunde, der ein Review erfordert.
+- `review`: Befund, den eine Person oder ein Agent im Kontext prüfen muss, zum Beispiel ein prüfpflichtiges Wort aus `dictionary/prohibited-words.yaml`.
+
+Die Option `--fail-on` legt fest, ab welchem Schweregrad der Linter mit dem Exit-Code 1 endet. Die Werte sind `error`, `warning`, `review` und `never`.
+
+Eine sichere Umformulierung kann Informationen zu Domäne, Sicherheit oder Modalität erfordern. Der Linter erkennt diesen Fall nicht. Ein Agent meldet den Fall als offene Frage an die schreibende Person.
 
 ## 5. Empfohlene Pipeline für Regeln
 
@@ -153,19 +173,19 @@ Wiederholen Sie in vorgeschlagenen Korrekturen bevorzugt das Nomen.
 
 Für `STG-R` ist ein unbekanntes allgemeines Wort nicht automatisch ein Fehler, außer wenn es gegen eine bestimmte Regel verstößt.
 
-Für `STG-T` sind unbekannte Begriffe, die technisch aussehen, Fehler oder `needs_input`, bis sie zugelassen sind.
+Für `STG-T` sind unbekannte Begriffe, die technisch aussehen, Fehler oder offene Fragen an die schreibende Person, bis sie zugelassen sind.
 
 Für `STG-C-core` muss jedes nicht gesperrte lexikalische Element zu einem dieser Einträge aufgelöst werden:
 
-- ein zugelassener oder eingeschränkter zentraler Eintrag von v0.4,
+- ein zugelassener oder eingeschränkter zentraler Eintrag des mitgelieferten Kernlexikons,
 - ein zugelassener technischer Eintrag.
 
-Eingeschränkte Einträge müssen ihre Einschränkungen erfüllen. Unbekannte allgemeine Wörter erzeugen `needs_input` oder `NEEDS_LEXICON_REVIEW`.
+Eingeschränkte Einträge müssen ihre Einschränkungen erfüllen. Unbekannte allgemeine Wörter erzeugen einen Review-Punkt oder die Klasse `NEEDS_LEXICON_REVIEW`.
 
-Für `STG-C` muss jedes nicht gesperrte lexikalische Element zu einem zukünftigen zentralen oder technischen Eintrag aufgelöst werden. Dieser Eintrag muss zu einem breiten Wortschatz gehören, den Menschen geprüft haben. v0.4 beansprucht keine allgemeine Zertifizierung für `STG-C`.
+Für `STG-C` muss jedes nicht gesperrte lexikalische Element zu einem zukünftigen zentralen oder technischen Eintrag aufgelöst werden. Dieser Eintrag muss zu einem breiten Wortschatz gehören, den Menschen geprüft haben. Dieses Release beansprucht keine allgemeine Zertifizierung für `STG-C`.
 
 
-## 11. Lexikalische Auflösung in v0.4
+## 11. Lexikalische Auflösung
 
 Reihenfolge der Auflösung für `STG-C-core`:
 

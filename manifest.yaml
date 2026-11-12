@@ -15,8 +15,8 @@ files:
   size_bytes: 1654
   sha256: 0e505be195fa70124a7f62dd9e199830050bb45fb9d8518799638981bd01b94b
 - path: .github/workflows/ci.yml
-  size_bytes: 1346
-  sha256: 6b8fb0673820f21be5b0b2dd4908cbd78bc221afa3655a16c331ebe10bb21526
+  size_bytes: 1373
+  sha256: b6853b6c14eb3099c256a0532c4844fc7f8f2b5a098ac4d246cd7c68067d3bd3
 - path: .github/workflows/cleanup-branches.yml
   size_bytes: 2021
   sha256: 1ce01630e0db3da99da49d271730a186cb8cff55113b76fe0677a5b561f6c114
@@ -24,8 +24,8 @@ files:
   size_bytes: 1087
   sha256: aad9e9516f5a6e98d9ac3ad1a1f73f1f6344cbbfe6e92803f3afc0d0e95f41ae
 - path: .github/workflows/release.yml
-  size_bytes: 2170
-  sha256: ae4904f901043d066a8b98377596ee252c659e8d248f4cfa15267a059220e286
+  size_bytes: 2895
+  sha256: 4b034c807387084fe000acf9fbdf3c79e248cac20b64faa0c1b01aca76bb0b7e
 - path: .gitignore
   size_bytes: 92
   sha256: f6b83cfae75f02edeee1892620ef78be3b9bdee1b823c4e9866cbca9c2a02257
@@ -36,17 +36,17 @@ files:
   size_bytes: 423
   sha256: 690bb27c9b172706fb2ea1d7607bcf78024eedce3895aab9550ea54bf9e6a50c
 - path: AGENTS.md
-  size_bytes: 1759
-  sha256: 2cb476b425196f405b2c88e73500fd2464e244f0e0b32d3581a75651898d7014
+  size_bytes: 2334
+  sha256: 775678919b303914fc1912473e0de4ed6fc298dfb86863366db63176a64a21d7
 - path: CHANGELOG.md
-  size_bytes: 11778
-  sha256: 9e9736a445158128ea60f1b72a198559e5b1681f8905dbe5352b4047991eab25
+  size_bytes: 13969
+  sha256: f3af22550c060f29dcea1177dbb17e6cfaa4e1cedcce14c63fa065fd9be08478
 - path: CITATION.cff
   size_bytes: 471
   sha256: fcb137ce311cbeb3c36691e86d83d79d58a1f2347f59417d65f98bfd3bad06b7
 - path: CONTRIBUTING.md
-  size_bytes: 3396
-  sha256: 42549b6659c93e58a3d04853631f03dd4a2612c6b8e2b829ecf349fb8ba113ef
+  size_bytes: 3196
+  sha256: 341fe824f8b15b975981b8948c2b624c979d13120759157e256282eb4edb5cca
 - path: GOVERNANCE.md
   size_bytes: 4062
   sha256: 7883bf489edb7283550dcb2b48567e07aeb4d2e7849fa315f38a1696f995d240
@@ -57,32 +57,32 @@ files:
   size_bytes: 1557
   sha256: 498792fa66b0f67f69adc3f0d4b1ef763db7dae08987527c26210ae64c5887eb
 - path: README.md
-  size_bytes: 13412
-  sha256: 04eedc43a98eb3c578f77fe8febdcb98cdebdd1e1d577ab76f47c505a95509d2
+  size_bytes: 13801
+  sha256: f473b2d76f26b74267d88e9d6e8d1d692938a4bdc63e44c4f8bd7c2bb21b79e9
 - path: RELEASE-CHECKLIST.md
-  size_bytes: 4883
-  sha256: 24b705c24bb220b3e096d82cdc8910acc8c7c2be729e50f70e882d685c3d572f
+  size_bytes: 5411
+  sha256: 73cbe50ef2f3fbce0ba7c9939bb5056f5e23602c4d0809a6d71b4a728525b44f
 - path: ROADMAP.md
-  size_bytes: 10575
-  sha256: 61f18d3dd46ad731cb616ffafc70bbd44188f96faeb02139b9c39623e7516f20
+  size_bytes: 11490
+  sha256: 16dd6d1ab7354b61609d9c86ddff30c543aa0619652c17b507b3085af7a3d3bc
 - path: STG-DE.md
-  size_bytes: 267882
-  sha256: 2588dba7bb3bbd1ac60a959027219357cd723b45f8d8d0f82486f08ec945f1f8
+  size_bytes: 267891
+  sha256: c38d72766788eff4694c081aab68af063cb20f4136e3f49b5b2c37bb5f2a5373
 - path: VERSIONING.md
-  size_bytes: 3559
-  sha256: 8c24e383449f5ce32a144d15d0e204c8d5c6006805e86b3836d39f7995a62e06
+  size_bytes: 4182
+  sha256: 4e1b3f30c3c4bfbf71d318427c6d8a1cf1e9dfcee33dcd5bc31c900dc5d1eb17
 - path: action.yml
   size_bytes: 1540
   sha256: d25e5a4026890fef03d5fc1591d328466ffdcd3e83122208c1d7a5fabcc64fa7
 - path: corpus/HOLDOUT-PRECISION.md
-  size_bytes: 6079
-  sha256: 0e9449c7015a969f1f9666c721c25c03cedcb459be5077beb8b8fc8ee97364f9
+  size_bytes: 8450
+  sha256: 1a47235883ff3bd3d1d83f96f2c3d6ebda4392128b3b22e81bdb210511b3eae0
 - path: corpus/PROTOCOL.md
-  size_bytes: 8243
-  sha256: b222c1eaeebf7ebb5c4b7a901be715bae62d2a042cc999ec03b4d7fed213ae12
+  size_bytes: 8365
+  sha256: a9aebd6eb5cee8a57e81680d313a7d5eec3635e87d4c6e299b7620fd1936eb28
 - path: corpus/README.md
-  size_bytes: 1882
-  sha256: 35debb2aaddb4e3c51f6dc032ad8304a7aefd4112056532b6fa2e2614b1e897f
+  size_bytes: 2117
+  sha256: 5bf766783e0f3b2066abc8c922262170adac0af1ab991eee3d2a95ca17e0a103
 - path: corpus/coverage-curves.csv
   size_bytes: 5166
   sha256: 3bd11a8353c12cc8f7abb8c68674d53ce2c6a53e9271cd34fdc9d4434f9e40c8
@@ -90,8 +90,8 @@ files:
   size_bytes: 10710
   sha256: 8f42140553af75ddeaa566f5b73414b64bed105f788825d3d9f421bb95318718
 - path: corpus/holdout-precision.yaml
-  size_bytes: 11428
-  sha256: ce0f49ef6e37ce8d4637acbc7ec8592ad8c40acf7e015d33546ba4d8fd351247
+  size_bytes: 17617
+  sha256: dc0b63e0055fe0f3b3c66124512a1655916b8f214409a2623209a18a54245385
 - path: corpus/industry-metrics.csv
   size_bytes: 587
   sha256: 5bc3edf5c219a8edde6631c5dfb98136de5cde2f54622e541767c68218b26e43
@@ -102,26 +102,26 @@ files:
   size_bytes: 10607
   sha256: 8602993726dc906cf6bbcf71a61f1f72727a4bec5b62d732d109ba63e9430a13
 - path: corpus/v0.5-fulltext-metrics.yaml
-  size_bytes: 13263
-  sha256: 0281e95dce3fe001db347a423334b681b260092e5833290b9f360a735979fcd5
+  size_bytes: 13295
+  sha256: 55a20140628c0b76ccd09aa7332318fed825f40dfc2539a4ff565bca825ed747
 - path: corpus/v0.5-sources.yaml
   size_bytes: 11668
   sha256: 32862ab27489aee97c6d3fe2078d56c388935ac88f009aef6b646cd742f954b1
 - path: corpus/validation-report.md
-  size_bytes: 6900
-  sha256: 2fdaa218280d446f522d7f47c709f4eec6cf608ae99cb65e906c2964b20f4181
+  size_bytes: 6903
+  sha256: 8994c83ac25c366ff2ff6b82e19fb3f8efc842024a71abfe675cef24a063d1f3
 - path: dictionary/DECISIONS.md
-  size_bytes: 9640
-  sha256: a37d1d4509bc78a395ef6e7ed5154521662cea37ec3cfa71742234c082972c32
+  size_bytes: 9643
+  sha256: a39f261224bfc31a61bdeb56b8bc4509476e09d184d6c91b2f97be02de74984e
 - path: dictionary/GOVERNANCE.md
   size_bytes: 7154
   sha256: 09ef01fdd5fc08c40cfe84e969c0f21fdf4cf4af457328c8244732795145b07c
 - path: dictionary/MORPHOLOGY.md
   size_bytes: 4809
-  sha256: 8e8f5f2ab432eed08f7c5a44b92e87439013997f3f84c8e7f2fd8e723a06560e
+  sha256: 9918d2b82e4aff95c255ca754704bc4de18649623ae25c74e2460ca8ae6a1944
 - path: dictionary/README.md
-  size_bytes: 4229
-  sha256: c1f3194eedb8f512606d1d47231b9c11219e30fb99f0cb9efa712693c61fb693
+  size_bytes: 4219
+  sha256: 2b02c3ee490f44a7e43a943f4176225ee6d8643b2632627242206dca8fe9cc1e
 - path: dictionary/approved-words.yaml
   size_bytes: 135348
   sha256: 325e4a358780843b1c4020d2215b5c81ebb2dd53bfe9f2abb8b4275ef93c6a60
@@ -147,8 +147,8 @@ files:
   size_bytes: 1273
   sha256: dd3f86e4b8dafb109d1b81f5327610afe769d9cc6ae8954d4347a059e1d3e2b4
 - path: evals/README.md
-  size_bytes: 2405
-  sha256: c4d65b71a05f6d19e0d47abee80e7e1df1b68ce72d27cbf26a470c6223d0c706
+  size_bytes: 3199
+  sha256: 04404f02755b5df0896a782719146eb3eb6b795e15105a5786797681053de9a2
 - path: evals/cases.yaml
   size_bytes: 8541
   sha256: c6bff970c31b8fceea2d027461cf646b7fbec1b80e193812265d22e8d9d8d278
@@ -212,6 +212,9 @@ files:
 - path: evals/reference/write-procedure-firmware-update.md
   size_bytes: 363
   sha256: 5ec83746336f1e17184a0f208babf9f5e63cca7830bf8d87ea11d9279f05f16f
+- path: evals/results/2026-11-12.md
+  size_bytes: 4551
+  sha256: bee6088ab1a8dcd269142d12cf9c998fc0049e00067152ed0474bc8d908dcd40
 - path: evals/triggers.yaml
   size_bytes: 1561
   sha256: 8cab7c895d7c4856e68373afaa4ace074c9603eda4ab863697eea14ea5619529
@@ -250,11 +253,11 @@ files:
   sha256: 2b0290dbfeeb34b37889521540d244547746cb87ac08551b6ed0ce373e204a38
 - path: profiles/profiles.yaml
   size_bytes: 2039
-  sha256: 4c2c8d47b2f39cc6ee22cc35ff6b72153c220070319b231f0b1bf93f714006a8
+  sha256: 1ff8f35301bfb89a128eaa223c419e00d1eb5aa386412bfadf5055e0b88a7f41
 - path: prompts/agents-md.md
   size_bytes: 3358
-  sha256: 5f8764e8f7d75569a0b3d081dd1d9dc812b051b180890a9eb76f478f25a26acc
-- path: proposals/STG-2026-001-anrede.md
+  sha256: 11447c21873f90b3e24c71de2b7cc67bf6906ceb0d708d86e9c79beb874290bb
+- path: proposals/STG-2026-001-form-of-address.md
   size_bytes: 4956
   sha256: 7e7e2c2418a1d35e1fe5b741a041db7fb69108adff3c9afdcd5dc96624f935b3
 - path: proposals/STG-2026-002-modality-of-recommendations.md
@@ -264,14 +267,14 @@ files:
   size_bytes: 1714
   sha256: f88742d420d6316b64e0d920cdf48c7308a1a9919aa777041e4f627e13094407
 - path: pyproject.toml
-  size_bytes: 1074
-  sha256: 77ef575f845db6d26bea2ec5da18929f14abe0a05d78dcbec600c6ecff1b39f2
+  size_bytes: 1089
+  sha256: f76fe2c09af1a2a0ea09e94b5e079e2e66219e8de13b0aad32f208a4f07c12a0
 - path: quality/GERMAN-ANALYSIS.md
   size_bytes: 3077
   sha256: 711440e29957e2debf83799cb25097bcdb9cb7bbc0bbfecc446810bb1ff8a2f5
 - path: quality/RULE-COVERAGE.md
-  size_bytes: 8540
-  sha256: f771b7b196ea9c27186886eedfe06933ab99a7d3e0ff908e1dbb04853f819ea1
+  size_bytes: 10273
+  sha256: 829605a9fd3677b56a2bcac53865975be98d9c7bc40979c9ce6e4c3220bb14fc
 - path: quality/rule-coverage.yaml
   size_bytes: 4068
   sha256: d6363baf1cc3e534403d35c98ac90da86be964d31037768a506ec0d246fd1978
@@ -291,8 +294,8 @@ files:
   size_bytes: 6227
   sha256: c2a8dd740a5cec65206ecb0aaf5a53145c76af4a58ea393b8681e15b4f30074a
 - path: rules/05-procedures.md
-  size_bytes: 3536
-  sha256: a41c39773fe9e3d6a9739ba07cd257e68cdebc424dda3ea481c73106f6d81b26
+  size_bytes: 3545
+  sha256: e848b3e577e82b0fc5621cad4d6d364006f48defa64f7a446203eb5909a11839
 - path: rules/06-descriptions.md
   size_bytes: 1709
   sha256: efb9e4412d2e7f4c9ee1b1fc578039b150105700509b7062c6a14c59cebcdcf6
@@ -324,8 +327,8 @@ files:
   size_bytes: 727
   sha256: 2b55b12c0b233439577781722d9fe3984bc614b40d8981a592bebbe208c5ab9e
 - path: skills/simplified-technical-german/SKILL.md
-  size_bytes: 15857
-  sha256: 30a26fab9c71ab66e02d9b4fd0c7276ef22eaf343ad0f85e613abb837b88d933
+  size_bytes: 16474
+  sha256: 631a592acd1063ad02383d4c90aa53ce57d19515c70d47c24ce6ffacdc02efee
 - path: skills/simplified-technical-german/agents/openai.yaml
   size_bytes: 279
   sha256: 8157e7ae56af423ec1d6e643e2f9b74be0af7f0d54e9d53ce3676bbaa967cd3b
@@ -333,11 +336,11 @@ files:
   size_bytes: 135348
   sha256: 325e4a358780843b1c4020d2215b5c81ebb2dd53bfe9f2abb8b4275ef93c6a60
 - path: skills/simplified-technical-german/references/dictionary-guide.md
-  size_bytes: 18987
-  sha256: 99b4f6f009d9c8088f74146ffa48b1109b7ae9e0902e376b3b3f834e6c543632
+  size_bytes: 18980
+  sha256: f7b9ebdabce2b32989bf42ad5156506053ca96fa792baeb35c67d69a49baecea
 - path: skills/simplified-technical-german/references/profiles.yaml
   size_bytes: 2039
-  sha256: 4c2c8d47b2f39cc6ee22cc35ff6b72153c220070319b231f0b1bf93f714006a8
+  sha256: 1ff8f35301bfb89a128eaa223c419e00d1eb5aa386412bfadf5055e0b88a7f41
 - path: skills/simplified-technical-german/references/prohibited-words.yaml
   size_bytes: 31316
   sha256: eb13334c77d7464ddbb6c811580b147aec25d3c9a25d9ee22f3f07a9d745c797
@@ -345,11 +348,11 @@ files:
   size_bytes: 1344
   sha256: 5c22109656417903b0d64d34fe9bf3c8488a5c0130419bcfef79de6c695e3c11
 - path: skills/simplified-technical-german/references/rules.md
-  size_bytes: 41583
-  sha256: a623e48e2c974e9412c4f770e049c5a30b17279a29e8a386cc76154d3f8a8b81
+  size_bytes: 41592
+  sha256: 84fbe0928eec991d979594c667f4ceb103e4ef9279b708c6d16f21c7e364f47e
 - path: skills/simplified-technical-german/references/validator-contract.md
-  size_bytes: 8188
-  sha256: 1dc671703984edd489fd02bb3891aee092fc118fd8106d0b349dd71be0ca7fb7
+  size_bytes: 9410
+  sha256: 989386831e15b90bdec8e166a98f206f7a47b827f5da29647257646ada51c190
 - path: skills/simplified-technical-german/scripts/stg_analyze.py
   size_bytes: 11261
   sha256: 10438a178ef56e2f5a723d54841390ec74d6bc5d4eecb196bf7b693ebd64ece9
@@ -363,11 +366,11 @@ files:
   size_bytes: 4434
   sha256: a1ff853d23e618971073640b417ab6d7aaa13356867c70769d54fd477728531a
 - path: sources.md
-  size_bytes: 1238
-  sha256: 3a41ac10842fbc6c8ffad3d8f95fbe3e3fa982f6e7067bd50107ebe33406f382
+  size_bytes: 1388
+  sha256: cbb090179bacc76f66d5a98a3f419bfce962c830e6cee1c59bf1f1dc9a45cdf2
 - path: specification.md
-  size_bytes: 10765
-  sha256: f062bb1d8db03ab9069cb398e4b76ab93beb76df5867348bf67d65d2a878f885
+  size_bytes: 10769
+  sha256: 9da0059a994d624a65494729dbc2eade82d365b863a4d0b2754d5b931169f5d4
 - path: stg_de/__init__.py
   size_bytes: 52
   sha256: 9a435bd3422ea576ac75c3dc7399805089b38ad55b634b02a14a7beee9a40033
@@ -382,7 +385,7 @@ files:
   sha256: eb13334c77d7464ddbb6c811580b147aec25d3c9a25d9ee22f3f07a9d745c797
 - path: stg_de/profiles/profiles.yaml
   size_bytes: 2039
-  sha256: 4c2c8d47b2f39cc6ee22cc35ff6b72153c220070319b231f0b1bf93f714006a8
+  sha256: 1ff8f35301bfb89a128eaa223c419e00d1eb5aa386412bfadf5055e0b88a7f41
 - path: stg_de/stg_analyze.py
   size_bytes: 11261
   sha256: 10438a178ef56e2f5a723d54841390ec74d6bc5d4eecb196bf7b693ebd64ece9
@@ -399,8 +402,8 @@ files:
   size_bytes: 4625
   sha256: ad8f9a7bc837d016c7816b2f576b46033bc86ad20e20157165f5197d307bf6eb
 - path: tests/test_evals.py
-  size_bytes: 2717
-  sha256: 007a97e923809f2dcf4f3a5b3e080d412f08ae622651328e7039eeb286d92f68
+  size_bytes: 3253
+  sha256: bf653272a45c8202c791a72c01219f2ba15f0453be20b88128ce6be10e25d4f4
 - path: tests/test_holdout_precision.py
   size_bytes: 4507
   sha256: 43130f523e1035eda588111d5a22ea07f7e2094f884c096a63b46d5a7a44655a
@@ -444,14 +447,14 @@ files:
   size_bytes: 9265
   sha256: 698c72debe8d8693d444dedcfb318c51e213311b64259d90d1d39a874098b988
 - path: tools/build_manifest.py
-  size_bytes: 1236
-  sha256: a1f21dc584c12212af844425b7493e2c6f458657c12541b0c7dfe905ecbf1798
+  size_bytes: 1445
+  sha256: 58d922cd7ed055d73da0e2e3c74ce52e718c1647a61c90cf08528803e3b6a892
 - path: tools/build_standalone.py
   size_bytes: 1256
   sha256: ca7bff505593699c32ee0dfc4fba9e7e1e163fa3f8d271eedc2e314e95bd1ae5
 - path: tools/corpus_validate.py
-  size_bytes: 10798
-  sha256: e6a03a7c797ec27962b3a53b92d719cff6d32aa1009cdbab3765830e4f41d80a
+  size_bytes: 10806
+  sha256: 1980229817a9d26b8360c1bf4161f1086d296c578cea9ea8223837a1a3aa62c8
 - path: tools/holdout_precision.py
   size_bytes: 8795
   sha256: b7356fd11fcff9a29c9025b8fa1445dd7078011cfdd7bfc99bb506df3cf47730
@@ -459,8 +462,8 @@ files:
   size_bytes: 2323
   sha256: b9988471ca5771fa74ffca7e31356dc020c2769b4504fe9dc99f6a0c592ef986
 - path: tools/run_evals.py
-  size_bytes: 6872
-  sha256: a59f9e7215bea4f59b7d6d64b5179f3597d8c506ef6f4a051ad495ea80f94e16
+  size_bytes: 7410
+  sha256: 89443b9a1a5da1766b413e28844418d91702dc45870c0dfab52bccde08daee2c
 - path: tools/stg_analyze.py
   size_bytes: 11261
   sha256: 10438a178ef56e2f5a723d54841390ec74d6bc5d4eecb196bf7b693ebd64ece9
@@ -480,8 +483,8 @@ files:
   size_bytes: 2997
   sha256: 9cb54bee838073fb3d568bff9f664c8ff6b3d50abc7dd3ab7564dd6743641b8b
 - path: tools/validate_release.py
-  size_bytes: 5039
-  sha256: 2dd79e04b4e9be30d1dfe69471e795bbec2e5103b829ba10cb05250e28155c06
+  size_bytes: 6419
+  sha256: e2f70669c8404e5f8447756cc5a3850b55460f8f924c09d277056a4cd1747e66
 - path: vale/README.md
   size_bytes: 1200
   sha256: 453d75ffc8878e61dc00c670a67667b9e6820933e39a30648f8e22b2abb8f978
@@ -495,5 +498,5 @@ files:
   size_bytes: 138
   sha256: b160417bbc6b0f87c68bcb94e2b7dfdc5c7a6210f53ecc953a3f60b4b5c01f14
 - path: validator-contract.md
-  size_bytes: 8188
-  sha256: 1dc671703984edd489fd02bb3891aee092fc118fd8106d0b349dd71be0ca7fb7
+  size_bytes: 9410
+  sha256: 989386831e15b90bdec8e166a98f206f7a47b827f5da29647257646ada51c190

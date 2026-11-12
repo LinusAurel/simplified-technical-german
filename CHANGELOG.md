@@ -43,6 +43,34 @@
 - Abkürzungen wie `bzw.`, `z. B.`, `ca.`, `Nr. 5`, `Abb. 3` und Datumsangaben wie `31. Dezember` beenden keinen Satz mehr. Linter und Analysewerkzeug verwenden dieselbe Satztrennung aus `stg_markdown.py`.
 - Der Linter wertet das Feld `surface_forms` der Sperrliste aus. 20 gesperrte Adjektive haben gebeugte Formen erhalten, zum Beispiel `aktuellen` und `einfache`.
 
+### Ergebnisse der Evaluation
+
+- Erste veröffentlichte Ergebnisse in `evals/results/2026-11-12.md`: Claude Code und Codex, jeweils mit Skill und ohne Skill. Mit Skill bestehen 94,8 % und 97,4 % der Prüfungen, ohne Skill 81,7 % und 82,6 %.
+- `run_evals.py` startet die CLI jetzt in einem leeren temporären Verzeichnis (`--workdir`). Der Agent liest dann nicht die Regeln des Repositorys.
+- Skill: Konformer Text bleibt in WRITE und REWRITE ohne Kommentar. Ein allgemeiner Vorschlag für mehr Genauigkeit ergibt im AUDIT kein `PASS WITH REVIEW`.
+
+### Zweite Messung der Präzision
+
+- Messung des Linters nach 0.6.0 auf den 7 neuen Holdout-Quellen: 79,8 % Präzision ohne Extraktionsfehler, 197 Befunde.
+- Zwei Modelle von zwei Anbietern bewerten jeden Befund unabhängig. Die Modelle hatten bei 93 % der Einträge dasselbe Label.
+- Die Prüfung `STG-8.1` meldet Semikolons in Listen von Namen und Normen. 10 von 12 dieser Befunde sind falsch. Die Korrektur steht in `ROADMAP.md`.
+
+### Ordnung und Konsistenz
+
+- `ROADMAP.md` zeigt jetzt die veröffentlichten Versionen und den Plan für 0.7.0, 0.8.0, 0.9.0 und 1.0. Die früheren Abschnitte v0.6 bis v0.9 waren Arbeitsbereiche, keine Releases.
+- `validate_release.py` prüft die Zahl der Quellen gegen die Daten des Korpus statt gegen eine feste Zahl.
+- `AGENTS.md` enthält jetzt die einzige Liste der Prüfungen vor einem Commit. `CONTRIBUTING.md` und `README.md` verweisen auf diese Liste.
+- `VERSIONING.md` legt fest: `schema_version` ist die Version des Dateiformats. `profiles/profiles.yaml` hat jetzt `schema_version` 0.5.
+- Veraltete Titel mit „v0.4“ und englische Überschriften sind korrigiert. `validator-contract.md` beschreibt jetzt die echten Statuswerte und Schweregrade des Linters.
+- `quality/RULE-COVERAGE.md` stimmt jetzt mit `quality/rule-coverage.yaml` überein (19 implementierte Regeln).
+- Der Vorschlag STG-2026-001 hat den Dateinamen `STG-2026-001-form-of-address.md`.
+- CI prüft jetzt auch `CHANGELOG.md` mit dem Linter.
+
+### Verpackung
+
+- Der Release-Workflow kann das Paket auf PyPI veröffentlichen (Trusted Publishing, Variable `PYPI_PUBLISH`).
+- `pyproject.toml` verwendet die Lizenzangabe nach PEP 639.
+
 ## 0.6.0 — 2026-11-12
 
 Diese Version macht STG-DE in OpenAI Codex nutzbar und automatisiert Release und Aufräumen auf GitHub. Regeln, Wörterbuch und Werkzeuge bleiben inhaltlich gleich.
