@@ -19,7 +19,7 @@ def generated() -> dict[Path, str]:
     return {
         REF / "rules.md": "".join(rules_parts),
         REF / "dictionary-guide.md": guide,
-        REF / "validator-contract.md": (ROOT / "validator-contract.md").read_text(encoding="utf-8"),
+        REF / "validator-contract.md": (ROOT / "VALIDATOR-CONTRACT.md").read_text(encoding="utf-8"),
         REF / "approved-words.yaml": (ROOT / "dictionary" / "approved-words.yaml").read_text(encoding="utf-8"),
         REF / "prohibited-words.yaml": (ROOT / "dictionary" / "prohibited-words.yaml").read_text(encoding="utf-8"),
         REF / "profiles.yaml": (ROOT / "profiles" / "profiles.yaml").read_text(encoding="utf-8"),

@@ -222,7 +222,7 @@ Beispiel-Glossare für Embedded und IoT, funktionale Sicherheit, Produktsicherhe
 
 ```text
 .
-├── specification.md              # normative Übersicht
+├── SPECIFICATION.md              # normative Übersicht
 ├── rules/                        # normative Schreibregeln
 ├── dictionary/                   # kontrolliertes Lexikon und Terminologiemodell
 ├── mapping/                      # Zuordnung zu ASD-STE100 Issue 9
@@ -231,11 +231,11 @@ Beispiel-Glossare für Embedded und IoT, funktionale Sicherheit, Produktsicherhe
 ├── examples/                     # Referenzaudits und Glossare
 ├── evals/                        # Evaluierung des Agent Skills
 ├── prompts/                      # Textbausteine für AGENTS.md und System-Prompts
-├── proposals/                    # Änderungsvorschläge für Regeln (STG-YYYY-NNN)
+├── proposals/                    # Änderungsvorschläge für Regeln (STG-YYYY-NNN) und Lexikon (LEX-YYYY-NNN)
 ├── corpus/                       # Metadaten und Kennzahlen des öffentlichen Korpus
 ├── quality/                      # Stand der Automatisierung der Regeln
-├── tools/                        # Linter, Analysewerkzeug, Vergleich, Build- und Release-Werkzeuge
-├── stg_de/                       # Python-Paket für die CLI stg (erzeugt von sync_package.py)
+├── tools/                        # Werkzeuge für Synchronisierung, Korpus, Evaluation und Release
+├── stg_de/                       # Linter, Analysewerkzeug und Vergleich (Python-Paket für die CLI stg)
 ├── tests/                        # Unit- und Regressionstests
 ├── .claude-plugin/               # Plugin und Marketplace für Claude Code
 ├── .codex-plugin/                # Plugin für Codex
@@ -245,7 +245,7 @@ Beispiel-Glossare für Embedded und IoT, funktionale Sicherheit, Produktsicherhe
     ├── SKILL.md
     ├── agents/openai.yaml
     ├── references/               # erzeugt aus den kanonischen Dateien
-    └── scripts/                  # kopiert aus tools/
+    └── scripts/                  # kopiert aus stg_de/
 ```
 
 Die Spezifikation und das Wörterbuch auf der obersten Ebene sind die maßgebliche Quelle. Der Befehl `python tools/sync_skill.py` erzeugt die Referenzen und Skripte des Skills neu.
@@ -259,9 +259,8 @@ Für ein Release folgen Sie [`RELEASE-CHECKLIST.md`](RELEASE-CHECKLIST.md).
 ## Roadmap und Governance
 
 - [`ROADMAP.md`](ROADMAP.md) — offene Arbeit und Kriterien für 1.0.
-- [`GOVERNANCE.md`](GOVERNANCE.md) — Prozess für Entscheidungen und Prüfungen.
+- [`GOVERNANCE.md`](GOVERNANCE.md) — Prozess für Entscheidungen und Prüfungen, auch für Änderungen am zentralen Lexikon.
 - [`VERSIONING.md`](VERSIONING.md) — Kompatibilität und semantische Versionierung.
-- [`dictionary/GOVERNANCE.md`](dictionary/GOVERNANCE.md) — belegbasierte Änderungen am zentralen Lexikon.
 - [`quality/RULE-COVERAGE.md`](quality/RULE-COVERAGE.md) — Stand der Automatisierung.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — Ablauf für Beiträge.
 

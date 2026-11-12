@@ -164,4 +164,4 @@ Wiederholen Sie beim strengen Schreiben nach `STG-C-core` das technische Substan
 
 > Wenn Sie den Sensor mit dem Adapter verbinden, beschädigen Sie die Dichtung nicht.
 
-Ein Validator muss ein Pronominaladverb mit ungeklärtem Bezug als Befund zur Prüfung melden, zum Beispiel mit dem Status `NEEDS_REFERENCE_INPUT` (siehe `validator-contract.md`). Der Validator darf das Bezugswort nicht erfinden.
+Ein Validator muss ein Pronominaladverb mit ungeklärtem Bezug als Befund zur Prüfung melden, zum Beispiel mit dem Status `NEEDS_REFERENCE_INPUT` (siehe `VALIDATOR-CONTRACT.md`). Der Validator darf das Bezugswort nicht erfinden.

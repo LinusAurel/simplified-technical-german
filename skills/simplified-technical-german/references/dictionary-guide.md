@@ -36,7 +36,7 @@ Die Zahl der Einträge steht in der [`README.md`](../README.md) des Repositorys.
 
 ## Prinzip der Auflösung
 
-Lösen Sie die Eingabe in dieser Reihenfolge auf. Die Reihenfolge ist dieselbe wie in `dictionary/MORPHOLOGY.md` und `validator-contract.md`:
+Lösen Sie die Eingabe in dieser Reihenfolge auf. Die Reihenfolge ist dieselbe wie in `dictionary/MORPHOLOGY.md` und `VALIDATOR-CONTRACT.md`:
 
 1. geschützter Text oder Kennung,
 2. freigegebene Projektterminologie oder Domänenterminologie,

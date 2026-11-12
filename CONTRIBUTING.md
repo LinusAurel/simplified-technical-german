@@ -8,8 +8,8 @@ Fügen Sie ein Wort nicht direkt in `dictionary/approved-words.yaml` ein, nur we
 
 Für eine normative Änderung am zentralen Lexikon:
 
-1. Lesen Sie `dictionary/GOVERNANCE.md`.
-2. Kopieren Sie `dictionary/proposals/TEMPLATE.yaml`.
+1. Lesen Sie `GOVERNANCE.md` (Abschnitt „Lexikalische Änderungen“).
+2. Kopieren Sie `proposals/LEX-CHANGE-TEMPLATE.yaml`.
 3. Vergeben Sie eine ID für den Vorschlag, zum Beispiel `LEX-2026-001`.
 4. Definieren Sie eine kontrollierte Bedeutung und eine Wortart.
 5. Dokumentieren Sie das Risiko der Mehrdeutigkeit und die geprüften Alternativen.

@@ -12,9 +12,9 @@ Einige Sätze haben eine andere Modalität als die Stufe ihrer Regel:
 
 - `STG-GR-5` hat die Stufe `RECOMMENDATION`. Der Text sagt aber „dürfen nicht“.
 - In Regeln mit der Stufe `MUST` stehen Sätze mit „Wir empfehlen“. Ein Leser kann nicht erkennen, ob diese Sätze verbindlich sind.
-- `STG-DE-4.5` empfiehlt eine Meldung durch den Validator. `validator-contract.md` verlangt dieselbe Meldung als Pflicht.
+- `STG-DE-4.5` empfiehlt eine Meldung durch den Validator. `VALIDATOR-CONTRACT.md` verlangt dieselbe Meldung als Pflicht.
 - Die Spezifikation empfiehlt stabile Regel-IDs „wenn das möglich ist“. `ROADMAP.md` und `VERSIONING.md` behandeln stabile Regel-IDs als Prinzip.
-- `dictionary/README.md` nennt eine andere Reihenfolge der Auflösung als `dictionary/MORPHOLOGY.md` und `validator-contract.md`.
+- `dictionary/README.md` nennt eine andere Reihenfolge der Auflösung als `dictionary/MORPHOLOGY.md` und `VALIDATOR-CONTRACT.md`.
 
 ## Bisheriges Verhalten
 
@@ -32,7 +32,7 @@ Einige Sätze haben eine andere Modalität als die Stufe ihrer Regel:
 4. Spezifikation Abschnitt 10: Eine veröffentlichte Regel-ID muss auch vor 1.0 stabil bleiben. Eine Änderung braucht einen angenommenen Änderungsvorschlag.
 5. Spezifikation Abschnitt 10 legt fest: Ein Satz mit „Wir empfehlen“ oder „Empfehlung:“ ist auch in einer Regel mit der Stufe `MUST` eine Empfehlung.
 6. `dictionary/README.md` folgt `dictionary/MORPHOLOGY.md`: zuerst die morphologische Analyse, danach die Suche in der Sperrliste für das aufgelöste Lemma.
-7. `dictionary/GOVERNANCE.md`: Die Belege aus zwei Domänen bleiben eine Empfehlung für Maintainer.
+7. `GOVERNANCE.md` (Abschnitt „Lexikalische Änderungen“): Die Belege aus zwei Domänen bleiben eine Empfehlung für Maintainer.
 
 ## Beispiele
 
@@ -60,20 +60,20 @@ Ein Validator meldet `Dabei` zur Prüfung. Der Validator wählt kein Bezugswort 
 ## Belege
 
 - Widerspruch zwischen `rules/rule-index.yaml` (Stufe von `STG-GR-5`) und dem Text der Regel.
-- Widerspruch zwischen `rules/04-sentences.md` und `validator-contract.md` Abschnitt 11.
+- Widerspruch zwischen `rules/04-sentences.md` und `VALIDATOR-CONTRACT.md` Abschnitt 11.
 - Widerspruch zwischen `dictionary/README.md` und `dictionary/MORPHOLOGY.md`. Eine Sperrliste vor der Morphologie erkennt gebeugte Formen gesperrter Wörter nicht (Befund aus `corpus/HOLDOUT-PRECISION.md`).
 
 ## Geprüfte Alternativen
 
 - `STG-GR-5` als Pflicht: Die Regel schreibt ohne Kontext keinen Ersatz vor. Eine Pflicht wäre nicht prüfbar.
 - Ein Hauptthema je Satz als Pflicht in `STG-4.1`: Die primäre Aussage ist bereits Pflicht. Das Hauptthema ist nicht deterministisch prüfbar.
-- Belege aus zwei Domänen als Pflicht: `dictionary/GOVERNANCE.md` gibt Maintainern absichtlich Ermessen.
+- Belege aus zwei Domänen als Pflicht: `GOVERNANCE.md` (Abschnitt „Lexikalische Änderungen“) gibt Maintainern absichtlich Ermessen.
 
 ## Auswirkung auf die Implementierung
 
 - Regeln: `rules/04-sentences.md`, `rules/09-writing-practices.md`.
 - Spezifikation: Abschnitt 10.
-- Wörterbuch: `dictionary/README.md`, `dictionary/GOVERNANCE.md`, `dictionary/DECISIONS.md`.
+- Wörterbuch: `dictionary/README.md`, `GOVERNANCE.md` (Abschnitt „Lexikalische Änderungen“), `dictionary/DECISIONS.md`.
 - Validator und Profile: keine Änderung.
 - Agent Skill: neue Referenzen durch `tools/sync_skill.py`.
 

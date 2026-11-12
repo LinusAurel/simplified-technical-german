@@ -29,7 +29,7 @@ jobs:
         with:
           paths: >-
             README.md AGENTS.md CHANGELOG.md CONTRIBUTING.md GOVERNANCE.md NOTICE.md RELEASE-CHECKLIST.md ROADMAP.md
-            VERSIONING.md sources.md specification.md validator-contract.md rules dictionary mapping
+            VERSIONING.md SOURCES.md SPECIFICATION.md VALIDATOR-CONTRACT.md rules dictionary mapping
             profiles proposals quality corpus evals/README.md evals/results examples/glossaries/README.md skills/simplified-technical-german/SKILL.md
           profile: description
           fail-on: error
