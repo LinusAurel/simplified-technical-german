@@ -1,6 +1,6 @@
-# STG-DE — Simplified Technical German
+# STG-DE — Vereinfachtes Technisches Deutsch
 
-Standalone specification snapshot for release 0.5.0. The repository files remain the canonical source.
+Eigenständige Fassung der Spezifikation für Release 0.5.0. Die Dateien im Repository bleiben die kanonische Quelle.
 
 ---
 
@@ -1686,7 +1686,7 @@ v0.4 is materially stronger than v0.3, but it is still an experimental authoring
 
 ---
 
-## Structured appendix: `rules/rule-index.yaml`
+## Strukturierter Anhang: `rules/rule-index.yaml`
 
 ```yaml
 schema_version: '0.4'
@@ -1860,7 +1860,7 @@ rules:
   file: rules/05-procedures.md
   level: MUST
 - id: STG-5.3
-  title: Anweisungen im formalen Imperativ
+  title: Anweisungen in einer festgelegten Anredeform
   file: rules/05-procedures.md
   level: MUST
 - id: STG-5.4
@@ -2000,7 +2000,7 @@ rules:
 
 ---
 
-## Structured appendix: `mapping/ste100-issue9.yaml`
+## Strukturierter Anhang: `mapping/ste100-issue9.yaml`
 
 ```yaml
 # Traceability: ASD-STE100 Issue 9 -> STG-DE
@@ -2172,7 +2172,7 @@ mappings:
 - ste: '5.3'
   stg: [STG-5.3]
   relation: adapted
-  note: Formaler Imperativ mit "Sie"; ein Infinitiv-Profil nur per ausdrücklicher Projektvorgabe.
+  note: Imperativ in der Anredeform des Projekts (sie, du oder infinitiv; Standard sie). Ein Dokumentsatz verwendet genau eine Form (STG-2026-001).
 - ste: '5.4'
   stg: [STG-5.4]
   relation: equivalent
@@ -2350,7 +2350,7 @@ german_extensions:
 
 ---
 
-## Structured appendix: `dictionary/approved-words.yaml`
+## Strukturierter Anhang: `dictionary/approved-words.yaml`
 
 ```yaml
 schema_version: '0.4'
@@ -6849,7 +6849,7 @@ entries:
 
 ---
 
-## Structured appendix: `dictionary/prohibited-words.yaml`
+## Strukturierter Anhang: `dictionary/prohibited-words.yaml`
 
 ```yaml
 schema_version: '0.4'
