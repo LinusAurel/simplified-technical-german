@@ -4,7 +4,7 @@
 
 **Level:** `MUST`
 
-Schreiben Sie kurze Sätze mit einer primären Aussage. In beschreibendem Text empfehlen wir ein Hauptthema je Satz. Verdichten Sie nicht mehrere unabhängige Fakten in einem Satz.
+Schreiben Sie kurze Sätze mit einer primären Aussage. Empfehlung: Geben Sie in beschreibendem Text jedem Satz ein Hauptthema. Verdichten Sie nicht mehrere unabhängige Fakten in einem Satz.
 
 <!-- stg-lint: off -->
 **Nicht STG**
@@ -164,4 +164,4 @@ Wiederholen Sie beim strengen Schreiben nach `STG-C-core` das technische Substan
 
 > Wenn Sie den Sensor mit dem Adapter verbinden, beschädigen Sie die Dichtung nicht.
 
-Wir empfehlen, dass ein Validator ein ungeklärtes Pronominaladverb als `NEEDS_REFERENCE_INPUT` meldet. Der Validator darf das Bezugswort nicht erfinden.
+Ein Validator muss ein Pronominaladverb mit ungeklärtem Bezug als Befund zur Prüfung melden, zum Beispiel mit dem Status `NEEDS_REFERENCE_INPUT` (siehe `validator-contract.md`). Der Validator darf das Bezugswort nicht erfinden.

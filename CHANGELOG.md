@@ -2,6 +2,14 @@
 
 ## Unveröffentlicht
 
+### Modalität von Empfehlungen (STG-2026-002)
+
+- `STG-GR-5` bleibt eine Empfehlung. Der Text verwendet jetzt den Imperativ statt „dürfen nicht“.
+- `STG-DE-4.5`: Ein Validator muss ein Pronominaladverb mit ungeklärtem Bezug zur Prüfung melden. Vorher war diese Meldung eine Empfehlung.
+- Spezifikation Abschnitt 10: Veröffentlichte Regel-IDs müssen auch vor 1.0 stabil bleiben. Ein Satz mit „Wir empfehlen“ ist auch in einer Pflichtregel eine Empfehlung.
+- `dictionary/README.md` nennt jetzt dieselbe Reihenfolge der Auflösung wie `dictionary/MORPHOLOGY.md`: zuerst die Morphologie, danach die Sperrliste.
+- `dictionary/DECISIONS.md` nennt den Autorenkern bis Version 0.1.
+
 ### Korpus: Branchen und Textsorten (Issue #18)
 
 - 15 neue öffentliche Quellen in `corpus/v0.2-sources.yaml`. Die neuen Domänen sind Embedded und IoT, funktionale Sicherheit, Produktsicherheit, Messtechnik, IIoT und Energietechnik, Finanzen, B2B-Software und Texte für Agenten. Eine neue Quelle ist ein zweites Medizinprodukt. Neue Textsorten sind Release Notes, Anleitungen für Firmware-Updates, Anforderungsspezifikationen, FAQ für Hersteller und Anweisungen für Agenten.

@@ -95,7 +95,7 @@ Verwenden Sie bevorzugt `diese Leitung`, `dieser Wert` oder `diese Methode` stat
 ## STG-GR-5 — Lehnübersetzungen und falsche Freunde prüfen
 
 
-Autoren und Übersetzungssysteme dürfen Bedeutungen nicht aus dem Englischen übertragen, nur weil ein deutsches Wort ähnlich aussieht. Beispiele, die eine Prüfung des Kontexts verlangen, sind `realisieren`, `kontrollieren`, `eventuell` und `aktuell`. Diese Prüfung gilt für Übersetzungen aus dem Englischen und in das Englische.
+Prüfen Sie die Bedeutung eines deutschen Worts, das einem englischen Wort ähnlich sieht. Übertragen Sie eine englische Bedeutung nicht nur wegen dieser Ähnlichkeit. Diese Empfehlung gilt für Autoren und für Übersetzungssysteme. Beispiele, die eine Prüfung des Kontexts verlangen, sind `realisieren`, `kontrollieren`, `eventuell` und `aktuell`. Diese Prüfung gilt für Übersetzungen aus dem Englischen und in das Englische.
 
 Diese Regel schreibt ohne Kontext keinen Ersatz vor.
 

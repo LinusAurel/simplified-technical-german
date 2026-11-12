@@ -8,7 +8,7 @@ Der Ausgangsstandard verwendet ein kontrolliertes Wörterbuch. In diesem Wörter
 
 ## Ziel des Release
 
-Version 0.0.3 definiert einen durchsetzbaren **Autorenkern** für häufige deutsche technische Texte. Das Ziel des Kerns ist ein Grad an Determinismus, mit dem Agenten und Validatoren Texte erzeugen und umformulieren können. Die Domänenterminologie bleibt bei den Quellen der Projektterminologie.
+Die Versionen 0.0.3 und 0.1 definieren einen durchsetzbaren **Autorenkern** für häufige deutsche technische Texte. Das Ziel des Kerns ist ein Grad an Determinismus, mit dem Agenten und Validatoren Texte erzeugen und umformulieren können. Die Domänenterminologie bleibt bei den Quellen der Projektterminologie.
 
 ### Selection order
 
