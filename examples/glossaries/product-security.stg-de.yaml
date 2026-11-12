@@ -1,0 +1,32 @@
+# Example project glossary: product security, vulnerability handling, and the Cyber Resilience Act.
+version: 1
+anrede: sie
+technical_nouns:
+  - term: "Schwachstelle"
+    definition: "Fehler in einem Produkt, den ein Angreifer ausnutzen kann"
+  - term: "Bedrohungsanalyse"
+    definition: "Systematische Ermittlung von Angriffswegen und ihrer Risiken"
+  - term: "Sicherheitsupdate"
+    definition: "Update, das eine Schwachstelle korrigiert"
+  - term: "Schwachstellenverfahren"
+    definition: "Festgelegter Ablauf für Meldung, Bewertung, Korrektur und Veröffentlichung von Schwachstellen"
+  - term: "Sicherheitshinweis"
+    definition: "Veröffentlichte Information des Herstellers über eine Schwachstelle und die Abhilfe"
+  - term: "Supportzeitraum"
+    definition: "Zeitraum, in dem der Hersteller Sicherheitsupdates für ein Produkt bereitstellt"
+  - term: "Angreifer"
+    definition: "Person oder System, das eine Schwachstelle absichtlich ausnutzt"
+protected_terms:
+  - "CVE"
+  - "CVSS"
+  - "CSAF"
+  - "SBOM"
+  - "CRA"
+  - "IEC 62443"
+  - "EN 18031"
+  - "PSIRT"
+preferred_terms:
+  - preferred: "Schwachstelle"
+    avoid: ["Sicherheitslücke", "Lücke", "Vulnerability"]
+  - preferred: "Sicherheitsupdate"
+    avoid: ["Security-Patch", "Sicherheitspatch"]
