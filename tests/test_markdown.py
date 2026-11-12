@@ -38,6 +38,13 @@ class MarkdownTests(unittest.TestCase):
         self.assertEqual(rules("<!-- man; -->\nPrüfen Sie das Gerät.\n"), [])
 
 
+class SuppressionTests(unittest.TestCase):
+    def test_lint_off_region_is_ignored_and_lines_are_kept(self):
+        text = "<!-- stg-lint: off -->\n> Man prüft das; fertig.\n<!-- stg-lint: on -->\nMan prüft den Stecker.\n"
+        result = audit_text(text, ROOT)
+        self.assertEqual([(f["rule"], f["line"]) for f in result["findings"]], [("STG-DE-4.3", 4)])
+
+
 class PromptSnippetTests(unittest.TestCase):
     def test_agents_md_snippets_comply_with_agent_profile(self):
         doc = (ROOT / "prompts" / "agents-md.md").read_text(encoding="utf-8")
