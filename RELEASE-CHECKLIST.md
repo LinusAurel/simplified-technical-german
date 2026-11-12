@@ -45,15 +45,12 @@ Verwenden Sie diese Checkliste für jedes Release mit Tag.
 
 ## Integrität der Artefakte
 
-- [ ] Erstellen Sie die eigenständigen generierten Artefakte, wenn zutreffend.
-- [ ] Führen Sie `python tools/build_manifest.py` nur aus, wenn alle Release-Dateien endgültig sind.
-- [ ] Führen Sie `python tools/validate_release.py` mit aktivierter Validierung des Manifests aus.
-- [ ] Erzeugen Sie SHA-256-Prüfsummen für die herunterladbaren Release-Artefakte.
-- [ ] Prüfen Sie, dass der Commit mit dem Tag zum Release-Manifest passt.
+- [ ] Der Release-Workflow erzeugt `STG-DE.md` und `manifest.yaml`, prüft das Manifest mit `tools/validate_release.py` und hängt beide Dateien an das Release an. Das Repository enthält diese Dateien nicht.
+- [ ] Prüfen Sie nach dem Release, dass `manifest.yaml` im Release den Stand des Tags beschreibt.
 
 ## Veröffentlichung
 
-- [ ] Aktualisieren Sie die Version in `CITATION.cff`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.codex-plugin/plugin.json`, `pyproject.toml` und `stg_de/__init__.py`. Aktualisieren Sie `STG_VERSION` in `tools/stg_lint.py` und `tools/stg_compare.py`. Aktualisieren Sie die Felder `release` der Datendateien. `tests/test_packaging.py` prüft, dass alle Versionen übereinstimmen.
+- [ ] Aktualisieren Sie die Version in `CITATION.cff`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.codex-plugin/plugin.json`, `pyproject.toml` und `stg_de/__init__.py`. Aktualisieren Sie `STG_VERSION` in `stg_de/stg_lint.py` und `stg_de/stg_compare.py`. Aktualisieren Sie die Felder `release` der Datendateien. `tests/test_packaging.py` prüft, dass alle Versionen übereinstimmen.
 - [ ] Benennen Sie den Abschnitt `## Unveröffentlicht` in `CHANGELOG.md` in `## X.Y.Z — <Datum>` um. Der Release-Workflow liest die Notizen aus diesem Abschnitt.
 - [ ] Starten Sie auf `main` den Workflow `Release` mit der Eingabe `version: X.Y.Z`. Alternativ pushen Sie den Git-Tag `vX.Y.Z`. Der Workflow erstellt den Tag, das Skill-ZIP und die Prüfsumme und veröffentlicht das GitHub-Release.
 - [ ] Veröffentlichen Sie Release Notes aus `CHANGELOG.md` und den angenommenen Vorschlägen.

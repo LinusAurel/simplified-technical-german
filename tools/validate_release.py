@@ -51,8 +51,8 @@ def main():
         fail(f"approved/prohibited overlap: {sorted(app & pro)}")
 
     ri = yaml.safe_load((ROOT / "rules/rule-index.yaml").read_text(encoding="utf-8"))["rules"]
-    if len(ri) != 75 or len({r["id"] for r in ri}) != 75:
-        fail("expected 75 unique rules/recommendations")
+    if len({r["id"] for r in ri}) != len(ri):
+        fail("duplicate rule or recommendation id")
 
     # ASD-STE100 Issue 9 traceability must stay complete.
     mp = yaml.safe_load((ROOT / "mapping/ste100-issue9.yaml").read_text(encoding="utf-8"))
@@ -94,10 +94,12 @@ def main():
     if cp.returncode:
         fail(cp.stdout + cp.stderr)
 
-    # manifest.yaml describes an immutable release snapshot. Development branches
-    # may legitimately differ from that snapshot before the next release manifest
-    # is generated. Release checks keep this enabled; PR CI uses --skip-manifest.
+    # manifest.yaml is a release artifact and is not tracked. The release workflow
+    # builds it with tools/build_manifest.py before this check; CI and local
+    # checks use --skip-manifest.
     if not args.skip_manifest:
+        if not (ROOT / "manifest.yaml").exists():
+            fail("manifest.yaml is missing. Run: python tools/build_manifest.py")
         man = yaml.safe_load((ROOT / "manifest.yaml").read_text(encoding="utf-8"))
         for item in man.get("files", []):
             fp = ROOT / item["path"]

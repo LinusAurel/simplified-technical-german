@@ -36,6 +36,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(ROOT / "stg_de"))
 from build_corpus import download, extract_text, package_version  # noqa: E402
 from stg_lint import audit_text  # noqa: E402
 from stg_markdown import prose_blocks  # noqa: E402

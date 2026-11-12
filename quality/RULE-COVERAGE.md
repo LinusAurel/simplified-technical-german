@@ -16,9 +16,9 @@ Eine Regel kann Teil des STG-DE-Standards sein, auch wenn der derzeitige Validat
 
 ## Implementierte Abdeckung
 
-`quality/rule-coverage.yaml` ist die maßgebliche Liste. Diese Liste nennt für jede der 75 Regeln und Empfehlungen die Erkennungsklasse und den Stand der Implementierung. 19 Regeln haben eine implementierte Prüfung: 9 Regeln im Linter und 10 Regeln im Analyzer.
+`quality/rule-coverage.yaml` ist die maßgebliche Liste. Diese Liste nennt für jede Regel und Empfehlung die Erkennungsklasse und den Stand der Implementierung. 19 Regeln haben eine implementierte Prüfung: 9 Regeln im Linter und 10 Regeln im Analyzer.
 
-### Linter (`tools/stg_lint.py`)
+### Linter (`stg_de/stg_lint.py`)
 
 | Regel | Derzeitige automatisierte Prüfung | Abdeckung | Schweregrad |
 |---|---|---|---|
@@ -28,13 +28,13 @@ Eine Regel kann Teil des STG-DE-Standards sein, auch wenn der derzeitige Validat
 | `STG-5.3` | Erkennt die formale Anrede („Sie“, „Ihnen“, „Ihr…“, „Prüfen Sie“) und die Anrede mit „du“ (Pronomen). Mit festgelegter `anrede` ist eine andere Form ein Fehler. Ohne Festlegung ergibt eine gemischte Anrede eine Warnung. Ein Imperativ mit „du“ ohne Pronomen und der Infinitivstil bleiben unerkannt. | partial | error/warning |
 | `STG-6.3` | Zählt im Modus „description“ und im Standardmodus die Wörter und markiert Sätze mit mehr als 25 Wörtern. | deterministic | error |
 | `STG-6.6` | Zählt die Sätze in beschreibenden Absätzen und markiert Absätze mit mehr als sechs Sätzen. | deterministic | error |
-| `STG-8.1` | Markiert Semikolons in Prosazeilen. | partial | error |
+| `STG-8.1` | Markiert Semikolons zwischen Aussagen in Prosazeilen. Semikolons zwischen Listeneinträgen wie Autoren, Normen oder Werten sind ausgenommen. | partial | error |
 | `STG-DE-8.1` | Erkennt eine konservative Menge bekannter mehrdeutiger Formen mit Schrägstrich, zum Beispiel `und/oder`. Geschützte URLs und Code sind ausgenommen. | partial | warning |
 | `STG-9.4` | Setzt `preferred_terms` aus `.stg-de.yaml` durch. | partial | error |
 
 Der Wortzähler für `STG-5.1` und `STG-6.3` zählt ein Bindestrichkompositum als ein Wort. Diese Zählung setzt `STG-8.7` um. `STG-8.7` hat keine eigene Prüfung und erzeugt keine eigenen Befunde. Aus diesem Grund hat `STG-8.7` in `quality/rule-coverage.yaml` den Wert `implemented: false`.
 
-### Analyzer (`tools/stg_analyze.py`)
+### Analyzer (`stg_de/stg_analyze.py`)
 
 Der Analyzer gibt nur Belege für das Review zurück. Die Belege beschreibt `quality/GERMAN-ANALYSIS.md`.
 
@@ -55,7 +55,7 @@ Mit der Option `--lexicon-report` meldet der Validator auch Oberflächenformen, 
 
 ### Verarbeitung der Eingabe
 
-Der Linter und der Analyzer segmentieren Markdown, bevor sie Sätze zählen (`tools/stg_markdown.py`):
+Der Linter und der Analyzer segmentieren Markdown, bevor sie Sätze zählen (`stg_de/stg_markdown.py`):
 
 - Die Werkzeuge ignorieren Codeblöcke, HTML-Kommentare und YAML-Frontmatter.
 - Die Werkzeuge ignorieren Bereiche zwischen `<!-- stg-lint: off -->` und `<!-- stg-lint: on -->`. Verwenden Sie diese Markierungen nur für absichtlich nicht konforme Beispiele.
@@ -68,7 +68,7 @@ Der Linter und der Analyzer segmentieren Markdown, bevor sie Sätze zählen (`to
 
 ## Bedeutungserhaltung
 
-`tools/stg_compare.py` vergleicht einen Quelltext mit seiner Umformulierung. Das Werkzeug ist keine Konformitätsprüfung und meldet keine Verstöße im Zieltext.
+`stg_de/stg_compare.py` vergleicht einen Quelltext mit seiner Umformulierung. Das Werkzeug ist keine Konformitätsprüfung und meldet keine Verstöße im Zieltext.
 
 | Signal | Ergebnis bei Änderung | Zugehörige Regel |
 |---|---|---|

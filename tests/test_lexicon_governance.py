@@ -7,7 +7,7 @@ from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = ROOT / "schemas" / "lexicon-proposal.schema.json"
-TEMPLATE = ROOT / "dictionary" / "proposals" / "TEMPLATE.yaml"
+TEMPLATE = ROOT / "proposals" / "LEX-CHANGE-TEMPLATE.yaml"
 
 
 class LexiconGovernanceTests(unittest.TestCase):

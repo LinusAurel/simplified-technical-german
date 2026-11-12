@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Build STG-DE.md from the canonical sources. Use --check to compare it with the committed file."""
+"""Build STG-DE.md from the canonical sources.
+
+STG-DE.md is a release artifact. The repository does not track it; the release
+workflow builds it and attaches it to the GitHub release.
+"""
 import argparse
 from pathlib import Path
 
@@ -10,7 +14,7 @@ TARGET = ROOT / "STG-DE.md"
 def build() -> str:
     version = next(l.split(':', 1)[1].strip() for l in (ROOT / 'CITATION.cff').read_text(encoding='utf-8').splitlines() if l.startswith('version:'))
     out = ["# STG-DE — Vereinfachtes Technisches Deutsch\n\nEigenständige Fassung der Spezifikation für Release " + version + ". Die Dateien im Repository bleiben die kanonische Quelle.\n"]
-    sections = [ROOT / 'specification.md']
+    sections = [ROOT / 'SPECIFICATION.md']
     sections += sorted((ROOT / 'rules').glob('[0-9][0-9]-*.md'))
     sections += [ROOT / 'dictionary/README.md', ROOT / 'dictionary/MORPHOLOGY.md', ROOT / 'dictionary/DECISIONS.md', ROOT / 'mapping/README.md']
     for p in sections:
@@ -23,17 +27,11 @@ def build() -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--check", action="store_true", help="Fail if STG-DE.md differs from the generated content.")
+    ap.add_argument("--out", default=str(TARGET), help="Output path (default: STG-DE.md in the repository root).")
     args = ap.parse_args()
-    content = build()
-    if args.check:
-        if not TARGET.exists() or TARGET.read_text(encoding='utf-8') != content:
-            print("STG-DE.md is out of date. Run: python tools/build_standalone.py")
-            return 1
-        print("STG-DE.md is up to date.")
-        return 0
-    TARGET.write_text(content, encoding='utf-8')
-    print(TARGET)
+    out = Path(args.out)
+    out.write_text(build(), encoding='utf-8')
+    print(out)
     return 0
 
 

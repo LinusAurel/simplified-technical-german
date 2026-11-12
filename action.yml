@@ -40,4 +40,4 @@ runs:
         [ -n "$STG_PROFILE" ] && args+=(--profile "$STG_PROFILE")
         [ -n "$STG_PROJECT" ] && args+=(--project "$STG_PROJECT")
         read -r -a paths <<< "$STG_PATHS"
-        python "$GITHUB_ACTION_PATH/tools/stg_lint.py" "${paths[@]}" "${args[@]}"
+        python "$GITHUB_ACTION_PATH/stg_de/stg_lint.py" "${paths[@]}" "${args[@]}"

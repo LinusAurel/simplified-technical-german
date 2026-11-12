@@ -1,7 +1,7 @@
 """Command-line interface `stg` for STG-DE.
 
-The subcommands run the canonical tools from `tools/`, copied into this package by
-`tools/sync_package.py`. The package contains no second implementation.
+The modules in this package are the canonical implementation of the tools.
+`tools/sync_skill.py` copies them into the Agent Skill.
 """
 from __future__ import annotations
 

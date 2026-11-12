@@ -8,7 +8,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-LINTER = ROOT / "tools/stg_lint.py"
+LINTER = ROOT / "stg_de/stg_lint.py"
 
 
 def run(text, *args):
@@ -30,6 +30,22 @@ class LintTests(unittest.TestCase):
     def test_semicolon_uses_published_rule_id(self):
         r = run("Öffnen Sie die Abdeckung; prüfen Sie den Stecker.", "--text-type", "procedure")
         self.assertEqual(r["result"], "FAIL")
+        self.assertIn("STG-8.1", rules(r))
+
+    def test_semicolon_between_list_items_is_not_reported(self):
+        for text in [
+            "Apfeld, R.; Schaefer, M.: Sicherheit von Maschinen.",
+            "Das Gerät entspricht den Normen IEC 60601-1; IEC 60601-1-2; EN 60601-1-6.",
+            "Normen: EN 60601-1; EN 60601-1-2;",
+            "Die Flowrate ist 50 ml pro Minute (Toleranz -7,5; +15).",
+        ]:
+            with self.subTest(text=text):
+                self.assertNotIn("STG-8.1", rules(run(text)))
+
+    def test_semicolon_between_statements_after_a_number_is_reported(self):
+        r = run("Drehen Sie die Schraube um 90 Grad; prüfen Sie dann den Sitz.", "--text-type", "procedure")
+        self.assertIn("STG-8.1", rules(r))
+        r = run("Öffnen Sie Schritt 3; dann prüfen Sie den Stecker.", "--text-type", "procedure")
         self.assertIn("STG-8.1", rules(r))
 
     def test_semicolon_free_text_does_not_trigger_rule(self):

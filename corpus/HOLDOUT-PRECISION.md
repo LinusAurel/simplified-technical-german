@@ -72,7 +72,7 @@ Die Modelle hatten bei 274 von 295 eindeutigen Einträgen dasselbe Label (93 %).
 
 ### Folgerungen
 
-- Die Prüfung `STG-8.1` braucht eine Unterscheidung zwischen Semikolons in Listen und Semikolons zwischen Aussagen.
+- Die Prüfung `STG-8.1` braucht eine Unterscheidung zwischen Semikolons in Listen und Semikolons zwischen Aussagen. Diese Korrektur ist umgesetzt (siehe `CHANGELOG.md`). Auf den bewerteten Befunden entfallen alle 10 falschen Befunde. Die 2 richtigen Befunde bleiben.
 - Die Prüfung `STG-6.3` soll Marken in Fettschrift am Satzanfang nicht mitzählen. Die Prüfung soll `z.B.` ohne Leerzeichen als Abkürzung erkennen.
 - Extraktionsfehler verursachen fast die Hälfte aller Befunde. Diese Fehler entstehen im Werkzeug für das Korpus, nicht im Linter. Auf sauberem Markdown oder Text treten diese Fehler nicht auf.
 

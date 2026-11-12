@@ -8,7 +8,7 @@ import yaml
 from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
-LINTER = ROOT / "tools" / "stg_lint.py"
+LINTER = ROOT / "stg_de" / "stg_lint.py"
 
 
 def lint(text, profile):

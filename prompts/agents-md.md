@@ -82,6 +82,6 @@ Schreiben Sie drei Teile: was passiert ist, warum es passiert ist, was der Leser
 Prüfen Sie Texte mit dem Linter und der Bedeutungsprüfung:
 
 ```bash
-python tools/stg_lint.py docs/ --profile agent --fail-on error
-python tools/stg_compare.py original.md umschreibung.md
+python stg_de/stg_lint.py docs/ --profile agent --fail-on error
+python stg_de/stg_compare.py original.md umschreibung.md
 ```

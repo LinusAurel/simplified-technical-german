@@ -10,3 +10,6 @@ runs/
 build/
 corpus/*fulltext-metrics.json
 notes.md
+# Release artifacts, built by .github/workflows/release.yml
+STG-DE.md
+manifest.yaml

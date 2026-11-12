@@ -30,7 +30,7 @@ instruction_profile: formal-sie-imperative
 
 ## 3. Ausgabe
 
-`tools/stg_lint.py --format json` gibt diese Struktur aus:
+`stg_de/stg_lint.py --format json` gibt diese Struktur aus:
 
 ```yaml
 tool: stg_lint.py
@@ -61,7 +61,7 @@ Das Feld `result` hat einen dieser Werte:
 
 Mit mehreren Dateien gibt der Linter ein Gesamtergebnis und eine Liste `files` aus. Das Gesamtergebnis ist das schlechteste Ergebnis der Dateien.
 
-`tools/stg_analyze.py` gibt nur Belege für das Review aus (`status: REVIEW EVIDENCE ONLY`). Diese Belege ändern das Feld `result` des Linters nicht.
+`stg_de/stg_analyze.py` gibt nur Belege für das Review aus (`status: REVIEW EVIDENCE ONLY`). Diese Belege ändern das Feld `result` des Linters nicht.
 
 ## 4. Schweregrad
 

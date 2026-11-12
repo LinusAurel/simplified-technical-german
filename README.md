@@ -156,19 +156,19 @@ python -m pip install -r requirements-dev.txt
 Prüfen Sie Dateien und Verzeichnisse. Der Linter erkennt Markdown: Er ignoriert Codeblöcke und behandelt Listenpunkte und Tabellenzellen als eigene Sätze.
 
 ```bash
-python tools/stg_lint.py docs/ README.de.md --profile procedure
+python stg_de/stg_lint.py docs/ README.de.md --profile procedure
 ```
 
 JSON-Ausgabe aus stdin:
 
 ```bash
-printf 'Prüfen Sie gegebenenfalls das Gerät.' | python tools/stg_lint.py - --format json
+printf 'Prüfen Sie gegebenenfalls das Gerät.' | python stg_de/stg_lint.py - --format json
 ```
 
 Einen CI-Schritt bei Fehlern scheitern lassen:
 
 ```bash
-python tools/stg_lint.py docs/ --fail-on error
+python stg_de/stg_lint.py docs/ --fail-on error
 ```
 
 Der Linter lädt `./.stg-de.yaml` automatisch. Der Linter trennt deterministische Verstöße (`error`) von Kandidaten für eine Prüfung (`warning`, `review`). Ein unbekanntes Wort ist **nicht automatisch ein Fehler**. Ein großgeschriebenes deutsches Substantiv ist **nicht automatisch ein Fachbegriff**.
@@ -178,7 +178,7 @@ Der Linter lädt `./.stg-de.yaml` automatisch. Der Linter trennt deterministisch
 Vergleichen Sie einen Ausgangstext mit seiner Umformulierung:
 
 ```bash
-python tools/stg_compare.py original.md rewrite.md
+python stg_de/stg_compare.py original.md rewrite.md
 ```
 
 Verlorene Zahlen, Einheiten, Bezeichner, Code, URLs, zitierte UI-Texte oder Signalwörter für Sicherheit ergeben `FAIL`. Geänderte Modalität, Verbote, Verneinungen, Bedingungen oder Grenzen ergeben `REVIEW`.
@@ -186,7 +186,7 @@ Verlorene Zahlen, Einheiten, Bezeichner, Code, URLs, zitierte UI-Texte oder Sign
 ### Analysewerkzeug für deutsche Texte
 
 ```bash
-python tools/stg_analyze.py input.md
+python stg_de/stg_analyze.py input.md
 ```
 
 Das Analysewerkzeug meldet Kandidaten für Passiv, Modalität, Satztiefe, Pronomen, Verneinung, Nominalstil und trennbare Verben. Jede Ausgabe des Analysewerkzeugs ist ein Beleg für eine Prüfung. Eine Ausgabe allein ist nie ein Verstoß.
@@ -222,7 +222,7 @@ Beispiel-Glossare für Embedded und IoT, funktionale Sicherheit, Produktsicherhe
 
 ```text
 .
-├── specification.md              # normative Übersicht
+├── SPECIFICATION.md              # normative Übersicht
 ├── rules/                        # normative Schreibregeln
 ├── dictionary/                   # kontrolliertes Lexikon und Terminologiemodell
 ├── mapping/                      # Zuordnung zu ASD-STE100 Issue 9
@@ -231,11 +231,11 @@ Beispiel-Glossare für Embedded und IoT, funktionale Sicherheit, Produktsicherhe
 ├── examples/                     # Referenzaudits und Glossare
 ├── evals/                        # Evaluierung des Agent Skills
 ├── prompts/                      # Textbausteine für AGENTS.md und System-Prompts
-├── proposals/                    # Änderungsvorschläge für Regeln (STG-YYYY-NNN)
+├── proposals/                    # Änderungsvorschläge für Regeln (STG-YYYY-NNN) und Lexikon (LEX-YYYY-NNN)
 ├── corpus/                       # Metadaten und Kennzahlen des öffentlichen Korpus
 ├── quality/                      # Stand der Automatisierung der Regeln
-├── tools/                        # Linter, Analysewerkzeug, Vergleich, Build- und Release-Werkzeuge
-├── stg_de/                       # Python-Paket für die CLI stg (erzeugt von sync_package.py)
+├── tools/                        # Werkzeuge für Synchronisierung, Korpus, Evaluation und Release
+├── stg_de/                       # Linter, Analysewerkzeug und Vergleich (Python-Paket für die CLI stg)
 ├── tests/                        # Unit- und Regressionstests
 ├── .claude-plugin/               # Plugin und Marketplace für Claude Code
 ├── .codex-plugin/                # Plugin für Codex
@@ -245,7 +245,7 @@ Beispiel-Glossare für Embedded und IoT, funktionale Sicherheit, Produktsicherhe
     ├── SKILL.md
     ├── agents/openai.yaml
     ├── references/               # erzeugt aus den kanonischen Dateien
-    └── scripts/                  # kopiert aus tools/
+    └── scripts/                  # kopiert aus stg_de/
 ```
 
 Die Spezifikation und das Wörterbuch auf der obersten Ebene sind die maßgebliche Quelle. Der Befehl `python tools/sync_skill.py` erzeugt die Referenzen und Skripte des Skills neu.
@@ -259,9 +259,8 @@ Für ein Release folgen Sie [`RELEASE-CHECKLIST.md`](RELEASE-CHECKLIST.md).
 ## Roadmap und Governance
 
 - [`ROADMAP.md`](ROADMAP.md) — offene Arbeit und Kriterien für 1.0.
-- [`GOVERNANCE.md`](GOVERNANCE.md) — Prozess für Entscheidungen und Prüfungen.
+- [`GOVERNANCE.md`](GOVERNANCE.md) — Prozess für Entscheidungen und Prüfungen, auch für Änderungen am zentralen Lexikon.
 - [`VERSIONING.md`](VERSIONING.md) — Kompatibilität und semantische Versionierung.
-- [`dictionary/GOVERNANCE.md`](dictionary/GOVERNANCE.md) — belegbasierte Änderungen am zentralen Lexikon.
 - [`quality/RULE-COVERAGE.md`](quality/RULE-COVERAGE.md) — Stand der Automatisierung.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — Ablauf für Beiträge.
 

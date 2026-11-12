@@ -19,7 +19,7 @@ def generated() -> dict[Path, str]:
     return {
         REF / "rules.md": "".join(rules_parts),
         REF / "dictionary-guide.md": guide,
-        REF / "validator-contract.md": (ROOT / "validator-contract.md").read_text(encoding="utf-8"),
+        REF / "validator-contract.md": (ROOT / "VALIDATOR-CONTRACT.md").read_text(encoding="utf-8"),
         REF / "approved-words.yaml": (ROOT / "dictionary" / "approved-words.yaml").read_text(encoding="utf-8"),
         REF / "prohibited-words.yaml": (ROOT / "dictionary" / "prohibited-words.yaml").read_text(encoding="utf-8"),
         REF / "profiles.yaml": (ROOT / "profiles" / "profiles.yaml").read_text(encoding="utf-8"),
@@ -43,7 +43,7 @@ def main() -> int:
     scripts = ["stg_lint.py", "stg_analyze.py", "stg_compare.py", "stg_markdown.py"]
     for script_name in scripts:
         script_target = SKILL / "scripts" / script_name
-        source = ROOT / "tools" / script_name
+        source = ROOT / "stg_de" / script_name
         if args.check:
             if not script_target.exists() or script_target.read_bytes() != source.read_bytes():
                 mismatches.append(str(script_target.relative_to(ROOT)))

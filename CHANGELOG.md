@@ -1,5 +1,23 @@
 # Änderungsprotokoll
 
+## Unveröffentlicht
+
+### Linter
+
+- `STG-8.1` meldet kein Semikolon zwischen Listeneinträgen mehr, zum Beispiel zwischen Autoren (`Apfeld, R.; Schaefer, M.`), Normen (`IEC 60601-1; IEC 60601-1-2`) oder Werten (`-7,5; +15`). Auf dem Holdout waren 10 von 12 Befunden dieser Art falsch. Semikolons zwischen Aussagen bleiben ein Fehler.
+
+### Evaluation
+
+- Wiederholung der Evaluation mit dem korrigierten Skill in `evals/results/2026-11-12-rerun.md`: Claude 113 von 115 Prüfungen (vorher 109), Codex 110 von 115 (vorher 112).
+
+### Struktur des Repositorys
+
+- Der Code von Linter, Analysewerkzeug und Vergleich steht nur noch in `stg_de/`. Die Kopien in `tools/` sind entfernt. Der Skill enthält auch in Zukunft eine Kopie in `scripts/`, weil der Skill ohne das Repository funktionieren muss. Die GitHub Action und die Dokumentation verwenden `stg_de/stg_lint.py`.
+- `STG-DE.md` und `manifest.yaml` sind nicht mehr im Repository. Der Release-Workflow erzeugt beide Dateien und hängt sie an das GitHub-Release an.
+- Die Zahlen zu Regeln, Wörterbuch, Zuordnung und Korpus stehen nur noch in `README.md`. `tests/test_readme_counts.py` vergleicht diese Zahlen mit den Daten. `dictionary/coverage.yaml` ist entfernt.
+- Die Dokumente auf der obersten Ebene heißen einheitlich in Großbuchstaben: `SPECIFICATION.md`, `SOURCES.md`, `VALIDATOR-CONTRACT.md`.
+- `dictionary/GOVERNANCE.md` ist jetzt der Abschnitt „Lexikalische Änderungen“ in `GOVERNANCE.md`. Die Vorlage für lexikalische Vorschläge steht jetzt in `proposals/LEX-CHANGE-TEMPLATE.yaml`.
+
 ## 0.4.0 — 2026-11-12
 
 ### Neue Nummerierung der Releases

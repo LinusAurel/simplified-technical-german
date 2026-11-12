@@ -77,7 +77,7 @@ Die Evidenz kommt aus einer Quelle. Die Holdout-Partition des Korpus wurde für 
 
 - Regeln: `rules/05-procedures.md` (`STG-5.3`), Titel in `rules/rule-index.yaml`.
 - Zuordnung: Hinweis zu ASD-STE100 5.3 in `mapping/ste100-issue9.yaml`.
-- Validator: `tools/stg_lint.py` (Option `--anrede`, Einstellung `anrede`).
+- Validator: `stg_de/stg_lint.py` (Option `--anrede`, Einstellung `anrede`).
 - Schema: `schemas/project.schema.json`, Beispiel `.stg-de.example.yaml`.
 - Agent Skill: Abschnitt zur Anrede in `SKILL.md`.
 - Tests: `tests/test_address.py`.

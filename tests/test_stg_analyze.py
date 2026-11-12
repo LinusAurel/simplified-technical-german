@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ANALYZER = ROOT / "tools" / "stg_analyze.py"
+ANALYZER = ROOT / "stg_de" / "stg_analyze.py"
 
 
 def analyze(text):

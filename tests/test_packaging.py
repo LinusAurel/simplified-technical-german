@@ -10,6 +10,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "simplified-technical-german"
 sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(ROOT / "stg_de"))
 
 
 def release_version():
@@ -100,11 +101,24 @@ class PackagingTests(unittest.TestCase):
 
     def test_manifest_lists_only_tracked_files(self):
         import subprocess
+        import tempfile
         tracked = set(subprocess.run(["git", "ls-files"], cwd=ROOT, check=True, capture_output=True,
                                      text=True).stdout.splitlines())
-        manifest = yaml.safe_load((ROOT / "manifest.yaml").read_text(encoding="utf-8"))
-        untracked = [item["path"] for item in manifest["files"] if item["path"] not in tracked]
-        self.assertEqual(untracked, [], "manifest.yaml lists files that a release checkout does not contain")
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / "manifest.yaml"
+            subprocess.run([sys.executable, str(ROOT / "tools" / "build_manifest.py"), "--out", str(out)],
+                           check=True, capture_output=True)
+            manifest = yaml.safe_load(out.read_text(encoding="utf-8"))
+        paths = [item["path"] for item in manifest["files"]]
+        self.assertEqual([p for p in paths if p not in tracked], [], "manifest lists untracked files")
+        self.assertNotIn("manifest.yaml", paths)
+        self.assertNotIn("STG-DE.md", paths)
+
+    def test_generated_release_artifacts_are_not_tracked(self):
+        import subprocess
+        tracked = subprocess.run(["git", "ls-files", "STG-DE.md", "manifest.yaml"], cwd=ROOT, check=True,
+                                 capture_output=True, text=True).stdout.split()
+        self.assertEqual(tracked, [], "STG-DE.md and manifest.yaml are release artifacts")
 
     def test_release_zip_layout(self):
         import package_skill
