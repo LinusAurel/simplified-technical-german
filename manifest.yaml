@@ -12,8 +12,8 @@ files:
   size_bytes: 1316
   sha256: 8193d99cfc502ba458f0f469c5e4563dc296dfbee9782b31b3aea430bd2dde71
 - path: .github/workflows/corpus-fulltext.yml
-  size_bytes: 1103
-  sha256: 9c7594a70e055122dc2fccdece3f864e71fae0aa8a6d5f7906ca04d6a453e5c7
+  size_bytes: 1087
+  sha256: aad9e9516f5a6e98d9ac3ad1a1f73f1f6344cbbfe6e92803f3afc0d0e95f41ae
 - path: .github/workflows/release.yml
   size_bytes: 1001
   sha256: 22685be8c455c8a8e196c8ee2b7e816819d320acd3585f1a0e8bef4cab4f26ef
