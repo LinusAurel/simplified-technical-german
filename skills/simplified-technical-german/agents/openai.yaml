@@ -1,3 +1,4 @@
 interface:
   display_name: "Simplified Technical German"
   short_description: "Write, rewrite, and audit German text with STG-DE."
+  default_prompt: "Schreibe diesen Text in STG-DE um und behalte alle Fakten, Zahlen und Bedingungen bei."

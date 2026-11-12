@@ -143,4 +143,4 @@ approval_requirements:
 - Benennung ist im Scope eindeutig.
 - Quelle der Freigabe ist dokumentiert.
 - Gender und Plural sind für deutsche Substantive hinterlegt.
-release: 0.1.0
+release: 0.2.0

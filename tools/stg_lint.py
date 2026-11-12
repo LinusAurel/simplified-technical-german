@@ -15,9 +15,18 @@ from pathlib import Path
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from stg_markdown import prose_blocks, strip_markdown_code  # noqa: E402
+
+STG_VERSION = "0.2.0"
+TEXT_SUFFIXES = {".md", ".markdown", ".txt", ".rst", ".adoc"}
+SEVERITY_RANK = {"review": 1, "warning": 2, "error": 3}
+
 WORD_RE = re.compile(r"[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß0-9_:+/.-]*|\d+(?:[.,]\d+)?", re.UNICODE)
 URL_RE = re.compile(r"https?://\S+|www\.\S+", re.I)
 CODE_RE = re.compile(r"`[^`]*`")
+# Quoted text (UI labels, citations, mentioned words) is protected and counts as one word (STG-8.6).
+QUOTE_RE = re.compile(r"„[^“”\n]{1,120}[“”]|»[^«\n]{1,120}«|\"[^\"\n]{1,120}\"")
 SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])(?:[\"'»”)]*)\s+(?=[A-ZÄÖÜ0-9„\"'([])")
 MAN_RE = re.compile(r"(?<![\wÄÖÜäöüß])man(?![\wÄÖÜäöüß])", re.I)
 AMBIGUOUS_SLASH_PATTERNS = (
@@ -29,6 +38,14 @@ AMBIGUOUS_SLASH_PATTERNS = (
 )
 
 
+ADDRESS_FORMS = ("sie", "du", "infinitiv")
+# Formal address: capitalized "Sie"/"Ihnen"/"Ihr…" after the first word of a sentence, or a
+# sentence-initial formal imperative ("Prüfen Sie …"). Lowercase "sie" is third person.
+FORMAL_RE = re.compile(r"(?<=[^\s.!?:]\s)(?:Sie|Ihnen|Ihre?[mnrs]?)\b|^[A-ZÄÖÜ][a-zäöüß]+(?:en|ern|eln)\s+Sie\b")
+INFORMAL_RE = re.compile(r"(?<![\wÄÖÜäöüß])(?:[Dd]u|[Dd]ich|[Dd]ir|[Dd]ein(?:e|em|en|er|es)?|[Ee]uch|[Ee]uer|[Ee]ure[mnrs]?)(?![\wÄÖÜäöüß])")
+ADDRESS_LABEL = {"sie": "formale Anrede mit „Sie“", "du": "Anrede mit „du“"}
+
+
 @dataclass
 class Finding:
     severity: str
@@ -37,6 +54,7 @@ class Finding:
     original: str
     suggestion: str | None = None
     term: str | None = None
+    line: int | None = None
 
 
 def load_yaml(path: Path) -> dict:
@@ -47,7 +65,12 @@ def load_yaml(path: Path) -> dict:
 def mask_protected(text: str) -> str:
     text = URL_RE.sub(" PROTECTED_URL ", text)
     text = CODE_RE.sub(" PROTECTED_CODE ", text)
+    text = QUOTE_RE.sub(" PROTECTED_QUOTE ", text)
     return text
+
+
+def prose_sentences(text: str) -> list[str]:
+    return [s for block in prose_blocks(text) for s in split_sentences(block)]
 
 
 def split_sentences(text: str) -> list[str]:
@@ -60,14 +83,14 @@ def split_sentences(text: str) -> list[str]:
 def split_paragraphs(text: str) -> list[str]:
     paragraphs: list[str] = []
     current: list[str] = []
-    for line in text.splitlines():
+    for line in strip_markdown_code(text).splitlines():
         stripped = line.strip()
         if not stripped:
             if current:
                 paragraphs.append(" ".join(current))
                 current = []
             continue
-        if stripped.startswith("#") or re.match(r"^(?:[-*+] |\d+[.)] )", stripped):
+        if stripped.startswith(("#", "|", ">")) or re.match(r"^(?:[-*+] |\d+[.)] )", stripped):
             if current:
                 paragraphs.append(" ".join(current))
                 current = []
@@ -150,9 +173,46 @@ def resolve_profile(root: Path, profile: str | None, text_type: str) -> tuple[st
     return effective_type, limit, config
 
 
+def address_findings(sentences: list[str], declared: str | None) -> list[Finding]:
+    """STG-5.3: one form of address per document set."""
+    hits: dict[str, list[str]] = {"sie": [], "du": []}
+    for sentence in sentences:
+        if FORMAL_RE.search(sentence):
+            hits["sie"].append(sentence)
+        if INFORMAL_RE.search(sentence):
+            hits["du"].append(sentence)
+    if declared:
+        out = []
+        for form, found in hits.items():
+            if form == declared:
+                continue
+            for sentence in found:
+                out.append(Finding("error", "STG-5.3",
+                                   f"Das Projekt legt die Anrede `{declared}` fest. Der Satz verwendet die {ADDRESS_LABEL[form]}.",
+                                   sentence, "Verwenden Sie die festgelegte Anredeform."))
+        return out
+    if hits["sie"] and hits["du"]:
+        minority = "du" if len(hits["du"]) <= len(hits["sie"]) else "sie"
+        return [Finding("warning", "STG-5.3",
+                        "Das Dokument mischt die formale Anrede mit „Sie“ und die Anrede mit „du“.",
+                        hits[minority][0], "Legen Sie eine Anredeform fest (`anrede` in `.stg-de.yaml`) und verwenden Sie nur diese.")]
+    return []
+
+
+def resolve_address(project: dict, address: str | None) -> str | None:
+    value = address or project.get("anrede") or project.get("address")
+    if value is None:
+        return None
+    value = str(value).casefold()
+    if value not in ADDRESS_FORMS:
+        raise ValueError(f"unknown form of address: {value} (expected sie, du or infinitiv)")
+    return value
+
+
 def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | None = None,
-               lexicon_report: bool = False, profile: str | None = None) -> dict:
+               lexicon_report: bool = False, profile: str | None = None, address: str | None = None) -> dict:
     project = project or {}
+    declared_address = resolve_address(project, address)
     if (root / "dictionary" / "approved-words.yaml").exists():
         approved_path = root / "dictionary" / "approved-words.yaml"
         prohibited_path = root / "dictionary" / "prohibited-words.yaml"
@@ -166,15 +226,18 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     effective_type, sentence_limit, profile_config = resolve_profile(root, profile, text_type)
 
     findings: list[Finding] = []
-    masked = mask_protected(text)
+    prose = strip_markdown_code(text)
+    masked = mask_protected(prose)
 
-    for line in text.splitlines():
-        if ";" in line and not line.lstrip().startswith("#"):
+    for line in prose.splitlines():
+        if ";" in mask_protected(line) and not line.lstrip().startswith("#"):
             findings.append(Finding("error", "STG-8.1", "Semikolon verwenden Sie nicht. Teilen Sie den Satz.", line.strip(), "Schreiben Sie zwei getrennte Sätze."))
 
-    for sentence in split_sentences(masked):
+    for sentence in prose_sentences(masked):
         if MAN_RE.search(sentence):
             findings.append(Finding("error", "STG-DE-4.3", "`man` bezeichnet den Akteur nicht eindeutig.", sentence, "Nennen Sie den Akteur oder verwenden Sie eine direkte Anweisung.", "man"))
+
+    findings += address_findings(prose_sentences(masked), declared_address)
 
     for line in masked.splitlines():
         if line.lstrip().startswith("#"):
@@ -184,9 +247,13 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
             if match:
                 findings.append(Finding("warning", "STG-DE-8.1", "Die Schrägstrichkombination kann mehrdeutig sein.", match.group(0), "Verwenden Sie `und`, `oder`, eine Liste oder getrennte Sätze.", match.group(0)))
 
+    # Terms with a dedicated structural check are reported once, by that check.
+    # Project terminology (technical nouns/verbs, protected and preferred terms) takes
+    # precedence over the central prohibited list (STG-1.6, STG-1.8).
+    dedicated_terms = {f.term.casefold() for f in findings if f.term} | allowed_project
     for entry in prohibited:
         term = str(entry.get("term", "")).strip()
-        if not term or not phrase_regex(term).search(masked):
+        if not term or term.casefold() in dedicated_terms or not phrase_regex(term).search(masked):
             continue
         status = entry.get("status", "review_required")
         severity = "error" if status == "prohibited" else "review"
@@ -201,7 +268,7 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
         if phrase_regex(avoided).search(lowered):
             findings.append(Finding("error", "STG-9.4", "Projektterminologie ist nicht konsistent.", avoided, f"Verwenden Sie `{preferred}`.", avoided))
 
-    for sentence in split_sentences(text):
+    for sentence in prose_sentences(prose):
         n = count_words(sentence)
         if n > sentence_limit:
             rule = "STG-5.1" if effective_type == "procedure" else "STG-6.3"
@@ -219,9 +286,12 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
             if token.isdigit():
                 continue
             low = token.casefold().strip(".-")
-            if not low or low in {"protected_url", "protected_code"} or low in allowed_core or low in allowed_project:
+            if not low or low in {"protected_url", "protected_code", "protected_quote"} or low in allowed_core or low in allowed_project:
                 continue
             unknown_counts[low] = unknown_counts.get(low, 0) + 1
+
+    for finding in findings:
+        finding.line = locate_line(text, finding.original)
 
     counts = {"error": 0, "warning": 0, "review": 0}
     for finding in findings:
@@ -229,8 +299,9 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     result = "FAIL" if counts["error"] else ("PASS WITH REVIEW" if counts["review"] or counts["warning"] else "PASS")
     return {
         "tool": "stg_lint.py",
-        "standard": "STG-DE 0.1.0",
+        "standard": f"STG-DE {STG_VERSION}",
         "profile": profile,
+        "address": declared_address,
         "profile_priorities": (profile_config or {}).get("priorities", []),
         "text_type": effective_type,
         "sentence_word_limit": sentence_limit,
@@ -247,6 +318,24 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     }
 
 
+def locate_line(text: str, original: str) -> int | None:
+    """Return the 1-based line where a finding starts, also for sentences that wrap lines."""
+    words = []
+    for word in (original or "").split():
+        if "PROTECTED_" in word:
+            break
+        words.append(word)
+        if len(words) == 8:
+            break
+    if not words:
+        return None
+    pattern = r"[\s>*+-]*".join(re.escape(w) for w in words)
+    if len(words) == 1:
+        pattern = r"(?<![\wÄÖÜäöüß])" + pattern + r"(?![\wÄÖÜäöüß])"
+    m = re.search(pattern, text) or re.search(pattern, text, re.I)
+    return text.count("\n", 0, m.start()) + 1 if m else None
+
+
 def render_text(result: dict) -> str:
     label = f"STG-DE audit ({result['profile']})" if result.get("profile") else "STG-DE audit"
     lines = [f"{label}: {result['result']}", ""]
@@ -254,7 +343,8 @@ def render_text(result: dict) -> str:
         lines.append("Keine deterministischen Befunde.")
     else:
         for i, f in enumerate(result["findings"], 1):
-            lines.append(f"{i}. [{f['severity'].upper()}] {f['rule']}: {f['message']}")
+            where = f" (Zeile {f['line']})" if f.get("line") else ""
+            lines.append(f"{i}. [{f['severity'].upper()}] {f['rule']}{where}: {f['message']}")
             lines.append(f"   Original: {f['original']}")
             if f.get("suggestion"):
                 lines.append(f"   Vorschlag: {f['suggestion']}")
@@ -265,27 +355,102 @@ def render_text(result: dict) -> str:
     return "\n".join(lines)
 
 
+def collect_inputs(inputs: list[str]) -> list[str]:
+    """Expand directories to text/Markdown files; keep files and '-' as given."""
+    paths: list[str] = []
+    for item in inputs:
+        p = Path(item)
+        if item != "-" and p.is_dir():
+            paths += sorted(str(f) for f in p.rglob("*") if f.is_file() and f.suffix.lower() in TEXT_SUFFIXES
+                            and not any(part.startswith(".") for part in f.relative_to(p).parts))
+        else:
+            paths.append(item)
+    return paths
+
+
+def overall_result(results: list[dict]) -> str:
+    states = {r["result"] for r in results}
+    if "FAIL" in states:
+        return "FAIL"
+    return "PASS WITH REVIEW" if "PASS WITH REVIEW" in states else "PASS"
+
+
+def render_github(path: str, result: dict) -> str:
+    level = {"error": "error", "warning": "warning", "review": "notice"}
+    out = []
+    for f in result["findings"]:
+        loc = f"file={path}" + (f",line={f['line']}" if f.get("line") else "")
+        msg = f"{f['message']} Vorschlag: {f['suggestion']}" if f.get("suggestion") else f["message"]
+        msg = msg.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+        out.append(f"::{level.get(f['severity'], 'notice')} {loc},title={f['rule']}::{msg}")
+    return "\n".join(out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Deterministic STG-DE linter")
-    ap.add_argument("input", help="UTF-8 text/Markdown file or - for stdin")
+    ap.add_argument("inputs", nargs="+", metavar="input", help="UTF-8 text/Markdown files, directories, or - for stdin")
     ap.add_argument("--root", default=str(Path(__file__).resolve().parents[1]), help="STG-DE repository/skill reference root")
-    ap.add_argument("--project", help="Optional .stg-de.yaml project terminology")
+    ap.add_argument("--project", help="Project terminology file (default: ./.stg-de.yaml when present)")
+    ap.add_argument("--no-project", action="store_true", help="Do not load ./.stg-de.yaml automatically")
     ap.add_argument("--profile", help="Application profile: procedure, safety, description, requirement, support, consumer, agent")
+    ap.add_argument("--anrede", "--address", dest="address", choices=list(ADDRESS_FORMS),
+                    help="Form of address for instructions (default: `anrede` in .stg-de.yaml; otherwise only mixing is reported)")
     ap.add_argument("--text-type", choices=["auto", "procedure", "description"], default="auto", help="Legacy structural override; profile base type is used when auto")
-    ap.add_argument("--format", choices=["text", "json"], default="text")
+    ap.add_argument("--format", choices=["text", "json", "github"], default="text")
     ap.add_argument("--lexicon-report", action="store_true")
-    ap.add_argument("--fail-on-error", action="store_true", help="Exit 1 when deterministic errors exist")
+    ap.add_argument("--fail-on", choices=["error", "warning", "review", "never"], default="never",
+                    help="Exit 1 when a finding of this severity or higher exists")
+    ap.add_argument("--fail-on-error", action="store_true", help="Alias for --fail-on error")
     args = ap.parse_args()
 
     root = Path(args.root)
-    text = sys.stdin.read() if args.input == "-" else Path(args.input).read_text(encoding="utf-8")
-    project = load_yaml(Path(args.project)) if args.project else {}
-    try:
-        result = audit_text(text, root, args.text_type, project, args.lexicon_report, args.profile)
-    except ValueError as exc:
-        ap.error(str(exc))
-    print(json.dumps(result, ensure_ascii=False, indent=2) if args.format == "json" else render_text(result))
-    return 1 if args.fail_on_error and result["counts"].get("error", 0) else 0
+    project_path = args.project
+    if not project_path and not args.no_project and Path(".stg-de.yaml").is_file():
+        project_path = ".stg-de.yaml"
+    project = load_yaml(Path(project_path)) if project_path else {}
+    threshold = "error" if args.fail_on_error else args.fail_on
+
+    paths = collect_inputs(args.inputs)
+    if not paths:
+        ap.error("no text or Markdown files found")
+    results = []
+    for path in paths:
+        try:
+            text = sys.stdin.read() if path == "-" else Path(path).read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError) as exc:
+            ap.error(f"{path}: {exc}")
+        try:
+            result = audit_text(text, root, args.text_type, project, args.lexicon_report, args.profile, args.address)
+        except ValueError as exc:
+            ap.error(str(exc))
+        result["path"] = "<stdin>" if path == "-" else path
+        results.append(result)
+
+    if args.format == "json":
+        if len(results) == 1:
+            print(json.dumps(results[0], ensure_ascii=False, indent=2))
+        else:
+            print(json.dumps({"tool": "stg_lint.py", "standard": f"STG-DE {STG_VERSION}", "result": overall_result(results),
+                              "files": results}, ensure_ascii=False, indent=2))
+    elif args.format == "github":
+        text_out = "\n".join(filter(None, (render_github(r["path"], r) for r in results)))
+        if text_out:
+            print(text_out)
+        print(f"STG-DE: {overall_result(results)} ({len(results)} Datei(en))")
+    else:
+        blocks = []
+        for r in results:
+            block = render_text(r)
+            blocks.append(f"== {r['path']}\n{block}" if len(results) > 1 else block)
+        if len(results) > 1:
+            blocks.append(f"Gesamtergebnis: {overall_result(results)} ({len(results)} Dateien)")
+        print("\n\n".join(blocks))
+
+    if threshold == "never":
+        return 0
+    limit = SEVERITY_RANK[threshold]
+    worst = max((SEVERITY_RANK.get(f["severity"], 0) for r in results for f in r["findings"]), default=0)
+    return 1 if worst >= limit else 0
 
 
 if __name__ == "__main__":

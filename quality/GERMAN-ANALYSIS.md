@@ -1,72 +1,72 @@
-# German Analysis Layer
+# Analyseschicht für Deutsch
 
-`tools/stg_analyze.py` adds a conservative review layer for German structures that the deterministic linter cannot prove reliably.
+`tools/stg_analyze.py` fügt eine konservative Review-Schicht für deutsche Strukturen hinzu, die der deterministische Linter nicht zuverlässig nachweisen kann.
 
-It is deliberately separate from `tools/stg_lint.py`.
+Diese Schicht ist absichtlich von `tools/stg_lint.py` getrennt.
 
-## Contract
+## Vertrag
 
-The analyzer returns **review evidence only**. Its findings do not by themselves make a document non-conforming.
+Der Analyzer gibt **nur Belege für das Review** zurück. Die Befunde des Analyzers allein sind kein Grund für die Nichtkonformität eines Dokuments.
 
-Each finding contains:
+Jeder Befund enthält diese Angaben:
 
-- STG-DE rule ID;
-- evidence kind;
-- confidence (`high`, `medium`, or `low`);
-- triggering token/pattern;
-- source sentence;
-- optional review guidance.
+- STG-DE-Regel-ID,
+- Art des Belegs,
+- Konfidenz (`high`, `medium` oder `low`),
+- auslösendes Token oder Muster,
+- Quellsatz,
+- optionale Hinweise für das Review.
 
-The current fallback analyzer has no downloaded language model and performs no dependency parsing or coreference resolution.
+Der derzeitige Fallback-Analyzer hat kein heruntergeladenes Sprachmodell. Er führt kein Dependency-Parsing und keine Koreferenzauflösung aus.
 
-## Current evidence
+## Derzeitige Belege
 
-The analyzer can surface candidates for:
+Der Analyzer kann Kandidaten für diese Fälle anzeigen:
 
-- ambiguous modal forms such as `sollte`/`müsste` (`STG-DE-3.2`);
-- modal observations for `muss`, `darf`, and `kann` (`STG-DE-3.2`);
-- possible passive constructions (`STG-3.6`);
-- restrictive review of `werden` (`STG-DE-3.3`);
-- multiple/long subordinate-clause markers (`STG-DE-4.1`);
-- possible ambiguous pronoun references (`STG-DE-4.2`);
-- pronominal adverbs (`STG-DE-4.5`);
-- nominalization candidates (`STG-3.5`);
-- long separable-verb brackets (`STG-DE-3.1`);
-- potentially ambiguous negation/focus scope (`STG-DE-4.4`);
-- very long German compound candidates (`STG-DE-2.1`).
+- mehrdeutige Modalformen wie `sollte` oder `müsste` (`STG-DE-3.2`),
+- Beobachtungen zu den Modalverben `muss`, `darf` und `kann` (`STG-DE-3.2`),
+- mögliche Passivkonstruktionen (`STG-3.6`),
+- restriktives Review von `werden` (`STG-DE-3.3`),
+- mehrere oder lange Marker für Nebensätze (`STG-DE-4.1`),
+- mögliche mehrdeutige Pronomenbezüge (`STG-DE-4.2`),
+- Pronominaladverbien (`STG-DE-4.5`),
+- Kandidaten für Nominalisierungen (`STG-3.5`),
+- lange Klammern durch trennbare Verben (`STG-DE-3.1`),
+- Geltungsbereich von Negation oder Fokus, der mehrdeutig sein kann (`STG-DE-4.4`),
+- Kandidaten für sehr lange deutsche Komposita (`STG-DE-2.1`).
 
-## Usage
+## Verwendung
 
 ```bash
 python tools/stg_analyze.py document.md
 python tools/stg_analyze.py document.md --format json
 ```
 
-Use the deterministic linter and the review analyzer together:
+Verwenden Sie den deterministischen Linter und den Review-Analyzer zusammen:
 
 ```bash
 python tools/stg_lint.py document.md --profile procedure --format json
 python tools/stg_analyze.py document.md --format json
 ```
 
-## Confidence semantics
+## Semantik der Konfidenz
 
-`high` means the trigger is mechanically clear, not that the STG-DE rule is definitely violated. For example, `sollte` is clearly present and is an intentionally ambiguous normative form, but the correct rewrite still depends on author intent.
+`high` bedeutet: Der Auslöser ist maschinell eindeutig. Es bedeutet nicht, dass ein Verstoß gegen die STG-DE-Regel sicher ist. Ein Beispiel ist `sollte`. Das Wort ist eindeutig vorhanden und ist eine absichtlich mehrdeutige normative Form. Die korrekte Umformulierung hängt trotzdem von der Absicht der schreibenden Person ab.
 
-`medium` means the structure is a plausible review target with bounded pattern evidence.
+`medium` bedeutet: Die Struktur ist ein plausibles Ziel für ein Review, mit begrenzten Belegen aus Mustern.
 
-`low` means the signal is useful for prioritizing human/agent review but has a substantial false-positive surface.
+`low` bedeutet: Das Signal hilft, das Review durch Menschen oder Agenten zu priorisieren. Das Signal hat aber ein großes Risiko für falsch positive Befunde.
 
-## Future parser adapter
+## Zukünftiger Parser-Adapter
 
-A future parser-backed implementation can improve:
+Eine zukünftige Implementierung mit Parser kann diese Bereiche verbessern:
 
-- morphology and lemmatization;
-- dependency-based passive detection;
-- subordinate-clause depth;
-- separable-verb reconstruction;
-- pronoun/coreference evidence;
-- negation scope;
-- compound segmentation.
+- Morphologie und Lemmatisierung,
+- Erkennung von Passiv auf Basis von Dependenzen,
+- Tiefe von Nebensätzen,
+- Rekonstruktion trennbarer Verben,
+- Belege für Pronomen und Koreferenz,
+- Geltungsbereich von Negationen,
+- Segmentierung von Komposita.
 
-Parser-assisted checks must keep confidence and evidence visible. They must not silently promote semantic/heuristic rules to deterministic errors without measured precision on held-out data.
+Prüfungen mit Parser-Unterstützung müssen Konfidenz und Belege sichtbar halten. Ohne gemessene Präzision mit Holdout-Daten dürfen diese Prüfungen semantische oder heuristische Regeln nicht unbemerkt zu deterministischen Fehlern hochstufen.

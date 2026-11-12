@@ -2,6 +2,7 @@
 from pathlib import Path
 import hashlib, yaml
 ROOT=Path(__file__).resolve().parents[1]
+VERSION=next(l.split(':',1)[1].strip() for l in (ROOT/'CITATION.cff').read_text(encoding='utf-8').splitlines() if l.startswith('version:'))
 exclude={'.git','dist','__pycache__','.pytest_cache'}
 files=[]
 for p in sorted(ROOT.rglob('*')):
@@ -11,6 +12,6 @@ for p in sorted(ROOT.rglob('*')):
         continue
     rel=p.relative_to(ROOT).as_posix()
     files.append({'path':rel,'size_bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
-manifest={'schema_version':'0.1','release':'0.1.0','status':'experimental','files':files}
+manifest={'schema_version':'0.1','release':VERSION,'status':'experimental','files':files}
 (ROOT/'manifest.yaml').write_text(yaml.safe_dump(manifest,sort_keys=False,allow_unicode=True),encoding='utf-8')
 print(f'Wrote manifest with {len(files)} files')

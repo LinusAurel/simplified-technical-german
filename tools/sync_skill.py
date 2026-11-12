@@ -10,10 +10,10 @@ REF = SKILL / "references"
 
 
 def generated() -> dict[Path, str]:
-    rules_parts = ["# STG-DE writing rules\n\nGenerated from the canonical top-level `rules/` directory.\n"]
+    rules_parts = ["# STG-DE-Schreibregeln\n\nErzeugt aus dem kanonischen Verzeichnis `rules/`. Bearbeiten Sie diese Datei nicht direkt.\n"]
     for p in sorted((ROOT / "rules").glob("[0-9][0-9]-*.md")):
         rules_parts += [f"\n---\n\n<!-- source: {p.relative_to(ROOT)} -->\n\n", p.read_text(encoding="utf-8")]
-    guide = "# STG-DE dictionary and morphology guide\n\nGenerated from canonical repository documentation.\n\n"
+    guide = "# STG-DE-Leitfaden für Wörterbuch und Morphologie\n\nErzeugt aus der kanonischen Dokumentation im Verzeichnis `dictionary/`. Bearbeiten Sie diese Datei nicht direkt.\n\n"
     for p in [ROOT / "dictionary" / "README.md", ROOT / "dictionary" / "MORPHOLOGY.md", ROOT / "dictionary" / "DECISIONS.md"]:
         guide += f"\n---\n\n<!-- source: {p.relative_to(ROOT)} -->\n\n" + p.read_text(encoding="utf-8")
     return {
@@ -40,7 +40,7 @@ def main() -> int:
         else:
             path.write_text(content, encoding="utf-8")
 
-    scripts = ["stg_lint.py", "stg_analyze.py"]
+    scripts = ["stg_lint.py", "stg_analyze.py", "stg_compare.py", "stg_markdown.py"]
     for script_name in scripts:
         script_target = SKILL / "scripts" / script_name
         source = ROOT / "tools" / script_name

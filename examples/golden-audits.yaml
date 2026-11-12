@@ -19,7 +19,8 @@ cases:
     text_type: procedure
     text: "Man prüft danach den Stecker."
     expected_result: FAIL
-    expected_rules: [STG-1.1, STG-DE-4.3]
+    # `man` is reported once, by the dedicated structural rule.
+    expected_rules: [STG-DE-4.3]
   - id: ambiguous-slash
     text_type: description
     text: "Wählen Sie die Option A und/oder B."
