@@ -126,11 +126,11 @@ files:
   size_bytes: 727
   sha256: 2b55b12c0b233439577781722d9fe3984bc614b40d8981a592bebbe208c5ab9e
 - path: skills/simplified-technical-german/SKILL.md
-  size_bytes: 9591
-  sha256: ee5c12a3e2cfa16e5e99bbcd4d5e18b69b3678fd4e6f58fba8c90024a21be404
+  size_bytes: 11856
+  sha256: 195f89e6419b1bb408e9d0987f6132ab245dc22b45eb9a4a7f95430a608243ed
 - path: skills/simplified-technical-german/agents/openai.yaml
-  size_bytes: 131
-  sha256: 5737bc7b65a23398ae7780dcbcc8782a381158111542f7dd5c587ed63c79ff1e
+  size_bytes: 238
+  sha256: 94b0f8a563440f53d746b25e14d1749dd53ad9cb8a9ca64eee1f06e099637737
 - path: skills/simplified-technical-german/references/approved-words.yaml
   size_bytes: 136154
   sha256: 67afec95d7f6698b650bf518d59f7515647359487cb79929d424775665b16342
@@ -150,8 +150,8 @@ files:
   size_bytes: 6434
   sha256: c9d5ab0fb3d3dfad81db827c9c4fddac745a34ebc4a2f8c7fb94a28cb000c69d
 - path: skills/simplified-technical-german/scripts/stg_lint.py
-  size_bytes: 17426
-  sha256: b50eb930f1d3f611f3988fdab415f079a82209bd337d398b26d964670b0ed250
+  size_bytes: 18038
+  sha256: 2bcd7d5b644d14c8a6efd4c411e93513ff215b351713b1ada0a3d3673c1e0ee2
 - path: sources.md
   size_bytes: 998
   sha256: ca55c0e27ec3af18e6d34ae8d50f533cfe1c9c06669191600ab76225bcbe020a
@@ -171,11 +171,11 @@ files:
   size_bytes: 10798
   sha256: c4409a1b1fbc87a825ae6b654627019f187fec2f43417604555cd893fd09976f
 - path: tools/stg_lint.py
-  size_bytes: 17426
-  sha256: b50eb930f1d3f611f3988fdab415f079a82209bd337d398b26d964670b0ed250
+  size_bytes: 18038
+  sha256: 2bcd7d5b644d14c8a6efd4c411e93513ff215b351713b1ada0a3d3673c1e0ee2
 - path: tools/sync_skill.py
-  size_bytes: 2873
-  sha256: 597194c48fa84bd5abf8bfe6d690b251913e08fe22fe99df2fe6201b676c40ab
+  size_bytes: 2892
+  sha256: df0038a51f170c2ebff1cc3729f42c162bddcd14daa18691ed26aaee654ba5e6
 - path: tools/validate_release.py
   size_bytes: 4755
   sha256: 194913020e52ae92e0b8aac6c63ae16e0e4d39d3fd5447abcf5e7eaa1d0f8506

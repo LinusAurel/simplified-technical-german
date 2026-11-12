@@ -15,6 +15,9 @@ from pathlib import Path
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from stg_markdown import prose_blocks, strip_markdown_code  # noqa: E402
+
 STG_VERSION = "0.2.0"
 TEXT_SUFFIXES = {".md", ".markdown", ".txt", ".rst", ".adoc"}
 SEVERITY_RANK = {"review": 1, "warning": 2, "error": 3}
@@ -22,6 +25,8 @@ SEVERITY_RANK = {"review": 1, "warning": 2, "error": 3}
 WORD_RE = re.compile(r"[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß0-9_:+/.-]*|\d+(?:[.,]\d+)?", re.UNICODE)
 URL_RE = re.compile(r"https?://\S+|www\.\S+", re.I)
 CODE_RE = re.compile(r"`[^`]*`")
+# Quoted text (UI labels, citations, mentioned words) is protected and counts as one word (STG-8.6).
+QUOTE_RE = re.compile(r"„[^“”\n]{1,120}[“”]|»[^«\n]{1,120}«|\"[^\"\n]{1,120}\"")
 SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])(?:[\"'»”)]*)\s+(?=[A-ZÄÖÜ0-9„\"'([])")
 MAN_RE = re.compile(r"(?<![\wÄÖÜäöüß])man(?![\wÄÖÜäöüß])", re.I)
 AMBIGUOUS_SLASH_PATTERNS = (
@@ -52,7 +57,12 @@ def load_yaml(path: Path) -> dict:
 def mask_protected(text: str) -> str:
     text = URL_RE.sub(" PROTECTED_URL ", text)
     text = CODE_RE.sub(" PROTECTED_CODE ", text)
+    text = QUOTE_RE.sub(" PROTECTED_QUOTE ", text)
     return text
+
+
+def prose_sentences(text: str) -> list[str]:
+    return [s for block in prose_blocks(text) for s in split_sentences(block)]
 
 
 def split_sentences(text: str) -> list[str]:
@@ -65,14 +75,14 @@ def split_sentences(text: str) -> list[str]:
 def split_paragraphs(text: str) -> list[str]:
     paragraphs: list[str] = []
     current: list[str] = []
-    for line in text.splitlines():
+    for line in strip_markdown_code(text).splitlines():
         stripped = line.strip()
         if not stripped:
             if current:
                 paragraphs.append(" ".join(current))
                 current = []
             continue
-        if stripped.startswith("#") or re.match(r"^(?:[-*+] |\d+[.)] )", stripped):
+        if stripped.startswith(("#", "|", ">")) or re.match(r"^(?:[-*+] |\d+[.)] )", stripped):
             if current:
                 paragraphs.append(" ".join(current))
                 current = []
@@ -171,13 +181,14 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
     effective_type, sentence_limit, profile_config = resolve_profile(root, profile, text_type)
 
     findings: list[Finding] = []
-    masked = mask_protected(text)
+    prose = strip_markdown_code(text)
+    masked = mask_protected(prose)
 
-    for line in text.splitlines():
-        if ";" in line and not line.lstrip().startswith("#"):
+    for line in prose.splitlines():
+        if ";" in mask_protected(line) and not line.lstrip().startswith("#"):
             findings.append(Finding("error", "STG-8.1", "Semikolon verwenden Sie nicht. Teilen Sie den Satz.", line.strip(), "Schreiben Sie zwei getrennte Sätze."))
 
-    for sentence in split_sentences(masked):
+    for sentence in prose_sentences(masked):
         if MAN_RE.search(sentence):
             findings.append(Finding("error", "STG-DE-4.3", "`man` bezeichnet den Akteur nicht eindeutig.", sentence, "Nennen Sie den Akteur oder verwenden Sie eine direkte Anweisung.", "man"))
 
@@ -208,7 +219,7 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
         if phrase_regex(avoided).search(lowered):
             findings.append(Finding("error", "STG-9.4", "Projektterminologie ist nicht konsistent.", avoided, f"Verwenden Sie `{preferred}`.", avoided))
 
-    for sentence in split_sentences(text):
+    for sentence in prose_sentences(prose):
         n = count_words(sentence)
         if n > sentence_limit:
             rule = "STG-5.1" if effective_type == "procedure" else "STG-6.3"
@@ -226,7 +237,7 @@ def audit_text(text: str, root: Path, text_type: str = "auto", project: dict | N
             if token.isdigit():
                 continue
             low = token.casefold().strip(".-")
-            if not low or low in {"protected_url", "protected_code"} or low in allowed_core or low in allowed_project:
+            if not low or low in {"protected_url", "protected_code", "protected_quote"} or low in allowed_core or low in allowed_project:
                 continue
             unknown_counts[low] = unknown_counts.get(low, 0) + 1
 
