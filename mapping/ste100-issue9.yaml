@@ -1,0 +1,342 @@
+# Traceability: ASD-STE100 Issue 9 -> STG-DE
+#
+# This file records which STG-DE rule implements the intent of each ASD-STE100
+# Issue 9 (January 2025) writing rule and general recommendation.
+#
+# Copyright boundary: this file contains only ASD-STE100 rule numbers and
+# independently written German notes. It does not reproduce rule wording,
+# examples, or dictionary content from ASD-STE100. ASD-STE100 is a copyright and
+# trademark of ASD, Brussels. Obtain the official standard free of charge from
+# https://www.asd-ste100.org.
+#
+# relation values:
+#   equivalent  - same intent; German wording and examples are independent.
+#   adapted     - same intent; scope, thresholds, or mechanics adapted to German.
+#   replaced    - the source rule targets an English-specific phenomenon; STG-DE
+#                 replaces it with the German phenomenon that carries the same risk.
+schema_version: '0.5'
+source:
+  standard: ASD-STE100
+  issue: '9'
+  date: '2025-01-15'
+  official_url: https://www.asd-ste100.org
+  writing_rule_count: 53
+  general_recommendation_count: 8
+sections:
+  '1': Wörter
+  '2': Mehrwortbenennungen
+  '3': Verben
+  '4': Sätze
+  '5': Prozeduren
+  '6': Beschreibungen
+  '7': Sicherheitshinweise
+  '8': Zeichensetzung und Wortzählung
+  '9': Schreibpraxis
+mappings:
+- ste: '1.1'
+  stg: [STG-1.1]
+  relation: equivalent
+  note: Zentraler Wortschatz plus technische Substantive und Verben aus dem Projektglossar.
+- ste: '1.2'
+  stg: [STG-1.2]
+  relation: equivalent
+  note: Die Wortart ist Teil jedes Lexikoneintrags.
+- ste: '1.3'
+  stg: [STG-1.3]
+  relation: equivalent
+  note: Jede Bedeutung hat eine eigene ID im Lexikon (meanings[].id).
+- ste: '1.4'
+  stg: [STG-1.4]
+  relation: adapted
+  note: Deutsche Flexion (Kasus, Genus, Numerus, Konjugation) statt weniger englischer Formen; Kollisionen zwischen Flexionsformen werden im Lexikon geführt.
+- ste: '1.5'
+  stg: [STG-1.5]
+  relation: equivalent
+  note: Kategorien technischer Substantive werden für das Deutsche beibehalten.
+- ste: '1.6'
+  stg: [STG-1.6]
+  relation: equivalent
+  note: Nicht-zentrale Wörter nur als technische Benennung oder Teil davon.
+- ste: '1.7'
+  stg: [STG-1.7]
+  relation: equivalent
+  note: Gilt im Deutschen auch für Konversion (z. B. Substantiv zu Verb auf -ieren).
+- ste: '1.8'
+  stg: [STG-1.8]
+  relation: equivalent
+  note: Firmen-, Branchen- und Fachterminologie hat Vorrang; im Projekt über .stg-de.yaml.
+- ste: '1.9'
+  stg: [STG-1.9]
+  relation: equivalent
+  note: STG-DE führt die Regel als SHOULD, weil Kürze bei deutschen Komposita mit Eindeutigkeit konkurriert.
+- ste: '1.10'
+  stg: [STG-1.10]
+  relation: equivalent
+  note: Regionale Varianten, Umgangssprache und Jargon sind ausgeschlossen.
+- ste: '1.11'
+  stg: [STG-1.11]
+  related: [STG-9.4]
+  relation: equivalent
+  note: Ein Konzept, eine Benennung; im Linter teilweise über preferred_terms prüfbar.
+- ste: '1.12'
+  stg: [STG-1.12]
+  relation: equivalent
+  note: Kategorien technischer Verben werden für das Deutsche beibehalten.
+- ste: '1.13'
+  stg: [STG-1.13]
+  relation: equivalent
+  note: Gilt im Deutschen besonders für substantivierte Infinitive.
+- ste: '1.14'
+  stg: [STG-1.14]
+  relation: replaced
+  note: Statt amerikanischer Schreibung gilt die deklarierte deutsche Rechtschreibung (Standard de-DE).
+- ste: '2.1'
+  stg: [STG-2.1]
+  related: [STG-DE-2.1, STG-DE-2.2]
+  relation: adapted
+  note: Deutsche Komposita schreiben Mehrwortbenennungen zusammen; STG-DE begrenzt deshalb die Zahl der Bedeutungsbestandteile statt der Wortzahl.
+- ste: '2.2'
+  stg: [STG-2.2]
+  related: [STG-DE-2.3]
+  relation: equivalent
+  note: Lange Benennung zuerst vollständig, danach eine stabile Kurzform.
+- ste: '3.1'
+  stg: [STG-3.1]
+  relation: equivalent
+  note: Nur Verbformen, die das Lexikon für den Eintrag erlaubt.
+- ste: '3.2'
+  stg: [STG-3.2]
+  related: [STG-DE-3.3]
+  relation: adapted
+  note: Formaler Imperativ für Anweisungen, Präsens für Beschreibungen; Präteritum, Perfekt und Futur nur bei echtem Zeitbezug.
+- ste: '3.3'
+  stg: [STG-3.3]
+  relation: equivalent
+  note: Partizip II für Zustand oder Attribut.
+- ste: '3.4'
+  stg: [STG-3.4]
+  related: [STG-DE-3.3]
+  relation: adapted
+  note: Gilt für deutsche Hilfs- und Modalverbketten (z. B. "muss geprüft worden sein").
+- ste: '3.5'
+  stg: [STG-3.5]
+  relation: replaced
+  note: Das Deutsche hat keine -ing-Form; das gleiche Risiko liegt in produktiver Nominalisierung.
+- ste: '3.6'
+  stg: [STG-3.6]
+  related: [STG-DE-3.3, STG-DE-4.3]
+  relation: adapted
+  note: Aktiv als Standard; Vorgangspassiv mit "werden" nur bei unbekanntem oder irrelevantem Akteur in Beschreibungen.
+- ste: '3.7'
+  stg: [STG-3.7]
+  related: [STG-9.3]
+  relation: adapted
+  note: Gilt im Deutschen besonders für Funktionsverbgefüge ("zur Anwendung bringen").
+- ste: '4.1'
+  stg: [STG-4.1]
+  related: [STG-DE-4.1]
+  relation: adapted
+  note: Ergänzt um die Begrenzung von Nebensatzverschachtelung und langen Satzklammern.
+- ste: '4.2'
+  stg: [STG-4.2]
+  relation: adapted
+  note: Kontraktionen sind im Deutschen vor allem Präposition plus Artikel (am, im, zum); sie sind zulässig, wenn das Lexikon sie führt.
+- ste: '4.3'
+  stg: [STG-4.3]
+  related: [STG-8.4]
+  relation: equivalent
+  note: Vertikale Listen für komplexe Aufzählungen und Bedingungen.
+- ste: '4.4'
+  stg: [STG-4.4]
+  related: [STG-DE-4.5]
+  relation: adapted
+  note: Logische Verknüpfungen explizit; Pronominaladverbien als Verknüpfung brauchen einen eindeutigen Bezug.
+- ste: '4.5'
+  stg: [STG-4.5]
+  related: [STG-GR-4]
+  relation: adapted
+  note: Neu in Issue 9. Im Deutschen tragen Artikel zusätzlich Kasus und Genus und machen den Bezug eindeutig.
+- ste: '5.1'
+  stg: [STG-5.1]
+  relation: equivalent
+  note: Höchstens 20 Wörter je Satz in Prozeduren; deterministisch geprüft.
+- ste: '5.2'
+  stg: [STG-5.2]
+  relation: equivalent
+  note: Eine Anweisung je Satz, außer bei gleichzeitigen Handlungen.
+- ste: '5.3'
+  stg: [STG-5.3]
+  relation: adapted
+  note: Formaler Imperativ mit "Sie"; ein Infinitiv-Profil nur per ausdrücklicher Projektvorgabe.
+- ste: '5.4'
+  stg: [STG-5.4]
+  relation: equivalent
+  note: Bedingung vor der Anweisung, getrennt durch Komma.
+- ste: '5.5'
+  stg: [STG-5.5]
+  relation: equivalent
+  note: Hinweise informieren und enthalten keine Anweisungen.
+- ste: '6.1'
+  stg: [STG-6.1]
+  relation: equivalent
+  note: Informationen schrittweise geben.
+- ste: '6.2'
+  stg: [STG-6.2]
+  relation: equivalent
+  note: Schlüsselwörter und feste Verknüpfungen wiederverwenden.
+- ste: '6.3'
+  stg: [STG-6.3]
+  relation: equivalent
+  note: Höchstens 25 Wörter je Satz in Beschreibungen; deterministisch geprüft.
+- ste: '6.4'
+  stg: [STG-6.4]
+  relation: equivalent
+  note: Verwandte Informationen in Absätzen gruppieren.
+- ste: '6.5'
+  stg: [STG-6.5]
+  relation: equivalent
+  note: Ein Thema je Absatz.
+- ste: '6.6'
+  stg: [STG-6.6]
+  relation: equivalent
+  note: Höchstens sechs Sätze je Absatz; deterministisch geprüft.
+- ste: '7.1'
+  stg: [STG-7.1]
+  relation: adapted
+  note: Deutsche Signalwörter (GEFAHR, WARNUNG, VORSICHT, HINWEIS) nach der geltenden Norm des Projekts, z. B. ISO 3864 oder ANSI Z535.
+- ste: '7.2'
+  stg: [STG-7.2]
+  relation: equivalent
+  note: Sicherheitshinweis beginnt mit Schutzhandlung oder Bedingung.
+- ste: '7.3'
+  stg: [STG-7.3]
+  relation: equivalent
+  note: Gefahr oder Folge nennen.
+- ste: '8.1'
+  stg: [STG-8.1]
+  relation: adapted
+  note: Deutsche Standardzeichensetzung ohne Semikolon; Kommaregeln der deutschen Rechtschreibung bleiben unberührt.
+- ste: '8.2'
+  stg: [STG-8.2]
+  related: [STG-DE-2.2]
+  relation: adapted
+  note: Bindestriche nur für echte Wortstruktur, nicht zum Zerlegen unklarer Komposita.
+- ste: '8.3'
+  stg: [STG-8.3]
+  relation: equivalent
+  note: Klammern nur für die zulässigen Zwecke.
+- ste: '8.4'
+  stg: [STG-8.4]
+  relation: equivalent
+  note: Doppelpunkt vor vertikaler Liste wirkt beim Zählen wie ein Satzende.
+- ste: '8.5'
+  stg: [STG-8.5]
+  relation: adapted
+  note: Klammertext zählt als ein Wort; STG-DE prüft den Klammerinhalt zusätzlich separat.
+- ste: '8.6'
+  stg: [STG-8.6]
+  relation: equivalent
+  note: Zahlen, Zahl plus Einheit, Abkürzungen, Kennungen, Zitate, Titel und Eigennamen zählen je als ein Wort.
+- ste: '8.7'
+  stg: [STG-8.7]
+  relation: equivalent
+  note: Bindestrichkomposita zählen als ein Wort.
+- ste: '9.1'
+  stg: [STG-9.1]
+  relation: equivalent
+  note: Satz neu bauen, wenn ein Wortersatz nicht reicht.
+- ste: '9.2'
+  stg: [STG-9.2]
+  relation: equivalent
+  note: Freigegebene Wörter korrekt verwenden.
+- ste: '9.3'
+  stg: [STG-9.3]
+  related: [STG-DE-3.1]
+  relation: replaced
+  note: Englische Phrasal Verbs entsprechen im Deutschen idiomatischen Verbgefügen und Funktionsverbgefügen; trennbare Verben regelt STG-DE-3.1.
+- ste: '9.4'
+  stg: [STG-9.4]
+  related: [STG-1.11]
+  relation: equivalent
+  note: Terminologie und Formulierungen konsistent halten.
+general_recommendations:
+- ste: GR-1
+  stg: [STG-GR-1]
+  relation: replaced
+  note: Statt des englischen "that" geht es um explizite deutsche Nebensatzmarker (dass, ob, wenn, weil).
+- ste: GR-2
+  stg: [STG-GR-2]
+  relation: equivalent
+  note: '"mit" auf Mehrdeutigkeit prüfen (Werkzeug, Begleitung, Eigenschaft).'
+- ste: GR-3
+  stg: [STG-GR-3]
+  related: [STG-DE-4.2]
+  relation: equivalent
+  note: Pronomen sparsam und nur mit eindeutigem Bezug.
+- ste: GR-4
+  stg: [STG-GR-4]
+  related: [STG-4.5]
+  relation: adapted
+  note: Demonstrativa (dieser, diese, dieses) immer mit Nomen.
+- ste: GR-5
+  stg: [STG-GR-5]
+  relation: adapted
+  note: Falsche Freunde und Lehnübersetzungen aus dem Englischen prüfen.
+- ste: GR-6
+  stg: [STG-GR-6]
+  related: [STG-DE-2.3]
+  relation: adapted
+  note: Abkürzungen im Fließtext reduzieren, auch deutsche (z. B. bzw., ggf., u. a.).
+- ste: GR-7
+  stg: [STG-GR-7]
+  relation: adapted
+  note: Neutrale Personenbezeichnungen, ohne die Lesbarkeit zu verschlechtern.
+- ste: GR-8
+  stg: [STG-GR-8]
+  relation: replaced
+  note: Statt der englischen Possessivform geht es um deutsche Genitivketten.
+# STG-DE rules without a direct ASD-STE100 counterpart. They cover ambiguity
+# sources that are specific to German or that STE100 handles only implicitly.
+german_extensions:
+- stg: STG-DE-2.1
+  nearest_ste: ['2.1']
+  reason: Komposita sind Terminologieobjekte und werden im Projektglossar geführt.
+- stg: STG-DE-2.2
+  nearest_ste: ['8.2']
+  reason: Bindestriche dürfen unklare Komposita nicht verstecken.
+- stg: STG-DE-2.3
+  nearest_ste: ['2.2']
+  reason: Abkürzungen stabil und sparsam einführen.
+- stg: STG-DE-3.1
+  nearest_ste: ['9.3']
+  reason: Abgetrennte Verbpartikeln am Satzende erzeugen lange Klammern.
+- stg: STG-DE-3.2
+  nearest_ste: ['3.4']
+  reason: Deutsche Modalverben (muss, soll, sollte, kann, darf) brauchen eine feste Bedeutung.
+- stg: STG-DE-3.3
+  nearest_ste: ['3.2', '3.6']
+  reason: werden ist zugleich Futur-, Passiv- und Vollverb.
+- stg: STG-DE-4.1
+  nearest_ste: ['4.1']
+  reason: Verschachtelte Nebensätze und lange Satzklammern.
+- stg: STG-DE-4.2
+  nearest_ste: [GR-3]
+  reason: Genus und Kasus machen Pronomenbezüge im Deutschen oft mehrdeutig.
+- stg: STG-DE-4.3
+  nearest_ste: ['3.6']
+  reason: man versteckt den Akteur wie ein Passiv.
+- stg: STG-DE-4.4
+  nearest_ste: ['4.1']
+  reason: Die Stellung von nicht, kein und nur ändert den Bezugsbereich.
+- stg: STG-DE-4.5
+  nearest_ste: ['4.4', GR-3]
+  reason: Pronominaladverbien (dabei, dazu, davon) haben oft keinen eindeutigen Bezug.
+- stg: STG-DE-8.1
+  nearest_ste: ['8.1']
+  reason: Schrägstrichformen wie und/oder sind logisch mehrdeutig.
+- stg: STG-DE-9.1
+  nearest_ste: ['9.1']
+  reason: Modalpartikeln (ja, eben, halt, mal) tragen keine technische Information.
+- stg: STG-DE-9.2
+  nearest_ste: ['1.3']
+  reason: Vage Angaben (zeitnah, ordnungsgemäß, ausreichend) ohne messbares Kriterium.
