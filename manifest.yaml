@@ -24,8 +24,8 @@ files:
   size_bytes: 1087
   sha256: 4979ba9a7d18b9d578292bcac454ac340a5355460e9b73145aceea78ff56181e
 - path: .github/workflows/release.yml
-  size_bytes: 2895
-  sha256: 7c14932723de3fbaa1c9ca91e0fb496652a7a97db6c4ab31a306b3580b828ae4
+  size_bytes: 2170
+  sha256: 559b6909cd370a02c9b12704ee1de185ca8d11ebe77092fe8f4d96502d75eb47
 - path: .gitignore
   size_bytes: 92
   sha256: f6b83cfae75f02edeee1892620ef78be3b9bdee1b823c4e9866cbca9c2a02257
