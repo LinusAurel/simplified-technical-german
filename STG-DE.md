@@ -1,6 +1,6 @@
 # STG-DE — Vereinfachtes Technisches Deutsch
 
-Eigenständige Fassung der Spezifikation für Release 0.5.0. Die Dateien im Repository bleiben die kanonische Quelle.
+Eigenständige Fassung der Spezifikation für Release 0.6.0. Die Dateien im Repository bleiben die kanonische Quelle.
 
 ---
 
@@ -1328,7 +1328,7 @@ Wenn kein messbares Kriterium verfügbar ist, fordern Sie Domäneninformationen 
 
 # STG-DE controlled dictionary — v0.4
 
-**Release:** 0.5.0  
+**Release:** 0.6.0  
 **Profile:** `de-DE`  
 **Status:** experimenteller Autorenkern, an einem geschichteten Korpus validiert. Dieser Kern ist in diesem Release kein Wörterbuch der deutschen Allgemeinsprache, das Menschen vollständig geprüft haben.
 
@@ -1791,7 +1791,7 @@ v0.4 ist deutlich stärker als v0.3. Trotzdem ist v0.4 weiterhin ein experimente
 
 ```yaml
 schema_version: '0.4'
-release: 0.5.0
+release: 0.6.0
 rule_or_recommendation_count: 75
 mandatory_or_normative_rule_count: 67
 general_recommendation_count: 8
@@ -2455,7 +2455,7 @@ german_extensions:
 
 ```yaml
 schema_version: '0.4'
-release: 0.5.0
+release: 0.6.0
 status: multi_industry_corpus_validated_authoring_core
 language: de-DE
 normative_for_profile: STG-C-core
@@ -6954,7 +6954,7 @@ entries:
 
 ```yaml
 schema_version: '0.4'
-release: 0.5.0
+release: 0.6.0
 status: corpus_validated_authoring_core
 entries:
 - term: abklemmen
