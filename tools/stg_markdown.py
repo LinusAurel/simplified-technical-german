@@ -6,12 +6,15 @@ import re
 
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
 HTML_COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
+# Regions between these markers are not checked, e.g. intentionally non-compliant examples.
+LINT_OFF_RE = re.compile(r"<!--\s*stg-lint:\s*off\s*-->.*?(?:<!--\s*stg-lint:\s*on\s*-->|\Z)", re.S)
 LIST_ITEM_RE = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s+")
 TABLE_SEPARATOR_RE = re.compile(r"^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)*\|?\s*$")
 
 
 def strip_markdown_code(text: str) -> str:
-    """Blank fenced code blocks and HTML comments; keep the line count for line numbers."""
+    """Blank fenced code, HTML comments, and stg-lint:off regions; keep the line count."""
+    text = LINT_OFF_RE.sub(lambda m: "\n" * m.group(0).count("\n"), text)
     text = HTML_COMMENT_RE.sub(lambda m: "\n" * m.group(0).count("\n"), text)
     out, fence = [], None
     for line in text.splitlines():
