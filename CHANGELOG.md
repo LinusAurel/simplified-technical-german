@@ -2,6 +2,27 @@
 
 ## Unveröffentlicht
 
+### Korpus: Branchen und Textsorten (Issue #18)
+
+- 15 neue öffentliche Quellen in `corpus/v0.5-sources.yaml`. Die neuen Domänen sind Embedded und IoT, funktionale Sicherheit, Produktsicherheit, Messtechnik, IIoT und Energietechnik, Finanzen, B2B-Software und Texte für Agenten. Eine neue Quelle ist ein zweites Medizinprodukt. Neue Textsorten sind Release Notes, Anleitungen für Firmware-Updates, Anforderungsspezifikationen, FAQ für Hersteller und Anweisungen für Agenten.
+- Das Korpus hat jetzt 359.075 Token aus 28 Quellen.
+- Jede Quelle hat jetzt die Felder `text_type`, `organization`, `accessed_on` und `extraction_method`.
+- Eine Obergrenze von 10.000 Token je Quelle gleicht die Kennzahlen aus (`capped_tokens`, `capped_coverage`). Die größte Quelle hat jetzt 9,4 % der begrenzten Token. Vorher hatte das Medizinhandbuch 59 % aller Token.
+- Neue Holdout-Partition mit 7 Quellen. Die 4 Quellen der Messung für Linter 0.6.0 sind jetzt in der Entwicklungspartition (`previous_partition: holdout`, Protokoll Abschnitt 9).
+- `build_corpus_v05.py` liest Textdateien auch in der Kodierung cp1252, meldet Kennzahlen je Textsorte und liest die Version aus `pyproject.toml`.
+
+### Evaluation und Beispiele
+
+- 7 neue Fälle in `evals/cases.yaml`. Die Fälle sind eine Anforderung nach dem Muster EARS, eine Sicherheitsanforderung mit SIL, Release Notes, eine Meldung einer Schwachstelle und eine Prüfanweisung. Dazu kommen eine Anleitung für ein Firmware-Update und ein Audit.
+- Vier Beispiel-Glossare in `examples/glossaries/`: Embedded und IoT, funktionale Sicherheit, Produktsicherheit, Medizinprodukte.
+
+### Werkzeug für die Präzisionsmessung (Issue #19)
+
+- Fehler korrigiert: Die Stichprobe der Sätze ohne Befund konnte Sätze mit einem gemeldeten Wort enthalten. Der Linter meldet ein Wort aus der Sperrliste nur einmal je Dokument. Das Werkzeug prüft jetzt jeden Satz der Stichprobe einzeln.
+- Die Bewertungsdatei enthält jetzt die Quellen mit Hash und die Version des Linters. `score` verwendet diese Quellen.
+- Neue Bewertung `skip`: Ein Eintrag zählt dann nicht in den Kennzahlen.
+- Neue Optionen `--sources` und `--prefill` für `sample`.
+
 ### Präzision auf dem Holdout (Issue #3)
 
 - Neues Werkzeug `tools/holdout_precision.py`: Stichprobe von Befunden auf dem Holdout, Bewertung und Kennzahlen. Fremder Text bleibt außerhalb des Repositorys.

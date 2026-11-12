@@ -4,7 +4,7 @@ Dieses Verzeichnis misst, wie gut ein Agent STG-DE mit dem mitgelieferten Skill 
 
 | Datei | Zweck |
 |---|---|
-| `cases.yaml` | 12 Fälle für WRITE, REWRITE und AUDIT in allen sieben Profilen, mit maschinell prüfbaren Erwartungen. |
+| `cases.yaml` | 20 Fälle für WRITE, REWRITE und AUDIT in allen sieben Profilen, mit maschinell prüfbaren Erwartungen. Die Fälle decken auch Anforderungen nach EARS, Sicherheitsanforderungen, Release Notes, Meldungen von Schwachstellen, Prüfanweisungen und Firmware-Updates ab. |
 | `triggers.yaml` | Anfragen, bei denen der Agent den Skill laden soll, und Anfragen, bei denen der Agent den Skill nicht laden soll. Prüfen Sie mit diesen Anfragen die `description` des Skills. |
 | `reference/` | Referenzausgaben. Die Referenzausgaben bestehen jede Prüfung und belegen, dass das Bewertungswerkzeug funktioniert. |
 

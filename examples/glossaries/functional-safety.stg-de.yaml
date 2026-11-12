@@ -1,0 +1,46 @@
+# Example project glossary: functional safety (IEC 61508, ISO 13849, ISO 26262).
+# The definitions are short working definitions. The standard of the project is authoritative.
+version: 1
+anrede: sie
+technical_nouns:
+  - term: "Sicherheitsfunktion"
+    definition: "Funktion, die bei einem Fehler einen sicheren Zustand herstellt oder hält"
+  - term: "sicherer Zustand"
+    definition: "Zustand, in dem von der Maschine oder vom Gerät keine unzulässige Gefahr ausgeht"
+  - term: "Fehlertoleranzzeit"
+    definition: "Zeit zwischen dem Auftreten eines Fehlers und dem Eintritt einer Gefährdung"
+  - term: "Diagnosedeckungsgrad"
+    definition: "Anteil gefährlicher Ausfälle, den die Diagnose erkennt (DC)"
+  - term: "Gefährdungsanalyse"
+    definition: "Systematische Ermittlung von Gefährdungen und ihrer Risiken"
+  - term: "Sicherheitsintegritätslevel"
+    definition: "Stufe der Anforderungen an eine Sicherheitsfunktion nach IEC 61508 (SIL)"
+  - term: "Performance Level"
+    definition: "Stufe der Zuverlässigkeit einer Sicherheitsfunktion nach ISO 13849 (PL)"
+  - term: "Fehlerausschluss"
+    definition: "Begründete Annahme, dass ein bestimmter Fehler nicht auftritt"
+  - term: "Kanal"
+    definition: "Unabhängiger Signalpfad einer Sicherheitsfunktion"
+  - term: "Wiederanlauf"
+    definition: "Erneuter Start einer Maschine nach einem Halt"
+protected_terms:
+  - "SIL 1"
+  - "SIL 2"
+  - "SIL 3"
+  - "PL a"
+  - "PL b"
+  - "PL c"
+  - "PL d"
+  - "PL e"
+  - "ASIL"
+  - "FMEA"
+  - "FMEDA"
+  - "PFH"
+  - "SFF"
+  - "MTTFd"
+  - "FSoE"
+preferred_terms:
+  - preferred: "sicherer Zustand"
+    avoid: ["sicherer Betriebszustand", "Safe State"]
+  - preferred: "Fehlertoleranzzeit"
+    avoid: ["Fehlerreaktionszeit"]

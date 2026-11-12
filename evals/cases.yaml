@@ -136,3 +136,76 @@ cases:
     2. Prüfen Sie den Druck.
   expected_rules: []
   expected_result: PASS
+
+# Text types from embedded, IoT, functional safety, and product security work (STG-DE 0.7).
+
+- id: rewrite-requirement-ears-overvoltage
+  operation: REWRITE
+  profile: requirement
+  # EARS pattern "Wenn <Auslöser>, muss <System> <Reaktion>". "ggf." hides whether the log entry is required.
+  input: >-
+    Bei Überspannung (> 30 V) ist durch die Steuerung sicherzustellen, dass der Ausgang innerhalb von
+    max. 10 ms abgeschaltet wird und ggf. ein Fehlereintrag im Log erzeugt wird.
+  must_contain: ["30 V", "10 ms", Steuerung]
+  must_not_contain: [ggf.]
+  expect_note: true
+
+- id: rewrite-safety-requirement-sil
+  operation: REWRITE
+  profile: requirement
+  input: >-
+    Die Sicherheitsfunktion SF-02 (SIL 2) muss bei Erkennung eines Kanalfehlers den sicheren Zustand
+    (Motor stromlos) innerhalb der Fehlertoleranzzeit von 50 ms herbeiführen, wobei ein automatischer
+    Wiederanlauf nicht erfolgen darf.
+  must_contain: [SF-02, SIL 2, "50 ms", nicht]
+
+- id: rewrite-release-notes-firmware
+  operation: REWRITE
+  profile: description
+  input: >-
+    Mit der Firmware-Version 2.4.1 wurde ein Fehler behoben, durch den es bei aktivierter TLS-Verbindung
+    sporadisch zu Verbindungsabbrüchen zum MQTT-Broker kommen konnte; zudem wird das Gerätezertifikat
+    nun 30 Tage vor Ablauf automatisch erneuert.
+  must_contain: ["2.4.1", TLS, MQTT, "30"]
+  must_not_contain: [";"]
+
+- id: rewrite-vulnerability-notice
+  operation: REWRITE
+  profile: safety
+  # Advisory for a vulnerability handling process (CRA). "zeitnah" has no measurable meaning.
+  input: >-
+    Eine Schwachstelle (CVE-2026-12345, CVSS 8.1) in der Weboberfläche ermöglicht es einem nicht
+    authentifizierten Angreifer im lokalen Netz, beliebige Befehle auszuführen. Betroffen sind alle
+    Versionen vor 3.2.0. Es wird dringend empfohlen, zeitnah auf Version 3.2.0 zu aktualisieren.
+  must_contain: [CVE-2026-12345, "8.1", "3.2.0"]
+  must_not_contain: [zeitnah]
+
+- id: rewrite-test-instruction-insulation
+  operation: REWRITE
+  profile: procedure
+  input: >-
+    Zur Prüfung des Isolationswiderstands wird zwischen L/N und PE eine Prüfspannung von 500 V DC
+    angelegt; der gemessene Wert muss größer als 2 MΩ sein, andernfalls ist die Baugruppe als
+    fehlerhaft zu kennzeichnen und auszusortieren.
+  must_contain: ["500 V", "2 MΩ", PE]
+  must_not_contain: [";"]
+
+- id: write-procedure-firmware-update
+  operation: WRITE
+  profile: procedure
+  input: >-
+    Schreibe eine Anleitung für das Firmware-Update des Gateways GW-200 über die Weboberfläche:
+    Datei fw-2.4.1.bin herunterladen, im Menü „System > Update“ die Datei auswählen, auf „Installieren“
+    klicken. Das Gateway darf während des Updates nicht von der Stromversorgung getrennt werden. Das
+    Update ist fertig, wenn die LED STATUS grün leuchtet (nach ungefähr 3 Minuten).
+  must_contain: [GW-200, fw-2.4.1.bin, "„System > Update“", "„Installieren“", STATUS, "3"]
+  must_not_contain: [" man "]
+
+- id: audit-requirement-iot
+  operation: AUDIT
+  profile: requirement
+  input: >-
+    Das Gateway soll Telemetriedaten zeitnah an die Cloud übertragen; bei Verbindungsverlust werden die
+    Daten ggf. lokal gepuffert.
+  expected_rules: [STG-1.1, STG-8.1]
+  expected_result: FAIL
