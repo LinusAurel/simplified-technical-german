@@ -1,6 +1,10 @@
 # Änderungsprotokoll
 
-## Unveröffentlicht
+## 0.5.0 — 2026-11-12
+
+### Agent Skill
+
+- Der Skill verlangt nach jedem WRITE und REWRITE einen erneuten Lauf des Linters mit dem Endergebnis. Der Agent behebt jeden Befund mit der Stufe `error`, bevor er das Ergebnis zurückgibt. Ein vages Wort wie `ggf.` oder `zeitnah` ersetzt der Agent durch die genaue Bedingung oder Frist aus dem Ausgangstext, sonst schreibt er eine `Hinweis:`-Zeile. In den Evaluationen waren solche Wörter die häufigste Ursache für Fehler.
 
 ### Linter
 
