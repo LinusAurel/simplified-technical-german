@@ -12,7 +12,7 @@
 - Begriffsindex und Zahlen des Wörterbuchs,
 - Kategoriemodelle für technische Substantive und technische Verben in Projekten und Domänen.
 
-Die Zahl der Einträge steht in `coverage.yaml`. Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kontrolliertes Wörterbuch mit definierten Bedeutungen, Wortarten und freigegebenen Formen.
+Die Zahl der Einträge steht in der [`README.md`](../README.md) des Repositorys. Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kontrolliertes Wörterbuch mit definierten Bedeutungen, Wortarten und freigegebenen Formen.
 
 ## Dateien
 
@@ -20,7 +20,6 @@ Die Zahl der Einträge steht in `coverage.yaml`. Das Lexikon ist unabhängig fü
 - `prohibited-words.yaml` — verbotene oder prüfpflichtige Formulierungen mit Hinweisen zur Umformulierung.
 - `contractions.yaml` — Normalisierung von Präposition und Artikel vor der lexikalischen Suche.
 - `concept-index.yaml` — Index der kontrollierten Bedeutungen für Agenten und Validatoren.
-- `coverage.yaml` — Zahl der Einträge, Bedeutungen und Regeln.
 - `DECISIONS.md` — Begründungen für die Kuratierung.
 - `MORPHOLOGY.md` — Auflösung von Lemma, Flexion und trennbaren Verben.
 - `technical-nouns.yaml` — Kategorien für technische Substantive in Projekten und Domänen.

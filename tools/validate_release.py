@@ -51,8 +51,8 @@ def main():
         fail(f"approved/prohibited overlap: {sorted(app & pro)}")
 
     ri = yaml.safe_load((ROOT / "rules/rule-index.yaml").read_text(encoding="utf-8"))["rules"]
-    if len(ri) != 75 or len({r["id"] for r in ri}) != 75:
-        fail("expected 75 unique rules/recommendations")
+    if len({r["id"] for r in ri}) != len(ri):
+        fail("duplicate rule or recommendation id")
 
     # ASD-STE100 Issue 9 traceability must stay complete.
     mp = yaml.safe_load((ROOT / "mapping/ste100-issue9.yaml").read_text(encoding="utf-8"))

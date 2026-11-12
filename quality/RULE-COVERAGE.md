@@ -16,7 +16,7 @@ Eine Regel kann Teil des STG-DE-Standards sein, auch wenn der derzeitige Validat
 
 ## Implementierte Abdeckung
 
-`quality/rule-coverage.yaml` ist die maßgebliche Liste. Diese Liste nennt für jede der 75 Regeln und Empfehlungen die Erkennungsklasse und den Stand der Implementierung. 19 Regeln haben eine implementierte Prüfung: 9 Regeln im Linter und 10 Regeln im Analyzer.
+`quality/rule-coverage.yaml` ist die maßgebliche Liste. Diese Liste nennt für jede Regel und Empfehlung die Erkennungsklasse und den Stand der Implementierung. 19 Regeln haben eine implementierte Prüfung: 9 Regeln im Linter und 10 Regeln im Analyzer.
 
 ### Linter (`stg_de/stg_lint.py`)
 
