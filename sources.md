@@ -6,7 +6,7 @@ Die deutschen Regeln, die Beispiele, das Terminologiemodell und das Wörterbuch 
 
 ## Sprachliche Basis
 
-Die sprachliche Basis ist Standarddeutsch (`de-DE`). Rechtschreibung und Flexion sollen dem aktuellen Gebrauch des Standarddeutschen folgen. Projektspezifische Terminologie kann das zentrale Lexikon erweitern, ohne die Spezifikation der Kernsprache zu ändern.
+Die sprachliche Basis ist Standarddeutsch (`de-DE`). Rechtschreibung und Flexion sollen dem derzeitigen Gebrauch des Standarddeutschen folgen. Projektspezifische Terminologie kann das zentrale Lexikon erweitern, ohne die Spezifikation der Kernsprache zu ändern.
 
 ## Öffentliche Korpusbelege
 

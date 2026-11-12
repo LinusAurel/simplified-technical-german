@@ -9,7 +9,8 @@ HTML_COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 FRONT_MATTER_RE = re.compile(r"\A---\n.*?\n---[ \t]*(?:\n|\Z)", re.S)
 # Regions between these markers are not checked, e.g. intentionally non-compliant examples.
 LINT_OFF_RE = re.compile(r"<!--\s*stg-lint:\s*off\s*-->.*?(?:<!--\s*stg-lint:\s*on\s*-->|\Z)", re.S)
-LIST_ITEM_RE = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s+")
+# Markdown list markers and the bullets common in plain text, PDF, and Word exports.
+LIST_ITEM_RE = re.compile(r"^\s*(?:[-*+•‣◦▪▸→–]|\d+[.)])\s+")
 TABLE_SEPARATOR_RE = re.compile(r"^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)*\|?\s*$")
 
 
@@ -70,3 +71,30 @@ def prose_blocks(text: str) -> list[str]:
             current.append(stripped)
     flush()
     return [b for b in blocks if b]
+
+
+SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])(?:[\"'»”)]*)\s+(?=[A-ZÄÖÜ0-9„\"'([])")
+# A period after these abbreviations does not end a sentence.
+ABBREVIATIONS = (
+    "bzw", "ca", "ggf", "evtl", "vgl", "inkl", "exkl", "bspw", "sog", "zzgl", "Dr", "Hr", "Hrsg",
+    "z. B", "z.B", "d. h", "d.h", "u. a", "u.a", "u. U", "i. d. R", "o. Ä", "v. a", "s. o", "s. u", "z. T",
+)
+# These abbreviations are protected only before a number ("Nr. 5", "Abb. 3").
+NUMBERED_ABBREVIATIONS = ("Nr", "Abb", "Kap", "Abs", "Art", "Ziff", "Tab", "Pos", "Bd", "S", "Tel", "max", "min", "ca")
+ABBREVIATION_RE = re.compile(
+    r"(?<![\wÄÖÜäöüß])(" + "|".join(re.escape(a) for a in sorted(ABBREVIATIONS, key=len, reverse=True)) + r")\."
+    + r"|(?<![\wÄÖÜäöüß])((?i:" + "|".join(re.escape(a) for a in NUMBERED_ABBREVIATIONS) + r"))\.(?=\s*\d)"
+)
+MONTHS = "Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember"
+ORDINAL_DATE_RE = re.compile(r"(?<!\d)(\d{1,2})\.(?=\s+(?:" + MONTHS + r")\b)")
+PROTECTED_DOT = "\u2024"  # one-dot leader, restored after splitting
+
+
+def split_sentences(text: str) -> list[str]:
+    """Split prose into sentences without splitting after abbreviations or ordinal dates."""
+    text = re.sub(r"\s+", " ", text.strip())
+    if not text:
+        return []
+    protected = ABBREVIATION_RE.sub(lambda m: (m.group(1) or m.group(2)).replace(".", PROTECTED_DOT) + PROTECTED_DOT, text)
+    protected = ORDINAL_DATE_RE.sub(lambda m: m.group(1) + PROTECTED_DOT, protected)
+    return [part.strip().replace(PROTECTED_DOT, ".") for part in SENTENCE_SPLIT_RE.split(protected) if part.strip()]

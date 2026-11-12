@@ -1,5 +1,19 @@
 # Änderungsprotokoll
 
+## Unveröffentlicht
+
+### Präzision auf dem Holdout (Issue #3)
+
+- Neues Werkzeug `tools/holdout_precision.py`: Stichprobe von Befunden auf dem Holdout, Bewertung und Kennzahlen. Fremder Text bleibt außerhalb des Repositorys.
+- Erste Messung für Linter 0.6.0 in `corpus/HOLDOUT-PRECISION.md` und `corpus/holdout-precision.yaml`: 92,9 % Präzision ohne Extraktionsfehler, 57 % der Befunde sind Extraktionsfehler. Ein Modell hat bewertet, ein Mensch hat die Bewertung noch nicht geprüft.
+
+### Linter
+
+- Befunde zu `STG-1.1` nennen jetzt den ersten Satz mit dem Wort und die Zahl der Sätze mit dem Wort (`occurrences`).
+- `•`, `‣`, `◦`, `▪`, `▸`, `→` und `–` am Zeilenanfang gelten als Listenpunkte.
+- Abkürzungen wie `bzw.`, `z. B.`, `ca.`, `Nr. 5`, `Abb. 3` und Datumsangaben wie `31. Dezember` beenden keinen Satz mehr. Linter und Analysewerkzeug verwenden dieselbe Satztrennung aus `stg_markdown.py`.
+- Der Linter wertet das Feld `surface_forms` der Sperrliste aus. 20 gesperrte Adjektive haben gebeugte Formen erhalten, zum Beispiel `aktuellen` und `einfache`.
+
 ## 0.6.0 — 2026-11-12
 
 Diese Version macht STG-DE in OpenAI Codex nutzbar und automatisiert Release und Aufräumen auf GitHub. Regeln, Wörterbuch und Werkzeuge bleiben inhaltlich gleich.

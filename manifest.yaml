@@ -39,8 +39,8 @@ files:
   size_bytes: 1759
   sha256: 2cb476b425196f405b2c88e73500fd2464e244f0e0b32d3581a75651898d7014
 - path: CHANGELOG.md
-  size_bytes: 7843
-  sha256: bb394da697b9d37d6f4cf7b7f9e7bc9614257ce2fc0ed39cfe13b007b1a060ee
+  size_bytes: 8926
+  sha256: 583831b4ea271ee1b809e40c6fc9cdb5c9e0dd0c87b7abaeeb63333a375c94dd
 - path: CITATION.cff
   size_bytes: 471
   sha256: fcb137ce311cbeb3c36691e86d83d79d58a1f2347f59417d65f98bfd3bad06b7
@@ -57,35 +57,41 @@ files:
   size_bytes: 1557
   sha256: 498792fa66b0f67f69adc3f0d4b1ef763db7dae08987527c26210ae64c5887eb
 - path: README.md
-  size_bytes: 13236
-  sha256: aadd1b466dbaff80c3db4e76bd383b5de65b05994b9bedf10b48dfebf5b4b56a
+  size_bytes: 13226
+  sha256: e017975e1df17a9319bef0cb93750d4f6306d89819c61051c86e3c013a571188
 - path: RELEASE-CHECKLIST.md
   size_bytes: 4883
   sha256: 24b705c24bb220b3e096d82cdc8910acc8c7c2be729e50f70e882d685c3d572f
 - path: ROADMAP.md
-  size_bytes: 10129
-  sha256: 759751b00437e994356fb541e920fc7599ae2a690db7863944f40d7ae9715af9
+  size_bytes: 10252
+  sha256: 16b9e6e2b5d0ea9074c4ddd23610d19e16b47f796f93de0af9523030530b3d65
 - path: STG-DE.md
-  size_bytes: 265332
-  sha256: f7d8053b8ea28d45faa6db141d34af31bc0219c26590cb7e16897e0e19101aa1
+  size_bytes: 267122
+  sha256: 9c9cca1bf0cc89765314af71a33915d1c8f6ba122d18a4635e6e1f78cee8819c
 - path: VERSIONING.md
   size_bytes: 3559
   sha256: 8c24e383449f5ce32a144d15d0e204c8d5c6006805e86b3836d39f7995a62e06
 - path: action.yml
   size_bytes: 1540
   sha256: d25e5a4026890fef03d5fc1591d328466ffdcd3e83122208c1d7a5fabcc64fa7
+- path: corpus/HOLDOUT-PRECISION.md
+  size_bytes: 4612
+  sha256: 18a051a9f3f8f05ed25d4f382aa76b3b4165f0405cd8c2d21194ce85bdd659b3
 - path: corpus/PROTOCOL.md
   size_bytes: 7677
   sha256: 470e923eb9c73603a10ea8a13009eeaf971130b6bd021fd7c9a64e8a4b047ce4
 - path: corpus/README.md
-  size_bytes: 1393
-  sha256: bb405020010fe9f9c74d5889a89f262891af59f93a0232b16860e82236077562
+  size_bytes: 1562
+  sha256: aa093c1b726f92f8f92838bcd552c25a305cb96c3b08a21c53ace08a8f24cc4f
 - path: corpus/coverage-curves.csv
   size_bytes: 5166
   sha256: 3bd11a8353c12cc8f7abb8c68674d53ce2c6a53e9271cd34fdc9d4434f9e40c8
 - path: corpus/findings.yaml
   size_bytes: 10710
   sha256: 8f42140553af75ddeaa566f5b73414b64bed105f788825d3d9f421bb95318718
+- path: corpus/holdout-precision.yaml
+  size_bytes: 11428
+  sha256: ce0f49ef6e37ce8d4637acbc7ec8592ad8c40acf7e015d33546ba4d8fd351247
 - path: corpus/industry-metrics.csv
   size_bytes: 587
   sha256: 5bc3edf5c219a8edde6631c5dfb98136de5cde2f54622e541767c68218b26e43
@@ -105,8 +111,8 @@ files:
   size_bytes: 6900
   sha256: 2fdaa218280d446f522d7f47c709f4eec6cf608ae99cb65e906c2964b20f4181
 - path: dictionary/DECISIONS.md
-  size_bytes: 9622
-  sha256: 2705a1fb26e2c87d4032afcb3fe9e89745261fcda999f5ff85ca7c10b7e905c1
+  size_bytes: 9625
+  sha256: f97cba17fad6d537cfeb4709def63930f2db3b51ef4fd0d3bca9e3818b1a778e
 - path: dictionary/GOVERNANCE.md
   size_bytes: 7156
   sha256: ba4b584ade130cd542c706f2ba11203b339f0b3f5ca946138b179abc3cb956ff
@@ -129,8 +135,8 @@ files:
   size_bytes: 681
   sha256: 461033f5f5fe740a79426c2cbd827447a6a01bebeeaacc3eed531152a5732300
 - path: dictionary/prohibited-words.yaml
-  size_bytes: 29531
-  sha256: d2a2e49f63b7c00d69b493767c629072cf61ac7b5e349cb69af07503205338e0
+  size_bytes: 31316
+  sha256: eb13334c77d7464ddbb6c811580b147aec25d3c9a25d9ee22f3f07a9d745c797
 - path: dictionary/proposals/TEMPLATE.yaml
   size_bytes: 957
   sha256: 8724c0d0d571bfd5bc7824d106bfeb6c50806dfef1998eb81eee14c408bdc487
@@ -213,8 +219,8 @@ files:
   size_bytes: 3358
   sha256: 5f8764e8f7d75569a0b3d081dd1d9dc812b051b180890a9eb76f478f25a26acc
 - path: proposals/STG-2026-001-anrede.md
-  size_bytes: 4955
-  sha256: 6f2a95b93e0c461279e5328ae80e6639875e940ee2717f8e1d29d5622d284537
+  size_bytes: 4956
+  sha256: 7e7e2c2418a1d35e1fe5b741a041db7fb69108adff3c9afdcd5dc96624f935b3
 - path: proposals/STG-CHANGE-TEMPLATE.md
   size_bytes: 1714
   sha256: f88742d420d6316b64e0d920cdf48c7308a1a9919aa777041e4f627e13094407
@@ -225,8 +231,8 @@ files:
   size_bytes: 3077
   sha256: 711440e29957e2debf83799cb25097bcdb9cb7bbc0bbfecc446810bb1ff8a2f5
 - path: quality/RULE-COVERAGE.md
-  size_bytes: 8187
-  sha256: baf9ad37ae4851a91a6d031cab87a7b04846c4c72944b832c276439a308fa988
+  size_bytes: 8540
+  sha256: f771b7b196ea9c27186886eedfe06933ab99a7d3e0ff908e1dbb04853f819ea1
 - path: quality/rule-coverage.yaml
   size_bytes: 4068
   sha256: d6363baf1cc3e534403d35c98ac90da86be964d31037768a506ec0d246fd1978
@@ -240,8 +246,8 @@ files:
   size_bytes: 3758
   sha256: 32b1137303f8b00d744a1aad298011d6b2e0a100de478f96bbd6e796a02cb97c
 - path: rules/03-verbs.md
-  size_bytes: 6560
-  sha256: 6d8472c578d2236098fab1c5e864687773dbe406f7d88c5e0a722ee8d224a724
+  size_bytes: 6562
+  sha256: ec831902cc0e3b4c601888de95e4ec2ed09a53474d382884a5ef8b358e73a2ae
 - path: rules/04-sentences.md
   size_bytes: 6140
   sha256: 29ea6fade157e58d15f9d1efed51a82e787ff91654f325ed3ca24072db426e48
@@ -279,8 +285,8 @@ files:
   size_bytes: 727
   sha256: 2b55b12c0b233439577781722d9fe3984bc614b40d8981a592bebbe208c5ab9e
 - path: skills/simplified-technical-german/SKILL.md
-  size_bytes: 15854
-  sha256: 35abec37c9670177935d9515b5b57400d8b82c1b8ed32e9a120aa5b8370f759d
+  size_bytes: 15857
+  sha256: 30a26fab9c71ab66e02d9b4fd0c7276ef22eaf343ad0f85e613abb837b88d933
 - path: skills/simplified-technical-german/agents/openai.yaml
   size_bytes: 279
   sha256: 8157e7ae56af423ec1d6e643e2f9b74be0af7f0d54e9d53ce3676bbaa967cd3b
@@ -288,38 +294,38 @@ files:
   size_bytes: 135348
   sha256: 325e4a358780843b1c4020d2215b5c81ebb2dd53bfe9f2abb8b4275ef93c6a60
 - path: skills/simplified-technical-german/references/dictionary-guide.md
-  size_bytes: 18850
-  sha256: 3c345cc10fa8d715c4cc030b16db963037b34d60e636e2463cdf363d36371793
+  size_bytes: 18853
+  sha256: 78d413195914eae60ed0a9dce5c8352decb09ae9aab05a2ebd3a5bc70d10fd1a
 - path: skills/simplified-technical-german/references/profiles.yaml
   size_bytes: 2039
   sha256: 4c2c8d47b2f39cc6ee22cc35ff6b72153c220070319b231f0b1bf93f714006a8
 - path: skills/simplified-technical-german/references/prohibited-words.yaml
-  size_bytes: 29531
-  sha256: d2a2e49f63b7c00d69b493767c629072cf61ac7b5e349cb69af07503205338e0
+  size_bytes: 31316
+  sha256: eb13334c77d7464ddbb6c811580b147aec25d3c9a25d9ee22f3f07a9d745c797
 - path: skills/simplified-technical-german/references/project-terminology.md
   size_bytes: 1344
   sha256: 5c22109656417903b0d64d34fe9bf3c8488a5c0130419bcfef79de6c695e3c11
 - path: skills/simplified-technical-german/references/rules.md
-  size_bytes: 41397
-  sha256: 4342113852b38857e79cf2c493a1325420c76df872d4aa072f8e9ba898bb7c58
+  size_bytes: 41399
+  sha256: c38431e089bca9be582de88ea3b9991d2efb30f4b2fc023dfa5606f8fc4f3476
 - path: skills/simplified-technical-german/references/validator-contract.md
   size_bytes: 8199
   sha256: 5fdaabb6d96c9eac5379469bacd290bba2774d3168aeb866e4a95fc8a93696f6
 - path: skills/simplified-technical-german/scripts/stg_analyze.py
-  size_bytes: 11344
-  sha256: 2ca83c99340fae9ed36d6159fb60f80481e25993528c088802716abde1753186
+  size_bytes: 11261
+  sha256: 10438a178ef56e2f5a723d54841390ec74d6bc5d4eecb196bf7b693ebd64ece9
 - path: skills/simplified-technical-german/scripts/stg_compare.py
   size_bytes: 15090
   sha256: e69f7f0f12be6f5d7a57ebf2b43cda428e640158be1894ba364b70d872883fb7
 - path: skills/simplified-technical-german/scripts/stg_lint.py
-  size_bytes: 20901
-  sha256: c5217fe13c392be87be438586f52fe96060b648c10aa13b957367e054f2e3928
+  size_bytes: 21447
+  sha256: a361a29d275b71b3f04cc4829b95e91146e007ec69f23e037aaa79b0b5e086dd
 - path: skills/simplified-technical-german/scripts/stg_markdown.py
-  size_bytes: 2691
-  sha256: 998224f58bd4c2cf928897398ad36e56bb879b611fd997f7836a23a09a167763
+  size_bytes: 4434
+  sha256: a1ff853d23e618971073640b417ab6d7aaa13356867c70769d54fd477728531a
 - path: sources.md
-  size_bytes: 1236
-  sha256: 681cae2af86acf9ae44fa2ca32f67075d1bcd51d064f10e312a37a5c65069ad5
+  size_bytes: 1238
+  sha256: 3a41ac10842fbc6c8ffad3d8f95fbe3e3fa982f6e7067bd50107ebe33406f382
 - path: specification.md
   size_bytes: 10323
   sha256: 3d3df6f61ae6042562c6ebab3b19a53ed99e6560c0869480f9584e02f58a5b7d
@@ -333,29 +339,32 @@ files:
   size_bytes: 135348
   sha256: 325e4a358780843b1c4020d2215b5c81ebb2dd53bfe9f2abb8b4275ef93c6a60
 - path: stg_de/dictionary/prohibited-words.yaml
-  size_bytes: 29531
-  sha256: d2a2e49f63b7c00d69b493767c629072cf61ac7b5e349cb69af07503205338e0
+  size_bytes: 31316
+  sha256: eb13334c77d7464ddbb6c811580b147aec25d3c9a25d9ee22f3f07a9d745c797
 - path: stg_de/profiles/profiles.yaml
   size_bytes: 2039
   sha256: 4c2c8d47b2f39cc6ee22cc35ff6b72153c220070319b231f0b1bf93f714006a8
 - path: stg_de/stg_analyze.py
-  size_bytes: 11344
-  sha256: 2ca83c99340fae9ed36d6159fb60f80481e25993528c088802716abde1753186
+  size_bytes: 11261
+  sha256: 10438a178ef56e2f5a723d54841390ec74d6bc5d4eecb196bf7b693ebd64ece9
 - path: stg_de/stg_compare.py
   size_bytes: 15090
   sha256: e69f7f0f12be6f5d7a57ebf2b43cda428e640158be1894ba364b70d872883fb7
 - path: stg_de/stg_lint.py
-  size_bytes: 20901
-  sha256: c5217fe13c392be87be438586f52fe96060b648c10aa13b957367e054f2e3928
+  size_bytes: 21447
+  sha256: a361a29d275b71b3f04cc4829b95e91146e007ec69f23e037aaa79b0b5e086dd
 - path: stg_de/stg_markdown.py
-  size_bytes: 2691
-  sha256: 998224f58bd4c2cf928897398ad36e56bb879b611fd997f7836a23a09a167763
+  size_bytes: 4434
+  sha256: a1ff853d23e618971073640b417ab6d7aaa13356867c70769d54fd477728531a
 - path: tests/test_address.py
   size_bytes: 3371
   sha256: 8ca04b0d56609969ffc858dda4c7b0013ddb467dedca079c52c4d7630346e9dc
 - path: tests/test_evals.py
   size_bytes: 2245
   sha256: 13e3043a3f685761bb7f2dfe7898986864d34f2a0f6576a9fff9890f2a37233c
+- path: tests/test_holdout_precision.py
+  size_bytes: 2404
+  sha256: f845b78a320761952061fb2652918110c2ce23733bcd0b1af04ec4d087bdf43a
 - path: tests/test_lexicon_governance.py
   size_bytes: 1438
   sha256: 097de01cc43464d494b4bee5b32face120dfae0ed69db382ef31a50dbed93117
@@ -363,8 +372,8 @@ files:
   size_bytes: 2690
   sha256: 4b1ff3b6fb560761694e409a4fe08fb987aab300758e18cc78c9386abd4cfc91
 - path: tests/test_markdown.py
-  size_bytes: 2821
-  sha256: ec85031fc2786f6b1b521e1d93d84c11a9f62871ec3372b648d46e31b3b1ffbe
+  size_bytes: 4393
+  sha256: 2ef5cc06a9f9be0e55af8327484d686cdc7168e6d3f04e374fbea9d6a251a152
 - path: tests/test_package_cli.py
   size_bytes: 3467
   sha256: 6a3d28333abc8e6fd9f4262d37f0c0cabdbc004fc48f4223fd51a0b3889bf3ad
@@ -390,8 +399,8 @@ files:
   size_bytes: 5616
   sha256: 4c9f291451d504b18afb2e8fa4c5731e75743b7e9a634fbe4c7bbed0d7c96f95
 - path: tests/test_stg_lint_cli.py
-  size_bytes: 4290
-  sha256: 9b23e0385c3a069302f8c6f9fb5c06927d52b1384bf7cc8ed3ad9fcc5ab1d6e5
+  size_bytes: 4766
+  sha256: 055027eb60d5858f0e5d808c73633df86ecab739f298ed778c14d848af458234
 - path: tools/build_corpus_v05.py
   size_bytes: 7750
   sha256: 0e26dba67f49c422f86b71464d2ffd80c3916d70c1dde870877db50e27cfd2dd
@@ -404,6 +413,9 @@ files:
 - path: tools/corpus_validate.py
   size_bytes: 10798
   sha256: e6a03a7c797ec27962b3a53b92d719cff6d32aa1009cdbab3765830e4f41d80a
+- path: tools/holdout_precision.py
+  size_bytes: 6648
+  sha256: 927557681acfc68ef404a859c8abdef930d328a835f615c4331979a6e9c2593f
 - path: tools/package_skill.py
   size_bytes: 2323
   sha256: b9988471ca5771fa74ffca7e31356dc020c2769b4504fe9dc99f6a0c592ef986
@@ -411,17 +423,17 @@ files:
   size_bytes: 6872
   sha256: a59f9e7215bea4f59b7d6d64b5179f3597d8c506ef6f4a051ad495ea80f94e16
 - path: tools/stg_analyze.py
-  size_bytes: 11344
-  sha256: 2ca83c99340fae9ed36d6159fb60f80481e25993528c088802716abde1753186
+  size_bytes: 11261
+  sha256: 10438a178ef56e2f5a723d54841390ec74d6bc5d4eecb196bf7b693ebd64ece9
 - path: tools/stg_compare.py
   size_bytes: 15090
   sha256: e69f7f0f12be6f5d7a57ebf2b43cda428e640158be1894ba364b70d872883fb7
 - path: tools/stg_lint.py
-  size_bytes: 20901
-  sha256: c5217fe13c392be87be438586f52fe96060b648c10aa13b957367e054f2e3928
+  size_bytes: 21447
+  sha256: a361a29d275b71b3f04cc4829b95e91146e007ec69f23e037aaa79b0b5e086dd
 - path: tools/stg_markdown.py
-  size_bytes: 2691
-  sha256: 998224f58bd4c2cf928897398ad36e56bb879b611fd997f7836a23a09a167763
+  size_bytes: 4434
+  sha256: a1ff853d23e618971073640b417ab6d7aaa13356867c70769d54fd477728531a
 - path: tools/sync_package.py
   size_bytes: 1627
   sha256: d46110779b201689ab4b3cb6c21914ae83a0a396725b4ee712fe367cdd1b75bc
