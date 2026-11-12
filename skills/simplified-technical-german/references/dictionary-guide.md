@@ -9,7 +9,7 @@ Generated from canonical repository documentation.
 
 # STG-DE controlled dictionary — v0.4
 
-**Release:** 0.4.0  
+**Release:** 0.5.0  
 **Profile:** `de-DE`  
 **Status:** stratified-corpus-validated experimental authoring core; not yet a human-reviewed full German general-language dictionary.
 

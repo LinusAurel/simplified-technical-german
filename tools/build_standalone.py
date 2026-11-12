@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-out=["# STG-DE — Simplified Technical German\n\nStandalone specification snapshot for release 0.4.0. The repository files remain the canonical source.\n"]
+VERSION=next(l.split(':',1)[1].strip() for l in (ROOT/'CITATION.cff').read_text(encoding='utf-8').splitlines() if l.startswith('version:'))
+out=["# STG-DE — Simplified Technical German\n\nStandalone specification snapshot for release "+VERSION+". The repository files remain the canonical source.\n"]
 sections=[ROOT/'specification.md']
 sections += sorted((ROOT/'rules').glob('[0-9][0-9]-*.md'))
 sections += [ROOT/'dictionary/README.md', ROOT/'dictionary/MORPHOLOGY.md', ROOT/'dictionary/DECISIONS.md', ROOT/'mapping/README.md', ROOT/'corpus/validation-report.md']
