@@ -1,0 +1,32 @@
+# Example project glossary: medical devices (MDR, IEC 62304, IEC 60601-1, ISO 14971).
+version: 1
+anrede: sie
+technical_nouns:
+  - term: "Medizinprodukt"
+    definition: "Produkt mit medizinischer Zweckbestimmung nach MDR"
+  - term: "Zweckbestimmung"
+    definition: "Verwendung, für die der Hersteller ein Medizinprodukt vorsieht"
+  - term: "Gebrauchsanweisung"
+    definition: "Anleitung des Herstellers für die sichere Anwendung eines Medizinprodukts"
+  - term: "Anwender"
+    definition: "Person, die ein Medizinprodukt bedient, zum Beispiel Pflegepersonal"
+  - term: "Patient"
+    definition: "Person, an der oder für die das Medizinprodukt angewendet wird"
+  - term: "Software-Sicherheitsklasse"
+    definition: "Klasse A, B oder C nach IEC 62304"
+  - term: "Risikomanagementakte"
+    definition: "Dokumentation des Risikomanagements nach ISO 14971"
+  - term: "Alarm"
+    definition: "Signal, das eine sofortige Reaktion des Anwenders erfordert"
+protected_terms:
+  - "MDR"
+  - "IVDR"
+  - "IEC 62304"
+  - "IEC 60601-1"
+  - "ISO 14971"
+  - "UDI"
+preferred_terms:
+  - preferred: "Gebrauchsanweisung"
+    avoid: ["Bedienungsanleitung", "Benutzerhandbuch"]
+  - preferred: "Anwender"
+    avoid: ["Nutzer", "Bediener"]

@@ -15,8 +15,8 @@ files:
   size_bytes: 1654
   sha256: f3a3495a9c37c42327cac0b153d74381246701fd8c1b5fb437c87b35db217307
 - path: .github/workflows/ci.yml
-  size_bytes: 1316
-  sha256: 8193d99cfc502ba458f0f469c5e4563dc296dfbee9782b31b3aea430bd2dde71
+  size_bytes: 1346
+  sha256: 6b8fb0673820f21be5b0b2dd4908cbd78bc221afa3655a16c331ebe10bb21526
 - path: .github/workflows/cleanup-branches.yml
   size_bytes: 2021
   sha256: 1ce01630e0db3da99da49d271730a186cb8cff55113b76fe0677a5b561f6c114
@@ -39,8 +39,8 @@ files:
   size_bytes: 1759
   sha256: 2cb476b425196f405b2c88e73500fd2464e244f0e0b32d3581a75651898d7014
 - path: CHANGELOG.md
-  size_bytes: 8926
-  sha256: 201cdc6411d3b33e10dc9629e2da5a580db911956966bf7b0e15824b311a38fb
+  size_bytes: 11090
+  sha256: 6d03030d31d735628d3cbdb2836d93de2fb60d20c3f03433c9dd51f9f05e8d35
 - path: CITATION.cff
   size_bytes: 471
   sha256: a48872c95f6987187190dc297ee688321af2a7ce50caf2b223ef94c17d7ac094
@@ -147,14 +147,17 @@ files:
   size_bytes: 1273
   sha256: d90a9ba68a6fdc2e0e5101c5c716bc9f6ee3595d4f54e60f9f8725df1ff0af9d
 - path: evals/README.md
-  size_bytes: 2244
-  sha256: d77a7ef55a1ee923754f1e12d23810756b032cd960c2d35653bbec6cd35eec8e
+  size_bytes: 2405
+  sha256: c4d65b71a05f6d19e0d47abee80e7e1df1b68ce72d27cbf26a470c6223d0c706
 - path: evals/cases.yaml
-  size_bytes: 5288
-  sha256: 70ba8d75055c343174a45e005baf10b951acfb2db7a4b8dba35fa26a2922e4bd
+  size_bytes: 8541
+  sha256: fef49f4bb7d4c45d1d94ecdc4e02406bfd870d216dfd7b890331693fcdb6c11c
 - path: evals/reference/audit-compliant.md
   size_bytes: 67
   sha256: 62d0316f06c43f56a54de7eaacb0335d4c093635398275577c776ff3e0aa109d
+- path: evals/reference/audit-requirement-iot.md
+  size_bytes: 564
+  sha256: 95c5c078ce5fe2d755fe4f95cce8e4044c52e0ad272b0bf671d875e5bfcdd440
 - path: evals/reference/audit-violations.md
   size_bytes: 530
   sha256: f0a9d9e6f2c80ecf9ea9977ef680dedfe23e54699883dbf9a1e99bb2c7a04337
@@ -176,21 +179,39 @@ files:
 - path: evals/reference/rewrite-procedure-housing.md
   size_bytes: 177
   sha256: f48dba88b2b8508b47138900ab35391cef0e0f56853ce3c4b77da6c3c91952d2
+- path: evals/reference/rewrite-release-notes-firmware.md
+  size_bytes: 232
+  sha256: e38a8a390c055c63726fc8029b702ead6060df226d73c176286b119b7b6acb07
+- path: evals/reference/rewrite-requirement-ears-overvoltage.md
+  size_bytes: 353
+  sha256: f71a9ed1c32cba4f5f550ed817f5850da748a8e65d96edb9e8440a14abf52bb2
 - path: evals/reference/rewrite-requirement-vague-time.md
   size_bytes: 327
   sha256: c109ca5f03a5b6f280c204e992afd0a72c7a719f8d16b513e9a6b7deca70f22c
 - path: evals/reference/rewrite-safety-guard.md
   size_bytes: 195
   sha256: 0f07e6e891aa996f8ad428aef9869833d6e2873fe197c5c89d54677227765024
+- path: evals/reference/rewrite-safety-requirement-sil.md
+  size_bytes: 233
+  sha256: c3e83b87f11aa41431e4bd2e9361b15003b38d7b696ec12202f752393b56466b
 - path: evals/reference/rewrite-support-password.md
   size_bytes: 181
   sha256: 4bc075728394fba48a849f7f7c3027047c92ee5a32636002b9daf30e77b98e95
+- path: evals/reference/rewrite-test-instruction-insulation.md
+  size_bytes: 319
+  sha256: 37e5eaccde94697464f40b421f48c6f313c82d605d2fbe158f4dbdaa73987fb3
+- path: evals/reference/rewrite-vulnerability-notice.md
+  size_bytes: 437
+  sha256: d9648fd4104aee0c2d2cd7869df8fcc324fa4027254a28d4a02d97d56aecb0ab
 - path: evals/reference/write-description-sensor.md
   size_bytes: 177
   sha256: f770bd6c931b943f9c74e6de7543630f5c9ac17dcc7d8caddd636f657d1564a1
 - path: evals/reference/write-procedure-air-filter.md
   size_bytes: 227
   sha256: e5660d164b6fb15755b040399cbabd7a87d65ff0b01a617725928224ab3260c4
+- path: evals/reference/write-procedure-firmware-update.md
+  size_bytes: 363
+  sha256: 5ec83746336f1e17184a0f208babf9f5e63cca7830bf8d87ea11d9279f05f16f
 - path: evals/triggers.yaml
   size_bytes: 1561
   sha256: 2ff055b63c80b43d3bab3349a13c7476b25221a8b413d8b5a646b9ee6abcc33a
@@ -200,6 +221,21 @@ files:
 - path: examples/dictionary-conformance-tests.yaml
   size_bytes: 564
   sha256: dc1925f729808f7e1f22fd85060655e4fd9c3220ef49c59c791f4aa5aa311998
+- path: examples/glossaries/README.md
+  size_bytes: 1168
+  sha256: c3edcde326ecdeb2e05b5539ef3357c0ce3f2a52f59cf9a107b7b712132c2168
+- path: examples/glossaries/embedded-iot.stg-de.yaml
+  size_bytes: 1834
+  sha256: 5d69e3406db5ae359c78d8c170e0bf36b4fe345366d6875c48db821a74f9c87e
+- path: examples/glossaries/functional-safety.stg-de.yaml
+  size_bytes: 1721
+  sha256: 1616f6b41f8b4dc0d9371fb2033504cb81f5823df64f1d5d5518828e93d04852
+- path: examples/glossaries/medical-devices.stg-de.yaml
+  size_bytes: 1220
+  sha256: b1d5957974899422d8edac66e92e44d16d9c117ff51368f68b9d0e7f49e1f52e
+- path: examples/glossaries/product-security.stg-de.yaml
+  size_bytes: 1263
+  sha256: bf32e3b4fb3305d57e5231d8675909e88c40463e316602892d96eae8d8135986
 - path: examples/golden-audits.yaml
   size_bytes: 1755
   sha256: 708732785e4baec07d6753d2e39c18d0e8bb6136f36bc6bacae10b3a31b7b371
@@ -357,11 +393,11 @@ files:
   size_bytes: 4434
   sha256: a1ff853d23e618971073640b417ab6d7aaa13356867c70769d54fd477728531a
 - path: tests/test_address.py
-  size_bytes: 3371
-  sha256: 8ca04b0d56609969ffc858dda4c7b0013ddb467dedca079c52c4d7630346e9dc
+  size_bytes: 4625
+  sha256: ad8f9a7bc837d016c7816b2f576b46033bc86ad20e20157165f5197d307bf6eb
 - path: tests/test_evals.py
-  size_bytes: 2245
-  sha256: 13e3043a3f685761bb7f2dfe7898986864d34f2a0f6576a9fff9890f2a37233c
+  size_bytes: 2717
+  sha256: 007a97e923809f2dcf4f3a5b3e080d412f08ae622651328e7039eeb286d92f68
 - path: tests/test_holdout_precision.py
   size_bytes: 4507
   sha256: 3d6259bee6ee624b1ab68e90407ac3b8dc9d5cf7a23ce9fe8f16ca7cafd0507d

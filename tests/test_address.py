@@ -66,6 +66,24 @@ class ProjectSchemaTests(unittest.TestCase):
         with self.assertRaises(jsonschema.ValidationError):
             jsonschema.validate({"anrede": "ihr"}, schema)
 
+    def test_example_glossaries_match_schema_and_keep_prohibited_words(self):
+        import jsonschema
+        import yaml
+        schema = json.loads((ROOT / "schemas" / "project.schema.json").read_text(encoding="utf-8"))
+        prohibited = yaml.safe_load((ROOT / "dictionary" / "prohibited-words.yaml").read_text(encoding="utf-8"))
+        banned = {str(e.get("term") or e.get("lemma") or e.get("word")).casefold()
+                  for e in (prohibited.get("entries") or prohibited.get("terms") or [])}
+        files = sorted((ROOT / "examples" / "glossaries").glob("*.stg-de.yaml"))
+        self.assertGreaterEqual(len(files), 4)
+        for path in files:
+            glossary = yaml.safe_load(path.read_text(encoding="utf-8"))
+            jsonschema.validate(glossary, schema)
+            terms = [t["term"] if isinstance(t, dict) else t
+                     for key in ("technical_nouns", "technical_verbs") for t in glossary.get(key, [])]
+            terms += glossary.get("protected_terms", []) + [x["preferred"] for x in glossary.get("preferred_terms", [])]
+            # A glossary term overrides the central prohibited list. Examples must not do that.
+            self.assertFalse([t for t in terms if t.casefold() in banned], path.name)
+
 
 if __name__ == "__main__":
     unittest.main()
