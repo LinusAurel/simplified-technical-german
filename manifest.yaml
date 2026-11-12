@@ -27,8 +27,8 @@ files:
   size_bytes: 6419
   sha256: 31b80e246f297d7c76321d2c8b46faf878fbc1ba653620be8ea98e02c33684d0
 - path: STG-DE.md
-  size_bytes: 236578
-  sha256: bcc0e6c5b9aa4b3cf68b00d788b44787175cd03b0a8f76f8d1bf6a89b19e0803
+  size_bytes: 250583
+  sha256: 8ba7213fd10dfa809b9078c2aaf86c7d93f358c371d4c34aae3c0f85362d4dce
 - path: corpus/README.md
   size_bytes: 1121
   sha256: 192be109ff170a2f6a4f2bcf237ef8a28328166b82dab34574125ccd18c4a7e3
@@ -165,8 +165,8 @@ files:
   size_bytes: 744
   sha256: 911f1af07aad9f598dc82685e7c7d4dfea183819ecff8aca7faa2f290592314e
 - path: tools/build_standalone.py
-  size_bytes: 1027
-  sha256: 5aeb21a61cfe1c7df627fe0c549905625bdf888dc6e9c06bb8efd77408fa9431
+  size_bytes: 1087
+  sha256: 6891e60cc67ac35bbdc69565f7fd92b134dc846680c8bd0f0a88e040088b7ee7
 - path: tools/corpus_validate.py
   size_bytes: 10798
   sha256: c4409a1b1fbc87a825ae6b654627019f187fec2f43417604555cd893fd09976f
@@ -177,8 +177,8 @@ files:
   size_bytes: 2855
   sha256: e424a41195cdf40e834403fc18313dfd8924070a4d6597e58e6e35bf8a5a183d
 - path: tools/validate_release.py
-  size_bytes: 3995
-  sha256: f955f08fda54a839f75c472162b27be80892841e94e116c9e27bce90a1984115
+  size_bytes: 4755
+  sha256: 194913020e52ae92e0b8aac6c63ae16e0e4d39d3fd5447abcf5e7eaa1d0f8506
 - path: validator-contract.md
   size_bytes: 6434
   sha256: c9d5ab0fb3d3dfad81db827c9c4fddac745a34ebc4a2f8c7fb94a28cb000c69d
