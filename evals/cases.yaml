@@ -1,0 +1,126 @@
+# STG-DE Agent Skill evaluation cases.
+#
+# All input texts are written for this project. Each case states machine-checkable
+# expectations. `tools/run_evals.py` scores model outputs against them.
+#
+# Fields:
+#   operation        WRITE | REWRITE | AUDIT
+#   profile          application profile passed to the linter
+#   input            source text (REWRITE/AUDIT) or brief (WRITE)
+#   must_contain     strings that must appear verbatim in the output
+#   must_not_contain strings that must not appear (case-insensitive)
+#   allow_rules      linter rules that may remain (unresolvable without inventing facts)
+#   expect_note      true when the output must contain a "Hinweis:" line
+#   expect_unchanged true when compliant input must be returned unchanged
+#   expected_rules   AUDIT: rule IDs the audit must name
+#   expected_result  AUDIT: PASS | PASS WITH REVIEW | FAIL
+schema_version: '0.5'
+cases:
+- id: rewrite-procedure-housing
+  operation: REWRITE
+  profile: procedure
+  input: >-
+    Bevor man das Gehäuse öffnet, muss der Netzstecker gezogen werden; danach werden die vier
+    Schrauben (M4) mit einem Kreuzschlitzschraubendreher gelöst und das Gehäuse wird nach oben abgenommen.
+  must_contain: [M4, Netzstecker, Gehäuse]
+  must_not_contain: [" man ", ";"]
+
+- id: rewrite-safety-guard
+  operation: REWRITE
+  profile: safety
+  input: >-
+    WARNUNG: Die Schutzhaube darf bei laufendem Motor auf keinen Fall entfernt werden, da es sonst zu
+    schweren Schnittverletzungen an den Händen kommen kann.
+  must_contain: ["WARNUNG", Schutzhaube, Motor]
+
+- id: rewrite-agent-tool-description
+  operation: REWRITE
+  profile: agent
+  input: >-
+    Dieses Tool kann genutzt werden, um Dateien im Arbeitsverzeichnis zu löschen, wobei man beachten muss,
+    dass gelöschte Dateien nicht wiederhergestellt werden können und der Parameter `force` nur dann gesetzt
+    werden darf, wenn der Nutzer die Löschung ausdrücklich bestätigt hat.
+  must_contain: ["`force`"]
+  must_not_contain: [" man "]
+
+- id: rewrite-requirement-vague-time
+  operation: REWRITE
+  profile: requirement
+  input: >-
+    Das System soll Anfragen zeitnah beantworten und bei Fehlern und/oder Zeitüberschreitungen eine
+    Meldung im Protokoll ausgeben.
+  must_contain: [Protokoll]
+  must_not_contain: [und/oder]
+  # The source gives no measurable limit. The rewrite must not invent one.
+  allow_rules: [STG-1.1]
+  expect_note: true
+
+- id: rewrite-support-password
+  operation: REWRITE
+  profile: support
+  input: >-
+    Falls Sie Ihr Passwort vergessen haben sollten, können Sie auf der Anmeldeseite einfach auf
+    „Passwort vergessen“ klicken, woraufhin Ihnen dann eine E-Mail mit einem Link zugeschickt wird, der
+    24 Stunden lang gültig ist.
+  must_contain: ["„Passwort vergessen“", "24"]
+
+- id: rewrite-consumer-battery
+  operation: REWRITE
+  profile: consumer
+  input: >-
+    Um eine möglichst lange Lebensdauer des Akkus zu gewährleisten, sollte das Gerät nicht dauerhaft bei
+    Temperaturen über 35 °C gelagert werden und der Akku sollte vor einer längeren Lagerung auf etwa 50 %
+    geladen werden.
+  must_contain: ["35 °C", "50 %"]
+
+- id: rewrite-error-message
+  operation: REWRITE
+  profile: agent
+  input: >-
+    Fehler: Die Konfiguration konnte nicht geladen werden, da die Datei `config.yaml` entweder nicht
+    vorhanden ist oder ungültiges YAML enthält; bitte prüfen.
+  must_contain: ["`config.yaml`"]
+  must_not_contain: [";"]
+
+- id: rewrite-already-compliant
+  operation: REWRITE
+  profile: procedure
+  input: |-
+    1. Schalten Sie das Gerät aus.
+    2. Ziehen Sie den Netzstecker.
+    3. Warten Sie 5 Minuten.
+  expect_unchanged: true
+
+- id: write-procedure-air-filter
+  operation: WRITE
+  profile: procedure
+  input: >-
+    Schreibe eine Anleitung für den Wechsel des Luftfilters F-12. Schritte: Gerät ausschalten, Abdeckung
+    öffnen (2 Clips), alten Filter entnehmen, neuen Filter F-12 einsetzen, Abdeckung schließen.
+  must_contain: [F-12, "2"]
+  must_not_contain: [" man "]
+
+- id: write-description-sensor
+  operation: WRITE
+  profile: description
+  input: >-
+    Beschreibe in höchstens drei Sätzen den Temperatursensor TS-3: Messbereich -20 °C bis 120 °C,
+    Genauigkeit 0,5 K, Ausgabe alle 2 Sekunden über die Schnittstelle CAN.
+  must_contain: [TS-3, "120 °C", CAN]
+
+- id: audit-violations
+  operation: AUDIT
+  profile: procedure
+  input: >-
+    Man prüft zuerst den Druck; danach wird das Ventil A und/oder B geöffnet.
+  expected_rules: [STG-DE-4.3, STG-8.1, STG-DE-8.1]
+  expected_result: FAIL
+
+- id: audit-compliant
+  operation: AUDIT
+  profile: procedure
+  input: |-
+    1. Schalten Sie das Gerät aus.
+    2. Prüfen Sie den Druck.
+  expected_rules: []
+  expected_result: PASS
