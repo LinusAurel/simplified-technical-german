@@ -23,6 +23,7 @@ import re
 import shlex
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 import yaml
@@ -93,13 +94,14 @@ def score_case(case: dict, output: str) -> dict:
             "ok": passed == len(checks), "checks": checks, "details": details}
 
 
-def generate(cases: list[dict], out_dir: Path, command: str, timeout: int) -> None:
+def generate(cases: list[dict], out_dir: Path, command: str, timeout: int, workdir: Path | None = None) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     for case in cases:
         target = out_dir / f"{case['id']}.md"
         if target.exists():
             continue
-        cp = subprocess.run(shlex.split(command), input=prompt_for(case), text=True, capture_output=True, timeout=timeout)
+        cp = subprocess.run(shlex.split(command), input=prompt_for(case), text=True, capture_output=True,
+                            timeout=timeout, cwd=workdir)
         if cp.returncode:
             print(f"{case['id']}: command failed ({cp.returncode}): {cp.stderr.strip()[:200]}", file=sys.stderr)
             continue
@@ -112,6 +114,8 @@ def main() -> int:
     ap.add_argument("--outputs", required=True, help="Directory with <case-id>.md outputs")
     ap.add_argument("--command", help="Generate missing outputs with this CLI (prompt on stdin)")
     ap.add_argument("--timeout", type=int, default=300)
+    ap.add_argument("--workdir", help="Run the command in this directory. Use an empty directory, so that the agent "
+                    "cannot read the rules of this repository. Default: a new temporary directory")
     ap.add_argument("--format", choices=["text", "json"], default="text")
     ap.add_argument("--min-score", type=float, default=0.0, help="Exit 1 below this share of passed checks (0-1)")
     args = ap.parse_args()
@@ -119,7 +123,12 @@ def main() -> int:
     cases = yaml.safe_load(Path(args.cases).read_text(encoding="utf-8"))["cases"]
     out_dir = Path(args.outputs)
     if args.command:
-        generate(cases, out_dir, args.command, args.timeout)
+        out_dir = out_dir.resolve()
+        if args.workdir:
+            generate(cases, out_dir, args.command, args.timeout, Path(args.workdir))
+        else:
+            with tempfile.TemporaryDirectory() as tmp:
+                generate(cases, out_dir, args.command, args.timeout, Path(tmp))
 
     results = []
     for case in cases:

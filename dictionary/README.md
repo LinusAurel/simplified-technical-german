@@ -1,4 +1,4 @@
-# STG-DE controlled dictionary — v0.1
+# Kontrolliertes Wörterbuch von STG-DE
 
 **Release:** 0.3.0  
 **Profile:** `de-DE`  
@@ -19,7 +19,7 @@ Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kon
 
 ## Dateien
 
-- `approved-words.yaml` — normative Einträge des Autorenkerns v0.1.
+- `approved-words.yaml` — normative Einträge des Autorenkerns.
 - `prohibited-words.yaml` — verbotene oder prüfpflichtige Formulierungen mit Hinweisen zur Umformulierung.
 - `contractions.yaml` — Normalisierung von Präposition und Artikel vor der lexikalischen Suche.
 - `concept-index.yaml` — Index der kontrollierten Bedeutungen für Agenten und Validatoren.
@@ -56,7 +56,7 @@ Ein kanonisches Lemma hat Vorrang vor dem Flexionsalias eines anderen Eintrags. 
 
 ## Richtlinie für das Korpus
 
-Die Häufigkeit im Korpus ist ein Beleg für eine **Prüfung**, keine Freigabe. Version 0.1 nimmt ein Wort nur in den Kern auf, wenn die domänenübergreifende Bedeutung des Worts sinnvoll kontrolliert werden kann. Häufige, aber abstrakte oder mehrdeutige Verben wie `führen`, `bieten`, `berücksichtigen` und `gewährleisten` bleiben prüfpflichtig.
+Die Häufigkeit im Korpus ist ein Beleg für eine **Prüfung**, keine Freigabe. STG-DE nimmt ein Wort nur in den Kern auf, wenn die domänenübergreifende Bedeutung des Worts sinnvoll kontrolliert werden kann. Häufige, aber abstrakte oder mehrdeutige Verben wie `führen`, `bieten`, `berücksichtigen` und `gewährleisten` bleiben prüfpflichtig.
 
 Domänenspezifische Bauteile, Produktnamen, medizinische Begriffe, Fahrzeugbegriffe, Software-Kennungen und ähnlicher Wortschatz gehören zur Projektterminologie oder Domänenterminologie. Diese Regel gilt auch, wenn diese Wörter häufig sind.
 

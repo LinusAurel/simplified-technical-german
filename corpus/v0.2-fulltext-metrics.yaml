@@ -2,7 +2,7 @@ schema_version: '0.3'
 method: transient public-source full-text extraction; raw text not persisted
 lexicon_release: 0.3.0
 generated_on: '2026-11-12'
-generated_by: python tools/build_corpus_v02.py --allow-failures (local run)
+generated_by: summary of the JSON report from python tools/build_corpus_v02.py --allow-failures (local run)
 source_token_cap: 10000
 aggregate:
   sources: 28

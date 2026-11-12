@@ -109,13 +109,13 @@ Ein Text ist konform zu `STG-T`, wenn der Text konform zu `STG-R` ist. Zusätzli
 
 ### 5.3 `STG-C-core`
 
-Ein Text ist konform zu `STG-C-core`, wenn der Text konform zu `STG-T` ist. Zusätzlich muss das zentrale Kernlexikon v0.1 für das Schreiben jedes andere nicht gesperrte lexikalische Element freigeben. Diese Freigabe muss für die verwendete Bedeutung und die verwendete Wortart gelten. Unbekannte allgemeinsprachliche Wörter sind nicht automatisch akzeptiert.
+Ein Text ist konform zu `STG-C-core`, wenn der Text konform zu `STG-T` ist. Zusätzlich muss das mitgelieferte zentrale Kernlexikon für das Schreiben jedes andere nicht gesperrte lexikalische Element freigeben. Diese Freigabe muss für die verwendete Bedeutung und die verwendete Wortart gelten. Unbekannte allgemeinsprachliche Wörter sind nicht automatisch akzeptiert.
 
 ### 5.4 `STG-C`
 
 Ein Text ist konform zu `STG-C`, wenn der Text konform zu `STG-T` ist. Zusätzlich muss ein umfassendes, von Menschen geprüftes zentrales kontrolliertes Lexikon jedes andere lexikalische Element freigeben. Diese Freigabe muss für die verwendete Bedeutung und die verwendete Wortart gelten.
 
-`STG-C-core` ist ein Profil mit geschlossenem Wortschatz. Dieses Profil ist für kontrolliertes Schreiben mit dem mitgelieferten Kernlexikon v0.1 vorgesehen. `STG-C` bleibt für ein umfassenderes, von Menschen geprüftes zentrales Lexikon reserviert. In diesem Release ist `STG-C` kein allgemeiner Anspruch auf Zertifizierung.
+`STG-C-core` ist ein Profil mit geschlossenem Wortschatz. Dieses Profil ist für kontrolliertes Schreiben mit dem mitgelieferten Kernlexikon vorgesehen. `STG-C` bleibt für ein umfassenderes, von Menschen geprüftes zentrales Lexikon reserviert. In diesem Release ist `STG-C` kein allgemeiner Anspruch auf Zertifizierung.
 
 
 ### 5.5 Kanonische Lemmata und Kollisionen von Flexionsformen
@@ -928,7 +928,7 @@ Ein kontrollierter Dokumentsatz verwendet genau eine Anredeform. Anweisungen, Pr
 
 Verwenden Sie für eine Anweisung kein Passiv, kein `soll` und keine Fragmente, die nur aus Substantiven bestehen. Diese Vorgabe gilt für jede Anredeform.
 
-Der Änderungsvorschlag `proposals/STG-2026-001-anrede.md` begründet diese Regel.
+Der Änderungsvorschlag `proposals/STG-2026-001-form-of-address.md` begründet diese Regel.
 
 ## STG-5.4 — Bedingung vor Anweisung
 
@@ -1328,7 +1328,7 @@ Wenn kein messbares Kriterium verfügbar ist, fordern Sie Domäneninformationen 
 
 <!-- source: dictionary/README.md -->
 
-# STG-DE controlled dictionary — v0.1
+# Kontrolliertes Wörterbuch von STG-DE
 
 **Release:** 0.3.0  
 **Profile:** `de-DE`  
@@ -1349,7 +1349,7 @@ Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kon
 
 ## Dateien
 
-- `approved-words.yaml` — normative Einträge des Autorenkerns v0.1.
+- `approved-words.yaml` — normative Einträge des Autorenkerns.
 - `prohibited-words.yaml` — verbotene oder prüfpflichtige Formulierungen mit Hinweisen zur Umformulierung.
 - `contractions.yaml` — Normalisierung von Präposition und Artikel vor der lexikalischen Suche.
 - `concept-index.yaml` — Index der kontrollierten Bedeutungen für Agenten und Validatoren.
@@ -1386,7 +1386,7 @@ Ein kanonisches Lemma hat Vorrang vor dem Flexionsalias eines anderen Eintrags. 
 
 ## Richtlinie für das Korpus
 
-Die Häufigkeit im Korpus ist ein Beleg für eine **Prüfung**, keine Freigabe. Version 0.1 nimmt ein Wort nur in den Kern auf, wenn die domänenübergreifende Bedeutung des Worts sinnvoll kontrolliert werden kann. Häufige, aber abstrakte oder mehrdeutige Verben wie `führen`, `bieten`, `berücksichtigen` und `gewährleisten` bleiben prüfpflichtig.
+Die Häufigkeit im Korpus ist ein Beleg für eine **Prüfung**, keine Freigabe. STG-DE nimmt ein Wort nur in den Kern auf, wenn die domänenübergreifende Bedeutung des Worts sinnvoll kontrolliert werden kann. Häufige, aber abstrakte oder mehrdeutige Verben wie `führen`, `bieten`, `berücksichtigen` und `gewährleisten` bleiben prüfpflichtig.
 
 Domänenspezifische Bauteile, Produktnamen, medizinische Begriffe, Fahrzeugbegriffe, Software-Kennungen und ähnlicher Wortschatz gehören zur Projektterminologie oder Domänenterminologie. Diese Regel gilt auch, wenn diese Wörter häufig sind.
 
@@ -1402,7 +1402,7 @@ Siehe `../corpus/validation-report.md`.
 
 <!-- source: dictionary/MORPHOLOGY.md -->
 
-# STG-DE morphology and lexical resolution — v0.1
+# Morphologie und lexikalische Auflösung in STG-DE
 
 `STG-C-core` ist auf der Ebene **Lemma + Wortart + kontrollierte Bedeutung** definiert. Ein Validator darf nicht verlangen, dass jede flektierte deutsche Oberflächenform ein separater Wörterbucheintrag ist.
 
@@ -1506,7 +1506,7 @@ Lösen Sie Einträge mit mehreren Tokens vor der Suche nach einzelnen Tokens auf
 
 <!-- source: dictionary/DECISIONS.md -->
 
-# STG-DE lexical decisions — through v0.1
+# Lexikalische Entscheidungen in STG-DE
 
 ## Status
 
@@ -1624,7 +1624,7 @@ Nur die Bedeutung Zusammensetzung ist zentral kontrolliert: `X besteht aus Y`. A
 
 ---
 
-# Korpusentscheidungen für v0.1
+# Korpusentscheidungen in Release 0.1.0
 
 ## D-04-01 — Declared noun plurals are controlled inflections
 
@@ -1699,7 +1699,7 @@ Aus diesem Grund enthält dieses Repository **nur Regelnummern und unabhängig g
 
 <!-- source: corpus/validation-report.md -->
 
-# STG-DE v0.1: Bericht zur Korpusvalidierung über mehrere Branchen
+# Bericht zur Korpusvalidierung über mehrere Branchen (Release 0.1.0)
 
 ## Zusammenfassung des Ergebnisses
 

@@ -35,7 +35,18 @@ python tools/run_evals.py --outputs runs/claude --command "claude -p"
 ```
 
 ```bash
-python tools/run_evals.py --outputs runs/codex --command "codex exec -"
+python tools/run_evals.py --outputs runs/codex --command "codex exec --skip-git-repo-check -"
 ```
+
+Das Werkzeug startet die CLI in einem leeren temporären Verzeichnis. Der Agent liest dann nicht die Regeln dieses Repositorys. Ein anderes Verzeichnis legen Sie mit `--workdir` fest.
+
+### Durchläufe ohne Skill
+
+- Claude Code: Die Option `--disable-slash-commands` schaltet alle Skills ab, zum Beispiel `--command "claude -p --disable-slash-commands"`.
+- Codex: Die Option `-c plugins."<plugin>".enabled=false` schaltet ein installiertes Plugin in `codex exec` nicht ab (geprüft mit Codex 0.167). Verwenden Sie ein eigenes Konfigurationsverzeichnis ohne das Plugin. Setzen Sie dafür die Variable `CODEX_HOME` auf eine Kopie von `~/.codex` ohne die Abschnitte `stg-de` in `config.toml`.
+
+### Ergebnisse
+
+Die Ergebnisse der Durchläufe stehen in [`results/`](results/).
 
 Vergleichen Sie Durchläufe mit installiertem Skill und ohne installierten Skill. Vergleichen Sie Durchläufe auch zwischen verschiedenen Modellen. Speichern Sie die Ausgaben der Durchläufe außerhalb des Repositorys oder in einem datierten Verzeichnis. Fügen Sie für jeden Fehler aus der realen Verwendung einen Fall zu `cases.yaml` hinzu.

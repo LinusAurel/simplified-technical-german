@@ -1,4 +1,4 @@
-# STG-DE v0.1: Bericht zur Korpusvalidierung über mehrere Branchen
+# Bericht zur Korpusvalidierung über mehrere Branchen (Release 0.1.0)
 
 ## Zusammenfassung des Ergebnisses
 

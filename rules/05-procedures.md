@@ -65,7 +65,7 @@ Ein kontrollierter Dokumentsatz verwendet genau eine Anredeform. Anweisungen, Pr
 
 Verwenden Sie für eine Anweisung kein Passiv, kein `soll` und keine Fragmente, die nur aus Substantiven bestehen. Diese Vorgabe gilt für jede Anredeform.
 
-Der Änderungsvorschlag `proposals/STG-2026-001-anrede.md` begründet diese Regel.
+Der Änderungsvorschlag `proposals/STG-2026-001-form-of-address.md` begründet diese Regel.
 
 ## STG-5.4 — Bedingung vor Anweisung
 
