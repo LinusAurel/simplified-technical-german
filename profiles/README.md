@@ -1,34 +1,34 @@
-# STG-DE Application Profiles
+# Anwendungsprofile von STG-DE
 
-Application profiles adapt one STG-DE standard to different communication purposes. They do not create separate dialects and do not change controlled word meanings.
+Anwendungsprofile passen den einen Standard STG-DE an verschiedene Zwecke der Kommunikation an. Anwendungsprofile erzeugen keine eigenen Dialekte. Anwendungsprofile ändern keine kontrollierten Bedeutungen von Wörtern.
 
-The machine-readable definitions are in `profiles.yaml`.
+Die maschinenlesbaren Definitionen stehen in `profiles.yaml`.
 
-## Profiles
+## Profile
 
-| Profile | Typical content | Structural basis |
+| Profil | Typischer Inhalt | Strukturelle Basis |
 |---|---|---|
-| `procedure` | installation, operation, maintenance steps | procedure, 20-word sentence limit |
-| `safety` | warnings, cautions, protective actions | procedure, 20-word sentence limit + Section 7 priority |
-| `description` | technical explanations and factual descriptions | description, 25-word sentence limit |
-| `requirement` | specifications and acceptance criteria | description, explicit modality/scope priority |
-| `support` | troubleshooting and customer/internal support | description, actionable/consistent terminology priority |
-| `consumer` | B2C instructions and service information | description, plain explicit language priority |
-| `agent` | prompts, tool descriptions, inter-agent instructions | procedure, 20-word sentence limit + machine-parse priority |
+| `procedure` | Arbeitsschritte für Installation, Betrieb und Wartung | Anleitung, Satzgrenze 20 Wörter |
+| `safety` | Warnungen, Vorsichtshinweise, Schutzmaßnahmen | Anleitung, Satzgrenze 20 Wörter + Priorität für Abschnitt 7 |
+| `description` | technische Erklärungen und sachliche Beschreibungen | Beschreibung, Satzgrenze 25 Wörter |
+| `requirement` | Spezifikationen und Abnahmekriterien | Beschreibung, Priorität für explizite Modalität und expliziten Geltungsbereich |
+| `support` | Fehlersuche, Kunden-Support und interner Support | Beschreibung, Priorität für umsetzbare Aussagen und einheitliche Terminologie |
+| `consumer` | Anweisungen und Serviceinformationen im B2C-Bereich | Beschreibung, Priorität für klare und explizite Sprache |
+| `agent` | Prompts, Tool-Beschreibungen, Anweisungen zwischen Agenten | Anleitung, Satzgrenze 20 Wörter + Priorität für maschinelle Verarbeitung |
 
-## Selection
+## Auswahl
 
-Writers and tools should select a profile from the purpose of the text, not from the industry.
+Autoren und Werkzeuge wählen ein Profil am besten nach dem Zweck des Texts aus, nicht nach der Branche.
 
-A medical device can contain `procedure`, `safety`, and `description` content. A software product can contain all three plus `support` and `agent` content.
+Ein Medizinprodukt kann Inhalte für `procedure`, `safety` und `description` enthalten. Ein Softwareprodukt kann diese drei Arten von Inhalt enthalten und zusätzlich Inhalte für `support` und `agent`.
 
-If no profile is clearly applicable, use base STG-DE without inventing one.
+Wenn kein Profil klar anwendbar ist, verwenden Sie die Basis von STG-DE. Erfinden Sie kein Profil.
 
-## Applicability
+## Anwendbarkeit
 
-`primary_rules` identifies rules that deserve special attention in a profile. It does not disable the rest of STG-DE.
+`primary_rules` nennt die Regeln, die in einem Profil besondere Aufmerksamkeit verdienen. `primary_rules` deaktiviert die anderen Regeln von STG-DE nicht.
 
-A profile can make a structural limit explicit, but it cannot weaken safety/legal meaning or change a controlled lexical meaning.
+Ein Profil kann eine strukturelle Grenze explizit festlegen. Ein Profil kann aber keine sicherheitsrelevante oder rechtliche Bedeutung abschwächen. Ein Profil kann keine kontrollierte lexikalische Bedeutung ändern.
 
 ## CLI
 
@@ -38,4 +38,4 @@ python tools/stg_lint.py warning.md --profile safety --format json
 python tools/stg_lint.py prompt.md --profile agent --format json
 ```
 
-The legacy `--text-type` option remains available as an explicit structural override. When it is `auto`, the selected profile supplies the structural type.
+Die ältere Option `--text-type` ist als explizite strukturelle Überschreibung verfügbar. Wenn der Wert `auto` ist, liefert das ausgewählte Profil den strukturellen Typ.

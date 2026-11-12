@@ -1,36 +1,36 @@
-# Source-rule traceability
+# Rückverfolgbarkeit zu den Quellregeln
 
-`ste100-issue9.yaml` maps every writing rule and general recommendation of **ASD-STE100 Issue 9 (January 2025)** to the STG-DE rule that implements the same intent for German.
+`ste100-issue9.yaml` ordnet jede Schreibregel und jede allgemeine Empfehlung von **ASD-STE100 Issue 9 (Januar 2025)** der STG-DE-Regel zu, die dieselbe Absicht für das Deutsche umsetzt.
 
-## How to read the mapping
+## Die Zuordnung lesen
 
-| Field | Meaning |
+| Feld | Bedeutung |
 |---|---|
-| `ste` | ASD-STE100 rule number (`1.1` … `9.4`) or general recommendation (`GR-1` … `GR-8`). |
-| `stg` | Primary STG-DE rule. Numbered STG rules reuse the ASD-STE100 number: `STG-5.1` implements rule 5.1. |
-| `related` | Further STG-DE rules that cover part of the same risk. |
-| `relation` | `equivalent`, `adapted`, or `replaced` (see below). |
-| `note` | Independently written German explanation of the adaptation. |
+| `ste` | Regelnummer von ASD-STE100 (`1.1` … `9.4`) oder allgemeine Empfehlung (`GR-1` … `GR-8`). |
+| `stg` | Primäre STG-DE-Regel. Nummerierte STG-Regeln verwenden die Nummer von ASD-STE100: `STG-5.1` setzt Regel 5.1 um. |
+| `related` | Andere STG-DE-Regeln, die einen Teil desselben Risikos abdecken. |
+| `relation` | `equivalent`, `adapted` oder `replaced` (siehe unten). |
+| `note` | Unabhängig geschriebene deutsche Erklärung der Anpassung. |
 
-- `equivalent` — same intent. German wording and examples are independent.
-- `adapted` — same intent, but scope, thresholds, or mechanics are adapted to German grammar.
-- `replaced` — the source rule targets an English-specific phenomenon, for example the `-ing` form or phrasal verbs. STG-DE replaces it with the German phenomenon that carries the same risk, for example nominalization or function-verb constructions.
+- `equivalent` — dieselbe Absicht. Die deutschen Formulierungen und Beispiele sind unabhängig.
+- `adapted` — dieselbe Absicht, aber Geltungsbereich, Schwellenwerte oder Mechanik sind an die deutsche Grammatik angepasst.
+- `replaced` — die Quellregel betrifft ein Phänomen des Englischen, zum Beispiel die `-ing`-Form oder Phrasal Verbs. STG-DE ersetzt die Quellregel durch das deutsche Phänomen mit demselben Risiko, zum Beispiel Nominalisierung oder Funktionsverbgefüge.
 
-`german_extensions` lists the `STG-DE-*` rules that have no direct ASD-STE100 counterpart, with the nearest source rule.
+`german_extensions` nennt die `STG-DE-*`-Regeln ohne direktes Gegenstück in ASD-STE100, mit der nächstliegenden Quellregel.
 
-## Summary
+## Zusammenfassung
 
-| Relation | Writing rules | General recommendations |
+| Beziehung | Schreibregeln | Allgemeine Empfehlungen |
 |---|---:|---:|
 | equivalent | 35 | 2 |
 | adapted | 15 | 4 |
 | replaced | 3 | 2 |
-| **total** | **53** | **8** |
+| **gesamt** | **53** | **8** |
 
-All 75 STG-DE rules and recommendations are reachable from this file. `tests/test_mapping.py` enforces completeness.
+Alle 75 STG-DE-Regeln und -Empfehlungen sind von dieser Datei aus erreichbar. `tests/test_mapping.py` prüft die Vollständigkeit.
 
-## Copyright boundary
+## Grenze des Urheberrechts
 
-ASD-STE100 is a copyright and EU-registered trademark of ASD (Aerospace, Security and Defence Industries Association of Europe), Brussels. The standard is available free of charge from <https://www.asd-ste100.org>, but redistribution requires written permission from ASD.
+ASD-STE100 ist ein Urheberrecht und eine in der EU eingetragene Marke von ASD (Aerospace, Security and Defence Industries Association of Europe), Brüssel. Der Standard ist kostenlos unter <https://www.asd-ste100.org> erhältlich. Eine Weitergabe erfordert aber eine schriftliche Genehmigung von ASD.
 
-This repository therefore contains **only rule numbers and independently written German text**. It does not reproduce ASD-STE100 rule wording, examples, or dictionary entries. STG-DE is not an official ASD publication and is not endorsed by ASD or the STEMG.
+Aus diesem Grund enthält dieses Repository **nur Regelnummern und unabhängig geschriebenen deutschen Text**. Das Repository gibt keine Formulierungen von Regeln, keine Beispiele und keine Wörterbucheinträge aus ASD-STE100 wieder. STG-DE ist keine offizielle Veröffentlichung von ASD. STG-DE hat keine Billigung (Endorsement) durch ASD oder die STEMG.

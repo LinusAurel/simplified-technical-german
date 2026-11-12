@@ -1,21 +1,23 @@
-# Section 1 — Wörter und Terminologie
+# Abschnitt 1 — Wörter und Terminologie
 
 ## STG-1.1 — Zulässiger Wortschatz
 
 **Level:** `MUST`
 
-Use only words that belong to at least one approved class:
+Verwenden Sie nur Wörter, die zu mindestens einer freigegebenen Klasse gehören:
 
-1. a word in the central STG lexicon,
-2. an approved technical noun,
-3. an approved technical verb,
-4. locked external text where changing the text is not permitted.
+1. ein Wort im zentralen STG-Lexikon,
+2. ein freigegebenes technisches Substantiv,
+3. ein freigegebenes technisches Verb,
+4. gesperrter externer Text, wenn eine Änderung des Textes nicht zulässig ist.
 
-Unknown general-language words are not automatically technical terms.
+Unbekannte allgemeinsprachliche Wörter sind nicht automatisch technische Terme.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Die Komponente ist irgendwie falsch positioniert.
+<!-- stg-lint: on -->
 
 **STG**
 
@@ -25,151 +27,157 @@ Unknown general-language words are not automatically technical terms.
 
 **Level:** `MUST`
 
-Use an approved lexical item only with its approved word class. German derivational morphology does not automatically create a new approved entry.
+Verwenden Sie ein freigegebenes lexikalisches Element nur mit der freigegebenen Wortart. Die deutsche Wortbildung erzeugt nicht automatisch einen neuen freigegebenen Eintrag.
 
-If `Prüfung` is approved as a noun, this does not automatically approve `prüfen` as a verb. Each lexeme/word class combination is a separate dictionary entry unless the lexicon explicitly links them.
+Wenn `Prüfung` als Substantiv freigegeben ist, ist `prüfen` nicht automatisch als Verb freigegeben. Jede Kombination aus Lexem und Wortart ist ein eigener Wörterbucheintrag. Eine Ausnahme gilt, wenn das Lexikon die Einträge ausdrücklich verknüpft.
 
 ## STG-1.3 — Kontrollierte Bedeutung
 
 **Level:** `MUST`
 
-Use an approved word only with an approved meaning. If the intended meaning is not approved, select another approved word or rewrite the sentence.
+Verwenden Sie ein freigegebenes Wort nur mit einer freigegebenen Bedeutung. Wenn die beabsichtigte Bedeutung nicht freigegeben ist, wählen Sie ein anderes freigegebenes Wort oder formulieren Sie den Satz neu.
 
-**Example:** If `lösen` is approved only for releasing a mechanical connection, do not use it for `ein Problem lösen` unless that second meaning is separately approved.
+**Beispiel:** Wenn `lösen` nur für das Lösen einer mechanischen Verbindung freigegeben ist, verwenden Sie `lösen` nicht für `ein Problem lösen`. Eine Ausnahme gilt, wenn diese zweite Bedeutung separat freigegeben ist.
 
 ## STG-1.4 — Zulässige Flexionsformen
 
 **Level:** `MUST`
 
-Use only grammatically valid forms that the dictionary schema permits for the entry.
+Verwenden Sie nur grammatisch korrekte Formen, die das Schema des Wörterbuchs für den Eintrag zulässt.
 
-For German, the lexicon may specify:
+Für Deutsch darf das Lexikon diese Angaben festlegen:
 
-- noun gender and plural,
-- adjective inflection class and comparison policy,
-- verb person/number forms,
-- imperative form,
-- participle forms,
-- separable prefix,
-- auxiliary selection where relevant.
+- Genus und Plural von Substantiven,
+- Flexionsklasse und Regel für die Steigerung von Adjektiven,
+- Formen von Verben nach Person und Numerus,
+- Imperativform,
+- Partizipformen,
+- trennbares Präfix,
+- Wahl des Hilfsverbs, wenn diese Wahl relevant ist.
 
-A generated form is permitted only if it follows the declared morphology and the rule set does not prohibit its syntactic use.
+Eine generierte Form ist nur zulässig, wenn die Form der deklarierten Morphologie folgt. Zusätzlich darf das Regelwerk die syntaktische Verwendung der Form nicht verbieten.
 
 ## STG-1.5 — Technische Substantive
 
 **Level:** `MUST`
 
-A technical noun is a term for a defined concept in a technical subject field. Use a word or multiword term as a technical noun only when it fits an approved technical-noun category and is accepted by the applicable terminology source.
+Ein technisches Substantiv ist ein Term für ein definiertes Konzept in einem technischen Fachgebiet. Verwenden Sie ein Wort oder einen Mehrwortterm nur dann als technisches Substantiv, wenn zwei Bedingungen gelten. Das Wort passt zu einer freigegebenen Kategorie für technische Substantive. Die anwendbare Terminologiequelle akzeptiert das Wort.
 
-The category model is in `dictionary/technical-nouns.yaml`.
+Das Kategoriemodell steht in `dictionary/technical-nouns.yaml`.
 
 ## STG-1.6 — Nicht-zentrale Wörter als technische Terme
 
 **Level:** `MUST`
 
-A word that is not approved in the central lexicon may be used only when it is part of an approved technical term or protected external designation.
+Ein Wort, das im zentralen Lexikon nicht freigegeben ist, dürfen Sie nur als Teil eines freigegebenen technischen Terms oder einer geschützten externen Benennung verwenden.
 
-Do not use the existence of a word inside one technical term as permission to use that word with its ordinary general-language meaning.
+Ein Wort kann in einem technischen Term vorkommen. Dieses Vorkommen gibt Ihnen keine Erlaubnis, das Wort mit der normalen allgemeinsprachlichen Bedeutung zu verwenden.
 
 ## STG-1.7 — Technisches Substantiv ist nicht automatisch Verb
 
 **Level:** `MUST`
 
-Do not convert a technical noun into a verb unless the verb itself is approved as a technical verb or central lexical entry.
+Bilden Sie aus einem technischen Substantiv kein Verb. Eine Ausnahme gilt, wenn das Verb selbst als technisches Verb oder als zentraler lexikalischer Eintrag freigegeben ist.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Ölen Sie die Führung.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Tragen Sie Öl auf die Führung auf.
 
-If `ölen` is explicitly approved as a project technical verb, the project entry takes precedence.
+Wenn `ölen` ausdrücklich als technisches Verb des Projekts freigegeben ist, hat der Eintrag des Projekts Vorrang.
 
 ## STG-1.8 — Offizielle technische Benennungen
 
 **Level:** `MUST`
 
-Use the technical designation approved by the company, product, industry, contract, drawing, parts catalog, data model, or terminology database. Do not replace an official designation merely to make it shorter.
+Verwenden Sie die technische Benennung, die eine dieser Quellen freigibt: Unternehmen, Produkt, Branche, Vertrag, Zeichnung, Ersatzteilkatalog, Datenmodell oder Terminologiedatenbank. Ersetzen Sie eine offizielle Benennung nicht nur mit dem Ziel, die Benennung zu kürzen.
 
 ## STG-1.9 — Neue technische Benennungen kurz halten
 
 **Level:** `SHOULD`
 
-When no approved technical designation exists, create the shortest designation that uniquely identifies the concept.
+Wenn keine freigegebene technische Benennung existiert, empfehlen wir die kürzeste Benennung, die das Konzept eindeutig kennzeichnet.
 
-For a newly created German compound, prefer no more than three meaningful lexical components when this is technically sufficient. If more components are necessary, apply the compound rules in Section 2.
+Für ein neu gebildetes deutsches Kompositum empfehlen wir höchstens drei bedeutungstragende lexikalische Bestandteile, wenn diese Zahl technisch ausreicht. Wenn mehr Bestandteile notwendig sind, wenden Sie die Regeln für Komposita in Abschnitt 2 an.
 
-Do not remove differentiating information that is necessary for technical correctness.
+Entfernen Sie keine unterscheidende Information, die für die technische Korrektheit notwendig ist.
 
 ## STG-1.10 — Keine regionale Sprache, Umgangssprache oder Jargon
 
 **Level:** `MUST_NOT`
 
-Do not use regional expressions, colloquial wording, workshop slang, internet slang, or unexplained jargon as general technical language.
+Verwenden Sie diese Ausdrücke nicht als allgemeine technische Sprache: regionale Ausdrücke, Umgangssprache, Werkstattjargon, Internetjargon und unerklärten Fachjargon.
 
-Project-specific technical terms are permitted only after terminology approval.
+Projektspezifische technische Terme sind nur nach einer Freigabe der Terminologie zulässig.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Wenn das Update fehlschlägt, darf das Gerät nicht gebrickt werden.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Wenn das Update fehlschlägt, darf das Gerät nicht funktionsunfähig werden.
 
-Better still, state the exact failure condition when known.
+Empfehlung: Nennen Sie die genaue Fehlerbedingung, wenn die Fehlerbedingung bekannt ist.
 
 ## STG-1.11 — Ein Konzept, eine Benennung
 
 **Level:** `MUST`
 
-Use the same approved technical designation every time you refer to the same concept within the defined document scope.
+Verwenden Sie für dasselbe Konzept im definierten Geltungsbereich des Dokuments immer dieselbe freigegebene technische Benennung.
 
-Do not alternate between synonyms such as `Steuergerät`, `Controller`, and `Regler` for the same component unless the terminology model defines them as different concepts.
+Verwenden Sie für dieselbe Komponente nicht abwechselnd Synonyme wie `Steuergerät`, `Controller` und `Regler`. Eine Ausnahme gilt, wenn das Terminologiemodell diese Benennungen als unterschiedliche Konzepte definiert.
 
 ## STG-1.12 — Technische Verben
 
 **Level:** `MUST`
 
-A technical verb denotes a defined technical process or action in a subject field. Use a technical verb only when:
+Ein technisches Verb bezeichnet einen definierten technischen Prozess oder eine definierte technische Handlung in einem Fachgebiet. Verwenden Sie ein technisches Verb nur, wenn alle diese Bedingungen gelten:
 
-1. the action has a domain-specific meaning,
-2. the verb is approved in the applicable terminology source,
-3. a simpler central STG verb would not express the same technical action precisely.
+1. Die Handlung hat eine fachspezifische Bedeutung.
+2. Die anwendbare Terminologiequelle gibt das Verb frei.
+3. Ein einfacheres zentrales STG-Verb drückt dieselbe technische Handlung nicht genau aus.
 
-The category model is in `dictionary/technical-verbs.yaml`.
+Das Kategoriemodell steht in `dictionary/technical-verbs.yaml`.
 
 ## STG-1.13 — Technisches Verb ist nicht automatisch Substantiv
 
 **Level:** `MUST`
 
-Do not nominalize an approved technical verb and treat the result as an approved technical noun unless the noun is separately approved.
+Nominalisieren Sie ein freigegebenes technisches Verb nicht, um das Ergebnis als freigegebenes technisches Substantiv zu verwenden. Eine Ausnahme gilt, wenn das Substantiv separat freigegeben ist.
 
-This rule is important in German because productive nominalization can create formally valid but uncontrolled terms.
+Diese Regel ist für Deutsch wichtig. Die produktive Nominalisierung kann formal korrekte, aber unkontrollierte Terme erzeugen.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > Das Reamen des Lochs erfolgt danach.
+<!-- stg-lint: on -->
 
 **STG**
 
 > Reiben Sie danach das Loch auf.
 
-If `Reiben` is an official process name in a heading, approve it as a technical noun entry.
+Wenn `Reiben` in einer Überschrift ein offizieller Prozessname ist, geben Sie `Reiben` als Eintrag für ein technisches Substantiv frei.
 
 ## STG-1.14 — Deutsche Standardschreibung
 
 **Level:** `MUST`
 
-Use the declared German spelling profile. The default profile `de-DE` follows the 2024 official German orthography.
+Verwenden Sie das deklarierte Rechtschreibprofil für Deutsch. Das Standardprofil `de-DE` folgt der amtlichen deutschen Rechtschreibung von 2024.
 
-For `de-DE`:
+Für `de-DE` gilt:
 
-- preserve `ä`, `ö`, `ü`, and `ß` where standard spelling requires them,
-- do not replace them with `ae`, `oe`, `ue`, or `ss` unless a technical identifier or system limitation requires it,
-- capitalize German nouns,
-- preserve the official spelling of product names, identifiers, UI strings, and quoted text.
+- Behalten Sie `ä`, `ö`, `ü` und `ß`, wenn die Standardschreibung diese Zeichen verlangt.
+- Ersetzen Sie diese Zeichen nicht durch `ae`, `oe`, `ue` oder `ss`. Eine Ausnahme gilt, wenn eine technische Kennung oder eine Systemgrenze den Ersatz verlangt.
+- Schreiben Sie deutsche Substantive groß.
+- Behalten Sie die offizielle Schreibung von Produktnamen, Kennungen, Zeichenketten der Benutzeroberfläche und zitiertem Text.
 
-A project may declare `de-CH` or another approved profile, but one document should not mix profiles.
+Ein Projekt darf `de-CH` oder ein anderes freigegebenes Profil deklarieren. Wir empfehlen, in einem Dokument keine Profile zu mischen.

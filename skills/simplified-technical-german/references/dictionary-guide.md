@@ -11,71 +11,71 @@ Erzeugt aus der kanonischen Dokumentation im Verzeichnis `dictionary/`. Bearbeit
 
 **Release:** 0.5.0  
 **Profile:** `de-DE`  
-**Status:** stratified-corpus-validated experimental authoring core; not yet a human-reviewed full German general-language dictionary.
+**Status:** experimenteller Autorenkern, an einem geschichteten Korpus validiert. Dieser Kern ist in diesem Release kein Wörterbuch der deutschen Allgemeinsprache, das Menschen vollständig geprüft haben.
 
-## Contents
+## Inhalt
 
-- **435** central approved/restricted lexical entries,
-- **442** controlled meanings,
-- **160** prohibited or review-required words/phrases,
-- **172** controlled central verbs,
-- controlled contractions,
-- declared noun plurals and curated irregular surface forms,
-- concept index and release coverage metadata,
-- project/domain technical noun and verb category models.
+- **435** zentrale freigegebene oder eingeschränkte lexikalische Einträge,
+- **442** kontrollierte Bedeutungen,
+- **160** verbotene oder prüfpflichtige Wörter und Wortgruppen,
+- **172** kontrollierte zentrale Verben,
+- kontrollierte Kontraktionen,
+- deklarierte Pluralformen von Substantiven und kuratierte unregelmäßige Oberflächenformen,
+- Begriffsindex und Metadaten zur Abdeckung des Releases,
+- Kategoriemodelle für technische Substantive und technische Verben in Projekten und Domänen.
 
-The lexicon is independently designed for German. It is a controlled dictionary with defined meanings, word classes, and approved forms.
+Das Lexikon ist unabhängig für das Deutsche entworfen. Das Lexikon ist ein kontrolliertes Wörterbuch mit definierten Bedeutungen, Wortarten und freigegebenen Formen.
 
-## Files
+## Dateien
 
-- `approved-words.yaml` — normative v0.4 authoring-core entries.
-- `prohibited-words.yaml` — prohibited/review-required wording and rewrite guidance.
-- `contractions.yaml` — preposition+article normalization before lexical lookup.
-- `concept-index.yaml` — controlled-meaning index for agents and validators.
-- `coverage.yaml` — release counts and corpus summary.
-- `DECISIONS.md` — curation rationale.
-- `MORPHOLOGY.md` — lemma/inflection and separable-verb resolution.
-- `technical-nouns.yaml` — categories for project/domain technical nouns.
-- `technical-verbs.yaml` — categories for project/domain technical verbs.
+- `approved-words.yaml` — normative Einträge des Autorenkerns v0.4.
+- `prohibited-words.yaml` — verbotene oder prüfpflichtige Formulierungen mit Hinweisen zur Umformulierung.
+- `contractions.yaml` — Normalisierung von Präposition und Artikel vor der lexikalischen Suche.
+- `concept-index.yaml` — Index der kontrollierten Bedeutungen für Agenten und Validatoren.
+- `coverage.yaml` — Zahlen des Releases und Zusammenfassung des Korpus.
+- `DECISIONS.md` — Begründungen für die Kuratierung.
+- `MORPHOLOGY.md` — Auflösung von Lemma, Flexion und trennbaren Verben.
+- `technical-nouns.yaml` — Kategorien für technische Substantive in Projekten und Domänen.
+- `technical-verbs.yaml` — Kategorien für technische Verben in Projekten und Domänen.
 
-## Resolution principle
+## Prinzip der Auflösung
 
-Resolve input in this order:
+Lösen Sie die Eingabe in dieser Reihenfolge auf:
 
-1. protected text/identifier,
-2. approved project/domain terminology,
-3. longest phrase,
-4. contraction normalization,
-5. case-sensitive lexical distinction,
-6. canonical central lemma or declared surface form,
-7. declared controlled inflection,
-8. prohibited/review lookup,
-9. deterministic morphology/separable-verb analysis,
-10. otherwise `NEEDS_LEXICON_REVIEW`.
+1. geschützter Text oder Kennung,
+2. freigegebene Projektterminologie oder Domänenterminologie,
+3. längste Wortgruppe,
+4. Normalisierung von Kontraktionen,
+5. lexikalische Unterscheidung nach Groß- und Kleinschreibung,
+6. kanonisches zentrales Lemma oder deklarierte Oberflächenform,
+7. deklarierte kontrollierte Flexion,
+8. Suche in der Liste der verbotenen und prüfpflichtigen Wörter,
+9. deterministische morphologische Analyse und Analyse trennbarer Verben,
+10. in allen anderen Fällen `NEEDS_LEXICON_REVIEW`.
 
-A canonical lemma takes precedence over another entry's inflection alias. This prevents `Daten` (technical information/data) from being silently resolved as the plural of `Datum`.
+Ein kanonisches Lemma hat Vorrang vor dem Flexionsalias eines anderen Eintrags. Diese Regel verhindert, dass ein Validator `Daten` (technische Informationen oder Daten) ohne Meldung als Plural von `Datum` auflöst.
 
-## Status values
+## Statuswerte
 
-- `approved` — permitted for the listed controlled meaning.
-- `restricted` — permitted only when all listed restrictions are satisfied.
-- `technical_only` — requires project/domain terminology approval.
-- `prohibited` — do not use except inside protected external text.
-- `review_required` — not safe for automatic acceptance; context or rewrite is required.
+- `approved` — für die angegebene kontrollierte Bedeutung zulässig.
+- `restricted` — nur zulässig, wenn alle angegebenen Einschränkungen erfüllt sind.
+- `technical_only` — verlangt eine Freigabe als Projektterminologie oder Domänenterminologie.
+- `prohibited` — nicht verwenden, außer in geschütztem externem Text.
+- `review_required` — für eine automatische Annahme nicht sicher. Der Eintrag verlangt eine Prüfung des Kontexts oder eine Umformulierung.
 
-## Corpus policy
+## Richtlinie für das Korpus
 
-Corpus frequency is evidence for **review**, not approval. v0.4 adds a word to the core only when its cross-domain meaning can be controlled usefully. Common but abstract/polysemous verbs such as `führen`, `bieten`, `berücksichtigen`, and `gewährleisten` remain review-required.
+Die Häufigkeit im Korpus ist ein Beleg für eine **Prüfung**, keine Freigabe. Version 0.4 nimmt ein Wort nur in den Kern auf, wenn die domänenübergreifende Bedeutung des Worts sinnvoll kontrolliert werden kann. Häufige, aber abstrakte oder mehrdeutige Verben wie `führen`, `bieten`, `berücksichtigen` und `gewährleisten` bleiben prüfpflichtig.
 
-Domain parts, product names, medical concepts, vehicle terms, software identifiers, and similar vocabulary belong to project/domain terminology even when frequent.
+Domänenspezifische Bauteile, Produktnamen, medizinische Begriffe, Fahrzeugbegriffe, Software-Kennungen und ähnlicher Wortschatz gehören zur Projektterminologie oder Domänenterminologie. Diese Regel gilt auch, wenn diese Wörter häufig sind.
 
-See `../corpus/validation-report.md`.
+Siehe `../corpus/validation-report.md`.
 
 ## `STG-C-core` versus `STG-C`
 
-`STG-C-core` is a closed-vocabulary experimental profile for texts intentionally authored with this core plus approved project terminology.
+`STG-C-core` ist ein experimentelles Profil mit geschlossenem Wortschatz. Dieses Profil gilt für Texte, die Autoren absichtlich mit diesem Kern und mit freigegebener Projektterminologie schreiben.
 
-`STG-C` remains reserved for a future broader, human-reviewed lexicon and must not be claimed by this release.
+`STG-C` bleibt für ein zukünftiges, breiteres Lexikon reserviert, das Menschen geprüft haben. Dieses Release darf `STG-C` nicht beanspruchen.
 
 ---
 
@@ -83,43 +83,43 @@ See `../corpus/validation-report.md`.
 
 # STG-DE morphology and lexical resolution — v0.4
 
-`STG-C-core` is defined at the **lemma + word class + controlled meaning** level. A validator must not require every inflected German surface form to be a separate dictionary entry.
+`STG-C-core` ist auf der Ebene **Lemma + Wortart + kontrollierte Bedeutung** definiert. Ein Validator darf nicht verlangen, dass jede flektierte deutsche Oberflächenform ein separater Wörterbucheintrag ist.
 
-## Resolution order
+## Reihenfolge der Auflösung
 
-1. Protected/locked spans
-2. Approved project/domain terminology
-3. Longest approved/prohibited phrase match
-4. Standard contraction expansion
-5. Case-sensitive lexical lookup
-6. Exact canonical central lemma or declared `surface_forms`
-7. Declared controlled inflection
-8. Deterministic morphological analysis and separable-verb reconstruction
-9. Prohibited/review lookup at the resolved lemma
-10. Otherwise `NEEDS_LEXICON_REVIEW`
+1. Geschützte oder gesperrte Textabschnitte
+2. Freigegebene Projektterminologie oder Domänenterminologie
+3. Längster Treffer einer freigegebenen oder verbotenen Wortgruppe
+4. Auflösung von Standardkontraktionen
+5. Lexikalische Suche mit Unterscheidung nach Groß- und Kleinschreibung
+6. Exaktes kanonisches zentrales Lemma oder deklarierte `surface_forms`
+7. Deklarierte kontrollierte Flexion
+8. Deterministische morphologische Analyse und Rekonstruktion trennbarer Verben
+9. Suche in der Liste der verbotenen und prüfpflichtigen Wörter für das aufgelöste Lemma
+10. In allen anderen Fällen `NEEDS_LEXICON_REVIEW`
 
-Approximate spelling or stemming is not a normative substitute for lemmatization.
+Eine ungefähre Schreibweise oder ein Stemming ist kein normativer Ersatz für eine Lemmatisierung.
 
-## Canonical-lemma precedence
+## Vorrang des kanonischen Lemmas
 
-If an inflected form of one entry is also the canonical lemma of another entry, the canonical lemma takes precedence.
+Wenn eine flektierte Form eines Eintrags auch das kanonische Lemma eines anderen Eintrags ist, hat das kanonische Lemma Vorrang.
 
 ### Required example: `Datum` / `Daten`
 
-German permits `Daten` as the plural of `Datum`. Technical German also uses `Daten` as an independent lexical concept meaning technical information/data.
+Im Deutschen ist `Daten` der Plural von `Datum`. Im technischen Deutsch ist `Daten` auch ein unabhängiger lexikalischer Begriff mit der Bedeutung technische Informationen oder Daten.
 
-Therefore:
+Deshalb gilt:
 
 ```text
 Daten  -> DE-NOU-daten      # technical data/information
 Datum  -> DE-NOU-datum      # calendar date
 ```
 
-A validator must **not** accept a naive `Datum -> Daten` plural mapping before checking whether `Daten` is itself a canonical entry.
+Ein Validator darf eine naive Pluralzuordnung `Datum -> Daten` **nicht** annehmen, bevor der Validator prüft, ob `Daten` selbst ein kanonischer Eintrag ist.
 
-## German contractions
+## Deutsche Kontraktionen
 
-Standard preposition+article contractions are grammar, not technical vocabulary. Normalize forms such as:
+Standardkontraktionen aus Präposition und Artikel sind Grammatik und kein technischer Wortschatz. Normalisieren Sie Formen wie diese:
 
 - `im` -> `in` + `dem`
 - `am` -> `an` + `dem`
@@ -128,53 +128,58 @@ Standard preposition+article contractions are grammar, not technical vocabulary.
 - `zum` -> `zu` + `dem`
 - `zur` -> `zu` + `der`
 
-Expansion is for lexical analysis only. Do not rewrite a correct, unambiguous surface form merely to expose the components.
+Diese Auflösung dient nur der lexikalischen Analyse. Schreiben Sie eine korrekte, eindeutige Oberflächenform nicht um, nur um die Bestandteile zu zeigen.
 
-## Nouns
+## Substantive
 
-An approved noun permits its grammatical case forms and its explicitly declared plural unless a restriction says otherwise.
+Ein freigegebenes Substantiv erlaubt die grammatischen Kasusformen und den ausdrücklich deklarierten Plural. Diese Erlaubnis gilt nicht, wenn eine Einschränkung etwas anderes festlegt.
 
-The development validator counts the **declared plural** as `CENTRAL_INFLECTION`. It does not invent unlisted plurals.
+Der Entwicklungsvalidator zählt den **deklarierten Plural** als `CENTRAL_INFLECTION`. Der Entwicklungsvalidator erfindet keine Pluralformen, die nicht in der Liste stehen.
 
-Unknown capitalized words are not automatically technical terms. German capitalizes ordinary nouns; an unresolved noun must resolve to a central entry, project terminology, a protected name/identifier, or review.
+Unbekannte großgeschriebene Wörter sind nicht automatisch technische Begriffe. Im Deutschen schreiben Autoren normale Substantive groß. Ein nicht aufgelöstes Substantiv muss zu einem dieser Ziele aufgelöst werden:
 
-## Case-sensitive forms
+- zu einem zentralen Eintrag,
+- zu Projektterminologie,
+- zu einem geschützten Namen oder einer geschützten Kennung,
+- zu einer Prüfung.
 
-Resolve formal reader forms before case folding:
+## Formen mit Groß- und Kleinschreibung
+
+Lösen Sie die formalen Leserformen vor der Normalisierung der Groß- und Kleinschreibung auf:
 
 - `Sie`, `Ihnen`
 - `Ihr`, `Ihre`, `Ihren`, `Ihrem`, `Ihrer`, `Ihres`
 
-Third-person `sie` / `ihr` are separate restricted entries and require an unambiguous antecedent.
+Die Formen `sie` und `ihr` in der dritten Person sind separate eingeschränkte Einträge. Diese Formen verlangen ein eindeutiges Bezugswort.
 
-## Articles and determiners
+## Artikel und Determinative
 
-Common inflected forms are stored in `surface_forms`. Resolve them to their controlled determiner/article entry before syntactic validation.
+Häufige flektierte Formen stehen in `surface_forms`. Lösen Sie diese Formen vor der syntaktischen Validierung zu dem kontrollierten Eintrag für den Artikel oder den Determinativ auf.
 
-## Verbs
+## Verben
 
-A normative validator should lemmatize finite and non-finite forms before dictionary lookup.
+Wir empfehlen, dass ein normativer Validator finite und infinite Formen vor der Suche im Wörterbuch lemmatisiert.
 
-For separable verbs, reconstruct the lemma from the clause:
+Rekonstruieren Sie bei trennbaren Verben das Lemma aus dem Satz:
 
 - `Schalten Sie das Gerät ein.` -> `einschalten`
 - `Die Anzeige zeigt den Wert an.` -> `anzeigen`
 - `Stellen Sie den Datensatz bereit.` -> `bereitstellen`
 - `Legen Sie den Grenzwert fest.` -> `festlegen`
 
-A finite stem such as `stellt` must not be judged in isolation when a separable prefix later in the clause can change the lemma.
+Ein Validator darf einen finiten Stamm wie `stellt` nicht isoliert bewerten, wenn eine abgetrennte Verbpartikel später im Satz das Lemma ändern kann.
 
-## Adjectives
+## Adjektive
 
-Regularly inflected adjective forms resolve to the approved base lemma. Comparative and superlative forms require explicit permission or a rule/entry that allows the comparison. Do not assume every approved adjective can be compared meaningfully.
+Regelmäßig flektierte Formen von Adjektiven werden zu dem freigegebenen Grundlemma aufgelöst. Komparativ und Superlativ verlangen eine ausdrückliche Erlaubnis oder eine Regel oder einen Eintrag, die den Vergleich zulassen. Nehmen Sie nicht an, dass jedes freigegebene Adjektiv sinnvoll gesteigert werden kann.
 
-## Phrases
+## Wortgruppen
 
-Resolve multi-token entries before single-token lookup. Entries containing `...` require a syntactic pattern rather than literal substring matching.
+Lösen Sie Einträge mit mehreren Tokens vor der Suche nach einzelnen Tokens auf. Einträge, die `...` enthalten, verlangen ein syntaktisches Muster und keinen wörtlichen Teilstring-Vergleich.
 
-## Development heuristics
+## Heuristiken für die Entwicklung
 
-`tools/corpus_validate.py` may use the German Snowball stemmer to emit `MORPHOLOGY_CANDIDATE`. This class is evidence for curation only and **never counts as normative conformance**.
+`tools/corpus_validate.py` darf den deutschen Snowball-Stemmer verwenden, um `MORPHOLOGY_CANDIDATE` auszugeben. Diese Klasse ist nur ein Beleg für die Kuratierung und zählt **nie als normative Konformität**.
 
 ---
 
@@ -184,146 +189,146 @@ Resolve multi-token entries before single-token lookup. Entries containing `...`
 
 ## Status
 
-This file records high-impact lexical choices accumulated through the v0.4 authoring core. The entries are **provisional** until review by German technical-writing and terminology specialists.
+Diese Datei dokumentiert lexikalische Entscheidungen mit großer Wirkung, die bis zum Autorenkern v0.4 entstanden sind. Die Einträge sind **vorläufig**, bis Fachleute für deutsche technische Redaktion und Terminologie die Einträge prüfen.
 
-The source standard uses a controlled dictionary in which approved words have a specified word class and approved meaning, while non-approved words can point to approved alternatives or a different sentence construction. STG-DE keeps that architecture but does **not** translate the English dictionary one-to-one.
+Der Ausgangsstandard verwendet ein kontrolliertes Wörterbuch. In diesem Wörterbuch haben freigegebene Wörter eine festgelegte Wortart und eine freigegebene Bedeutung. Nicht freigegebene Wörter können auf freigegebene Alternativen oder auf eine andere Satzkonstruktion verweisen. STG-DE behält diese Architektur, übersetzt das englische Wörterbuch aber **nicht** eins zu eins.
 
-## Release objective
+## Ziel des Release
 
-v0.3 defines an enforceable **authoring core** for common German technical prose. It is intended to make generation and rewriting deterministic enough for agents and validators while leaving domain terminology to project terminology sources.
+Version 0.3 definiert einen durchsetzbaren **Autorenkern** für häufige deutsche technische Texte. Das Ziel des Kerns ist ein Grad an Determinismus, mit dem Agenten und Validatoren Texte erzeugen und umformulieren können. Die Domänenterminologie bleibt bei den Quellen der Projektterminologie.
 
 ### Selection order
 
-1. Preserve official technical terminology.
-2. Prefer one short, common German general-language lemma for one intended meaning.
-3. Split meanings when German has a more precise lexical choice.
-4. Prohibit stylistic synonyms when they add no technical distinction.
-5. Mark a word `restricted` when it is useful but needs context or an explicit criterion.
-6. Send domain-specific manufacturing, legal, medical, military, and scientific verbs to project terminology unless they are broadly necessary.
+1. Behalten Sie die offizielle technische Terminologie.
+2. Verwenden Sie bevorzugt ein kurzes, häufiges Lemma der deutschen Allgemeinsprache für eine beabsichtigte Bedeutung.
+3. Teilen Sie Bedeutungen, wenn das Deutsche eine präzisere lexikalische Wahl hat.
+4. Verbieten Sie stilistische Synonyme, wenn diese Synonyme keine technische Unterscheidung hinzufügen.
+5. Markieren Sie ein Wort als `restricted`, wenn das Wort nützlich ist, aber Kontext oder ein explizites Kriterium verlangt.
+6. Geben Sie domänenspezifische Verben aus Fertigung, Recht, Medizin, Militär und Wissenschaft an die Projektterminologie, außer wenn diese Verben allgemein notwendig sind.
 
-## Important lexical decisions
+## Wichtige lexikalische Entscheidungen
 
 ### `verwenden` instead of `benutzen`, `nutzen`, `gebrauchen`
 
-`verwenden` is the preferred general verb for using a tool, material, component, or aid. `anwenden` is reserved for methods, rules, and procedures. This keeps two useful concepts separate while removing stylistic synonym variation.
+`verwenden` ist das bevorzugte allgemeine Verb für die Verwendung von Werkzeug, Material, Bauteil oder Hilfsmittel. `anwenden` ist für Methoden, Regeln und Verfahren reserviert. Diese Trennung behält zwei nützliche Begriffe und entfernt die stilistische Variation mit Synonymen.
 
 ### `prüfen` versus `testen` versus `untersuchen`
 
-- `prüfen`: determine whether an explicit condition or requirement is satisfied.
-- `testen`: execute a defined test against criteria.
-- `untersuchen`: systematically look for damage, defects, or specified features.
+- `prüfen`: feststellen, ob eine explizite Bedingung oder Anforderung erfüllt ist.
+- `testen`: einen definierten Test mit Kriterien ausführen.
+- `untersuchen`: systematisch nach Schäden, Fehlern oder festgelegten Merkmalen suchen.
 
 ### `erhöhen` / `verringern` versus `steigen` / `sinken`
 
-Use the transitive pair when an actor changes a value. Use the intransitive pair when the value changes as a process result.
+Verwenden Sie das transitive Paar, wenn ein Akteur einen Wert ändert. Verwenden Sie das intransitive Paar, wenn sich der Wert als Ergebnis eines Prozesses ändert.
 
 ### `einbauen` versus `installieren`
 
-Use `einbauen` for mechanical/electrical components in an installation position. Use `installieren` primarily for software or when official terminology defines installation of a whole system.
+Verwenden Sie `einbauen` für mechanische oder elektrische Bauteile in einer Einbaulage. Verwenden Sie `installieren` hauptsächlich für Software. Verwenden Sie `installieren` auch, wenn die offizielle Terminologie die Installation eines vollständigen Systems definiert.
 
 ### `warten`
 
-The temporal verb `warten` is permitted. The maintenance meaning is intentionally not part of the central lexicon because the homonym is highly ambiguous. Use approved project terminology for maintenance, for example `instand halten` if the project approves it.
+Das zeitliche Verb `warten` ist zulässig. Die Bedeutung Instandhaltung ist absichtlich nicht im zentralen Lexikon, weil dieses Homonym sehr mehrdeutig ist. Verwenden Sie für Instandhaltung freigegebene Projektterminologie, zum Beispiel `instand halten`, wenn das Projekt diesen Begriff freigibt.
 
 ### `sichern`
 
-The general verb is not approved because it can mean fastening, data backup, locking, safeguarding, or making safe. Use the precise verb: `befestigen`, `speichern`, `verriegeln`, `schützen`, or a project technical term.
+Das allgemeine Verb ist nicht freigegeben. Das Verb kann befestigen, eine Datensicherung erstellen, verriegeln, schützen oder einen sicheren Zustand herstellen bedeuten. Verwenden Sie das präzise Verb: `befestigen`, `speichern`, `verriegeln`, `schützen` oder einen technischen Begriff des Projekts.
 
 ### `können`, `dürfen`, `müssen`
 
-- `können`: capability or factual possibility.
-- `dürfen`: permission; `nicht dürfen`: prohibition.
-- `müssen`: explicit requirement.
+- `können`: Fähigkeit oder faktische Möglichkeit.
+- `dürfen`: Erlaubnis. `nicht dürfen`: Verbot.
+- `müssen`: explizite Anforderung.
 
-Conditional or tentative forms such as `könnte`, `müsste`, and `sollte` are not part of controlled mandatory wording.
+Konditionale oder vorsichtige Formen wie `könnte`, `müsste` und `sollte` sind kein Teil der kontrollierten verbindlichen Formulierungen.
 
 ### Vague qualifiers
 
-Words such as `ordnungsgemäß`, `geeignet`, `ausreichend`, `vorsichtig`, and `zeitnah` are prohibited or review-required because they often replace a missing criterion. A validator should request the criterion rather than invent it.
+Wörter wie `ordnungsgemäß`, `geeignet`, `ausreichend`, `vorsichtig` und `zeitnah` sind verboten oder prüfpflichtig. Der Grund: Diese Wörter ersetzen oft ein fehlendes Kriterium. Wir empfehlen, dass ein Validator das Kriterium anfordert und kein Kriterium erfindet.
 
-## Unknown-word policy
+## Richtlinie für unbekannte Wörter
 
-For `STG-C-core`, a non-locked general-language token that does not resolve to this lexicon is **not automatically a synonym candidate**. The agent must:
+Für `STG-C-core` gilt: Ein nicht gesperrtes Token der Allgemeinsprache, das sich nicht zu diesem Lexikon auflösen lässt, ist **nicht automatisch ein Synonymkandidat**. Der Agent muss diese Arbeitsschritte ausführen:
 
-1. check whether it is approved project terminology,
-2. check whether it is a protected name/label/identifier,
-3. check the prohibited/rewrite list,
-4. otherwise return `NEEDS_LEXICON_REVIEW`.
+1. Prüfen, ob das Token freigegebene Projektterminologie ist.
+2. Prüfen, ob das Token ein geschützter Name, eine geschützte Beschriftung oder eine geschützte Kennung ist.
+3. Die Liste der verbotenen Wörter und Umformulierungen prüfen.
+4. In allen anderen Fällen `NEEDS_LEXICON_REVIEW` zurückgeben.
 
-This is intentionally conservative.
+Diese Strategie ist absichtlich konservativ.
 
 
 ## v0.3 corpus-driven decisions
 
 ### Corpus frequency is not approval
 
-A frequent word in ordinary technical German can still be unsuitable for controlled German. Corpus evidence creates a review obligation; it does not override precision rules. This is why frequent forms such as `sowie`, `beziehungsweise`, vague qualifiers, and impersonal constructions remain prohibited or review-required.
+Ein häufiges Wort in normalem technischem Deutsch kann für kontrolliertes Deutsch trotzdem ungeeignet sein. Belege aus dem Korpus erzeugen eine Pflicht zur Prüfung. Diese Belege haben keinen Vorrang vor den Präzisionsregeln. Aus diesem Grund bleiben häufige Formen wie `sowie`, `beziehungsweise`, vage Qualifikatoren und unpersönliche Konstruktionen verboten oder prüfpflichtig.
 
 ### Contractions are normalized, not prohibited
 
-German forms such as `im`, `am`, `beim`, `vom`, `zum`, and `zur` are regular grammatical contractions. Treating them as independent unknown words created false lexical gaps in v0.2. v0.3 expands them for lookup while preserving the surface text.
+Deutsche Formen wie `im`, `am`, `beim`, `vom`, `zum` und `zur` sind regelmäßige grammatische Kontraktionen. In v0.2 hat die Behandlung dieser Formen als unabhängige unbekannte Wörter falsche lexikalische Lücken erzeugt. Version 0.3 löst diese Formen für die Suche auf und behält den Oberflächentext.
 
 ### Controlled connector set
 
-Corpus analysis showed substantial stylistic variation in logical connectors. v0.3 prefers a smaller explicit set:
+Die Korpusanalyse hat eine große stilistische Variation bei logischen Verknüpfungswörtern gezeigt. Version 0.3 verwendet bevorzugt eine kleinere explizite Menge:
 
-- addition: `und`
-- contrast: `aber`
-- sequence: `dann` / `danach`
-- result: `deshalb`
-- condition: `wenn`
-- cause: `weil`
-- earlier event: `bevor`
-- simultaneous period: `während`
+- Addition: `und`
+- Gegensatz: `aber`
+- Reihenfolge: `dann` / `danach`
+- Ergebnis: `deshalb`
+- Bedingung: `wenn`
+- Ursache: `weil`
+- früheres Ereignis: `bevor`
+- gleichzeitiger Zeitraum: `während`
 
-Consequently, `sowie`, `jedoch`, `daher`, and `anschließend` are normalized to controlled alternatives when meaning is preserved.
+Deshalb werden `sowie`, `jedoch`, `daher` und `anschließend` zu kontrollierten Alternativen normalisiert, wenn die Bedeutung erhalten bleibt.
 
 ### Pronominal adverbs
 
-`dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür`, and `hierfür` are useful German forms but can compress both an antecedent and a semantic relation. They are therefore `review_required` in the strict core and governed by STG-DE-4.5.
+`dabei`, `dazu`, `daraus`, `davon`, `darüber`, `dafür` und `hierfür` sind nützliche deutsche Formen. Diese Formen können aber ein Bezugswort und eine semantische Beziehung gleichzeitig komprimieren. Deshalb sind diese Formen im strengen Kern `review_required`. Für diese Formen gilt STG-DE-4.5.
 
 ### Cross-domain direct verbs
 
-The public corpus evidence supported adding narrow central meanings for verbs that occur across technical domains and describe concrete actions or relations. Examples include `anschließen`, `abziehen`, `abkühlen`, `verschließen`, `beheben`, `bereitstellen`, `enthalten`, and `entsprechen`.
+Die Belege aus dem öffentlichen Korpus haben die Aufnahme enger zentraler Bedeutungen für bestimmte Verben gestützt. Diese Verben kommen in mehreren technischen Domänen vor und beschreiben konkrete Handlungen oder Beziehungen. Beispiele sind `anschließen`, `abziehen`, `abkühlen`, `verschließen`, `beheben`, `bereitstellen`, `enthalten` und `entsprechen`.
 
-The same evidence did **not** justify moving product-specific or engineering-domain verbs into the central lexicon. Those remain project technical verbs.
+Dieselben Belege haben die Aufnahme produktspezifischer Verben oder Verben aus Ingenieurdomänen in das zentrale Lexikon **nicht** gerechtfertigt. Diese Verben bleiben technische Verben des Projekts.
 
 ### `bestehen`
 
-Only the composition meaning is centrally controlled: `X besteht aus Y`. Other meanings of `bestehen` (for example succeeding in an examination, continuing to exist, or insisting on something) are outside the central entry.
+Nur die Bedeutung Zusammensetzung ist zentral kontrolliert: `X besteht aus Y`. Andere Bedeutungen von `bestehen` sind außerhalb des zentralen Eintrags. Beispiele für diese Bedeutungen sind eine Prüfung erfolgreich abschließen, fortbestehen oder auf etwas beharren.
 
 ### `lassen`
 
-`lassen` is restricted to constructions where the reader allows an explicitly named physical or automatic process to continue, for example cooling. It must not be used to hide the responsible actor.
+`lassen` ist auf Konstruktionen eingeschränkt, in denen der Leser einen explizit genannten physischen oder automatischen Prozess fortsetzen lässt, zum Beispiel das Abkühlen. Autoren dürfen `lassen` nicht verwenden, um den verantwortlichen Akteur zu verstecken.
 
 ---
 
-# v0.4 corpus decisions
+# Korpusentscheidungen für v0.4
 
 ## D-04-01 — Declared noun plurals are controlled inflections
 
-**Decision:** A noun's declared plural is resolved as a controlled inflection without requiring a second dictionary entry.
+**Entscheidung:** Der deklarierte Plural eines Substantivs wird als kontrollierte Flexion aufgelöst. Für diesen Plural ist kein zweiter Wörterbucheintrag notwendig.
 
-**Reason:** The v0.3 validator incorrectly routed ordinary declared plurals such as `Informationen`, `Gefahren`, `Schritte`, and `Geräte` as unknown/term candidates. This is a validator gap, not a vocabulary gap.
+**Grund:** Der Validator in v0.3 hat normale deklarierte Pluralformen wie `Informationen`, `Gefahren`, `Schritte` und `Geräte` falsch als unbekannte Wörter oder Begriffskandidaten eingeordnet. Diese Lücke ist eine Lücke im Validator, keine Lücke im Wortschatz.
 
 ## D-04-02 — Canonical lemma wins over an inflection alias
 
-**Decision:** Before accepting an inflection alias, check whether that surface form is itself a canonical lemma.
+**Entscheidung:** Prüfen Sie vor der Annahme eines Flexionsalias, ob diese Oberflächenform selbst ein kanonisches Lemma ist.
 
-**Reason:** `Datum` declares plural `Daten`, but technical German uses `Daten` as an independent concept for technical information/data. v0.4 therefore adds `DE-NOU-daten` and prevents the plural alias from overriding it.
+**Grund:** `Datum` deklariert den Plural `Daten`. Technisches Deutsch verwendet `Daten` aber als unabhängigen Begriff für technische Informationen oder Daten. Deshalb fügt v0.4 `DE-NOU-daten` hinzu und verhindert, dass der Pluralalias Vorrang vor diesem Eintrag hat.
 
 ## D-04-03 — Capitalization does not establish terminology status
 
-**Decision:** Unknown capitalized words are routed as `LEXICAL_NOUN_CANDIDATE`, not `TECHNICAL_TERM_CANDIDATE`.
+**Entscheidung:** Unbekannte großgeschriebene Wörter werden als `LEXICAL_NOUN_CANDIDATE` eingeordnet, nicht als `TECHNICAL_TERM_CANDIDATE`.
 
-**Reason:** All German nouns are capitalized. Treating capitalization as terminology evidence systematically over-classified ordinary general nouns.
+**Grund:** Alle deutschen Substantive sind großgeschrieben. Wenn ein Validator die Großschreibung als Beleg für Terminologie behandelt, ordnet der Validator normale allgemeine Substantive systematisch falsch ein.
 
 ## D-04-04 — Cross-domain frequency is necessary evidence, not sufficient approval
 
-**Decision:** Frequent words enter the central lexicon only when a narrow controlled meaning can be specified.
+**Entscheidung:** Häufige Wörter kommen nur in das zentrale Lexikon, wenn eine enge kontrollierte Bedeutung festgelegt werden kann.
 
-**Approved/restricted examples:** `Betriebsanleitung`, `Fachpersonal`, `Verletzung`, `Produkt`, `Version`, `Daten`, `lesen`, `wählen`.
+**Beispiele für freigegebene oder eingeschränkte Wörter:** `Betriebsanleitung`, `Fachpersonal`, `Verletzung`, `Produkt`, `Version`, `Daten`, `lesen`, `wählen`.
 
-**Review-required despite frequency:** `führen`, `bieten`, `berücksichtigen`, `gewährleisten`.
+**Prüfpflichtig trotz Häufigkeit:** `führen`, `bieten`, `berücksichtigen`, `gewährleisten`.
 
-The latter group is too polysemous or abstract for unconditional automated acceptance.
+Die zweite Gruppe ist für eine bedingungslose automatische Annahme zu mehrdeutig oder zu abstrakt.

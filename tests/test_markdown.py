@@ -45,6 +45,12 @@ class SuppressionTests(unittest.TestCase):
         self.assertEqual([(f["rule"], f["line"]) for f in result["findings"]], [("STG-DE-4.3", 4)])
 
 
+class FrontMatterTests(unittest.TestCase):
+    def test_yaml_front_matter_is_ignored_and_lines_are_kept(self):
+        text = "---\nname: x\ndescription: man; one two\n---\n\nMan prüft den Stecker.\n"
+        self.assertEqual([(f["rule"], f["line"]) for f in audit_text(text, ROOT)["findings"]], [("STG-DE-4.3", 6)])
+
+
 class PromptSnippetTests(unittest.TestCase):
     def test_agents_md_snippets_comply_with_agent_profile(self):
         doc = (ROOT / "prompts" / "agents-md.md").read_text(encoding="utf-8")

@@ -1,26 +1,26 @@
-# Section 7 — Sicherheitsanweisungen
+# Abschnitt 7 — Sicherheitshinweise
 
-STG-DE controls the language of a safety instruction. The applicable safety standard controls the risk taxonomy, signal-word set, colors, symbols, and layout.
+STG-DE regelt die Sprache eines Sicherheitshinweises. Die zutreffende Sicherheitsnorm regelt die Risikoklassifikation, die Signalwörter, die Farben, die Symbole und das Layout.
 
 ## STG-7.1 — Risikostufe eindeutig kennzeichnen
 
 **Level:** `MUST`
 
-Use the signal word or symbol required by the project's safety classification system. A document must use one consistent safety taxonomy.
+Verwenden Sie das Signalwort oder das Symbol, das das Sicherheitsklassifikationssystem des Projekts verlangt. Ein Dokument muss eine einheitliche Sicherheitsklassifikation verwenden.
 
-Do not infer a lower risk category merely from legacy wording. If the correct category is unknown, return `NEEDS_SAFETY_INPUT`.
+Leiten Sie eine niedrigere Risikokategorie nicht nur aus einer alten Formulierung ab. Wenn die korrekte Kategorie unbekannt ist, geben Sie `NEEDS_SAFETY_INPUT` zurück.
 
-## STG-7.2 — Mit Schutzhandlung oder Bedingung beginnen
+## STG-7.2 — Schutzhandlung oder Bedingung zuerst
 
 **Level:** `MUST`
 
-After the signal word, state the preventive action or the necessary condition immediately. The reader must know what to do before reading secondary explanation.
+Nennen Sie direkt nach dem Signalwort die Schutzhandlung oder die notwendige Bedingung. Der Leser muss die erforderliche Handlung kennen, bevor er sekundäre Erklärungen liest.
 
-**STG pattern**
+**STG-Muster**
 
 > WARNUNG: Schalten Sie die Stromversorgung aus. ...
 
-or
+oder
 
 > WARNUNG: Wenn die Abdeckung offen ist, berühren Sie keine spannungsführenden Teile. ...
 
@@ -28,16 +28,18 @@ or
 
 **Level:** `MUST`
 
-When the consequence is known, explain the hazard or possible result in concrete terms.
+Wenn die Folge bekannt ist, erklären Sie die Gefahr oder das mögliche Ergebnis konkret.
 
-Avoid abstract formulations such as `Vorsicht ist geboten` or `besondere Sorgfalt ist erforderlich`.
+Vermeiden Sie abstrakte Formulierungen wie `Vorsicht ist geboten` oder `besondere Sorgfalt ist erforderlich`.
 
+<!-- stg-lint: off -->
 **Nicht STG**
 
 > WARNUNG: Arbeiten Sie vorsichtig.
+<!-- stg-lint: on -->
 
 **STG**
 
 > WARNUNG: Schalten Sie die Stromversorgung aus. Eine elektrische Spannung kann schwere Verletzungen verursachen.
 
-The technical safety content must come from an approved safety assessment; the language rule does not invent hazards.
+Der technische Sicherheitsinhalt muss aus einer freigegebenen Sicherheitsbewertung kommen. Die Sprachregel erfindet keine Gefahren.
